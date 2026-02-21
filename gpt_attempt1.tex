@@ -1,0 +1,233 @@
+% =====================================================================
+%  Conditioning away ultra-small weights: repaired concentration lemma
+%  (standalone LaTeX file you can paste into the paper)
+% =====================================================================
+
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}
+\newtheorem{rmk}{Remark}
+
+\DeclareMathOperator{\E}{\mathbb E}
+\DeclareMathOperator{\Pp}{\mathbb P}
+\DeclareMathOperator{\Var}{\mathrm{Var}}
+
+\begin{document}
+
+\section*{Conditioning away ultra-small weights: repaired concentration}
+
+\subsection*{Setup: exponential race and truncation sets}
+
+Fix $\theta_1,\dots,\theta_n>0$ and let $E_1,\dots,E_n$ be independent exponentials
+with rates $\theta_1,\dots,\theta_n$:
+\[
+\Pp(E_i>t)=e^{-\theta_i t},\qquad t\ge 0.
+\]
+Ordering $(E_i)$ increasingly produces the Luce permutation.
+For $t\ge 0$ define the survivor count and survivor weight
+\[
+N(t):=\sum_{i=1}^n \mathbf 1\{E_i>t\},
+\qquad
+W(t):=\sum_{i=1}^n \theta_i\,\mathbf 1\{E_i>t\}.
+\]
+
+Fix two deterministic thresholds (in the intended application one takes
+$\tau_n=(\log n)^{-2}$ and $L_n=(\log n)^2$):
+\[
+\tau_n\downarrow 0,\qquad L_n\uparrow\infty.
+\]
+Define the index sets
+\[
+S:=\{i:\theta_i<\tau_n\}\quad\text{(ultra-small)},\qquad
+B:=\{i:\tau_n\le \theta_i\le L_n\}\quad\text{(bulk)},\qquad
+H:=\{i:\theta_i>L_n\}\quad\text{(huge)}.
+\]
+Correspondingly, for $t\ge 0$ define
+\[
+N_B(t):=\sum_{i\in B}\mathbf 1\{E_i>t\},\qquad
+W_B(t):=\sum_{i\in B}\theta_i\,\mathbf 1\{E_i>t\},
+\]
+and similarly $N_S,W_S$ and $N_H,W_H$.
+
+\begin{rmk}[Why this is the right fix]
+The bug in the naive ``$W(t)$ concentrates multiplicatively'' argument is that applying Bernstein
+with the crude envelope $\sup_i \theta_i$ produces a denominator term of the form
+``(envelope)$\times u$'' which dominates when $\E W(t)$ is small.
+The point of restricting to $B$ is that \emph{both} a nontrivial lower bound
+$\theta_i\ge \tau_n$ and an envelope $\theta_i\le L_n$ hold on $B$.
+This restores concentration at the relevant quantile times on a scale governed by the
+\emph{number of survivors} rather than the raw value of $\E W(t)$.
+\end{rmk}
+
+\subsection*{Step 1: conditioning does not hurt (it actually helps bookkeeping)}
+
+Let $E_S:=(E_i)_{i\in S}$.
+We will condition on $E_S$ (or even on $(E_i)_{i\in S\cup H}$).
+The following observation is the formal version of your comment
+``conditioning on small-$\theta$ only makes order-statistic locations \emph{more} concentrated.''
+
+\begin{lem}[Independence after conditioning]\label{lem:cond-indep}
+Condition on $E_S$ (and/or on $(E_i)_{i\in S\cup H}$).
+Then the variables $(E_i)_{i\in B}$ remain independent exponentials with rates $(\theta_i)_{i\in B}$.
+Consequently, any tail or concentration bound for $N_B(t)$ or $W_B(t)$ at deterministic times
+holds \emph{verbatim} conditional on $E_S$.
+\end{lem}
+
+\begin{proof}
+Independence of the family $(E_i)_{i=1}^n$ implies that conditioning on a subfamily does not
+change the joint law of the complementary subfamily.
+\end{proof}
+
+\subsection*{Step 2: deterministic quantiles for the $B$-subsystem}
+
+Define the deterministic mean curves
+\begin{equation}\label{eq:HBDB}
+H_B(t):=\frac{1}{n}\sum_{i\in B} e^{-\theta_i t},
+\qquad
+D_B(t):=\frac{1}{n}\sum_{i\in B} \theta_i e^{-\theta_i t}.
+\end{equation}
+Note that $H_B$ is decreasing, $H_B(0)=|B|/n$, and $H'_B(t)=-D_B(t)$.
+
+For each integer $m\in\{1,\dots,|B|\}$ define the deterministic $B$-quantile time $t^B_m$ by
+\begin{equation}\label{eq:tBm}
+H_B(t^B_m)=\frac{m}{n}.
+\end{equation}
+
+Also define the \emph{random} $m$-survivor time in the $B$-subsystem:
+\[
+T^B_m:=\inf\{t\ge 0:\ N_B(t)\le m\}.
+\]
+(Equivalently, $T^B_m$ is the $(|B|-m)$-th order statistic of $(E_i)_{i\in B}$.)
+
+\subsection*{Step 3: bracketing of $T^B_m$ by deterministic $t^B_{m\pm\Delta}$}
+
+\begin{lem}[Quantile bracketing in $B$]\label{lem:bracket-B}
+Fix $A>0$ and set $\Delta_m:=\lceil A\sqrt{m\log n}\rceil$.
+Then for any sequence $M_n\le |B|$ satisfying $M_n\to\infty$,
+\begin{equation}\label{eq:bracket-B}
+\Pp\Big(\forall\, m\in[(\log n)^4,M_n]:\ t^B_{m+\Delta_m}\le T^B_m\le t^B_{m-\Delta_m}\Big)\to 1.
+\end{equation}
+Moreover, the same statement holds \emph{conditional on $E_S$} (and on $(E_i)_{i\in S\cup H}$).
+\end{lem}
+
+\begin{proof}
+Fix $m$ and write $t^-:=t^B_{m+\Delta_m}$ and $t^+:=t^B_{m-\Delta_m}$.
+By definition, $\E[N_B(t^-)] = nH_B(t^-)=m+\Delta_m$ and $\E[N_B(t^+)]=m-\Delta_m$.
+Since $N_B(t)$ is a sum of independent Bernoullis, Chernoff bounds give
+\[
+\Pp(N_B(t^-)<m)\le \exp\!\Big(-c\frac{\Delta_m^2}{m+\Delta_m}\Big),
+\qquad
+\Pp(N_B(t^+)>m)\le \exp\!\Big(-c\frac{\Delta_m^2}{m}\Big),
+\]
+for a universal $c>0$.
+With $\Delta_m\asymp \sqrt{m\log n}$, both probabilities are $\le n^{-c'A^2}$.
+Choose $A$ so that $c'A^2>10$ and union bound over $m\le M_n\le n$ gives \eqref{eq:bracket-B}.
+The conditional version follows from Lemma~\ref{lem:cond-indep}.
+\end{proof}
+
+\subsection*{Step 4: the repaired concentration lemma for $W_B(t)$}
+
+This is the key replacement for the flawed ``relative concentration when the mean is tiny'' step.
+
+\begin{lem}[Concentration of remaining weight in $B$ at $t^B_m$]\label{lem:WB-conc}
+Fix $\eta\in(0,1/2)$.
+There exists a constant $c_\eta>0$ such that for every $m\le |B|$,
+\begin{equation}\label{eq:WB-conc-single}
+\Pp\Big(\big|W_B(t^B_m) - nD_B(t^B_m)\big|\ge \eta\,nD_B(t^B_m)\Big)
+\le
+2\exp\!\Big(-c_\eta\,\frac{\tau_n}{L_n}\,m\Big).
+\end{equation}
+In particular, if $m\ge m_0(n):=C\frac{L_n}{\tau_n}\log n$ with $C$ large enough, then
+\[
+\Pp\Big(W_B(t^B_m)\in (1\pm\eta)\,nD_B(t^B_m)\Big)\ge 1-n^{-10}.
+\]
+Moreover, all statements above hold \emph{conditional on $E_S$} (and on $(E_i)_{i\in S\cup H}$).
+\end{lem}
+
+\begin{proof}
+Fix $t\ge 0$ and write $W_B(t)=\sum_{i\in B}X_i(t)$ where
+\[
+X_i(t):=\theta_i\,\mathbf 1\{E_i>t\}.
+\]
+Then $X_i(t)\in[0,\theta_i]\subset[0,L_n]$, and the $X_i(t)$ are independent
+(and remain so conditional on $E_S$ by Lemma~\ref{lem:cond-indep}).
+Moreover
+\[
+\mu(t):=\E[W_B(t)] = \sum_{i\in B}\theta_i e^{-\theta_i t}=nD_B(t).
+\]
+
+We apply Bernstein's inequality to $\sum_{i\in B}X_i(t)$.
+First bound the variance proxy:
+\[
+v(t):=\sum_{i\in B}\Var(X_i(t))
+\le \sum_{i\in B}\E[X_i(t)^2]
+=\sum_{i\in B}\theta_i^2 e^{-\theta_i t}
+\le L_n\sum_{i\in B}\theta_i e^{-\theta_i t}
+= L_n\,\mu(t),
+\]
+since $\theta_i^2\le L_n\theta_i$ on $B$.
+
+Bernstein (with envelope $L_n$) gives for $u>0$:
+\[
+\Pp\big(|W_B(t)-\mu(t)|\ge u\big)
+\le 2\exp\!\Big(-\frac{u^2}{2(v(t)+L_n u/3)}\Big).
+\]
+Set $t=t^B_m$ and $u=\eta\mu(t^B_m)=\eta nD_B(t^B_m)$. Using $v(t^B_m)\le L_n\mu(t^B_m)$ we obtain
+\[
+\Pp\Big(|W_B(t^B_m)-nD_B(t^B_m)|\ge \eta nD_B(t^B_m)\Big)
+\le
+2\exp\!\Big(-c\,\eta^2\frac{\mu(t^B_m)}{L_n}\Big)
+\]
+for a universal $c>0$.
+
+Finally, use the crucial \emph{lower bound on the mean} coming from the truncation:
+\[
+\mu(t^B_m)=\sum_{i\in B}\theta_i e^{-\theta_i t^B_m}
+\ge
+\tau_n\sum_{i\in B} e^{-\theta_i t^B_m}
+=\tau_n\,nH_B(t^B_m)
+=\tau_n\,m,
+\]
+where we used $\theta_i\ge\tau_n$ on $B$ and the definition \eqref{eq:tBm}.
+Thus the exponent is at least $c_\eta(\tau_n/L_n)m$, proving \eqref{eq:WB-conc-single}.
+The conditional version is identical by Lemma~\ref{lem:cond-indep}.
+\end{proof}
+
+\subsection*{Step 5: uniform concentration and the ``restored'' regime}
+
+\begin{cor}[Uniform-in-$m$ concentration on a growing range]\label{cor:WB-uniform}
+Fix $\eta\in(0,1/2)$ and set $m_0(n):=C\frac{L_n}{\tau_n}\log n$ for $C$ large enough.
+Then for any $M_n\le |B|$,
+\[
+\Pp\Big(\forall\, m\in[m_0(n),M_n]:\ W_B(t^B_m)\in(1\pm\eta)\,nD_B(t^B_m)\Big)\to 1.
+\]
+The same holds conditional on $E_S$ (and on $(E_i)_{i\in S\cup H}$).
+\end{cor}
+
+\begin{proof}
+Apply Lemma~\ref{lem:WB-conc} and union bound:
+\[
+\sum_{m=m_0(n)}^{M_n}2\exp\!\Big(-c_\eta\frac{\tau_n}{L_n}m\Big)
+\le
+\frac{2\exp\!\big(-c_\eta\frac{\tau_n}{L_n}m_0(n)\big)}{1-\exp(-c_\eta\tau_n/L_n)}
+\le n^{-9}
+\]
+for $C$ sufficiently large. The conditional statement follows from Lemma~\ref{lem:cond-indep}.
+\end{proof}
+
+\begin{rmk}[How this plugs back into the fixed-point method]
+This is exactly the regime needed in the ``zoom at $t_m$'' method:
+once you restrict to the $B$-subsystem (after conditioning on $E_S$), the denominator
+that previously failed to concentrate now does concentrate uniformly for all
+$m\ge m_0(n)=C(L_n/\tau_n)\log n$.
+The remaining finitely many $m<m_0(n)$ correspond to only polylogarithmically many
+end-steps and can be handled by crude bounds (or absorbed into an $o(1)$ term if you
+are working at a scale $\gg \log n$).
+\end{rmk}
+
+\end{document}
