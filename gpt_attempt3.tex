@@ -1,0 +1,688 @@
+\documentclass[10pt]{article}
+\usepackage[english]{babel}
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=2.5cm,right=2.5cm,marginparwidth=1.75cm]{geometry}
+\usepackage{amsmath}
+\usepackage{dsfont}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx,xcolor,float}
+\usepackage{subfigure}
+\usepackage{epstopdf}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{cite}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{wrapfig,lipsum}  
+\usepackage{xspace}
+\usepackage{aligned-overset}
+\usepackage{bbm}
+\usepackage{booktabs}
+%\usepackage{comment}
+\usepackage[utf8]{inputenc}
+
+\usepackage{enumitem}
+% \bibliographystyle{alpha}
+
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs}
+% this makes equation labels appear only if the equation was cross-referenced at least once
+
+\DeclareMathOperator{\bp}{\mathbf{p}}
+\DeclareMathOperator{\bP}{\mathbf{P}}
+\DeclareMathOperator{\bq}{\mathbf{q}}
+\DeclareMathOperator{\bX}{\mathbf{X}}
+\DeclareMathOperator{\TV}{\mathrm{TV}}
+\DeclareMathOperator{\Fluc}{\mathrm{Fluc}}
+\DeclareMathOperator{\Prob}{\mathrm{Prob}}
+\DeclareMathOperator{\tot}{\mathrm{tot}}
+\DeclareMathOperator{\Var}{\mathrm{Var}}
+\DeclareMathOperator{\rem}{\mathrm{rem}}
+\newcommand{\term}[1]{\text{\tt{#1}}\xspace}
+\newcommand{\Max}{\term{max}}
+\newcommand{\Min}{\term{min}}
+\newcommand{\lex}{\term{lex}}
+\newcommand{\stable}{\term{stable}}
+\newcommand{\Pre}{\term{Pre}_{\term{CL}}}
+\newcommand{\CL}{\term{CL}}
+\newcommand{\for}{\mathrm{forward}}
+\newcommand{\back}{\mathrm{backward}}
+\newcommand{\Blocks}{\mathsf{Blocks}}
+\newcommand{\new}{\mathrm{new}}
+\newcommand{\Leb}{\mathrm{Leb}}
+\newcommand{\Unif}{\mathrm{Unif}}
+\newcommand{\rmleft}{\mathrm{left}}
+\newcommand{\rmright}{\mathrm{right}}
+\newcommand{\ileft}{\mathrm{I}_\rmleft}
+\newcommand{\iright}{\mathrm{I}_\rmright}
+\newcommand{\al}{\mathcal{A}_{\rmleft}}
+\newcommand{\ar}{\mathcal{A}_{\rmright}}
+\newcommand{\tal}{\widetilde{\mathcal{A}}_{\rmleft}}
+\newcommand{\tar}{\widetilde{\mathcal{A}}_{\rmright}}
+\newcommand{\lamleft}{\lambda_{\rmleft}}
+\newcommand{\lamright}{\lambda_{\rmright}}
+\newcommand{\Luce}{\mathrm{Luce}}
+\newcommand{\p}{p}
+
+\newcommand{\mscomment}[1]{\textup{\textsf{\color{red}[#1]}}}
+\newcommand{\jwcomment}[1]{\textup{\textsf{\color{purple}[#1]}}}
+\newcommand{\jscomment}[1]{\textup{\textsf{\color{blue}[#1]}}}
+
+\input{commands}
+
+
+	\newtheorem{thm}{Theorem}[section]
+	\newtheorem{prop}[thm]{Proposition}
+	\newtheorem{cor}[thm]{Corollary}
+	\newtheorem{lem}[thm]{Lemma}
+	\newtheorem{defi}[thm]{Definition}
+	\newtheorem{rmk}[thm]{Remark}
+	\numberwithin{equation}{section}
+
+
+\title{
+Luce Permutation
+}
+\author{Mark Sellke \and Jiamin Wang}
+
+\begin{document}
+
+	\maketitle  
+
+\section{Introduction}
+
+    We first introduce the definition of the Luce model.
+    Fix some positive real number $\theta_1,\cdots,\theta_n$ with total sum $w_n=\theta_1+\cdot+\theta_n$, consider the probability distribution on $\sigma\in \cS_n$:
+    \begin{equation}\label{def:luce}
+        p_n(\sigma_n) = \frac{\theta_{\sigma^{-1}(1)}}{w_n}\times\frac{\theta_{\sigma^{-1}(2)}}{w_n-\theta_{\sigma^{-1}(1)}}\times \frac{\theta_{\sigma^{-1}(3)}}{w_n-\theta_{\sigma^{-1}(1)}-\theta_{\sigma^{-1}(2)}} \cdots \times \frac{\theta_{\sigma^{-1}(n)}}{\theta_{\sigma^{-1}(n)}},
+    \end{equation}
+    we call this probability distribution on $\cS_n$ \emph{Luce distribution}, denoted by $\sigma\sim \Luce(\theta_1,\cdots,\theta_n)$.
+
+\section{Fixed Point}
+
+    The following permuton limit is proved in \cite{borga2025permutonlocallimitsluce}.
+    \begin{thm}[Permuton limit]\label{thm:permuton_conv}
+	Set $f_n(y):=\theta_{\lfloor yn \rfloor}$ for all $y\in[0,1]$ and assume that $f_n\to f$ almost everywhere for some positive, finite, measurable function $f$ on $[0,1]$.
+	Let also $\mu$ be the law of the pair
+	\begin{equation}\label{eq:limiting_rv}
+            (X,Y):=\Big(U,F\big(E/f(U)\big)\Big),
+        \end{equation}
+	where $U$ is a uniform random variable on $[0,1]$, $E$ is an independent exponential random variable of parameter 1, and
+	\begin{equation}\label{eq:defn-F}
+		F(x):=1-\int_0^1\mathrm{e}^{-x f(y)}\,d y,\quad \text{for all $x\geq 0$.}
+	\end{equation}
+	If $\sigma_n\sim \Luce(\theta_1,\cdots,\theta_n)$, then the sequence $(\sigma_n)_n$ converges in probability in the permuton sense to the deterministic permuton $\mu$. 
+    
+    Moreover, the permuton $\mu$ is absolutely continuous w.r.t.\ the uniform permuton $\Leb_{[0,1]^2}$ and it has the following density:
+	\begin{equation}\label{eq:density}
+		\rho(x,y):=	\frac{f(x)\mathrm{e}^{-f(x)F^{-1}(y)}}{\int_0^1f(t)\mathrm{e}^{-f(t)F^{-1}(y)}\,d t}, \quad\text{for all $(x,y)\in(0,1)^2$},
+	\end{equation}
+    where $F$ is as in \eqref{eq:defn-F}.
+    \end{thm}
+
+    Roughly speaking, one would believe that $i$ is a fixed point with probability $n\rho(i/n,i/n)$. However, the number of fixed points is not a continuous function with respect to the permuton topology. In this section, we study the set of fixed points.
+
+    \begin{thm}\label{thm:pointwise}
+        With the setting of Theorem \ref{thm:permuton_conv}, for $\alpha,\beta \in (0,1)$ and two sequences $\{k_n\}_{n\geq 1}$ and $\{l_n\}_{n\geq 1}$ satisfying $k_n/n\to \alpha$, $f_n(k_n)\to f(\alpha)$ and $l_n/n\to \beta$ as $n\to \infty$, we have
+        \begin{equation}
+            \lim_{n\to \infty}n\mathbb P(\sigma^{-1}_n(k_n)=l_n)=\rho (\alpha,\beta).
+        \end{equation}
+    \end{thm}
+
+    \begin{lem}\label{lem:rest-theta}
+        With the setting in Theorem \ref{thm:permuton_conv}, for $\beta \in (0,1)$ and a sequence $\{l_n\}_{n\geq 1}$ satisfying $l_n/n\to \beta$ as $n\to \infty$, we have the following limit in probability:
+        \begin{equation}
+            \lim_{n\to \infty} \frac{1}{n}\sum_{i=1}^{n}\theta_i \mathbb I\{\sigma^{-1}_n(i)>l_n\} = \int_0^1f(t)e^{-f(t)F^{-1}(\beta)}dt.
+        \end{equation}
+    \end{lem}
+
+    \begin{proof}
+    Let $E_{n,1},\dots,E_{n,n}$ be independent exponential r.v.'s with $\mathbb{E}[E_{n,i}]=1/\theta_{i}$. By the exponential representation of the Luce model, we can express $\sigma_n(i)$ as
+    \begin{equation}\label{eq:sigma-expression}
+        \sigma^{-1}_n(i)=\sum_{j=1}^n\mathbf{1}\{E_{n,j}\le E_{n,i}\}.
+    \end{equation}
+    Note that for $j\neq i$,
+    \[
+    \mathbb{P}(E_{n,j}\le E_{n,i}\mid E_{n,i})=1-\mathrm{e}^{-\theta_{j}E_{n,i}}.
+    \]
+    Applying Hoeffding's inequality, we have
+    \begin{equation}\label{eq:hoeffding}
+        \mathbb P(|\sigma^{-1}_n(i)-Z_{n,i}|\ge t\mid E_{n,i})\le 2 e^{-t^2/2n},
+    \end{equation}
+    where $Z_{n,i}=\frac{1}{n}\sum_{j=1}^n(1-e^{\theta_jE_{n,i}})$. We take two continuous functions $g_1,g_2$ such that
+    \[
+    \mathbb I(x>\frac{l_n}{n}-n^{-\delta})\le g_1\le \mathbb I(x>\frac{l_n}{n}) \le g_2 \le \mathbb I(x>\frac{l_n}{n}+n^{-\delta})
+    \]
+    Now we fix a continuous function $g$ with $\|g\|_{L^{\infty}}\leq 1$, define
+    \[
+    T_n=\frac{1}{n}\sum_{i=1}^{n}\theta_i \mathbb I\{\sigma^{-1}_n(i)>l_n\}\quad \mbox{ and } \quad T_n'(g)=\frac{1}{n}\sum_{i=1}^{n}\theta_i g(Z_{n,i}).
+    \]
+    By \eqref{eq:hoeffding}, we have
+    \begin{equation}\label{eq:sandwich}
+        \mathbb P(T_n'(g_1)\leq T_n\leq T_n'(g_2))\to 1, \mbox{ as }n\to \infty.
+    \end{equation}
+    Moreover, by bounded convergence theorem we have
+    \begin{align}
+        \mathbb E T_n'(g)=\mathbb E \int_0^1f_n(x) g(Z_{n,\lfloor nx\rfloor})dx
+        &=\int_0^\infty\int_0^1 f_n(x) g \lt(\int_0^1(1-\exp(-\frac{f_n(y)}{f_n(x)}z)\,dy\rt)dx\,\,e^{-z}dz\\
+        &\to \int_0^\infty\int_0^1 f(x) g \lt(\int_0^1(1-\exp(-\frac{f(y)}{f(x)}z)\,dy\rt)dx\,\,e^{-z}dz 
+        \\
+        &=\int_0^1\int_0^1f(x)g(y)\rho(x,y)dxdy.
+    \end{align}
+    Meanwhile, we have
+    \begin{align}
+        \mathbb E T_n'(g)^2-(\mathbb ET_n'(g))^2= \frac{1}{n^2}\sum_{i=1}^n\theta_i^2 \lt[\mathbb E g(Z_{n,i})^2-(\mathbb Eg(Z_{n,i}))^2\rt]\leq \frac{1}{n^2}\sum_{i=1}^{n}\theta_i^2\leq \frac{\max_i\theta_i}{n}\to 0.
+    \end{align}
+    Therefore, we have $T_n'(g) \to \int_0^1\int_0^1f(x)g(y)\rho(x,y)dxdy$ in probability. Combined with \eqref{eq:sandwich}, we obtain that
+    \begin{align}
+        \lim_{n\to \infty} T_n =& \int_0^1\int_\beta^1f(x)\rho(x,y)dxdy 
+        = \int_0^1 f(x) \int_\beta^1 \frac{f(x)e^{-f(x)F^{-1}(y)}}{\int_0^1 f(t)e^{-f(t)F^{-1}(y)}dt} dy\\
+        \overset{y=F(u)}{=}& \int_0^1 f(x)\int_{F^{-1}(\beta)}^\infty \frac{f(x)e^{-f(x)u}}{\int_0^1 f(t)e^{-f(t)u}dt} \lt( \int_0^1 f(t)e^{-f(t)u}dt\rt) du
+        = \int_0^1f(t)e^{-f(t)F^{-1}(\beta)}dt.
+        \qedhere
+    \end{align}
+\end{proof}
+
+\begin{lem}\label{lem:occurlate}
+        With the setting in Theorem \ref{thm:permuton_conv}, for $\alpha,\beta \in (0,1)$ and two sequences $\{k_n\}_{n\geq 1}$ and $\{l_n\}_{n\geq 1}$ satisfying $k_n/n\to \alpha$, $f_n(k_n/n)\to f(\alpha)$, and $l_n/n\to \beta$ as $n\to \infty$, we have
+        \begin{equation}
+            \lim_{n\to \infty}\mathbb P (\sigma^{-1}_n(k_n)\ge l_n)=e^{-f(\alpha)F^{-1}(\beta)}
+        \end{equation}
+    \end{lem}
+    \begin{proof}
+        We keep using the notation $Z_{n,i}$ introduced in the proof of Lemma \ref{lem:rest-theta}.
+        We have
+        \begin{align}
+            \mathbb P(\sigma^{-1}_n(k_n)\ge l_n)
+            &\leq \mathbb P(Z_{n,i}> \frac{l_n}{n}-n^{-\delta})+2e^{n^{1-2\delta}/2}\\
+            &=\mathbb P(\int_0^1(1-\exp(\frac{f_n(y)}{f_n(k_n/n)}E))dy>\frac{l_n}{n}+n^{-\delta})+2e^{n^{1-2\delta}/2}\\
+            &\to \mathbb P(1-\int_0^1\exp (\frac{f(y)}{f(\alpha)}E)dy>\beta)=e^{-f(\alpha)F^{-1}(\beta)}.
+        \end{align}
+        Therefore, $\limsup_{n\to \infty }\mathbb P(\sigma^{-1}_n(k_n)\ge l_n)\le e^{-f(\alpha)F^{-1}(\beta)}$. Similarly, one could show that $\liminf_{n\to \infty }\mathbb P(\sigma^{-1}_n(k_n)\ge l_n)\ge e^{-f(\alpha)F^{-1}(\beta)}$, which completes the proof.
+    \end{proof}
+
+\begin{proof}[Proof of Theorem \ref{thm:pointwise}]
+    Notice that 
+    \begin{equation}
+        n\mathbb P(\sigma^{-1}_n(k_n)=l_n)
+        =\mathbb E\lt[\frac{\theta_{k_n}}{\frac{1}{n}\sum_{i=1}^n \theta_i \mathbb I\{\sigma^{-1}_n(i)>l_n\}}\cdot \mathbb I\{\sigma^{-1}_n(k_n)\ge l_n\}\rt].
+    \end{equation}
+    By \ref{lem:rest-theta}, we have
+    \begin{equation}
+        \frac{\theta_{k_n}}{\frac{1}{n}\sum_{i=1}^n \theta_i \mathbb I\{\sigma^{-1}_n(i)>l_n\}} \to \frac{f(\alpha)}{\int_0^1f(t)e^{-f(t)F^{-1}(\beta)}dt}, \mbox{ in probability as } n \to \infty.
+    \end{equation}
+    Combined with Lemma \ref{lem:occurlate}, we complete the proof.
+\end{proof}
+
+\subsection{Fixed Point Counting}
+    Now we calculate the law of the number of fixed points. We first introduce a way to explore the fixed point set. For each $1\leq k\leq n$, let $\mathcal F_k$ be the sigma field generated by $(\sigma^{-1}(1),\cdots, \sigma^{-1}(k))$. Also define
+    $p_k=\mathbb P(\sigma^{-1}(i)=i\mid \cF_{k-1})$. By definition we have
+    \begin{equation}\label{def:pk}
+        p_k=\frac{\theta_k\mathbb I\{\sigma^{-1}_n(k)\ge k\}}{\sum_{i=1}^n \theta_i \mathbb I\{\sigma^{-1}_n(i)\ge k\}} \in \cF_{k-1}.
+    \end{equation}
+
+    \begin{lem}\label{lem:sum-p-limit}
+        With the setting of Theorem \ref{thm:permuton_conv} and $p_k$'s defined in \eqref{def:pk}, the following holds.
+        \begin{enumerate}
+            \item For any $\alpha \in [0,1)$,
+            \begin{equation}\label{eq:p-firstmoment}
+                \lim_{n\to \infty} \mathbb E  \sum_{k=1}^{\lfloor \alpha n \rfloor} p_k = \int_0^\alpha \rho(x,x) dx.
+            \end{equation}
+            \item For any $\alpha \in [0,1)$,
+            \begin{equation}\label{eq:p-secondmoment}
+                \lim_{n\to \infty} \mathbb E \lt( \sum_{k=1}^{\lfloor \alpha n \rfloor} p_k \rt) ^2= \lt( \int_0^\alpha \rho(x,x) dx \rt)^2.
+            \end{equation}
+            \item For any $\alpha \in [0,1)$,
+            \begin{equation}\label{eq:max-p}
+                \max_{1\leq k\leq \lfloor \alpha n\rfloor} p_k \to 0 \quad \mbox{ in probability as } n \to \infty.
+            \end{equation}
+        \end{enumerate}
+        In particular, for any $\alpha\in [0,1)$ we have $\sum_{k=1}^{\lfloor \alpha n \rfloor} p_k\to \int_0^\alpha \rho(x,x) dx $ in probability.
+    \end{lem}
+
+    \begin{proof}
+        We fixed an integer $N>0$ and $m_j=\lfloor j \alpha n/N \rfloor$ for $0\leq j\leq N$. 
+        By Lemma \ref{lem:rest-theta}, we could take $n$ large enough such that the following holds with probability at least $1-1/N$:
+        \begin{equation}
+            \lt |\frac{1}{n}\sum_{i=1}^n \theta_i \mathbb I\{\sigma^{-1}_n(i)\ge m_j\}- \int_0^1f(t)e^{-f(t)F^{-1}(j\alpha/N)}dt\rt|\leq \frac{1}{N};
+        \end{equation}
+        For $1\leq j,j'\leq N$, $m_{j-1}<k\leq m_j$, $m_{j'-1}<k\le m_{j'}$, we have
+        \begin{equation}\label{eq:Epk}
+            \mathbb E p_k = \theta_k \cdot \mathbb E \frac{\mathbb I\{\sigma^{-1}_n(k)\ge k\}}{\sum_{i=1}^n \theta_i \mathbb I\{\sigma^{-1}_n(i)\ge k\}} \leq  \theta_k \cdot \mathbb E \frac{\mathbb I\{\sigma^{-1}_n(k)\ge m_{j-1}\}}{\sum_{i=1}^n \theta_i \mathbb I\{\sigma^{-1}_n(i)\ge m_{j}\}}\leq \frac{\theta_k}{n} \cdot\lt [ \frac{\mathbb P(\sigma_n^{-1}(k)\ge m_{j-1})}{\int_0^1f(t)e^{-f(t)F^{-1}(j\alpha/N)}dt} + \frac{C}{N} \rt];
+        \end{equation}
+        \begin{equation}\label{eq:Epk2}
+            \mathbb E p_k ^2 \leq \frac{\theta_k^2}{n^2} \cdot\lt [ \frac{\mathbb P(\sigma_n^{-1}(k)\ge m_{j-1})}{(\int_0^1f(t)e^{-f(t)F^{-1}(j\alpha/N)}dt)^2} + \frac{C}{N} \rt].
+        \end{equation}
+        Similarly, when $k\neq k'$ we have
+        \begin{equation}\label{eq:Epkpk'}
+            \mathbb E p_k p_{k'} \leq \frac{\theta_k \theta_k'}{n^2} \cdot\lt [ \frac{\mathbb P(\sigma_n^{-1}(k)\ge m_{j-1};\sigma_n^{-1}(k')\ge m_{j'-1})}{\int_0^1f(t)e^{-f(t)F^{-1}(j\alpha/N)}dt\cdot \int_0^1f(t)e^{-f(t)F^{-1}(j'\alpha/N)}dt} + \frac{C}{N} \rt].
+        \end{equation}
+        Using the notation $Z_{n,k}$ introduced in Lemma \ref{lem:rest-theta}, we have by \eqref{eq:hoeffding} that
+        \begin{align}
+            \mathbb P(\sigma^{-1}_n(k)\ge m_{j-1})
+            &\leq \mathbb P(Z_{n,k}> \frac{m_{j-1}}{n}-n^{-\delta})+2e^{n^{1-2\delta}/2}\\
+            &=\mathbb P(\int_0^1(1-\exp(\frac{f_n(y)}{\theta_k}E))dy>\frac{m_{j-1}}{n}+n^{-\delta})+2e^{n^{1-2\delta}/2}\\
+            &\le e^{-\theta_k F_n^{-1}((j-1)\alpha/N-n^{-\delta})}+2e^{n^{1-2\delta}/2}.\label{eq:1notoccur}
+        \end{align}
+        where $F_n(x)=1-\int_0^1 (1- e^{-xf_n(y)})dy$. Similarly, we have
+        \begin{equation}\label{eq:2notoccur}
+            \mathbb P(\sigma^{-1}_n(k)\ge m_{j-1};\sigma^{-1}_n(k')\ge m_{j'-1})\leq  e^{-\theta_k F_n^{-1}((j-1)\alpha/N-n^{-\delta})} e^{-\theta_{k'} F_n^{-1}((j'-1)\alpha/N-n^{-\delta})}+4e^{n^{1-2\delta}/2}.
+        \end{equation}
+        
+        We first prove \eqref{eq:p-firstmoment}. Combining \eqref{eq:Epk} and \eqref{eq:1notoccur}, we get
+        \begin{align}
+            \sum_{k=1}^{\lfloor \alpha n \rfloor} \mathbb Ep_k 
+            & \leq \sum_{j=1}^N \sum_{k=m_{j-1}+1}^{m_j} \frac{f_n(k/n)e^{-f_n(k/n) F_n^{-1}((j-1)\alpha/N-n^{-\delta})}}{n\int_0^1f(t)e^{-f(t)F^{-1}(j\alpha/N)}dt} + \frac{C}{N}\\
+            &=\sum_{j=1}^N  \int_{m_{j-1}/n}^{m_j\alpha/N} \frac{f_n(x)e^{-f_n(x) F_n^{-1}((j-1)\alpha/N-n^{-\delta})}}{\int_0^1f(t)e^{-f(t)F^{-1}(j\alpha/N)}dt} \, dx + \frac{C}{N}.
+        \end{align}
+        where we used the fact that $\sum_{k=1}^{\lfloor \alpha n \rfloor}\theta_k\le n$.
+        Since $f_n(x)\to f(x)$, we see that $F_n(x)\to F(x)$ and $F_n^{-1}(x)\to F^{-1}(x)$ almost everywhere. Thus we obtain by bounded convergence theorem that
+        \begin{equation}\label{eq:1stmoment-upper}
+            \limsup_{n\to \infty} \sum_{k=1}^{\lfloor \alpha n \rfloor} \mathbb Ep_k 
+            \leq \sum_{j=1}^N  \int_{(j-1)\alpha/N}^{j\alpha/N} \frac{f(x)e^{-f(x) F^{-1}((j-1)\alpha/N)}}{\int_0^1f(t)e^{-f(t)F^{-1}(j\alpha/N)}dt} \, dx + \frac{1}{N^2} = \int_0^\alpha \frac{f(x)e^{-f(x)F^{-1}(\lfloor Nx\rfloor/N)}}{\int_0^1f(t)e^{-f(t)F^{-1}(\lceil Nx\rceil/N)}dt} \,dx +\frac{1}{N^2}.
+        \end{equation}
+        Similarly, we get that
+        \begin{equation}\label{eq:1stmoment-lower}
+            \liminf_{n\to \infty} \sum_{k=1}^{\lfloor \alpha n \rfloor} \mathbb Ep_k 
+            \geq \int_0^\alpha \frac{f(x)e^{-f(x)F^{-1}(\lceil Nx\rceil/N)}}{\int_0^1f(t)e^{-f(t)F^{-1}(\lfloor Nx\rfloor/N)}dt} \,dx -\frac{1}{N^2}.
+        \end{equation}
+        Note that 
+        \begin{equation}
+            \frac{f(x)e^{-f(x)F^{-1}(\lceil Nx\rceil/N)}}{\int_0^1f(t)e^{-f(t)F^{-1}(\lfloor Nx\rfloor/N)}dt} \leq \rho (x,x) \leq \frac{f(x)e^{-f(x)F^{-1}(\lfloor Nx\rfloor/N)}}{\int_0^1f(t)e^{-f(t)F^{-1}(\lceil Nx\rceil/N)}dt},
+        \end{equation}
+        \begin{equation}
+            \lim_{N\to \infty} \frac{f(x)e^{-f(x)F^{-1}(\lfloor Nx\rfloor/N)}}{\int_0^1f(t)e^{-f(t)F^{-1}(\lceil Nx\rceil/N)}dt} \,dx = \lim_{N\to \infty}\frac{f(x)e^{-f(x)F^{-1}(\lceil Nx\rceil/N)}}{\int_0^1f(t)e^{-f(t)F^{-1}(\lfloor Nx\rfloor/N)}dt} =\rho(x,x),
+        \end{equation}
+        using monotone convergence theorem, we conclude by taking $N\to \infty $ on both sides of \eqref{eq:1stmoment-upper} and \eqref{eq:1stmoment-lower}.
+
+        Next, we prove \eqref{eq:p-secondmoment}. Combining \eqref{eq:Epk2}, \eqref{eq:Epkpk'} and \eqref{eq:2notoccur}, we get
+        \begin{align}
+            &\mathbb E\lt(\sum_{k=1}^{\lfloor \alpha n \rfloor} p_k \rt)^2 = \sum_{k\neq k'} \mathbb Ep_kp_{k'}+ \sum_{k=1}^n \mathbb Ep_k^2 \\
+            & \leq \sum_{j,j'=1}^N \sum_{k=m_{j-1}+1}^{m_j} \sum_{k'=m_{j'-1}+1}^{m_{j'}} \frac{f_n(k/n)e^{-f_n(k/n) F_n^{-1}((j-1)\alpha/N-n^{-\delta})}}{n\int_0^1f(t)e^{-f(t)F^{-1}(j\alpha/N)}dt} \cdot \frac{f_n(k'/n)e^{-f_n(k'/n) F_n^{-1}((j'-1)\alpha/N-n^{-\delta})}}{n\int_0^1f(t)e^{-f(t)F^{-1}(j'\alpha/N)}dt}
+            \\
+            &+\sum_{j=1}^N \frac{\theta_k^2e^{-f_n(k/n) F_n^{-1}((j-1)\alpha/N-n^{-\delta})}}{n^2(\int_0^1f(t)e^{-f(t)F^{-1}(j\alpha/N)}dt)^2} + \frac{1}{N^2} \\
+            &=\lt(\sum_{j=1}^N  \int_{m_{j-1}/n}^{m_j\alpha/N} \frac{f_n(x)e^{-f_n(x) F_n^{-1}((j-1)\alpha/N-n^{-\delta})}}{\int_0^1f(t)e^{-f(t)F^{-1}(j\alpha/N)}dt} \, dx \rt)^2 +\sum_{k=1}^N \frac{\theta_k^2e^{-f_n(k/n) F_n^{-1}((j-1)\alpha/N-n^{-\delta})}}{n^2(\int_0^1f(t)e^{-f(t)F^{-1}(j\alpha/N)}dt)^2} + \frac{1}{N^2}.
+        \end{align}
+        Notice that $\alpha<1$, we have
+        \begin{equation}
+            \int_0^1f(t)e^{-f(t)F^{-1}(j\alpha/N)}dt \geq \int_0^1f(t)e^{-f(t)F^{-1}(\alpha)}dt.
+        \end{equation}
+        Therefore, we have
+        \begin{equation}
+            \sum_{j=1}^N \frac{\theta_k^2e^{-f_n(k/n) F_n^{-1}((j-1)\alpha/N-n^{-\delta})}}{n^2(\int_0^1f(t)e^{-f(t)F^{-1}(j\alpha/N)}dt)^2} \leq \frac{1}{\int_0^1f(t)e^{-f(t)F^{-1}(\alpha)}dt} \cdot \sum_{j=1}^N \frac{\theta_k^2}{n^2}\leq \frac{\max_k \theta_k/n}{\int_0^1f(t)e^{-f(t)F^{-1}(\alpha)}dt} 
+        \end{equation}
+        Taking $n\to \infty$, we get that
+        \begin{equation}
+            \limsup_{n\to \infty} \mathbb E\lt(\sum_{k=1}^{\lfloor \alpha n \rfloor} p_k \rt)^2  \leq \lt( \int_0^\alpha \frac{f(x)e^{-f(x)F^{-1}(\lfloor Nx\rfloor/N)}}{\int_0^1f(t)e^{-f(t)F^{-1}(\lceil Nx\rceil/N)}dt} \,dx \rt)^2 +\frac{1}{N^2}.
+        \end{equation}
+        On the other hand, by Cauchy-Schwarz inequality, we have
+        \begin{equation}\label{eq:2ndmoment-upper}
+            \mathbb E\lt(\sum_{k=1}^{\lfloor \alpha n \rfloor} p_k \rt)^2  \geq \lt(\mathbb E\sum_{k=1}^{\lfloor \alpha n \rfloor} p_k \rt)^2 .
+        \end{equation}
+        By \eqref{eq:1stmoment-lower}, we get that
+        \begin{equation}\label{eq:2ndmoment-lower}
+            \limsup_{n\to \infty} \mathbb E\lt(\sum_{k=1}^{\lfloor \alpha n \rfloor} p_k \rt)^2  \leq \lt( \int_0^\alpha \frac{f(x)e^{-f(x)F^{-1}(\lceil Nx\rceil/N)}}{\int_0^1f(t)e^{-f(t)F^{-1}(\lfloor Nx\rfloor/N)}dt} \,dx  -\frac{1}{N^2}\rt)^2.
+        \end{equation}
+        Similar to the first moment, we conclude by taking $N\to \infty $ on both sides of \eqref{eq:2ndmoment-upper} and \eqref{eq:2ndmoment-lower}.
+    \end{proof}
+
+    Now we introduce the following Poisson limit theorem for martingales.
+
+    \begin{lem}
+        Consider a probability space $(\Omega,\mathcal F, \mathbb P)$ with a series of filtration $\{\cF_{n,i}\}_{n\geq 1, 1\leq i\leq m(n)}$. Suppose that $p_{n,i}\in \cF_{n,i-1}$ are random variables taking values in $[0,1]$, satisfying:
+        \begin{enumerate}
+            \item $p_{n,1}+\cdots + p_{n,m(n)} \to \lambda$ as $n \to \infty$, in probability;
+            \item $\max_{1\leq i\leq m(n)}p_{n,i}\to 0$ as $n \to \infty$, in probability.
+        \end{enumerate}
+        For each $n\geq 1, 1\leq i\leq m(n)$, let $U_{n,i}$ be an independent random variable with uniform distribution on $[0,1]$. Let  $X_n=\sum_{i=1}^{m(n)} \mathbb I\{U_{n,i}<p_{n,i}\}$, we have $X_n\to Poi(\lambda)$ as $n\to \infty$ in distribution.
+    \end{lem}
+
+    \subsection{Fixed Point Locations}
+    In this subsection we study the probability that $k_1<\cdots< k_l\le \alpha n$ are the only fixed points. We call this event $A_{k_1,\cdots k_l}$. Let $\mu_n$ be the law of the fixed point set.
+    Moreover, let $\nu_n$ be the measure on subset of $[\alpha n]$ such that for each $k\in[n]$, whether it belongs to the set is determined by an independent Bernoulli random variable with parameter
+    \[q_k=\frac{\theta_{k}e^{-\theta_{k}F_n^{-1}(k/n)}}{n\int_0^1f(t)e^{-f(t)F^{-1}(k/n)}}.\]
+    Then we have
+    \begin{equation}\label{eq:q-limit}
+        \sum_{1\leq k\leq \alpha n}q_k \to \int_0^\alpha \rho(x,x)\,dx \mbox{ and }\max_{1\leq k\leq \alpha n}q_k \to 0.
+    \end{equation}
+
+    \begin{lem}
+        We have 
+        \begin{equation}
+            \lim_{n\to \infty} d_{\TV} (\mu_n,\nu_n) =0.
+        \end{equation}
+    \end{lem}
+
+    \begin{proof}
+        Fix $N,L,\eps$. 
+        First, since $f_n(x)\to f(x)$ almost everywhere, there exists $C(\eps)$, such that by taking $n$ sufficiently large, 
+        \begin{equation}
+            \sum_{k\in A(K)} \theta_k \leq \eps n \mbox{ where } A(K)=\{k:\theta_k\geq K\}.
+        \end{equation}
+        We take $N\gg K(\eps)$. By \eqref{eq:q-limit} we have
+        \begin{equation}\label{eq:nu-nound}
+            \nu_{n}(\{k_1,\cdots,k_l\})=q_{k_1}\cdots q_{k_l}\prod_{t\neq k_j} (1-q_{t})\leq \prod_{1\leq i\leq l} \frac{\theta_{k_i}e^{-\theta_{k_i}F_n^{-1}(k_i/n)}}{n\int_0^1f(t)e^{-f(t)F^{-1}(k_i/n)}} \exp\lt(-\int_0^\alpha \rho (x,x) \,dx \rt) (1+\frac{1}{N^{1/2}})
+        \end{equation}       
+        Notice that by the definition of $p_k$'s as in \eqref{def:pk}, we have
+        \begin{equation}\label{eq:onlykifixed}
+            \mu_n(\{k_1,\cdots k_l\})=\mathbb E \lt[ p_{k_1}\cdots p_{k_l} \prod_{t\neq k_i, 1\le t\le \alpha n} (1-p_t) \rt].
+        \end{equation}
+        Since by Lemma \ref{lem:sum-p-limit} we have in probability, as $n \to \infty$,
+        \begin{equation}
+            \sum_{1\le t\le \alpha n} p_t \to \int_0^\alpha \rho (x,x) \,dx .
+        \end{equation}
+        Combined with \eqref{eq:max-p}, we could take $n$ large enough such that the following holds with probability at least $1-1/N$: for each $l \leq L$ and $1\leq k_1<\cdots<k_l\leq \alpha n$,
+        \begin{equation}\label{eq:other-not-fixed}
+            \lt | \prod_{t\neq k_i, 1\le t\le \alpha n} (1-p_t) - \exp\lt(-\int_0^\alpha \rho (x,x) \,dx \rt) \rt | \leq \frac{1}{N} .
+        \end{equation}
+        We could then deal with $\mathbb  E p_{k_1}\cdots p_{k_l}$ as above. Let $m_j=\lfloor j\alpha n/N\rfloor$By Lemma \ref{lem:rest-theta}, we could take $n$ large enough such that the following holds with probability at least $1-1/N$: for each $1\leq j\leq N$
+        \begin{equation}\label{eq:restestimate}
+            \lt |\frac{1}{n}\sum_{i=1}^n \theta_i \mathbb I\{\sigma^{-1}_n(i)\ge m_j\}- \int_0^1f(t)e^{-f(t)F^{-1}(j\alpha/N)}dt\rt|\leq \frac{1}{N};
+        \end{equation}
+        Therefore, let $\Omega'\subset \Omega$ such that $\mathbb P(\Omega')\geq 1-2/N$, and \eqref{eq:other-not-fixed} and \eqref{eq:restestimate} hold. Let $\mu_n'$ be the law of the fixed point set restricted on $\Omega'$. Also let $m_{j_i-1}<k_i\leq m_{j_i}$, and we have
+        \begin{equation}\label{eq:kifixed}
+            \mathbb E[p_{k_1}\cdots p_{k_l};\Omega']\geq \mathbb P(\sigma^{-1}(k_i)\geq m_{j_i}, \forall 1\leq j\leq k;\Omega')\cdot \frac{1}{n^l}\lt[\prod_{1\leq i\leq l}\frac{\theta_{k_i}}{\int_0^1f(t)e^{-f(t)F^{-1}((j_i-1)\alpha/N)}dt}\rt] \cdot (1-\frac{L}{N})
+        \end{equation}
+        Similar to \eqref{eq:2notoccur}, we have
+        \begin{equation}
+            \mathbb P(\sigma^{-1}_n(k_i)\ge m_{j_i}\forall 1\leq i\leq l;\Omega')\geq \prod_{1\leq i\leq l}e^{-\theta_{k_i}F_n^{-1}(k_i/n)} -Le^{-n^{1-2\delta}/2} -\frac{2}{N}.
+        \end{equation}
+        Thus, when $k_1,\cdots,k_l \notin A(K)$, since $N\gg K(\eps)$, we have
+        \begin{equation}\label{eq:lnotoccur}
+            \mathbb P(\sigma^{-1}_n(k_i)\ge m_{j_i}\forall 1\leq i\leq l;\Omega')\geq \prod_{1\leq i\leq l}e^{-\theta_{k_i}F_n^{-1}(k_i/n)}(1-\frac{1}{N^{1/2}}).
+        \end{equation}
+        We deduce from \eqref{eq:onlykifixed}, \eqref{eq:other-not-fixed}, \eqref{eq:kifixed} and \eqref{eq:lnotoccur} that, by taking $n$ sufficiently large depending on $N,L$, the following holds: for each $1\leq l\leq L$ and $1\leq k_1<\cdots<k_{l}\leq \alpha n$ with $k_1,\cdots,k_l \notin A(K)$,
+        \begin{equation}\label{eq:mu-bound}
+            \mu_n(\{k_1,\cdots,k_l\}) \geq \prod_{1\leq i\leq l} \frac{\theta_{k_i}e^{-\theta_{k_i}F_n^{-1}(k_i/n)}}{n\int_0^1f(t)e^{-f(t)F^{-1}(k_i/n-1/N)}} \exp\lt(-\int_0^\alpha \rho (x,x) \,dx \rt) (1-\frac{L}{N^{1/2}}).
+        \end{equation}
+        Taking $N$ sufficiently large w.r.t. $\eps$, we have
+        \begin{equation}\label{eq:Nlarge}
+            \lt| \int_0^1f(t)e^{-f(t)F^{-1}(u-1/N)}-\int_0^1f(t)e^{-f(t)F^{-1}(u)} \rt|\leq \eps \mbox{ and } \frac{L}{N^{1/2}}\leq \eps.
+        \end{equation}
+        Combining \eqref{eq:nu-nound}, \eqref{eq:mu-bound} and \eqref{eq:Nlarge}, we have
+        \begin{align*}
+            \mu_n(\{k_1,\cdots,k_l\})
+            &\geq \prod_{1\leq i\leq l} \frac{\theta_{k_i}e^{-\theta_{k_i}F_n^{-1}(k_i/n)}}{n\int_0^1f(t)e^{-f(t)F^{-1}(k_i/n)}} \exp\lt(-\int_0^\alpha \rho (x,x) \,dx \rt) (1-2L\eps)\\
+            &\geq (1-3L\eps) \nu_n(\{k_1,\cdots,k_l\}).
+        \end{align*}
+        While for $\{k_1,\cdots,k_l\}\cap A(K)\neq \emptyset$, we have
+        \begin{align*}
+            \sum_{\{k_1,\cdots,k_l\}\cap A(K)\neq \emptyset} \nu_n(\{k_1,\cdots,k_l\}) 
+            &\leq \sum_{\{k_1,\cdots,k_l\}\cap A(K)\neq \emptyset} \frac{\theta_{k_1}\cdots \theta_{k_l}}{n^l}\cdot\lt( \frac{1}{\int_{0}^1 f(t)e^{-f(t)} F^{-1}(\alpha)}\rt)^l
+            \\
+            &\leq L\cdot \frac{\sum_{k\in A(K)}\theta_k}{n}\cdot\lt( \frac{1}{\int_{0}^1 f(t)e^{-f(t)} F^{-1}(\alpha)}\rt)^l
+            \\
+            &\leq
+            L\eps\cdot\lt( \frac{1}{\int_{0}^1 f(t)e^{-f(t)} F^{-1}(\alpha)}\rt)^l.
+        \end{align*}        
+        Thus we have
+        \begin{align*}
+            &\sum_{l=1}^L\sum_{k_1<\cdots<k_l}(\nu_n(\{k_1,\cdots,k_l\})-\mu_n(\{k_1,\cdots,k_l\}))_+ \\
+            &\leq 3L\eps\sum_{l=1}^L\sum_{k_1<\cdots<k_l}\nu_n(\{k_1,\cdots,k_l\})+\sum_{l=1}^LL\eps\cdot\lt( \frac{1}{\int_{0}^1 f(t)e^{-f(t)} F^{-1}(\alpha)}\rt)^l\leq C(L)\eps.
+        \end{align*}
+        Therefore, taking $\eps < 1/LC(L)$, we have
+        \begin{align}
+            d_{\TV}(\mu_n,\nu_n)&\leq \sum_{l=1}^L\sum_{k_1<\cdots<k_l}(\nu_n(\{k_1,\cdots,k_l\})-\mu_n(\{k_1,\cdots,k_l\}))_+ + \sum_{l>L}\sum_{k_1<\cdots<k_l}(\nu_n(\{k_1,\cdots,k_l\})
+            \\
+            &\leq \frac{1}{L} + \sum_{l>L}\sum_{k_1<\cdots<k_l}\nu_n(\{k_1,\cdots,k_l\}.
+        \end{align}
+        Notice that $\nu_n\to Poi(\int_0^\alpha \rho(x,x)\,dx)$ in distribution, we have $\sum_{l>L}\sum_{k_1<\cdots<k_l}\nu_n(\{k_1,\cdots,k_l\})=o_L(1)$. We therefore conclude by taking $L$ to infinity. 
+    \end{proof}
+
+
+
+% \section{Total Variation Poisson Limit}
+
+
+% Let's assume for concreteness that $\theta_i\in [1/C,C]$ for a uniform constant $C$.
+% Then we claim the set of fixed points is within $o(1)$ total variation distance of a product measure $\mu_{prod}$ on $\{1,2,\dots,n\}$ which has probability $\rho(i/n,i/n)/n$ to include $i$.
+% (And the technical condition $\theta_i\in [1/C,C]$ should rule out fixed points in the last $o(n)$ steps, with high probability.)
+% Proof outline:
+
+% \begin{itemize}
+%     \item 
+%     Truncate to ``typical'' permutations that are within $o(1)$ of the limiting permuton.
+%     Call this subprobability measure $\mu_{typ}$.
+%     \item
+%     Fix $k=O(1)$ and $\eps>0$.
+%     Given any $k_1<i_2\dots<k_l\leq (1-\eps)n$, let $E$ be the event that these are all fixed points, and $\hat E$ the event that these are the only fixed points.
+%     We want to show that 
+%     \[
+%     \mu_{typ}(\hat E)/\mu_{prod}(\hat E)
+%     =
+%     1\pm o(1).
+%     \]
+%     \item 
+%     To show this, we use the same filtration as above.
+%     In each step we need the next point not to be fixed, except at times $k_1<i_2\dots<k_l$, and we need $(k_1,...,k_l)$ to not appear when they are not supposed to.
+%     \item 
+%     At times $k_1,...,k_l$, as long as the permuton limit holds, the probability to be a fixed point will be 
+%     \[
+%     (1\pm o(1))\cdot\rho(i/n,i/n)/n.
+%     \]
+%     \item 
+%     At other times say between $k_i$ and $i_{j+1}$, the probability to be a fixed point will be something like
+%     \[
+%     \frac{1-h(i/n,i/n)-h(i_{j+1}/n,i/n)-\dots-h(k_l/n,i/n)\pm o(1)}{n}.
+%     \]
+%     (Here $h(x)$ is some nice functionin terms of $f$ and/or $\rho$ that I am not sure of the exact formula for. I am just trying to say that we just have to avoid the elements $(i,i_{j+1},\dots,k_l)$ and I think there should be a simple formula for this conditional probability.) 
+%     \begin{itemize}
+%     \item
+%     More precisely, the $h(i/n,i/n)$ term will not always appear, depending on whether $i$ has been revealed yet, and if it does appear it will be larger.
+%     But the ``local average'' value of this term will be something like $h(i/n,i/n)$ as long as the permuton limit holds, which is all we need.
+%     Namely on $i/n \in [\alpha,\alpha+\delta]$ the number of $\rho(i/n,i/n)$ terms is a simple continuous function of 
+%     \[
+%     \frac{|\{j<\alpha n:\theta(j)<\alpha n\}|}{n}
+%     =
+%     \frac{|\{j<(\alpha+\delta) n:\theta(j)<(\alpha+\delta) n\}|}{n} \pm O(\delta)
+%     \]
+%     which is itself a continuous function on permuton space.
+%     \end{itemize}
+%     \item 
+%     There is something slightly annoying to argue because in the likelihood ratios above, we don't want to deal with the truncation of $\mu_{typ}$.
+%     I think one way is to say that if we truncate at most $n^{-10}$ probability to get $\mu_{typ}$, then with probability $1-n^{-5}$, the conditional probability under the original $\mu$ (given the past) to end up being typical is $\geq 1-n^{-5}$ (by Doob's inequality). 
+%     So on this event, all values above are ``uniformly approximately correct'' and the truncation shouldn't cause any more issues.
+% \end{itemize}
+
+\section{Late Fixed Point Counting}\label{sec:late-fixed-point}
+
+The estimates above apply on every fixed compact subinterval of $[0,1)$.
+To pass from such a truncated interval to the entire permutation, it remains
+to rule out a non-negligible contribution from labels near $n$.  This is not
+automatic for arbitrary Luce weights; see
+\cite{borga2025permutonlocallimitsluce}.  The next result gives the required
+endpoint estimate when the weights of the terminal labels are bounded away
+from zero relative to the average weight.
+
+Write
+\begin{equation}\label{eq:average-weight}
+    \overline\theta_n:=\frac{1}{n}\sum_{i=1}^n\theta_i.
+\end{equation}
+This formulation is invariant under multiplication of all the weights by a
+common positive constant.  Equivalently, one may normalize
+$\overline\theta_n=1$.
+
+Let $E_{n,1},\ldots,E_{n,n}$ be the independent exponential random variables
+from \eqref{eq:sigma-expression}, and put
+\begin{equation}\label{eq:rank-variable}
+    R_{n,k}:=\sum_{j=1}^n\mathbb I\{E_{n,j}\leq E_{n,k}\}.
+\end{equation}
+Thus $R_{n,k}$ is the rank of label $k$ in the exponential race, and the
+fixed-point event is $\{R_{n,k}=k\}$.  This notation avoids any dependence on
+the choice of one-line convention for a permutation.
+
+\begin{thm}[Late fixed-point estimate]\label{thm:end-fixedpoint}
+    Fix $\gamma>0$, and set
+    \begin{equation}\label{eq:late-constants}
+        \mathsf c:=\frac{\gamma}{4},
+        \qquad
+        \eps_0:=\min\left\{
+            \frac18e^{-2/\gamma},
+            \bigl(2\cdot8^{\gamma/2}\bigr)^{-4/\gamma}
+        \right\}.
+    \end{equation}
+    For $0<\eps\leq\eps_0$, define
+    \[
+        I_{n,\eps}:=\{\lceil(1-\eps)n\rceil,\ldots,n\}.
+    \]
+    If
+    \begin{equation}\label{eq:terminal-lower-bound}
+        \theta_k\geq\gamma\overline\theta_n
+        \qquad\text{for every }k\in I_{n,\eps},
+    \end{equation}
+    then
+    \begin{equation}\label{eq:explicit-late-bound}
+        \mathbb E\sum_{k\in I_{n,\eps}}\mathbb I\{R_{n,k}=k\}
+        \leq (\eps n+1)e^{-\eps n/4}+2(8\eps)^{\gamma/2}
+    \end{equation}
+    for every $n\geq4$.  In particular, for every $\delta>0$ and every fixed
+    $\eps\in(0,\eps_0]$,
+    \begin{equation}\label{eq:late-bound-delta}
+        \mathbb E\sum_{k\in I_{n,\eps}}\mathbb I\{R_{n,k}=k\}
+        \leq \eps^{\mathsf c}+\delta
+    \end{equation}
+    for all sufficiently large $n$.
+\end{thm}
+
+\begin{proof}
+    Multiplying all rates by the same positive constant does not change their
+    order.  More precisely, replace $\theta_i$ by
+    $\widetilde\theta_i:=\theta_i/\overline\theta_n$ and $E_{n,i}$ by
+    $\widetilde E_{n,i}:=\overline\theta_n E_{n,i}$.  The new clocks have
+    rates $\widetilde\theta_i$ and induce exactly the same ordering.  Relabeling
+    the normalized rates and clocks, we may assume throughout the proof that
+    \begin{equation}\label{eq:late-normalization}
+        \sum_{i=1}^n\theta_i=n.
+    \end{equation}
+    Under this normalization, \eqref{eq:terminal-lower-bound} becomes
+    $\theta_k\geq\gamma$ on $I_{n,\eps}$.
+
+    For $t\geq0$ and $k\in[n]$, define the survivor counts
+    \begin{equation}\label{eq:survivor-counts}
+        N(t):=\sum_{i=1}^n\mathbb I\{E_{n,i}>t\},
+        \qquad
+        N_{-k}(t):=\sum_{\substack{i=1\\i\neq k}}^n
+                    \mathbb I\{E_{n,i}>t\}.
+    \end{equation}
+    Conditioning on $E_{n,k}$ gives the exact identity
+    \begin{equation}\label{eq:fixed-point-integral}
+        \mathbb P(R_{n,k}=k)
+        =\int_0^\infty \theta_k e^{-\theta_k t}
+          \mathbb P\bigl(N_{-k}(t)=n-k\bigr)\,dt.
+    \end{equation}
+    Indeed, conditional on $E_{n,k}=t$, the equality $R_{n,k}=k$ is
+    equivalent to having exactly $n-k$ of the other exponential variables
+    larger than $t$.
+
+    Set
+    \begin{equation}\label{eq:t-zero}
+        t_0:=\frac12\log\frac{1}{8\eps}.
+    \end{equation}
+    We first bound the part of \eqref{eq:fixed-point-integral} below $t_0$.
+    By \eqref{eq:late-normalization}, the set
+    \[
+        B:=\{i\in[n]:\theta_i\leq2\}
+    \]
+    has cardinality at least $n/2$.  For $0\leq t\leq t_0$ and $i\in B$,
+    \[
+        \mathbb P(E_{n,i}>t)=e^{-\theta_i t}
+        \geq e^{-2t_0}=8\eps.
+    \]
+    Fix $k\in I_{n,\eps}$ and let
+    \[
+        X_k(t):=\sum_{i\in B\setminus\{k\}}
+                   \mathbb I\{E_{n,i}>t\}.
+    \]
+    For $n\geq4$, this sum of independent Bernoulli random variables has mean
+    \begin{equation}\label{eq:X-mean-lower-bound}
+        \mu_k(t):=\mathbb E X_k(t)
+        \geq 8\eps\bigl(|B|-1\bigr)
+        \geq2\eps n.
+    \end{equation}
+    Moreover, $n-k\leq\eps n$ and $N_{-k}(t)\geq X_k(t)$.  The multiplicative
+    Chernoff inequality consequently yields, uniformly for
+    $k\in I_{n,\eps}$ and $0\leq t\leq t_0$,
+    \begin{align}
+        \mathbb P\bigl(N_{-k}(t)=n-k\bigr)
+        &\leq \mathbb P\bigl(N_{-k}(t)\leq\eps n\bigr)\notag\\
+        &\leq \mathbb P\bigl(X_k(t)\leq\mu_k(t)/2\bigr)
+        \leq e^{-\mu_k(t)/8}
+        \leq e^{-\eps n/4}.
+        \label{eq:early-time-bound}
+    \end{align}
+    Since $|I_{n,\eps}|\leq\eps n+1$ and
+    $\int_0^{t_0}\theta_k e^{-\theta_k t}\,dt\leq1$, the total early-time
+    contribution is at most
+    \begin{equation}\label{eq:early-time-sum}
+        (\eps n+1)e^{-\eps n/4}.
+    \end{equation}
+
+    We now consider $t\geq t_0$.  Choose
+    \begin{equation}\label{eq:epsilon-first-restriction}
+        \eps\leq\frac18e^{-2/\gamma},
+    \end{equation}
+    so that $t_0\geq1/\gamma$.  For $k\in I_{n,\eps}$, the function
+    $x\mapsto xe^{-xt}$ is decreasing on $[\gamma,\infty)$, and hence
+    \begin{equation}\label{eq:rate-density-bound}
+        \theta_k e^{-\theta_k t}\leq\gamma e^{-\gamma t}.
+    \end{equation}
+    Independence of $E_{n,k}$ and $N_{-k}(t)$ also gives, for every integer
+    $m\geq0$,
+    \begin{align}
+        \mathbb P(N(t)=m)
+        &\geq \mathbb P\bigl(E_{n,k}\leq t,\,N_{-k}(t)=m\bigr)\notag\\
+        &=\bigl(1-e^{-\theta_k t}\bigr)
+          \mathbb P\bigl(N_{-k}(t)=m\bigr).
+    \end{align}
+    Therefore,
+    \begin{equation}\label{eq:delete-one-survivor-bound}
+        \mathbb P\bigl(N_{-k}(t)=m\bigr)
+        \leq\frac{\mathbb P(N(t)=m)}{1-e^{-\gamma t}}.
+    \end{equation}
+
+    As $k$ runs through $I_{n,\eps}$, the integers $n-k$ are distinct.
+    Combining \eqref{eq:rate-density-bound} and
+    \eqref{eq:delete-one-survivor-bound}, we obtain
+    \begin{align}
+        &\sum_{k\in I_{n,\eps}}
+        \int_{t_0}^{\infty}\theta_k e^{-\theta_k t}
+        \mathbb P\bigl(N_{-k}(t)=n-k\bigr)\,dt\notag\\
+        &\qquad\leq
+        \int_{t_0}^{\infty}
+        \frac{\gamma e^{-\gamma t}}{1-e^{-\gamma t}}
+        \sum_{k\in I_{n,\eps}}\mathbb P(N(t)=n-k)\,dt\notag\\
+        &\qquad\leq
+        \int_{t_0}^{\infty}
+        \frac{\gamma e^{-\gamma t}}{1-e^{-\gamma t}}\,dt
+        =-\log\bigl(1-e^{-\gamma t_0}\bigr).
+        \label{eq:late-time-integral}
+    \end{align}
+    Under \eqref{eq:epsilon-first-restriction},
+    $e^{-\gamma t_0}=(8\eps)^{\gamma/2}\leq e^{-1}<1/2$.  Thus
+    \begin{equation}\label{eq:late-time-power}
+        -\log\bigl(1-e^{-\gamma t_0}\bigr)
+        \leq2e^{-\gamma t_0}=2(8\eps)^{\gamma/2}.
+    \end{equation}
+    Adding \eqref{eq:early-time-sum} and \eqref{eq:late-time-power} proves
+    \eqref{eq:explicit-late-bound}.
+
+    Finally, the choice in \eqref{eq:late-constants} guarantees both
+    \eqref{eq:epsilon-first-restriction} and
+    $2(8\eps)^{\gamma/2}\leq\eps^{\gamma/4}=\eps^{\mathsf c}$ whenever
+    $0<\eps\leq\eps_0$.  For each fixed such $\eps$,
+    $(\eps n+1)e^{-\eps n/4}\to0$.  This proves
+    \eqref{eq:late-bound-delta}.
+\end{proof}
+
+\begin{rmk}
+    The proof uses neither convergence of the weight profile nor regularity
+    of its limit.  Only the scale-invariant terminal lower bound
+    \eqref{eq:terminal-lower-bound} is needed.  The restriction to
+    sufficiently small $\eps$ is consistent with the role of
+    Theorem~\ref{thm:end-fixedpoint}: it supplies endpoint tightness as
+    $\eps\downarrow0$.
+\end{rmk}
+
+ \footnotesize
+\bibliographystyle{alphaabbr}
+\bibliography{lucebib}
+\end{document}
