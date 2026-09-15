@@ -1,0 +1,23 @@
+STATEMENT section4_contractCheck : ShellMigrationContract.section4.{u_1}
+AXIOMS section4_contractCheck: [propext, Classical.choice, Quot.sound]
+
+STATEMENT section5_contractCheck : ShellMigrationContract.section5.{u_1}
+AXIOMS section5_contractCheck: [propext, Classical.choice, Quot.sound]
+
+STATEMENT Luce.Section6.powerLaw65 : ∀ (grid : Luce.Section6.SamplingGrid), SampledProfileContract.powerLaw.{u} grid
+AXIOMS Luce.Section6.powerLaw65: [propext, Classical.choice, Quot.sound]
+
+STATEMENT Luce.Section6.spatial65 : ∀ (grid : Luce.Section6.SamplingGrid), SampledProfileContract.spatial.{u} grid
+AXIOMS Luce.Section6.spatial65: [propext, Classical.choice, Quot.sound]
+
+STATEMENT Luce.Section6.critical : ∀ (grid : Luce.Section6.SamplingGrid), SampledProfileContract.critical.{u} grid
+AXIOMS Luce.Section6.critical: [propext, Classical.choice, Quot.sound]
+
+STATEMENT Luce.Section6.section6 : SampledProfileContract.section6.{u}
+AXIOMS Luce.Section6.section6: [propext, Classical.choice, Quot.sound]
+
+STATEMENT Luce.Section6.lemma612 : Luce.Section6.Lemma612Contract.lemma612.{u}
+AXIOMS Luce.Section6.lemma612: [propext, Classical.choice, Quot.sound]
+
+STATEMENT Luce.Section7.proposition71 : Luce.Section7.GeneralClockTailStatement.{u}
+AXIOMS Luce.Section7.proposition71: [propext, Classical.choice, Quot.sound]

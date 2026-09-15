@@ -1,0 +1,55 @@
+theorem Luce.Section6.markedRankCylinder_probability_le_Lp_product : ∀ {n r : Nat} (w : Luce.Weights n),
+  @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) r →
+    ∀ (u j : Fin r → Fin n),
+      @Function.Injective.{1, 1} (Fin r) (Fin n) u →
+        @Function.Injective.{1, 1} (Fin r) (Fin n) j →
+          @LE.le.{0} ENNReal ENNReal.instLE
+            (@DFunLike.coe.{1, 1, 1}
+              (@MeasureTheory.Measure.{0} (Fin n → Real)
+                (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace))
+              (Set.{0} (Fin n → Real)) (fun x => ENNReal)
+              (@MeasureTheory.Measure.instFunLike.{0} (Fin n → Real)
+                (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace))
+              (@Luce.exponentialRace n w)
+              (@Set.ofPred.{0} (Fin n → Real) fun clocks => @Luce.MarkedRankCylinder n r u j clocks))
+            (∏ a,
+              @MeasureTheory.eLpNorm.{0, 0} (Fin n → Real) Real
+                (@ContinuousENorm.toENorm.{0} Real
+                  (@UniformSpace.toTopologicalSpace.{0} Real
+                    (@PseudoMetricSpace.toUniformSpace.{0} Real
+                      (@SeminormedAddGroup.toPseudoMetricSpace.{0} Real
+                        (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+                          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+                            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                              (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                                (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))))
+                  (@SeminormedAddGroup.toContinuousENorm.{0} Real
+                    (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+                      (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+                        (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                          (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                            (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing)))))))
+                (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                (fun old =>
+                  (@Luce.deletedGapKernel n w
+                      (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n)
+                        (@Function.comp.{1, 1, 1} (Fin r) (Fin r) (Fin n) u
+                          (@DFunLike.coe.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (fun x => Fin r)
+                            (@EquivLike.toFunLike.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (Fin r)
+                              (@Equiv.instEquivLike.{1, 1} (Fin r) (Fin r)))
+                            (@Tuple.sort.{0} r (Fin n) (@Fin.instLinearOrder n) j)))
+                        (@Finset.univ.{0} (Fin r) (Fin.fintype r)))
+                      old
+                      (@Function.comp.{1, 1, 1} (Fin r) (Fin r) (Fin n) u
+                        (@DFunLike.coe.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (fun x => Fin r)
+                          (@EquivLike.toFunLike.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (Fin r)
+                            (@Equiv.instEquivLike.{1, 1} (Fin r) (Fin r)))
+                          (@Tuple.sort.{0} r (Fin n) (@Fin.instLinearOrder n) j))
+                        a)
+                      (@Luce.sortedMarkedGapIndex n r j a)).toReal)
+                (@Nat.cast.{0} ENNReal
+                  (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                    (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal ENNReal.instAddCommMonoidWithOne))
+                  r)
+                (@Luce.exponentialRace n w)) :=
+⋯

@@ -1,0 +1,32 @@
+Luce/Section5ExceptionalInteraction.lean:42:45: error: Ambiguous term
+  not_imp
+Possible interpretations:
+  _root_.not_imp : ¬(?m.124 → ?m.125) ↔ ?m.124 ∧ ¬?m.125
+  
+  Classical.not_imp : ¬(?m.124 → ?m.125) ↔ ?m.124 ∧ ¬?m.125
+Luce/Section5ExceptionalInteraction.lean:42:8: error: Type mismatch: After simplification, term
+  ha
+ has type
+  ∃ x, ∃ (_ : x ∈ periodicOrbit (⇑R) v), x ∈ H
+but is expected to have type
+  ∃ u ∈ periodicOrbit (⇑R) v, u ∈ H
+Luce/Section5ExceptionalInteraction.lean:87:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ‖↑?m.61‖
+in the target expression
+  ‖((fun R => ↑(shortCycleVertexCountAvoiding R L S H)) ∘ fun clocks => ⇑(raceRankPermutation clocks)) clocks‖ ≤ ↑S.card
+
+n : ℕ
+w : Weights n
+L : ℕ
+S H : Finset (Fin n)
+clocks : Fin n → ℝ
+⊢ ‖((fun R => ↑(shortCycleVertexCountAvoiding R L S H)) ∘ fun clocks => ⇑(raceRankPermutation clocks)) clocks‖ ≤ ↑S.card
+Luce/Section5ExceptionalInteraction.lean:106:2: error: mod_cast has type
+  shortCycleVertexCount (raceRankPermutation clocks) L S ≤
+    L * shortCycleVertexCount (raceRankPermutation clocks) L H +
+      shortCycleVertexCountAvoiding (⇑(raceRankPermutation clocks)) L S H
+but is expected to have type
+  (fun clocks => ↑(shortCycleVertexCount (raceRankPermutation clocks) L S)) clocks ≤
+    ((fun x => ↑(L * shortCycleVertexCount (raceRankPermutation x) L H)) + fun clocks =>
+        ↑(shortCycleVertexCountAvoiding (⇑(raceRankPermutation clocks)) L S H))
+      clocks

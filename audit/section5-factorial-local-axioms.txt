@@ -1,0 +1,11 @@
+'Luce.raceRankPermutation_apply_eq_iff' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.integral_cycleBlockIndicator_eq_rank_probability' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.bulk_factorial_expectation_eq_rank_sum' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.bulk_factorial_expectation_eq_cyclicRaceSum' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.bulk_factorial_tendsto_block_integral' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.bulk_factorial_tendsto_canonical_block_integral' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.bulk_factorial_expectation_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]

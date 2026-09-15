@@ -1,0 +1,154 @@
+{
+  "proposition610_complete": true,
+  "closed_targets": {
+    "Luce.Section6.proposition610": "Luce.Section6.Proposition610Contract.proposition610",
+    "Luce.Section6.proposition610_contractCheck": "Luce.Section6.Proposition610Contract.proposition610"
+  },
+  "new_modules": 38,
+  "new_theorems": 87,
+  "full_build": {
+    "passed": true,
+    "jobs": 4412
+  },
+  "dedicated_audit": {
+    "expected_theorems": 87,
+    "axiom_reports": 87,
+    "missing_reports": [],
+    "extra_reports": [],
+    "unexpected_axioms": {},
+    "lean_errors": [],
+    "passed": true
+  },
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "forbidden_source_constructs": {},
+  "snapshots": {
+    "section6-proposition610-contract-freeze.json": {
+      "files": 17,
+      "changed": {
+        "fixed_points_sampled_profile.tex": {
+          "expected": "b665b199bf513f537ad21a0f217a60c5bb889bea5812ffa17ab6e6437c36900e",
+          "actual": "3e2fcc5820f861403323a2802f27d17f5dc1a2a61616fc720e109a89a85e84bb"
+        }
+      },
+      "baseline_reset": false
+    },
+    "section6-lemma69-contract-freeze.json": {
+      "files": 14,
+      "changed": {
+        "fixed_points_sampled_profile.tex": {
+          "expected": "b665b199bf513f537ad21a0f217a60c5bb889bea5812ffa17ab6e6437c36900e",
+          "actual": "3e2fcc5820f861403323a2802f27d17f5dc1a2a61616fc720e109a89a85e84bb"
+        }
+      },
+      "baseline_reset": false
+    },
+    "section6-proposition65-contract-freeze.json": {
+      "files": 47,
+      "changed": {
+        "fixed_points_sampled_profile.tex": {
+          "expected": "11c3ded58dbf633ae4a5529c2a0e0f3264178270c1fabb480e657ba537702f94",
+          "actual": "3e2fcc5820f861403323a2802f27d17f5dc1a2a61616fc720e109a89a85e84bb"
+        }
+      },
+      "baseline_reset": false
+    },
+    "section6-contract-freeze.json": {
+      "files": 13,
+      "changed": {
+        "fixed_points_sampled_profile.tex": {
+          "expected": "bfd3f7314663cd246b1dd2859d104b1181e8d71ca9fd80ba933bf31ca58628d8",
+          "actual": "3e2fcc5820f861403323a2802f27d17f5dc1a2a61616fc720e109a89a85e84bb"
+        }
+      },
+      "baseline_reset": false
+    }
+  },
+  "section6_audit_snapshot": {
+    "expected_theorems": 1075,
+    "axiom_reports": 1070,
+    "missing_reports": [
+      "Luce.Section6.convolution_bound",
+      "Luce.Section6.convolution_continuous",
+      "Luce.Section6.convolution_integrable",
+      "Luce.Section6.convolution_nonneg",
+      "Luce.Section6.reflect"
+    ],
+    "extra_reports": [],
+    "unexpected_axioms": {},
+    "lean_errors": [
+      "audit/Section6Current.lean:783:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_bound`",
+      "audit/Section6Current.lean:784:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_bound`",
+      "audit/Section6Current.lean:785:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_continuous`",
+      "audit/Section6Current.lean:786:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_continuous`",
+      "audit/Section6Current.lean:787:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_integrable`",
+      "audit/Section6Current.lean:788:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_integrable`",
+      "audit/Section6Current.lean:789:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_nonneg`",
+      "audit/Section6Current.lean:790:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_nonneg`",
+      "audit/Section6Current.lean:1881:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.reflect`",
+      "audit/Section6Current.lean:1882:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.reflect`"
+    ],
+    "passed": false
+  },
+  "prior_proposition65_component_changes": [],
+  "namespace_supplement": {
+    "expected_theorems": 5,
+    "axiom_reports": 5,
+    "missing_reports": [],
+    "extra_reports": [],
+    "unexpected_axioms": {},
+    "lean_errors": [],
+    "passed": true
+  },
+  "broader_audit_issue": "The unchanged generator omits TraceDensity68 from five existing declaration names. Its failed run is retained; a separate supplement checks their actual qualified names.",
+  "frozen_non_manuscript_changes": {
+    "section6-proposition610-contract-freeze.json": [],
+    "section6-lemma69-contract-freeze.json": [],
+    "section6-proposition65-contract-freeze.json": [],
+    "section6-contract-freeze.json": []
+  },
+  "snapshot_note": "The manuscript changed outside this task after the Proposition 6.10 snapshot. No manuscript or historical baseline was edited by this proof task. Differences are retained as failures, not reset.",
+  "sha256": {
+    "Luce/Section6CoreCategoryDefinitions.lean": "f6d1570eb57d6ac36361c30c08ab740435f6401f0f5a5f3a2c5da638345f54da",
+    "Luce/Section6Proposition610Contract.lean": "6651e6406ad19c3971ec9bb5bb802e3b4a0218a17c66f1e531277b391666e1ca",
+    "Luce/Section6CategoryCycleDefinitions.lean": "42956a3b0703112a93283f1f13b62b032fea5668739e3946a4fa906ac5c62976",
+    "Luce/Section6CategoryCycleBlocks.lean": "887f8f12abd3b9dda55a8cbf2a84e796f0f0876676ed2b5a4c5ead0b1f7630a1",
+    "Luce/Section6CategoryCycleEquivalence.lean": "7503fd4424cb9707ae6c579e11ccec7c66f6f4cda7b1f1f314e04a52fd0101d4",
+    "Luce/Section6CategoryCycleCounting.lean": "debb4263b23b75b42e613fc7fbedcd24fae31df33c09d34367503d7e83ae316d",
+    "Luce/Section6CategoryFactorialExpectation.lean": "c188c5ad3cf94ee3c72c1509347ce4afe9230dfff3b210490c7bb4f59c58c660",
+    "Luce/Section6CoreCategoryDisjoint.lean": "e5cad1871ca077223a9ceac86c3280bc715609197b0f50757e29f148a2b449d2",
+    "Luce/Section6CoreDepthEquivalence.lean": "1522390e08d5c862491fa9e970daf9448be1821018ee3b93cc0fd5b807a4e22c",
+    "Luce/Section6CoreIdealCategorySum.lean": "1f1ccbec95f64c5bbbdf0e5e0b2d64b15948532dc20807cac5f7045a50dc8fa2",
+    "Luce/Section6FactorialCoreCutoffs.lean": "a35f43f2a9d8a19710ed19e7391c0c6af4a418b767dc2bf2ff4fdd4f5ddef00e",
+    "Luce/Section6FactorialKernelRows.lean": "0007489d490c4ddefb8e30ec35815d6c7e68741d2d6e3127b54a2dc32b1dc723",
+    "Luce/Section6FactorialIdealRows.lean": "e3446d5977acbcfebcad57772ba65dcfadab34480a283f783b65d2df59a54c82",
+    "Luce/Section6CornerPotential.lean": "4e6458894e0983888ad9d98adbf2e04da7f34db7fd55731e5f890a68a8331d6e",
+    "Luce/Section6WeightedCycleEdges.lean": "e150e1f74ffd2ef80da3a35b5c941812da7f33086e3f07e1c097612285213d4e",
+    "Luce/Section6NonmoderateCycles.lean": "e983a7fcc617a2b1d4df35910738813778f955f7a24aadaa764c08ffec646924",
+    "Luce/Section6FactorialDominationData.lean": "611f27a07bb118e92d0011c3a3487704dd482f707316ce40e4cb55569b5c0e64",
+    "Luce/Section6CollisionVaryingMatrices.lean": "77a7e72a4ec924c5ed443963c07e27454c3ba6464e9f7721b7830c11aa39ab6d",
+    "Luce/Section6FiniteBadSetSum.lean": "8b95ff195d5f1005293bcc86d2f68af498f46b8ecf1b3ae41d5c14192dfc9b34",
+    "Luce/Section6FactorialFamilyBounds.lean": "ff32ea992426a1563d3a009d1ecb6e31bdb403010c30a53993e64a37479a16f8",
+    "Luce/Section6NonmoderateFamilies.lean": "b8c0e75a9f479ca803343ef1acfdabbb2dd75b8cdbf0ab536ca192cb9dadb0a4",
+    "Luce/Section6CoreFamilyBadSet.lean": "49059bf3ad78d218b5101b1ed2f19ffbc5b6172d35c2797ff5c5bcb4026194c1",
+    "Luce/Section6FiniteRankReindex.lean": "db9d53813b1c1816c73919a36bf028c6aa6e4d1ca6ce3d48114281c57ee8ea91",
+    "Luce/Section6CoreFamilyDefinitions.lean": "a98e7599ba6297ce6a99cd3e65753d11662920e9befedc2590d980fec2599805",
+    "Luce/Section6CoreFamilyDomination.lean": "f3858b319892e602225b31807a3574eba9f22bd0ced0b349a4a7c96d9787c105",
+    "Luce/Section6CoreFamilyIdealBounds.lean": "83a7d3ebba54723bf3cda1af7be28746d0a36023b73bab5eb17cab9120be9aec",
+    "Luce/Section6CoreFamilyLocalLaw.lean": "4b8ad641c101520b1bf0e1d39b31ea89995d53ce2007c1b6e7cdabb0391209c3",
+    "Luce/Section6CoreFamilyComparison.lean": "3c2a00a12ccba6c687523b5a707af45ca3e4e31e69adfd71739a50f984e927ff",
+    "Luce/Section6FactorialCommonConstants.lean": "0e20050feae01f9ca2fb0e86820b57d2c91157f68db6a7eb467d70d5bf0db67d",
+    "Luce/Section6FiniteKernelBounds.lean": "1a2246487d1ef7e1e9b4e0f30a8783b8902fe5842d0e5521f0f0f97f16932e32",
+    "Luce/Section6FactorialErrorAlgebra.lean": "a0435c819c244e098c0850184072258fe25f5fcd91bcb891e1220ad97cf1e571",
+    "Luce/Section6CoreFamilyQuantitative.lean": "cd1bd61d41d49f17a77bd6a65443d47460104e6e983f659eb6dbe6922a99bdaa",
+    "Luce/Section6CategoryCoreEnumeration.lean": "df4e239949f0ce08e9212c56c607fa196102d5c3513fc36049ce19ee273de4a7",
+    "Luce/Section6RestrictedAssignmentSums.lean": "52f5dd2d07aa05a211aaff8315197ac9703b1e6d85851bc08b3a13a2d45ca265",
+    "Luce/Section6CategoryCoreActualSum.lean": "1097ba00c685018085a4532facd8e3123f34e03bac95a23b4d6928e2625411aa",
+    "Luce/Section6CategoryCoreIdealSum.lean": "7414e96d998397fb0b4d6cca3a0440928fceaf977edfebfafb69551ff3c00dda",
+    "Luce/Section6Proposition610.lean": "d37ab63fb7c0ab502d36c326ae11b85d91586f44418be17c62aa798272a9670a",
+    "Luce/Section6Proposition610Audit.lean": "a284859681996b9291f2301c3a36aec39d1f8ab20883ee548d3ef66d5fe35e44"
+  }
+}

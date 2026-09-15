@@ -1,0 +1,17 @@
+⚠ [2558/2558] Built Luce.FinitePointMeasure (15s)
+warning: Luce/FinitePointMeasure.lean:95:4: This simp argument is unused:
+  ProbabilityMeasure.toMeasure_comp_toFiniteMeasure_eq_toMeasure
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [pointMeasureOfFin, FiniteMeasure.toMeasure_sum, diracProba, ProbabilityMeasure.coe_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Luce/FinitePointMeasure.lean:96:4: This simp argument is unused:
+  ProbabilityMeasure.coe_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [pointMeasureOfFin, FiniteMeasure.toMeasure_sum,
+    ProbabilityMeasure.toMeasure_comp_toFiniteMeasure_eq_toMeasure, diracProba]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Build completed successfully (2558 jobs).

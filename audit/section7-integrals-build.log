@@ -1,0 +1,202 @@
+⚠ [2766/2902] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [2776/2902] Replayed Luce.ExponentialRace
+warning: Luce/ExponentialRace.lean:27:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialRace.lean:35:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialRace.lean:45:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialRace.lean:52:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialRace.lean:72:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialRace.lean:98:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [2777/2902] Replayed Luce.RaceOrder
+warning: Luce/RaceOrder.lean:16:4: Try `simp at hi` instead of `simpa using hi`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Luce/RaceOrder.lean:32:6: Try `simp at hi` instead of `simpa using hi`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [2778/2902] Replayed Luce.RankIntegral
+warning: Luce/RankIntegral.lean:35:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [2779/2902] Replayed Luce.ExponentialFacts
+warning: Luce/ExponentialFacts.lean:30:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialFacts.lean:31:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialFacts.lean:40:22: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Set.diagonal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3574/3576] Replayed Luce.Section7Probability
+warning: Luce/Section7Probability.lean:29:22: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Set.diagonal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✖ [3575/3576] Building Luce.Section7RankIntegral (17s)
+trace: .> LEAN_PATH=D:\princeton\Research\Lean\Lean_luce\.lake\packages\Cli\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\batteries\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\Qq\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\aesop\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\importGraph\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\plausible\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\mathlib\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean c:\Users\JiaminWang\.elan\toolchains\leanprover--lean4---v4.33.1\bin\lean.exe D:\princeton\Research\Lean\Lean_luce\Luce\Section7RankIntegral.lean -o D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section7RankIntegral.olean -i D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section7RankIntegral.ilean -c D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section7RankIntegral.c --setup D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section7RankIntegral.setup.json --json
+error: Luce/Section7RankIntegral.lean:21:2: Type mismatch: After simplification, term
+  Eq.symm h
+ has type
+  (Measure.pi fun j => (g (i.succAbove j)).law) {e | backgroundSurvivors t e = m} =
+    (Measure.pi fun j => (g j).law)
+      {a | backgroundSurvivors t ((Prod.snd ∘ ⇑(MeasurableEquiv.piFinSuccAbove (fun j => ℝ) i)) a) = m}
+but is expected to have type
+  (clockRace fun j => g (i.succAbove j)) {e | backgroundSurvivors t e = m} =
+    (clockRace g) {e | ((survivorSet e t).erase i).card = m}
+error: Luce/Section7RankIntegral.lean:68:24: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |(g i).density t * Measure.real ?m.66 ?m.67|
+in the target expression
+  |((g i).density * survivorProbability g i m) t| ≤ (g i).density t
+
+n : ℕ
+g : Fin n → ClockDensity
+i : Fin n
+m : ℕ
+t : ℝ
+⊢ |((g i).density * survivorProbability g i m) t| ≤ (g i).density t
+error: Luce/Section7RankIntegral.lean:90:6: Type mismatch: After simplification, term
+  raceRank_eq_iff_survivors e hi i r hr hrn
+ has type
+  raceRank e i = r ↔ (survivorSet e (e i)).card = n + 1 - r
+but is expected to have type
+  {e | raceRank e i = r} e ↔ {e | ((survivorSet e (e i)).erase i).card = n + 1 - r} e
+error: Luce/Section7RankIntegral.lean:95:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ∫ (a : ℝ), (g i).density a * (clockRace g).real {e | otherSurvivors e i a = n + 1 - r}
+in the target expression
+  (clockRace g).real {e | otherSurvivors e i (e i) = n + 1 - r} =
+    ∫ (t : ℝ), (g i).density t * survivorProbability g i (n + 1 - r) t
+
+case succ
+r : ℕ
+hr : 1 ≤ r
+n : ℕ
+g : Fin (n + 1) → ClockDensity
+i : Fin (n + 1)
+hrn : r ≤ n + 1
+he : {e | rankOf e i = r} =ᵐ[clockRace g] {e | otherSurvivors e i (e i) = n + 1 - r}
+⊢ (clockRace g).real {e | otherSurvivors e i (e i) = n + 1 - r} =
+    ∫ (t : ℝ), (g i).density t * survivorProbability g i (n + 1 - r) t
+error: Luce/Section7RankIntegral.lean:112:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  P.real {ω | ((fun e => rankOf e i) fun i => T i ω) ∈ {r}}
+in the target expression
+  P.real {ω | rankOf (fun j => T j ω) i = r} =
+    ∫ (t : ℝ), (g i).density t * P.real {ω | otherSurvivors (fun j => T j ω) i t = n - r}
+
+Ω : Type u_1
+inst✝¹ : MeasurableSpace Ω
+P : Measure Ω
+inst✝ : IsProbabilityMeasure P
+n : ℕ
+g : Fin n → ClockDensity
+T : Fin n → Ω → ℝ
+hLaw : ∀ (i : Fin n), HasLaw (T i) (g i).law P
+hIndependent : iIndepFun T P
+i : Fin n
+r : ℕ
+hr : 1 ≤ r
+hrn : r ≤ n
+hj : HasLaw (fun ω i => T i ω) (clockRace g) P
+⊢ P.real {ω | rankOf (fun j => T j ω) i = r} =
+    ∫ (t : ℝ), (g i).density t * P.real {ω | otherSurvivors (fun j => T j ω) i t = n - r}
+error: Lean exited with code 1
+✖ [3576/3576] Building Luce.Section7TailIntegral (17s)
+trace: .> LEAN_PATH=D:\princeton\Research\Lean\Lean_luce\.lake\packages\Cli\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\batteries\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\Qq\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\aesop\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\importGraph\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\plausible\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\mathlib\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean c:\Users\JiaminWang\.elan\toolchains\leanprover--lean4---v4.33.1\bin\lean.exe D:\princeton\Research\Lean\Lean_luce\Luce\Section7TailIntegral.lean -o D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section7TailIntegral.olean -i D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section7TailIntegral.ilean -c D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section7TailIntegral.c --setup D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section7TailIntegral.setup.json --json
+error: Luce/Section7TailIntegral.lean:28:26: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |(g i).density t * p i t|
+in the target expression
+  |((g i).density * p i) t| ≤ (g i).density t
+
+ι : Type u_1
+indices : Finset ι
+g : ι → ClockDensity
+p : ι → ℝ → ℝ
+s q : ℝ
+h : ℝ → ℝ
+hq : 0 ≤ q
+hh : IntegrableOn h (Ioi s) volume
+hpmeas : ∀ i ∈ indices, Measurable (p i)
+hp : ∀ i ∈ indices, ∀ (t : ℝ), 0 ≤ p i t ∧ p i t ≤ 1
+hearly : ∀ i ∈ indices, ∀ t ≤ s, p i t ≤ q
+hhnonneg : ∀ t ∈ Ioi s, 0 ≤ h t
+henv : ∀ i ∈ indices, ∀ t ∈ Ioi s, (g i).density t ≤ h t
+hlate : ∀ t ∈ Ioi s, ∑ i ∈ indices, p i t ≤ 2
+f : ℝ → ℝ := fun t => ∑ i ∈ indices, (g i).density t * p i t
+i : ι
+hi : i ∈ indices
+t : ℝ
+⊢ |((g i).density * p i) t| ≤ (g i).density t
+error: Lean exited with code 1
+Some required targets logged failures:
+- Luce.Section7RankIntegral
+- Luce.Section7TailIntegral
+error: build failed

@@ -1,0 +1,30 @@
+⚠ [937/1105] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3656/3672] Replayed Luce.Section6IncrementDensity
+warning: Luce/Section6IncrementDensity.lean:61:63: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3670/3672] Replayed Luce.Section6LogCells
+warning: Luce/Section6LogCells.lean:81:42: Variable name `hA` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hA
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3671/3672] Replayed Luce.Section6DensityPerturbation
+warning: Luce/Section6DensityPerturbation.lean:20:31: Variable name `he0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _he0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3672/3672] Built Luce.Section6CyclePerturbation (18s)
+Build completed successfully (3672 jobs).

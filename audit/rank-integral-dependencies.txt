@@ -1,0 +1,72 @@
+Luce.Weights (n : ℕ) : Type
+Luce.raceRank {n : ℕ} (times : Fin n → ℝ) (i : Fin n) : ℕ
+Luce.survivorSet {n : ℕ} (times : Fin n → ℝ) (t : ℝ) : Finset (Fin n)
+Luce.exponentialRace {n : ℕ} (w : Luce.Weights n) : MeasureTheory.Measure (Fin n → ℝ)
+Luce.backgroundRace {n : ℕ} (w : Luce.Weights (n + 1)) (i : Fin (n + 1)) : MeasureTheory.Measure (Fin n → ℝ)
+Luce.raceRank_eq_iff_survivors {n : ℕ} (times : Fin n → ℝ) (hinj : Function.Injective times) (i : Fin n) (k : ℕ)
+  (hk : 1 ≤ k) (hkn : k ≤ n) : Luce.raceRank times i = k ↔ (Luce.survivorSet times (times i)).card = n - k
+Luce.exponentialRace_disintegrate {n : ℕ} (w : Luce.Weights (n + 1)) (i : Fin (n + 1)) (g : ℝ × (Fin n → ℝ) → ENNReal)
+  (hg : Measurable g) :
+  ∫⁻ (clocks : Fin (n + 1) → ℝ), g (clocks i, fun j => clocks (i.succAbove j)) ∂Luce.exponentialRace w =
+    ∫⁻ (t : ℝ),
+      ProbabilityTheory.exponentialPDF (w.rate i) t *
+        ∫⁻ (background : Fin n → ℝ), g (t, background) ∂Luce.backgroundRace w i
+Luce.rank_integral_survivors {n : ℕ} (w : Luce.Weights (n + 1)) (i : Fin (n + 1)) (m : ℕ) :
+  (Luce.exponentialRace w) {clocks | (Luce.backgroundSurvivors (clocks i) fun j => clocks (i.succAbove j)) = m} =
+    ∫⁻ (t : ℝ),
+      ProbabilityTheory.exponentialPDF (w.rate i) t *
+        (Luce.backgroundRace w i) {background | Luce.backgroundSurvivors t background = m}
+Luce.rank_integral_real {n : ℕ} (w : Luce.Weights (n + 1)) (i : Fin (n + 1)) (m : ℕ) :
+  (Luce.exponentialRace w).real {clocks | (Luce.backgroundSurvivors (clocks i) fun j => clocks (i.succAbove j)) = m} =
+    ∫ (t : ℝ),
+      ProbabilityTheory.exponentialPDFReal (w.rate i) t *
+        (Luce.backgroundRace w i).real {background | Luce.backgroundSurvivors t background = m}
+Luce.raceRank_probability_integral {n : ℕ} (w : Luce.Weights (n + 1)) (i : Fin (n + 1)) (r : ℕ) (hr : 1 ≤ r)
+  (hrn : r ≤ n + 1) :
+  (Luce.exponentialRace w).real {clocks | Luce.raceRank clocks i = r} =
+    ∫ (t : ℝ) in Set.Ioi 0,
+      w.rate i * Real.exp (-w.rate i * t) *
+        (Luce.exponentialRace w).real {clocks | ((Luce.survivorSet clocks t).erase i).card = n + 1 - r}
+Luce.fixed_point_probability_integral {n : ℕ} (w : Luce.Weights (n + 1)) (i : Fin (n + 1)) :
+  (Luce.exponentialRace w).real {clocks | Luce.raceRank clocks i = ↑i + 1} =
+    ∫ (t : ℝ) in Set.Ioi 0,
+      w.rate i * Real.exp (-w.rate i * t) *
+        (Luce.exponentialRace w).real {clocks | ((Luce.survivorSet clocks t).erase i).card = n - ↑i}
+'Luce.Weights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.raceRank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.survivorSet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.raceRank_add_survivors' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.raceRank_eq_iff_survivors' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.beforeCount_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.raceRank_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.raceRank_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.clockRank' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.clockRank_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.rankPermutation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.drawPermutation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.arrivalTime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.clockRank_le_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.rank_survives_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.remaining_eq_clock_survivors' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.exponentialRace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.exponentialRace_isProbability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.exponentialRace_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.exponentialRace_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.backgroundRace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.backgroundRace_isProbability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.backgroundSurvivors' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.measurable_backgroundSurvivors' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.exponentialRace_disintegrate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.rank_integral_survivors' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.expMeasure_nullSingleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.exponentialRace_collision_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.exponentialRace_injective_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.backgroundSurvivors_eq_erase' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.exponentialRace_background' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.background_probability_eq_common' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.rank_integral_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.rank_integral_common' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.exponentialPDFReal_eq_piecewise' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.integral_exponentialPDFReal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.raceRank_probability_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.fixed_point_probability_integral' depends on axioms: [propext, Classical.choice, Quot.sound]

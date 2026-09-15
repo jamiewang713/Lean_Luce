@@ -1,0 +1,1 @@
+PASS: no forbidden proof devices in 24 local dependency files.

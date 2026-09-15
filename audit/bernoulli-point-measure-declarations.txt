@@ -1,0 +1,38 @@
+@Luce.observedPointMeasure : {X : Type u_1} →
+  [inst : MeasurableSpace X] → {n : ℕ} → (Fin n → X) → (Fin n → Bool) → Luce.FinitePointMeasure X
+@Luce.observedPointMeasure_toFiniteMeasure : ∀ {X : Type u_1} [inst : MeasurableSpace X] {n : ℕ} (x : Fin n → X)
+  (b : Fin n → Bool),
+  (Luce.observedPointMeasure x b).toFiniteMeasure =
+    ∑ k, if b k = true then (MeasureTheory.diracProba (x k)).toFiniteMeasure else 0
+@Luce.observedPointMeasure_mass : ∀ {X : Type u_1} [inst : MeasurableSpace X] {n : ℕ} (x : Fin n → X)
+  (b : Fin n → Bool), (Luce.observedPointMeasure x b).toFiniteMeasure.mass = ∑ k, if b k = true then 1 else 0
+@Luce.integral_observedPointMeasure : ∀ {X : Type u_1} [inst : MeasurableSpace X] {n : ℕ} (x : Fin n → X)
+  (b : Fin n → Bool) (g : X → ℝ),
+  Measurable g →
+    ∫ (y : X), g y ∂↑(Luce.observedPointMeasure x b).toFiniteMeasure = ∑ k, (if b k = true then 1 else 0) * g (x k)
+@Luce.pointLaplace_observedPointMeasure : ∀ {X : Type u_1} [inst : MeasurableSpace X] {n : ℕ} (x : Fin n → X)
+  (b : Fin n → Bool) (g : X → ℝ),
+  Measurable g →
+    Luce.pointLaplace g (Luce.observedPointMeasure x b) = Real.exp (-∑ k, (if b k = true then 1 else 0) * g (x k))
+@Luce.measurable_observedPointMeasure_of_measurable : ∀ {X : Type u_1} [inst : MeasurableSpace X] {Ω : Type u_2}
+  [inst_1 : MeasurableSpace Ω] {n : ℕ} (x : Fin n → X) (I : Fin n → Ω → Bool),
+  (∀ (k : Fin n), Measurable (I k)) → Measurable fun ω => Luce.observedPointMeasure x fun k => I k ω
+@Luce.weightedPointMeasure : {X : Type u_1} →
+  [inst : MeasurableSpace X] → {n : ℕ} → (Fin n → X) → (Fin n → NNReal) → MeasureTheory.FiniteMeasure X
+@Luce.weightedPointMeasure_mass : ∀ {X : Type u_1} [inst : MeasurableSpace X] {n : ℕ} (x : Fin n → X)
+  (p : Fin n → NNReal), (Luce.weightedPointMeasure x p).mass = ∑ k, p k
+@Luce.integral_weightedPointMeasure : ∀ {X : Type u_1} [inst : MeasurableSpace X] {n : ℕ} (x : Fin n → X)
+  (p : Fin n → NNReal) (g : X → ℝ),
+  Measurable g → ∫ (y : X), g y ∂↑(Luce.weightedPointMeasure x p) = ∑ k, ↑(p k) * g (x k)
+@Luce.measurable_weightedPointMeasure_of_measurable : ∀ {X : Type u_1} [inst : MeasurableSpace X] {Ω : Type u_2}
+  [inst_1 : MeasurableSpace Ω] {n : ℕ} (x : Fin n → X) (p : Fin n → Ω → NNReal),
+  (∀ (k : Fin n), Measurable (p k)) → Measurable fun ω => Luce.weightedPointMeasure x fun k => p k ω
+'Luce.observedPointMeasure_toFiniteMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.observedPointMeasure_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.integral_observedPointMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.pointLaplace_observedPointMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.measurable_observedPointMeasure_of_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.weightedPointMeasure_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.integrable_weightedPointMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.integral_weightedPointMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.measurable_weightedPointMeasure_of_measurable' depends on axioms: [propext, Classical.choice, Quot.sound]

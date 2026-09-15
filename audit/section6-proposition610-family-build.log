@@ -1,0 +1,518 @@
+⚠ [937/1099] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3644/3684] Replayed Luce.RaceOrder
+warning: Luce/RaceOrder.lean:16:4: Try `simp at hi` instead of `simpa using hi`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Luce/RaceOrder.lean:32:6: Try `simp at hi` instead of `simpa using hi`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3652/3684] Replayed Luce.ExponentialRace
+warning: Luce/ExponentialRace.lean:27:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialRace.lean:35:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialRace.lean:45:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialRace.lean:52:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialRace.lean:72:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialRace.lean:98:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3653/3684] Replayed Luce.ExponentialFacts
+warning: Luce/ExponentialFacts.lean:30:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialFacts.lean:31:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialFacts.lean:40:22: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Set.diagonal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3654/3684] Replayed Luce.Section5Resampling
+warning: Luce/Section5Resampling.lean:26:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/Section5Resampling.lean:49:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/Section5Resampling.lean:65:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/Section5Resampling.lean:92:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3655/3684] Replayed Luce.Section5WindowProbability
+warning: Luce/Section5WindowProbability.lean:188:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3656/3684] Replayed Luce.Section5FiniteInsertion
+warning: Luce/Section5FiniteInsertion.lean:75:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/Section5FiniteInsertion.lean:249:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3658/3684] Replayed Luce.RankIntegral
+warning: Luce/RankIntegral.lean:35:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3659/3684] Replayed Luce.Section5Occupation
+warning: Luce/Section5Occupation.lean:94:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3667/3684] Replayed Luce.Section5LowCycleRows
+warning: Luce/Section5LowCycleRows.lean:77:4: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3669/3684] Replayed Luce.Section6CollisionCycleTests
+warning: Luce/Section6CollisionCycleTests.lean:76:33: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+ℹ [3673/3684] Replayed Luce.Section6ExcursionDepthSums
+info: Luce/Section6ExcursionDepthSums.lean:48:50: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+⚠ [3678/3684] Replayed Luce.Section6CollisionCoreTests
+info: Luce/Section6CollisionCoreTests.lean:84:44: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+warning: Luce/Section6CollisionCoreTests.lean:67:49: Variable name `hz` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hz
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Luce/Section6CollisionCoreTests.lean:69:5: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3679/3684] Replayed Luce.Section6CollisionProductSums
+warning: Luce/Section6CollisionProductSums.lean:15:2: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Luce/Section6CollisionProductSums.lean:67:53: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Luce/Section6CollisionProductSums.lean:72:22: This simp argument is unused:
+  collision_card_complement
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✖ [3684/3684] Building Luce.Section6FactorialFamilyBounds (15s)
+trace: .> LEAN_PATH=D:\princeton\Research\Lean\Lean_luce\.lake\packages\Cli\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\batteries\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\Qq\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\aesop\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\importGraph\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\plausible\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\mathlib\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean c:\Users\JiaminWang\.elan\toolchains\leanprover--lean4---v4.33.1\bin\lean.exe D:\princeton\Research\Lean\Lean_luce\Luce\Section6FactorialFamilyBounds.lean -o D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6FactorialFamilyBounds.olean -i D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6FactorialFamilyBounds.ilean -c D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6FactorialFamilyBounds.c --setup D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6FactorialFamilyBounds.setup.json --json
+error: Luce/Section6FactorialFamilyBounds.lean:16:78: Invalid field notation: Type of
+  a
+is not known; cannot resolve field `val`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `AddUnits.val`
+  • `Char.val`
+  • `DerivedWanted.val`
+  • `Fin.val`
+  • `Finset.val`
+  • `IntermediateField.val`
+  • `IterateAddAct.val`
+  • `IterateMulAct.val`
+  • `NonScalar.val`
+  • `PNat.val`
+  • `PreQuasiregular.val`
+  • `Subalgebra.val`
+  • `SubalgebraClass.val`
+  • `Subtype.val`
+  • `Units.val`
+  • `ZMod.val`
+  • `Array.Mem.val`
+  • `Lean.ExprStructEq.val`
+  • `NumberField.RingOfIntegers.val`
+  • `OrderHom.Subtype.val`
+  • `ST.Out.val`
+  • `Valuation.IsUniformizer.val`
+  • `Valuation.Uniformizer.val`
+  • `Vector.Mem.val`
+  • `Lean.Doc.Parser.val`
+  • `Lean.Doc.WithSyntax.val`
+  • `Lean.Elab.FieldInfo.val`
+  • `Lean.Language.DynamicSnapshot.val`
+  • `Lean.Language.SyntaxGuarded.val`
+  • `Lean.Meta.InstanceEntry.val`
+  • `Lean.Server.WithRpcRef.val`
+  • `Module.End.Eigenvalues.val`
+  • `Module.End.UnifEigenvalues.val`
+  • `Std.Time.Timestamp.val`
+  • `Std.Time.WallTime.val`
+  • `Batteries.BinomialHeap.Imp.FindMin.val`
+  • `Lean.Elab.ComputedFields.Context.val`
+  • `Lean.Elab.Term.LetRecToLift.val`
+  • `Lean.Elab.Term.NamedArg.val`
+  • `Lean.Meta.Match.Example.val`
+  • `Lean.Meta.Match.Pattern.val`
+  • `Lean.Meta.Sym.BitVecValue.val`
+  • `Lean.Meta.Sym.FinValue.val`
+  • `Lean.Meta.SynthInstance.Instance.val`
+  • `Mathlib.Tactic.Determinant.Cert.val`
+  • `Std.Time.Internal.UnitVal.val`
+  • `Lean.Meta.Try.Collector.InductionCandidate.val`
+  • `Mathlib.Tactic.Ring.Common.Result.val`
+  • `Lean.Meta.Grind.Arith.Cutsat.SymbolicBound.val`
+error: Luce/Section6FactorialFamilyBounds.lean:16:84: Invalid field notation: Type of
+  b
+is not known; cannot resolve field `val`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `AddUnits.val`
+  • `Char.val`
+  • `DerivedWanted.val`
+  • `Fin.val`
+  • `Finset.val`
+  • `IntermediateField.val`
+  • `IterateAddAct.val`
+  • `IterateMulAct.val`
+  • `NonScalar.val`
+  • `PNat.val`
+  • `PreQuasiregular.val`
+  • `Subalgebra.val`
+  • `SubalgebraClass.val`
+  • `Subtype.val`
+  • `Units.val`
+  • `ZMod.val`
+  • `Array.Mem.val`
+  • `Lean.ExprStructEq.val`
+  • `NumberField.RingOfIntegers.val`
+  • `OrderHom.Subtype.val`
+  • `ST.Out.val`
+  • `Valuation.IsUniformizer.val`
+  • `Valuation.Uniformizer.val`
+  • `Vector.Mem.val`
+  • `Lean.Doc.Parser.val`
+  • `Lean.Doc.WithSyntax.val`
+  • `Lean.Elab.FieldInfo.val`
+  • `Lean.Language.DynamicSnapshot.val`
+  • `Lean.Language.SyntaxGuarded.val`
+  • `Lean.Meta.InstanceEntry.val`
+  • `Lean.Server.WithRpcRef.val`
+  • `Module.End.Eigenvalues.val`
+  • `Module.End.UnifEigenvalues.val`
+  • `Std.Time.Timestamp.val`
+  • `Std.Time.WallTime.val`
+  • `Batteries.BinomialHeap.Imp.FindMin.val`
+  • `Lean.Elab.ComputedFields.Context.val`
+  • `Lean.Elab.Term.LetRecToLift.val`
+  • `Lean.Elab.Term.NamedArg.val`
+  • `Lean.Meta.Match.Example.val`
+  • `Lean.Meta.Match.Pattern.val`
+  • `Lean.Meta.Sym.BitVecValue.val`
+  • `Lean.Meta.Sym.FinValue.val`
+  • `Lean.Meta.SynthInstance.Instance.val`
+  • `Mathlib.Tactic.Determinant.Cert.val`
+  • `Std.Time.Internal.UnitVal.val`
+  • `Lean.Meta.Try.Collector.InductionCandidate.val`
+  • `Mathlib.Tactic.Ring.Common.Result.val`
+  • `Lean.Meta.Grind.Arith.Cutsat.SymbolicBound.val`
+error: Luce/Section6FactorialFamilyBounds.lean:43:89: Invalid field notation: Type of
+  a
+is not known; cannot resolve field `val`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `AddUnits.val`
+  • `Char.val`
+  • `DerivedWanted.val`
+  • `Fin.val`
+  • `Finset.val`
+  • `IntermediateField.val`
+  • `IterateAddAct.val`
+  • `IterateMulAct.val`
+  • `NonScalar.val`
+  • `PNat.val`
+  • `PreQuasiregular.val`
+  • `Subalgebra.val`
+  • `SubalgebraClass.val`
+  • `Subtype.val`
+  • `Units.val`
+  • `ZMod.val`
+  • `Array.Mem.val`
+  • `Lean.ExprStructEq.val`
+  • `NumberField.RingOfIntegers.val`
+  • `OrderHom.Subtype.val`
+  • `ST.Out.val`
+  • `Valuation.IsUniformizer.val`
+  • `Valuation.Uniformizer.val`
+  • `Vector.Mem.val`
+  • `Lean.Doc.Parser.val`
+  • `Lean.Doc.WithSyntax.val`
+  • `Lean.Elab.FieldInfo.val`
+  • `Lean.Language.DynamicSnapshot.val`
+  • `Lean.Language.SyntaxGuarded.val`
+  • `Lean.Meta.InstanceEntry.val`
+  • `Lean.Server.WithRpcRef.val`
+  • `Module.End.Eigenvalues.val`
+  • `Module.End.UnifEigenvalues.val`
+  • `Std.Time.Timestamp.val`
+  • `Std.Time.WallTime.val`
+  • `Batteries.BinomialHeap.Imp.FindMin.val`
+  • `Lean.Elab.ComputedFields.Context.val`
+  • `Lean.Elab.Term.LetRecToLift.val`
+  • `Lean.Elab.Term.NamedArg.val`
+  • `Lean.Meta.Match.Example.val`
+  • `Lean.Meta.Match.Pattern.val`
+  • `Lean.Meta.Sym.BitVecValue.val`
+  • `Lean.Meta.Sym.FinValue.val`
+  • `Lean.Meta.SynthInstance.Instance.val`
+  • `Mathlib.Tactic.Determinant.Cert.val`
+  • `Std.Time.Internal.UnitVal.val`
+  • `Lean.Meta.Try.Collector.InductionCandidate.val`
+  • `Mathlib.Tactic.Ring.Common.Result.val`
+  • `Lean.Meta.Grind.Arith.Cutsat.SymbolicBound.val`
+error: Luce/Section6FactorialFamilyBounds.lean:43:95: Invalid field notation: Type of
+  b
+is not known; cannot resolve field `val`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `AddUnits.val`
+  • `Char.val`
+  • `DerivedWanted.val`
+  • `Fin.val`
+  • `Finset.val`
+  • `IntermediateField.val`
+  • `IterateAddAct.val`
+  • `IterateMulAct.val`
+  • `NonScalar.val`
+  • `PNat.val`
+  • `PreQuasiregular.val`
+  • `Subalgebra.val`
+  • `SubalgebraClass.val`
+  • `Subtype.val`
+  • `Units.val`
+  • `ZMod.val`
+  • `Array.Mem.val`
+  • `Lean.ExprStructEq.val`
+  • `NumberField.RingOfIntegers.val`
+  • `OrderHom.Subtype.val`
+  • `ST.Out.val`
+  • `Valuation.IsUniformizer.val`
+  • `Valuation.Uniformizer.val`
+  • `Vector.Mem.val`
+  • `Lean.Doc.Parser.val`
+  • `Lean.Doc.WithSyntax.val`
+  • `Lean.Elab.FieldInfo.val`
+  • `Lean.Language.DynamicSnapshot.val`
+  • `Lean.Language.SyntaxGuarded.val`
+  • `Lean.Meta.InstanceEntry.val`
+  • `Lean.Server.WithRpcRef.val`
+  • `Module.End.Eigenvalues.val`
+  • `Module.End.UnifEigenvalues.val`
+  • `Std.Time.Timestamp.val`
+  • `Std.Time.WallTime.val`
+  • `Batteries.BinomialHeap.Imp.FindMin.val`
+  • `Lean.Elab.ComputedFields.Context.val`
+  • `Lean.Elab.Term.LetRecToLift.val`
+  • `Lean.Elab.Term.NamedArg.val`
+  • `Lean.Meta.Match.Example.val`
+  • `Lean.Meta.Match.Pattern.val`
+  • `Lean.Meta.Sym.BitVecValue.val`
+  • `Lean.Meta.Sym.FinValue.val`
+  • `Lean.Meta.SynthInstance.Instance.val`
+  • `Mathlib.Tactic.Determinant.Cert.val`
+  • `Std.Time.Internal.UnitVal.val`
+  • `Lean.Meta.Try.Collector.InductionCandidate.val`
+  • `Mathlib.Tactic.Ring.Common.Result.val`
+  • `Lean.Meta.Grind.Arith.Cutsat.SymbolicBound.val`
+error: Luce/Section6FactorialFamilyBounds.lean:55:4: don't know how to synthesize implicit argument `B`
+  @collisionUnionSum s n (?m.154 D hA hAB side k hk F hF hC hrow htarget)
+    (?m.155 D hA hAB side k hk F hF hC hrow htarget) side k (varyingCycleFamilyWeight side k F) D
+context:
+s n A B L D : ℕ
+hA : 1 ≤ A
+hAB : A ≤ B
+side : Fin s → Corner
+k : Fin s → ℕ
+hk : ∀ (c : Fin s), k c + 1 ≤ L
+F : Fin s → Fin n → Fin n → ℝ
+hF : ∀ (c : Fin s) (a b : Fin n), 0 ≤ F c a b
+C : ℝ
+hC : 1 ≤ C
+hrow : ∀ (c : Fin s) (a : Fin n), ∑ b, F c a b ≤ C
+htarget : ∀ (c : Fin s) (b : CollisionCore n A B (side c)) (a : Fin n), F c a ↑b ≤ C / ↑(cornerDistance (side c) ↑b)
+⊢ ℕ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+error: Luce/Section6FactorialFamilyBounds.lean:55:4: don't know how to synthesize implicit argument `A`
+  @collisionUnionSum s n (?m.154 D hA hAB side k hk F hF hC hrow htarget)
+    (?m.155 D hA hAB side k hk F hF hC hrow htarget) side k (varyingCycleFamilyWeight side k F) D
+context:
+s n A B L D : ℕ
+hA : 1 ≤ A
+hAB : A ≤ B
+side : Fin s → Corner
+k : Fin s → ℕ
+hk : ∀ (c : Fin s), k c + 1 ≤ L
+F : Fin s → Fin n → Fin n → ℝ
+hF : ∀ (c : Fin s) (a b : Fin n), 0 ≤ F c a b
+C : ℝ
+hC : 1 ≤ C
+hrow : ∀ (c : Fin s) (a : Fin n), ∑ b, F c a b ≤ C
+htarget : ∀ (c : Fin s) (b : CollisionCore n A B (side c)) (a : Fin n), F c a ↑b ≤ C / ↑(cornerDistance (side c) ↑b)
+⊢ ℕ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+error: Luce/Section6FactorialFamilyBounds.lean:55:23: don't know how to synthesize implicit argument `B`
+  @varyingCycleFamilyWeight s n (?m.154 D hA hAB side k hk F hF hC hrow htarget)
+    (?m.155 D hA hAB side k hk F hF hC hrow htarget) side k F
+context:
+s n A B L D : ℕ
+hA : 1 ≤ A
+hAB : A ≤ B
+side : Fin s → Corner
+k : Fin s → ℕ
+hk : ∀ (c : Fin s), k c + 1 ≤ L
+F : Fin s → Fin n → Fin n → ℝ
+hF : ∀ (c : Fin s) (a b : Fin n), 0 ≤ F c a b
+C : ℝ
+hC : 1 ≤ C
+hrow : ∀ (c : Fin s) (a : Fin n), ∑ b, F c a b ≤ C
+htarget : ∀ (c : Fin s) (b : CollisionCore n A B (side c)) (a : Fin n), F c a ↑b ≤ C / ↑(cornerDistance (side c) ↑b)
+⊢ ℕ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+error: Luce/Section6FactorialFamilyBounds.lean:55:23: don't know how to synthesize implicit argument `A`
+  @varyingCycleFamilyWeight s n (?m.154 D hA hAB side k hk F hF hC hrow htarget)
+    (?m.155 D hA hAB side k hk F hF hC hrow htarget) side k F
+context:
+s n A B L D : ℕ
+hA : 1 ≤ A
+hAB : A ≤ B
+side : Fin s → Corner
+k : Fin s → ℕ
+hk : ∀ (c : Fin s), k c + 1 ≤ L
+F : Fin s → Fin n → Fin n → ℝ
+hF : ∀ (c : Fin s) (a b : Fin n), 0 ≤ F c a b
+C : ℝ
+hC : 1 ≤ C
+hrow : ∀ (c : Fin s) (a : Fin n), ∑ b, F c a b ≤ C
+htarget : ∀ (c : Fin s) (b : CollisionCore n A B (side c)) (a : Fin n), F c a ↑b ≤ C / ↑(cornerDistance (side c) ↑b)
+⊢ ℕ
+
+Note: All parameter types and holes (e.g., `_`) in the header of a theorem are resolved before the proof is processed; information from the proof cannot be used to infer what these values should be
+error: Lean exited with code 1
+Some required targets logged failures:
+- Luce.Section6FactorialFamilyBounds
+error: build failed

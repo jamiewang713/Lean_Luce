@@ -1,0 +1,1 @@
+PASS: no prohibited proof tokens found in all recursively imported local source modules.

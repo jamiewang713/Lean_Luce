@@ -1,0 +1,518 @@
+# Proposition 6.5: weight-scale and random-time evidence
+
+Status: the full Proposition 6.5 and its closed contract check remain unproved.
+
+This bounded audit checks exactly 9 theorems from the two named implementation modules.
+It does not assert a passing whole-project audit: that audit currently fails on unimported concurrent Lemma 6.6 declarations.
+
+The unchanged closed contract, fully elaborated theorem types, and actual transitive axiom output follow.
+
+```lean
+def Luce.Section6.Proposition65Contract.localLaw : Prop :=
+∀ (f : Real → Real) (left right : Luce.Section6.EndpointBehavior),
+  Luce.Section6.PowerProfile f left right →
+    ∀ (grid : Luce.Section6.SamplingGrid) (w : Luce.WeightArray),
+      Luce.Section6.SampledRates grid w f →
+        ∀ (r : Nat),
+          ∃ h0 delta v d kappa C,
+            And (@LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) h0)
+              (And
+                (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                  delta)
+                (And
+                  (@LT.lt.{0} Real Real.instLT delta
+                    (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+                  (And
+                    (@LT.lt.{0} Real Real.instLT
+                      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) v)
+                    (And
+                      (@LE.le.{0} Real Real.instLE v
+                        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+                      (And
+                        (@LT.lt.{0} Real Real.instLT
+                          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) d)
+                        (And
+                          (@LT.lt.{0} Real Real.instLT
+                            (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) kappa)
+                          (And
+                            (@LT.lt.{0} Real Real.instLT
+                              (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) C)
+                            (∀ (n s : Nat),
+                              @LE.le.{0} Nat instLENat s r →
+                                ∀ (side : Fin s → Luce.Section6.Corner) (u j : Fin s → Fin n),
+                                  @Function.Injective.{1, 1} (Fin s) (Fin n) u →
+                                    @Function.Injective.{1, 1} (Fin s) (Fin n) j →
+                                      (∀ (e : Fin s), (Luce.Section6.cornerBehavior left right (side e)).active) →
+                                        (∀ (e : Fin s),
+                                            And
+                                              (@LE.le.{0} Nat instLENat h0
+                                                (@Luce.Section6.cornerDistance (side e) n (u e)))
+                                              (@LE.le.{0} Nat instLENat h0
+                                                (@Luce.Section6.cornerDistance (side e) n (j e)))) →
+                                          (∀ (e : Fin s),
+                                              And
+                                                (@LE.le.{0} Real Real.instLE
+                                                  (@Nat.cast.{0} Real Real.instNatCast
+                                                    (@Luce.Section6.cornerDistance (side e) n (u e)))
+                                                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                                    delta (@Nat.cast.{0} Real Real.instNatCast n)))
+                                                (@LE.le.{0} Real Real.instLE
+                                                  (@Nat.cast.{0} Real Real.instNatCast
+                                                    (@Luce.Section6.cornerDistance (side e) n (j e)))
+                                                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                                    delta (@Nat.cast.{0} Real Real.instNatCast n)))) →
+                                            (∀ (e : Fin s),
+                                                @LE.le.{0} Real Real.instLE
+                                                  (Luce.Section6.localCornerRatio (side e)
+                                                    (Luce.Section6.cornerBehavior left right (side e))
+                                                    (@Luce.Section6.cornerDistance (side e) n (u e))
+                                                    (@Luce.Section6.cornerDistance (side e) n (j e)))
+                                                  (@HPow.hPow.{0, 0, 0} Real Real Real
+                                                    (@instHPow.{0, 0} Real Real Real.instPow)
+                                                    (@Min.min.{0} Real Real.instMin
+                                                      (@Nat.cast.{0} Real Real.instNatCast
+                                                        (@Luce.Section6.cornerDistance (side e) n (u e)))
+                                                      (@Nat.cast.{0} Real Real.instNatCast
+                                                        (@Luce.Section6.cornerDistance (side e) n (j e))))
+                                                    v)) →
+                                              (∀ (e g : Fin s),
+                                                  @Ne.{1} (Fin s) e g →
+                                                    @LT.lt.{0} Nat instLTNat
+                                                      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) r)
+                                                      ((@Fin.val n (j e)).dist (@Fin.val n (j g)))) →
+                                                have err :=
+                                                  @abs.{0} Real Real.lattice Real.instAddGroup
+                                                    (@HSub.hSub.{0, 0, 0} Real Real Real
+                                                      (@instHSub.{0} Real Real.instSub)
+                                                      (@MeasureTheory.Measure.real.{0} (Fin n → Real)
+                                                        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a =>
+                                                          Real.measurableSpace)
+                                                        (@Luce.exponentialRace n (w n))
+                                                        (@Set.ofPred.{0} (Fin n → Real) fun clocks =>
+                                                          @Luce.MarkedRankCylinder n s u j clocks))
+                                                      (∏ e,
+                                                        Luce.Section6.localIdealKernel (side e)
+                                                          (Luce.Section6.cornerBehavior left right (side e))
+                                                          (@Luce.Section6.cornerDistance (side e) n (u e))
+                                                          (@Luce.Section6.cornerDistance (side e) n (j e))));
+                                                have envelope :=
+                                                  ∏ e,
+                                                    Luce.Section6.localEnvelopeKernel (side e)
+                                                      (Luce.Section6.cornerBehavior left right (side e)) d
+                                                      (@Luce.Section6.cornerDistance (side e) n (u e))
+                                                      (@Luce.Section6.cornerDistance (side e) n (j e));
+                                                And
+                                                  (@LE.le.{0} Real Real.instLE err
+                                                    (@HMul.hMul.{0, 0, 0} Real Real Real
+                                                      (@instHMul.{0} Real Real.instMul)
+                                                      (@HMul.hMul.{0, 0, 0} Real Real Real
+                                                        (@instHMul.{0} Real Real.instMul) C envelope)
+                                                      (∑ e,
+                                                        @HAdd.hAdd.{0, 0, 0} Real Real Real
+                                                          (@instHAdd.{0} Real Real.instAdd)
+                                                          (@HPow.hPow.{0, 0, 0} Real Real Real
+                                                            (@instHPow.{0, 0} Real Real Real.instPow)
+                                                            (@Min.min.{0} Real Real.instMin
+                                                              (@Nat.cast.{0} Real Real.instNatCast
+                                                                (@Luce.Section6.cornerDistance (side e) n (u e)))
+                                                              (@Nat.cast.{0} Real Real.instNatCast
+                                                                (@Luce.Section6.cornerDistance (side e) n (j e))))
+                                                            (@Neg.neg.{0} Real Real.instNeg kappa))
+                                                          (@HPow.hPow.{0, 0, 0} Real Real Real
+                                                            (@instHPow.{0, 0} Real Real Real.instPow)
+                                                            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                              (@instHDiv.{0} Real
+                                                                (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                                              (@Max.max.{0} Real Real.instMax
+                                                                (@Nat.cast.{0} Real Real.instNatCast
+                                                                  (@Luce.Section6.cornerDistance (side e) n (u e)))
+                                                                (@Nat.cast.{0} Real Real.instNatCast
+                                                                  (@Luce.Section6.cornerDistance (side e) n (j e))))
+                                                              (@Nat.cast.{0} Real Real.instNatCast n))
+                                                            kappa))))
+                                                  (∀ (A B : Real),
+                                                    @LT.lt.{0} Real Real.instLT
+                                                        (@OfNat.ofNat.{0} Real (nat_lit 0)
+                                                          (@Zero.toOfNat0.{0} Real Real.instZero))
+                                                        A →
+                                                      (∀ (e : Fin s),
+                                                          And
+                                                            (@LE.le.{0} Real Real.instLE A
+                                                              (@Nat.cast.{0} Real Real.instNatCast
+                                                                (@Luce.Section6.cornerDistance (side e) n (u e))))
+                                                            (And
+                                                              (@LE.le.{0} Real Real.instLE A
+                                                                (@Nat.cast.{0} Real Real.instNatCast
+                                                                  (@Luce.Section6.cornerDistance (side e) n (j e))))
+                                                              (And
+                                                                (@LE.le.{0} Real Real.instLE
+                                                                  (@Nat.cast.{0} Real Real.instNatCast
+                                                                    (@Luce.Section6.cornerDistance (side e) n (u e)))
+                                                                  B)
+                                                                (@LE.le.{0} Real Real.instLE
+                                                                  (@Nat.cast.{0} Real Real.instNatCast
+                                                                    (@Luce.Section6.cornerDistance (side e) n (j e)))
+                                                                  B)))) →
+                                                        @LE.le.{0} Real Real.instLE err
+                                                          (@HMul.hMul.{0, 0, 0} Real Real Real
+                                                            (@instHMul.{0} Real Real.instMul)
+                                                            (@HMul.hMul.{0, 0, 0} Real Real Real
+                                                              (@instHMul.{0} Real Real.instMul) C
+                                                              (@HAdd.hAdd.{0, 0, 0} Real Real Real
+                                                                (@instHAdd.{0} Real Real.instAdd)
+                                                                (@HPow.hPow.{0, 0, 0} Real Real Real
+                                                                  (@instHPow.{0, 0} Real Real Real.instPow) A
+                                                                  (@Neg.neg.{0} Real Real.instNeg kappa))
+                                                                (@HPow.hPow.{0, 0, 0} Real Real Real
+                                                                  (@instHPow.{0, 0} Real Real Real.instPow)
+                                                                  (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                                    (@instHDiv.{0} Real
+                                                                      (@DivInvMonoid.toDiv.{0} Real
+                                                                        Real.instDivInvMonoid))
+                                                                    B (@Nat.cast.{0} Real Real.instNatCast n))
+                                                                  kappa)))
+                                                            envelope))))))))))
+def Luce.Section6.Proposition65Contract.proposition65 : Prop :=
+And Luce.Section6.Proposition65Contract.localLaw Luce.Section6.Lemma64Contract.matrix
+theorem Luce.Section6.deletedD_le_populationD : ∀ {n : Nat} (w : Luce.Weights n) (removed : Finset.{0} (Fin n))
+  (k : Nat) (t : Real),
+  @LE.le.{0} Real Real.instLE (@Luce.Section6.deletedD n w removed k t) (@Luce.Section6.populationD n w k t) :=
+⋯
+'Luce.Section6.deletedD_le_populationD' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.deleted_weight_scaled_chebyshev : ∀ {n : Nat} (w : Luce.Weights n),
+  @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n →
+    ∀ (removed : Finset.{0} (Fin n)) {s t m C eps : Real},
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) s →
+        @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) t →
+          @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) m →
+            @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                eps →
+              @LE.le.{0} Real Real.instLE
+                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                    (@Nat.cast.{0} Real Real.instNatCast n)
+                    (@Luce.Section6.populationD n w (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) s))
+                  (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                    (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) C m)
+                    (@HPow.hPow.{0, 0, 0} Real Nat Real
+                      (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) t
+                      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))) →
+                @LE.le.{0} Real Real.instLE
+                  (@MeasureTheory.Measure.real.{0} (Fin n → Real)
+                    (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                    (@Luce.exponentialRace n w)
+                    (@Set.ofPred.{0} (Fin n → Real) fun old =>
+                      @LE.le.{0} Real Real.instLE
+                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) eps m) t)
+                        (@abs.{0} Real Real.lattice Real.instAddGroup
+                          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                            (∑
+                              i ∈
+                                @SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                  (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                  (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed,
+                              @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                (@Luce.Weights.rate n w i) (@Luce.clockSurvivalIndicator n s i old))
+                            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                              (@Nat.cast.{0} Real Real.instNatCast n)
+                              (@Luce.Section6.deletedD n w removed
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) s))))))
+                  (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                    (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) C
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@HPow.hPow.{0, 0, 0} Real Nat Real
+                        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) eps
+                        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                      m)) :=
+⋯
+'Luce.Section6.deleted_weight_scaled_chebyshev' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.PowerProfile.right_weight_quantile_concentration : ∀ {f : Real → Real}
+  {left : Luce.Section6.EndpointBehavior} {c beta eta : Real},
+  Luce.Section6.PowerProfile f left (Luce.Section6.EndpointBehavior.power c beta eta) →
+    ∃ C delta M,
+      And (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) C)
+        (And
+          (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            delta)
+          (And
+            (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) M)
+            (∀ (grid : Luce.Section6.SamplingGrid) (w : Luce.WeightArray),
+              Luce.Section6.SampledRates grid w f →
+                ∀ (n m : Nat),
+                  @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) m →
+                    @LT.lt.{0} Nat instLTNat m n →
+                      @LE.le.{0} Real Real.instLE M (@Nat.cast.{0} Real Real.instNatCast m) →
+                        @LT.lt.{0} Real Real.instLT
+                            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                              (@Nat.cast.{0} Real Real.instNatCast m) (@Nat.cast.{0} Real Real.instNatCast n))
+                            delta →
+                          have t := @Luce.Section6.rightQuantileTime n (w n) m;
+                          ∀ (s : Real),
+                            @LE.le.{0} Real Real.instLE
+                                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) t
+                                  (@OfNat.ofNat.{0} Real (nat_lit 4)
+                                    (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast ⋯)))
+                                s →
+                              @LE.le.{0} Real Real.instLE s
+                                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                    (@OfNat.ofNat.{0} Real (nat_lit 4)
+                                      (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast ⋯))
+                                    t) →
+                                ∀ (removed : Finset.{0} (Fin n)) (eps : Real),
+                                  @LT.lt.{0} Real Real.instLT
+                                      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) eps →
+                                    @LE.le.{0} Real Real.instLE
+                                      (@MeasureTheory.Measure.real.{0} (Fin n → Real)
+                                        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a =>
+                                          Real.measurableSpace)
+                                        (@Luce.exponentialRace n (w n))
+                                        (@Set.ofPred.{0} (Fin n → Real) fun old =>
+                                          @LE.le.{0} Real Real.instLE
+                                            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) eps
+                                                (@Nat.cast.{0} Real Real.instNatCast m))
+                                              t)
+                                            (@abs.{0} Real Real.lattice Real.instAddGroup
+                                              (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                                (∑
+                                                  i ∈
+                                                    @SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                                      (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                                      (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed,
+                                                  @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                                    (@Luce.Weights.rate n (w n) i)
+                                                    (@Luce.clockSurvivalIndicator n s i old))
+                                                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                                  (@Nat.cast.{0} Real Real.instNatCast n)
+                                                  (@Luce.Section6.deletedD n (w n) removed
+                                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                                    s))))))
+                                      (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                        (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) C
+                                        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                          (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                            (@instHPow.{0, 0} Real Nat
+                                              (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                            eps (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                                          (@Nat.cast.{0} Real Real.instNatCast m)))))) :=
+⋯
+'Luce.Section6.PowerProfile.right_weight_quantile_concentration' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+theorem Luce.Section6.PowerProfile.left_weight_quantile_concentration : ∀ {f : Real → Real}
+  {right : Luce.Section6.EndpointBehavior} {c alpha eta : Real},
+  Luce.Section6.PowerProfile f (Luce.Section6.EndpointBehavior.power c alpha eta) right →
+    ∃ C delta M,
+      And (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) C)
+        (And
+          (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            delta)
+          (And
+            (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) M)
+            (∀ (grid : Luce.Section6.SamplingGrid) (w : Luce.WeightArray),
+              Luce.Section6.SampledRates grid w f →
+                ∀ (n m : Nat),
+                  @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) m →
+                    @LT.lt.{0} Nat instLTNat m n →
+                      @LE.le.{0} Real Real.instLE M (@Nat.cast.{0} Real Real.instNatCast m) →
+                        @LT.lt.{0} Real Real.instLT
+                            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                              (@Nat.cast.{0} Real Real.instNatCast m) (@Nat.cast.{0} Real Real.instNatCast n))
+                            delta →
+                          have t := @Luce.Section6.leftQuantileTime n (w n) m;
+                          ∀ (s : Real),
+                            @LE.le.{0} Real Real.instLE
+                                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) t
+                                  (@OfNat.ofNat.{0} Real (nat_lit 4)
+                                    (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast ⋯)))
+                                s →
+                              @LE.le.{0} Real Real.instLE s
+                                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                    (@OfNat.ofNat.{0} Real (nat_lit 4)
+                                      (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast ⋯))
+                                    t) →
+                                ∀ (removed : Finset.{0} (Fin n)) (eps : Real),
+                                  @LT.lt.{0} Real Real.instLT
+                                      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) eps →
+                                    @LE.le.{0} Real Real.instLE
+                                      (@MeasureTheory.Measure.real.{0} (Fin n → Real)
+                                        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a =>
+                                          Real.measurableSpace)
+                                        (@Luce.exponentialRace n (w n))
+                                        (@Set.ofPred.{0} (Fin n → Real) fun old =>
+                                          @LE.le.{0} Real Real.instLE
+                                            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) eps
+                                                (@Nat.cast.{0} Real Real.instNatCast m))
+                                              t)
+                                            (@abs.{0} Real Real.lattice Real.instAddGroup
+                                              (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                                (∑
+                                                  i ∈
+                                                    @SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                                      (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                                      (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed,
+                                                  @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                                    (@Luce.Weights.rate n (w n) i)
+                                                    (@Luce.clockSurvivalIndicator n s i old))
+                                                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                                  (@Nat.cast.{0} Real Real.instNatCast n)
+                                                  (@Luce.Section6.deletedD n (w n) removed
+                                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))
+                                                    s))))))
+                                      (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                        (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) C
+                                        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                          (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                            (@instHPow.{0, 0} Real Nat
+                                              (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                            eps (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                                          (@Nat.cast.{0} Real Real.instNatCast m)))))) :=
+⋯
+'Luce.Section6.PowerProfile.left_weight_quantile_concentration' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+theorem Luce.Section6.deleted_surviving_weight_antitone : ∀ {n : Nat} (w : Luce.Weights n)
+  (removed : Finset.{0} (Fin n)) (old : Fin n → Real),
+  @Antitone.{0, 0} Real Real Real.instPreorder Real.instPreorder fun t =>
+    ∑
+      i ∈
+        @SDiff.sdiff.{0} (Finset.{0} (Fin n)) (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+          (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed,
+      @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Luce.Weights.rate n w i)
+        (@Luce.clockSurvivalIndicator n t i old) :=
+⋯
+'Luce.Section6.deleted_surviving_weight_antitone' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.raceGapRate_eq_surviving_weight : ∀ {n : Nat} (w : Luce.Weights n) (old : Fin n → Real),
+  @Function.Injective.{1, 1} (Fin n) Real old →
+    (∀ (i : Fin n),
+        @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+          (old i)) →
+      ∀ (q : Fin n),
+        @Eq.{1} Real (@Luce.raceGapRate n w old q)
+          (∑ i,
+            @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Luce.Weights.rate n w i)
+              (@Luce.clockSurvivalIndicator n (@Luce.raceGapStart n old q) i old)) :=
+⋯
+'Luce.Section6.raceGapRate_eq_surviving_weight' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.deleted_gap_rate_eq_surviving_weight : ∀ {n : Nat} (w : Luce.Weights n)
+  (removed : Finset.{0} (Fin n)) (old : Fin n → Real),
+  @Function.Injective.{1, 1} (Fin n) Real old →
+    (∀ (i : Fin n),
+        @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+          (old i)) →
+      ∀
+        (q :
+          Fin
+            (@Finset.card.{0} (Fin n)
+              (@SDiff.sdiff.{0} (Finset.{0} (Fin n)) (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed))),
+        @Eq.{1} Real
+          (@Luce.raceGapRate
+            (@Finset.card.{0} (Fin n)
+              (@SDiff.sdiff.{0} (Finset.{0} (Fin n)) (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed))
+            (@Luce.compactDeletedWeights n w removed) (@Luce.compactDeletedClocks n removed old) q)
+          (∑
+            i ∈
+              @SDiff.sdiff.{0} (Finset.{0} (Fin n)) (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed,
+            @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Luce.Weights.rate n w i)
+              (@Luce.clockSurvivalIndicator n
+                (@Luce.raceGapStart
+                  (@Finset.card.{0} (Fin n)
+                    (@SDiff.sdiff.{0} (Finset.{0} (Fin n)) (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                      (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed))
+                  (@Luce.compactDeletedClocks n removed old) q)
+                i old)) :=
+⋯
+'Luce.Section6.deleted_gap_rate_eq_surviving_weight' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.deleted_weight_random_time_bound : ∀ {n : Nat} (w : Luce.Weights n) (removed : Finset.{0} (Fin n))
+  (old : Fin n → Real) {lo hi tau M err : Real},
+  @LE.le.{0} Real Real.instLE lo tau →
+    @LE.le.{0} Real Real.instLE tau hi →
+      @LE.le.{0} Real Real.instLE
+          (@abs.{0} Real Real.lattice Real.instAddGroup
+            (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+              (∑
+                i ∈
+                  @SDiff.sdiff.{0} (Finset.{0} (Fin n)) (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                    (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed,
+                @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Luce.Weights.rate n w i)
+                  (@Luce.clockSurvivalIndicator n lo i old))
+              M))
+          err →
+        @LE.le.{0} Real Real.instLE
+            (@abs.{0} Real Real.lattice Real.instAddGroup
+              (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                (∑
+                  i ∈
+                    @SDiff.sdiff.{0} (Finset.{0} (Fin n)) (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                      (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed,
+                  @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Luce.Weights.rate n w i)
+                    (@Luce.clockSurvivalIndicator n hi i old))
+                M))
+            err →
+          @LE.le.{0} Real Real.instLE
+            (@abs.{0} Real Real.lattice Real.instAddGroup
+              (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                (∑
+                  i ∈
+                    @SDiff.sdiff.{0} (Finset.{0} (Fin n)) (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                      (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed,
+                  @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Luce.Weights.rate n w i)
+                    (@Luce.clockSurvivalIndicator n tau i old))
+                M))
+            err :=
+⋯
+'Luce.Section6.deleted_weight_random_time_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.deleted_gap_rate_eq_surviving_weight_ae : ∀ {n : Nat} (w : Luce.Weights n)
+  (removed : Finset.{0} (Fin n))
+  (q :
+    Fin
+      (@Finset.card.{0} (Fin n)
+        (@SDiff.sdiff.{0} (Finset.{0} (Fin n)) (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+          (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed))),
+  @Filter.Eventually.{0} (Fin n → Real)
+    (fun old =>
+      @Eq.{1} Real
+        (@Luce.raceGapRate
+          (@Finset.card.{0} (Fin n)
+            (@SDiff.sdiff.{0} (Finset.{0} (Fin n)) (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+              (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed))
+          (@Luce.compactDeletedWeights n w removed) (@Luce.compactDeletedClocks n removed old) q)
+        (∑
+          i ∈
+            @SDiff.sdiff.{0} (Finset.{0} (Fin n)) (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+              (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed,
+          @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Luce.Weights.rate n w i)
+            (@Luce.clockSurvivalIndicator n
+              (@Luce.raceGapStart
+                (@Finset.card.{0} (Fin n)
+                  (@SDiff.sdiff.{0} (Finset.{0} (Fin n)) (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                    (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed))
+                (@Luce.compactDeletedClocks n removed old) q)
+              i old)))
+    (@MeasureTheory.ae.{0, 0} (Fin n → Real)
+      (@MeasureTheory.Measure.{0} (Fin n → Real)
+        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace))
+      (@MeasureTheory.Measure.instFunLike.{0} (Fin n → Real)
+        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace))
+      ⋯ (@Luce.exponentialRace n w)) :=
+⋯
+'Luce.Section6.deleted_gap_rate_eq_surviving_weight_ae' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+```
+
+No main-theorem or contract-check axiom output exists because those proofs remain absent.
+See section6-proposition65-audit.md for the full obligation ledger and actual command results.

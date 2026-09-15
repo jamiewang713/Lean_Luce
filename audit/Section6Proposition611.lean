@@ -1,0 +1,119 @@
+import Luce.Section6Proposition611Audit
+
+set_option pp.explicit true
+set_option pp.universes true
+set_option pp.fullNames true
+set_option pp.proofs false
+
+#print Luce.Section6.Proposition611Contract.proposition611
+
+#check Luce.BernoulliCLT.coefficient_re_nonpos
+#print axioms Luce.BernoulliCLT.coefficient_re_nonpos
+#check Luce.BernoulliCLT.coefficient_norm_le
+#print axioms Luce.BernoulliCLT.coefficient_norm_le
+#check Luce.BernoulliCLT.coefficient_neg_re_le
+#print axioms Luce.BernoulliCLT.coefficient_neg_re_le
+#check Luce.BernoulliCLT.exp_compensation_error
+#print axioms Luce.BernoulliCLT.exp_compensation_error
+#check Luce.BernoulliCLT.coefficient_norm_le_two
+#print axioms Luce.BernoulliCLT.coefficient_norm_le_two
+#check Luce.BernoulliCLT.coefficient_norm_le_all
+#print axioms Luce.BernoulliCLT.coefficient_norm_le_all
+#check Luce.BernoulliCLT.coefficient_neg_re_le_all
+#print axioms Luce.BernoulliCLT.coefficient_neg_re_le_all
+#check Luce.BernoulliCLT.norm_exp_le_one
+#print axioms Luce.BernoulliCLT.norm_exp_le_one
+#check Luce.BernoulliCLT.exp_difference_le
+#print axioms Luce.BernoulliCLT.exp_difference_le
+#check Luce.BernoulliProcess.cltCount_measurable
+#print axioms Luce.BernoulliProcess.cltCount_measurable
+#check Luce.BernoulliProcess.cltMass_measurable
+#print axioms Luce.BernoulliProcess.cltMass_measurable
+#check Luce.BernoulliProcess.cltSquares_measurable
+#print axioms Luce.BernoulliProcess.cltSquares_measurable
+#check Luce.BernoulliProcess.cltMass_nonneg
+#print axioms Luce.BernoulliProcess.cltMass_nonneg
+#check Luce.BernoulliProcess.cltSquares_nonneg
+#print axioms Luce.BernoulliProcess.cltSquares_nonneg
+#check Luce.BernoulliProcess.cltSquares_le_mass
+#print axioms Luce.BernoulliProcess.cltSquares_le_mass
+#check Luce.BernoulliProcess.cltMass_mono
+#print axioms Luce.BernoulliProcess.cltMass_mono
+#check Luce.BernoulliProcess.cltSquares_integrable
+#print axioms Luce.BernoulliProcess.cltSquares_integrable
+#check Luce.BernoulliProcess.characteristicCompensation_adapted
+#print axioms Luce.BernoulliProcess.characteristicCompensation_adapted
+#check Luce.BernoulliProcess.characteristicCompensation_norm
+#print axioms Luce.BernoulliProcess.characteristicCompensation_norm
+#check Luce.BernoulliProcess.characteristicCompensation_bound
+#print axioms Luce.BernoulliProcess.characteristicCompensation_bound
+#check Luce.BernoulliProcess.characteristicCompensation_integrable
+#print axioms Luce.BernoulliProcess.characteristicCompensation_integrable
+#check Luce.BernoulliProcess.integrable_observation_smul
+#print axioms Luce.BernoulliProcess.integrable_observation_smul
+#check Luce.BernoulliProcess.integrable_probability_smul
+#print axioms Luce.BernoulliProcess.integrable_probability_smul
+#check Luce.BernoulliProcess.integral_predictable_observation_smul
+#print axioms Luce.BernoulliProcess.integral_predictable_observation_smul
+#check Luce.BernoulliProcess.integral_bernoulli_affine
+#print axioms Luce.BernoulliProcess.integral_bernoulli_affine
+#check Luce.BernoulliProcess.characteristicCompensation_succ
+#print axioms Luce.BernoulliProcess.characteristicCompensation_succ
+#check Luce.BernoulliProcess.integrable_compensation_prefactor
+#print axioms Luce.BernoulliProcess.integrable_compensation_prefactor
+#check Luce.BernoulliProcess.integral_characteristicCompensation_succ
+#print axioms Luce.BernoulliProcess.integral_characteristicCompensation_succ
+#check Luce.BernoulliProcess.compensation_drift_integrable
+#print axioms Luce.BernoulliProcess.compensation_drift_integrable
+#check Luce.BernoulliProcess.integral_compensation_drift
+#print axioms Luce.BernoulliProcess.integral_compensation_drift
+#check Luce.BernoulliProcess.characteristicCompensation_step_error
+#print axioms Luce.BernoulliProcess.characteristicCompensation_step_error
+#check Luce.BernoulliProcess.characteristicCompensation_error
+#print axioms Luce.BernoulliProcess.characteristicCompensation_error
+#check Luce.BernoulliCLT.integral_complex_difference_off
+#print axioms Luce.BernoulliCLT.integral_complex_difference_off
+#check Luce.BernoulliCLT.integral_complex_product_error
+#print axioms Luce.BernoulliCLT.integral_complex_product_error
+#check Luce.BernoulliCLT.integral_exp_difference_tendsto
+#print axioms Luce.BernoulliCLT.integral_exp_difference_tendsto
+#check Luce.BernoulliCLT.gaussian_exponent_error
+#print axioms Luce.BernoulliCLT.gaussian_exponent_error
+#check Luce.BernoulliCLT.gaussian_exponent_tendsto
+#print axioms Luce.BernoulliCLT.gaussian_exponent_tendsto
+#check Luce.BernoulliCLT.gaussian_factor_tendsto
+#print axioms Luce.BernoulliCLT.gaussian_factor_tendsto
+#check Luce.BernoulliProcess.stop_cltMass_le
+#print axioms Luce.BernoulliProcess.stop_cltMass_le
+#check Luce.BernoulliProcess.stop_cltSquares_le
+#print axioms Luce.BernoulliProcess.stop_cltSquares_le
+#check Luce.BernoulliProcess.stop_clt_eq_of_mass_le
+#print axioms Luce.BernoulliProcess.stop_clt_eq_of_mass_le
+#check Luce.BernoulliCLT.relative_mass_probability
+#print axioms Luce.BernoulliCLT.relative_mass_probability
+#check Luce.BernoulliCLT.mass_cap_probability
+#print axioms Luce.BernoulliCLT.mass_cap_probability
+#check Luce.BernoulliCLT.scaled_coefficient_bounds
+#print axioms Luce.BernoulliCLT.scaled_coefficient_bounds
+#check Luce.BernoulliCLT.capped_compensation_tendsto
+#print axioms Luce.BernoulliCLT.capped_compensation_tendsto
+#check Luce.BernoulliCLT.capped_characteristic_tendsto
+#print axioms Luce.BernoulliCLT.capped_characteristic_tendsto
+#check Luce.BernoulliCLT.characteristic_tendsto_of_one_le
+#print axioms Luce.BernoulliCLT.characteristic_tendsto_of_one_le
+#check Luce.BernoulliCLT.characteristic_tendsto
+#print axioms Luce.BernoulliCLT.characteristic_tendsto
+#check Luce.BernoulliCLT.boundedContinuous_tendsto
+#print axioms Luce.BernoulliCLT.boundedContinuous_tendsto
+#check Luce.FiniteAdaptedBernoulli.toProcess_cltCount
+#print axioms Luce.FiniteAdaptedBernoulli.toProcess_cltCount
+#check Luce.FiniteAdaptedBernoulli.toProcess_cltMass
+#print axioms Luce.FiniteAdaptedBernoulli.toProcess_cltMass
+#check Luce.FiniteAdaptedBernoulli.toProcess_cltSquares
+#print axioms Luce.FiniteAdaptedBernoulli.toProcess_cltSquares
+#check Luce.FiniteAdaptedBernoulli.integral_observation_sum_eq_probability_sum
+#print axioms Luce.FiniteAdaptedBernoulli.integral_observation_sum_eq_probability_sum
+#check Luce.Section6.proposition611
+#print axioms Luce.Section6.proposition611
+#check Luce.Section6.proposition611_contractCheck
+#print axioms Luce.Section6.proposition611_contractCheck

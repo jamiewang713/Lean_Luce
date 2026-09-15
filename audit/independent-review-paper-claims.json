@@ -1,0 +1,856 @@
+[
+  {
+    "number": "1.1",
+    "kind": "assumption",
+    "labels": [
+      "ass:profile",
+      "eq:L1-profile"
+    ],
+    "line": 225,
+    "statement": "\\label{ass:profile}\nThere is a measurable $f:(0,1)\\to(0,\\infty)$ such that\n\\begin{equation}\\label{eq:L1-profile}\n \\lVert f_n-f\\rVert_{L^1(0,1)}\\longrightarrow0.\n\\end{equation}\nIn particular, $\\int_0^1f=1$.",
+    "source_label_mentions": [
+      {
+        "file": "Luce/Assumptions.lean",
+        "labels": [
+          "ass:profile",
+          "eq:L1-profile"
+        ]
+      }
+    ]
+  },
+  {
+    "number": "1.2",
+    "kind": "assumption",
+    "labels": [
+      "ass:fixed-endpoint",
+      "eq:shell-endpoint-condition"
+    ],
+    "line": 272,
+    "statement": "[Endpoint shell capacity]\n\\label{ass:fixed-endpoint}\nUnder the normalization~\\eqref{eq:normalization},\n\\begin{equation}\\label{eq:shell-endpoint-condition}\n \\lim_{J\\to\\infty}\\limsup_{n\\to\\infty}\n \\sum_{\\substack{j\\ge J\\\\\\mathcal D_{n,j}\\ne\\varnothing}}\n \\exp\\{-b_{n,j}j\\}=0.\n\\end{equation}",
+    "source_label_mentions": [
+      {
+        "file": "Luce/EndpointShellDefinitions.lean",
+        "labels": [
+          "ass:fixed-endpoint"
+        ]
+      }
+    ]
+  },
+  {
+    "number": "1.3",
+    "kind": "theorem",
+    "labels": [
+      "thm:main-poisson",
+      "eq:point-process-limit",
+      "eq:count-poisson"
+    ],
+    "line": 318,
+    "statement": "\\label{thm:main-poisson}\nUnder Assumptions~\\ref{ass:profile} and~\\ref{ass:fixed-endpoint},\n\\begin{equation}\\label{eq:point-process-limit}\n \\Xi_n\\ \\Longrightarrow\\ \\operatorname{PRM}\n \\bigl(\\rho(x,x)\\,dx\\bigr)\n\\end{equation}\nas random finite point measures on $[0,1]$.  In particular,\n\\begin{equation}\\label{eq:count-poisson}\n d_{\\TV}\\bigl(\\cL(X_n),\\Poi(\\lambda)\\bigr)\\longrightarrow0,\n \\qquad\n \\lambda:=\\int_0^1\\rho(x,x)\\,dx<\\infty.\n\\end{equation}",
+    "source_label_mentions": [
+      {
+        "file": "Luce/Section4CountLaw.lean",
+        "labels": [
+          "thm:main-poisson"
+        ]
+      },
+      {
+        "file": "Luce/Section4Poisson.lean",
+        "labels": [
+          "thm:main-poisson",
+          "eq:point-process-limit"
+        ]
+      },
+      {
+        "file": "Luce/Section4ShellPoisson.lean",
+        "labels": [
+          "thm:main-poisson",
+          "eq:point-process-limit"
+        ]
+      },
+      {
+        "file": "Luce/Section4ShellTotalVariation.lean",
+        "labels": [
+          "eq:count-poisson"
+        ]
+      },
+      {
+        "file": "Luce/Section4Theorem.lean",
+        "labels": [
+          "thm:main-poisson"
+        ]
+      },
+      {
+        "file": "Luce/Section4TotalVariation.lean",
+        "labels": [
+          "eq:count-poisson"
+        ]
+      },
+      {
+        "file": "Luce/ShellMigrationContract.lean",
+        "labels": [
+          "thm:main-poisson"
+        ]
+      }
+    ]
+  },
+  {
+    "number": "1.4",
+    "kind": "theorem",
+    "labels": [
+      "thm:short-cycles",
+      "eq:cycle-vector-limit"
+    ],
+    "line": 343,
+    "statement": "\\label{thm:short-cycles}\nUnder Assumptions~\\ref{ass:profile} and~\\ref{ass:fixed-endpoint}, for every\nfixed $L$,\n\\begin{equation}\\label{eq:cycle-vector-limit}\n (C_{n,1},\\ldots,C_{n,L}) \\Longrightarrow\\\n (Z_1,\\ldots,Z_L),\n\\end{equation}\nwhere $Z_1,\\ldots,Z_L$ are independent and\n$Z_\\ell\\sim\\Poi(\\lambda_\\ell)$.  The convergence in\n\\eqref{eq:cycle-vector-limit} also holds in total variation on\n$\\mathbb Z_+^L$.",
+    "source_label_mentions": [
+      {
+        "file": "Luce/Section5ShellContract.lean",
+        "labels": [
+          "thm:short-cycles"
+        ]
+      }
+    ]
+  },
+  {
+    "number": "1.5",
+    "kind": "assumption",
+    "labels": [
+      "ass:simple-power-profile"
+    ],
+    "line": 385,
+    "statement": "\\label{ass:simple-power-profile}\nFor some continuous $f:(0,1)\\to(0,\\infty)$,\n\\[\n \\theta_{n,i}=f((i-1/2)/n).\n\\]\nAt the right endpoint we allow either a power zero\n\\[\n f(1-s)=c_Rs^\\beta(1+O(s^\\eta)),\n \\qquad \\beta,c_R,\\eta>0,\n\\]\nor a finite positive limit.  At the left endpoint we allow either a\nnonintegrable power pole\n\\[\n f(s)=c_Ls^{-\\alpha}(1+O(s^\\eta)),\n \\qquad \\alpha>1,\\quad c_L,\\eta>0,\n\\]\nor a finite positive limit.  At least one of the two power behaviors is\npresent.",
+    "source_label_mentions": [
+      {
+        "file": "Luce/Section6ProfileDefinitions.lean",
+        "labels": [
+          "ass:simple-power-profile"
+        ]
+      }
+    ]
+  },
+  {
+    "number": "1.6",
+    "kind": "theorem",
+    "labels": [
+      "thm:power-clt",
+      "eq:power-clt"
+    ],
+    "line": 434,
+    "statement": "\\label{thm:power-clt}\nUnder Assumption~\\ref{ass:simple-power-profile}, for every fixed $L$,\n\\begin{equation}\\label{eq:power-clt}\n \\left(\n \\frac{C_{n,\\ell}-B_\\ell\\log n}\n {\\sqrt{B_\\ell\\log n}}\n \\right)_{\\ell=1}^L\n \\ \\Longrightarrow\\ (Z_1,\\ldots,Z_L),\n\\end{equation}\nwhere $Z_1,\\ldots,Z_L$ are independent standard normal variables.  Moreover,\n$\\E C_{n,\\ell}\\sim B_\\ell\\log n$ for every fixed $\\ell$.",
+    "source_label_mentions": []
+  },
+  {
+    "number": "1.7",
+    "kind": "theorem",
+    "labels": [
+      "thm:power-spatial",
+      "eq:power-spatial-clt",
+      "eq:power-spatial-mean"
+    ],
+    "line": 465,
+    "statement": "\\label{thm:power-spatial}\nUnder the assumptions of Theorem~\\ref{thm:power-clt}, fix pairwise disjoint\nintervals $I_1,\\ldots,I_J$ whose closures lie in $(0,1)$, and fix $L$.\nJointly over active corners $\\sigma$, lengths $1\\le\\ell\\le L$, and\n$1\\le j\\le J$,\n\\begin{equation}\\label{eq:power-spatial-clt}\n \\frac{C_{n,\\ell}^{\\sigma}(I_j)\n   -b_{\\sigma,\\ell}|I_j|\\log n}\n  {\\sqrt{b_{\\sigma,\\ell}|I_j|\\log n}}\n \\ \\Longrightarrow\\ \\mathcal N(0,1),\n\\end{equation}\nwith independent limits.  Moreover, for every such interval $I$,\n\\begin{equation}\\label{eq:power-spatial-mean}\n \\E C_{n,\\ell}^{\\sigma}(I)\n =b_{\\sigma,\\ell}|I|\\log n+o(\\log n).\n\\end{equation}",
+    "source_label_mentions": []
+  },
+  {
+    "number": "1.8",
+    "kind": "theorem",
+    "labels": [
+      "thm:critical-pole",
+      "eq:critical-fixed-clt"
+    ],
+    "line": 499,
+    "statement": "\\label{thm:critical-pole}\nSuppose $\\theta_{n,i}=f((i-1/2)/n)$ for a continuous positive $f$ satisfying\n\\[\n f(s)=c_Ls^{-1}(1+O(s^\\eta))\n \\quad(s\\downarrow0)\n\\]\nfor some $c_L,\\eta>0$, and suppose $f$ has a finite positive limit at $1$.\nThen\n\\begin{equation}\\label{eq:critical-fixed-clt}\n \\frac{C_{n,1}-\\log\\log n}{\\sqrt{\\log\\log n}}\n \\Longrightarrow\\mathcal N(0,1),\n \\qquad\n \\E C_{n,1}\\sim\\log\\log n.\n\\end{equation}\nFor every fixed $\\ell\\ge2$, one has $\\sup_n\\E C_{n,\\ell}<\\infty$.",
+    "source_label_mentions": [
+      {
+        "file": "Luce/Section6ProfileDefinitions.lean",
+        "labels": [
+          "thm:critical-pole"
+        ]
+      }
+    ]
+  },
+  {
+    "number": "1.9",
+    "kind": "corollary",
+    "labels": [
+      "cor:sukhatme",
+      "eq:sukhatme-cycle-clt"
+    ],
+    "line": 533,
+    "statement": "\\label{cor:sukhatme}\nLet $\\pi_n$ be a Luce permutation with the standard Sukhatme weights\n\\[\n \\theta_{n,i}=n-i+1,\n \\qquad 1\\le i\\le n.\n\\]\nPut $p(w):=e^we^{-e^w}$ and\n$b_\\ell:=p^{*\\ell}(0)/\\ell$.  For every fixed $L$,\n\\begin{equation}\\label{eq:sukhatme-cycle-clt}\n \\left(\n \\frac{C_{n,\\ell}-b_\\ell\\log n}{\\sqrt{b_\\ell\\log n}}\n \\right)_{\\ell=1}^L\n \\Longrightarrow (Z_1,\\ldots,Z_L),\n\\end{equation}\nwhere the coordinates on the right are independent standard normal random\nvariables, and $\\E C_{n,\\ell}\\sim b_\\ell\\log n$.  The spatial conclusion of\nTheorem~\\ref{thm:power-spatial} also holds, with a single active right corner\nand coefficients $b_\\ell$.  In particular,\n\\[\n \\frac{C_{n,1}-e^{-1}\\log n}{\\sqrt{e^{-1}\\log n}}\n \\Longrightarrow\\mathcal N(0,1),\n \\qquad\n b_2=K_0(2)\\approx0.113894,\n\\]\nwhere $K_0$ is the modified Bessel function of the second kind.",
+    "source_label_mentions": []
+  },
+  {
+    "number": "2.1",
+    "kind": "lemma",
+    "labels": [
+      "lem:predictable-poisson",
+      "eq:poisson-criterion"
+    ],
+    "line": 607,
+    "statement": "\\label{lem:predictable-poisson}\nLet $I_{n,k}\\in\\{0,1\\}$ be adapted, let $x_{n,k}$ be deterministic points in\na compact space $\\mathsf X$, and let\n$p_{n,k}=\\E(I_{n,k}\\mid\\cF_{n,k-1})$.  Suppose that for a finite deterministic\nmeasure $\\nu$ on $\\mathsf X$,\n\\begin{equation}\\label{eq:poisson-criterion}\n \\sum_kp_{n,k}\\delta_{x_{n,k}}\\Longrightarrow\\nu\n \\quad\\text{in probability},\n \\qquad\n \\max_kp_{n,k}\\longrightarrow0\n \\quad\\text{in probability}.\n\\end{equation}\nThen $\\sum_k I_{n,k}\\delta_{x_{n,k}}$ converges to a Poisson random measure\nwith intensity $\\nu$.",
+    "source_label_mentions": [
+      {
+        "file": "Luce/BernoulliPointMeasure.lean",
+        "labels": [
+          "lem:predictable-poisson"
+        ]
+      },
+      {
+        "file": "Luce/CappedPoisson.lean",
+        "labels": [
+          "lem:predictable-poisson"
+        ]
+      },
+      {
+        "file": "Luce/FiniteAdaptedBernoulli.lean",
+        "labels": [
+          "lem:predictable-poisson"
+        ]
+      },
+      {
+        "file": "Luce/FinitePointMeasure.lean",
+        "labels": [
+          "lem:predictable-poisson"
+        ]
+      },
+      {
+        "file": "Luce/PoissonCriterion.lean",
+        "labels": [
+          "lem:predictable-poisson",
+          "eq:poisson-criterion"
+        ]
+      },
+      {
+        "file": "Luce/PoissonMixture.lean",
+        "labels": [
+          "lem:predictable-poisson"
+        ]
+      },
+      {
+        "file": "Luce/Predictable.lean",
+        "labels": [
+          "lem:predictable-poisson"
+        ]
+      },
+      {
+        "file": "Luce/Stopping.lean",
+        "labels": [
+          "lem:predictable-poisson"
+        ]
+      },
+      {
+        "file": "Luce/UncappedPoisson.lean",
+        "labels": [
+          "lem:predictable-poisson"
+        ]
+      },
+      {
+        "file": "Luce/WeakMeasureProbability.lean",
+        "labels": [
+          "eq:poisson-criterion"
+        ]
+      }
+    ]
+  },
+  {
+    "number": "3.1",
+    "kind": "lemma",
+    "labels": [
+      "lem:race-law",
+      "eq:uniform-race",
+      "eq:uniform-quantile",
+      "eq:uniform-denominator"
+    ],
+    "line": 705,
+    "statement": "\\label{lem:race-law}\nUnder Assumption~\\ref{ass:profile}, for every finite $T$,\n\\begin{equation}\\label{eq:uniform-race}\n \\sup_{0\\le t\\le T}|\\widehat F_n(t)-F(t)|\\longrightarrow0,\n \\qquad\n \\sup_{0\\le t\\le T}|\\widehat D_n(t)-D(t)|\\longrightarrow0\n\\end{equation}\nin probability.  Consequently, for every $\\alpha<1$,\n\\begin{equation}\\label{eq:uniform-quantile}\n \\max_{1\\le k\\le\\alpha n}|\\tau_{n,k}-t_{k/n}|\\longrightarrow0\n \\quad\\text{in probability}\n\\end{equation}\nand\n\\begin{equation}\\label{eq:uniform-denominator}\n \\max_{1\\le k\\le\\alpha n}\n \\left|\\frac{W_{n,k}}n-D(t_{k/n})\\right|\\longrightarrow0\n \\quad\\text{in probability}.\n\\end{equation}",
+    "source_label_mentions": [
+      {
+        "file": "Luce/EmpiricalRace.lean",
+        "labels": [
+          "eq:uniform-race"
+        ]
+      },
+      {
+        "file": "Luce/Section3OrderStats.lean",
+        "labels": [
+          "eq:uniform-quantile",
+          "eq:uniform-denominator"
+        ]
+      },
+      {
+        "file": "Luce/Section3Quantile.lean",
+        "labels": [
+          "eq:uniform-quantile"
+        ]
+      },
+      {
+        "file": "Luce/Section3Race.lean",
+        "labels": [
+          "eq:uniform-race"
+        ]
+      },
+      {
+        "file": "Luce/Section3RemainingWeight.lean",
+        "labels": [
+          "eq:uniform-denominator"
+        ]
+      }
+    ]
+  },
+  {
+    "number": "3.2",
+    "kind": "proposition",
+    "labels": [
+      "prop:interior-compensator",
+      "eq:weighted-compensator",
+      "eq:interior-max-p"
+    ],
+    "line": 753,
+    "statement": "\\label{prop:interior-compensator}\nUnder Assumption~\\ref{ass:profile}, for every $\\alpha<1$ and every continuous\n$g:[0,\\alpha]\\to\\R$,\n\\begin{equation}\\label{eq:weighted-compensator}\n \\sum_{k\\le\\alpha n}g(k/n)p_{n,k}\n \\longrightarrow\n \\int_0^\\alpha g(x)\\rho(x,x)\\,dx\n\\end{equation}\nin probability.  Moreover,\n\\begin{equation}\\label{eq:interior-max-p}\n \\max_{k\\le\\alpha n}p_{n,k}\\longrightarrow0\n \\quad\\text{in probability}.\n\\end{equation}",
+    "source_label_mentions": [
+      {
+        "file": "Luce/Section3CompensatorLimit.lean",
+        "labels": [
+          "eq:weighted-compensator"
+        ]
+      },
+      {
+        "file": "Luce/Section3LuceCompensator.lean",
+        "labels": [
+          "eq:weighted-compensator",
+          "eq:interior-max-p"
+        ]
+      },
+      {
+        "file": "Luce/Section3Probability.lean",
+        "labels": [
+          "eq:interior-max-p"
+        ]
+      }
+    ]
+  },
+  {
+    "number": "3.3",
+    "kind": "corollary",
+    "labels": [
+      "cor:interior-poisson",
+      "eq:interior-poisson"
+    ],
+    "line": 826,
+    "statement": "\\label{cor:interior-poisson}\nFor every $\\alpha<1$,\n\\begin{equation}\\label{eq:interior-poisson}\n \\Xi_n|_{[0,\\alpha]}\\Longrightarrow\n \\operatorname{PRM}\\bigl(\\rho(x,x)\\one_{[0,\\alpha]}(x)\\,dx\\bigr).\n\\end{equation}",
+    "source_label_mentions": []
+  },
+  {
+    "number": "4.1",
+    "kind": "lemma",
+    "labels": [
+      "lem:rank-integral",
+      "eq:rank-integral"
+    ],
+    "line": 853,
+    "statement": "\\label{lem:rank-integral}\nFor every label $k$,\n\\begin{equation}\\label{eq:rank-integral}\n \\Pp(R_k=k)=\n \\int_0^\\infty \\theta_k e^{-\\theta_k t}\n \\Pp\\left(\\sum_{j\\ne k}\\one\\{E_j>t\\}=n-k\\right)dt.\n\\end{equation}",
+    "source_label_mentions": [
+      {
+        "file": "Luce/ApprovedRankIntegral.lean",
+        "labels": [
+          "lem:rank-integral",
+          "eq:rank-integral"
+        ]
+      },
+      {
+        "file": "Luce/ExponentialRace.lean",
+        "labels": [
+          "eq:rank-integral"
+        ]
+      },
+      {
+        "file": "Luce/RankProbability.lean",
+        "labels": [
+          "eq:rank-integral"
+        ]
+      }
+    ]
+  },
+  {
+    "number": "4.2",
+    "kind": "proposition",
+    "labels": [
+      "prop:block-endpoint-capacity",
+      "eq:block-endpoint-capacity"
+    ],
+    "line": 882,
+    "statement": "[Block endpoint capacity]\n\\label{prop:block-endpoint-capacity}\nLet $\\mathcal B\\subseteq[n]$ be a nonempty set of terminal depths, and put\n\\[\n r_{\\mathcal B}:=\\max\\mathcal B,\n \\qquad\n a_{\\mathcal B}:=\\min_{m\\in\\mathcal B}\\theta_{k_m}.\n\\]\nFor $t_{\\mathcal B}>0$, set\n\\[\n B_{\\mathcal B}:=S(t_{\\mathcal B})-1.\n\\]\nIf $B_{\\mathcal B}>r_{\\mathcal B}$, then\n\\begin{equation}\\label{eq:block-endpoint-capacity}\n \\E\\sum_{m\\in\\mathcal B}I_{k_m}\n \\le\n |\\mathcal B|\n \\exp\\left\\{-\\frac{(B_{\\mathcal B}-r_{\\mathcal B})^2}\n                         {2B_{\\mathcal B}}\\right\\}\n +\\mathcal Q(a_{\\mathcal B}t_{\\mathcal B}).\n\\end{equation}",
+    "source_label_mentions": [
+      {
+        "file": "Luce/EndpointBlockCapacity.lean",
+        "labels": [
+          "eq:block-endpoint-capacity"
+        ]
+      }
+    ]
+  },
+  {
+    "number": "4.3",
+    "kind": "lemma",
+    "labels": [
+      "lem:slow-label-charge",
+      "eq:slow-label-charge"
+    ],
+    "line": 959,
+    "statement": "[Individual slow-label charge]\n\\label{lem:slow-label-charge}\nFor every $m$,\n\\begin{equation}\\label{eq:slow-label-charge}\n \\Pp(R_{k_m}=k_m)\n \\le\n \\frac{\\theta_{k_m}}\n      {\\theta_{k_m}+A_{m-1}^{(-k_m)}}.\n\\end{equation}",
+    "source_label_mentions": []
+  },
+  {
+    "number": "4.4",
+    "kind": "proposition",
+    "labels": [
+      "prop:uniform-endpoint-bound",
+      "eq:B-definition",
+      "eq:tail-explicit",
+      "eq:tail-epsilon"
+    ],
+    "line": 987,
+    "statement": "\\label{prop:uniform-endpoint-bound}\nAssume~\\eqref{eq:normalization}.  Let $1\\le M\\le\\eps_0n$, and suppose\n$\\theta_{k_m}\\ge\\gamma$ for $1\\le m\\le M$.  Put\n\\begin{equation}\\label{eq:B-definition}\n B:=\\sqrt{nM},\n\\end{equation}\nand let $s$ be determined by $S(s)=B$.  If $M\\le(B-1)/2$ and $s\\ge1/\\gamma$,\nthen for a universal $c>0$,\n\\begin{equation}\\label{eq:tail-explicit}\n \\E\\sum_{m=1}^M I_{k_m}\n \\le M e^{-cB}+2e^{-\\gamma s}\n \\le M e^{-cB}+2\\left(\\frac{2B}{n}\\right)^{\\gamma/2}.\n\\end{equation}\nConsequently,\n\\begin{equation}\\label{eq:tail-epsilon}\n \\limsup_{n\\to\\infty}\n \\E\\sum_{k>(1-\\eps)n}I_{n,k}\n \\le 2^{1+\\gamma/2}\\eps^{\\gamma/4}\n\\end{equation}\nfor all sufficiently small $\\eps>0$.",
+    "source_label_mentions": [
+      {
+        "file": "Luce/EndpointAsymptotic.lean",
+        "labels": [
+          "eq:tail-epsilon"
+        ]
+      },
+      {
+        "file": "Luce/EndpointTheorem.lean",
+        "labels": [
+          "eq:tail-explicit"
+        ]
+      },
+      {
+        "file": "Luce/Section4Endpoint.lean",
+        "labels": [
+          "eq:tail-explicit",
+          "eq:tail-epsilon"
+        ]
+      },
+      {
+        "file": "Luce/Section4EndpointWitness.lean",
+        "labels": [
+          "eq:tail-epsilon"
+        ]
+      },
+      {
+        "file": "Luce/TailAssumptions.lean",
+        "labels": [
+          "eq:tail-epsilon"
+        ]
+      }
+    ]
+  },
+  {
+    "number": "4.5",
+    "kind": "lemma",
+    "labels": [
+      "lem:diagonal-shell-buffer",
+      "eq:buffered-shell-condition"
+    ],
+    "line": 1050,
+    "statement": "[Diagonal shell buffer]\n\\label{lem:diagonal-shell-buffer}\nUnder Assumption~\\ref{ass:fixed-endpoint}, the choice $h_j=\\sqrt j$ satisfies\n\\begin{equation}\\label{eq:buffered-shell-condition}\n \\lim_{J\\to\\infty}\\limsup_{n\\to\\infty}\n \\sum_{\\substack{j\\ge J\\\\\\mathcal D_{n,j}\\ne\\varnothing}}\n \\mathcal Q\\bigl(b_{n,j}(j-h_j)\\bigr)=0.\n\\end{equation}\nMoreover, $h_j\\uparrow\\infty$, $h_j<j/4$ eventually, and $j-h_j$ is\nnondecreasing.",
+    "source_label_mentions": []
+  },
+  {
+    "number": "4.6",
+    "kind": "proposition",
+    "labels": [
+      "prop:endpoint-bound",
+      "eq:shell-tail-tightness",
+      "eq:shell-tail-epsilon"
+    ],
+    "line": 1083,
+    "statement": "[Shell endpoint tightness]\n\\label{prop:endpoint-bound}\nUnder the normalization~\\eqref{eq:normalization} and\nAssumption~\\ref{ass:fixed-endpoint},\n\\begin{equation}\\label{eq:shell-tail-tightness}\n \\lim_{J\\to\\infty}\\limsup_{n\\to\\infty}\n \\E\\sum_{m\\le ne^{-J}} I_{n,k_{n,m}}=0.\n\\end{equation}\nEquivalently,\n\\begin{equation}\\label{eq:shell-tail-epsilon}\n \\lim_{\\eps\\downarrow0}\\limsup_{n\\to\\infty}\n \\E\\sum_{k>(1-\\eps)n}I_{n,k}=0.\n\\end{equation}",
+    "source_label_mentions": [
+      {
+        "file": "Luce/EndpointIntegrals.lean",
+        "labels": [
+          "prop:endpoint-bound"
+        ]
+      },
+      {
+        "file": "Luce/EndpointTheorem.lean",
+        "labels": [
+          "prop:endpoint-bound"
+        ]
+      },
+      {
+        "file": "Luce/Section4EndpointWitness.lean",
+        "labels": [
+          "prop:endpoint-bound"
+        ]
+      }
+    ]
+  },
+  {
+    "number": "4.7",
+    "kind": "corollary",
+    "labels": [
+      "cor:exceptional-shell-refinement",
+      "eq:exceptional-shell-condition"
+    ],
+    "line": 1145,
+    "statement": "[Exceptional-shell refinement]\n\\label{cor:exceptional-shell-refinement}\nAssume the normalization~\\eqref{eq:normalization}.  For each $n$, let\n$\\mathcal E_n\\subseteq[n]$ be a set of exceptional terminal depths and put\n\\[\n \\mathcal G_{n,j}:=\\mathcal D_{n,j}\\setminus\\mathcal E_n.\n\\]\nWhen $\\mathcal G_{n,j}$ is nonempty, define\n\\[\n r^{\\mathrm G}_{n,j}:=\\max\\mathcal G_{n,j},\n \\qquad\n b^{\\mathrm G}_{n,j}\n :=\\min_{m\\in\\mathcal G_{n,j}}\\theta_{n,k_{n,m}}.\n\\]\nLet $A_{n,m-1}^{(-k_{n,m})}$ be the sum of the $m-1$ smallest rates after\ndeleting $\\theta_{n,k_{n,m}}$.  Suppose\n\\begin{align}\n \\lim_{J\\to\\infty}\\limsup_{n\\to\\infty}\n \\bigg[\n \\sum_{\\substack{j\\ge J\\\\\\mathcal G_{n,j}\\ne\\varnothing}}\n   e^{-b^{\\mathrm G}_{n,j}j}\n +\n \\sum_{\\substack{m\\in\\mathcal E_n\\\\m\\le ne^{-J}}}\n \\frac{\\theta_{n,k_{n,m}}}\n      {\\theta_{n,k_{n,m}}+A_{n,m-1}^{(-k_{n,m})}}\n \\bigg]=0.\n \\label{eq:exceptional-shell-condition}\n\\end{align}\nThen the endpoint conclusions\n\\eqref{eq:shell-tail-tightness}--\\eqref{eq:shell-tail-epsilon} hold.\nConsequently, Theorem~\\ref{thm:main-poisson} remains valid if\nAssumption~\\ref{ass:fixed-endpoint} is replaced by\n\\eqref{eq:exceptional-shell-condition}.",
+    "source_label_mentions": []
+  },
+  {
+    "number": "4.8",
+    "kind": "remark",
+    "labels": [
+      "rmk:minimal-tail",
+      "eq:bertrand-shell-envelope"
+    ],
+    "line": 1194,
+    "statement": "\\label{rmk:minimal-tail}\nThe uniform terminal support condition~\\eqref{eq:endpoint-lower} implies\nAssumption~\\ref{ass:fixed-endpoint}.  Indeed, for all sufficiently large\n$j$, every label in $\\mathcal D_{n,j}$ lies in that terminal interval, so\n$b_{n,j}\\ge\\gamma$ and the shell sum is bounded by the geometric tail\n$\\sum_{j\\ge J}e^{-\\gamma j}$.  Proposition\n\\ref{prop:uniform-endpoint-bound} records the corresponding direct estimate.\n\nAt the shell level, \\eqref{eq:logarithmic-endpoint-lower} can be weakened\nfurther.  For example,\nit is enough that, uniformly on all sufficiently late nonempty shells,\n\\begin{equation}\\label{eq:bertrand-shell-envelope}\n b_{n,j}j\n \\ge \\log j+(1+\\delta)\\log\\log j\n\\end{equation}\nfor some $\\delta>0$, because the shell costs are then bounded by\n$1/(j(\\log j)^{1+\\delta})$.  In terms of an individual terminal depth with\n$q=\\log(n/m)$, the corresponding envelope has order\n\\[\n \\theta_{n,n-m+1}\n \\ge\n \\frac{\\log q+(1+\\delta)\\log\\log q}{q}.\n\\]\nThe usual iterated-log refinements of the convergent Bertrand series give\nstill weaker sufficient envelopes, and sparse bad shells need only have\nsummable costs.  Provided the remaining shell costs already have uniformly\nvanishing tails, a single moving anomalous shell is allowed whenever its\nproduct $b_{n,j}j$ tends to infinity.\n\nThe minimum $b_{n,j}$ can nevertheless be spoiled by one harmless ultra-slow\nlabel.  Corollary~\\ref{cor:exceptional-shell-refinement} removes such labels\nfrom their regular shells and charges them individually.  This exception\nmechanism is proved here only for fixed points.  The short-cycle argument\nbelow uses the lower floor on every label in a shell, so no analogue under\nthe exceptional-shell refinement is claimed.",
+    "source_label_mentions": []
+  },
+  {
+    "number": "5.1",
+    "kind": "lemma",
+    "labels": [
+      "lem:moderate-reservoir",
+      "eq:moderate-reservoir"
+    ],
+    "line": 1288,
+    "statement": "\\label{lem:moderate-reservoir}\nUnder Assumption~\\ref{ass:profile}, for every $\\alpha<1$ there are\n$d,\\eta>0$ such that, for all sufficiently large $n$,\n\\begin{equation}\\label{eq:moderate-reservoir}\n \\#\\{i:\\theta_{n,i}\\ge d\\}\\ge(\\alpha+2\\eta)n.\n\\end{equation}\nConsequently, after deleting a fixed number of clocks and before $\\alpha n$\narrivals, the remaining total rate is at least $d\\eta n$.",
+    "source_label_mentions": [
+      {
+        "file": "Luce/Section5Reservoir.lean",
+        "labels": [
+          "lem:moderate-reservoir"
+        ]
+      }
+    ]
+  },
+  {
+    "number": "5.2",
+    "kind": "lemma",
+    "labels": [
+      "lem:cyclic-local",
+      "eq:cyclic-local-limit",
+      "eq:weighted-bulk-cylinder"
+    ],
+    "line": 1307,
+    "statement": "\\label{lem:cyclic-local}\nUnder Assumption~\\ref{ass:profile}, fix $r\\ge1$, $\\alpha<1$, a permutation\n$\\tau\\in S_r$, and a continuous function $g:[0,\\alpha]^r\\to\\R$.  Then\n\\begin{align}\n &\\sum_{\\boldsymbol i\\in[\\lfloor\\alpha n\\rfloor]^r_{\\ne}}\n g(\\boldsymbol i/n)\n \\Pp\\bigl(R_{n,i_a}=i_{\\tau(a)},\\ 1\\le a\\le r\\bigr)\n \\label{eq:cyclic-local-limit}\\\\\n &\\hspace{0.7in}\\longrightarrow\n \\int_{[0,\\alpha]^r}g(\\boldsymbol x)\n \\prod_{a=1}^r\\rho(x_a,x_{\\tau(a)})\\,d\\boldsymbol x.\n \\notag\n\\end{align}\nMoreover, uniformly over distinct marked labels $i_1,\\ldots,i_r$ and\ndistinct ranks $j_1,\\ldots,j_r\\le\\alpha n$,\n\\begin{equation}\\label{eq:weighted-bulk-cylinder}\n \\Pp(R_{n,i_a}=j_a,\\ 1\\le a\\le r)\n \\le K_{r,\\alpha}n^{-r}\\prod_{a=1}^r\\theta_{n,i_a}.\n\\end{equation}",
+    "source_label_mentions": [
+      {
+        "file": "Luce/Section5BulkCylinder.lean",
+        "labels": [
+          "eq:weighted-bulk-cylinder"
+        ]
+      },
+      {
+        "file": "Luce/Section5Lemma52.lean",
+        "labels": [
+          "eq:cyclic-local-limit"
+        ]
+      }
+    ]
+  },
+  {
+    "number": "5.3",
+    "kind": "lemma",
+    "labels": [
+      "lem:finite-insertion-path",
+      "eq:finite-insertion-path"
+    ],
+    "line": 1417,
+    "statement": "\\label{lem:finite-insertion-path}\nFor fixed $\\ell,m\\ge1$ and every $v\\in[n]$,\n\\begin{equation}\\label{eq:finite-insertion-path}\n \\E\\sum_{\\substack{u_0,\\ldots,u_{m-1}\\in[n]\\\\\n                    u_0,\\ldots,u_{m-1}\\ {\\mathrm{distinct}}}}\n p_{u_0,u_1}\\cdots p_{u_{m-2},u_{m-1}}p_{u_{m-1},v}\n \\le K_{\\ell,m}.\n\\end{equation}",
+    "source_label_mentions": [
+      {
+        "file": "Luce/Section5Insertion.lean",
+        "labels": [
+          "lem:finite-insertion-path"
+        ]
+      },
+      {
+        "file": "Luce/Section5WindowProbability.lean",
+        "labels": [
+          "eq:finite-insertion-path"
+        ]
+      }
+    ]
+  },
+  {
+    "number": "5.4",
+    "kind": "proposition",
+    "labels": [
+      "prop:cycle-rate-truncation",
+      "eq:high-cycle-truncation",
+      "eq:compact-low-cycle-truncation"
+    ],
+    "line": 1473,
+    "statement": "[Rate truncation]\\label{prop:cycle-rate-truncation}\nUnder Assumption~\\ref{ass:profile},\n\\begin{align}\n \\lim_{M\\to\\infty}\\limsup_n\\E V_{n,L}(H_{n,M})&=0,\n \\label{eq:high-cycle-truncation}\\\\\n \\lim_{\\delta\\downarrow0}\\limsup_n\n \\E V_{n,L}\\bigl(L_{n,\\delta}\\cap[\\lfloor\\beta n\\rfloor]\\bigr)&=0\n \\qquad(\\beta<1).\n \\label{eq:compact-low-cycle-truncation}\n\\end{align}",
+    "source_label_mentions": []
+  },
+  {
+    "number": "5.5",
+    "kind": "proposition",
+    "labels": [
+      "prop:cycle-endpoint-bound",
+      "eq:cycle-tail-tightness"
+    ],
+    "line": 1554,
+    "statement": "[Short-cycle shell tightness]\n\\label{prop:cycle-endpoint-bound}\nUnder Assumptions~\\ref{ass:profile} and~\\ref{ass:fixed-endpoint}, for every\nfixed $L$,\n\\begin{equation}\\label{eq:cycle-tail-tightness}\n \\lim_{\\alpha\\uparrow1}\\limsup_n\n \\E\\sum_{\\ell=1}^L\n \\bigl(C_{n,\\ell}-C_{n,\\ell}^{(\\alpha)}\\bigr)=0.\n\\end{equation}",
+    "source_label_mentions": []
+  },
+  {
+    "number": "6.1",
+    "kind": "lemma",
+    "labels": [
+      "lem:sp-populations",
+      "eq:sp-slow-transforms",
+      "eq:sp-fast-transforms"
+    ],
+    "line": 1764,
+    "statement": "[Population transforms]\\label{lem:sp-populations}\nUnder Assumption~\\ref{ass:simple-power-profile}, at an active right endpoint,\nput $A_-=\\Gamma(1+1/\\beta)c_R^{-1/\\beta}$.  For some $\\zeta>0$,\nuniformly as $t\\to\\infty$ and $nt^{-1/\\beta}\\to\\infty$,\n\\begin{align}\n H_n(t)&=A_-t^{-1/\\beta}\n  \\left(1+O\\left(t^{-\\zeta}+(nt^{-1/\\beta})^{-1}\\right)\\right),\\notag\\\\\n D_n(t)&=\\frac{A_-}{\\beta}t^{-1-1/\\beta}\n  \\left(1+O\\left(t^{-\\zeta}+(nt^{-1/\\beta})^{-1}\\right)\\right).\n \\label{eq:sp-slow-transforms}\n\\end{align}\nAt an active left endpoint, put\n$A_+=\\Gamma(1-1/\\alpha)c_L^{1/\\alpha}$.  Uniformly as $t\\downarrow0$\nand $nt^{1/\\alpha}\\to\\infty$,\n\\begin{align}\n G_n(t)&=A_+t^{1/\\alpha}\n  \\left(1+O\\left(t^\\zeta+(nt^{1/\\alpha})^{-1}\\right)\\right),\\notag\\\\\n D_n(t)&=\\frac{A_+}{\\alpha}t^{1/\\alpha-1}\n  \\left(1+O\\left(t^\\zeta+(nt^{1/\\alpha})^{-1}\\right)\\right).\n \\label{eq:sp-fast-transforms}\n\\end{align}\nThe constants and exponent may depend on the active endpoint.\nAfter deleting any fixed number $r$ of clocks, the same statements hold\nfor the sums divided by $n$, with constants uniform in the deleted labels.",
+    "source_label_mentions": [
+      {
+        "file": "Luce/Section6RightSurvivorRelative.lean",
+        "labels": [
+          "lem:sp-populations"
+        ]
+      },
+      {
+        "file": "Luce/Section6RightWeightedAsymptotic.lean",
+        "labels": [
+          "lem:sp-populations"
+        ]
+      }
+    ]
+  },
+  {
+    "number": "6.2",
+    "kind": "lemma",
+    "labels": [
+      "lem:sp-quantiles",
+      "eq:sp-right-quantile",
+      "eq:sp-left-quantile",
+      "eq:sp-rough-moments",
+      "eq:sp-right-weight-floor",
+      "eq:sp-left-weight-floor"
+    ],
+    "line": 1851,
+    "statement": "[Quantiles and deterministic weight bounds]\n\\label{lem:sp-quantiles}\nAt an active right endpoint define $t^R_{n,m}$ by\n$H_n(t^R_{n,m})=m/n$; at an active left endpoint define $t^L_{n,m}$\nby $G_n(t^L_{n,m})=m/n$.  There is $\\xi>0$ such that, uniformly for\n$m\\to\\infty$ and $m/n\\to0$,\n\\begin{align}\n t^R_{n,m}&=(A_-n/m)^\\beta(1+O(e_{n,m})),&\n \\theta_{n,n-m+1}t^R_{n,m}&=q_R(1+O(e_{n,m})),\\notag\\\\\n \\frac{\\theta_{n,n-m+1}}{nD_n(t^R_{n,m})}\n  &=\\frac{\\beta q_R}{m}(1+O(e_{n,m})),\n &&\\label{eq:sp-right-quantile}\\\\\n t^L_{n,m}&=(m/(A_+n))^\\alpha(1+O(e_{n,m})),&\n \\theta_{n,m}t^L_{n,m}&=q_L(1+O(e_{n,m})),\\notag\\\\\n \\frac{\\theta_{n,m}}{nD_n(t^L_{n,m})}\n  &=\\frac{\\alpha q_L}{m}(1+O(e_{n,m})),\n &&\\label{eq:sp-left-quantile}\n\\end{align}\nwhere $e_{n,m}=(m/n)^\\xi+m^{-1}$ and $q_R,q_L$ are exactly\n\\eqref{eq:simple-q-right}--\\eqref{eq:simple-q-left}.\nFor $t=t^\\sigma_{n,m}$ and $t/4\\le s\\le4t$,\n\\begin{equation}\n nD_n(s)\\asymp m/t,\\qquad nD_{n,2}(s)\\le Cm/t^2.\n \\label{eq:sp-rough-moments}\n\\end{equation}\nThe corresponding survivor mean $nH_n$ on the right, or arrival mean\n$nG_n$ on the left, changes by at least $cum$ between $t$ and\n$(1\\pm u)t$, for $0<u\\le1/2$.  Moreover\n$D_n((1\\pm u)t)/D_n(t)=1+O(u)$.\n\nAfter deleting at most $r$ clocks, the total rate in a gap with $h$\nsurvivors at the right endpoint is deterministically at least\n\\begin{equation}\n c n^{-\\beta}h^{\\beta+1}.\n \\label{eq:sp-right-weight-floor}\n\\end{equation}\nAt a gap after $h+O(r)$ early arrivals at the left endpoint it is at least\n\\begin{equation}\n c_r n^\\alpha h^{1-\\alpha},\n \\label{eq:sp-left-weight-floor}\n\\end{equation}\nprovided $h\\ge4r+4$ and $h\\le\\epsilon_* n/4$.\nFor ranks in any fixed compact subinterval of $(0,1)$, the deterministic\nquantiles lie in a compact subinterval of $(0,\\infty)$, $nD_n$ is\ncomparable to $n$, and the remaining rate is deterministically at least\n$c n$, uniformly after bounded deletions.",
+    "source_label_mentions": [
+      {
+        "file": "Luce/Section6LeftHazard.lean",
+        "labels": [
+          "eq:sp-left-quantile"
+        ]
+      },
+      {
+        "file": "Luce/Section6LeftQuantileAsymptotic.lean",
+        "labels": [
+          "eq:sp-left-quantile"
+        ]
+      },
+      {
+        "file": "Luce/Section6LeftRateTime.lean",
+        "labels": [
+          "eq:sp-left-quantile"
+        ]
+      },
+      {
+        "file": "Luce/Section6PopulationMomentBounds.lean",
+        "labels": [
+          "lem:sp-quantiles"
+        ]
+      },
+      {
+        "file": "Luce/Section6QuantileMoments.lean",
+        "labels": [
+          "eq:sp-rough-moments"
+        ]
+      },
+      {
+        "file": "Luce/Section6RightHazard.lean",
+        "labels": [
+          "eq:sp-right-quantile"
+        ]
+      },
+      {
+        "file": "Luce/Section6RightQuantileAsymptotic.lean",
+        "labels": [
+          "eq:sp-right-quantile"
+        ]
+      },
+      {
+        "file": "Luce/Section6RightRateTime.lean",
+        "labels": [
+          "eq:sp-right-quantile"
+        ]
+      },
+      {
+        "file": "Luce/Section6RightRemainingRate.lean",
+        "labels": [
+          "lem:sp-quantiles"
+        ]
+      }
+    ]
+  },
+  {
+    "number": "6.3",
+    "kind": "lemma",
+    "labels": [
+      "lem:sp-insertion-moments",
+      "eq:sp-insertion-lp",
+      "eq:sp-extreme-restricted-sums"
+    ],
+    "line": 2035,
+    "statement": "[Moments of one insertion]\\label{lem:sp-insertion-moments}\nFix positive integers $r,p_0$.  There are\n$h_0,\\nu_0,\\nu,c,C>0$ such that the following assertions hold, uniformly\nafter deletion of at most $r$ labels and uniformly for gap indices within\n$r+1$ of the full-rank gap under consideration.  At an active corner,\nfor $h_0\\le a,h\\le\\delta n$ and $1\\le p\\le p_0$, put\n\\[\n \\mathcal M_\\sigma(a,h)\n       =\\{x_\\sigma(a,h)\\le(a\\wedge h)^{\\nu_0}\\},\n \\quad\n E_R(a,h)=e^{-ca^\\nu}\\one_{\\mathcal M_R(a,h)^c},\\quad\n E_L(a,h)=e^{-ch^\\nu}\\one_{\\mathcal M_L(a,h)^c}.\n\\]\nThen\n\\begin{equation}\\label{eq:sp-insertion-lp}\n \\|X_{\\iota_\\sigma(a),q}^D\\|_p\n                  \\le C\\{H_\\sigma(a,h)+E_\\sigma(a,h)\\}.\n\\end{equation}\nThe exceptional kernels have bounded row and column sums.  More precisely,\nafter decreasing $\\nu$ and $c$,\n\\begin{equation}\\label{eq:sp-extreme-restricted-sums}\n \\sup_{a\\ge A}\\sum_{h\\ge A}E_\\sigma(a,h)\n +\\sup_{h\\ge A}\\sum_{a\\ge A}E_\\sigma(a,h)\n \\le Ce^{-cA^\\nu}.\n\\end{equation}\nThe same restricted-sum assertion holds for\n$H_\\sigma\\one_{\\mathcal M_\\sigma^c}$.",
+    "source_label_mentions": []
+  },
+  {
+    "number": "6.4",
+    "kind": "lemma",
+    "labels": [
+      "lem:sp-domination",
+      "eq:sp-global-cylinder-bound",
+      "eq:sp-global-row-bound",
+      "eq:sp-global-target-bound",
+      "eq:sp-right-weighted-row",
+      "eq:sp-left-weighted-row"
+    ],
+    "line": 2141,
+    "statement": "[Global domination and excursions]\\label{lem:sp-domination}\nFor every fixed $r$ there is a deterministic nonnegative matrix $M_n(i,j)$\nsuch that every cylinder of at most $r$ distinct marked labels and distinct\ndemanded ranks satisfies\n\\begin{equation}\\label{eq:sp-global-cylinder-bound}\n \\Pp(R_{n,i_e}=j_e\\text{ for all }e)\\le C_r\\prod_eM_n(i_e,j_e).\n\\end{equation}\nIt can be chosen to have\n\\begin{equation}\\label{eq:sp-global-row-bound}\n \\sup_i\\sum_jM_n(i,j)\\le C_r,\n\\end{equation}\nand, with $m=d_\\sigma(j)$ at an active corner,\n\\begin{equation}\\label{eq:sp-global-target-bound}\n \\sup_iM_n(i,j)\\le C_r/m\n       \\quad(m\\le\\delta n),\\qquad\n \\sup_iM_n(i,j)\\le C_r/n\n       \\quad(\\delta n\\le j\\le(1-\\delta)n).\n\\end{equation}\nIts column sums are bounded for active-corner and middle targets.  For\nsource and target in the same active corner it is bounded by\n$C_r(H_\\sigma+E_\\sigma)$, apart from a fixed number of endpoint indices,\nwhich obey the bounds in the proof below.  For some $\\kappa>0$ it also has\n\\begin{align}\n \\sup_i\\sum_jM_n(i,j)\n       \\left(\\frac{d_R(j)}{d_R(i)}\\right)^\\kappa&\\le C_r\n          &&\\text{if $R$ is active},\\label{eq:sp-right-weighted-row}\\\\\n \\sup_i\\sum_jM_n(i,j)\n       \\left(\\frac{d_L(i)}{d_L(j)}\\right)^\\kappa&\\le C_r\n          &&\\text{if $L$ is active}.\\label{eq:sp-left-weighted-row}\n\\end{align}\nIn particular, for fixed $\\ell$, the expected number of $\\ell$-cycles\nwhose largest vertex is $\\iota_\\sigma(m)$ is at most $C_\\ell/m$ at an\nactive corner and at most $C_\\ell/n$ in the middle.  Among cycles rooted at\nactive-corner distances $A\\le m\\le B\\le\\delta n$, requiring every vertex\nto have its distance in $[A,B]$ discards only $O_\\ell(1)$ in expectation.",
+    "source_label_mentions": []
+  },
+  {
+    "number": "6.5",
+    "kind": "proposition",
+    "labels": [
+      "prop:sp-joint-insertion",
+      "eq:sp-joint-insertion-error"
+    ],
+    "line": 2341,
+    "statement": "[Joint local insertion law]\\label{prop:sp-joint-insertion}\nFix $r$.  For each of at most $r$ marked edges choose an active corner\n$\\sigma_e$, a source $i_e=\\iota_{\\sigma_e}(a_e)$ and a demanded full rank\n$j_e=\\iota_{\\sigma_e}(h_e)$, with distinct sources and distinct ranks.\nDifferent edges may belong to different active corners.  Suppose that\n$h_0\\le a_e,h_e\\le\\delta n$, that all edges are moderate in the sense of\nLemma~\\ref{lem:sp-insertion-moments}, and that $|j_e-j_f|>2r$ for $e\\ne f$.\nThere are $\\kappa,C>0$, depending on $r$, such that\n\\begin{align}\n &\\left|\\Pp(R_{n,i_e}=j_e\\text{ for all }e)\n                   -\\prod_eK_{\\sigma_e}(a_e,h_e)\\right|\\notag\\\\\n &\\qquad\\le C\\prod_eH_{\\sigma_e}(a_e,h_e)\n   \\sum_e\\left\\{(a_e\\wedge h_e)^{-\\kappa}\n                   +((a_e\\vee h_e)/n)^\\kappa\\right\\}.\n \\label{eq:sp-joint-insertion-error}\n\\end{align}\nFor all other configurations the product domination in\n\\eqref{eq:sp-global-cylinder-bound} remains valid, including adjacent\ndemanded ranks.  In particular, if every endpoint distance belongs to\n$[A,B]$, the error on the moderate separated configurations is bounded by\n$C(A^{-\\kappa}+(B/n)^\\kappa)\\prod_eH_{\\sigma_e}(a_e,h_e)$.",
+    "source_label_mentions": []
+  },
+  {
+    "number": "6.6",
+    "kind": "lemma",
+    "labels": [
+      "lem:sp-density-envelope"
+    ],
+    "line": 2450,
+    "statement": "[An integrable density envelope]\\label{lem:sp-density-envelope}\nLet $E_1,\\ldots,E_n$ be independent continuous random variables with\ndensities $g_1,\\ldots,g_n$, and let $R_i$ be the rank of $E_i$ in increasing\norder.  Suppose $S\\subseteq[n]$ and $h:\\R\\to[0,\\infty)$ satisfy\n$g_i(t)\\le h(t)$ for $i\\in S$ and $\\int_\\R h(t)\\,dt<\\infty$.\nFor every fixed $\\ell\\ge1$, there is a constant $K_\\ell$, independent of\n$n$, the clock laws, and $S$, such that\n\\[\n \\E\\#\\{i\\in S:i\\text{ belongs to an }\\ell\\text{-cycle of }R\\}\n \\le K_\\ell\\int_\\R h(t)\\,dt.\n\\]",
+    "source_label_mentions": []
+  },
+  {
+    "number": "6.7",
+    "kind": "lemma",
+    "labels": [
+      "lem:sp-root-excursion",
+      "eq:sp-log-excursion"
+    ],
+    "line": 2556,
+    "statement": "[Root and excursion bounds]\\label{lem:sp-root-excursion}\nFix $L$.  At an active corner $\\sigma$, the expected number of\n$\\ell$-cycles with root distance $m$ is at most $C_L/m$, uniformly for\n$\\ell\\le L$ and $m$ in a sufficiently small fixed endpoint neighborhood.\nThe contribution of a fixed middle interval, and that of every inactive\nendpoint, is bounded uniformly in $n$.\n\nFor $1\\le A\\le B$ within an active endpoint neighborhood, the expected\nnumber of cycles whose root distance lies in $[A,B]$ but which have a\nvertex outside that distance interval is $O_L(1)$.  More generally, for\n$R\\ge1$, the expected number with root distance in $[A,B]$ and with some\nvertex at logarithmic distance at least $\\log R$ from the root is at most\n\\begin{equation}\\label{eq:sp-log-excursion}\n C_L(1+\\log(B/A))R^{-\\kappa_L}.\n\\end{equation}",
+    "source_label_mentions": []
+  },
+  {
+    "number": "6.8",
+    "kind": "lemma",
+    "labels": [
+      "lem:sp-ideal-traces",
+      "eq:sp-ideal-total",
+      "eq:sp-ideal-spatial"
+    ],
+    "line": 2649,
+    "statement": "[Ideal traces]\\label{lem:sp-ideal-traces}\nFor fixed $\\ell$, as $A\\to\\infty$, uniformly for $B\\ge A$,\n\\begin{equation}\\label{eq:sp-ideal-total}\n \\lambda_{n,\\sigma,\\ell}(A,B)\n =b_{\\sigma,\\ell}\\log(B/A)+O_\\ell(1)\n   +O_\\ell\\bigl((1+\\log(B/A))/A\\bigr).\n\\end{equation}\nLet $A_n=\\lceil\\exp((\\log n)^{1/4})\\rceil$ and\n$B_n=\\lfloor n/A_n\\rfloor$.  For a fixed interval\n$I=(a,b]$ with $0<a<b<1$, the ideal sum restricted to vertices in\n$[A_n,B_n]$ and root distance in $(n^a,n^b]$ satisfies\n\\begin{equation}\\label{eq:sp-ideal-spatial}\n \\lambda_{n,\\sigma,\\ell,I}\n =b_{\\sigma,\\ell}|I|\\log n\n   +O_\\ell\\bigl((1+\\log n)^K A_n^{-\\kappa}\\bigr)\n\\end{equation}\nfor some $\\kappa>0$ and finite $K$.",
+    "source_label_mentions": []
+  },
+  {
+    "number": "6.9",
+    "kind": "lemma",
+    "labels": [
+      "lem:sp-collisions",
+      "eq:sp-collision-sum"
+    ],
+    "line": 2744,
+    "statement": "[Overlaps and nearby ranks]\\label{lem:sp-collisions}\nFix a finite number $s$ of proposed cycles of lengths at most $L$, all\nwith vertices in endpoint cores of distances $[A,B]$.  Suppose their\njoint weight is bounded by a product of a matrix having bounded row sums\nand entries at most $C/b$ for a core target of distance $b$.  The sum of\nsuch weights over assignments in which the actual labels in two specified\nvertex slots differ by at most a fixed $D$ is at most\n\\begin{equation}\\label{eq:sp-collision-sum}\n C_{s,L,D}A^{-1}(1+\\log(B/A))^{s-1}.\n\\end{equation}\nFor slots in the same corner this is equivalent to their endpoint\ndistances differing by at most $D$.  This includes equal vertices.\nThe same bound, with a changed constant,\nholds for the union over every pair of slots.",
+    "source_label_mentions": []
+  },
+  {
+    "number": "6.10",
+    "kind": "proposition",
+    "labels": [
+      "prop:sp-factorial-moments",
+      "eq:sp-factorial-comparison"
+    ],
+    "line": 2804,
+    "statement": "[Core factorial moments]\\label{prop:sp-factorial-moments}\nWith $A_n,B_n$ as in Lemma~\\ref{lem:sp-ideal-traces}, for every fixed\nmulti-index $\\boldsymbol r=(r_c)$ there are\n$\\kappa_{\\boldsymbol r}>0$ and $K_{\\boldsymbol r}<\\infty$ such that\n\\begin{equation}\\label{eq:sp-factorial-comparison}\n \\left|\\E\\prod_c(Y_{n,c})_{r_c}\n             -\\prod_c\\lambda_{n,c}^{r_c}\\right|\n \\le C_{\\boldsymbol r}(1+\\log n)^{K_{\\boldsymbol r}}\n                    A_n^{-\\kappa_{\\boldsymbol r}}.\n\\end{equation}\nHere $(x)_r=x(x-1)\\cdots(x-r+1)$.",
+    "source_label_mentions": []
+  },
+  {
+    "number": "6.11",
+    "kind": "proposition",
+    "labels": [
+      "prop:sp-fixed-martingale"
+    ],
+    "line": 2982,
+    "statement": "\\label{prop:sp-fixed-martingale}\nLet $I_{n,k}\\in\\{0,1\\}$ be adapted to a filtration, and put\n$p_{n,k}=\\E(I_{n,k}\\mid\\cF_{n,k-1})$.  If $v_n\\to\\infty$ and\n\\[\n \\sum_kp_{n,k}=v_n+o_{\\Pp}(\\sqrt{v_n}),\n \\qquad \\sum_kp_{n,k}^2=o_{\\Pp}(v_n),\n\\]\nthen $(\\sum_kI_{n,k}-v_n)/\\sqrt{v_n}\\Longrightarrow\\mathcal N(0,1)$.\nIf additionally $\\E\\sum_kp_{n,k}\\sim v_n$, then\n$\\E\\sum_k I_{n,k}\\sim v_n$.",
+    "source_label_mentions": [
+      {
+        "file": "Luce/Section6Proposition611.lean",
+        "labels": [
+          "prop:sp-fixed-martingale"
+        ]
+      },
+      {
+        "file": "Luce/Section6Proposition611Contract.lean",
+        "labels": [
+          "prop:sp-fixed-martingale"
+        ]
+      }
+    ]
+  },
+  {
+    "number": "6.12",
+    "kind": "lemma",
+    "labels": [
+      "lem:sp-interior-grid"
+    ],
+    "line": 3185,
+    "statement": "[Interior-grid sampling]\\label{lem:sp-interior-grid}\nThe conclusions of Theorems~\\ref{thm:power-clt}\nand~\\ref{thm:power-spatial} also hold if the sampling rule in\nAssumption~\\ref{ass:simple-power-profile} is replaced by\n\\[\n \\theta_{n,i}=f(i/(n+1)),\\qquad 1\\le i\\le n.\n\\]\nThe same replacement is valid in Theorem~\\ref{thm:critical-pole}.",
+    "source_label_mentions": [
+      {
+        "file": "Luce/Section6Lemma612Contract.lean",
+        "labels": [
+          "lem:sp-interior-grid"
+        ]
+      }
+    ]
+  },
+  {
+    "number": "7.1",
+    "kind": "proposition",
+    "labels": [
+      "prop:general-clock-tail",
+      "eq:clock-density-envelope",
+      "eq:general-clock-tail"
+    ],
+    "line": 3245,
+    "statement": "\\label{prop:general-clock-tail}\nLet $1\\le M\\le n$, choose $B$ with $B-1\\ge2M$, and let $s$ satisfy\n$S(s)=B$.  Suppose that an integrable function $h$ satisfies\n\\begin{equation}\\label{eq:clock-density-envelope}\n g_{k_m}(t)\\le h(t),\\qquad 1\\le m\\le M,\\quad t\\ge s.\n\\end{equation}\nThen, for a universal $c>0$,\n\\begin{equation}\\label{eq:general-clock-tail}\n \\sum_{m=1}^M\\Pp(R_{k_m}=k_m)\n \\le M e^{-cB}+2\\int_s^\\infty h(t)\\,dt.\n\\end{equation}",
+    "source_label_mentions": [
+      {
+        "file": "Luce/Section7.lean",
+        "labels": [
+          "prop:general-clock-tail"
+        ]
+      },
+      {
+        "file": "Luce/Section7Tail.lean",
+        "labels": [
+          "prop:general-clock-tail"
+        ]
+      }
+    ]
+  }
+]

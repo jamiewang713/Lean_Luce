@@ -1,0 +1,42 @@
+theorem Luce.BernoulliProcess.integral_likelihood_sq_le.{u_1} : ∀ {Ω : Type u_1} {mΩ : MeasurableSpace Ω}
+  {μ : Measure Ω} [IsProbabilityMeasure μ] (X : Luce.BernoulliProcess μ) {δ K : ℝ},
+  δ < 1 →
+    ∀ (g : ℕ → ℝ),
+      (∀ (k : ℕ), 0 ≤ g k) →
+        (∀ (k : ℕ) (ω : Ω), X.probability k ω ≤ δ) →
+          ∀ (N : ℕ),
+            (∀ (ω : Ω), ∑ k ∈ Finset.range N, X.probability k ω ≤ K) →
+              ∀ {m : ℕ}, m ≤ N → ∫ (ω : Ω), X.likelihood g m ω ^ 2 ∂μ ≤ Real.exp (K / (1 - δ)) :=
+fun {Ω} {mΩ} {μ} [IsProbabilityMeasure μ] X {δ K} hδ g hg hpδ N hK {m} hm =>
+  have hL := Luce.BernoulliProcess.likelihood_integrable X hδ g hg hpδ m;
+  Trans.trans
+    (integral_mono (Luce.BernoulliProcess.integrable_likelihood_sq X hδ g hg hpδ N hK hm)
+      (Integrable.const_mul hL (Real.exp (K / (1 - δ)))) fun ω =>
+      have hb := Luce.BernoulliProcess.likelihood_bounds_of_terminal_cap X hδ g hg hpδ N hK hm ω;
+      Eq.mpr
+        (id (congrFun' (congrArg LE.le (pow_two (X.likelihood g m ω))) (Real.exp (K / (1 - δ)) * X.likelihood g m ω)))
+        (mul_le_mul_of_nonneg_right hb.right hb.left))
+    (Eq.mpr
+      (id
+        (congrArg (fun _a => _a = Real.exp (K / (1 - δ)))
+          (integral_const_mul (Real.exp (K / (1 - δ))) (X.likelihood g m))))
+      (Eq.mpr
+        (id
+          (congrArg (fun _a => Real.exp (K / (1 - δ)) * _a = Real.exp (K / (1 - δ)))
+            (Luce.BernoulliProcess.integral_likelihood X hδ g hg hpδ m)))
+        (Eq.mpr (id (congrArg (fun _a => _a = Real.exp (K / (1 - δ))) (mul_one (Real.exp (K / (1 - δ))))))
+          (Eq.refl (Real.exp (K / (1 - δ)))))))
+theorem Luce.BernoulliProcess.stopped_integral_likelihood_sq_le.{u_1} : ∀ {Ω : Type u_1} {mΩ : MeasurableSpace Ω}
+  {μ : Measure Ω} [inst : IsProbabilityMeasure μ] (X : Luce.BernoulliProcess μ) {δ K : ℝ},
+  0 ≤ δ →
+    δ < 1 →
+      0 ≤ K →
+        ∀ (g : ℕ → ℝ),
+          (∀ (k : ℕ), 0 ≤ g k) → ∀ (m : ℕ), ∫ (ω : Ω), (X.stop δ K).likelihood g m ω ^ 2 ∂μ ≤ Real.exp (K / (1 - δ)) :=
+fun {Ω} {mΩ} {μ} [IsProbabilityMeasure μ] X {δ K} hδ0 hδ hK g hg m =>
+  Luce.BernoulliProcess.integral_likelihood_sq_le (X.stop δ K) hδ g hg
+    (fun k ω => Luce.BernoulliProcess.stop_probability_le_cap X hδ0 k ω) m
+    (fun ω => Luce.BernoulliProcess.stop_sum_probability_le_cap X hK m ω) le_rfl
+'Luce.BernoulliProcess.integrable_likelihood_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.BernoulliProcess.integral_likelihood_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.BernoulliProcess.stopped_integral_likelihood_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]

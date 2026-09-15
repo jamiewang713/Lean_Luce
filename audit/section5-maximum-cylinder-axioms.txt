@@ -1,0 +1,8 @@
+'Luce.retainedMaximumCycleEvent_eq_actual_roots' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.measurableSet_retainedMaximumCycleEvent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.exists_retained_maximum_cycle_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.retained_maximum_cycle_probability_le_ghost' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.retained_maximum_ghost_sum_le_return' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.marked_return_product_eq_cylinder_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.integrable_marked_return_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.retained_maximum_cycle_probability_le_return' depends on axioms: [propext, Classical.choice, Quot.sound]

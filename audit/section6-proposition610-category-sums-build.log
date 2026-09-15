@@ -1,0 +1,246 @@
+⚠ [937/1070] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3644/3703] Replayed Luce.RaceOrder
+warning: Luce/RaceOrder.lean:16:4: Try `simp at hi` instead of `simpa using hi`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Luce/RaceOrder.lean:32:6: Try `simp at hi` instead of `simpa using hi`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3652/3703] Replayed Luce.ExponentialRace
+warning: Luce/ExponentialRace.lean:27:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialRace.lean:35:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialRace.lean:45:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialRace.lean:52:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialRace.lean:72:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialRace.lean:98:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3653/3703] Replayed Luce.ExponentialFacts
+warning: Luce/ExponentialFacts.lean:30:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialFacts.lean:31:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialFacts.lean:40:22: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Set.diagonal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3654/3703] Replayed Luce.Section5Resampling
+warning: Luce/Section5Resampling.lean:26:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/Section5Resampling.lean:49:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/Section5Resampling.lean:65:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/Section5Resampling.lean:92:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3655/3703] Replayed Luce.Section5WindowProbability
+warning: Luce/Section5WindowProbability.lean:188:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3656/3703] Replayed Luce.Section5FiniteInsertion
+warning: Luce/Section5FiniteInsertion.lean:75:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/Section5FiniteInsertion.lean:249:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3658/3703] Replayed Luce.RankIntegral
+warning: Luce/RankIntegral.lean:35:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3659/3703] Replayed Luce.Section5Occupation
+warning: Luce/Section5Occupation.lean:94:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3667/3703] Replayed Luce.Section5LowCycleRows
+warning: Luce/Section5LowCycleRows.lean:77:4: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [3669/3703] Replayed Luce.Section6CollisionCycleTests
+warning: Luce/Section6CollisionCycleTests.lean:76:33: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+ℹ [3673/3703] Replayed Luce.Section6ExcursionDepthSums
+info: Luce/Section6ExcursionDepthSums.lean:48:50: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+⚠ [3678/3703] Replayed Luce.Section6CollisionCoreTests
+info: Luce/Section6CollisionCoreTests.lean:84:44: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+warning: Luce/Section6CollisionCoreTests.lean:67:49: Variable name `hz` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hz
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Luce/Section6CollisionCoreTests.lean:69:5: Variable name `hu` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hu
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3679/3703] Replayed Luce.Section6CollisionProductSums
+warning: Luce/Section6CollisionProductSums.lean:15:2: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Luce/Section6CollisionProductSums.lean:67:53: Variable name `hT` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hT
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+warning: Luce/Section6CollisionProductSums.lean:72:22: This simp argument is unused:
+  collision_card_complement
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3691/3703] Replayed Luce.Section6CategoryCycleBlocks
+warning: Luce/Section6CategoryCycleBlocks.lean:17:0: automatically included section variable(s) unused in theorem `Luce.Section6.category_assignment_orbit_set`:
+  [Fintype α]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype α] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+⚠ [3696/3703] Replayed Luce.Section5FactorialExpectation
+warning: Luce/Section5FactorialExpectation.lean:41:39: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+⚠ [3697/3703] Replayed Luce.Section6CategoryFactorialExpectation
+warning: Luce/Section6CategoryFactorialExpectation.lean:32:39: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+⚠ [3700/3703] Replayed Luce.Section6CoreDepthEquivalence
+warning: Luce/Section6CoreDepthEquivalence.lean:21:42: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✖ [3702/3703] Building Luce.Section6CategoryCoreActualSum (33s)
+trace: .> LEAN_PATH=D:\princeton\Research\Lean\Lean_luce\.lake\packages\Cli\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\batteries\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\Qq\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\aesop\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\importGraph\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\plausible\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\mathlib\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean c:\Users\JiaminWang\.elan\toolchains\leanprover--lean4---v4.33.1\bin\lean.exe D:\princeton\Research\Lean\Lean_luce\Luce\Section6CategoryCoreActualSum.lean -o D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6CategoryCoreActualSum.olean -i D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6CategoryCoreActualSum.ilean -c D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6CategoryCoreActualSum.c --setup D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6CategoryCoreActualSum.setup.json --json
+error: Luce/Section6CategoryCoreActualSum.lean:40:43: (deterministic) timeout at `whnf`, maximum number of heartbeats (200000) has been reached
+
+Note: Use `set_option maxHeartbeats <num>` to set the limit.
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+error: Lean exited with code 1
+Some required targets logged failures:
+- Luce.Section6CategoryCoreActualSum
+error: build failed

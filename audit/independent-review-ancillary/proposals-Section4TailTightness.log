@@ -1,0 +1,24 @@
+proposals/Section4TailTightness.lean:39:22: warning: Variable name `mΩ` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _mΩ
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+proposals/Section4TailTightness.lean:40:30: warning: Variable name `hP` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hP
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+def Luce.Section4Proposal.TailTightnessStatement.{u} : Prop :=
+∀ (Ω : ℕ → Type u) [mΩ : (n : ℕ) → MeasurableSpace (Ω n)] (P : (n : ℕ) → Measure (Ω n))
+  [hP : ∀ (n : ℕ), IsProbabilityMeasure (P n)] (w : WeightArray),
+  NormalizedWeights w →
+    EndpointAssumption w →
+      ∀ (E : (n : ℕ) → Fin n → Ω n → ℝ),
+        (∀ (n : ℕ) (i : Fin n), HasLaw (E n i) (expMeasure ((w n).rate i)) (P n)) →
+          (∀ (n : ℕ), iIndepFun (E n) (P n)) →
+            Tendsto (fun α => limsup (fun n => (P n).real {ω | 0 < tailFixedPointCount (fun i => E n i ω) α}) atTop)
+              (𝓝[<] 1) (𝓝 0)
+'Luce.Section4Proposal.tailFixedPointCount' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section4Proposal.TailTightnessStatement' depends on axioms: [propext, Classical.choice, Quot.sound]

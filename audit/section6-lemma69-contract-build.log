@@ -1,0 +1,37 @@
+⚠ [937/962] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✖ [2495/2496] Building Luce.Section6CollisionDefinitions (13s)
+trace: .> LEAN_PATH=D:\princeton\Research\Lean\Lean_luce\.lake\packages\Cli\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\batteries\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\Qq\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\aesop\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\importGraph\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\plausible\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\mathlib\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean c:\Users\JiaminWang\.elan\toolchains\leanprover--lean4---v4.33.1\bin\lean.exe D:\princeton\Research\Lean\Lean_luce\Luce\Section6CollisionDefinitions.lean -o D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6CollisionDefinitions.olean -i D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6CollisionDefinitions.ilean -c D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6CollisionDefinitions.c --setup D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6CollisionDefinitions.setup.json --json
+error: Luce/Section6CollisionDefinitions.lean:10:41: Unknown identifier `Corner`
+
+Note: It is not possible to treat `Corner` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: Luce/Section6CollisionDefinitions.lean:11:20: Unknown identifier `cornerDistance`
+error: Luce/Section6CollisionDefinitions.lean:11:44: Unknown identifier `cornerDistance`
+error: Luce/Section6CollisionDefinitions.lean:19:63: Unknown identifier `Corner`
+
+Note: It is not possible to treat `Corner` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: Luce/Section6CollisionDefinitions.lean:22:49: Unknown identifier `Corner`
+
+Note: It is not possible to treat `Corner` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: Luce/Section6CollisionDefinitions.lean:26:56: Unknown identifier `Corner`
+
+Note: It is not possible to treat `Corner` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: Luce/Section6CollisionDefinitions.lean:30:50: Unknown identifier `Corner`
+
+Note: It is not possible to treat `Corner` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: Luce/Section6CollisionDefinitions.lean:32:2: Unknown constant `Nat.dist`
+error: Luce/Section6CollisionDefinitions.lean:34:51: Unknown identifier `Corner`
+
+Note: It is not possible to treat `Corner` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: Luce/Section6CollisionDefinitions.lean:39:52: Unknown identifier `Corner`
+
+Note: It is not possible to treat `Corner` as an implicitly bound variable here because the `autoImplicit` option is set to `false`.
+error: Lean exited with code 1
+Some required targets logged failures:
+- Luce.Section6CollisionDefinitions
+error: build failed

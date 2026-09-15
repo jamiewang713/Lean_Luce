@@ -1,0 +1,26 @@
+import Luce.Section5RetainedExpectation
+import Luce.Section5ShellContract
+
+set_option pp.explicit true
+set_option pp.universes true
+set_option pp.fullNames true
+set_option pp.proofs false
+
+#print Luce.retainedCycleLabels
+#print Luce.retainedInteriorLabels
+#print Luce.retainedDeepCycleCount
+#print Luce.retained_deep_probability_bound
+#print Luce.EndpointShellAssumption.retained_maximum_tightness
+#print Luce.EndpointShellAssumption.retained_expectation_tightness
+#print ShellMigrationContract.section5
+
+#print axioms Luce.retained_maximum_probability_sum_le_time_split
+#print axioms Luce.early_deep_expectation_le_shell_sum
+#print axioms Luce.retained_deep_probability_bound
+#print axioms Luce.early_finite_shell_sum_le_tail
+#print axioms Luce.buffered_finite_shell_sum_le_tail
+#print axioms Luce.not_mem_retainedCycleLabels
+#print axioms Luce.eventually_retained_labels_cover
+#print axioms Luce.EndpointShellAssumption.retained_maximum_tightness
+#print axioms Luce.retainedDeepCycleCount_expectation
+#print axioms Luce.EndpointShellAssumption.retained_expectation_tightness

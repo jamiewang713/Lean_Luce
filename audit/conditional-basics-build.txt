@@ -1,0 +1,22 @@
+⚠ [937/1085] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [1757/1762] Replayed Luce.DrawHistory
+warning: Luce/DrawHistory.lean:17:0: Definition `Luce.drawHistory` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+✖ [2522/2522] Building Luce.ConditionalProbabilityBasics (12s)
+trace: .> LEAN_PATH=D:\princeton\Research\Lean\Lean_luce\.lake\packages\Cli\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\batteries\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\Qq\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\aesop\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\importGraph\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\plausible\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\mathlib\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean c:\Users\JiaminWang\.elan\toolchains\leanprover--lean4---v4.33.1\bin\lean.exe D:\princeton\Research\Lean\Lean_luce\Luce\ConditionalProbabilityBasics.lean -o D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\ConditionalProbabilityBasics.olean -i D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\ConditionalProbabilityBasics.ilean -c D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\ConditionalProbabilityBasics.c --setup D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\ConditionalProbabilityBasics.setup.json --json
+error: Luce/ConditionalProbabilityBasics.lean:53:2: Type mismatch: After simplification, term
+  Integrable.indicator (integrable_const 1) hs
+ has type
+  Integrable ({ω | (Equiv.symm (π ω)) k = k}.indicator fun x => 1) P
+but is expected to have type
+  Integrable (fun ω => if (Equiv.symm (π ω)) k = k then 1 else 0) P
+error: Lean exited with code 1
+Some required targets logged failures:
+- Luce.ConditionalProbabilityBasics
+error: build failed

@@ -1,0 +1,266 @@
+def Luce.cycleTailExpectation : Luce.WeightArray → Nat → Nat → Real → Real :=
+fun w k n α =>
+  @MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+    (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+      (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+      (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+    (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace) (@Luce.exponentialRace n (w n))
+    fun e =>
+    @Nat.cast.{0} Real Real.instNatCast
+      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+        (@Luce.Section5.cycleCount.{0} (Fin n) (Fin.fintype n) (instDecidableEqFin n) (@Luce.raceRankPermutation n e) k)
+        (@Luce.Section5.bulkCycleCount n (@Luce.raceRankPermutation n e) α k))
+def Luce.shortCycleTailExpectation : Luce.WeightArray → Nat → Nat → Real → Real :=
+fun w L n α => ∑ k, Luce.cycleTailExpectation w (@Fin.val L k) n α
+theorem Luce.EndpointShellAssumption.cycle_tail_small_succ : ∀ {w : Luce.WeightArray} {f : Real → Real},
+  Luce.EndpointShellAssumption w →
+    Luce.NormalizedWeights w →
+      Luce.ProfileLimit w f →
+        ∀ (k : Nat) {ε : Real},
+          @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) ε →
+            ∃ α,
+              And
+                (@LT.lt.{0} Real Real.instLT α
+                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+                (@Filter.Eventually.{0} Nat
+                  (fun n =>
+                    @LT.lt.{0} Real Real.instLT
+                      (@MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+                        (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                          (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                        (@Luce.exponentialRace n (w n)) fun e =>
+                        @Nat.cast.{0} Real Real.instNatCast
+                          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                            (@Luce.Section5.cycleCount.{0} (Fin n) (Fin.fintype n) (instDecidableEqFin n)
+                              (@Luce.raceRankPermutation n e)
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (@Luce.Section5.bulkCycleCount n (@Luce.raceRankPermutation n e) α
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+                      ε)
+                  (@Filter.atTop.{0} Nat Nat.instPreorder)) :=
+⋯
+theorem Luce.EndpointShellAssumption.cycle_shell_tightness : ∀ {w : Luce.WeightArray} {f : Real → Real},
+  Luce.EndpointShellAssumption w →
+    Luce.NormalizedWeights w →
+      Luce.ProfileLimit w f →
+        ∀ (L : Nat),
+          @Filter.Tendsto.{0, 0} Real Real
+            (fun α =>
+              @Filter.limsup.{0, 0} Real Nat
+                (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice.{0} Real
+                  Real.instConditionallyCompleteLinearOrder)
+                (fun n =>
+                  @MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+                    (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                      (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                      (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                    (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                    (@Luce.exponentialRace n (w n)) fun e =>
+                    ∑ k,
+                      @Nat.cast.{0} Real Real.instNatCast
+                        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                          (@Luce.Section5.cycleCount.{0} (Fin n) (Fin.fintype n) (instDecidableEqFin n)
+                            (@Luce.raceRankPermutation n e) (@Fin.val L k))
+                          (@Luce.Section5.bulkCycleCount n (@Luce.raceRankPermutation n e) α (@Fin.val L k))))
+                (@Filter.atTop.{0} Nat Nat.instPreorder))
+            (@nhdsWithin.{0} Real
+              (@UniformSpace.toTopologicalSpace.{0} Real
+                (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+              (@Set.Iio.{0} Real Real.instPreorder
+                (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+            (@nhds.{0} Real
+              (@UniformSpace.toTopologicalSpace.{0} Real
+                (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+              (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))) :=
+⋯
+def ShellMigrationContract.cycleShell : Prop :=
+∀ (w : Luce.WeightArray) (f : Real → Real),
+  Luce.NormalizedWeights w →
+    Luce.ProfileLimit w f →
+      Luce.EndpointShellAssumption w →
+        ∀ (L : Nat),
+          @Filter.Tendsto.{0, 0} Real Real
+            (fun α =>
+              @Filter.limsup.{0, 0} Real Nat
+                (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice.{0} Real
+                  Real.instConditionallyCompleteLinearOrder)
+                (fun n =>
+                  @MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+                    (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                      (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                      (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                    (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                    (@Luce.exponentialRace n (w n)) fun e =>
+                    ∑ k,
+                      @Nat.cast.{0} Real Real.instNatCast
+                        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat)
+                          (@Luce.Section5.cycleCount.{0} (Fin n) (Fin.fintype n) (instDecidableEqFin n)
+                            (@Luce.raceRankPermutation n e) (@Fin.val L k))
+                          (@Luce.Section5.bulkCycleCount n (@Luce.raceRankPermutation n e) α (@Fin.val L k))))
+                (@Filter.atTop.{0} Nat Nat.instPreorder))
+            (@nhdsWithin.{0} Real
+              (@UniformSpace.toTopologicalSpace.{0} Real
+                (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+              (@Set.Iio.{0} Real Real.instPreorder
+                (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+            (@nhds.{0} Real
+              (@UniformSpace.toTopologicalSpace.{0} Real
+                (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+              (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+theorem cycleShell_contractCheck : ShellMigrationContract.cycleShell :=
+⋯
+def ShellMigrationContract.section5.{u} : Prop :=
+∀ (Ω : Nat → Type u) (mΩ : (n : Nat) → MeasurableSpace.{u} (Ω n))
+  (P : (n : Nat) → @MeasureTheory.Measure.{u} (Ω n) (mΩ n)),
+  (∀ (n : Nat), @MeasureTheory.IsProbabilityMeasure.{u} (Ω n) (mΩ n) (P n)) →
+    ∀ (w : Luce.WeightArray) (f : Real → Real),
+      Luce.NormalizedWeights w →
+        Luce.ProfileLimit w f →
+          @Filter.Tendsto.{0, 0} Nat ENNReal
+              (fun J =>
+                @Filter.limsup.{0, 0} ENNReal Nat
+                  (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice.{0} ENNReal
+                    (@ConditionallyCompleteLinearOrderBot.toConditionallyCompleteLinearOrder.{0} ENNReal
+                      (@CompleteLinearOrder.toConditionallyCompleteLinearOrderBot.{0} ENNReal
+                        ENNReal.instCompleteLinearOrder)))
+                  (fun n =>
+                    @tsum.{0, 0} ENNReal Nat ENNReal.instAddCommMonoid ENNReal.instTopologicalSpace
+                      (fun j =>
+                        @ite.{1} ENNReal (@LE.le.{0} Nat instLENat J j) (J.decLe j) (Luce.shellCost w n j)
+                          (@OfNat.ofNat.{0} ENNReal (nat_lit 0) (@Zero.toOfNat0.{0} ENNReal ENNReal.instZero)))
+                      (SummationFilter.unconditional.{0} Nat))
+                  (@Filter.atTop.{0} Nat Nat.instPreorder))
+              (@Filter.atTop.{0} Nat Nat.instPreorder)
+              (@nhds.{0} ENNReal ENNReal.instTopologicalSpace
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 0) (@Zero.toOfNat0.{0} ENNReal ENNReal.instZero))) →
+            ∀ (π : (n : Nat) → Ω n → Equiv.Perm.{1} (Fin n)),
+              (∀ (n : Nat),
+                  @Measurable.{u, 0} (Ω n) (Equiv.Perm.{1} (Fin n)) (mΩ n)
+                    (@Top.top.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                      (@OrderTop.toTop.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                        (@Preorder.toLE.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                          (@PartialOrder.toPreorder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                            (@SemilatticeSup.toPartialOrder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                              (@Lattice.toSemilatticeSup.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                (@CompleteLattice.toLattice.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                  (@MeasurableSpace.instCompleteLattice.{0} (Equiv.Perm.{1} (Fin n))))))))
+                        (@BoundedOrder.toOrderTop.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                          (@Preorder.toLE.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                            (@PartialOrder.toPreorder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                              (@SemilatticeSup.toPartialOrder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                (@Lattice.toSemilatticeSup.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                  (@CompleteLattice.toLattice.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                    (@MeasurableSpace.instCompleteLattice.{0} (Equiv.Perm.{1} (Fin n))))))))
+                          (@CompleteLattice.toBoundedOrder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                            (@MeasurableSpace.instCompleteLattice.{0} (Equiv.Perm.{1} (Fin n)))))))
+                    (π n)) →
+                (∀ (n : Nat) (σ : Equiv.Perm.{1} (Fin n)),
+                    @Eq.{1} Real
+                      (@MeasureTheory.Measure.real.{u} (Ω n) (mΩ n) (P n)
+                        (@Set.ofPred.{u} (Ω n) fun ω => @Eq.{1} (Equiv.Perm.{1} (Fin n)) (π n ω) σ))
+                      (@Luce.Weights.mass n (w n) σ)) →
+                  And
+                    (∀ (k : Nat),
+                      And
+                        (@MeasureTheory.Integrable.{0, 0} Real
+                          (@UniformSpace.toTopologicalSpace.{0} Real
+                            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                          (@SeminormedAddGroup.toContinuousENorm.{0} Real
+                            (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+                              (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+                                (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                                  (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                                    (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+                          (Fin
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+                            Real)
+                          (@MeasurableSpace.pi.{0, 0}
+                            (Fin
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (fun a => Real) fun a => Real.measurableSpace)
+                          (Luce.cycleTraceIntegrand f k)
+                          (Luce.cyclicProfileMeasure
+                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+                        (@LE.le.{0} Real Real.instLE
+                          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                          (Luce.cycleTraceIntensity f k)))
+                    (∀ (L : Nat),
+                      And
+                        (∀
+                          (F :
+                            @BoundedContinuousFunction.{0, 0} (Fin L → Nat) Real
+                              (@Pi.topologicalSpace.{0, 0} (Fin L) (fun a => Nat) fun i => instTopologicalSpaceNat)
+                              Real.pseudoMetricSpace),
+                          @Filter.Tendsto.{0, 0} Nat Real
+                            (fun n =>
+                              @MeasureTheory.integral.{u, 0} (Ω n) Real Real.normedAddCommGroup
+                                (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                                  (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                                  (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                                (mΩ n) (P n) fun ω =>
+                                @DFunLike.coe.{1, 1, 1}
+                                  (@BoundedContinuousFunction.{0, 0} (Fin L → Nat) Real
+                                    (@Pi.topologicalSpace.{0, 0} (Fin L) (fun a => Nat) fun i =>
+                                      instTopologicalSpaceNat)
+                                    Real.pseudoMetricSpace)
+                                  (Fin L → Nat) (fun x => Real)
+                                  (@BoundedContinuousFunction.instFunLike.{0, 0} (Fin L → Nat) Real
+                                    (@Pi.topologicalSpace.{0, 0} (Fin L) (fun a => Nat) fun i =>
+                                      instTopologicalSpaceNat)
+                                    Real.pseudoMetricSpace)
+                                  F (@Luce.cycleCountVector n L (π n ω)))
+                            (@Filter.atTop.{0} Nat Nat.instPreorder)
+                            (@nhds.{0} Real
+                              (@UniformSpace.toTopologicalSpace.{0} Real
+                                (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                              (@MeasureTheory.integral.{0, 0} (Fin L → Nat) Real Real.normedAddCommGroup
+                                (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                                  (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                                  (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                                (@MeasurableSpace.pi.{0, 0} (Fin L) (fun a => Nat) fun a => Nat.instMeasurableSpace)
+                                (Luce.cycleVectorPoissonLaw f L) fun z =>
+                                @DFunLike.coe.{1, 1, 1}
+                                  (@BoundedContinuousFunction.{0, 0} (Fin L → Nat) Real
+                                    (@Pi.topologicalSpace.{0, 0} (Fin L) (fun a => Nat) fun i =>
+                                      instTopologicalSpaceNat)
+                                    Real.pseudoMetricSpace)
+                                  (Fin L → Nat) (fun x => Real)
+                                  (@BoundedContinuousFunction.instFunLike.{0, 0} (Fin L → Nat) Real
+                                    (@Pi.topologicalSpace.{0, 0} (Fin L) (fun a => Nat) fun i =>
+                                      instTopologicalSpaceNat)
+                                    Real.pseudoMetricSpace)
+                                  F z)))
+                        (@Filter.Tendsto.{0, 0} Nat Real
+                          (fun n =>
+                            @Luce.cycleVectorTotalVariation L
+                              (@MeasureTheory.Measure.map.{u, 0} (Ω n) (Fin L → Nat) (mΩ n)
+                                (@MeasurableSpace.pi.{0, 0} (Fin L) (fun a => Nat) fun a => Nat.instMeasurableSpace)
+                                (fun ω => @Luce.cycleCountVector n L (π n ω)) (P n))
+                              (Luce.cycleVectorPoissonLaw f L))
+                          (@Filter.atTop.{0} Nat Nat.instPreorder)
+                          (@nhds.{0} Real
+                            (@UniformSpace.toTopologicalSpace.{0} Real
+                              (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                            (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))))
+'Luce.deep_roots_le_retained_add_excluded' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.excluded_short_vertices_le_high_add_interior_low' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.integrable_race_permutation_statistic' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.tail_cycle_expectation_le_retained_and_truncations' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.EndpointShellAssumption.cycle_tail_small_succ' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.singleton_cycle_tail_le_fixed' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.EndpointShellAssumption.short_cycle_tail_small' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.EndpointShellAssumption.cycle_shell_tightness' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'cycleShell_contractCheck' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]

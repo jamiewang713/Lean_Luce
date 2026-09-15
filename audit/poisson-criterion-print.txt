@@ -1,0 +1,1861 @@
+theorem Luce.predictable_poisson.{u_1, u_2} : ∀ {X : Type u_1} [inst : TopologicalSpace X] [CompactSpace X]
+  [inst_2 : MeasurableSpace X] [inst_3 : BorelSpace X] {Ω : ℕ → Type u_2} [inst_4 : (n : ℕ) → MeasurableSpace (Ω n)]
+  (P : (n : ℕ) → MeasureTheory.Measure (Ω n)) [inst_5 : ∀ (n : ℕ), MeasureTheory.IsProbabilityMeasure (P n)]
+  (B : (n : ℕ) → Luce.FiniteAdaptedBernoulli (P n) n) (x : (n : ℕ) → Fin n → X) (ν : MeasureTheory.FiniteMeasure X),
+  Luce.WeakMeasureConvergesInProbability P (fun n => (B n).predictableMeasure (x n)) ν →
+    Luce.ConvergesInProbability P (fun n => (B n).toProcess.rowMaximum n) 0 →
+      ∀ (F : BoundedContinuousFunction (Luce.FinitePointMeasure X) ℝ),
+        Filter.Tendsto (fun n => ∫ (ω : Ω n), F ((B n).pointMeasure (x n) ω) ∂P n) Filter.atTop
+          (nhds (∫ (μ : Luce.FinitePointMeasure X), F μ ∂Luce.finitePoissonLaw ν)) :=
+fun {X} [TopologicalSpace X] [CompactSpace X] [MeasurableSpace X] [BorelSpace X] {Ω} [(n : ℕ) → MeasurableSpace (Ω n)] P
+    [∀ (n : ℕ), MeasureTheory.IsProbabilityMeasure (P n)] B x ν hweak hmax F =>
+  let μ := fun n => MeasureTheory.Measure.map ((B n).pointMeasure (x n)) (P n);
+  have hΞ := fun n => Luce.FiniteAdaptedBernoulli.measurable_pointMeasure (B n) (x n);
+  have this := fun n => MeasureTheory.Measure.isProbabilityMeasure_map (Measurable.aemeasurable (hΞ n));
+  have hLaplace := fun g =>
+    Eq.mpr
+      (id
+        (congr
+          (congrFun'
+            (congrArg Filter.Tendsto
+              (funext fun n =>
+                congrArg (MeasureTheory.integral (μ n))
+                  (funext fun s => Luce.momentLaplace_pointMoment_eq_pointLaplace g s)))
+            Filter.atTop)
+          (congrArg nhds
+            (congrArg (MeasureTheory.integral (Luce.finitePoissonLaw ν))
+              (funext fun s => Luce.momentLaplace_pointMoment_eq_pointLaplace g s)))))
+      (have hg :=
+        Continuous.measurable (Continuous.comp NNReal.continuous_coe (BoundedContinuousFunction.continuous g));
+      have heq := fun n =>
+        MeasureTheory.integral_map_of_stronglyMeasurable (hΞ n)
+          (Measurable.stronglyMeasurable
+            (Luce.measurable_pointLaplace (fun y => ↑(g y)) hg fun y => NNReal.coe_nonneg (g y)));
+      Eq.mpr
+        (id
+          (congrFun' (congrFun' (congrArg Filter.Tendsto (funext fun n => (fun n => heq n) n)) Filter.atTop)
+            (nhds (∫ (s : Luce.FinitePointMeasure X), Luce.pointLaplace (fun x => ↑(g x)) s ∂Luce.finitePoissonLaw ν))))
+        (Luce.pointMeasure_laplace_tendsto P B x ν hweak hmax g));
+  have hCount :=
+    Luce.BernoulliProcess.count_tightness_rows P (fun n => (B n).toProcess) id (NNReal.coe_nonneg ν.mass)
+      (Luce.totalPredictable_tendsto P B x ν hweak) hmax;
+  have hTight := fun ε hε =>
+    Exists.casesOn (hCount ε hε) fun N hN =>
+      Exists.intro N
+        (Filter.mp_mem hN
+          (Filter.univ_mem'
+            (id fun n hn =>
+              id
+                (Eq.mpr
+                  (id
+                    (congrArg (fun _a => _a < ε)
+                      (MeasureTheory.map_measureReal_apply (hΞ n)
+                        (measurableSet_lt measurable_const Luce.measurable_pointMeasure_mass))))
+                  (Eq.mpr
+                    (eq_of_heq
+                      ((fun α self a a' e'_3 a_1 =>
+                          Eq.casesOn (motive := fun a_2 x => a' = a_2 → e'_3 ≍ x → (a < a_1) ≍ (a' < a_1)) e'_3
+                            (fun h =>
+                              Eq.ndrec (motive := fun a' => ∀ (e_3 : a = a'), e_3 ≍ Eq.refl a → (a < a_1) ≍ (a' < a_1))
+                                (fun e_3 h => HEq.refl (a < a_1)) (Eq.symm h) e'_3)
+                            (Eq.refl a') (HEq.refl e'_3))
+                        ℝ Real.instLT ((P n).real ((B n).pointMeasure (x n) ⁻¹' {a | ↑N < a.toFiniteMeasure.mass}))
+                        ((P n).real {ω | ↑N < ∑ k ∈ Finset.range (id n), (B n).toProcess.observation k ω})
+                        ((fun {α} {m} μ μ_1 e_μ =>
+                            Eq.rec (motive := fun μ_2 e_μ => ∀ (s s_1 : Set α), s = s_1 → μ.real s = μ_2.real s_1)
+                              (fun s s_1 e_s => e_s ▸ Eq.refl (μ.real s)) e_μ)
+                          (P n) (P n) (Eq.refl (P n)) ((B n).pointMeasure (x n) ⁻¹' {a | ↑N < a.toFiniteMeasure.mass})
+                          {ω | ↑N < ∑ k ∈ Finset.range (id n), (B n).toProcess.observation k ω}
+                          (Set.ext fun ω =>
+                            id
+                              (Eq.mpr
+                                (id
+                                  (congrArg
+                                    (fun _a =>
+                                      _a ↔ ω ∈ {ω | ↑N < ∑ k ∈ Finset.range (id n), (B n).toProcess.observation k ω})
+                                    (Eq.symm (propext NNReal.coe_lt_coe))))
+                                (of_eq_true
+                                  (Eq.trans
+                                    (congr
+                                      (congrArg Iff
+                                        (congr (congrArg LT.lt (NNReal.coe_natCast N))
+                                          (Luce.FiniteAdaptedBernoulli.pointMeasure_mass (B n) (x n) ω)))
+                                      Set.mem_setOf_eq)
+                                    (iff_self (↑N < ∑ k ∈ Finset.range n, (B n).toProcess.observation k ω)))))))
+                        ε))
+                    hn)))));
+  have h := Luce.pointMeasure_law_convergence_of_laplace μ (Luce.finitePoissonLaw ν) hLaplace hTight F;
+  have heq := fun n =>
+    MeasureTheory.integral_map_of_stronglyMeasurable (hΞ n)
+      (Measurable.stronglyMeasurable (Luce.measurable_boundedContinuous_pointMeasure F));
+  Eq.mp
+    (congrFun' (congrFun' (congrArg Filter.Tendsto (funext fun n => (fun n => heq n) n)) Filter.atTop)
+      (nhds (∫ (s : Luce.FinitePointMeasure X), F s ∂Luce.finitePoissonLaw ν)))
+    h
+'Luce.predictable_poisson' depends on axioms: [propext, Classical.choice, Quot.sound]
+structure Luce.FiniteAdaptedBernoulli.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace Ω} (P : MeasureTheory.Measure Ω)
+  (n : ℕ) : Type u_1
+number of parameters: 4
+fields:
+  Luce.FiniteAdaptedBernoulli.filtration : MeasureTheory.Filtration ℕ mΩ
+  Luce.FiniteAdaptedBernoulli.observation : Fin n → Ω → Bool
+  Luce.FiniteAdaptedBernoulli.adapted : ∀ (k : Fin n), Measurable (self.observation k)
+constructor:
+  Luce.FiniteAdaptedBernoulli.mk.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace Ω} {P : MeasureTheory.Measure Ω} {n : ℕ}
+    (filtration : MeasureTheory.Filtration ℕ mΩ) (observation : Fin n → Ω → Bool)
+    (adapted : ∀ (k : Fin n), Measurable (observation k)) : Luce.FiniteAdaptedBernoulli P n
+def Luce.FiniteAdaptedBernoulli.observationReal.{u_1} : {Ω : Type u_1} →
+  {mΩ : MeasurableSpace Ω} →
+    {P : MeasureTheory.Measure Ω} → {n : ℕ} → Luce.FiniteAdaptedBernoulli P n → Fin n → Ω → ℝ :=
+fun {Ω} {mΩ} {P} {n} B k ω => if B.observation k ω = true then 1 else 0
+def Luce.FiniteAdaptedBernoulli.probability.{u_1} : {Ω : Type u_1} →
+  {mΩ : MeasurableSpace Ω} →
+    {P : MeasureTheory.Measure Ω} → {n : ℕ} → Luce.FiniteAdaptedBernoulli P n → Fin n → Ω → ℝ :=
+fun {Ω} {mΩ} {P} {n} B k ω => max 0 (min 1 (P[B.observationReal k | ↑B.filtration ↑k] ω))
+def Luce.FiniteAdaptedBernoulli.pointMeasure.{u_1, u_2} : {X : Type u_1} →
+  [inst : MeasurableSpace X] →
+    {Ω : Type u_2} →
+      {mΩ : MeasurableSpace Ω} →
+        {P : MeasureTheory.Measure Ω} →
+          {n : ℕ} → Luce.FiniteAdaptedBernoulli P n → (Fin n → X) → Ω → Luce.FinitePointMeasure X :=
+fun {X} [MeasurableSpace X] {Ω} {mΩ} {P} {n} B x ω => Luce.observedPointMeasure x fun k => B.observation k ω
+def Luce.FiniteAdaptedBernoulli.predictableMeasure.{u_1, u_2} : {X : Type u_1} →
+  [inst : MeasurableSpace X] →
+    {Ω : Type u_2} →
+      {mΩ : MeasurableSpace Ω} →
+        {P : MeasureTheory.Measure Ω} →
+          {n : ℕ} → Luce.FiniteAdaptedBernoulli P n → (Fin n → X) → Ω → MeasureTheory.FiniteMeasure X :=
+fun {X} [MeasurableSpace X] {Ω} {mΩ} {P} {n} B x ω => Luce.weightedPointMeasure x fun k => ⟨B.probability k ω, ⋯⟩
+def Luce.FiniteAdaptedBernoulli.toProcess.{u_1} : {Ω : Type u_1} →
+  {mΩ : MeasurableSpace Ω} →
+    {P : MeasureTheory.Measure Ω} →
+      {n : ℕ} → Luce.FiniteAdaptedBernoulli P n → [MeasureTheory.IsProbabilityMeasure P] → Luce.BernoulliProcess P :=
+fun {Ω} {mΩ} {P} {n} B [MeasureTheory.IsProbabilityMeasure P] =>
+  { filtration := B.filtration, observation := fun k => if hk : k < n then B.observationReal ⟨k, hk⟩ else 0,
+    probability := fun k => if hk : k < n then B.probability ⟨k, hk⟩ else 0, adapted := ⋯, predictable := ⋯,
+    zero_one := ⋯, probability_nonneg := ⋯, probability_le_one := ⋯, conditional_mean := ⋯ }
+def Luce.BernoulliProcess.rowMaximum.{u_1} : {Ω : Type u_1} →
+  {mΩ : MeasurableSpace Ω} → {μ : MeasureTheory.Measure Ω} → Luce.BernoulliProcess μ → ℕ → Ω → ℝ :=
+fun {Ω} {mΩ} {μ} Y x x_1 => Nat.brecOn (motive := fun x => Ω → ℝ) x (Luce.BernoulliProcess.rowMaximum._f Y) x_1
+def Luce.WeakMeasureConvergesInProbability.{u_1, u_2} : {X : Type u_1} →
+  [inst : TopologicalSpace X] →
+    [inst_1 : MeasurableSpace X] →
+      [OpensMeasurableSpace X] →
+        {Ω : ℕ → Type u_2} →
+          [inst : (n : ℕ) → MeasurableSpace (Ω n)] →
+            ((n : ℕ) → MeasureTheory.Measure (Ω n)) →
+              ((n : ℕ) → Ω n → MeasureTheory.FiniteMeasure X) → MeasureTheory.FiniteMeasure X → Prop :=
+fun {X} [TopologicalSpace X] [MeasurableSpace X] [OpensMeasurableSpace X] {Ω} [(n : ℕ) → MeasurableSpace (Ω n)] P A ν =>
+  ∀ (U : Set (MeasureTheory.FiniteMeasure X)),
+    IsOpen U → ν ∈ U → Filter.Tendsto (fun n => (P n).real {ω | A n ω ∉ U}) Filter.atTop (nhds 0)
+def Luce.ConvergesInProbability.{u_1} : {Ω : ℕ → Type u_1} →
+  [inst : (n : ℕ) → MeasurableSpace (Ω n)] → ((n : ℕ) → MeasureTheory.Measure (Ω n)) → ((n : ℕ) → Ω n → ℝ) → ℝ → Prop :=
+fun {Ω} [(n : ℕ) → MeasurableSpace (Ω n)] μ X c =>
+  ∀ (ε : ℝ), 0 < ε → Filter.Tendsto (fun n => (μ n).real {ω | ε < |X n ω - c|}) Filter.atTop (nhds 0)
+def Luce.FinitePointMeasure.{u_2} : (X : Type u_2) → [MeasurableSpace X] → Type (max 0 u_2) :=
+fun X [MeasurableSpace X] => { μ // ∃ m x, Luce.pointMeasureOfFin x = μ }
+def Luce.pointMeasureOfFin.{u_1} : {X : Type u_1} →
+  [inst : MeasurableSpace X] → {m : ℕ} → (Fin m → X) → MeasureTheory.FiniteMeasure X :=
+fun {X} [MeasurableSpace X] {m} x => ∑ i, (MeasureTheory.diracProba (x i)).toFiniteMeasure
+def Luce.finitePoissonLaw.{u_1} : {X : Type u_1} →
+  [inst : MeasurableSpace X] → MeasureTheory.FiniteMeasure X → MeasureTheory.Measure (Luce.FinitePointMeasure X) :=
+fun {X} [MeasurableSpace X] ν =>
+  if hν : ν = 0 then MeasureTheory.Measure.dirac 0 else Luce.poissonMixture ν.mass (Luce.iidPointLaw ν.normalize)
+def Luce.iidPointLaw.{u_1} : {X : Type u_1} →
+  [inst : MeasurableSpace X] →
+    MeasureTheory.ProbabilityMeasure X → ℕ → MeasureTheory.Measure (Luce.FinitePointMeasure X) :=
+fun {X} [MeasurableSpace X] p m =>
+  MeasureTheory.Measure.map Luce.FinitePointMeasure.ofFin (MeasureTheory.Measure.pi fun x => ↑p)
+def Luce.poissonMixture.{u_1} : {E : Type u_1} →
+  [inst : MeasurableSpace E] → NNReal → (ℕ → MeasureTheory.Measure E) → MeasureTheory.Measure E :=
+fun {E} [MeasurableSpace E] r Q => (ProbabilityTheory.poissonMeasure r).bind Q
+theorem Luce.FiniteAdaptedBernoulli.conditional_mean.{u_1} : ∀ {Ω : Type u_1} {mΩ : MeasurableSpace Ω}
+  {P : MeasureTheory.Measure Ω} {n : ℕ} (B : Luce.FiniteAdaptedBernoulli P n) [MeasureTheory.IsProbabilityMeasure P]
+  (k : Fin n), P[B.observationReal k | ↑B.filtration ↑k] =ᵐ[P] B.probability k :=
+fun {Ω} {mΩ} {P} {n} B [MeasureTheory.IsProbabilityMeasure P] k =>
+  have hlo :=
+    MeasureTheory.condExp_nonneg (MeasureTheory.ae_of_all P (Luce.FiniteAdaptedBernoulli.observationReal_nonneg B k));
+  have hhi :=
+    MeasureTheory.condExp_mono (Luce.FiniteAdaptedBernoulli.integrable_observationReal B k)
+      (MeasureTheory.integrable_const 1)
+      (MeasureTheory.ae_of_all P (Luce.FiniteAdaptedBernoulli.observationReal_le_one B k));
+  Filter.mp_mem
+    (Eq.mp
+      (congrArg (fun _a => P[B.observationReal k | ↑B.filtration ↑k] ≤ᵐ[P] _a)
+        (MeasureTheory.condExp_const (MeasureTheory.Filtration.le B.filtration ↑k) 1))
+      hhi)
+    (Filter.mp_mem hlo
+      (Filter.univ_mem'
+        (id fun ω hωlo hωhi =>
+          Eq.trans (Eq.symm (max_eq_right hωlo)) (congrArg (max 0) (Eq.symm (min_eq_right hωhi))))))
+'Luce.FiniteAdaptedBernoulli.conditional_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem Luce.FiniteAdaptedBernoulli.measurableSet_predictableMeasure_preimage.{u_1, u_2} : ∀ {X : Type u_1}
+  [inst : MeasurableSpace X] {Ω : Type u_2} {mΩ : MeasurableSpace Ω} {P : MeasureTheory.Measure Ω} {n : ℕ}
+  (B : Luce.FiniteAdaptedBernoulli P n) [inst_1 : TopologicalSpace X] [inst_2 : OpensMeasurableSpace X] (x : Fin n → X)
+  {U : Set (MeasureTheory.FiniteMeasure X)}, IsOpen U → MeasurableSet {ω | B.predictableMeasure x ω ∈ U} :=
+fun {X} [MeasurableSpace X] {Ω} {mΩ} {P} {n} B [TopologicalSpace X] [OpensMeasurableSpace X] x {U} hU =>
+  have hp :=
+    measurable_pi_lambda (fun ω k => ⟨B.probability k ω, Luce.FiniteAdaptedBernoulli.probability_nonneg B k ω⟩) fun k =>
+      Measurable.subtype_mk
+        (MeasureTheory.StronglyMeasurable.measurable
+          (MeasureTheory.StronglyMeasurable.mono (Luce.FiniteAdaptedBernoulli.probability_predictable B k)
+            (MeasureTheory.Filtration.le B.filtration ↑k)));
+  MeasurableSet.preimage (IsOpen.measurableSet (IsOpen.preimage (Luce.continuous_weightedPointMeasure x) hU)) hp
+'Luce.FiniteAdaptedBernoulli.measurableSet_predictableMeasure_preimage' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+theorem Luce.WeakMeasureConvergesInProbability.integral.{u_1, u_2} : ∀ {X : Type u_1} [inst : TopologicalSpace X]
+  [inst_1 : MeasurableSpace X] [inst_2 : OpensMeasurableSpace X] {Ω : ℕ → Type u_2}
+  [inst_3 : (n : ℕ) → MeasurableSpace (Ω n)] {P : (n : ℕ) → MeasureTheory.Measure (Ω n)}
+  [∀ (n : ℕ), MeasureTheory.IsProbabilityMeasure (P n)] {A : (n : ℕ) → Ω n → MeasureTheory.FiniteMeasure X}
+  {ν : MeasureTheory.FiniteMeasure X},
+  Luce.WeakMeasureConvergesInProbability P A ν →
+    ∀ (f : BoundedContinuousFunction X ℝ),
+      Luce.ConvergesInProbability P (fun n ω => ∫ (x : X), f x ∂↑(A n ω)) (∫ (x : X), f x ∂↑ν) :=
+fun {X} [TopologicalSpace X] [MeasurableSpace X] [OpensMeasurableSpace X] {Ω} [(n : ℕ) → MeasurableSpace (Ω n)] {P}
+    [∀ (n : ℕ), MeasureTheory.IsProbabilityMeasure (P n)] {A} {ν} hA f ε hε =>
+  let U := {μ | |∫ (x : X), f x ∂↑μ - ∫ (x : X), f x ∂↑ν| < ε};
+  have hU :=
+    isOpen_lt
+      (Continuous.abs
+        (Continuous.sub (MeasureTheory.FiniteMeasure.continuous_integral_boundedContinuousFunction f) continuous_const))
+      continuous_const;
+  have hν :=
+    Eq.mpr (id (congrFun' (congrArg LT.lt (Eq.trans (congrArg abs (sub_self (∫ (x : X), f x ∂↑ν))) abs_zero)) ε)) hε;
+  squeeze_zero (fun x => MeasureTheory.measureReal_nonneg)
+    (fun n =>
+      MeasureTheory.measureReal_mono (fun ⦃ω⦄ hω => id (fun hω => id (not_lt.mpr (LT.lt.le hω))) hω)
+        (MeasureTheory.measure_ne_top (P n) {ω | A n ω ∉ U}))
+    (hA U hU hν)
+'Luce.WeakMeasureConvergesInProbability.integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem Luce.BernoulliProcess.likelihood_martingale.{u_1} : ∀ {Ω : Type u_1} {mΩ : MeasurableSpace Ω}
+  {μ : MeasureTheory.Measure Ω} [MeasureTheory.IsProbabilityMeasure μ] (X : Luce.BernoulliProcess μ) {δ : ℝ},
+  δ < 1 →
+    ∀ (g : ℕ → ℝ),
+      (∀ (k : ℕ), 0 ≤ g k) →
+        (∀ (k : ℕ) (ω : Ω), X.probability k ω ≤ δ) → MeasureTheory.Martingale (X.likelihood g) X.filtration μ :=
+fun {Ω} {mΩ} {μ} [MeasureTheory.IsProbabilityMeasure μ] X {δ} hδ g hg hpδ =>
+  Luce.likelihood_product_martingale X.filtration (fun k => X.laplaceFactor (g k) k)
+    (fun k => Luce.BernoulliProcess.laplaceFactor_stronglyMeasurable X (g k) k)
+    (fun k => Luce.BernoulliProcess.laplaceFactor_integrable X hδ (hg k) k (hpδ k))
+    (fun k => Luce.BernoulliProcess.laplaceFactor_conditional_mean X hδ (hg k) k (hpδ k))
+    (Luce.BernoulliProcess.likelihood_integrable X hδ g hg hpδ)
+'Luce.BernoulliProcess.likelihood_martingale' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem Luce.BernoulliProcess.integral_likelihood.{u_1} : ∀ {Ω : Type u_1} {mΩ : MeasurableSpace Ω}
+  {μ : MeasureTheory.Measure Ω} [MeasureTheory.IsProbabilityMeasure μ] (X : Luce.BernoulliProcess μ) {δ : ℝ},
+  δ < 1 →
+    ∀ (g : ℕ → ℝ),
+      (∀ (k : ℕ), 0 ≤ g k) →
+        (∀ (k : ℕ) (ω : Ω), X.probability k ω ≤ δ) → ∀ (N : ℕ), ∫ (ω : Ω), X.likelihood g N ω ∂μ = 1 :=
+fun {Ω} {mΩ} {μ} [MeasureTheory.IsProbabilityMeasure μ] X {δ} hδ g hg hpδ N =>
+  Luce.likelihood_product_integral X.filtration (fun k => X.laplaceFactor (g k) k)
+    (fun k => Luce.BernoulliProcess.laplaceFactor_stronglyMeasurable X (g k) k)
+    (fun k => Luce.BernoulliProcess.laplaceFactor_integrable X hδ (hg k) k (hpδ k))
+    (fun k => Luce.BernoulliProcess.laplaceFactor_conditional_mean X hδ (hg k) k (hpδ k))
+    (Luce.BernoulliProcess.likelihood_integrable X hδ g hg hpδ) N
+'Luce.BernoulliProcess.integral_likelihood' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem Luce.BernoulliProcess.integrable_likelihood_sq.{u_1} : ∀ {Ω : Type u_1} {mΩ : MeasurableSpace Ω}
+  {μ : MeasureTheory.Measure Ω} [MeasureTheory.IsProbabilityMeasure μ] (X : Luce.BernoulliProcess μ) {δ K : ℝ},
+  δ < 1 →
+    ∀ (g : ℕ → ℝ),
+      (∀ (k : ℕ), 0 ≤ g k) →
+        (∀ (k : ℕ) (ω : Ω), X.probability k ω ≤ δ) →
+          ∀ (N : ℕ),
+            (∀ (ω : Ω), ∑ k ∈ Finset.range N, X.probability k ω ≤ K) →
+              ∀ {m : ℕ}, m ≤ N → MeasureTheory.Integrable (fun ω => X.likelihood g m ω ^ 2) μ :=
+fun {Ω} {mΩ} {μ} [MeasureTheory.IsProbabilityMeasure μ] X {δ K} hδ g hg hpδ N hK {m} hm =>
+  have hL := Luce.BernoulliProcess.likelihood_integrable X hδ g hg hpδ m;
+  have hbound :=
+    MeasureTheory.ae_of_all μ fun ω =>
+      have hb := Luce.BernoulliProcess.likelihood_bounds_of_terminal_cap✝ X hδ g hg hpδ N hK hm ω;
+      Eq.mpr (id (congrFun' (congrArg LE.le (abs_of_nonneg hb.left)) (Real.exp (K / (1 - δ))))) hb.right;
+  Eq.mpr
+    (id
+      (congrFun'
+        (congrArg
+          (@MeasureTheory.Integrable ℝ PseudoMetricSpace.toUniformSpace.toTopologicalSpace
+            SeminormedAddGroup.toContinuousENorm Ω mΩ)
+          (funext fun ω => pow_two (X.likelihood g m ω)))
+        μ))
+    (MeasureTheory.Integrable.mul_bdd hL (MeasureTheory.Integrable.aestronglyMeasurable hL) hbound)
+'Luce.BernoulliProcess.integrable_likelihood_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem Luce.BernoulliProcess.integral_likelihood_sq_le.{u_1} : ∀ {Ω : Type u_1} {mΩ : MeasurableSpace Ω}
+  {μ : MeasureTheory.Measure Ω} [MeasureTheory.IsProbabilityMeasure μ] (X : Luce.BernoulliProcess μ) {δ K : ℝ},
+  δ < 1 →
+    ∀ (g : ℕ → ℝ),
+      (∀ (k : ℕ), 0 ≤ g k) →
+        (∀ (k : ℕ) (ω : Ω), X.probability k ω ≤ δ) →
+          ∀ (N : ℕ),
+            (∀ (ω : Ω), ∑ k ∈ Finset.range N, X.probability k ω ≤ K) →
+              ∀ {m : ℕ}, m ≤ N → ∫ (ω : Ω), X.likelihood g m ω ^ 2 ∂μ ≤ Real.exp (K / (1 - δ)) :=
+fun {Ω} {mΩ} {μ} [MeasureTheory.IsProbabilityMeasure μ] X {δ K} hδ g hg hpδ N hK {m} hm =>
+  have hL := Luce.BernoulliProcess.likelihood_integrable X hδ g hg hpδ m;
+  Trans.trans
+    (MeasureTheory.integral_mono (Luce.BernoulliProcess.integrable_likelihood_sq X hδ g hg hpδ N hK hm)
+      (MeasureTheory.Integrable.const_mul hL (Real.exp (K / (1 - δ)))) fun ω =>
+      have hb := Luce.BernoulliProcess.likelihood_bounds_of_terminal_cap✝ X hδ g hg hpδ N hK hm ω;
+      Eq.mpr
+        (id (congrFun' (congrArg LE.le (pow_two (X.likelihood g m ω))) (Real.exp (K / (1 - δ)) * X.likelihood g m ω)))
+        (mul_le_mul_of_nonneg_right hb.right hb.left))
+    (Eq.mpr
+      (id
+        (congrArg (fun _a => _a = Real.exp (K / (1 - δ)))
+          (MeasureTheory.integral_const_mul (Real.exp (K / (1 - δ))) (X.likelihood g m))))
+      (Eq.mpr
+        (id
+          (congrArg (fun _a => Real.exp (K / (1 - δ)) * _a = Real.exp (K / (1 - δ)))
+            (Luce.BernoulliProcess.integral_likelihood X hδ g hg hpδ m)))
+        (Eq.mpr (id (congrArg (fun _a => _a = Real.exp (K / (1 - δ))) (mul_one (Real.exp (K / (1 - δ))))))
+          (Eq.refl (Real.exp (K / (1 - δ)))))))
+'Luce.BernoulliProcess.integral_likelihood_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem Luce.BernoulliProcess.stopped_integral_likelihood_sq_le.{u_1} : ∀ {Ω : Type u_1} {mΩ : MeasurableSpace Ω}
+  {μ : MeasureTheory.Measure Ω} [inst : MeasureTheory.IsProbabilityMeasure μ] (X : Luce.BernoulliProcess μ) {δ K : ℝ},
+  0 ≤ δ →
+    δ < 1 →
+      0 ≤ K →
+        ∀ (g : ℕ → ℝ),
+          (∀ (k : ℕ), 0 ≤ g k) → ∀ (m : ℕ), ∫ (ω : Ω), (X.stop δ K).likelihood g m ω ^ 2 ∂μ ≤ Real.exp (K / (1 - δ)) :=
+fun {Ω} {mΩ} {μ} [MeasureTheory.IsProbabilityMeasure μ] X {δ K} hδ0 hδ hK g hg m =>
+  Luce.BernoulliProcess.integral_likelihood_sq_le (X.stop δ K) hδ g hg
+    (fun k ω => Luce.BernoulliProcess.stop_probability_le_cap X hδ0 k ω) m
+    (fun ω => Luce.BernoulliProcess.stop_sum_probability_le_cap X hK m ω) le_rfl
+'Luce.BernoulliProcess.stopped_integral_likelihood_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem Luce.BernoulliProcess.uncapped_laplace_tendsto_rows.{u_1} : ∀ {Ω : ℕ → Type u_1}
+  [inst : (n : ℕ) → MeasurableSpace (Ω n)] (P : (n : ℕ) → MeasureTheory.Measure (Ω n))
+  [∀ (n : ℕ), MeasureTheory.IsProbabilityMeasure (P n)] (X : (n : ℕ) → Luce.BernoulliProcess (P n)) (g : ℕ → ℕ → ℝ)
+  (N : ℕ → ℕ) {c lam : ℝ},
+  0 ≤ c →
+    0 ≤ lam →
+      (∀ (n k : ℕ), 0 ≤ g n k) →
+        Luce.ConvergesInProbability P (fun n ω => ∑ k ∈ Finset.range (N n), (X n).probability k ω) c →
+          Luce.ConvergesInProbability P (fun n => (X n).rowMaximum (N n)) 0 →
+            Luce.ConvergesInProbability P (fun n => (X n).laplaceCompensator (g n) (N n)) lam →
+              Filter.Tendsto
+                (fun n => ∫ (ω : Ω n), Real.exp (-∑ k ∈ Finset.range (N n), g n k * (X n).observation k ω) ∂P n)
+                Filter.atTop (nhds (Real.exp (-lam))) :=
+fun {Ω} [(n : ℕ) → MeasurableSpace (Ω n)] P [∀ (n : ℕ), MeasureTheory.IsProbabilityMeasure (P n)] X g N {c lam} hc hlam
+    hg htotal hmax hcomp =>
+  let K := c + 2;
+  have hK0 :=
+    id
+      (le_of_not_gt fun a =>
+        Mathlib.Tactic.Linarith.lt_irrefl
+          (Eq.mp
+            (congrArg (fun _a => _a < 0)
+              (Mathlib.Tactic.Ring.of_eq
+                (Mathlib.Tactic.Ring.Common.add_congr
+                  (Mathlib.Tactic.Ring.Common.add_congr
+                    (Mathlib.Tactic.Ring.Common.mul_congr
+                      (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)))
+                      (Mathlib.Tactic.Ring.Common.neg_congr
+                        (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                        (Mathlib.Tactic.Ring.Common.neg_add
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                              (Eq.refl (Int.negOfNat 1))))
+                          Mathlib.Tactic.Ring.Common.neg_zero))
+                      (Mathlib.Tactic.Ring.Common.add_mul
+                        (Mathlib.Tactic.Ring.Common.mul_add
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                            (Mathlib.Meta.NormNum.isInt_mul (Eq.refl HMul.hMul)
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2))
+                              (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1)) (Eq.refl (Int.negOfNat 2))))
+                          (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 2))
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero ((Int.negOfNat 2).rawCast + 0)))
+                        (Mathlib.Tactic.Ring.Common.zero_mul ((Int.negOfNat 1).rawCast + 0))
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero ((Int.negOfNat 2).rawCast + 0))))
+                    (Mathlib.Tactic.Ring.Common.sub_congr
+                      (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                      (Mathlib.Tactic.Ring.Common.atom_pf c rfl
+                        (Eq.mpr
+                          (id
+                            (congrArg (fun _a => c ^ Nat.rawCast 1 * Nat.rawCast 1 = c ^ Nat.rawCast 1 * _a)
+                              (Eq.symm rfl)))
+                          (Eq.refl (c ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                      (Mathlib.Tactic.Ring.Common.sub_pf
+                        (Mathlib.Tactic.Ring.Common.neg_add
+                          (Mathlib.Tactic.Ring.Common.neg_mul c (Nat.rawCast 1)
+                            (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                              (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                (Eq.refl (Int.negOfNat 1)))))
+                          Mathlib.Tactic.Ring.Common.neg_zero)
+                        (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                          (c ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_lt (Int.negOfNat 2).rawCast
+                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add (c ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0))))
+                  (Mathlib.Tactic.Ring.Common.sub_congr
+                    (Mathlib.Tactic.Ring.Common.add_congr
+                      (Mathlib.Tactic.Ring.Common.atom_pf c rfl
+                        (Eq.mpr
+                          (id
+                            (congrArg (fun _a => c ^ Nat.rawCast 1 * Nat.rawCast 1 = c ^ Nat.rawCast 1 * _a)
+                              (Eq.symm rfl)))
+                          (Eq.refl (c ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                      (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)))
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_gt (Nat.rawCast 2)
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero (c ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                    (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                    (Mathlib.Tactic.Ring.Common.sub_pf Mathlib.Tactic.Ring.Common.neg_zero
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                        (Nat.rawCast 2 + (c ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))))
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                    (Mathlib.Meta.NormNum.IsInt.to_isNat
+                      (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                        (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 2))
+                        (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2))
+                        (Eq.refl (Int.ofNat 0))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                      (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero c (Nat.rawCast 1)
+                        (Mathlib.Meta.NormNum.IsInt.to_isNat
+                          (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                            (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1))
+                            (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                            (Eq.refl (Int.ofNat 0)))))
+                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add 0))))
+                (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))))
+            (Mathlib.Tactic.Linarith.add_neg
+              (Mathlib.Tactic.Linarith.add_lt_of_neg_of_le
+                (Mathlib.Tactic.Linarith.mul_neg (neg_neg_of_pos Mathlib.Tactic.Linarith.zero_lt_one)
+                  (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)) (Eq.refl false)))
+                (Mathlib.Tactic.Linarith.sub_nonpos_of_le hc))
+              (Mathlib.Tactic.Linarith.sub_neg_of_lt a))));
+  have hcK :=
+    id
+      (lt_of_not_ge fun a =>
+        Mathlib.Tactic.Linarith.lt_irrefl
+          (Eq.mp
+            (congrArg (fun _a => _a < 0)
+              (Mathlib.Tactic.Ring.of_eq
+                (Mathlib.Tactic.Ring.Common.add_congr
+                  (Mathlib.Tactic.Ring.Common.mul_congr
+                    (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)))
+                    (Mathlib.Tactic.Ring.Common.neg_congr
+                      (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                      (Mathlib.Tactic.Ring.Common.neg_add
+                        (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                          (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                            (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                            (Eq.refl (Int.negOfNat 1))))
+                        Mathlib.Tactic.Ring.Common.neg_zero))
+                    (Mathlib.Tactic.Ring.Common.add_mul
+                      (Mathlib.Tactic.Ring.Common.mul_add
+                        (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                          (Mathlib.Meta.NormNum.isInt_mul (Eq.refl HMul.hMul)
+                            (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2))
+                            (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1)) (Eq.refl (Int.negOfNat 2))))
+                        (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 2))
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero ((Int.negOfNat 2).rawCast + 0)))
+                      (Mathlib.Tactic.Ring.Common.zero_mul ((Int.negOfNat 1).rawCast + 0))
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero ((Int.negOfNat 2).rawCast + 0))))
+                  (Mathlib.Tactic.Ring.Common.sub_congr
+                    (Mathlib.Tactic.Ring.Common.add_congr
+                      (Mathlib.Tactic.Ring.Common.atom_pf c rfl
+                        (Eq.mpr
+                          (id
+                            (congrArg (fun _a => c ^ Nat.rawCast 1 * Nat.rawCast 1 = c ^ Nat.rawCast 1 * _a)
+                              (Eq.symm rfl)))
+                          (Eq.refl (c ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                      (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)))
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_gt (Nat.rawCast 2)
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero (c ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                    (Mathlib.Tactic.Ring.Common.atom_pf c rfl
+                      (Eq.mpr
+                        (id
+                          (congrArg (fun _a => c ^ Nat.rawCast 1 * Nat.rawCast 1 = c ^ Nat.rawCast 1 * _a)
+                            (Eq.symm rfl)))
+                        (Eq.refl (c ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                    (Mathlib.Tactic.Ring.Common.sub_pf
+                      (Mathlib.Tactic.Ring.Common.neg_add
+                        (Mathlib.Tactic.Ring.Common.neg_mul c (Nat.rawCast 1)
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                              (Eq.refl (Int.negOfNat 1)))))
+                        Mathlib.Tactic.Ring.Common.neg_zero)
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_lt (Nat.rawCast 2)
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                          (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero c (Nat.rawCast 1)
+                            (Mathlib.Meta.NormNum.IsInt.to_isNat
+                              (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                                (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1)) (Eq.refl (Int.ofNat 0)))))
+                          (Mathlib.Tactic.Ring.Common.add_pf_zero_add 0)))))
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                    (Mathlib.Meta.NormNum.IsInt.to_isNat
+                      (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                        (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 2))
+                        (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2))
+                        (Eq.refl (Int.ofNat 0))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add 0)))
+                (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))))
+            (Mathlib.Tactic.Linarith.add_lt_of_neg_of_le
+              (Mathlib.Tactic.Linarith.mul_neg (neg_neg_of_pos Mathlib.Tactic.Linarith.zero_lt_one)
+                (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)) (Eq.refl false)))
+              (Mathlib.Tactic.Linarith.sub_nonpos_of_le a))));
+  let Y := fun n => ((X n).truncateAt (N n)).stop (1 / 2) K;
+  let bad := fun n =>
+    {ω | 1 / 2 < (X n).rowMaximum (N n) ω} ∪ {ω | K < ∑ k ∈ Finset.range (N n), (X n).probability k ω};
+  have hbadmeas := fun n =>
+    MeasurableSet.union (measurableSet_lt measurable_const (Luce.BernoulliProcess.measurable_rowMaximum (X n) (N n)))
+      (measurableSet_lt measurable_const
+        (Finset.measurable_sum (Finset.range (N n)) fun k a =>
+          MeasureTheory.StronglyMeasurable.measurable
+            (MeasureTheory.StronglyMeasurable.mono ((X n).predictable k)
+              (MeasureTheory.Filtration.le (X n).filtration k))));
+  have hbad :=
+    squeeze_zero (fun x => MeasureTheory.measureReal_nonneg)
+      (fun n =>
+        MeasureTheory.measureReal_union_le {ω | 1 / 2 < (X n).rowMaximum (N n) ω}
+          {ω | K < ∑ k ∈ Finset.range (N n), (X n).probability k ω})
+      (Eq.mp
+        (congrArg
+          (Filter.Tendsto
+            (fun x =>
+              (P x).real {ω | 1 / 2 < (X x).rowMaximum (N x) ω} +
+                (P x).real {ω | K < ∑ k ∈ Finset.range (N x), (X x).probability k ω})
+            Filter.atTop)
+          (congrArg nhds (zero_add 0)))
+        (Filter.Tendsto.add
+          (Luce.ConvergesInProbability.upper_tail hmax
+            (Mathlib.Meta.NormNum.isNNRat_lt_true
+              (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+              (Mathlib.Meta.NormNum.isNNRat_div
+                (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                  (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                  (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                    (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2))))
+                  (Eq.refl (Nat.mul 1 1)) (Eq.refl 2)))
+              (Eq.refl true)))
+          (Luce.ConvergesInProbability.upper_tail htotal hcK)));
+  have heq := fun n ω hω k hk =>
+    Luce.BernoulliProcess.truncatedStop_eq_on_good (X n) ω
+      (Eq.mp
+          (Eq.trans
+            (Eq.trans
+              (congrArg Not
+                (Luce.BernoulliProcess.uncapped_laplace_tendsto_rows._simp_1_1 ω {ω | 1 / 2 < (X n).rowMaximum (N n) ω}
+                  {ω | K < ∑ k ∈ Finset.range (N n), (X n).probability k ω}))
+              Luce.BernoulliProcess.uncapped_laplace_tendsto_rows._simp_1_2)
+            (congr (congrArg And Luce.BernoulliProcess.uncapped_laplace_tendsto_rows._simp_1_3)
+              Luce.BernoulliProcess.uncapped_laplace_tendsto_rows._simp_1_3))
+          hω).left
+      (Eq.mp
+          (Eq.trans
+            (Eq.trans
+              (congrArg Not
+                (Luce.BernoulliProcess.uncapped_laplace_tendsto_rows._simp_1_1 ω {ω | 1 / 2 < (X n).rowMaximum (N n) ω}
+                  {ω | K < ∑ k ∈ Finset.range (N n), (X n).probability k ω}))
+              Luce.BernoulliProcess.uncapped_laplace_tendsto_rows._simp_1_2)
+            (congr (congrArg And Luce.BernoulliProcess.uncapped_laplace_tendsto_rows._simp_1_3)
+              Luce.BernoulliProcess.uncapped_laplace_tendsto_rows._simp_1_3))
+          hω).right
+      hk;
+  let a := fun n ω => min (1 / 2) ((X n).rowMaximum (N n) ω);
+  have hameas := fun n => Measurable.min measurable_const (Luce.BernoulliProcess.measurable_rowMaximum (X n) (N n));
+  have ha0 := fun n ω =>
+    le_min
+      (Mathlib.Meta.NormNum.isRat_le_true
+        (Mathlib.Meta.NormNum.IsNNRat.to_isRat
+          (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)))
+        (Mathlib.Meta.NormNum.IsNNRat.to_isRat
+          (Mathlib.Meta.NormNum.isNNRat_div
+            (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+              (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+              (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2))))
+              (Eq.refl (Nat.mul 1 1)) (Eq.refl 2))))
+        (Eq.refl true))
+      (Luce.BernoulliProcess.rowMaximum_nonneg (X n) (N n) ω);
+  have haδ := fun n ω => min_le_left (1 / 2) ((X n).rowMaximum (N n) ω);
+  have hp := fun n k ω =>
+    le_min
+      (Luce.BernoulliProcess.stop_probability_le_cap ((X n).truncateAt (N n))
+        (Mathlib.Meta.NormNum.isRat_le_true
+          (Mathlib.Meta.NormNum.IsNNRat.to_isRat
+            (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)))
+          (Mathlib.Meta.NormNum.IsNNRat.to_isRat
+            (Mathlib.Meta.NormNum.isNNRat_div
+              (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                  (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2))))
+                (Eq.refl (Nat.mul 1 1)) (Eq.refl 2))))
+          (Eq.refl true))
+        k ω)
+      (have hle := Luce.stoppedProbability_le (((X n).truncateAt (N n)).probability_nonneg k ω);
+      LE.le.trans hle (Luce.BernoulliProcess.truncateAt_probability_le_rowMaximum (X n) (N n) k ω));
+  have hatendsto :=
+    Luce.ConvergesInProbability.mono hmax fun n ω =>
+      Eq.mpr
+        (id
+          (congr (congrArg LE.le (Eq.trans (congrArg abs (sub_zero (a n ω))) (abs_of_nonneg (ha0 n ω))))
+            (Eq.trans (congrArg abs (sub_zero ((X n).rowMaximum (N n) ω)))
+              (abs_of_nonneg (Luce.BernoulliProcess.rowMaximum_nonneg (X n) (N n) ω)))))
+        (min_le_right (1 / 2) ((X n).rowMaximum (N n) ω));
+  have hYcomp :=
+    Luce.ConvergesInProbability.congr_off hcomp bad hbad fun n ω hω =>
+      Finset.sum_congr rfl fun k hk =>
+        Eq.mpr
+          (id
+            (congrArg (fun _a => _a * (1 - Real.exp (-g n k)) = (X n).probability k ω * (1 - Real.exp (-g n k)))
+              (heq n ω hω k (Finset.mem_range.mp hk)).right))
+          (Eq.refl ((X n).probability k ω * (1 - Real.exp (-g n k))));
+  have hYlimit :=
+    Luce.BernoulliProcess.capped_laplace_tendsto_rows P Y g N
+      (Mathlib.Meta.NormNum.isNNRat_lt_true
+        (Mathlib.Meta.NormNum.isNNRat_div
+          (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+            (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+            (Mathlib.Meta.NormNum.isNNRat_inv_pos
+              (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2))))
+            (Eq.refl (Nat.mul 1 1)) (Eq.refl 2)))
+        (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one)) (Eq.refl true))
+      hlam hg a hameas ha0 haδ hp
+      (fun n ω => Luce.BernoulliProcess.stop_sum_probability_le_cap ((X n).truncateAt (N n)) hK0 (N n) ω) hatendsto
+      hYcomp;
+  id
+    (fun hYlimit =>
+      have hlapEq := fun n ω hω =>
+        id
+          ((fun x x_1 e_x => e_x ▸ Eq.refl (Real.exp x)) (-∑ k ∈ Finset.range (N n), g n k * (X n).observation k ω)
+            (-∑ k ∈ Finset.range (N n), g n k * (Y n).observation k ω)
+            ((fun {α} [Neg α] a a_1 e_a => e_a ▸ Eq.refl (-a)) (∑ k ∈ Finset.range (N n), g n k * (X n).observation k ω)
+              (∑ k ∈ Finset.range (N n), g n k * (Y n).observation k ω)
+              (Finset.sum_congr rfl fun k hk =>
+                Eq.mpr
+                  (id
+                    (congrArg (fun _a => g n k * (X n).observation k ω = g n k * _a)
+                      (heq n ω hω k (Finset.mem_range.mp hk)).left))
+                  (Eq.refl (g n k * (X n).observation k ω)))));
+      have hdiff := fun n =>
+        Luce.integral_difference_le_bad_probability✝
+          (Luce.BernoulliProcess.integrable_laplaceRow (X n) (g n) (hg n) (N n))
+          (Luce.BernoulliProcess.integrable_laplaceRow (Y n) (g n) (hg n) (N n))
+          (Luce.BernoulliProcess.laplaceRow_bounds (X n) (g n) (hg n) (N n))
+          (Luce.BernoulliProcess.laplaceRow_bounds (Y n) (g n) (hg n) (N n)) (bad n) (hbadmeas n) (hlapEq n);
+      have hdiffzero :=
+        tendsto_zero_iff_norm_tendsto_zero.mpr
+          (squeeze_zero
+            (fun x =>
+              norm_nonneg
+                (∫ (ω : Ω x), (X x).laplaceRow (g x) (N x) ω ∂P x - ∫ (ω : Ω x), (Y x).laplaceRow (g x) (N x) ω ∂P x))
+            (fun n => id (hdiff n)) hbad);
+      Eq.mp
+        (congr
+          (congrFun'
+            (congrArg Filter.Tendsto
+              (funext fun x =>
+                sub_add_cancel (∫ (ω : Ω x), Real.exp (-∑ k ∈ Finset.range (N x), g x k * (X x).observation k ω) ∂P x)
+                  (∫ (ω : Ω x), Real.exp (-∑ k ∈ Finset.range (N x), g x k * (Y x).observation k ω) ∂P x)))
+            Filter.atTop)
+          (congrArg nhds (zero_add (Real.exp (-lam)))))
+        (Filter.Tendsto.add hdiffzero hYlimit))
+    hYlimit
+'Luce.BernoulliProcess.uncapped_laplace_tendsto_rows' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem Luce.BernoulliProcess.count_tightness_rows.{u_1} : ∀ {Ω : ℕ → Type u_1} [inst : (n : ℕ) → MeasurableSpace (Ω n)]
+  (P : (n : ℕ) → MeasureTheory.Measure (Ω n)) [∀ (n : ℕ), MeasureTheory.IsProbabilityMeasure (P n)]
+  (X : (n : ℕ) → Luce.BernoulliProcess (P n)) (N : ℕ → ℕ) {c : ℝ},
+  0 ≤ c →
+    Luce.ConvergesInProbability P (fun n ω => ∑ k ∈ Finset.range (N n), (X n).probability k ω) c →
+      Luce.ConvergesInProbability P (fun n => (X n).rowMaximum (N n)) 0 →
+        ∀ (ε : ℝ),
+          0 < ε →
+            ∃ M,
+              ∀ᶠ (n : ℕ) in Filter.atTop, (P n).real {ω | ↑M < ∑ k ∈ Finset.range (N n), (X n).observation k ω} < ε :=
+fun {Ω} [(n : ℕ) → MeasurableSpace (Ω n)] P [∀ (n : ℕ), MeasureTheory.IsProbabilityMeasure (P n)] X N {c} hc htotal hmax
+    ε hε =>
+  let K := c + 2;
+  have hK0 :=
+    id
+      (le_of_not_gt fun a =>
+        Mathlib.Tactic.Linarith.lt_irrefl
+          (Eq.mp
+            (congrArg (fun _a => _a < 0)
+              (Mathlib.Tactic.Ring.of_eq
+                (Mathlib.Tactic.Ring.Common.add_congr
+                  (Mathlib.Tactic.Ring.Common.add_congr
+                    (Mathlib.Tactic.Ring.Common.mul_congr
+                      (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)))
+                      (Mathlib.Tactic.Ring.Common.neg_congr
+                        (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                        (Mathlib.Tactic.Ring.Common.neg_add
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                              (Eq.refl (Int.negOfNat 1))))
+                          Mathlib.Tactic.Ring.Common.neg_zero))
+                      (Mathlib.Tactic.Ring.Common.add_mul
+                        (Mathlib.Tactic.Ring.Common.mul_add
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                            (Mathlib.Meta.NormNum.isInt_mul (Eq.refl HMul.hMul)
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2))
+                              (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1)) (Eq.refl (Int.negOfNat 2))))
+                          (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 2))
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero ((Int.negOfNat 2).rawCast + 0)))
+                        (Mathlib.Tactic.Ring.Common.zero_mul ((Int.negOfNat 1).rawCast + 0))
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero ((Int.negOfNat 2).rawCast + 0))))
+                    (Mathlib.Tactic.Ring.Common.sub_congr
+                      (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                      (Mathlib.Tactic.Ring.Common.atom_pf c rfl
+                        (Eq.mpr
+                          (id
+                            (congrArg (fun _a => c ^ Nat.rawCast 1 * Nat.rawCast 1 = c ^ Nat.rawCast 1 * _a)
+                              (Eq.symm rfl)))
+                          (Eq.refl (c ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                      (Mathlib.Tactic.Ring.Common.sub_pf
+                        (Mathlib.Tactic.Ring.Common.neg_add
+                          (Mathlib.Tactic.Ring.Common.neg_mul c (Nat.rawCast 1)
+                            (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                              (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                (Eq.refl (Int.negOfNat 1)))))
+                          Mathlib.Tactic.Ring.Common.neg_zero)
+                        (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                          (c ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_lt (Int.negOfNat 2).rawCast
+                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add (c ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0))))
+                  (Mathlib.Tactic.Ring.Common.sub_congr
+                    (Mathlib.Tactic.Ring.Common.add_congr
+                      (Mathlib.Tactic.Ring.Common.atom_pf c rfl
+                        (Eq.mpr
+                          (id
+                            (congrArg (fun _a => c ^ Nat.rawCast 1 * Nat.rawCast 1 = c ^ Nat.rawCast 1 * _a)
+                              (Eq.symm rfl)))
+                          (Eq.refl (c ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                      (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)))
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_gt (Nat.rawCast 2)
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero (c ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                    (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+                    (Mathlib.Tactic.Ring.Common.sub_pf Mathlib.Tactic.Ring.Common.neg_zero
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                        (Nat.rawCast 2 + (c ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))))
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                    (Mathlib.Meta.NormNum.IsInt.to_isNat
+                      (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                        (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 2))
+                        (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2))
+                        (Eq.refl (Int.ofNat 0))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                      (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero c (Nat.rawCast 1)
+                        (Mathlib.Meta.NormNum.IsInt.to_isNat
+                          (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                            (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1))
+                            (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                            (Eq.refl (Int.ofNat 0)))))
+                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add 0))))
+                (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))))
+            (Mathlib.Tactic.Linarith.add_neg
+              (Mathlib.Tactic.Linarith.add_lt_of_neg_of_le
+                (Mathlib.Tactic.Linarith.mul_neg (neg_neg_of_pos Mathlib.Tactic.Linarith.zero_lt_one)
+                  (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)) (Eq.refl false)))
+                (Mathlib.Tactic.Linarith.sub_nonpos_of_le hc))
+              (Mathlib.Tactic.Linarith.sub_neg_of_lt a))));
+  have hcK :=
+    id
+      (lt_of_not_ge fun a =>
+        Mathlib.Tactic.Linarith.lt_irrefl
+          (Eq.mp
+            (congrArg (fun _a => _a < 0)
+              (Mathlib.Tactic.Ring.of_eq
+                (Mathlib.Tactic.Ring.Common.add_congr
+                  (Mathlib.Tactic.Ring.Common.mul_congr
+                    (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)))
+                    (Mathlib.Tactic.Ring.Common.neg_congr
+                      (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                      (Mathlib.Tactic.Ring.Common.neg_add
+                        (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                          (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                            (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                            (Eq.refl (Int.negOfNat 1))))
+                        Mathlib.Tactic.Ring.Common.neg_zero))
+                    (Mathlib.Tactic.Ring.Common.add_mul
+                      (Mathlib.Tactic.Ring.Common.mul_add
+                        (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                          (Mathlib.Meta.NormNum.isInt_mul (Eq.refl HMul.hMul)
+                            (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2))
+                            (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1)) (Eq.refl (Int.negOfNat 2))))
+                        (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 2))
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero ((Int.negOfNat 2).rawCast + 0)))
+                      (Mathlib.Tactic.Ring.Common.zero_mul ((Int.negOfNat 1).rawCast + 0))
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero ((Int.negOfNat 2).rawCast + 0))))
+                  (Mathlib.Tactic.Ring.Common.sub_congr
+                    (Mathlib.Tactic.Ring.Common.add_congr
+                      (Mathlib.Tactic.Ring.Common.atom_pf c rfl
+                        (Eq.mpr
+                          (id
+                            (congrArg (fun _a => c ^ Nat.rawCast 1 * Nat.rawCast 1 = c ^ Nat.rawCast 1 * _a)
+                              (Eq.symm rfl)))
+                          (Eq.refl (c ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                      (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)))
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_gt (Nat.rawCast 2)
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero (c ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                    (Mathlib.Tactic.Ring.Common.atom_pf c rfl
+                      (Eq.mpr
+                        (id
+                          (congrArg (fun _a => c ^ Nat.rawCast 1 * Nat.rawCast 1 = c ^ Nat.rawCast 1 * _a)
+                            (Eq.symm rfl)))
+                        (Eq.refl (c ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                    (Mathlib.Tactic.Ring.Common.sub_pf
+                      (Mathlib.Tactic.Ring.Common.neg_add
+                        (Mathlib.Tactic.Ring.Common.neg_mul c (Nat.rawCast 1)
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                              (Eq.refl (Int.negOfNat 1)))))
+                        Mathlib.Tactic.Ring.Common.neg_zero)
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_lt (Nat.rawCast 2)
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                          (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero c (Nat.rawCast 1)
+                            (Mathlib.Meta.NormNum.IsInt.to_isNat
+                              (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                                (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1)) (Eq.refl (Int.ofNat 0)))))
+                          (Mathlib.Tactic.Ring.Common.add_pf_zero_add 0)))))
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                    (Mathlib.Meta.NormNum.IsInt.to_isNat
+                      (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                        (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 2))
+                        (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2))
+                        (Eq.refl (Int.ofNat 0))))
+                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add 0)))
+                (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))))
+            (Mathlib.Tactic.Linarith.add_lt_of_neg_of_le
+              (Mathlib.Tactic.Linarith.mul_neg (neg_neg_of_pos Mathlib.Tactic.Linarith.zero_lt_one)
+                (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)) (Eq.refl false)))
+              (Mathlib.Tactic.Linarith.sub_nonpos_of_le a))));
+  let Y := fun n => ((X n).truncateAt (N n)).stop (1 / 2) K;
+  let bad := fun n =>
+    {ω | 1 / 2 < (X n).rowMaximum (N n) ω} ∪ {ω | K < ∑ k ∈ Finset.range (N n), (X n).probability k ω};
+  have hbad :=
+    Luce.BernoulliProcess.row_bad_event_tendsto_zero P X N
+      (Mathlib.Meta.NormNum.isNNRat_lt_true
+        (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))
+        (Mathlib.Meta.NormNum.isNNRat_div
+          (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+            (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+            (Mathlib.Meta.NormNum.isNNRat_inv_pos
+              (Mathlib.Meta.NormNum.IsNat.to_isNNRat (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2))))
+            (Eq.refl (Nat.mul 1 1)) (Eq.refl 2)))
+        (Eq.refl true))
+      hcK htotal hmax;
+  Exists.casesOn (exists_nat_gt (max 0 (K / (ε / 2)))) fun M hM =>
+    have hM0 := LE.le.trans_lt (le_max_left 0 (K / (ε / 2))) hM;
+    have hKM :=
+      (div_lt_iff₀ hM0).mpr
+        (have h := (div_lt_iff₀ (half_pos hε)).mp (LE.le.trans_lt (le_max_right 0 (K / (ε / 2))) hM);
+        Eq.mpr (id (congrArg (LT.lt K) (mul_comm (ε / 2) ↑M))) h);
+    Exists.intro M
+      (have hsmall := Filter.Tendsto.eventually hbad (gt_mem_nhds (half_pos hε));
+      Filter.mp_mem hsmall
+        (Filter.univ_mem'
+          (id fun n hn =>
+            have hinc := fun ⦃ω⦄ hω =>
+              if hb : ω ∈ bad n then Or.inr hb
+              else
+                Or.inl
+                  (have hgood := hb;
+                  have heq :=
+                    Finset.sum_congr rfl fun k hk =>
+                      (Luce.BernoulliProcess.truncatedStop_eq_on_good (X n) ω
+                          (Eq.mp
+                              (Eq.trans
+                                (Eq.trans
+                                  (congrArg Not
+                                    (Luce.BernoulliProcess.count_tightness_rows._simp_1_1 ω
+                                      {ω | 1 / 2 < (X n).rowMaximum (N n) ω}
+                                      {ω | K < ∑ k ∈ Finset.range (N n), (X n).probability k ω}))
+                                  Luce.BernoulliProcess.count_tightness_rows._simp_1_2)
+                                (congr (congrArg And Luce.BernoulliProcess.count_tightness_rows._simp_1_3)
+                                  Luce.BernoulliProcess.count_tightness_rows._simp_1_3))
+                              hgood).left
+                          (Eq.mp
+                              (Eq.trans
+                                (Eq.trans
+                                  (congrArg Not
+                                    (Luce.BernoulliProcess.count_tightness_rows._simp_1_1 ω
+                                      {ω | 1 / 2 < (X n).rowMaximum (N n) ω}
+                                      {ω | K < ∑ k ∈ Finset.range (N n), (X n).probability k ω}))
+                                  Luce.BernoulliProcess.count_tightness_rows._simp_1_2)
+                                (congr (congrArg And Luce.BernoulliProcess.count_tightness_rows._simp_1_3)
+                                  Luce.BernoulliProcess.count_tightness_rows._simp_1_3))
+                              hgood).right
+                          (Finset.mem_range.mp hk)).left;
+                  id (Eq.mpr (id (congrArg (fun _a => ↑M < _a) heq)) hω));
+            Trans.trans
+              (Trans.trans
+                (Trans.trans
+                  (MeasureTheory.measureReal_mono hinc
+                    (MeasureTheory.measure_ne_top (P n)
+                      ({ω | ↑M < ∑ k ∈ Finset.range (N n), (Y n).observation k ω} ∪ bad n)))
+                  (MeasureTheory.measureReal_union_le {ω | ↑M < ∑ k ∈ Finset.range (N n), (Y n).observation k ω}
+                    (bad n)))
+                (add_le_add
+                  (Luce.BernoulliProcess.count_tail_le_of_sum_probability_le (Y n) (N n) hM0 fun ω =>
+                    Luce.BernoulliProcess.stop_sum_probability_le_cap ((X n).truncateAt (N n)) hK0 (N n) ω)
+                  le_rfl))
+              (lt_of_not_ge fun a =>
+                Mathlib.Tactic.Linarith.lt_irrefl
+                  (Eq.mp
+                    (congrArg (fun _a => _a < 0)
+                      (Mathlib.Tactic.Ring.of_eq
+                        (Mathlib.Tactic.Ring.Common.add_congr
+                          (Mathlib.Tactic.Ring.Common.add_congr
+                            (Mathlib.Tactic.Ring.Common.sub_congr
+                              (Mathlib.Tactic.Ring.Common.mul_congr
+                                (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)))
+                                (Mathlib.Tactic.Ring.Common.div_congr
+                                  (Mathlib.Tactic.Ring.Common.add_congr
+                                    (Mathlib.Tactic.Ring.Common.atom_pf c rfl
+                                      (Eq.mpr
+                                        (id
+                                          (congrArg
+                                            (fun _a => c ^ Nat.rawCast 1 * Nat.rawCast 1 = c ^ Nat.rawCast 1 * _a)
+                                            (Eq.symm rfl)))
+                                        (Eq.refl (c ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                    (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_gt (Nat.rawCast 2)
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        (c ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                                  (Mathlib.Tactic.Ring.Common.atom_pf (↑M) rfl
+                                    (Eq.mpr
+                                      (id
+                                        (congrArg
+                                          (fun _a => ↑M ^ Nat.rawCast 1 * Nat.rawCast 1 = ↑M ^ Nat.rawCast 1 * _a)
+                                          (Eq.symm rfl)))
+                                      (Eq.refl (↑M ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                  (Mathlib.Tactic.Ring.Common.div_pf
+                                    (Mathlib.Tactic.Ring.Common.inv_single
+                                      (Mathlib.Tactic.Ring.Common.inv_mul (Eq.refl (↑M)⁻¹)
+                                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                          (Mathlib.Meta.NormNum.IsNNRat.to_isNat
+                                            (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                              (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                                (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)))))
+                                        (Eq.symm
+                                            (Eq.mpr
+                                              (id
+                                                (congrArg
+                                                  (fun _a =>
+                                                    (↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 =
+                                                      (↑M)⁻¹ ^ Nat.rawCast 1 * _a)
+                                                  (Eq.symm rfl)))
+                                              (Eq.refl ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1))) ▸
+                                          Mathlib.Tactic.Ring.Common.mul_pf_right (↑M)⁻¹ (Nat.rawCast 1)
+                                            (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                              (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                                (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                                (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))))
+                                    (Mathlib.Tactic.Ring.Common.add_mul
+                                      (Mathlib.Tactic.Ring.Common.mul_add
+                                        (Mathlib.Tactic.Ring.Common.mul_pf_right (↑M)⁻¹ (Nat.rawCast 1)
+                                          (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                            (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 2))))
+                                        (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 2))
+                                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                          ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 2 + 0)))
+                                      (Mathlib.Tactic.Ring.Common.add_mul
+                                        (Mathlib.Tactic.Ring.Common.mul_add
+                                          (Mathlib.Tactic.Ring.Common.mul_pf_left c (Nat.rawCast 1)
+                                            (Mathlib.Tactic.Ring.Common.mul_pf_right (↑M)⁻¹ (Nat.rawCast 1)
+                                              (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                                (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                                  (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                                  (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1)))))
+                                          (Mathlib.Tactic.Ring.Common.mul_zero (c ^ Nat.rawCast 1 * Nat.rawCast 1))
+                                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                            (c ^ Nat.rawCast 1 * ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0)))
+                                        (Mathlib.Tactic.Ring.Common.zero_mul
+                                          ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                          (c ^ Nat.rawCast 1 * ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0)))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_gt
+                                        (c ^ Nat.rawCast 1 * ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1))
+                                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                          ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 2 + 0))))))
+                                (Mathlib.Tactic.Ring.Common.add_mul
+                                  (Mathlib.Tactic.Ring.Common.mul_add
+                                    (Mathlib.Tactic.Ring.Common.mul_pf_right c (Nat.rawCast 1)
+                                      (Mathlib.Tactic.Ring.Common.mul_pf_right (↑M)⁻¹ (Nat.rawCast 1)
+                                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                          (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2)
+                                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 2)))))
+                                    (Mathlib.Tactic.Ring.Common.mul_add
+                                      (Mathlib.Tactic.Ring.Common.mul_pf_right (↑M)⁻¹ (Nat.rawCast 1)
+                                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                          (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2)
+                                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2) (Eq.refl 4))))
+                                      (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 2))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 4 + 0)))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                                      (c ^ Nat.rawCast 1 * ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 2))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                                        ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 4 + 0))))
+                                  (Mathlib.Tactic.Ring.Common.zero_mul
+                                    (c ^ Nat.rawCast 1 * ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) +
+                                      ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 2 + 0)))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                    (c ^ Nat.rawCast 1 * ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 2) +
+                                      ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 4 + 0)))))
+                              (Mathlib.Tactic.Ring.Common.mul_congr
+                                (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                (Mathlib.Tactic.Ring.Common.atom_pf ε rfl
+                                  (Eq.mpr
+                                    (id
+                                      (congrArg (fun _a => ε ^ Nat.rawCast 1 * Nat.rawCast 1 = ε ^ Nat.rawCast 1 * _a)
+                                        (Eq.symm rfl)))
+                                    (Eq.refl (ε ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                (Mathlib.Tactic.Ring.Common.add_mul
+                                  (Mathlib.Tactic.Ring.Common.mul_add
+                                    (Mathlib.Tactic.Ring.Common.mul_pf_right ε (Nat.rawCast 1)
+                                      (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                        (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                          (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                          (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))
+                                    (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 1))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      (ε ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))
+                                  (Mathlib.Tactic.Ring.Common.zero_mul (ε ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_add_zero (ε ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                              (Mathlib.Tactic.Ring.Common.sub_pf
+                                (Mathlib.Tactic.Ring.Common.neg_add
+                                  (Mathlib.Tactic.Ring.Common.neg_mul ε (Nat.rawCast 1)
+                                    (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                      (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                        (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                        (Eq.refl (Int.negOfNat 1)))))
+                                  Mathlib.Tactic.Ring.Common.neg_zero)
+                                (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                                  (c ^ Nat.rawCast 1 * ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 2))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_add_lt ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 4)
+                                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                                      (ε ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0))))))
+                            (Mathlib.Tactic.Ring.Common.sub_congr
+                              (Mathlib.Tactic.Ring.Common.mul_congr
+                                (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)))
+                                (Mathlib.Tactic.Ring.Common.atom_pf ((P n).real (bad n)) rfl
+                                  (Eq.mpr
+                                    (id
+                                      (congrArg
+                                        (fun _a =>
+                                          (P n).real (bad n) ^ Nat.rawCast 1 * Nat.rawCast 1 =
+                                            (P n).real (bad n) ^ Nat.rawCast 1 * _a)
+                                        (Eq.symm rfl)))
+                                    (Eq.refl ((P n).real (bad n) ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                (Mathlib.Tactic.Ring.Common.add_mul
+                                  (Mathlib.Tactic.Ring.Common.mul_add
+                                    (Mathlib.Tactic.Ring.Common.mul_pf_right ((P n).real (bad n)) (Nat.rawCast 1)
+                                      (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                        (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                          (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2)
+                                          (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 2))))
+                                    (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 2))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      ((P n).real (bad n) ^ Nat.rawCast 1 * Nat.rawCast 2 + 0)))
+                                  (Mathlib.Tactic.Ring.Common.zero_mul
+                                    ((P n).real (bad n) ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                    ((P n).real (bad n) ^ Nat.rawCast 1 * Nat.rawCast 2 + 0))))
+                              (Mathlib.Tactic.Ring.Common.mul_congr
+                                (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                (Mathlib.Tactic.Ring.Common.atom_pf ε rfl
+                                  (Eq.mpr
+                                    (id
+                                      (congrArg (fun _a => ε ^ Nat.rawCast 1 * Nat.rawCast 1 = ε ^ Nat.rawCast 1 * _a)
+                                        (Eq.symm rfl)))
+                                    (Eq.refl (ε ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                (Mathlib.Tactic.Ring.Common.add_mul
+                                  (Mathlib.Tactic.Ring.Common.mul_add
+                                    (Mathlib.Tactic.Ring.Common.mul_pf_right ε (Nat.rawCast 1)
+                                      (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                        (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                          (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                          (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))
+                                    (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 1))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      (ε ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))
+                                  (Mathlib.Tactic.Ring.Common.zero_mul (ε ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_add_zero (ε ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                              (Mathlib.Tactic.Ring.Common.sub_pf
+                                (Mathlib.Tactic.Ring.Common.neg_add
+                                  (Mathlib.Tactic.Ring.Common.neg_mul ε (Nat.rawCast 1)
+                                    (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                      (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                        (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                        (Eq.refl (Int.negOfNat 1)))))
+                                  Mathlib.Tactic.Ring.Common.neg_zero)
+                                (Mathlib.Tactic.Ring.Common.add_pf_add_gt (ε ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast)
+                                  (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                    ((P n).real (bad n) ^ Nat.rawCast 1 * Nat.rawCast 2 + 0)))))
+                            (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                              (c ^ Nat.rawCast 1 * ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 2))
+                              (Mathlib.Tactic.Ring.Common.add_pf_add_lt ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 4)
+                                (Mathlib.Tactic.Ring.Common.add_pf_add_overlap
+                                  (Mathlib.Tactic.Ring.Common.add_overlap_pf ε (Nat.rawCast 1)
+                                    (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                      (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                                        (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1))
+                                        (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1))
+                                        (Eq.refl (Int.negOfNat 2)))))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                                    ((P n).real (bad n) ^ Nat.rawCast 1 * Nat.rawCast 2 + 0))))))
+                          (Mathlib.Tactic.Ring.Common.mul_congr
+                            (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)))
+                            (Mathlib.Tactic.Ring.Common.sub_congr
+                              (Mathlib.Tactic.Ring.Common.mul_congr
+                                (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                (Mathlib.Tactic.Ring.Common.atom_pf ε rfl
+                                  (Eq.mpr
+                                    (id
+                                      (congrArg (fun _a => ε ^ Nat.rawCast 1 * Nat.rawCast 1 = ε ^ Nat.rawCast 1 * _a)
+                                        (Eq.symm rfl)))
+                                    (Eq.refl (ε ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                (Mathlib.Tactic.Ring.Common.add_mul
+                                  (Mathlib.Tactic.Ring.Common.mul_add
+                                    (Mathlib.Tactic.Ring.Common.mul_pf_right ε (Nat.rawCast 1)
+                                      (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                        (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                          (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                          (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))
+                                    (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 1))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      (ε ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))
+                                  (Mathlib.Tactic.Ring.Common.zero_mul (ε ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_add_zero (ε ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                              (Mathlib.Tactic.Ring.Common.add_congr
+                                (Mathlib.Tactic.Ring.Common.mul_congr
+                                  (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                  (Mathlib.Tactic.Ring.Common.div_congr
+                                    (Mathlib.Tactic.Ring.Common.add_congr
+                                      (Mathlib.Tactic.Ring.Common.atom_pf c rfl
+                                        (Eq.mpr
+                                          (id
+                                            (congrArg
+                                              (fun _a => c ^ Nat.rawCast 1 * Nat.rawCast 1 = c ^ Nat.rawCast 1 * _a)
+                                              (Eq.symm rfl)))
+                                          (Eq.refl (c ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                      (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_gt (Nat.rawCast 2)
+                                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                          (c ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                                    (Mathlib.Tactic.Ring.Common.atom_pf (↑M) rfl
+                                      (Eq.mpr
+                                        (id
+                                          (congrArg
+                                            (fun _a => ↑M ^ Nat.rawCast 1 * Nat.rawCast 1 = ↑M ^ Nat.rawCast 1 * _a)
+                                            (Eq.symm rfl)))
+                                        (Eq.refl (↑M ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                    (Mathlib.Tactic.Ring.Common.div_pf
+                                      (Mathlib.Tactic.Ring.Common.inv_single
+                                        (Mathlib.Tactic.Ring.Common.inv_mul (Eq.refl (↑M)⁻¹)
+                                          (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                            (Mathlib.Meta.NormNum.IsNNRat.to_isNat
+                                              (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                                (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                                  (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)))))
+                                          (Eq.symm
+                                              (Eq.mpr
+                                                (id
+                                                  (congrArg
+                                                    (fun _a =>
+                                                      (↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 =
+                                                        (↑M)⁻¹ ^ Nat.rawCast 1 * _a)
+                                                    (Eq.symm rfl)))
+                                                (Eq.refl ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1))) ▸
+                                            Mathlib.Tactic.Ring.Common.mul_pf_right (↑M)⁻¹ (Nat.rawCast 1)
+                                              (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                                (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                                  (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                                  (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))))
+                                      (Mathlib.Tactic.Ring.Common.add_mul
+                                        (Mathlib.Tactic.Ring.Common.mul_add
+                                          (Mathlib.Tactic.Ring.Common.mul_pf_right (↑M)⁻¹ (Nat.rawCast 1)
+                                            (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                              (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                                (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2)
+                                                (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 2))))
+                                          (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 2))
+                                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                            ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 2 + 0)))
+                                        (Mathlib.Tactic.Ring.Common.add_mul
+                                          (Mathlib.Tactic.Ring.Common.mul_add
+                                            (Mathlib.Tactic.Ring.Common.mul_pf_left c (Nat.rawCast 1)
+                                              (Mathlib.Tactic.Ring.Common.mul_pf_right (↑M)⁻¹ (Nat.rawCast 1)
+                                                (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                                  (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                                    (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                                    (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1)))))
+                                            (Mathlib.Tactic.Ring.Common.mul_zero (c ^ Nat.rawCast 1 * Nat.rawCast 1))
+                                            (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                              (c ^ Nat.rawCast 1 * ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0)))
+                                          (Mathlib.Tactic.Ring.Common.zero_mul
+                                            ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                            (c ^ Nat.rawCast 1 * ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) + 0)))
+                                        (Mathlib.Tactic.Ring.Common.add_pf_add_gt
+                                          (c ^ Nat.rawCast 1 * ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1))
+                                          (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                            ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 2 + 0))))))
+                                  (Mathlib.Tactic.Ring.Common.add_mul
+                                    (Mathlib.Tactic.Ring.Common.mul_add
+                                      (Mathlib.Tactic.Ring.Common.mul_pf_right c (Nat.rawCast 1)
+                                        (Mathlib.Tactic.Ring.Common.mul_pf_right (↑M)⁻¹ (Nat.rawCast 1)
+                                          (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                            (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1)))))
+                                      (Mathlib.Tactic.Ring.Common.mul_add
+                                        (Mathlib.Tactic.Ring.Common.mul_pf_right (↑M)⁻¹ (Nat.rawCast 1)
+                                          (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                            (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2) (Eq.refl 2))))
+                                        (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 1))
+                                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                          ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 2 + 0)))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                                        (c ^ Nat.rawCast 1 * ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1))
+                                        (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                                          ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 2 + 0))))
+                                    (Mathlib.Tactic.Ring.Common.zero_mul
+                                      (c ^ Nat.rawCast 1 * ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) +
+                                        ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 2 + 0)))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      (c ^ Nat.rawCast 1 * ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1) +
+                                        ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 2 + 0)))))
+                                (Mathlib.Tactic.Ring.Common.mul_congr
+                                  (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                  (Mathlib.Tactic.Ring.Common.atom_pf ((P n).real (bad n)) rfl
+                                    (Eq.mpr
+                                      (id
+                                        (congrArg
+                                          (fun _a =>
+                                            (P n).real (bad n) ^ Nat.rawCast 1 * Nat.rawCast 1 =
+                                              (P n).real (bad n) ^ Nat.rawCast 1 * _a)
+                                          (Eq.symm rfl)))
+                                      (Eq.refl ((P n).real (bad n) ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                                  (Mathlib.Tactic.Ring.Common.add_mul
+                                    (Mathlib.Tactic.Ring.Common.mul_add
+                                      (Mathlib.Tactic.Ring.Common.mul_pf_right ((P n).real (bad n)) (Nat.rawCast 1)
+                                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                          (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))
+                                      (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 1))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        ((P n).real (bad n) ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))
+                                    (Mathlib.Tactic.Ring.Common.zero_mul
+                                      ((P n).real (bad n) ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                      ((P n).real (bad n) ^ Nat.rawCast 1 * Nat.rawCast 1 + 0))))
+                                (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                                  (c ^ Nat.rawCast 1 * ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 1))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_add_lt ((↑M)⁻¹ ^ Nat.rawCast 1 * Nat.rawCast 2)
+                                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                                      ((P n).real (bad n) ^ Nat.rawCast 1 * Nat.rawCast 1 + 0)))))
+                              (Mathlib.Tactic.Ring.Common.sub_pf
+                                (Mathlib.Tactic.Ring.Common.neg_add
+                                  (Mathlib.Tactic.Ring.Common.neg_mul c (Nat.rawCast 1)
+                                    (Mathlib.Tactic.Ring.Common.neg_mul (↑M)⁻¹ (Nat.rawCast 1)
+                                      (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                        (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                          (Eq.refl (Int.negOfNat 1))))))
+                                  (Mathlib.Tactic.Ring.Common.neg_add
+                                    (Mathlib.Tactic.Ring.Common.neg_mul (↑M)⁻¹ (Nat.rawCast 1)
+                                      (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                        (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2))
+                                          (Eq.refl (Int.negOfNat 2)))))
+                                    (Mathlib.Tactic.Ring.Common.neg_add
+                                      (Mathlib.Tactic.Ring.Common.neg_mul ((P n).real (bad n)) (Nat.rawCast 1)
+                                        (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                          (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                                            (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                            (Eq.refl (Int.negOfNat 1)))))
+                                      Mathlib.Tactic.Ring.Common.neg_zero)))
+                                (Mathlib.Tactic.Ring.Common.add_pf_add_gt
+                                  (c ^ Nat.rawCast 1 * ((↑M)⁻¹ ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_add_gt
+                                    ((↑M)⁻¹ ^ Nat.rawCast 1 * (Int.negOfNat 2).rawCast)
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_lt (ε ^ Nat.rawCast 1 * Nat.rawCast 1)
+                                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                                        ((P n).real (bad n) ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0)))))))
+                            (Mathlib.Tactic.Ring.Common.add_mul
+                              (Mathlib.Tactic.Ring.Common.mul_add
+                                (Mathlib.Tactic.Ring.Common.mul_pf_right c (Nat.rawCast 1)
+                                  (Mathlib.Tactic.Ring.Common.mul_pf_right (↑M)⁻¹ (Nat.rawCast 1)
+                                    (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                      (Mathlib.Meta.NormNum.isInt_mul (Eq.refl HMul.hMul)
+                                        (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2))
+                                        (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1))
+                                        (Eq.refl (Int.negOfNat 2))))))
+                                (Mathlib.Tactic.Ring.Common.mul_add
+                                  (Mathlib.Tactic.Ring.Common.mul_pf_right (↑M)⁻¹ (Nat.rawCast 1)
+                                    (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                      (Mathlib.Meta.NormNum.isInt_mul (Eq.refl HMul.hMul)
+                                        (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2))
+                                        (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 2))
+                                        (Eq.refl (Int.negOfNat 4)))))
+                                  (Mathlib.Tactic.Ring.Common.mul_add
+                                    (Mathlib.Tactic.Ring.Common.mul_pf_right ε (Nat.rawCast 1)
+                                      (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                                        (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                          (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2)
+                                          (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 2))))
+                                    (Mathlib.Tactic.Ring.Common.mul_add
+                                      (Mathlib.Tactic.Ring.Common.mul_pf_right ((P n).real (bad n)) (Nat.rawCast 1)
+                                        (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                                          (Mathlib.Meta.NormNum.isInt_mul (Eq.refl HMul.hMul)
+                                            (Mathlib.Meta.NormNum.IsNat.to_isInt
+                                              (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2))
+                                            (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1))
+                                            (Eq.refl (Int.negOfNat 2)))))
+                                      (Mathlib.Tactic.Ring.Common.mul_zero (Nat.rawCast 2))
+                                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                        ((P n).real (bad n) ^ Nat.rawCast 1 * (Int.negOfNat 2).rawCast + 0)))
+                                    (Mathlib.Tactic.Ring.Common.add_pf_add_lt (ε ^ Nat.rawCast 1 * Nat.rawCast 2)
+                                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                                        ((P n).real (bad n) ^ Nat.rawCast 1 * (Int.negOfNat 2).rawCast + 0))))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                                    ((↑M)⁻¹ ^ Nat.rawCast 1 * (Int.negOfNat 4).rawCast)
+                                    (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                                      (ε ^ Nat.rawCast 1 * Nat.rawCast 2 +
+                                        ((P n).real (bad n) ^ Nat.rawCast 1 * (Int.negOfNat 2).rawCast + 0)))))
+                                (Mathlib.Tactic.Ring.Common.add_pf_add_lt
+                                  (c ^ Nat.rawCast 1 * ((↑M)⁻¹ ^ Nat.rawCast 1 * (Int.negOfNat 2).rawCast))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                                    ((↑M)⁻¹ ^ Nat.rawCast 1 * (Int.negOfNat 4).rawCast +
+                                      (ε ^ Nat.rawCast 1 * Nat.rawCast 2 +
+                                        ((P n).real (bad n) ^ Nat.rawCast 1 * (Int.negOfNat 2).rawCast + 0))))))
+                              (Mathlib.Tactic.Ring.Common.zero_mul
+                                (c ^ Nat.rawCast 1 * ((↑M)⁻¹ ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast) +
+                                  ((↑M)⁻¹ ^ Nat.rawCast 1 * (Int.negOfNat 2).rawCast +
+                                    (ε ^ Nat.rawCast 1 * Nat.rawCast 1 +
+                                      ((P n).real (bad n) ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0)))))
+                              (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                                (c ^ Nat.rawCast 1 * ((↑M)⁻¹ ^ Nat.rawCast 1 * (Int.negOfNat 2).rawCast) +
+                                  ((↑M)⁻¹ ^ Nat.rawCast 1 * (Int.negOfNat 4).rawCast +
+                                    (ε ^ Nat.rawCast 1 * Nat.rawCast 2 +
+                                      ((P n).real (bad n) ^ Nat.rawCast 1 * (Int.negOfNat 2).rawCast + 0)))))))
+                          (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                            (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero c (Nat.rawCast 1)
+                              (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero (↑M)⁻¹ (Nat.rawCast 1)
+                                (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                  (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                                    (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2))
+                                    (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 2)) (Eq.refl (Int.ofNat 0))))))
+                            (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                              (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero (↑M)⁻¹ (Nat.rawCast 1)
+                                (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                  (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                                    (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 4))
+                                    (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 4)) (Eq.refl (Int.ofNat 0)))))
+                              (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                                (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero ε (Nat.rawCast 1)
+                                  (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                    (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                                      (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 2))
+                                      (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2))
+                                      (Eq.refl (Int.ofNat 0)))))
+                                (Mathlib.Tactic.Ring.Common.add_pf_add_overlap_zero
+                                  (Mathlib.Tactic.Ring.Common.add_overlap_pf_zero ((P n).real (bad n)) (Nat.rawCast 1)
+                                    (Mathlib.Meta.NormNum.IsInt.to_isNat
+                                      (Mathlib.Meta.NormNum.isInt_add (Eq.refl HAdd.hAdd)
+                                        (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 2))
+                                        (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 2))
+                                        (Eq.refl (Int.ofNat 0)))))
+                                  (Mathlib.Tactic.Ring.Common.add_pf_zero_add 0))))))
+                        (Mathlib.Tactic.Ring.cast_zero (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero))))
+                    (Mathlib.Tactic.Linarith.add_lt_of_neg_of_le
+                      (Mathlib.Tactic.Linarith.add_neg
+                        (Eq.mp
+                          (congrArg (fun _a => _a < 0)
+                            (Mathlib.Tactic.CancelDenoms.sub_subst rfl
+                              (Mathlib.Tactic.CancelDenoms.div_subst rfl
+                                (Mathlib.Meta.NormNum.isNat_eq_true
+                                  (Mathlib.Meta.NormNum.IsNNRat.to_isNat
+                                    (Mathlib.Meta.NormNum.isNNRat_div
+                                      (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                        (Mathlib.Meta.NormNum.IsNNRat.to_isNat
+                                          (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                                            (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                              (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)))
+                                            (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                              (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                                (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2))))
+                                            (Eq.refl (Nat.mul 2 1)) (Eq.refl 2))))))
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                (Mathlib.Meta.NormNum.isNat_eq_true
+                                  (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one)
+                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)) (Eq.refl 2))
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2))))))
+                          (Mathlib.Tactic.Linarith.mul_neg (Mathlib.Tactic.Linarith.sub_neg_of_lt hKM)
+                            (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)) (Eq.refl false))))
+                        (Eq.mp
+                          (congrArg (fun _a => _a < 0)
+                            (Mathlib.Tactic.CancelDenoms.sub_subst rfl
+                              (Mathlib.Tactic.CancelDenoms.div_subst rfl
+                                (Mathlib.Meta.NormNum.isNat_eq_true
+                                  (Mathlib.Meta.NormNum.IsNNRat.to_isNat
+                                    (Mathlib.Meta.NormNum.isNNRat_div
+                                      (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                        (Mathlib.Meta.NormNum.IsNNRat.to_isNat
+                                          (Mathlib.Meta.NormNum.isNNRat_mul (Eq.refl HMul.hMul)
+                                            (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                              (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)))
+                                            (Mathlib.Meta.NormNum.isNNRat_inv_pos
+                                              (Mathlib.Meta.NormNum.IsNat.to_isNNRat
+                                                (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2))))
+                                            (Eq.refl (Nat.mul 2 1)) (Eq.refl 2))))))
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                                (Mathlib.Meta.NormNum.isNat_eq_true
+                                  (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul)
+                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one)
+                                    (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)) (Eq.refl 2))
+                                  (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2))))))
+                          (Mathlib.Tactic.Linarith.mul_neg (Mathlib.Tactic.Linarith.sub_neg_of_lt hn)
+                            (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+                              (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)) (Eq.refl false)))))
+                      (Mathlib.Tactic.Linarith.mul_nonpos
+                        (Eq.mp
+                          (congrArg (fun _a => _a ≤ 0)
+                            (Mathlib.Tactic.Linarith.without_one_mul
+                              (Mathlib.Tactic.CancelDenoms.sub_subst rfl
+                                (Mathlib.Tactic.CancelDenoms.add_subst rfl rfl))))
+                          (Mathlib.Tactic.Linarith.sub_nonpos_of_le a))
+                        (Mathlib.Meta.NormNum.isNat_lt_true (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_zero)
+                          (Mathlib.Meta.NormNum.isNat_ofNat ℝ (Eq.refl 2)) (Eq.refl false)))))))))
+'Luce.BernoulliProcess.count_tightness_rows' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem Luce.totalPredictable_tendsto.{u_1, u_2} : ∀ {X : Type u_1} [inst : TopologicalSpace X]
+  [inst_1 : MeasurableSpace X] [inst_2 : OpensMeasurableSpace X] {Ω : ℕ → Type u_2}
+  [inst_3 : (n : ℕ) → MeasurableSpace (Ω n)] (P : (n : ℕ) → MeasureTheory.Measure (Ω n))
+  [inst_4 : ∀ (n : ℕ), MeasureTheory.IsProbabilityMeasure (P n)] (B : (n : ℕ) → Luce.FiniteAdaptedBernoulli (P n) n)
+  (x : (n : ℕ) → Fin n → X) (ν : MeasureTheory.FiniteMeasure X),
+  Luce.WeakMeasureConvergesInProbability P (fun n => (B n).predictableMeasure (x n)) ν →
+    Luce.ConvergesInProbability P (fun n ω => ∑ k ∈ Finset.range n, (B n).toProcess.probability k ω) ↑ν.mass :=
+fun {X} [TopologicalSpace X] [MeasurableSpace X] [OpensMeasurableSpace X] {Ω} [(n : ℕ) → MeasurableSpace (Ω n)] P
+    [∀ (n : ℕ), MeasureTheory.IsProbabilityMeasure (P n)] B x ν hweak =>
+  have hone := fun a =>
+    Eq.mpr
+      (id (congrFun' (congrArg Eq (Eq.trans (MeasureTheory.integral_const 1) (mul_one ((↑a).real Set.univ)))) ↑a.mass))
+      (Eq.refl ((↑a).real Set.univ));
+  Eq.mp
+    (congr
+      (congrArg (Luce.ConvergesInProbability P)
+        (funext fun n =>
+          funext fun ω =>
+            Eq.trans ((fun a => hone a) ((B n).predictableMeasure (x n) ω))
+              (Luce.FiniteAdaptedBernoulli.predictableMeasure_mass (B n) (x n) ω)))
+      ((fun a => hone a) ν))
+    (Luce.WeakMeasureConvergesInProbability.integral hweak 1)
+'Luce.totalPredictable_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem Luce.pointMeasure_laplace_tendsto.{u_1, u_2} : ∀ {X : Type u_1} [inst : TopologicalSpace X]
+  [inst_1 : MeasurableSpace X] [inst_2 : OpensMeasurableSpace X] [CompactSpace X] {Ω : ℕ → Type u_2}
+  [inst_4 : (n : ℕ) → MeasurableSpace (Ω n)] (P : (n : ℕ) → MeasureTheory.Measure (Ω n))
+  [inst_5 : ∀ (n : ℕ), MeasureTheory.IsProbabilityMeasure (P n)] (B : (n : ℕ) → Luce.FiniteAdaptedBernoulli (P n) n)
+  (x : (n : ℕ) → Fin n → X) (ν : MeasureTheory.FiniteMeasure X),
+  Luce.WeakMeasureConvergesInProbability P (fun n => (B n).predictableMeasure (x n)) ν →
+    Luce.ConvergesInProbability P (fun n => (B n).toProcess.rowMaximum n) 0 →
+      ∀ (g : BoundedContinuousFunction X NNReal),
+        Filter.Tendsto (fun n => ∫ (ω : Ω n), Luce.pointLaplace (fun z => ↑(g z)) ((B n).pointMeasure (x n) ω) ∂P n)
+          Filter.atTop
+          (nhds (∫ (s : Luce.FinitePointMeasure X), Luce.pointLaplace (fun z => ↑(g z)) s ∂Luce.finitePoissonLaw ν)) :=
+fun {X} [inst : TopologicalSpace X] [MeasurableSpace X] [OpensMeasurableSpace X] [CompactSpace X] {Ω}
+    [inst_4 : (n : ℕ) → MeasurableSpace (Ω n)] P [∀ (n : ℕ), MeasureTheory.IsProbabilityMeasure (P n)] B x ν hweak hmax
+    g =>
+  let gR := fun z => ↑(g z);
+  have hg := Continuous.measurable (Continuous.comp NNReal.continuous_coe (BoundedContinuousFunction.continuous g));
+  have hg0 := fun z => NNReal.coe_nonneg (g z);
+  let q :=
+    BoundedContinuousFunction.mkOfCompact
+      { toFun := fun z => 1 - Real.exp (-gR z),
+        continuous_toFun :=
+          Continuous.sub continuous_const
+            (Continuous.comp Real.continuous_exp
+              (Continuous.neg (Continuous.comp NNReal.continuous_coe (BoundedContinuousFunction.continuous g)))) };
+  let lam := ∫ (z : X), q z ∂↑ν;
+  have hlam :=
+    MeasureTheory.integral_nonneg fun z => id (sub_nonneg.mpr (Real.exp_le_one_iff.mpr (neg_nonpos.mpr (hg0 z))));
+  have hcomp :=
+    Eq.mpr
+      (eq_of_heq
+        ((fun Ω inst μ X X' e'_4 c =>
+            Eq.casesOn (motive := fun a x =>
+              X' = a → e'_4 ≍ x → Luce.ConvergesInProbability μ X c ≍ Luce.ConvergesInProbability μ X' c) e'_4
+              (fun h =>
+                Eq.ndrec (motive := fun X' =>
+                  ∀ (e_4 : X = X'),
+                    e_4 ≍ Eq.refl X → Luce.ConvergesInProbability μ X c ≍ Luce.ConvergesInProbability μ X' c)
+                  (fun e_4 h => HEq.refl (Luce.ConvergesInProbability μ X c)) (Eq.symm h) e'_4)
+              (Eq.refl X') (HEq.refl e'_4))
+          Ω inst_4 P (fun n => (B n).toProcess.laplaceCompensator (Luce.FiniteAdaptedBernoulli.spatialTest (x n) gR) n)
+          (fun n ω => ∫ (x : X), q x ∂↑((B n).predictableMeasure (x n) ω))
+          (funext fun n =>
+            funext fun ω =>
+              Luce.FiniteAdaptedBernoulli.laplaceCompensator_eq_integral_predictableMeasure (B n) (x n) gR hg ω)
+          lam))
+      (Luce.WeakMeasureConvergesInProbability.integral hweak q);
+  have h :=
+    Luce.BernoulliProcess.uncapped_laplace_tendsto_rows P (fun n => (B n).toProcess)
+      (fun n => Luce.FiniteAdaptedBernoulli.spatialTest (x n) gR) (fun n => n) (NNReal.coe_nonneg ν.mass) hlam
+      (fun n => Luce.FiniteAdaptedBernoulli.spatialTest_nonneg (x n) gR hg0)
+      (Luce.totalPredictable_tendsto P B x ν hweak) hmax hcomp;
+  Eq.mpr
+    (id
+      (congrArg
+        (fun _a =>
+          Filter.Tendsto (fun n => ∫ (ω : Ω n), Luce.pointLaplace (fun z => ↑(g z)) ((B n).pointMeasure (x n) ω) ∂P n)
+            Filter.atTop (nhds _a))
+        (Luce.integral_pointLaplace_finitePoissonLaw ν (fun z => ↑(g z)) hg hg0)))
+    (id
+      (Eq.mpr
+        (eq_of_heq
+          ((fun α β f f' e'_3 l₁ l₂ =>
+              Eq.casesOn (motive := fun a x => f' = a → e'_3 ≍ x → Filter.Tendsto f l₁ l₂ ≍ Filter.Tendsto f' l₁ l₂)
+                e'_3
+                (fun h =>
+                  Eq.ndrec (motive := fun f' =>
+                    ∀ (e_3 : f = f'), e_3 ≍ Eq.refl f → Filter.Tendsto f l₁ l₂ ≍ Filter.Tendsto f' l₁ l₂)
+                    (fun e_3 h => HEq.refl (Filter.Tendsto f l₁ l₂)) (Eq.symm h) e'_3)
+                (Eq.refl f') (HEq.refl e'_3))
+            ℕ ℝ (fun n => ∫ (ω : Ω n), Luce.pointLaplace gR ((B n).pointMeasure (x n) ω) ∂P n)
+            (fun n =>
+              ∫ (ω : Ω n),
+                Real.exp
+                  (-∑ k ∈ Finset.range n,
+                      Luce.FiniteAdaptedBernoulli.spatialTest (x n) gR k * (B n).toProcess.observation k ω) ∂P n)
+            (funext fun n =>
+              MeasureTheory.integral_congr_ae
+                (MeasureTheory.ae_of_all (P n) fun ω =>
+                  Luce.FiniteAdaptedBernoulli.pointLaplace_pointMeasure (B n) (x n) gR hg ω))
+            Filter.atTop (nhds (Real.exp (-lam)))))
+        h))
+'Luce.pointMeasure_laplace_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem Luce.integral_pointLaplace_finitePoissonLaw.{u_1} : ∀ {X : Type u_1} [inst : MeasurableSpace X]
+  (ν : MeasureTheory.FiniteMeasure X) (g : X → ℝ),
+  Measurable g →
+    (∀ (x : X), 0 ≤ g x) →
+      ∫ (μ : Luce.FinitePointMeasure X), Luce.pointLaplace g μ ∂Luce.finitePoissonLaw ν =
+        Real.exp (-∫ (x : X), 1 - Real.exp (-g x) ∂↑ν) :=
+fun {X} [MeasurableSpace X] ν g hg hg0 =>
+  if hν : ν = 0 then
+    Eq.symm hν ▸
+      Eq.mpr
+        (id
+          (congrArg
+            (fun _a =>
+              ∫ (μ : Luce.FinitePointMeasure X), Luce.pointLaplace g μ ∂_a =
+                Real.exp (-∫ (x : X), 1 - Real.exp (-g x) ∂↑0))
+            Luce.finitePoissonLaw_zero))
+        (Eq.mpr
+          (id
+            (congrArg (fun _a => _a = Real.exp (-∫ (x : X), 1 - Real.exp (-g x) ∂↑0))
+              (MeasureTheory.integral_dirac' (Luce.pointLaplace g) 0
+                (Measurable.stronglyMeasurable (Luce.measurable_pointLaplace g hg hg0)))))
+          (of_eq_true
+            (Eq.trans
+              (congr (congrArg Eq (Luce.pointLaplace_zero g))
+                (Eq.trans
+                  (congrArg Real.exp
+                    (Eq.trans (congrArg Neg.neg (MeasureTheory.integral_zero_measure fun x => 1 - Real.exp (-g x)))
+                      neg_zero))
+                  Real.exp_zero))
+              (eq_self 1))))
+  else
+    let this := Luce.nonempty_of_finiteMeasure_ne_zero✝ ν hν;
+    Eq.mpr
+      (id
+        (congrArg
+          (fun _a =>
+            ∫ (μ : Luce.FinitePointMeasure X), Luce.pointLaplace g μ ∂_a =
+              Real.exp (-∫ (x : X), 1 - Real.exp (-g x) ∂↑ν))
+          (Luce.finitePoissonLaw_of_ne_zero ν hν)))
+      (have ha := Luce.integral_exp_neg_mem_Icc ν.normalize g hg hg0;
+      Eq.mpr
+        (id
+          (congrArg (fun _a => _a = Real.exp (-∫ (x : X), 1 - Real.exp (-g x) ∂↑ν))
+            (Luce.integral_poissonMixture_of_power ν.mass (Luce.iidPointLaw ν.normalize) (Luce.pointLaplace g)
+              (Luce.measurable_pointLaplace g hg hg0) (Luce.pointLaplace_mem_Icc g hg0) ha.left ha.right fun m =>
+              Luce.integral_pointLaplace_iidPointLaw ν.normalize m g hg hg0)))
+        (Eq.mpr
+          (id
+            (congrArg (fun _a => Real.exp (-↑ν.mass * (1 - ∫ (x : X), Real.exp (-g x) ∂↑ν.normalize)) = Real.exp (-_a))
+              (Luce.integral_one_sub_exp_neg_eq_mass_mul ν g hg hg0)))
+          ((fun x x_1 e_x => e_x ▸ Eq.refl (Real.exp x)) (-↑ν.mass * (1 - ∫ (x : X), Real.exp (-g x) ∂↑ν.normalize))
+            (-(↑ν.mass * (1 - ∫ (x : X), Real.exp (-g x) ∂↑ν.normalize)))
+            (Mathlib.Tactic.Ring.of_eq
+              (Mathlib.Tactic.Ring.Common.mul_congr
+                (Mathlib.Tactic.Ring.Common.neg_congr
+                  (Mathlib.Tactic.Ring.Common.atom_pf (↑ν.mass) rfl
+                    (Eq.mpr
+                      (id
+                        (congrArg (fun _a => ↑ν.mass ^ Nat.rawCast 1 * Nat.rawCast 1 = ↑ν.mass ^ Nat.rawCast 1 * _a)
+                          (Eq.symm rfl)))
+                      (Eq.refl (↑ν.mass ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                  (Mathlib.Tactic.Ring.Common.neg_add
+                    (Mathlib.Tactic.Ring.Common.neg_mul (↑ν.mass) (Nat.rawCast 1)
+                      (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                        (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                          (Eq.refl (Int.negOfNat 1)))))
+                    Mathlib.Tactic.Ring.Common.neg_zero))
+                (Mathlib.Tactic.Ring.Common.sub_congr
+                  (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                  (Mathlib.Tactic.Ring.Common.atom_pf (∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) rfl
+                    (Eq.mpr
+                      (id
+                        (congrArg
+                          (fun _a =>
+                            (∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) ^ Nat.rawCast 1 * Nat.rawCast 1 =
+                              (∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) ^ Nat.rawCast 1 * _a)
+                          (Eq.symm rfl)))
+                      (Eq.refl ((∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                  (Mathlib.Tactic.Ring.Common.sub_pf
+                    (Mathlib.Tactic.Ring.Common.neg_add
+                      (Mathlib.Tactic.Ring.Common.neg_mul (∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) (Nat.rawCast 1)
+                        (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                          (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                            (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                            (Eq.refl (Int.negOfNat 1)))))
+                      Mathlib.Tactic.Ring.Common.neg_zero)
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_lt (Nat.rawCast 1)
+                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                        ((∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0)))))
+                (Mathlib.Tactic.Ring.Common.add_mul
+                  (Mathlib.Tactic.Ring.Common.mul_add
+                    (Mathlib.Tactic.Ring.Common.mul_pf_left (↑ν.mass) (Nat.rawCast 1)
+                      (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                        (Mathlib.Meta.NormNum.isInt_mul (Eq.refl HMul.hMul)
+                          (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1))
+                          (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                          (Eq.refl (Int.negOfNat 1)))))
+                    (Mathlib.Tactic.Ring.Common.mul_add
+                      (Mathlib.Tactic.Ring.Common.mul_pf_left (↑ν.mass) (Nat.rawCast 1)
+                        (Mathlib.Tactic.Ring.Common.mul_pf_right (∫ (x : X), Real.exp (-g x) ∂↑ν.normalize)
+                          (Nat.rawCast 1)
+                          (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                            (Mathlib.Meta.NormNum.IsInt.to_isNat
+                              (Mathlib.Meta.NormNum.isInt_mul (Eq.refl HMul.hMul)
+                                (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1))
+                                (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1)) (Eq.refl (Int.ofNat 1)))))))
+                      (Mathlib.Tactic.Ring.Common.mul_zero (↑ν.mass ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast))
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                        (↑ν.mass ^ Nat.rawCast 1 *
+                            ((∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) ^ Nat.rawCast 1 * Nat.rawCast 1) +
+                          0)))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_lt (↑ν.mass ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast)
+                      (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                        (↑ν.mass ^ Nat.rawCast 1 *
+                            ((∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) ^ Nat.rawCast 1 * Nat.rawCast 1) +
+                          0))))
+                  (Mathlib.Tactic.Ring.Common.zero_mul
+                    (Nat.rawCast 1 +
+                      ((∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0)))
+                  (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                    (↑ν.mass ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast +
+                      (↑ν.mass ^ Nat.rawCast 1 *
+                          ((∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) ^ Nat.rawCast 1 * Nat.rawCast 1) +
+                        0)))))
+              (Mathlib.Tactic.Ring.Common.neg_congr
+                (Mathlib.Tactic.Ring.Common.mul_congr
+                  (Mathlib.Tactic.Ring.Common.atom_pf (↑ν.mass) rfl
+                    (Eq.mpr
+                      (id
+                        (congrArg (fun _a => ↑ν.mass ^ Nat.rawCast 1 * Nat.rawCast 1 = ↑ν.mass ^ Nat.rawCast 1 * _a)
+                          (Eq.symm rfl)))
+                      (Eq.refl (↑ν.mass ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                  (Mathlib.Tactic.Ring.Common.sub_congr
+                    (Mathlib.Tactic.Ring.cast_pos (Mathlib.Meta.NormNum.isNat_ofNat ℝ Nat.cast_one))
+                    (Mathlib.Tactic.Ring.Common.atom_pf (∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) rfl
+                      (Eq.mpr
+                        (id
+                          (congrArg
+                            (fun _a =>
+                              (∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) ^ Nat.rawCast 1 * Nat.rawCast 1 =
+                                (∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) ^ Nat.rawCast 1 * _a)
+                            (Eq.symm rfl)))
+                        (Eq.refl ((∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) ^ Nat.rawCast 1 * Nat.rawCast 1))))
+                    (Mathlib.Tactic.Ring.Common.sub_pf
+                      (Mathlib.Tactic.Ring.Common.neg_add
+                        (Mathlib.Tactic.Ring.Common.neg_mul (∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) (Nat.rawCast 1)
+                          (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                              (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                              (Eq.refl (Int.negOfNat 1)))))
+                        Mathlib.Tactic.Ring.Common.neg_zero)
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_lt (Nat.rawCast 1)
+                        (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                          ((∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast +
+                            0)))))
+                  (Mathlib.Tactic.Ring.Common.add_mul
+                    (Mathlib.Tactic.Ring.Common.mul_add
+                      (Mathlib.Tactic.Ring.Common.mul_pf_left (↑ν.mass) (Nat.rawCast 1)
+                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                          (Mathlib.Meta.NormNum.isNat_mul (Eq.refl HMul.hMul) (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1)
+                            (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1) (Eq.refl 1))))
+                      (Mathlib.Tactic.Ring.Common.mul_add
+                        (Mathlib.Tactic.Ring.Common.mul_pf_left (↑ν.mass) (Nat.rawCast 1)
+                          (Mathlib.Tactic.Ring.Common.mul_pf_right (∫ (x : X), Real.exp (-g x) ∂↑ν.normalize)
+                            (Nat.rawCast 1)
+                            (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                              (Mathlib.Meta.NormNum.isInt_mul (Eq.refl HMul.hMul)
+                                (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                                (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1)) (Eq.refl (Int.negOfNat 1))))))
+                        (Mathlib.Tactic.Ring.Common.mul_zero (↑ν.mass ^ Nat.rawCast 1 * Nat.rawCast 1))
+                        (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                          (↑ν.mass ^ Nat.rawCast 1 *
+                              ((∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast) +
+                            0)))
+                      (Mathlib.Tactic.Ring.Common.add_pf_add_lt (↑ν.mass ^ Nat.rawCast 1 * Nat.rawCast 1)
+                        (Mathlib.Tactic.Ring.Common.add_pf_zero_add
+                          (↑ν.mass ^ Nat.rawCast 1 *
+                              ((∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast) +
+                            0))))
+                    (Mathlib.Tactic.Ring.Common.zero_mul
+                      (Nat.rawCast 1 +
+                        ((∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast + 0)))
+                    (Mathlib.Tactic.Ring.Common.add_pf_add_zero
+                      (↑ν.mass ^ Nat.rawCast 1 * Nat.rawCast 1 +
+                        (↑ν.mass ^ Nat.rawCast 1 *
+                            ((∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) ^ Nat.rawCast 1 * (Int.negOfNat 1).rawCast) +
+                          0)))))
+                (Mathlib.Tactic.Ring.Common.neg_add
+                  (Mathlib.Tactic.Ring.Common.neg_mul (↑ν.mass) (Nat.rawCast 1)
+                    (Mathlib.Meta.NormNum.IsInt.to_raw_eq
+                      (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                        (Mathlib.Meta.NormNum.IsNat.to_isInt (Mathlib.Meta.NormNum.IsNat.of_raw ℝ 1))
+                        (Eq.refl (Int.negOfNat 1)))))
+                  (Mathlib.Tactic.Ring.Common.neg_add
+                    (Mathlib.Tactic.Ring.Common.neg_mul (↑ν.mass) (Nat.rawCast 1)
+                      (Mathlib.Tactic.Ring.Common.neg_mul (∫ (x : X), Real.exp (-g x) ∂↑ν.normalize) (Nat.rawCast 1)
+                        (Mathlib.Meta.NormNum.IsNat.to_raw_eq
+                          (Mathlib.Meta.NormNum.IsInt.to_isNat
+                            (Mathlib.Meta.NormNum.isInt_neg (Eq.refl Neg.neg)
+                              (Mathlib.Meta.NormNum.IsInt.of_raw ℝ (Int.negOfNat 1)) (Eq.refl (Int.ofNat 1)))))))
+                    Mathlib.Tactic.Ring.Common.neg_zero)))))))
+'Luce.integral_pointLaplace_finitePoissonLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem Luce.FinitePointMeasure.isCompact_mass_le.{u_1} : ∀ {X : Type u_1} [inst : MeasurableSpace X]
+  [inst_1 : TopologicalSpace X] [inst_2 : OpensMeasurableSpace X] [CompactSpace X] (N : ℕ),
+  IsCompact {μ | μ.toFiniteMeasure.mass ≤ ↑N} :=
+fun {X} [MeasurableSpace X] [TopologicalSpace X] [OpensMeasurableSpace X] [CompactSpace X] N =>
+  have hset :=
+    Set.ext fun μ =>
+      {
+        mp := fun hμ =>
+          Exists.casesOn μ.property fun m h =>
+            Exists.casesOn h fun x hx =>
+              have hm :=
+                have heq :=
+                  id (Eq.mpr (id (congrArg (fun _a => _a.mass = ↑m) (Eq.symm hx))) (Luce.pointMeasureOfFin_mass x));
+                id (fun hμ => cast Nat.cast_le._simp_1 (Eq.mp (congrArg (fun _a => _a ≤ ↑N) heq) hμ)) hμ;
+              Set.mem_iUnion.mpr
+                (Exists.intro m
+                  (Set.mem_iUnion.mpr
+                    (Exists.intro (Finset.mem_range.mpr (Nat.lt_succ_of_le hm)) (Exists.intro x (Subtype.ext hx))))),
+        mpr := fun hμ =>
+          Exists.casesOn (Set.mem_iUnion.mp hμ) fun m hμ_1 =>
+            Exists.casesOn (Set.mem_iUnion.mp hμ_1) fun hm h =>
+              Exists.casesOn h fun x h =>
+                Eq.ndrec (motive := fun μ =>
+                  μ ∈ ⋃ m ∈ Finset.range (N + 1), Set.range Luce.FinitePointMeasure.ofFin →
+                    μ ∈ ⋃ (_ : m ∈ Finset.range (N + 1)), Set.range Luce.FinitePointMeasure.ofFin →
+                      μ ∈ {μ | μ.toFiniteMeasure.mass ≤ ↑N})
+                  (fun hμ hμ_2 =>
+                    id
+                      (Eq.mpr (id (congrArg (fun _a => _a ≤ ↑N) (Luce.FinitePointMeasure.ofFin_mass x)))
+                        (cast (Eq.symm Nat.cast_le._simp_1) (Nat.le_of_lt_succ (Finset.mem_range.mp hm)))))
+                  h hμ hμ_1 };
+  Eq.mpr (id (congrArg (fun _a => IsCompact _a) hset))
+    (Set.Finite.isCompact_biUnion (Finset.finite_toSet (Finset.range (N + 1))) fun m a =>
+      isCompact_range Luce.FinitePointMeasure.continuous_ofFin)
+'Luce.FinitePointMeasure.isCompact_mass_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem Luce.measurable_boundedContinuous_pointMeasure.{u_1} : ∀ {X : Type u_1} [inst : TopologicalSpace X]
+  [inst_1 : MeasurableSpace X] [inst_2 : OpensMeasurableSpace X] [CompactSpace X]
+  (F : BoundedContinuousFunction (Luce.FinitePointMeasure X) ℝ), Measurable ⇑F :=
+fun {X} [TopologicalSpace X] [MeasurableSpace X] [OpensMeasurableSpace X] [CompactSpace X] F =>
+  Luce.measurable_boundedContinuousFunction_of_compact_exhaustion Luce.pointMoment Luce.isInducing_pointMoment
+    Luce.momentLaplaceAlgebra Luce.momentLaplaceAlgebra_separatesPoints Luce.measurable_momentLaplaceAlgebra_pointMoment
+    (fun N => {s | s.toFiniteMeasure.mass ≤ ↑N}) Luce.FinitePointMeasure.isCompact_mass_le
+    Luce.pointMeasure_eventually_mass_le F
+'Luce.measurable_boundedContinuous_pointMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+theorem Luce.pointMeasure_law_convergence_of_laplace.{u_1} : ∀ {X : Type u_1} [inst : TopologicalSpace X]
+  [inst_1 : MeasurableSpace X] [inst_2 : OpensMeasurableSpace X] [CompactSpace X]
+  (μ : ℕ → MeasureTheory.Measure (Luce.FinitePointMeasure X)) (Q : MeasureTheory.Measure (Luce.FinitePointMeasure X))
+  [∀ (n : ℕ), MeasureTheory.IsProbabilityMeasure (μ n)] [MeasureTheory.IsProbabilityMeasure Q],
+  (∀ (g : BoundedContinuousFunction X NNReal),
+      Filter.Tendsto (fun n => ∫ (s : Luce.FinitePointMeasure X), (Luce.momentLaplace g) (Luce.pointMoment s) ∂μ n)
+        Filter.atTop (nhds (∫ (s : Luce.FinitePointMeasure X), (Luce.momentLaplace g) (Luce.pointMoment s) ∂Q))) →
+    (∀ (ε : ℝ), 0 < ε → ∃ N, ∀ᶠ (n : ℕ) in Filter.atTop, (μ n).real {s | ↑N < s.toFiniteMeasure.mass} < ε) →
+      ∀ (F : BoundedContinuousFunction (Luce.FinitePointMeasure X) ℝ),
+        Filter.Tendsto (fun n => ∫ (s : Luce.FinitePointMeasure X), F s ∂μ n) Filter.atTop
+          (nhds (∫ (s : Luce.FinitePointMeasure X), F s ∂Q)) :=
+fun {X} [TopologicalSpace X] [MeasurableSpace X] [OpensMeasurableSpace X] [CompactSpace X] μ Q
+    [∀ (n : ℕ), MeasureTheory.IsProbabilityMeasure (μ n)] [MeasureTheory.IsProbabilityMeasure Q] hLaplace hTight F =>
+  Luce.tendsto_integral_boundedContinuousFunction_of_tight_algebra μ Q Luce.pointMoment Luce.isInducing_pointMoment
+    Luce.momentLaplaceAlgebra Luce.momentLaplaceAlgebra_separatesPoints Luce.measurable_momentLaplaceAlgebra_pointMoment
+    (fun a ha =>
+      Exists.casesOn (Luce.momentLaplaceAlgebra_bounded a ha) fun B hB =>
+        Exists.intro B fun s => hB (Luce.pointMoment s))
+    (Luce.tendsto_integral_momentLaplaceAlgebra μ Q hLaplace) (fun N => {s | s.toFiniteMeasure.mass ≤ ↑N})
+    Luce.FinitePointMeasure.isCompact_mass_le
+    (fun N => measurableSet_le Luce.measurable_pointMeasure_mass measurable_const) Luce.pointMeasure_eventually_mass_le
+    (fun ε hε =>
+      Exists.casesOn
+        (Filter.Eventually.exists
+          (Filter.Tendsto.eventually (Luce.pointMeasure_mass_tail_tendsto_zero Q) (gt_mem_nhds hε)))
+        fun NQ hNQ =>
+        Exists.casesOn (hTight ε hε) fun Nμ hNμ =>
+          Exists.intro (max NQ Nμ)
+            ⟨le_trans
+                (MeasureTheory.measureReal_mono
+                  (fun ⦃s⦄ hs =>
+                    id
+                      (have hs' :=
+                        Eq.mp
+                          (Eq.trans
+                            (Luce.pointMeasure_law_convergence_of_laplace._simp_1_2
+                              {s | s.toFiniteMeasure.mass ≤ ↑(max NQ Nμ)} s)
+                            Luce.pointMeasure_law_convergence_of_laplace._simp_1_3)
+                          hs;
+                      LE.le.trans_lt
+                        (have this := cast (Eq.symm Nat.cast_le._simp_1) (le_max_left NQ Nμ);
+                        this)
+                        hs'))
+                  (MeasureTheory.measure_ne_top Q {s | ↑NQ < s.toFiniteMeasure.mass}))
+                (LT.lt.le hNQ),
+              Filter.mp_mem hNμ
+                (Filter.univ_mem'
+                  (id fun n hn =>
+                    le_trans
+                      (MeasureTheory.measureReal_mono
+                        (fun ⦃s⦄ hs =>
+                          id
+                            (have hs' :=
+                              Eq.mp
+                                (Eq.trans
+                                  (Luce.pointMeasure_law_convergence_of_laplace._simp_1_2
+                                    {s | s.toFiniteMeasure.mass ≤ ↑(max NQ Nμ)} s)
+                                  Luce.pointMeasure_law_convergence_of_laplace._simp_1_3)
+                                hs;
+                            LE.le.trans_lt
+                              (have this := cast (Eq.symm Nat.cast_le._simp_1) (le_max_right NQ Nμ);
+                              this)
+                              hs'))
+                        (MeasureTheory.measure_ne_top (μ n) {s | ↑Nμ < s.toFiniteMeasure.mass}))
+                      (LT.lt.le hn)))⟩)
+    F
+'Luce.pointMeasure_law_convergence_of_laplace' depends on axioms: [propext, Classical.choice, Quot.sound]

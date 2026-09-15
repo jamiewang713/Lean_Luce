@@ -1,0 +1,816 @@
+Luce.section5_bounded_marked_asymptotic : ∀ (w : Luce.WeightArray) (f : Real → Real),
+  Luce.NormalizedWeights w →
+    Luce.ProfileLimit w f →
+      ∀ (r : Nat) {α : Real},
+        @LT.lt.{0} Real Real.instLT α (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+          ∀ (M : Real),
+            @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) M →
+              ∀ (ζ : Real),
+                @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                    ζ →
+                  ∀ (ε : Real),
+                    @LT.lt.{0} Real Real.instLT
+                        (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) ε →
+                      @Filter.Eventually.{0} Nat
+                        (fun n =>
+                          ∀ (i j : Function.Embedding.{1, 1} (Fin r) (Fin n)),
+                            (∀ (a : Fin r),
+                                @LE.le.{0} Real Real.instLE
+                                  (@Luce.Weights.rate n (w n)
+                                    (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                                      (fun x => Fin n) (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) i a))
+                                  M) →
+                              (∀ (a : Fin r),
+                                  @LE.le.{0} Real Real.instLE
+                                    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                      (@Nat.cast.{0} Real Real.instNatCast
+                                        (@Fin.val n
+                                          (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                                            (fun x => Fin n) (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) j
+                                            a)))
+                                      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+                                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) α
+                                      (@Nat.cast.{0} Real Real.instNatCast n))) →
+                                (∀ (a b : Fin r),
+                                    @Ne.{1} (Fin r) a b →
+                                      @LE.le.{0} Real Real.instLE
+                                        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) ζ
+                                          (@Nat.cast.{0} Real Real.instNatCast n))
+                                        (@abs.{0} Real Real.lattice Real.instAddGroup
+                                          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                            (@Nat.cast.{0} Real Real.instNatCast
+                                              (@Fin.val n
+                                                (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n))
+                                                  (Fin r) (fun x => Fin n)
+                                                  (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) j a)))
+                                            (@Nat.cast.{0} Real Real.instNatCast
+                                              (@Fin.val n
+                                                (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n))
+                                                  (Fin r) (fun x => Fin n)
+                                                  (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) j b)))))) →
+                                  @LT.lt.{0} Real Real.instLT
+                                    (@abs.{0} Real Real.lattice Real.instAddGroup
+                                      (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                          (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                            (@instHPow.{0, 0} Real Nat
+                                              (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                            (@Nat.cast.{0} Real Real.instNatCast n) r)
+                                          (@MeasureTheory.Measure.real.{0} (Fin n → Real)
+                                            (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a =>
+                                              Real.measurableSpace)
+                                            (@Luce.exponentialRace n (w n))
+                                            (@Set.ofPred.{0} (Fin n → Real) fun old =>
+                                              ∀ (a : Fin r),
+                                                @Eq.{1} Nat
+                                                  (@Luce.raceRank n old
+                                                    (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n))
+                                                      (Fin r) (fun x => Fin n)
+                                                      (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) i a))
+                                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                                    (@Fin.val n
+                                                      (@DFunLike.coe.{1, 1, 1}
+                                                        (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                                                        (fun x => Fin n)
+                                                        (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) j a))
+                                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+                                        (∏ a,
+                                          @Luce.finiteCyclicDensity n (w n) f
+                                            (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                                              (fun x => Fin n) (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) i
+                                              a)
+                                            (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                                              (fun x => Fin n) (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) j
+                                              a))))
+                                    ε)
+                        (@Filter.atTop.{0} Nat Nat.instPreorder)
+Luce.section5_cyclic_local : ∀ (w : Luce.WeightArray) (f : Real → Real),
+  Luce.NormalizedWeights w →
+    Luce.ProfileLimit w f →
+      ∀ (r : Nat),
+        @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) r →
+          ∀ (α : Real),
+            @LT.lt.{0} Real Real.instLT α (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+              ∀ (τ : Equiv.Perm.{1} (Fin r)) (g : (Fin r → Real) → Real),
+                @ContinuousOn.{0, 0} (Fin r → Real) Real
+                    (@Pi.topologicalSpace.{0, 0} (Fin r) (fun a => Real) fun i =>
+                      @UniformSpace.toTopologicalSpace.{0} Real
+                        (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                    (@UniformSpace.toTopologicalSpace.{0} Real
+                      (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                    g (Luce.cyclicBulkCube r α) →
+                  @Filter.Tendsto.{0, 0} Nat Real (fun n => @Luce.cyclicRaceSum n r (w n) α τ g)
+                    (@Filter.atTop.{0} Nat Nat.instPreorder)
+                    (@nhds.{0} Real
+                      (@UniformSpace.toTopologicalSpace.{0} Real
+                        (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                      (@MeasureTheory.integral.{0, 0} (Fin r → Real) Real Real.normedAddCommGroup
+                        (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                          (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                        (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} (Fin r → Real)
+                          (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i =>
+                            Real.measureSpace))
+                        (@MeasureTheory.Measure.restrict.{0} (Fin r → Real)
+                          (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} (Fin r → Real)
+                            (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i =>
+                              Real.measureSpace))
+                          (@MeasureTheory.MeasureSpace.volume.{0} (Fin r → Real)
+                            (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i =>
+                              Real.measureSpace))
+                          (Luce.cyclicBulkCube r α))
+                        fun x =>
+                        @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (g x)
+                          (∏ a,
+                            Luce.cyclicProfileDensity f (x a)
+                              (x
+                                (@DFunLike.coe.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (fun x => Fin r)
+                                  (@EquivLike.toFunLike.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (Fin r)
+                                    (@Equiv.instEquivLike.{1, 1} (Fin r) (Fin r)))
+                                  τ a)))))
+Luce.section5_lemma52 : ∀ (w : Luce.WeightArray) (f : Real → Real),
+  Luce.NormalizedWeights w →
+    Luce.ProfileLimit w f →
+      ∀ (r : Nat),
+        @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) r →
+          ∀ (α : Real),
+            @LT.lt.{0} Real Real.instLT α (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+              ∀ (τ : Equiv.Perm.{1} (Fin r)) (g : (Fin r → Real) → Real),
+                @ContinuousOn.{0, 0} (Fin r → Real) Real
+                    (@Pi.topologicalSpace.{0, 0} (Fin r) (fun a => Real) fun i =>
+                      @UniformSpace.toTopologicalSpace.{0} Real
+                        (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                    (@UniformSpace.toTopologicalSpace.{0} Real
+                      (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                    g (Luce.cyclicBulkCube r α) →
+                  And
+                    (@Filter.Tendsto.{0, 0} Nat Real (fun n => @Luce.cyclicRaceSum n r (w n) α τ g)
+                      (@Filter.atTop.{0} Nat Nat.instPreorder)
+                      (@nhds.{0} Real
+                        (@UniformSpace.toTopologicalSpace.{0} Real
+                          (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                        (@MeasureTheory.integral.{0, 0} (Fin r → Real) Real Real.normedAddCommGroup
+                          (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                            (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                            (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                          (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} (Fin r → Real)
+                            (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i =>
+                              Real.measureSpace))
+                          (@MeasureTheory.Measure.restrict.{0} (Fin r → Real)
+                            (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} (Fin r → Real)
+                              (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i =>
+                                Real.measureSpace))
+                            (@MeasureTheory.MeasureSpace.volume.{0} (Fin r → Real)
+                              (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i =>
+                                Real.measureSpace))
+                            (Luce.cyclicBulkCube r α))
+                          fun x =>
+                          @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (g x)
+                            (∏ a,
+                              Luce.cyclicProfileDensity f (x a)
+                                (x
+                                  (@DFunLike.coe.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (fun x => Fin r)
+                                    (@EquivLike.toFunLike.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (Fin r)
+                                      (@Equiv.instEquivLike.{1, 1} (Fin r) (Fin r)))
+                                    τ a))))))
+                    (∃ K,
+                      And
+                        (@LT.lt.{0} Real Real.instLT
+                          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) K)
+                        (∀ (n : Nat) (i j : Function.Embedding.{1, 1} (Fin r) (Fin n)),
+                          (∀ (a : Fin r),
+                              @LE.le.{0} Real Real.instLE
+                                (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                  (@Nat.cast.{0} Real Real.instNatCast
+                                    (@Fin.val n
+                                      (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                                        (fun x => Fin n) (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) j a)))
+                                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+                                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) α
+                                  (@Nat.cast.{0} Real Real.instNatCast n))) →
+                            @LE.le.{0} Real Real.instLE
+                              (@MeasureTheory.Measure.real.{0} (Fin n → Real)
+                                (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                                (@Luce.exponentialRace n (w n))
+                                (@Set.ofPred.{0} (Fin n → Real) fun old =>
+                                  ∀ (a : Fin r),
+                                    @Eq.{1} Nat
+                                      (@Luce.raceRank n old
+                                        (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                                          (fun x => Fin n) (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) i a))
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                        (@Fin.val n
+                                          (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                                            (fun x => Fin n) (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) j
+                                            a))
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+                              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) K
+                                  (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                    (@instHPow.{0, 0} Real Nat
+                                      (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                    (@Nat.cast.{0} Real Real.instNatCast n) r))
+                                (∏ a,
+                                  @Luce.Weights.rate n (w n)
+                                    (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                                      (fun x => Fin n) (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) i a)))))
+@Luce.ProfileLimit.weighted_bulk_cylinder_all : ∀ {w : Luce.WeightArray} {f : Real → Real},
+  Luce.ProfileLimit w f →
+    ∀ (r : Nat) {α : Real},
+      @LT.lt.{0} Real Real.instLT α (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+        ∃ K,
+          And
+            (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) K)
+            (∀ (n : Nat) (i j : Function.Embedding.{1, 1} (Fin r) (Fin n)),
+              (∀ (a : Fin r),
+                  @LE.le.{0} Real Real.instLE
+                    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                      (@Nat.cast.{0} Real Real.instNatCast
+                        (@Fin.val n
+                          (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r) (fun x => Fin n)
+                            (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) j a)))
+                      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) α
+                      (@Nat.cast.{0} Real Real.instNatCast n))) →
+                @LE.le.{0} Real Real.instLE
+                  (@MeasureTheory.Measure.real.{0} (Fin n → Real)
+                    (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                    (@Luce.exponentialRace n (w n))
+                    (@Set.ofPred.{0} (Fin n → Real) fun old =>
+                      ∀ (a : Fin r),
+                        @Eq.{1} Nat
+                          (@Luce.raceRank n old
+                            (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                              (fun x => Fin n) (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) i a))
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                            (@Fin.val n
+                              (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                                (fun x => Fin n) (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) j a))
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                    (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                      (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) K
+                      (@HPow.hPow.{0, 0, 0} Real Nat Real
+                        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                        (@Nat.cast.{0} Real Real.instNatCast n) r))
+                    (∏ a,
+                      @Luce.Weights.rate n (w n)
+                        (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r) (fun x => Fin n)
+                          (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) i a))))
+@Luce.exponentialRace_orderedNormalizedGaps : ∀ {n : Nat} (w : Luce.Weights n) (σ : Equiv.Perm.{1} (Fin n)),
+  @Eq.{1}
+    (@MeasureTheory.Measure.{0} (Fin n → Real)
+      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace))
+    (@MeasureTheory.Measure.map.{0, 0} (Fin n → Real) (Fin n → Real)
+      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+      (@Luce.orderedNormalizedGaps n w σ)
+      (@MeasureTheory.Measure.restrict.{0} (Fin n → Real)
+        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace) (@Luce.exponentialRace n w)
+        (@Set.ofPred.{0} (Fin n → Real) fun c =>
+          @StrictMono.{0, 0} (Fin n) Real (@PartialOrder.toPreorder.{0} (Fin n) (@Fin.instPartialOrder n))
+            Real.instPreorder fun q =>
+            c
+              (@DFunLike.coe.{1, 1, 1} (Equiv.Perm.{1} (Fin n)) (Fin n) (fun x => Fin n)
+                (@EquivLike.toFunLike.{1, 1, 1} (Equiv.Perm.{1} (Fin n)) (Fin n) (Fin n)
+                  (@Equiv.instEquivLike.{1, 1} (Fin n) (Fin n)))
+                σ q))))
+    (@HSMul.hSMul.{0, 0, 0} ENNReal
+      (@MeasureTheory.Measure.{0} (Fin n → Real)
+        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace))
+      (@MeasureTheory.Measure.{0} (Fin n → Real)
+        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace))
+      (@instHSMul.{0, 0} ENNReal
+        (@MeasureTheory.Measure.{0} (Fin n → Real)
+          (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace))
+        (@MeasureTheory.Measure.instSMul.{0, 0} (Fin n → Real) ENNReal
+          (@instSMulOfMul.{0} ENNReal
+            (@Distrib.toMul.{0} ENNReal
+              (@instDistribOfSemiring.{0} ENNReal (@CommSemiring.toSemiring.{0} ENNReal ENNReal.instCommSemiring))))
+          ⋯ (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)))
+      (ENNReal.ofReal (@Luce.Weights.mass n w σ)) (Luce.standardGapLaw n))
+@Luce.exponentialRace_raceNormalizedGaps : ∀ {n : Nat} (w : Luce.Weights n),
+  @Eq.{1}
+    (@MeasureTheory.Measure.{0} (Fin n → Real)
+      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace))
+    (@MeasureTheory.Measure.map.{0, 0} (Fin n → Real) (Fin n → Real)
+      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace) (@Luce.raceNormalizedGaps n w)
+      (@Luce.exponentialRace n w))
+    (Luce.standardGapLaw n)
+@Luce.markedRankCylinder_real_probability_eq_deletedGapProduct : ∀ {n r : Nat} (w : Luce.Weights n)
+  (u j : Fin r → Fin n),
+  @Function.Injective.{1, 1} (Fin r) (Fin n) u →
+    @StrictMono.{0, 0} (Fin r) (Fin n) (@PartialOrder.toPreorder.{0} (Fin r) (@Fin.instPartialOrder r))
+        (@PartialOrder.toPreorder.{0} (Fin n) (@Fin.instPartialOrder n)) j →
+      ∀ (q : Fin r → Nat),
+        @StrictMono.{0, 0} (Fin r) Nat (@PartialOrder.toPreorder.{0} (Fin r) (@Fin.instPartialOrder r)) Nat.instPreorder
+            q →
+          (∀ (a : Fin r),
+              @Eq.{1} Nat (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (q a) (@Fin.val r a))
+                (@Fin.val n (j a))) →
+            @Eq.{1} Real
+              (@MeasureTheory.Measure.real.{0} (Fin n → Real)
+                (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                (@Luce.exponentialRace n w)
+                (@Set.ofPred.{0} (Fin n → Real) fun clocks => @Luce.MarkedRankCylinder n r u j clocks))
+              (@MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+                (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                  (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                  (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                (@Luce.exponentialRace n w) fun old =>
+                ∏ a,
+                  (@Luce.deletedGapKernel n w
+                      (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                        (@Finset.univ.{0} (Fin r) (Fin.fintype r)))
+                      old (u a) (q a)).toReal)
+Luce.section5_marked_coefficient_expectation : ∀ (w : Luce.WeightArray) (f : Real → Real),
+  Luce.NormalizedWeights w →
+    Luce.ProfileLimit w f →
+      ∀ (r : Nat) {α : Real},
+        @LT.lt.{0} Real Real.instLT α (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+          ∀ (M : Real),
+            @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) M →
+              ∀ (ε : Real),
+                @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                    ε →
+                  @Filter.Eventually.{0} Nat
+                    (fun n =>
+                      ∀ (removed : Finset.{0} (Fin n)) (u j : Fin r → Fin n)
+                        (q :
+                          Function.Embedding.{1, 1} (Fin r)
+                            (Fin
+                              (@Finset.card.{0} (Fin n)
+                                (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                  (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                  (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed)))),
+                        @Luce.ValidMarkedGapConfiguration n r (w n) α M removed u j
+                            (@DFunLike.coe.{1, 1, 1}
+                              (Function.Embedding.{1, 1} (Fin r)
+                                (Fin
+                                  (@Finset.card.{0} (Fin n)
+                                    (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                      (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                      (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed))))
+                              (Fin r)
+                              (fun x =>
+                                Fin
+                                  (@Finset.card.{0} (Fin n)
+                                    (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                      (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                      (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed)))
+                              (@Function.instFunLikeEmbedding.{1, 1} (Fin r)
+                                (Fin
+                                  (@Finset.card.{0} (Fin n)
+                                    (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                      (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                      (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed))))
+                              q) →
+                          @LT.lt.{0} Real Real.instLT
+                            (@MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+                              (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                                (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                                (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                              (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                              (@Luce.exponentialRace n (w n)) fun old =>
+                              @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                (@abs.{0} Real Real.lattice Real.instAddGroup
+                                  (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                    (@Luce.markedGapCoefficient n r (w n) removed u
+                                      (@DFunLike.coe.{1, 1, 1}
+                                        (Function.Embedding.{1, 1} (Fin r)
+                                          (Fin
+                                            (@Finset.card.{0} (Fin n)
+                                              (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                                (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                                (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed))))
+                                        (Fin r)
+                                        (fun x =>
+                                          Fin
+                                            (@Finset.card.{0} (Fin n)
+                                              (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                                (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                                (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed)))
+                                        (@Function.instFunLikeEmbedding.{1, 1} (Fin r)
+                                          (Fin
+                                            (@Finset.card.{0} (Fin n)
+                                              (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                                (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                                (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed))))
+                                        q)
+                                      old)
+                                    (∏ a,
+                                      Luce.profileGapCoefficient f (@Luce.Weights.rate n (w n) (u a))
+                                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                            (@Nat.cast.{0} Real Real.instNatCast (@Fin.val n (j a)))
+                                            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+                                          (@Nat.cast.{0} Real Real.instNatCast n)))))
+                                (∏ a,
+                                  @Luce.markedNormalizedGaps n r (w n) removed
+                                    (@DFunLike.coe.{1, 1, 1}
+                                      (Function.Embedding.{1, 1} (Fin r)
+                                        (Fin
+                                          (@Finset.card.{0} (Fin n)
+                                            (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                              (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                              (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed))))
+                                      (Fin r)
+                                      (fun x =>
+                                        Fin
+                                          (@Finset.card.{0} (Fin n)
+                                            (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                              (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                              (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed)))
+                                      (@Function.instFunLikeEmbedding.{1, 1} (Fin r)
+                                        (Fin
+                                          (@Finset.card.{0} (Fin n)
+                                            (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                              (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                              (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed))))
+                                      q)
+                                    old a))
+                            ε)
+                    (@Filter.atTop.{0} Nat Nat.instPreorder)
+Luce.section5_sorted_marked_asymptotic : ∀ (w : Luce.WeightArray) (f : Real → Real),
+  Luce.NormalizedWeights w →
+    Luce.ProfileLimit w f →
+      ∀ (r : Nat) {α : Real},
+        @LT.lt.{0} Real Real.instLT α (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+          ∀ (M : Real),
+            @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) M →
+              ∀ (ε : Real),
+                @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                    ε →
+                  @Filter.Eventually.{0} Nat
+                    (fun n =>
+                      ∀ (u j : Fin r → Fin n),
+                        @Function.Injective.{1, 1} (Fin r) (Fin n) u →
+                          @StrictMono.{0, 0} (Fin r) (Fin n)
+                              (@PartialOrder.toPreorder.{0} (Fin r) (@Fin.instPartialOrder r))
+                              (@PartialOrder.toPreorder.{0} (Fin n) (@Fin.instPartialOrder n)) j →
+                            ∀
+                              (q :
+                                Function.Embedding.{1, 1} (Fin r)
+                                  (Fin
+                                    (@Finset.card.{0} (Fin n)
+                                      (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                        (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                        (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                        (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                          (@Finset.univ.{0} (Fin r) (Fin.fintype r))))))),
+                              (@StrictMono.{0, 0} (Fin r) Nat
+                                  (@PartialOrder.toPreorder.{0} (Fin r) (@Fin.instPartialOrder r)) Nat.instPreorder
+                                  fun a =>
+                                  @Fin.val
+                                    (@Finset.card.{0} (Fin n)
+                                      (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                        (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                        (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                        (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                          (@Finset.univ.{0} (Fin r) (Fin.fintype r)))))
+                                    (@DFunLike.coe.{1, 1, 1}
+                                      (Function.Embedding.{1, 1} (Fin r)
+                                        (Fin
+                                          (@Finset.card.{0} (Fin n)
+                                            (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                              (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                              (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                              (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                                (@Finset.univ.{0} (Fin r) (Fin.fintype r)))))))
+                                      (Fin r)
+                                      (fun x =>
+                                        Fin
+                                          (@Finset.card.{0} (Fin n)
+                                            (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                              (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                              (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                              (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                                (@Finset.univ.{0} (Fin r) (Fin.fintype r))))))
+                                      (@Function.instFunLikeEmbedding.{1, 1} (Fin r)
+                                        (Fin
+                                          (@Finset.card.{0} (Fin n)
+                                            (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                              (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                              (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                              (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                                (@Finset.univ.{0} (Fin r) (Fin.fintype r)))))))
+                                      q a)) →
+                                (∀ (a : Fin r),
+                                    @Eq.{1} Nat
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                        (@Fin.val
+                                          (@Finset.card.{0} (Fin n)
+                                            (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                              (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                              (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                              (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                                (@Finset.univ.{0} (Fin r) (Fin.fintype r)))))
+                                          (@DFunLike.coe.{1, 1, 1}
+                                            (Function.Embedding.{1, 1} (Fin r)
+                                              (Fin
+                                                (@Finset.card.{0} (Fin n)
+                                                  (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                                    (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                                    (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                                    (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                                      (@Finset.univ.{0} (Fin r) (Fin.fintype r)))))))
+                                            (Fin r)
+                                            (fun x =>
+                                              Fin
+                                                (@Finset.card.{0} (Fin n)
+                                                  (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                                    (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                                    (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                                    (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                                      (@Finset.univ.{0} (Fin r) (Fin.fintype r))))))
+                                            (@Function.instFunLikeEmbedding.{1, 1} (Fin r)
+                                              (Fin
+                                                (@Finset.card.{0} (Fin n)
+                                                  (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                                    (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                                    (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                                    (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                                      (@Finset.univ.{0} (Fin r) (Fin.fintype r)))))))
+                                            q a))
+                                        (@Fin.val r a))
+                                      (@Fin.val n (j a))) →
+                                  (∀ (a : Fin r), @LE.le.{0} Real Real.instLE (@Luce.Weights.rate n (w n) (u a)) M) →
+                                    (∀ (a : Fin r),
+                                        @LE.le.{0} Real Real.instLE
+                                          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                            (@Nat.cast.{0} Real Real.instNatCast (@Fin.val n (j a)))
+                                            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+                                          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) α
+                                            (@Nat.cast.{0} Real Real.instNatCast n))) →
+                                      @LT.lt.{0} Real Real.instLT
+                                        (@abs.{0} Real Real.lattice Real.instAddGroup
+                                          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                              (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                                (@instHPow.{0, 0} Real Nat
+                                                  (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                                (@Nat.cast.{0} Real Real.instNatCast n) r)
+                                              (@MeasureTheory.Measure.real.{0} (Fin n → Real)
+                                                (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a =>
+                                                  Real.measurableSpace)
+                                                (@Luce.exponentialRace n (w n))
+                                                (@Set.ofPred.{0} (Fin n → Real) fun old =>
+                                                  @Luce.MarkedRankCylinder n r u j old)))
+                                            (∏ a,
+                                              Luce.profileGapCoefficient f (@Luce.Weights.rate n (w n) (u a))
+                                                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                  (@instHDiv.{0} Real
+                                                    (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                                  (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                                    (@Nat.cast.{0} Real Real.instNatCast (@Fin.val n (j a)))
+                                                    (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                      (@One.toOfNat1.{0} Real Real.instOne)))
+                                                  (@Nat.cast.{0} Real Real.instNatCast n)))))
+                                        ε)
+                    (@Filter.atTop.{0} Nat Nat.instPreorder)
+@Luce.ProfileLimit.integrable_cyclic_density : ∀ {w : Luce.WeightArray} {f : Real → Real},
+  Luce.ProfileLimit w f →
+    ∀ {r : Nat} {α : Real},
+      @LT.lt.{0} Real Real.instLT α (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+        ∀ (τ : Equiv.Perm.{1} (Fin r)) {g : (Fin r → Real) → Real},
+          @ContinuousOn.{0, 0} (Fin r → Real) Real
+              (@Pi.topologicalSpace.{0, 0} (Fin r) (fun a => Real) fun i =>
+                @UniformSpace.toTopologicalSpace.{0} Real
+                  (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+              (@UniformSpace.toTopologicalSpace.{0} Real
+                (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+              g (Luce.cyclicBulkCube r α) →
+            @MeasureTheory.IntegrableOn.{0, 0} (Fin r → Real) Real
+              (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} (Fin r → Real)
+                (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i =>
+                  Real.measureSpace))
+              (@UniformSpace.toTopologicalSpace.{0} Real
+                (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+              (@SeminormedAddGroup.toContinuousENorm.{0} Real
+                (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+                  (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+                    (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                      (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                        (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+              (fun x =>
+                @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (g x)
+                  (∏ a,
+                    Luce.cyclicProfileDensity f (x a)
+                      (x
+                        (@DFunLike.coe.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (fun x => Fin r)
+                          (@EquivLike.toFunLike.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (Fin r)
+                            (@Equiv.instEquivLike.{1, 1} (Fin r) (Fin r)))
+                          τ a))))
+              (Luce.cyclicBulkCube r α)
+              (@MeasureTheory.MeasureSpace.volume.{0} (Fin r → Real)
+                (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i =>
+                  Real.measureSpace))
+@Luce.cyclicProfileIntegral_eq_volume : ∀ {r : Nat} (f : Real → Real) {α : Real},
+  @LT.lt.{0} Real Real.instLT α (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+    ∀ (τ : Equiv.Perm.{1} (Fin r)) (g : (Fin r → Real) → Real),
+      @Eq.{1} Real (@Luce.cyclicProfileIntegral r f α τ g)
+        (@MeasureTheory.integral.{0, 0} (Fin r → Real) Real Real.normedAddCommGroup
+          (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+            (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+            (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+          (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} (Fin r → Real)
+            (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i => Real.measureSpace))
+          (@MeasureTheory.Measure.restrict.{0} (Fin r → Real)
+            (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} (Fin r → Real)
+              (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i =>
+                Real.measureSpace))
+            (@MeasureTheory.MeasureSpace.volume.{0} (Fin r → Real)
+              (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i =>
+                Real.measureSpace))
+            (Luce.cyclicBulkCube r α))
+          fun x =>
+          @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (g x)
+            (∏ a,
+              Luce.cyclicProfileDensity f (x a)
+                (x
+                  (@DFunLike.coe.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (fun x => Fin r)
+                    (@EquivLike.toFunLike.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (Fin r)
+                      (@Equiv.instEquivLike.{1, 1} (Fin r) (Fin r)))
+                    τ a))))
+@Luce.exists_cyclic_test_extension : ∀ {r : Nat} {α : Real}
+  (g : @Set.Elem.{0} (Fin r → Real) (Luce.cyclicBulkCube r α) → Real),
+  @Continuous.{0, 0} (@Set.Elem.{0} (Fin r → Real) (Luce.cyclicBulkCube r α)) Real
+      (@instTopologicalSpaceSubtype.{0} (Fin r → Real)
+        (fun x =>
+          @Membership.mem.{0, 0} (Fin r → Real) (Set.{0} (Fin r → Real)) (@Set.instMembership.{0} (Fin r → Real))
+            (Luce.cyclicBulkCube r α) x)
+        (@Pi.topologicalSpace.{0, 0} (Fin r) (fun a => Real) fun i =>
+          @UniformSpace.toTopologicalSpace.{0} Real
+            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace)))
+      (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+      g →
+    ∃ G,
+      And
+        (@ContinuousOn.{0, 0} (Fin r → Real) Real
+          (@Pi.topologicalSpace.{0, 0} (Fin r) (fun a => Real) fun i =>
+            @UniformSpace.toTopologicalSpace.{0} Real
+              (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+          (@UniformSpace.toTopologicalSpace.{0} Real
+            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+          G (Luce.cyclicBulkCube r α))
+        (∀ (x : @Set.Elem.{0} (Fin r → Real) (Luce.cyclicBulkCube r α)),
+          @Eq.{1} Real
+            (G
+              (@Subtype.val.{1} (Fin r → Real)
+                (fun x =>
+                  @Membership.mem.{0, 0} (Fin r → Real) (Set.{0} (Fin r → Real))
+                    (@Set.instMembership.{0} (Fin r → Real)) (Luce.cyclicBulkCube r α) x)
+                x))
+            (g x))
+def Luce.NormalizedWeights : Luce.WeightArray → Prop :=
+fun w =>
+  ∀ (n : Nat),
+    @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n →
+      @Eq.{1} Real
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+            (@Nat.cast.{0} Real Real.instNatCast n))
+          (∑ i, @Luce.Weights.rate n (w n) i))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+def Luce.ProfileLimit : Luce.WeightArray → (Real → Real) → Prop :=
+fun w f =>
+  And (@MeasureTheory.NullMeasurable.{0, 0} Real Real Real.measurableSpace Real.measurableSpace f Luce.profileMeasure)
+    (And
+      (∀ (x : Real),
+        @Membership.mem.{0, 0} Real (Set.{0} Real) (@Set.instMembership.{0} Real)
+            (@Set.Ioo.{0} Real Real.instPreorder
+              (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+            x →
+          @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (f x))
+      (Luce.ProfileL1Convergence w f))
+def Luce.ValidMarkedGapConfiguration : {n r : Nat} →
+  Luce.Weights n →
+    Real →
+      Real →
+        (removed : Finset.{0} (Fin n)) →
+          (Fin r → Fin n) →
+            (Fin r → Fin n) →
+              (Fin r →
+                  Fin
+                    (@Finset.card.{0} (Fin n)
+                      (@SDiff.sdiff.{0} (Finset.{0} (Fin n)) (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                        (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed))) →
+                Prop :=
+fun {n r} w α M removed u j q =>
+  And (@LE.le.{0} Nat instLENat (@Finset.card.{0} (Fin n) removed) r)
+    (∀ (a : Fin r),
+      And
+        (@Eq.{1} Nat
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@Fin.val
+              (@Finset.card.{0} (Fin n)
+                (@SDiff.sdiff.{0} (Finset.{0} (Fin n)) (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                  (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed))
+              (q a))
+            (@Fin.val r a))
+          (@Fin.val n (j a)))
+        (And
+          (@LE.le.{0} Real Real.instLE
+            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+              (@Nat.cast.{0} Real Real.instNatCast (@Fin.val n (j a)))
+              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) α
+              (@Nat.cast.{0} Real Real.instNatCast n)))
+          (@LE.le.{0} Real Real.instLE (@Luce.Weights.rate n w (u a)) M)))
+def Luce.cyclicRaceSum : {n r : Nat} →
+  Luce.Weights n → Real → Equiv.Perm.{1} (Fin r) → ((Fin r → Real) → Real) → Real :=
+fun {n r} w α τ g =>
+  ∑ i,
+    @ite.{1} Real
+      (∀ (a : Fin r),
+        @LE.le.{0} Real Real.instLE
+          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+            (@Nat.cast.{0} Real Real.instNatCast
+              (@Fin.val n
+                (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r) (fun x => Fin n)
+                  (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) i a)))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) α
+            (@Nat.cast.{0} Real Real.instNatCast n)))
+      (@Nat.decidableForallFin r
+        (fun a =>
+          @LE.le.{0} Real Real.instLE
+            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+              (@Nat.cast.{0} Real Real.instNatCast
+                (@Fin.val n
+                  (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r) (fun x => Fin n)
+                    (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) i a)))
+              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) α
+              (@Nat.cast.{0} Real Real.instNatCast n)))
+        fun a =>
+        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+              (@Nat.cast.{0} Real Real.instNatCast
+                (@Fin.val n
+                  (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r) (fun x => Fin n)
+                    (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) i a)))
+              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))).decidableLE
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) α
+            (@Nat.cast.{0} Real Real.instNatCast n)))
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (g fun a =>
+          @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+              (@Nat.cast.{0} Real Real.instNatCast
+                (@Fin.val n
+                  (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r) (fun x => Fin n)
+                    (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) i a)))
+              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+            (@Nat.cast.{0} Real Real.instNatCast n))
+        (@MeasureTheory.Measure.real.{0} (Fin n → Real)
+          (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace) (@Luce.exponentialRace n w)
+          (@Set.ofPred.{0} (Fin n → Real) fun E =>
+            ∀ (a : Fin r),
+              @Eq.{1} Nat
+                (@Luce.raceRank n E
+                  (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r) (fun x => Fin n)
+                    (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) i a))
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@Fin.val n
+                    (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r) (fun x => Fin n)
+                      (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) i
+                      (@DFunLike.coe.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (fun x => Fin r)
+                        (@EquivLike.toFunLike.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (Fin r)
+                          (@Equiv.instEquivLike.{1, 1} (Fin r) (Fin r)))
+                        τ a)))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+def Luce.cyclicProfileDensity : (Real → Real) → Real → Real → Real :=
+fun f x y =>
+  @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+    (Luce.rateKernel (@Luce.profileQuantile.{0} Real Real.measurableSpace Luce.profileMeasure f y) (f x))
+    (@Luce.profileD.{0} Real Real.measurableSpace Luce.profileMeasure f
+      (@Luce.profileQuantile.{0} Real Real.measurableSpace Luce.profileMeasure f y))
+def Luce.cyclicBulkCube : (r : Nat) → Real → Set.{0} (Fin r → Real) :=
+fun r α =>
+  @Set.pi.{0, 0} (Fin r) (fun a => Real) (@Set.univ.{0} (Fin r)) fun x =>
+    @Set.Icc.{0} Real Real.instPreorder (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) α
+def Luce.finiteCyclicDensity : {n : Nat} → Luce.Weights n → (Real → Real) → Fin n → Fin n → Real :=
+fun {n} w f i j =>
+  @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+    (Luce.rateKernel
+      (@Luce.profileQuantile.{0} Real Real.measurableSpace Luce.profileMeasure f
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+            (@Nat.cast.{0} Real Real.instNatCast (@Fin.val n j))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+          (@Nat.cast.{0} Real Real.instNatCast n)))
+      (@Luce.Weights.rate n w i))
+    (@Luce.profileD.{0} Real Real.measurableSpace Luce.profileMeasure f
+      (@Luce.profileQuantile.{0} Real Real.measurableSpace Luce.profileMeasure f
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+            (@Nat.cast.{0} Real Real.instNatCast (@Fin.val n j))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+          (@Nat.cast.{0} Real Real.instNatCast n))))

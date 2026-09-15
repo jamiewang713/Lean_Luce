@@ -1,0 +1,1497 @@
+Luce.section5_bounded_marked_asymptotic : ∀ (w : Luce.WeightArray) (f : Real → Real),
+  Luce.NormalizedWeights w →
+    Luce.ProfileLimit w f →
+      ∀ (r : Nat) {α : Real},
+        @LT.lt.{0} Real Real.instLT α (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+          ∀ (M : Real),
+            @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) M →
+              ∀ (ζ : Real),
+                @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                    ζ →
+                  ∀ (ε : Real),
+                    @LT.lt.{0} Real Real.instLT
+                        (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) ε →
+                      @Filter.Eventually.{0} Nat
+                        (fun n =>
+                          ∀ (i j : Function.Embedding.{1, 1} (Fin r) (Fin n)),
+                            (∀ (a : Fin r),
+                                @LE.le.{0} Real Real.instLE
+                                  (@Luce.Weights.rate n (w n)
+                                    (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                                      (fun x => Fin n) (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) i a))
+                                  M) →
+                              (∀ (a : Fin r),
+                                  @LE.le.{0} Real Real.instLE
+                                    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                      (@Nat.cast.{0} Real Real.instNatCast
+                                        (@Fin.val n
+                                          (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                                            (fun x => Fin n) (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) j
+                                            a)))
+                                      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+                                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) α
+                                      (@Nat.cast.{0} Real Real.instNatCast n))) →
+                                (∀ (a b : Fin r),
+                                    @Ne.{1} (Fin r) a b →
+                                      @LE.le.{0} Real Real.instLE
+                                        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) ζ
+                                          (@Nat.cast.{0} Real Real.instNatCast n))
+                                        (@abs.{0} Real Real.lattice Real.instAddGroup
+                                          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                            (@Nat.cast.{0} Real Real.instNatCast
+                                              (@Fin.val n
+                                                (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n))
+                                                  (Fin r) (fun x => Fin n)
+                                                  (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) j a)))
+                                            (@Nat.cast.{0} Real Real.instNatCast
+                                              (@Fin.val n
+                                                (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n))
+                                                  (Fin r) (fun x => Fin n)
+                                                  (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) j b)))))) →
+                                  @LT.lt.{0} Real Real.instLT
+                                    (@abs.{0} Real Real.lattice Real.instAddGroup
+                                      (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                          (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                            (@instHPow.{0, 0} Real Nat
+                                              (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                            (@Nat.cast.{0} Real Real.instNatCast n) r)
+                                          (@MeasureTheory.Measure.real.{0} (Fin n → Real)
+                                            (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a =>
+                                              Real.measurableSpace)
+                                            (@Luce.exponentialRace n (w n))
+                                            (@Set.ofPred.{0} (Fin n → Real) fun old =>
+                                              ∀ (a : Fin r),
+                                                @Eq.{1} Nat
+                                                  (@Luce.raceRank n old
+                                                    (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n))
+                                                      (Fin r) (fun x => Fin n)
+                                                      (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) i a))
+                                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                                    (@Fin.val n
+                                                      (@DFunLike.coe.{1, 1, 1}
+                                                        (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                                                        (fun x => Fin n)
+                                                        (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) j a))
+                                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+                                        (∏ a,
+                                          @Luce.finiteCyclicDensity n (w n) f
+                                            (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                                              (fun x => Fin n) (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) i
+                                              a)
+                                            (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                                              (fun x => Fin n) (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) j
+                                              a))))
+                                    ε)
+                        (@Filter.atTop.{0} Nat Nat.instPreorder)
+Luce.section5_cyclic_local : ∀ (w : Luce.WeightArray) (f : Real → Real),
+  Luce.NormalizedWeights w →
+    Luce.ProfileLimit w f →
+      ∀ (r : Nat),
+        @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) r →
+          ∀ (α : Real),
+            @LT.lt.{0} Real Real.instLT α (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+              ∀ (τ : Equiv.Perm.{1} (Fin r)) (g : (Fin r → Real) → Real),
+                @ContinuousOn.{0, 0} (Fin r → Real) Real
+                    (@Pi.topologicalSpace.{0, 0} (Fin r) (fun a => Real) fun i =>
+                      @UniformSpace.toTopologicalSpace.{0} Real
+                        (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                    (@UniformSpace.toTopologicalSpace.{0} Real
+                      (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                    g (Luce.cyclicBulkCube r α) →
+                  @Filter.Tendsto.{0, 0} Nat Real (fun n => @Luce.cyclicRaceSum n r (w n) α τ g)
+                    (@Filter.atTop.{0} Nat Nat.instPreorder)
+                    (@nhds.{0} Real
+                      (@UniformSpace.toTopologicalSpace.{0} Real
+                        (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                      (@MeasureTheory.integral.{0, 0} (Fin r → Real) Real Real.normedAddCommGroup
+                        (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                          (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                        (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} (Fin r → Real)
+                          (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i =>
+                            Real.measureSpace))
+                        (@MeasureTheory.Measure.restrict.{0} (Fin r → Real)
+                          (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} (Fin r → Real)
+                            (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i =>
+                              Real.measureSpace))
+                          (@MeasureTheory.MeasureSpace.volume.{0} (Fin r → Real)
+                            (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i =>
+                              Real.measureSpace))
+                          (Luce.cyclicBulkCube r α))
+                        fun x =>
+                        @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (g x)
+                          (∏ a,
+                            Luce.cyclicProfileDensity f (x a)
+                              (x
+                                (@DFunLike.coe.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (fun x => Fin r)
+                                  (@EquivLike.toFunLike.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (Fin r)
+                                    (@Equiv.instEquivLike.{1, 1} (Fin r) (Fin r)))
+                                  τ a)))))
+Luce.section5_lemma52 : ∀ (w : Luce.WeightArray) (f : Real → Real),
+  Luce.NormalizedWeights w →
+    Luce.ProfileLimit w f →
+      ∀ (r : Nat),
+        @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) r →
+          ∀ (α : Real),
+            @LT.lt.{0} Real Real.instLT α (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+              ∀ (τ : Equiv.Perm.{1} (Fin r)) (g : (Fin r → Real) → Real),
+                @ContinuousOn.{0, 0} (Fin r → Real) Real
+                    (@Pi.topologicalSpace.{0, 0} (Fin r) (fun a => Real) fun i =>
+                      @UniformSpace.toTopologicalSpace.{0} Real
+                        (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                    (@UniformSpace.toTopologicalSpace.{0} Real
+                      (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                    g (Luce.cyclicBulkCube r α) →
+                  And
+                    (@Filter.Tendsto.{0, 0} Nat Real (fun n => @Luce.cyclicRaceSum n r (w n) α τ g)
+                      (@Filter.atTop.{0} Nat Nat.instPreorder)
+                      (@nhds.{0} Real
+                        (@UniformSpace.toTopologicalSpace.{0} Real
+                          (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                        (@MeasureTheory.integral.{0, 0} (Fin r → Real) Real Real.normedAddCommGroup
+                          (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                            (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                            (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                          (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} (Fin r → Real)
+                            (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i =>
+                              Real.measureSpace))
+                          (@MeasureTheory.Measure.restrict.{0} (Fin r → Real)
+                            (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} (Fin r → Real)
+                              (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i =>
+                                Real.measureSpace))
+                            (@MeasureTheory.MeasureSpace.volume.{0} (Fin r → Real)
+                              (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i =>
+                                Real.measureSpace))
+                            (Luce.cyclicBulkCube r α))
+                          fun x =>
+                          @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (g x)
+                            (∏ a,
+                              Luce.cyclicProfileDensity f (x a)
+                                (x
+                                  (@DFunLike.coe.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (fun x => Fin r)
+                                    (@EquivLike.toFunLike.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (Fin r)
+                                      (@Equiv.instEquivLike.{1, 1} (Fin r) (Fin r)))
+                                    τ a))))))
+                    (∃ K,
+                      And
+                        (@LT.lt.{0} Real Real.instLT
+                          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) K)
+                        (∀ (n : Nat) (i j : Function.Embedding.{1, 1} (Fin r) (Fin n)),
+                          (∀ (a : Fin r),
+                              @LE.le.{0} Real Real.instLE
+                                (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                  (@Nat.cast.{0} Real Real.instNatCast
+                                    (@Fin.val n
+                                      (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                                        (fun x => Fin n) (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) j a)))
+                                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+                                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) α
+                                  (@Nat.cast.{0} Real Real.instNatCast n))) →
+                            @LE.le.{0} Real Real.instLE
+                              (@MeasureTheory.Measure.real.{0} (Fin n → Real)
+                                (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                                (@Luce.exponentialRace n (w n))
+                                (@Set.ofPred.{0} (Fin n → Real) fun old =>
+                                  ∀ (a : Fin r),
+                                    @Eq.{1} Nat
+                                      (@Luce.raceRank n old
+                                        (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                                          (fun x => Fin n) (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) i a))
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                        (@Fin.val n
+                                          (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                                            (fun x => Fin n) (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) j
+                                            a))
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+                              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) K
+                                  (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                    (@instHPow.{0, 0} Real Nat
+                                      (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                    (@Nat.cast.{0} Real Real.instNatCast n) r))
+                                (∏ a,
+                                  @Luce.Weights.rate n (w n)
+                                    (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                                      (fun x => Fin n) (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) i a)))))
+@Luce.ProfileLimit.integrable_cyclic_density : ∀ {w : Luce.WeightArray} {f : Real → Real},
+  Luce.ProfileLimit w f →
+    ∀ {r : Nat} {α : Real},
+      @LT.lt.{0} Real Real.instLT α (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+        ∀ (τ : Equiv.Perm.{1} (Fin r)) {g : (Fin r → Real) → Real},
+          @ContinuousOn.{0, 0} (Fin r → Real) Real
+              (@Pi.topologicalSpace.{0, 0} (Fin r) (fun a => Real) fun i =>
+                @UniformSpace.toTopologicalSpace.{0} Real
+                  (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+              (@UniformSpace.toTopologicalSpace.{0} Real
+                (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+              g (Luce.cyclicBulkCube r α) →
+            @MeasureTheory.IntegrableOn.{0, 0} (Fin r → Real) Real
+              (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} (Fin r → Real)
+                (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i =>
+                  Real.measureSpace))
+              (@UniformSpace.toTopologicalSpace.{0} Real
+                (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+              (@SeminormedAddGroup.toContinuousENorm.{0} Real
+                (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+                  (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+                    (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                      (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                        (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+              (fun x =>
+                @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (g x)
+                  (∏ a,
+                    Luce.cyclicProfileDensity f (x a)
+                      (x
+                        (@DFunLike.coe.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (fun x => Fin r)
+                          (@EquivLike.toFunLike.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (Fin r)
+                            (@Equiv.instEquivLike.{1, 1} (Fin r) (Fin r)))
+                          τ a))))
+              (Luce.cyclicBulkCube r α)
+              (@MeasureTheory.MeasureSpace.volume.{0} (Fin r → Real)
+                (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i =>
+                  Real.measureSpace))
+@Luce.cyclicProfileIntegral_eq_volume : ∀ {r : Nat} (f : Real → Real) {α : Real},
+  @LT.lt.{0} Real Real.instLT α (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+    ∀ (τ : Equiv.Perm.{1} (Fin r)) (g : (Fin r → Real) → Real),
+      @Eq.{1} Real (@Luce.cyclicProfileIntegral r f α τ g)
+        (@MeasureTheory.integral.{0, 0} (Fin r → Real) Real Real.normedAddCommGroup
+          (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+            (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+            (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+          (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} (Fin r → Real)
+            (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i => Real.measureSpace))
+          (@MeasureTheory.Measure.restrict.{0} (Fin r → Real)
+            (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} (Fin r → Real)
+              (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i =>
+                Real.measureSpace))
+            (@MeasureTheory.MeasureSpace.volume.{0} (Fin r → Real)
+              (@MeasureTheory.MeasureSpace.pi.{0, 0} (Fin r) (Fin.fintype r) (fun a => Real) fun i =>
+                Real.measureSpace))
+            (Luce.cyclicBulkCube r α))
+          fun x =>
+          @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (g x)
+            (∏ a,
+              Luce.cyclicProfileDensity f (x a)
+                (x
+                  (@DFunLike.coe.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (fun x => Fin r)
+                    (@EquivLike.toFunLike.{1, 1, 1} (Equiv.Perm.{1} (Fin r)) (Fin r) (Fin r)
+                      (@Equiv.instEquivLike.{1, 1} (Fin r) (Fin r)))
+                    τ a))))
+@Luce.exists_cyclic_test_extension : ∀ {r : Nat} {α : Real}
+  (g : @Set.Elem.{0} (Fin r → Real) (Luce.cyclicBulkCube r α) → Real),
+  @Continuous.{0, 0} (@Set.Elem.{0} (Fin r → Real) (Luce.cyclicBulkCube r α)) Real
+      (@instTopologicalSpaceSubtype.{0} (Fin r → Real)
+        (fun x =>
+          @Membership.mem.{0, 0} (Fin r → Real) (Set.{0} (Fin r → Real)) (@Set.instMembership.{0} (Fin r → Real))
+            (Luce.cyclicBulkCube r α) x)
+        (@Pi.topologicalSpace.{0, 0} (Fin r) (fun a => Real) fun i =>
+          @UniformSpace.toTopologicalSpace.{0} Real
+            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace)))
+      (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+      g →
+    ∃ G,
+      And
+        (@ContinuousOn.{0, 0} (Fin r → Real) Real
+          (@Pi.topologicalSpace.{0, 0} (Fin r) (fun a => Real) fun i =>
+            @UniformSpace.toTopologicalSpace.{0} Real
+              (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+          (@UniformSpace.toTopologicalSpace.{0} Real
+            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+          G (Luce.cyclicBulkCube r α))
+        (∀ (x : @Set.Elem.{0} (Fin r → Real) (Luce.cyclicBulkCube r α)),
+          @Eq.{1} Real
+            (G
+              (@Subtype.val.{1} (Fin r → Real)
+                (fun x =>
+                  @Membership.mem.{0, 0} (Fin r → Real) (Set.{0} (Fin r → Real))
+                    (@Set.instMembership.{0} (Fin r → Real)) (Luce.cyclicBulkCube r α) x)
+                x))
+            (g x))
+@Luce.markedRankCylinder_taylor_expectation : ∀ {n r : Nat} (w : Luce.Weights n) (u j : Fin r → Fin n),
+  @Function.Injective.{1, 1} (Fin r) (Fin n) u →
+    @StrictMono.{0, 0} (Fin r) (Fin n) (@PartialOrder.toPreorder.{0} (Fin r) (@Fin.instPartialOrder r))
+        (@PartialOrder.toPreorder.{0} (Fin n) (@Fin.instPartialOrder n)) j →
+      ∀
+        (q :
+          Function.Embedding.{1, 1} (Fin r)
+            (Fin
+              (@Finset.card.{0} (Fin n)
+                (@SDiff.sdiff.{0} (Finset.{0} (Fin n)) (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                  (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                  (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                    (@Finset.univ.{0} (Fin r) (Fin.fintype r))))))),
+        (@StrictMono.{0, 0} (Fin r) Nat (@PartialOrder.toPreorder.{0} (Fin r) (@Fin.instPartialOrder r))
+            Nat.instPreorder fun a =>
+            @Fin.val
+              (@Finset.card.{0} (Fin n)
+                (@SDiff.sdiff.{0} (Finset.{0} (Fin n)) (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                  (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                  (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                    (@Finset.univ.{0} (Fin r) (Fin.fintype r)))))
+              (@DFunLike.coe.{1, 1, 1}
+                (Function.Embedding.{1, 1} (Fin r)
+                  (Fin
+                    (@Finset.card.{0} (Fin n)
+                      (@SDiff.sdiff.{0} (Finset.{0} (Fin n)) (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                        (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                        (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                          (@Finset.univ.{0} (Fin r) (Fin.fintype r)))))))
+                (Fin r)
+                (fun x =>
+                  Fin
+                    (@Finset.card.{0} (Fin n)
+                      (@SDiff.sdiff.{0} (Finset.{0} (Fin n)) (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                        (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                        (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                          (@Finset.univ.{0} (Fin r) (Fin.fintype r))))))
+                (@Function.instFunLikeEmbedding.{1, 1} (Fin r)
+                  (Fin
+                    (@Finset.card.{0} (Fin n)
+                      (@SDiff.sdiff.{0} (Finset.{0} (Fin n)) (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                        (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                        (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                          (@Finset.univ.{0} (Fin r) (Fin.fintype r)))))))
+                q a)) →
+          (∀ (a : Fin r),
+              @Eq.{1} Nat
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@Fin.val
+                    (@Finset.card.{0} (Fin n)
+                      (@SDiff.sdiff.{0} (Finset.{0} (Fin n)) (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                        (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                        (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                          (@Finset.univ.{0} (Fin r) (Fin.fintype r)))))
+                    (@DFunLike.coe.{1, 1, 1}
+                      (Function.Embedding.{1, 1} (Fin r)
+                        (Fin
+                          (@Finset.card.{0} (Fin n)
+                            (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                              (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                              (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                              (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                (@Finset.univ.{0} (Fin r) (Fin.fintype r)))))))
+                      (Fin r)
+                      (fun x =>
+                        Fin
+                          (@Finset.card.{0} (Fin n)
+                            (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                              (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                              (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                              (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                (@Finset.univ.{0} (Fin r) (Fin.fintype r))))))
+                      (@Function.instFunLikeEmbedding.{1, 1} (Fin r)
+                        (Fin
+                          (@Finset.card.{0} (Fin n)
+                            (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                              (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                              (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                              (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                (@Finset.univ.{0} (Fin r) (Fin.fintype r)))))))
+                      q a))
+                  (@Fin.val r a))
+                (@Fin.val n (j a))) →
+            ∀ {b M : Real},
+              @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n →
+                @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                    b →
+                  @LE.le.{0} Real Real.instLE
+                      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) M →
+                    (∀ (a : Fin r), @LE.le.{0} Real Real.instLE (@Luce.Weights.rate n w (u a)) M) →
+                      (∀
+                          (σ :
+                            Equiv.Perm.{1}
+                              (Fin
+                                (@Finset.card.{0} (Fin n)
+                                  (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                    (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                    (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                    (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                      (@Finset.univ.{0} (Fin r) (Fin.fintype r)))))))
+                          (a : Fin r),
+                          @LE.le.{0} Real Real.instLE
+                            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) b
+                              (@Nat.cast.{0} Real Real.instNatCast n))
+                            (@Luce.orderedRemainingRate
+                              (@Finset.card.{0} (Fin n)
+                                (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                  (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                  (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                  (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                    (@Finset.univ.{0} (Fin r) (Fin.fintype r)))))
+                              (@Luce.compactDeletedWeights n w
+                                (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                  (@Finset.univ.{0} (Fin r) (Fin.fintype r))))
+                              σ
+                              (@DFunLike.coe.{1, 1, 1}
+                                (Function.Embedding.{1, 1} (Fin r)
+                                  (Fin
+                                    (@Finset.card.{0} (Fin n)
+                                      (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                        (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                        (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                        (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                          (@Finset.univ.{0} (Fin r) (Fin.fintype r)))))))
+                                (Fin r)
+                                (fun x =>
+                                  Fin
+                                    (@Finset.card.{0} (Fin n)
+                                      (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                        (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                        (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                        (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                          (@Finset.univ.{0} (Fin r) (Fin.fintype r))))))
+                                (@Function.instFunLikeEmbedding.{1, 1} (Fin r)
+                                  (Fin
+                                    (@Finset.card.{0} (Fin n)
+                                      (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                        (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                        (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                        (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                          (@Finset.univ.{0} (Fin r) (Fin.fintype r)))))))
+                                q a))) →
+                        @LE.le.{0} Real Real.instLE
+                          (@abs.{0} Real Real.lattice Real.instAddGroup
+                            (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                  (@instHPow.{0, 0} Real Nat
+                                    (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                  (@Nat.cast.{0} Real Real.instNatCast n) r)
+                                (@MeasureTheory.Measure.real.{0} (Fin n → Real)
+                                  (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                                  (@Luce.exponentialRace n w)
+                                  (@Set.ofPred.{0} (Fin n → Real) fun old => @Luce.MarkedRankCylinder n r u j old)))
+                              (@MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+                                (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                                  (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                                  (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                                (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                                (@Luce.exponentialRace n w) fun old =>
+                                @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                  (@Luce.markedGapCoefficient n r w
+                                    (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                      (@Finset.univ.{0} (Fin r) (Fin.fintype r)))
+                                    u
+                                    (@DFunLike.coe.{1, 1, 1}
+                                      (Function.Embedding.{1, 1} (Fin r)
+                                        (Fin
+                                          (@Finset.card.{0} (Fin n)
+                                            (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                              (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                              (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                              (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                                (@Finset.univ.{0} (Fin r) (Fin.fintype r)))))))
+                                      (Fin r)
+                                      (fun x =>
+                                        Fin
+                                          (@Finset.card.{0} (Fin n)
+                                            (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                              (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                              (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                              (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                                (@Finset.univ.{0} (Fin r) (Fin.fintype r))))))
+                                      (@Function.instFunLikeEmbedding.{1, 1} (Fin r)
+                                        (Fin
+                                          (@Finset.card.{0} (Fin n)
+                                            (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                              (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                              (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                              (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                                (@Finset.univ.{0} (Fin r) (Fin.fintype r)))))))
+                                      q)
+                                    old)
+                                  (∏ a,
+                                    @Luce.markedNormalizedGaps n r w
+                                      (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                        (@Finset.univ.{0} (Fin r) (Fin.fintype r)))
+                                      (@DFunLike.coe.{1, 1, 1}
+                                        (Function.Embedding.{1, 1} (Fin r)
+                                          (Fin
+                                            (@Finset.card.{0} (Fin n)
+                                              (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                                (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                                (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                                (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                                  (@Finset.univ.{0} (Fin r) (Fin.fintype r)))))))
+                                        (Fin r)
+                                        (fun x =>
+                                          Fin
+                                            (@Finset.card.{0} (Fin n)
+                                              (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                                (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                                (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                                (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                                  (@Finset.univ.{0} (Fin r) (Fin.fintype r))))))
+                                        (@Function.instFunLikeEmbedding.{1, 1} (Fin r)
+                                          (Fin
+                                            (@Finset.card.{0} (Fin n)
+                                              (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                                (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                                (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                                (@Finset.image.{0, 0} (Fin r) (Fin n) (instDecidableEqFin n) u
+                                                  (@Finset.univ.{0} (Fin r) (Fin.fintype r)))))))
+                                        q)
+                                      old a))))
+                          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                  (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                                (@Nat.cast.{0} Real Real.instNatCast r))
+                              (@Nat.cast.{0} Real Real.instNatCast n))
+                            (@HPow.hPow.{0, 0, 0} Real Nat Real
+                              (@instHPow.{0, 0} Real Nat
+                                (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                              (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) M b)
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) r
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+@Luce.exponentialRace_raceNormalizedGaps_restrict_order : ∀ {n : Nat} (w : Luce.Weights n) (σ : Equiv.Perm.{1} (Fin n)),
+  @Eq.{1}
+    (@MeasureTheory.Measure.{0} (Fin n → Real)
+      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace))
+    (@MeasureTheory.Measure.map.{0, 0} (Fin n → Real) (Fin n → Real)
+      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace) (@Luce.raceNormalizedGaps n w)
+      (@MeasureTheory.Measure.restrict.{0} (Fin n → Real)
+        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace) (@Luce.exponentialRace n w)
+        (@Set.ofPred.{0} (Fin n → Real) fun c => @Eq.{1} (Equiv.Perm.{1} (Fin n)) (@Luce.raceDraw n c) σ)))
+    (@HSMul.hSMul.{0, 0, 0} ENNReal
+      (@MeasureTheory.Measure.{0} (Fin n → Real)
+        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace))
+      (@MeasureTheory.Measure.{0} (Fin n → Real)
+        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace))
+      (@instHSMul.{0, 0} ENNReal
+        (@MeasureTheory.Measure.{0} (Fin n → Real)
+          (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace))
+        (@MeasureTheory.Measure.instSMul.{0, 0} (Fin n → Real) ENNReal
+          (@instSMulOfMul.{0} ENNReal
+            (@Distrib.toMul.{0} ENNReal
+              (@instDistribOfSemiring.{0} ENNReal (@CommSemiring.toSemiring.{0} ENNReal ENNReal.instCommSemiring))))
+          ⋯ (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)))
+      (ENNReal.ofReal (@Luce.Weights.mass n w σ)) (Luce.standardGapLaw n))
+@Luce.integrable_selectedNormalizedGaps_mixed : ∀ {n r : Nat} (w : Luce.Weights n)
+  (q : Function.Embedding.{1, 1} (Fin r) (Fin n)) (p : Fin r → Nat),
+  @MeasureTheory.Integrable.{0, 0} Real
+    (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+    (@SeminormedAddGroup.toContinuousENorm.{0} Real
+      (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+        (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+          (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+            (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+              (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+    (Fin n → Real) (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+    (fun c =>
+      ∏ a,
+        @HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+          (@Luce.raceNormalizedGaps n w c
+            (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r) (fun x => Fin n)
+              (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) q a))
+          (p a))
+    (@Luce.exponentialRace n w)
+@Luce.integral_selectedNormalizedGaps_mixed : ∀ {n r : Nat} (w : Luce.Weights n)
+  (q : Function.Embedding.{1, 1} (Fin r) (Fin n)) (p : Fin r → Nat),
+  @Eq.{1} Real
+    (@MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+      (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+        (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace) (@Luce.exponentialRace n w)
+      fun c =>
+      ∏ a,
+        @HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+          (@Luce.raceNormalizedGaps n w c
+            (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r) (fun x => Fin n)
+              (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) q a))
+          (p a))
+    (∏ a, @Nat.cast.{0} Real Real.instNatCast (p a).factorial)
+@Luce.integral_selectedNormalizedGaps_taylorEnvelope : ∀ {n r : Nat} (w : Luce.Weights n)
+  (q : Function.Embedding.{1, 1} (Fin r) (Fin n)),
+  @Eq.{1} Real
+    (@MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+      (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+        (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace) (@Luce.exponentialRace n w)
+      fun c =>
+      @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (∑ a,
+          @Luce.raceNormalizedGaps n w c
+            (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r) (fun x => Fin n)
+              (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) q a))
+        (∏ a,
+          @Luce.raceNormalizedGaps n w c
+            (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r) (fun x => Fin n)
+              (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) q a)))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+      (@Nat.cast.{0} Real Real.instNatCast r))
+@Luce.ProfileLimit.weighted_bulk_cylinder_all : ∀ {w : Luce.WeightArray} {f : Real → Real},
+  Luce.ProfileLimit w f →
+    ∀ (r : Nat) {α : Real},
+      @LT.lt.{0} Real Real.instLT α (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+        ∃ K,
+          And
+            (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) K)
+            (∀ (n : Nat) (i j : Function.Embedding.{1, 1} (Fin r) (Fin n)),
+              (∀ (a : Fin r),
+                  @LE.le.{0} Real Real.instLE
+                    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                      (@Nat.cast.{0} Real Real.instNatCast
+                        (@Fin.val n
+                          (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r) (fun x => Fin n)
+                            (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) j a)))
+                      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) α
+                      (@Nat.cast.{0} Real Real.instNatCast n))) →
+                @LE.le.{0} Real Real.instLE
+                  (@MeasureTheory.Measure.real.{0} (Fin n → Real)
+                    (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                    (@Luce.exponentialRace n (w n))
+                    (@Set.ofPred.{0} (Fin n → Real) fun old =>
+                      ∀ (a : Fin r),
+                        @Eq.{1} Nat
+                          (@Luce.raceRank n old
+                            (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                              (fun x => Fin n) (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) i a))
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                            (@Fin.val n
+                              (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r)
+                                (fun x => Fin n) (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) j a))
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                    (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                      (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) K
+                      (@HPow.hPow.{0, 0, 0} Real Nat Real
+                        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                        (@Nat.cast.{0} Real Real.instNatCast n) r))
+                    (∏ a,
+                      @Luce.Weights.rate n (w n)
+                        (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Fin r) (Fin n)) (Fin r) (fun x => Fin n)
+                          (@Function.instFunLikeEmbedding.{1, 1} (Fin r) (Fin n)) i a))))
+'Luce.section5_bounded_marked_asymptotic' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.section5_cyclic_local' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.section5_lemma52' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.ProfileLimit.integrable_cyclic_density' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.cyclicProfileIntegral_eq_volume' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.exists_cyclic_test_extension' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.markedRankCylinder_real_probability_eq_deletedGapProduct' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.markedRankCylinder_taylor_expectation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.markedGap_taylor_expectation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.exponentialRace_identityNormalizedGaps_integral' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.exponentialRace_raceNormalizedGaps_restrict_order' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.exponentialRace_raceNormalizedGaps' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.integrable_selectedNormalizedGaps_mixed' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.integral_selectedNormalizedGaps_mixed' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.integral_selectedNormalizedGaps_taylorEnvelope' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.section5_marked_coefficient_expectation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.section5_sorted_marked_asymptotic' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.bounded_marked_asymptotic_of_sorted' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.ProfileLimit.cyclic_deterministic_limit' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.ProfileLimit.tendsto_weighted_cyclic_array_sum' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.ProfileLimit.cyclic_local_of_bounded_marked_asymptotic' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.ProfileLimit.weighted_bulk_cylinder' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.ProfileLimit.weighted_bulk_cylinder_all' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.section5_bounded_marked_asymptotic : ∀ (w : Luce.WeightArray) (f : ℝ → ℝ),
+  Luce.NormalizedWeights w →
+    Luce.ProfileLimit w f →
+      ∀ (r : ℕ) {α : ℝ},
+        LT.lt.{0} α 1 →
+          ∀ (M : ℝ),
+            LE.le.{0} 0 M →
+              ∀ (ζ : ℝ),
+                LT.lt.{0} 0 ζ →
+                  ∀ (ε : ℝ),
+                    LT.lt.{0} 0 ε →
+                      ∀ᶠ (n : ℕ) in Filter.atTop.{0},
+                        ∀ (i j : Function.Embedding.{1, 1} (Fin r) (Fin n)),
+                          (∀ (a : Fin r), LE.le.{0} ((w n).rate (i a)) M) →
+                            (∀ (a : Fin r), LE.le.{0} (HAdd.hAdd.{0, 0, 0} (↑↑(j a)) 1) (HMul.hMul.{0, 0, 0} α ↑n)) →
+                              (∀ (a b : Fin r),
+                                  Ne.{1} a b →
+                                    LE.le.{0} (HMul.hMul.{0, 0, 0} ζ ↑n)
+                                      (abs.{0} (HSub.hSub.{0, 0, 0} ↑↑(j a) ↑↑(j b)))) →
+                                LT.lt.{0}
+                                  (abs.{0}
+                                    (HSub.hSub.{0, 0, 0}
+                                      (HMul.hMul.{0, 0, 0} (HPow.hPow.{0, 0, 0} (↑n) r)
+                                        (MeasureTheory.Measure.real.{0} (Luce.exponentialRace (w n))
+                                          (Set.ofPred.{0} fun old =>
+                                            ∀ (a : Fin r),
+                                              Eq.{1} (Luce.raceRank old (i a)) (HAdd.hAdd.{0, 0, 0} (↑(j a)) 1))))
+                                      (∏ a, Luce.finiteCyclicDensity (w n) f (i a) (j a))))
+                                  ε :=
+fun w f hnorm hf r {α} hα M hM =>
+  Luce.bounded_marked_asymptotic_of_sorted w f r hα M (Luce.section5_sorted_marked_asymptotic w f hnorm hf r hα M hM)
+theorem Luce.section5_cyclic_local : ∀ (w : Luce.WeightArray) (f : ℝ → ℝ),
+  Luce.NormalizedWeights w →
+    Luce.ProfileLimit w f →
+      ∀ (r : ℕ),
+        LT.lt.{0} 0 r →
+          ∀ (α : ℝ),
+            LT.lt.{0} α 1 →
+              ∀ (τ : Equiv.Perm.{1} (Fin r)) (g : (Fin r → ℝ) → ℝ),
+                ContinuousOn.{0, 0} g (Luce.cyclicBulkCube r α) →
+                  Filter.Tendsto.{0, 0} (fun n => Luce.cyclicRaceSum (w n) α τ g) Filter.atTop.{0}
+                    (nhds.{0}
+                      (∫ (x : Fin r → ℝ) in Luce.cyclicBulkCube r α,
+                        HMul.hMul.{0, 0, 0} (g x) (∏ a, Luce.cyclicProfileDensity f (x a) (x (τ a))))) :=
+fun w f hnorm hf r hr α hα τ g hg =>
+  have h :=
+    Luce.ProfileLimit.cyclic_local_of_bounded_marked_asymptotic hf hr hα τ hg fun M hM =>
+      Luce.section5_bounded_marked_asymptotic w f hnorm hf r hα M (LT.lt.le.{0} hM);
+  (Filter.tendsto_add_atTop_iff_nat.{0} 1).mp
+    (Eq.mp.{0}
+      (congrArg.{1, 1}
+        (fun _a =>
+          Filter.Tendsto.{0, 0} (fun n => Luce.cyclicRaceSum (w (HAdd.hAdd.{0, 0, 0} n 1)) α τ g) Filter.atTop.{0}
+            (nhds.{0} _a))
+        (Luce.cyclicProfileIntegral_eq_volume f hα τ g))
+      h)
+theorem Luce.section5_lemma52 : ∀ (w : Luce.WeightArray) (f : ℝ → ℝ),
+  Luce.NormalizedWeights w →
+    Luce.ProfileLimit w f →
+      ∀ (r : ℕ),
+        LT.lt.{0} 0 r →
+          ∀ (α : ℝ),
+            LT.lt.{0} α 1 →
+              ∀ (τ : Equiv.Perm.{1} (Fin r)) (g : (Fin r → ℝ) → ℝ),
+                ContinuousOn.{0, 0} g (Luce.cyclicBulkCube r α) →
+                  Filter.Tendsto.{0, 0} (fun n => Luce.cyclicRaceSum (w n) α τ g) Filter.atTop.{0}
+                      (nhds.{0}
+                        (∫ (x : Fin r → ℝ) in Luce.cyclicBulkCube r α,
+                          HMul.hMul.{0, 0, 0} (g x) (∏ a, Luce.cyclicProfileDensity f (x a) (x (τ a))))) ∧
+                    ∃ K,
+                      LT.lt.{0} 0 K ∧
+                        ∀ (n : ℕ) (i j : Function.Embedding.{1, 1} (Fin r) (Fin n)),
+                          (∀ (a : Fin r), LE.le.{0} (HAdd.hAdd.{0, 0, 0} (↑↑(j a)) 1) (HMul.hMul.{0, 0, 0} α ↑n)) →
+                            LE.le.{0}
+                              (MeasureTheory.Measure.real.{0} (Luce.exponentialRace (w n))
+                                (Set.ofPred.{0} fun old =>
+                                  ∀ (a : Fin r), Eq.{1} (Luce.raceRank old (i a)) (HAdd.hAdd.{0, 0, 0} (↑(j a)) 1)))
+                              (HMul.hMul.{0, 0, 0} (HDiv.hDiv.{0, 0, 0} K (HPow.hPow.{0, 0, 0} (↑n) r))
+                                (∏ a, (w n).rate (i a))) :=
+fun w f hnorm hf r hr α hα τ g hg =>
+  ⟨Luce.section5_cyclic_local w f hnorm hf r hr α hα τ g hg, Luce.ProfileLimit.weighted_bulk_cylinder_all hf r hα⟩
+CHECKED_BODY_AUDIT: 47107 transitive declarations; 707 Luce declarations; no unsafe or partial declarations; no additional axioms.
+CHECKED_BODY_AXIOMS: [propext, Classical.choice, Quot.sound]
+CHECKED_LOCAL_DEPENDENCY: Luce.DeletedCoefficientBad
+CHECKED_LOCAL_DEPENDENCY: Luce.DeletedGapCount
+CHECKED_LOCAL_DEPENDENCY: Luce.DeletedMarkedSuccess
+CHECKED_LOCAL_DEPENDENCY: Luce.DeletedShiftedCoefficientBad
+CHECKED_LOCAL_DEPENDENCY: Luce.MarkedCoefficientBad
+CHECKED_LOCAL_DEPENDENCY: Luce.MarkedGapIndexData
+CHECKED_LOCAL_DEPENDENCY: Luce.MarkedRankCylinder
+CHECKED_LOCAL_DEPENDENCY: Luce.NormalizedWeights
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileL1Convergence
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit
+CHECKED_LOCAL_DEPENDENCY: Luce.ValidMarkedGapConfiguration
+CHECKED_LOCAL_DEPENDENCY: Luce.WeightArray
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights
+CHECKED_LOCAL_DEPENDENCY: Luce.abs_cyclicGridKernel_le
+CHECKED_LOCAL_DEPENDENCY: Luce.abs_cyclicGridKernel_sub_le
+CHECKED_LOCAL_DEPENDENCY: Luce.abs_gap_coefficient_sub_le
+CHECKED_LOCAL_DEPENDENCY: Luce.abs_integral_coefficient_mul_sub_le
+CHECKED_LOCAL_DEPENDENCY: Luce.abs_prod_le_uniform
+CHECKED_LOCAL_DEPENDENCY: Luce.abs_prod_sub_prod_le_envelope
+CHECKED_LOCAL_DEPENDENCY: Luce.abs_prod_sub_prod_le_relative
+CHECKED_LOCAL_DEPENDENCY: Luce.abs_profileD_sub_le
+CHECKED_LOCAL_DEPENDENCY: Luce.abs_profileF_sub_le
+CHECKED_LOCAL_DEPENDENCY: Luce.abs_rateKernel_derivative_le_one
+CHECKED_LOCAL_DEPENDENCY: Luce.abs_rateKernel_sub_le
+CHECKED_LOCAL_DEPENDENCY: Luce.abs_survivalKernel_sub_le
+CHECKED_LOCAL_DEPENDENCY: Luce.ae_tendsto_cyclicGridKernel
+CHECKED_LOCAL_DEPENDENCY: Luce.aestronglyMeasurable_cyclicGridKernel
+CHECKED_LOCAL_DEPENDENCY: Luce.antitoneOn_profileD
+CHECKED_LOCAL_DEPENDENCY: Luce.antitone_uniform_convergence_in_probability
+CHECKED_LOCAL_DEPENDENCY: Luce.arrivalAt
+CHECKED_LOCAL_DEPENDENCY: Luce.arrivalAt_mem_Icc
+CHECKED_LOCAL_DEPENDENCY: Luce.arrivalAt_monotone
+CHECKED_LOCAL_DEPENDENCY: Luce.arrivalTime
+CHECKED_LOCAL_DEPENDENCY: Luce.arrivalTime_lt_iff_clockBeforeCount
+CHECKED_LOCAL_DEPENDENCY: Luce.arrivalTime_strictMono
+CHECKED_LOCAL_DEPENDENCY: Luce.backgroundRace
+CHECKED_LOCAL_DEPENDENCY: Luce.backgroundRace_isProbability
+CHECKED_LOCAL_DEPENDENCY: Luce.backgroundRace_zero
+CHECKED_LOCAL_DEPENDENCY: Luce.backgroundSurvivors
+CHECKED_LOCAL_DEPENDENCY: Luce.backgroundSurvivors_eq_all
+CHECKED_LOCAL_DEPENDENCY: Luce.backgroundSurvivors_eq_erase
+CHECKED_LOCAL_DEPENDENCY: Luce.background_all_probability
+CHECKED_LOCAL_DEPENDENCY: Luce.background_probability_eq_common
+CHECKED_LOCAL_DEPENDENCY: Luce.beforeCount_lt
+CHECKED_LOCAL_DEPENDENCY: Luce.bounded_marked_asymptotic_of_sorted
+CHECKED_LOCAL_DEPENDENCY: Luce.card_removed_before_rank
+CHECKED_LOCAL_DEPENDENCY: Luce.clockBeforeCount
+CHECKED_LOCAL_DEPENDENCY: Luce.clockBeforeCount_arrivalTime
+CHECKED_LOCAL_DEPENDENCY: Luce.clockBeforeCount_compactDeletedClocks
+CHECKED_LOCAL_DEPENDENCY: Luce.clockBeforeCount_eq_deleted_add_marked
+CHECKED_LOCAL_DEPENDENCY: Luce.clockBeforeCount_lt_of_clock_lt
+CHECKED_LOCAL_DEPENDENCY: Luce.clockBeforeCount_mono
+CHECKED_LOCAL_DEPENDENCY: Luce.clockRank
+CHECKED_LOCAL_DEPENDENCY: Luce.clockRank_injective
+CHECKED_LOCAL_DEPENDENCY: Luce.clockRank_le_iff
+CHECKED_LOCAL_DEPENDENCY: Luce.comp_stepProfile_eq_sum
+CHECKED_LOCAL_DEPENDENCY: Luce.compactDeletedClocks
+CHECKED_LOCAL_DEPENDENCY: Luce.compactDeletedClocks_card
+CHECKED_LOCAL_DEPENDENCY: Luce.compactDeletedClocks_injective
+CHECKED_LOCAL_DEPENDENCY: Luce.compactDeletedClocks_measurable
+CHECKED_LOCAL_DEPENDENCY: Luce.compactDeletedClocks_measurePreserving
+CHECKED_LOCAL_DEPENDENCY: Luce.compactDeletedWeights
+CHECKED_LOCAL_DEPENDENCY: Luce.compactMarkedClocks_card
+CHECKED_LOCAL_DEPENDENCY: Luce.concentration_of_variance_tendsto_zero
+CHECKED_LOCAL_DEPENDENCY: Luce.consecutiveGapLower
+CHECKED_LOCAL_DEPENDENCY: Luce.consecutiveGapLower_eq_previous
+CHECKED_LOCAL_DEPENDENCY: Luce.consecutiveGapLower_le_upper
+CHECKED_LOCAL_DEPENDENCY: Luce.consecutiveGapLower_nonneg
+CHECKED_LOCAL_DEPENDENCY: Luce.continuousOn_compensator_coefficient
+CHECKED_LOCAL_DEPENDENCY: Luce.continuousOn_cyclicDensityCoefficient
+CHECKED_LOCAL_DEPENDENCY: Luce.continuousOn_profileD
+CHECKED_LOCAL_DEPENDENCY: Luce.continuousOn_profileF
+CHECKED_LOCAL_DEPENDENCY: Luce.continuousOn_profileGapCoefficient
+CHECKED_LOCAL_DEPENDENCY: Luce.continuousOn_profileH
+CHECKED_LOCAL_DEPENDENCY: Luce.continuousOn_profileQuantile
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicBulkCube
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicBulkInterior
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicCellStep
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicCellStep_eq_of_mem
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicComparisonArray
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicDensityCoefficient
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicDeterministicSum
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicDeterministicSum_eq_kernelGridSum
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicGridKernel
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicKernelGridSum
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicLimitKernel
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicLimitKernel_density_eq
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicProfileCell
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicProfileCell_real_measure
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicProfileCell_unique
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicProfileDensity
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicProfileIntegral
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicProfileIntegral_eq_volume
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicProfileIntegral_of_nonpos
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicProfileMeasure
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicProfileMeasure_injective_ae
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicProfileMeasure_restrict_bulk
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicRaceSum
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicRaceSum_eq_function_sum
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicRaceSum_of_nonpos
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicScaledRaceTerm
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicTupleProbability
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclic_ae_coordinates
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclic_array_truncation_error
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedBeforeCount
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedBeforeCount_eq_of_eq_off
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedBeforeCount_mono
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedClockLabel
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedClockLabel_injective
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalArrival
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalArrival_error
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalArrival_gapLower
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalArrival_gapUpper
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalArrival_monotone
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalArrival_nonneg
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalRemaining
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalRemainingGe
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalRemainingGe_error
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalRemaining_gapLower
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalRemaining_lower_of_reservoir
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedGapCoefficientError
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedGapKernel
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedGapKernel_eq_interval_measure
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedGapKernel_eq_normalizedGapMass
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedGapKernel_le_one
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedGapKernel_marked_product
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedGapKernel_toReal_eq_exponentialGapMass
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedGapProduct_integrable
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedPrefixLabels
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedPrefixLabels_card_le
+CHECKED_LOCAL_DEPENDENCY: Luce.deleted_remaining_weak_strict_error
+CHECKED_LOCAL_DEPENDENCY: Luce.drawPermutation
+CHECKED_LOCAL_DEPENDENCY: Luce.drawPermutation_eq_iff_strictMono
+CHECKED_LOCAL_DEPENDENCY: Luce.draw_arrivalTime_le_iff
+CHECKED_LOCAL_DEPENDENCY: Luce.earlyBulkCylinderConstant
+CHECKED_LOCAL_DEPENDENCY: Luce.earlyBulkCylinderConstant_ge
+CHECKED_LOCAL_DEPENDENCY: Luce.earlyBulkCylinderConstant_one_le
+CHECKED_LOCAL_DEPENDENCY: Luce.empiricalArrival
+CHECKED_LOCAL_DEPENDENCY: Luce.empiricalArrival_monotone
+CHECKED_LOCAL_DEPENDENCY: Luce.empiricalArrival_sub_deleted
+CHECKED_LOCAL_DEPENDENCY: Luce.empiricalRemaining
+CHECKED_LOCAL_DEPENDENCY: Luce.empiricalRemainingGe
+CHECKED_LOCAL_DEPENDENCY: Luce.empiricalRemainingGe_ae_eq
+CHECKED_LOCAL_DEPENDENCY: Luce.empiricalRemainingGe_antitone
+CHECKED_LOCAL_DEPENDENCY: Luce.empiricalRemainingGe_sub_deleted
+CHECKED_LOCAL_DEPENDENCY: Luce.eventually_cyclic_grid_separated
+CHECKED_LOCAL_DEPENDENCY: Luce.exists_finite_oscillation_grid
+CHECKED_LOCAL_DEPENDENCY: Luce.exists_prefixAgrees_next_eq
+CHECKED_LOCAL_DEPENDENCY: Luce.exists_profileF_eq
+CHECKED_LOCAL_DEPENDENCY: Luce.exists_profile_cell
+CHECKED_LOCAL_DEPENDENCY: Luce.expMeasure_Ici
+CHECKED_LOCAL_DEPENDENCY: Luce.expMeasure_Ioi
+CHECKED_LOCAL_DEPENDENCY: Luce.expMeasure_nullSingleton
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialGapMass
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialGapMass_eq_measure
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialGapMass_le
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialGapMass_nonneg
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialGapMass_taylor
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialPDFReal_eq_piecewise
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_all_survive
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_background
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_collision_zero
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_disintegrate
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_eval
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_event_disintegrate
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_first_choice
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_first_clock_probability
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_identityNormalizedGaps_integral
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_identity_order_probability
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_independent
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_injective_ae
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_integral_eval
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_isProbability
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_nonnegative_background
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_order_disintegrate
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_order_probability
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_order_recursion
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_orderedNormalizedGaps
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_orderedNormalizedGaps_integral
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_positive_background
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_raceNormalizedGaps
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_raceNormalizedGaps_integral
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_raceNormalizedGaps_restrict_order
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_residual_measure
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_survival
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_survival_ge
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_surviving_order
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_surviving_order_integral
+CHECKED_LOCAL_DEPENDENCY: Luce.exponential_avoids_background
+CHECKED_LOCAL_DEPENDENCY: Luce.exponential_residual_measure
+CHECKED_LOCAL_DEPENDENCY: Luce.exponential_scale_to_unit
+CHECKED_LOCAL_DEPENDENCY: Luce.finiteCyclicDensity
+CHECKED_LOCAL_DEPENDENCY: Luce.finiteCyclicDensity_bounds
+CHECKED_LOCAL_DEPENDENCY: Luce.first_clock_event_iff
+CHECKED_LOCAL_DEPENDENCY: Luce.first_gap_density
+CHECKED_LOCAL_DEPENDENCY: Luce.gap_abs_rateKernel_time_sub_le
+CHECKED_LOCAL_DEPENDENCY: Luce.hasDerivAt_rateKernel
+CHECKED_LOCAL_DEPENDENCY: Luce.hasDerivAt_survivalKernel
+CHECKED_LOCAL_DEPENDENCY: Luce.highRateMass
+CHECKED_LOCAL_DEPENDENCY: Luce.highRateMass_eq_integral
+CHECKED_LOCAL_DEPENDENCY: Luce.identityGapDuration
+CHECKED_LOCAL_DEPENDENCY: Luce.identityGapDuration_succ
+CHECKED_LOCAL_DEPENDENCY: Luce.identityNormalizedGaps
+CHECKED_LOCAL_DEPENDENCY: Luce.identityNormalizedGaps_eq_rate_mul_gap
+CHECKED_LOCAL_DEPENDENCY: Luce.identityNormalizedGaps_order_recursion
+CHECKED_LOCAL_DEPENDENCY: Luce.index_le_of_strictMono_ranks
+CHECKED_LOCAL_DEPENDENCY: Luce.instIsFiniteMeasureRealProfileMeasure
+CHECKED_LOCAL_DEPENDENCY: Luce.instIsProbabilityMeasureForallFinRealCyclicProfileMeasure
+CHECKED_LOCAL_DEPENDENCY: Luce.instIsProbabilityMeasureRealProfileMeasure
+CHECKED_LOCAL_DEPENDENCY: Luce.integrable_cyclicCellStep
+CHECKED_LOCAL_DEPENDENCY: Luce.integrable_cyclicGridKernel
+CHECKED_LOCAL_DEPENDENCY: Luce.integrable_cyclic_source_product
+CHECKED_LOCAL_DEPENDENCY: Luce.integrable_highProfile
+CHECKED_LOCAL_DEPENDENCY: Luce.integrable_markedNormalizedGaps_mixed
+CHECKED_LOCAL_DEPENDENCY: Luce.integrable_markedNormalizedGaps_taylorEnvelope
+CHECKED_LOCAL_DEPENDENCY: Luce.integrable_mixed_expMeasure_one
+CHECKED_LOCAL_DEPENDENCY: Luce.integrable_pow_expMeasure_one
+CHECKED_LOCAL_DEPENDENCY: Luce.integrable_rateKernel
+CHECKED_LOCAL_DEPENDENCY: Luce.integrable_stepProfile
+CHECKED_LOCAL_DEPENDENCY: Luce.integrable_sum_mul_prod_expMeasure_one
+CHECKED_LOCAL_DEPENDENCY: Luce.integrable_survivalKernel
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_arrivalAt
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_comp_stepProfile
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_cyclicCellStep
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_cyclicGridKernel_step
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_cyclicGridKernel_sub_le
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_cyclic_source_product
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_empiricalArrival
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_empiricalRemaining
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_error_mul_le
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_exponentialPDFReal
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_markedNormalizedGaps_mixed
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_markedNormalizedGaps_prod
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_markedNormalizedGaps_prod_sq
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_markedNormalizedGaps_taylorEnvelope
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_mixed_expMeasure_one
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_pow_expMeasure_one
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_stepProfile_cell
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_sum_mul_prod_expMeasure_one
+CHECKED_LOCAL_DEPENDENCY: Luce.inverse_ge_iff_no_earlier_draw
+CHECKED_LOCAL_DEPENDENCY: Luce.lintegral_deletedGapKernel_product
+CHECKED_LOCAL_DEPENDENCY: Luce.lt_arrivalTime_iff_clockBeforeCount
+CHECKED_LOCAL_DEPENDENCY: Luce.markedBeforeCount_eq_index
+CHECKED_LOCAL_DEPENDENCY: Luce.markedGapCoefficient
+CHECKED_LOCAL_DEPENDENCY: Luce.markedGapScalar
+CHECKED_LOCAL_DEPENDENCY: Luce.markedGapScalar_eq_deleted
+CHECKED_LOCAL_DEPENDENCY: Luce.markedGap_taylor_expectation
+CHECKED_LOCAL_DEPENDENCY: Luce.markedGap_taylor_pointwise
+CHECKED_LOCAL_DEPENDENCY: Luce.markedImage_comp_perm
+CHECKED_LOCAL_DEPENDENCY: Luce.markedNormalizedGaps
+CHECKED_LOCAL_DEPENDENCY: Luce.markedRankCylinder_comp_perm
+CHECKED_LOCAL_DEPENDENCY: Luce.markedRankCylinder_deleted_counts
+CHECKED_LOCAL_DEPENDENCY: Luce.markedRankCylinder_iff_deleted_counts
+CHECKED_LOCAL_DEPENDENCY: Luce.markedRankCylinder_probability_eq_deletedGapProduct
+CHECKED_LOCAL_DEPENDENCY: Luce.markedRankCylinder_real_probability_eq_deletedGapProduct
+CHECKED_LOCAL_DEPENDENCY: Luce.markedRankCylinder_taylor_expectation
+CHECKED_LOCAL_DEPENDENCY: Luce.marked_raceGapStart_eq_consecutiveGapLower
+CHECKED_LOCAL_DEPENDENCY: Luce.marked_times_strictMono_of_deleted_counts
+CHECKED_LOCAL_DEPENDENCY: Luce.marked_times_strictMono_of_rankCylinder
+CHECKED_LOCAL_DEPENDENCY: Luce.meanArrival
+CHECKED_LOCAL_DEPENDENCY: Luce.meanArrival_eq_profileF
+CHECKED_LOCAL_DEPENDENCY: Luce.meanRemaining
+CHECKED_LOCAL_DEPENDENCY: Luce.meanRemaining_eq_profileD
+CHECKED_LOCAL_DEPENDENCY: Luce.measurableSet_cyclicProfileCell
+CHECKED_LOCAL_DEPENDENCY: Luce.measurableSet_deletedGapCount
+CHECKED_LOCAL_DEPENDENCY: Luce.measurableSet_first_before_background
+CHECKED_LOCAL_DEPENDENCY: Luce.measurableSet_injective_clocks
+CHECKED_LOCAL_DEPENDENCY: Luce.measurableSet_markedRankCylinder
+CHECKED_LOCAL_DEPENDENCY: Luce.measurableSet_strictMono_clocks
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_arrivalAt
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_backgroundSurvivors
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_clockBeforeCount
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_comp_profileGridEndpoint
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_cyclic_grid_comp
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_deletedBeforeCount
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_deletedGapKernel
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_finCons
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_identityNormalizedGaps
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_markedGapCoefficient
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_markedNormalizedGaps
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_orderedNormalizedGaps
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_profileGridEndpoint
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_raceDraw
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_raceGapRate
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_raceGapStart
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_raceNormalizedGaps
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_stepProfile
+CHECKED_LOCAL_DEPENDENCY: Luce.measurePreserving_markedNormalizedGaps
+CHECKED_LOCAL_DEPENDENCY: Luce.measurePreserving_raceNormalizedGaps
+CHECKED_LOCAL_DEPENDENCY: Luce.measurePreserving_selectedNormalizedGaps
+CHECKED_LOCAL_DEPENDENCY: Luce.memLp_empiricalArrival
+CHECKED_LOCAL_DEPENDENCY: Luce.memLp_empiricalRemaining
+CHECKED_LOCAL_DEPENDENCY: Luce.mem_consecutiveGap_iff_count
+CHECKED_LOCAL_DEPENDENCY: Luce.moderateReservoir
+CHECKED_LOCAL_DEPENDENCY: Luce.monotone_bracket_error
+CHECKED_LOCAL_DEPENDENCY: Luce.monotone_grid_error
+CHECKED_LOCAL_DEPENDENCY: Luce.monotone_uniform_convergence_in_probability
+CHECKED_LOCAL_DEPENDENCY: Luce.normalized_cyclicComparisonArray
+CHECKED_LOCAL_DEPENDENCY: Luce.normalized_sum_sq_le
+CHECKED_LOCAL_DEPENDENCY: Luce.normalized_tuple_high_rate_le
+CHECKED_LOCAL_DEPENDENCY: Luce.orderedNormalizedGaps
+CHECKED_LOCAL_DEPENDENCY: Luce.orderedNormalizedGaps_eq_rate_mul_gap
+CHECKED_LOCAL_DEPENDENCY: Luce.orderedRemainingRate
+CHECKED_LOCAL_DEPENDENCY: Luce.orderedRemainingRate_eq_surviving_sum
+CHECKED_LOCAL_DEPENDENCY: Luce.orderedRemainingRate_identity_succ
+CHECKED_LOCAL_DEPENDENCY: Luce.orderedRemainingRate_identity_zero
+CHECKED_LOCAL_DEPENDENCY: Luce.orderedRemainingRate_pos
+CHECKED_LOCAL_DEPENDENCY: Luce.orderedWeights
+CHECKED_LOCAL_DEPENDENCY: Luce.ordered_gap_eq_normalized_div_rate
+CHECKED_LOCAL_DEPENDENCY: Luce.pairedExponentialRace
+CHECKED_LOCAL_DEPENDENCY: Luce.pairedExponentialRace_background
+CHECKED_LOCAL_DEPENDENCY: Luce.pairedExponentialRace_families
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixAgrees
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixAgrees_decomposeFin
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixAgrees_succ_iff
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixAgrees_zero
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixMass
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixMass_decomposeFin
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixMass_eq_of_prefix_agreement
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixMass_succ
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixMass_zero
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixVector
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixVector_eq_iff
+CHECKED_LOCAL_DEPENDENCY: Luce.previousOrderedTime
+CHECKED_LOCAL_DEPENDENCY: Luce.prod_exponentialGapMass_taylor
+CHECKED_LOCAL_DEPENDENCY: Luce.prod_one_exception
+CHECKED_LOCAL_DEPENDENCY: Luce.product_error_modulus
+CHECKED_LOCAL_DEPENDENCY: Luce.profileCell
+CHECKED_LOCAL_DEPENDENCY: Luce.profileCell_subset
+CHECKED_LOCAL_DEPENDENCY: Luce.profileD
+CHECKED_LOCAL_DEPENDENCY: Luce.profileD_pos
+CHECKED_LOCAL_DEPENDENCY: Luce.profileF
+CHECKED_LOCAL_DEPENDENCY: Luce.profileF_lt_one
+CHECKED_LOCAL_DEPENDENCY: Luce.profileF_nonneg
+CHECKED_LOCAL_DEPENDENCY: Luce.profileF_profileQuantile
+CHECKED_LOCAL_DEPENDENCY: Luce.profileF_zero
+CHECKED_LOCAL_DEPENDENCY: Luce.profileGapCoefficient
+CHECKED_LOCAL_DEPENDENCY: Luce.profileGapCoefficient_uniform_rank_modulus
+CHECKED_LOCAL_DEPENDENCY: Luce.profileGridEndpoint
+CHECKED_LOCAL_DEPENDENCY: Luce.profileGridEndpoint_ge
+CHECKED_LOCAL_DEPENDENCY: Luce.profileGridEndpoint_of_mem_cell
+CHECKED_LOCAL_DEPENDENCY: Luce.profileGridEndpoint_pos
+CHECKED_LOCAL_DEPENDENCY: Luce.profileH
+CHECKED_LOCAL_DEPENDENCY: Luce.profileMeasure
+CHECKED_LOCAL_DEPENDENCY: Luce.profileMeasure_cell
+CHECKED_LOCAL_DEPENDENCY: Luce.profileQuantile
+CHECKED_LOCAL_DEPENDENCY: Luce.profileQuantile_nonneg
+CHECKED_LOCAL_DEPENDENCY: Luce.profileQuantile_profileF
+CHECKED_LOCAL_DEPENDENCY: Luce.raceDraw
+CHECKED_LOCAL_DEPENDENCY: Luce.raceDraw_eq
+CHECKED_LOCAL_DEPENDENCY: Luce.raceDraw_event_probability
+CHECKED_LOCAL_DEPENDENCY: Luce.raceDraw_mass
+CHECKED_LOCAL_DEPENDENCY: Luce.raceGapDuration_eq_normalized_div_rate
+CHECKED_LOCAL_DEPENDENCY: Luce.raceGapRate
+CHECKED_LOCAL_DEPENDENCY: Luce.raceGapStart
+CHECKED_LOCAL_DEPENDENCY: Luce.raceGapStart_eq_consecutiveGapLower
+CHECKED_LOCAL_DEPENDENCY: Luce.raceNormalizedGaps
+CHECKED_LOCAL_DEPENDENCY: Luce.raceNormalizedGaps_nonneg
+CHECKED_LOCAL_DEPENDENCY: Luce.raceRank
+CHECKED_LOCAL_DEPENDENCY: Luce.raceRank_add_survivors
+CHECKED_LOCAL_DEPENDENCY: Luce.raceRank_eq_iff_raceDraw
+CHECKED_LOCAL_DEPENDENCY: Luce.raceRank_eq_iff_survivors
+CHECKED_LOCAL_DEPENDENCY: Luce.raceRank_injective
+CHECKED_LOCAL_DEPENDENCY: Luce.raceRank_probability_integral
+CHECKED_LOCAL_DEPENDENCY: Luce.raceRank_strict
+CHECKED_LOCAL_DEPENDENCY: Luce.rankPermutation
+CHECKED_LOCAL_DEPENDENCY: Luce.rank_integral_common
+CHECKED_LOCAL_DEPENDENCY: Luce.rank_integral_real
+CHECKED_LOCAL_DEPENDENCY: Luce.rank_integral_survivors
+CHECKED_LOCAL_DEPENDENCY: Luce.rateKernel
+CHECKED_LOCAL_DEPENDENCY: Luce.rateKernel_antitone_time
+CHECKED_LOCAL_DEPENDENCY: Luce.rateKernel_le
+CHECKED_LOCAL_DEPENDENCY: Luce.rateKernel_nonneg
+CHECKED_LOCAL_DEPENDENCY: Luce.rate_le_rowMaxRate
+CHECKED_LOCAL_DEPENDENCY: Luce.real_coe_nat_dist
+CHECKED_LOCAL_DEPENDENCY: Luce.remaining
+CHECKED_LOCAL_DEPENDENCY: Luce.remaining_eq_of_prefix_agreement
+CHECKED_LOCAL_DEPENDENCY: Luce.remaining_rate_of_reservoir
+CHECKED_LOCAL_DEPENDENCY: Luce.remaining_total_eq_tail_sum
+CHECKED_LOCAL_DEPENDENCY: Luce.removeFirst_zero_total
+CHECKED_LOCAL_DEPENDENCY: Luce.rescaled_gap_error_constant
+CHECKED_LOCAL_DEPENDENCY: Luce.rescaled_prod_exponentialGapMass_taylor
+CHECKED_LOCAL_DEPENDENCY: Luce.rowMaxRate
+CHECKED_LOCAL_DEPENDENCY: Luce.section3_cell_real_measure
+CHECKED_LOCAL_DEPENDENCY: Luce.section3_denominator_lower
+CHECKED_LOCAL_DEPENDENCY: Luce.section3_uniform_arrival
+CHECKED_LOCAL_DEPENDENCY: Luce.section3_uniform_remaining
+CHECKED_LOCAL_DEPENDENCY: Luce.section5_bounded_marked_asymptotic
+CHECKED_LOCAL_DEPENDENCY: Luce.section5_cyclic_local
+CHECKED_LOCAL_DEPENDENCY: Luce.section5_deleted_gap_rate
+CHECKED_LOCAL_DEPENDENCY: Luce.section5_deleted_order_statistics
+CHECKED_LOCAL_DEPENDENCY: Luce.section5_lemma52
+CHECKED_LOCAL_DEPENDENCY: Luce.section5_marked_coefficient_expectation
+CHECKED_LOCAL_DEPENDENCY: Luce.section5_sorted_marked_asymptotic
+CHECKED_LOCAL_DEPENDENCY: Luce.section5_uniform_deleted_arrival
+CHECKED_LOCAL_DEPENDENCY: Luce.section5_uniform_deleted_denominator
+CHECKED_LOCAL_DEPENDENCY: Luce.section5_uniform_deleted_gap_coefficient
+CHECKED_LOCAL_DEPENDENCY: Luce.section5_uniform_deleted_quantile
+CHECKED_LOCAL_DEPENDENCY: Luce.section5_uniform_deleted_remaining
+CHECKED_LOCAL_DEPENDENCY: Luce.section5_uniform_marked_gap_coefficient
+CHECKED_LOCAL_DEPENDENCY: Luce.section5_uniform_shifted_gap_coefficient
+CHECKED_LOCAL_DEPENDENCY: Luce.sortedMarkedGapIndex
+CHECKED_LOCAL_DEPENDENCY: Luce.sortedMarkedGapIndex_add
+CHECKED_LOCAL_DEPENDENCY: Luce.sortedMarkedGapIndex_lt_complement
+CHECKED_LOCAL_DEPENDENCY: Luce.sortedMarkedGapIndex_strictMono
+CHECKED_LOCAL_DEPENDENCY: Luce.standardGapLaw
+CHECKED_LOCAL_DEPENDENCY: Luce.standardGapLaw_cons_integral
+CHECKED_LOCAL_DEPENDENCY: Luce.standardGapLaw_isProbability
+CHECKED_LOCAL_DEPENDENCY: Luce.standardGapLaw_select
+CHECKED_LOCAL_DEPENDENCY: Luce.stepProfile
+CHECKED_LOCAL_DEPENDENCY: Luce.stepProfile_eq_of_mem_Ioc
+CHECKED_LOCAL_DEPENDENCY: Luce.stepProfile_eq_on_cell
+CHECKED_LOCAL_DEPENDENCY: Luce.stepProfile_nonneg
+CHECKED_LOCAL_DEPENDENCY: Luce.stepProfile_superlevel_measure_le
+CHECKED_LOCAL_DEPENDENCY: Luce.strictMonoOn_profileF
+CHECKED_LOCAL_DEPENDENCY: Luce.strictMonoOn_profileQuantile
+CHECKED_LOCAL_DEPENDENCY: Luce.strictMono_clocks_iff
+CHECKED_LOCAL_DEPENDENCY: Luce.strictMono_draw_clocks
+CHECKED_LOCAL_DEPENDENCY: Luce.strictMono_sorted_markedRanks
+CHECKED_LOCAL_DEPENDENCY: Luce.strictMono_sub_const_iff
+CHECKED_LOCAL_DEPENDENCY: Luce.sum_deletedClockLabel
+CHECKED_LOCAL_DEPENDENCY: Luce.sum_embedding_eq_sum_injective
+CHECKED_LOCAL_DEPENDENCY: Luce.sum_mass_cylinder_le
+CHECKED_LOCAL_DEPENDENCY: Luce.sum_mass_event_next_le
+CHECKED_LOCAL_DEPENDENCY: Luce.sum_mass_marked_cylinder_le
+CHECKED_LOCAL_DEPENDENCY: Luce.sum_mass_prefix
+CHECKED_LOCAL_DEPENDENCY: Luce.sum_mass_prefix_next
+CHECKED_LOCAL_DEPENDENCY: Luce.sum_sq_le_max_mul_sum
+CHECKED_LOCAL_DEPENDENCY: Luce.sum_tuple_high_rate_le
+CHECKED_LOCAL_DEPENDENCY: Luce.survivalKernel
+CHECKED_LOCAL_DEPENDENCY: Luce.survivalKernel_antitone_time
+CHECKED_LOCAL_DEPENDENCY: Luce.survivalKernel_le_one
+CHECKED_LOCAL_DEPENDENCY: Luce.survivalKernel_pos
+CHECKED_LOCAL_DEPENDENCY: Luce.survivorSet
+CHECKED_LOCAL_DEPENDENCY: Luce.swapClockCopies
+CHECKED_LOCAL_DEPENDENCY: Luce.swapClockCopies_measurePreserving
+CHECKED_LOCAL_DEPENDENCY: Luce.swapped_background_measurePreserving
+CHECKED_LOCAL_DEPENDENCY: Luce.swapped_deleted_count
+CHECKED_LOCAL_DEPENDENCY: Luce.swapped_markedRankCylinder_iff_deleted_success
+CHECKED_LOCAL_DEPENDENCY: Luce.tendstoUniformlyOn_profileD
+CHECKED_LOCAL_DEPENDENCY: Luce.tendstoUniformlyOn_profileF
+CHECKED_LOCAL_DEPENDENCY: Luce.tendsto_cyclicGridKernel
+CHECKED_LOCAL_DEPENDENCY: Luce.tendsto_cyclic_array_sum_of_separated
+CHECKED_LOCAL_DEPENDENCY: Luce.tendsto_integral_cyclicGridKernel
+CHECKED_LOCAL_DEPENDENCY: Luce.tendsto_normalized_weight_of_cells
+CHECKED_LOCAL_DEPENDENCY: Luce.tendsto_profileF_atTop
+CHECKED_LOCAL_DEPENDENCY: Luce.tendsto_profileGridEndpoint
+CHECKED_LOCAL_DEPENDENCY: Luce.tendsto_setIntegral_of_L1_of_measure_tendsto_zero
+CHECKED_LOCAL_DEPENDENCY: Luce.total_compl_deletedPrefixLabels
+CHECKED_LOCAL_DEPENDENCY: Luce.uniform_empiricalArrival
+CHECKED_LOCAL_DEPENDENCY: Luce.uniform_empiricalRemainingGe
+CHECKED_LOCAL_DEPENDENCY: Luce.uniform_integral_error_mul_small
+CHECKED_LOCAL_DEPENDENCY: Luce.uniform_product_error_probability
+CHECKED_LOCAL_DEPENDENCY: Luce.uniform_profile_inverse_modulus
+CHECKED_LOCAL_DEPENDENCY: Luce.validMarkedGap_coordinates
+CHECKED_LOCAL_DEPENDENCY: Luce.variance_empiricalArrival_le
+CHECKED_LOCAL_DEPENDENCY: Luce.variance_empiricalRemaining_le
+CHECKED_LOCAL_DEPENDENCY: Luce.variance_normalized_sum_le
+CHECKED_LOCAL_DEPENDENCY: _private.Luce.Section3Mean.0.Luce.section3_cell_unique
+CHECKED_LOCAL_DEPENDENCY: _private.Luce.Section3Quantile.0.Luce.integral_pos_of_ae_pos
+CHECKED_LOCAL_DEPENDENCY: _private.Luce.Section3Race.0.Luce.section3_sum_rates
+CHECKED_LOCAL_DEPENDENCY: _private.Luce.Section5GapMoments.0.Luce.coordinate_mul_prod_eq_mixed
+CHECKED_LOCAL_DEPENDENCY: _private.Luce.Section5GapMoments.0.Luce.exponential_one_density_pow
+CHECKED_LOCAL_DEPENDENCY: Luce.MarkedGapIndexData.gaps
+CHECKED_LOCAL_DEPENDENCY: Luce.MarkedGapIndexData.labels
+CHECKED_LOCAL_DEPENDENCY: Luce.MarkedGapIndexData.mk
+CHECKED_LOCAL_DEPENDENCY: Luce.MarkedGapIndexData.ranks
+CHECKED_LOCAL_DEPENDENCY: Luce.MarkedGapIndexData.removed
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.ae_nonneg
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.ae_pos
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.aestronglyMeasurable
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.cyclicComparisonArray_weighted_bound
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.cyclic_deterministic_limit
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.cyclic_local_of_bounded_marked_asymptotic
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.deleted_remaining_uniform_lower
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.deleted_suffix_rate_uniform_lower
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.eventually_bulk_remaining_rate
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.eventually_rowMean_le
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.exists_large_superlevel
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.highRateMass_small
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.integrable
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.marked_gap_scalar_uniform_bound
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.max_weight_div_tendsto_zero
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.moderate_reservoir
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.moderate_reservoir_with_remaining_rate
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.positivePart_tail
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.rate_div_tendsto_zero
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.tendsto_cyclic_grid_profile_replacement
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.tendsto_integral_abs_sub
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.tendsto_integral_cyclic_stepKernel
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.tendsto_weighted_cyclic_array_sum
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.uniform_profileD
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.uniform_profileF
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.weighted_bulk_cylinder
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.weighted_bulk_cylinder_all
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.weighted_bulk_draw_cylinder
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.choice
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.decomposeFin_tail_sum
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.mass
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.mass_decomposeFin
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.mass_pos
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.mk
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.positive
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.rate
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.removeFirst
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.sum_mass
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.sum_rate_perm
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.total
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.total_nonneg
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.total_pos
+CHECKED_LOCAL_DEPENDENCY: Luce.arrivalTime.congr_simp
+CHECKED_LOCAL_DEPENDENCY: Luce.arrivalTime.eq_1
+CHECKED_LOCAL_DEPENDENCY: Luce.arrivalTime_lt_iff_clockBeforeCount._proof_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.arrivalTime_lt_iff_clockBeforeCount._proof_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.backgroundRace.eq_1
+CHECKED_LOCAL_DEPENDENCY: Luce.backgroundSurvivors.eq_1
+CHECKED_LOCAL_DEPENDENCY: Luce.backgroundSurvivors_eq_all._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.backgroundSurvivors_eq_erase._proof_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.background_all_probability._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.background_all_probability._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.background_all_probability._simp_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.background_all_probability._simp_1_4
+CHECKED_LOCAL_DEPENDENCY: Luce.background_all_probability._simp_1_5
+CHECKED_LOCAL_DEPENDENCY: Luce.background_all_probability._simp_1_7
+CHECKED_LOCAL_DEPENDENCY: Luce.card_removed_before_rank._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.card_removed_before_rank._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.card_removed_before_rank._simp_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.card_removed_before_rank._simp_1_4
+CHECKED_LOCAL_DEPENDENCY: Luce.card_removed_before_rank._simp_1_5
+CHECKED_LOCAL_DEPENDENCY: Luce.card_removed_before_rank._simp_1_6
+CHECKED_LOCAL_DEPENDENCY: Luce.clockBeforeCount_lt_of_clock_lt._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.clockBeforeCount_lt_of_clock_lt._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.clockBeforeCount_mono._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.clockBeforeCount_mono._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.clockRank_le_iff._proof_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.compactDeletedWeights._proof_1
+CHECKED_LOCAL_DEPENDENCY: Luce.consecutiveGapLower._proof_1
+CHECKED_LOCAL_DEPENDENCY: Luce.consecutiveGapLower._proof_2
+CHECKED_LOCAL_DEPENDENCY: Luce.consecutiveGapLower_le_upper._proof_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.consecutiveGapLower_le_upper._proof_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicCellStep.eq_1
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicGridKernel.eq_1
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicProfileMeasure_injective_ae._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclicScaledRaceTerm.eq_1
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclic_array_truncation_error._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclic_array_truncation_error._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclic_array_truncation_error._simp_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclic_array_truncation_error._simp_1_4
+CHECKED_LOCAL_DEPENDENCY: Luce.cyclic_array_truncation_error._simp_1_5
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalArrival.eq_1
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalArrival_gapLower._proof_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalArrival_gapLower._proof_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalRemaining.eq_1
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalRemainingGe.eq_1
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalRemaining_lower_of_reservoir._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalRemaining_lower_of_reservoir._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalRemaining_lower_of_reservoir._simp_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalRemaining_lower_of_reservoir._simp_1_4
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalRemaining_lower_of_reservoir._simp_1_5
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalRemaining_lower_of_reservoir._simp_1_6
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedEmpiricalRemaining_lower_of_reservoir._simp_1_7
+CHECKED_LOCAL_DEPENDENCY: Luce.deletedGapKernel_marked_product._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.deleted_remaining_weak_strict_error._simp_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.deleted_remaining_weak_strict_error._simp_1_4
+CHECKED_LOCAL_DEPENDENCY: Luce.drawPermutation.eq_1
+CHECKED_LOCAL_DEPENDENCY: Luce.empiricalRemainingGe_ae_eq._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.empiricalRemainingGe_ae_eq._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.exists_profile_cell._proof_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.exists_profile_cell._proof_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialGapMass_eq_measure._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialGapMass_eq_measure._simp_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialGapMass_eq_measure._simp_1_4
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialGapMass_eq_measure._simp_1_5
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialGapMass_eq_measure._simp_1_6
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace.eq_1
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_event_disintegrate._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_first_choice._proof_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_first_choice._proof_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_first_choice._simp_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_identityNormalizedGaps_integral._simp_1_4
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_injective_ae._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_order_disintegrate._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_orderedNormalizedGaps._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_orderedNormalizedGaps._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_surviving_order._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_surviving_order._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_surviving_order._simp_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_surviving_order._simp_1_4
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_surviving_order._simp_1_5
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_surviving_order_integral._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_surviving_order_integral._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.exponentialRace_surviving_order_integral._simp_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.exponential_residual_measure._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.exponential_residual_measure._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.exponential_residual_measure._simp_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.exponential_residual_measure._simp_1_4
+CHECKED_LOCAL_DEPENDENCY: Luce.exponential_residual_measure._simp_1_5
+CHECKED_LOCAL_DEPENDENCY: Luce.exponential_residual_measure._simp_1_6
+CHECKED_LOCAL_DEPENDENCY: Luce.exponential_scale_to_unit._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.exponential_scale_to_unit._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.identityGapDuration_succ._proof_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.identityGapDuration_succ._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.identityGapDuration_succ._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.identityNormalizedGaps._f
+CHECKED_LOCAL_DEPENDENCY: Luce.identityNormalizedGaps._proof_1
+CHECKED_LOCAL_DEPENDENCY: Luce.identityNormalizedGaps.match_1
+CHECKED_LOCAL_DEPENDENCY: Luce.identityNormalizedGaps_order_recursion._simp_1_4
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_comp_stepProfile._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_exponentialPDFReal._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.integral_markedNormalizedGaps_prod_sq._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.lt_arrivalTime_iff_clockBeforeCount._proof_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.lt_arrivalTime_iff_clockBeforeCount._proof_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.markedGapScalar.eq_1
+CHECKED_LOCAL_DEPENDENCY: Luce.markedImage_comp_perm._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.markedImage_comp_perm._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.markedRankCylinder_deleted_counts._proof_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.markedRankCylinder_iff_deleted_counts._proof_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.markedRankCylinder_iff_deleted_counts._proof_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.marked_times_strictMono_of_rankCylinder._proof_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.measurableSet_injective_clocks._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_raceDraw._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_raceDraw._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_raceDraw._simp_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_raceDraw._simp_1_4
+CHECKED_LOCAL_DEPENDENCY: Luce.measurable_raceGapStart._proof_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.mem_consecutiveGap_iff_count._proof_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.mem_consecutiveGap_iff_count._proof_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.mem_consecutiveGap_iff_count._proof_1_4
+CHECKED_LOCAL_DEPENDENCY: Luce.orderedRemainingRate_eq_surviving_sum._proof_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.orderedRemainingRate_eq_surviving_sum._proof_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.orderedWeights._proof_1
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixAgrees_decomposeFin._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixAgrees_decomposeFin._simp_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixAgrees_decomposeFin._simp_1_4
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixAgrees_decomposeFin._simp_1_5
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixMass_decomposeFin._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixMass_decomposeFin._simp_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixMass_succ._proof_1_5
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixMass_succ._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixMass_succ._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixMass_succ._simp_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.prefixMass_succ._simp_1_4
+CHECKED_LOCAL_DEPENDENCY: Luce.previousOrderedTime._proof_1
+CHECKED_LOCAL_DEPENDENCY: Luce.previousOrderedTime._proof_2
+CHECKED_LOCAL_DEPENDENCY: Luce.profileD.eq_1
+CHECKED_LOCAL_DEPENDENCY: Luce.profileH.eq_1
+CHECKED_LOCAL_DEPENDENCY: Luce.profileMeasure.eq_1
+CHECKED_LOCAL_DEPENDENCY: Luce.raceDraw_event_probability._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.raceDraw_event_probability._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.raceDraw_event_probability._simp_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.raceDraw_event_probability._simp_1_4
+CHECKED_LOCAL_DEPENDENCY: Luce.raceGapRate.eq_1
+CHECKED_LOCAL_DEPENDENCY: Luce.raceGapStart.eq_1
+CHECKED_LOCAL_DEPENDENCY: Luce.raceNormalizedGaps.eq_1
+CHECKED_LOCAL_DEPENDENCY: Luce.raceRank_add_survivors._proof_1_6
+CHECKED_LOCAL_DEPENDENCY: Luce.raceRank_add_survivors._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.raceRank_add_survivors._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.raceRank_add_survivors._simp_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.raceRank_add_survivors._simp_1_5
+CHECKED_LOCAL_DEPENDENCY: Luce.raceRank_eq_iff_raceDraw._proof_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.raceRank_eq_iff_survivors._proof_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.raceRank_injective._proof_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.raceRank_injective._proof_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.raceRank_strict._proof_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.rankPermutation._proof_1
+CHECKED_LOCAL_DEPENDENCY: Luce.rank_integral_real._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.rank_integral_survivors._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.rateKernel.eq_1
+CHECKED_LOCAL_DEPENDENCY: Luce.remaining_eq_of_prefix_agreement._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.remaining_eq_of_prefix_agreement._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.remaining_eq_of_prefix_agreement._simp_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.rowMaxRate._proof_1
+CHECKED_LOCAL_DEPENDENCY: Luce.section5_sorted_marked_asymptotic._proof_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.sortedMarkedGapIndex_lt_complement._proof_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.sortedMarkedGapIndex_strictMono._proof_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.stepProfile_superlevel_measure_le._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.stepProfile_superlevel_measure_le._simp_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.stepProfile_superlevel_measure_le._simp_1_4
+CHECKED_LOCAL_DEPENDENCY: Luce.sum_mass_cylinder_le._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.sum_mass_cylinder_le._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.sum_mass_marked_cylinder_le._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.sum_mass_marked_cylinder_le._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.sum_mass_marked_cylinder_le._simp_1_3
+CHECKED_LOCAL_DEPENDENCY: Luce.sum_mass_prefix._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.sum_mass_prefix._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.sum_mass_prefix_next._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.sum_mass_prefix_next._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.total_compl_deletedPrefixLabels._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.total_compl_deletedPrefixLabels._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.total_compl_deletedPrefixLabels._simp_1_4
+CHECKED_LOCAL_DEPENDENCY: Luce.total_compl_deletedPrefixLabels._simp_1_5
+CHECKED_LOCAL_DEPENDENCY: Luce.total_compl_deletedPrefixLabels._simp_1_6
+CHECKED_LOCAL_DEPENDENCY: Luce.total_compl_deletedPrefixLabels._simp_1_7
+CHECKED_LOCAL_DEPENDENCY: Luce.total_compl_deletedPrefixLabels._simp_1_8
+CHECKED_LOCAL_DEPENDENCY: Luce.total_compl_deletedPrefixLabels._simp_1_9
+CHECKED_LOCAL_DEPENDENCY: _private.Luce.Section3Mean.0.Luce.section3_cell_unique._proof_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.cyclic_deterministic_limit._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.exists_large_superlevel._simp_1_1
+CHECKED_LOCAL_DEPENDENCY: Luce.ProfileLimit.exists_large_superlevel._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.mass.eq_1
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.mass_decomposeFin._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.mk.congr_simp
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.removeFirst._proof_1
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.removeFirst._proof_2
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.sum_mass._simp_1_2
+CHECKED_LOCAL_DEPENDENCY: Luce.Weights.sum_mass._simp_1_3

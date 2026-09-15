@@ -1,0 +1,25 @@
+import Luce.Section5CycleShellContractCheck
+import Luce.Section5ShellContract
+
+set_option pp.explicit true
+set_option pp.universes true
+set_option pp.fullNames true
+set_option pp.proofs false
+
+#print Luce.cycleTailExpectation
+#print Luce.shortCycleTailExpectation
+#print Luce.EndpointShellAssumption.cycle_tail_small_succ
+#print Luce.EndpointShellAssumption.cycle_shell_tightness
+#print ShellMigrationContract.cycleShell
+#print cycleShell_contractCheck
+#print ShellMigrationContract.section5
+
+#print axioms Luce.deep_roots_le_retained_add_excluded
+#print axioms Luce.excluded_short_vertices_le_high_add_interior_low
+#print axioms Luce.integrable_race_permutation_statistic
+#print axioms Luce.tail_cycle_expectation_le_retained_and_truncations
+#print axioms Luce.EndpointShellAssumption.cycle_tail_small_succ
+#print axioms Luce.singleton_cycle_tail_le_fixed
+#print axioms Luce.EndpointShellAssumption.short_cycle_tail_small
+#print axioms Luce.EndpointShellAssumption.cycle_shell_tightness
+#print axioms cycleShell_contractCheck

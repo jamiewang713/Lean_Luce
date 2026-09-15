@@ -1,0 +1,42 @@
+⚠ [937/1092] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3656/3668] Replayed Luce.Section6IncrementDensity
+warning: Luce/Section6IncrementDensity.lean:61:63: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3667/3668] Built Luce.Section6PathVariation (15s)
+✖ [3668/3668] Building Luce.Section6CycleExponentialMoment (15s)
+trace: .> LEAN_PATH=D:\princeton\Research\Lean\Lean_luce\.lake\packages\Cli\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\batteries\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\Qq\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\aesop\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\importGraph\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\plausible\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\mathlib\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean c:\Users\JiaminWang\.elan\toolchains\leanprover--lean4---v4.33.1\bin\lean.exe D:\princeton\Research\Lean\Lean_luce\Luce\Section6CycleExponentialMoment.lean -o D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6CycleExponentialMoment.olean -i D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6CycleExponentialMoment.ilean -c D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6CycleExponentialMoment.c --setup D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6CycleExponentialMoment.setup.json --json
+error: Luce/Section6CycleExponentialMoment.lean:77:2: Tactic `apply` failed: could not unify the conclusion of `(le_div_iff₀ hc).mpr`
+  ?m.285 ≤ ?m.286 / c
+with the goal
+  logTupleRange k (Fin.cons 0 y) ≤ 1 / c * Real.exp (c * logTupleRange k (Fin.cons 0 y))
+
+Note: The full type of `(le_div_iff₀ hc).mpr` is
+  ?m.285 * c ≤ ?m.286 → ?m.285 ≤ ?m.286 / c
+
+p : ℝ → ℝ
+hp : TraceDensity68 p
+c : ℝ
+hc : 0 < c
+k : ℕ
+hi :
+  Integrable (fun y => Real.exp (c * logTupleRange k (Fin.cons 0 y)) * closedLogCycleWeight p k (Fin.cons 0 y)) volume
+hW : Continuous fun y => closedLogCycleWeight p k (Fin.cons 0 y)
+hR : Continuous fun y => logTupleRange k (Fin.cons 0 y)
+y : Fin k → ℝ
+hW0 : 0 ≤ closedLogCycleWeight p k (Fin.cons 0 y)
+he : c * logTupleRange k (Fin.cons 0 y) + 1 ≤ Real.exp (c * logTupleRange k (Fin.cons 0 y))
+⊢ logTupleRange k (Fin.cons 0 y) ≤ 1 / c * Real.exp (c * logTupleRange k (Fin.cons 0 y))
+error: Lean exited with code 1
+Some required targets logged failures:
+- Luce.Section6CycleExponentialMoment
+error: build failed

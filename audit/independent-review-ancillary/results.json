@@ -1,0 +1,344 @@
+[
+  {
+    "file": "audit/AllProvedStatements.lean",
+    "exit_code": 0,
+    "seconds": 119.22,
+    "log": "audit/independent-review-ancillary/audit-AllProvedStatements.log"
+  },
+  {
+    "file": "audit/Assumptions.lean",
+    "exit_code": 0,
+    "seconds": 37.31,
+    "log": "audit/independent-review-ancillary/audit-Assumptions.log"
+  },
+  {
+    "file": "audit/CurrentInventory.lean",
+    "exit_code": 0,
+    "seconds": 52.3,
+    "log": "audit/independent-review-ancillary/audit-CurrentInventory.log"
+  },
+  {
+    "file": "audit/DiscreteTotalVariation.lean",
+    "exit_code": 0,
+    "seconds": 36.55,
+    "log": "audit/independent-review-ancillary/audit-DiscreteTotalVariation.log"
+  },
+  {
+    "file": "audit/HistoryPredictability.lean",
+    "exit_code": 0,
+    "seconds": 43.84,
+    "log": "audit/independent-review-ancillary/audit-HistoryPredictability.log"
+  },
+  {
+    "file": "audit/Lemma52.lean",
+    "exit_code": 0,
+    "seconds": 39.03,
+    "log": "audit/independent-review-ancillary/audit-Lemma52.log"
+  },
+  {
+    "file": "audit/Lemma52Proof.lean",
+    "exit_code": 0,
+    "seconds": 59.19,
+    "log": "audit/independent-review-ancillary/audit-Lemma52Proof.log"
+  },
+  {
+    "file": "audit/Lemma52StatementCheck.lean",
+    "exit_code": 0,
+    "seconds": 48.59,
+    "log": "audit/independent-review-ancillary/audit-Lemma52StatementCheck.log"
+  },
+  {
+    "file": "audit/PoissonCriterion.lean",
+    "exit_code": 0,
+    "seconds": 47.44,
+    "log": "audit/independent-review-ancillary/audit-PoissonCriterion.log"
+  },
+  {
+    "file": "audit/PredictableProbability.lean",
+    "exit_code": 0,
+    "seconds": 53.75,
+    "log": "audit/independent-review-ancillary/audit-PredictableProbability.log"
+  },
+  {
+    "file": "audit/Proposition54.lean",
+    "exit_code": 0,
+    "seconds": 37.45,
+    "log": "audit/independent-review-ancillary/audit-Proposition54.log"
+  },
+  {
+    "file": "audit/Proposition54Proof.lean",
+    "exit_code": 0,
+    "seconds": 46.91,
+    "log": "audit/independent-review-ancillary/audit-Proposition54Proof.log"
+  },
+  {
+    "file": "audit/RankIntegral.lean",
+    "exit_code": 0,
+    "seconds": 33.3,
+    "log": "audit/independent-review-ancillary/audit-RankIntegral.log"
+  },
+  {
+    "file": "audit/Section2Existing.lean",
+    "exit_code": 0,
+    "seconds": 43.45,
+    "log": "audit/independent-review-ancillary/audit-Section2Existing.log"
+  },
+  {
+    "file": "audit/Section3.lean",
+    "exit_code": 0,
+    "seconds": 47.31,
+    "log": "audit/independent-review-ancillary/audit-Section3.log"
+  },
+  {
+    "file": "audit/Section4.lean",
+    "exit_code": 0,
+    "seconds": 46.61,
+    "log": "audit/independent-review-ancillary/audit-Section4.log"
+  },
+  {
+    "file": "audit/Section4Existing.lean",
+    "exit_code": 0,
+    "seconds": 40.11,
+    "log": "audit/independent-review-ancillary/audit-Section4Existing.log"
+  },
+  {
+    "file": "audit/Section5.lean",
+    "exit_code": 0,
+    "seconds": 37.38,
+    "log": "audit/independent-review-ancillary/audit-Section5.log"
+  },
+  {
+    "file": "audit/Section5BulkPointProbability.lean",
+    "exit_code": 0,
+    "seconds": 37.77,
+    "log": "audit/independent-review-ancillary/audit-Section5BulkPointProbability.log"
+  },
+  {
+    "file": "audit/Section5ContractAndRoots.lean",
+    "exit_code": 0,
+    "seconds": 35.91,
+    "log": "audit/independent-review-ancillary/audit-Section5ContractAndRoots.log"
+  },
+  {
+    "file": "audit/Section5CycleShell.lean",
+    "exit_code": 0,
+    "seconds": 36.75,
+    "log": "audit/independent-review-ancillary/audit-Section5CycleShell.log"
+  },
+  {
+    "file": "audit/Section5EarlyLate.lean",
+    "exit_code": 0,
+    "seconds": 39.41,
+    "log": "audit/independent-review-ancillary/audit-Section5EarlyLate.log"
+  },
+  {
+    "file": "audit/Section5FactorialLocal.lean",
+    "exit_code": 0,
+    "seconds": 37.09,
+    "log": "audit/independent-review-ancillary/audit-Section5FactorialLocal.log"
+  },
+  {
+    "file": "audit/Section5FactorialMoments.lean",
+    "exit_code": 0,
+    "seconds": 33.31,
+    "log": "audit/independent-review-ancillary/audit-Section5FactorialMoments.log"
+  },
+  {
+    "file": "audit/Section5FactorialSieve.lean",
+    "exit_code": 0,
+    "seconds": 38.89,
+    "log": "audit/independent-review-ancillary/audit-Section5FactorialSieve.log"
+  },
+  {
+    "file": "audit/Section5Final.lean",
+    "exit_code": 0,
+    "seconds": 39.69,
+    "log": "audit/independent-review-ancillary/audit-Section5Final.log"
+  },
+  {
+    "file": "audit/Section5IntensityFinite.lean",
+    "exit_code": 0,
+    "seconds": 43.45,
+    "log": "audit/independent-review-ancillary/audit-Section5IntensityFinite.log"
+  },
+  {
+    "file": "audit/Section5LateDecomposition.lean",
+    "exit_code": 0,
+    "seconds": 77.45,
+    "log": "audit/independent-review-ancillary/audit-Section5LateDecomposition.log"
+  },
+  {
+    "file": "audit/Section5MaximumCylinder.lean",
+    "exit_code": 0,
+    "seconds": 91.89,
+    "log": "audit/independent-review-ancillary/audit-Section5MaximumCylinder.log"
+  },
+  {
+    "file": "audit/Section5RetainedTightness.lean",
+    "exit_code": 0,
+    "seconds": 56.01,
+    "log": "audit/independent-review-ancillary/audit-Section5RetainedTightness.log"
+  },
+  {
+    "file": "audit/Section5ShellProgress.lean",
+    "exit_code": 0,
+    "seconds": 31.36,
+    "log": "audit/independent-review-ancillary/audit-Section5ShellProgress.log"
+  },
+  {
+    "file": "audit/Section65Closed.lean",
+    "exit_code": 0,
+    "seconds": 32.5,
+    "log": "audit/independent-review-ancillary/audit-Section65Closed.log"
+  },
+  {
+    "file": "audit/Section65HistoricalNamespaceSupplement.lean",
+    "exit_code": 0,
+    "seconds": 32.94,
+    "log": "audit/independent-review-ancillary/audit-Section65HistoricalNamespaceSupplement.log"
+  },
+  {
+    "file": "audit/Section66Closed.lean",
+    "exit_code": 0,
+    "seconds": 36.64,
+    "log": "audit/independent-review-ancillary/audit-Section66Closed.log"
+  },
+  {
+    "file": "audit/Section6Current.lean",
+    "exit_code": 1,
+    "seconds": 71.42,
+    "log": "audit/independent-review-ancillary/audit-Section6Current.log"
+  },
+  {
+    "file": "audit/Section6CurrentLemma69Snapshot.lean",
+    "exit_code": 1,
+    "seconds": 70.55,
+    "log": "audit/independent-review-ancillary/audit-Section6CurrentLemma69Snapshot.log"
+  },
+  {
+    "file": "audit/Section6CurrentProposition65Snapshot.lean",
+    "exit_code": 0,
+    "seconds": 67.3,
+    "log": "audit/independent-review-ancillary/audit-Section6CurrentProposition65Snapshot.log"
+  },
+  {
+    "file": "audit/Section6CurrentSection65Before.lean",
+    "exit_code": 1,
+    "seconds": 68.25,
+    "log": "audit/independent-review-ancillary/audit-Section6CurrentSection65Before.log"
+  },
+  {
+    "file": "audit/Section6CylinderImportCheck.lean",
+    "exit_code": 0,
+    "seconds": 41.84,
+    "log": "audit/independent-review-ancillary/audit-Section6CylinderImportCheck.log"
+  },
+  {
+    "file": "audit/Section6Foundations.lean",
+    "exit_code": 0,
+    "seconds": 41.77,
+    "log": "audit/independent-review-ancillary/audit-Section6Foundations.log"
+  },
+  {
+    "file": "audit/Section6Lemma612.lean",
+    "exit_code": 0,
+    "seconds": 41.89,
+    "log": "audit/independent-review-ancillary/audit-Section6Lemma612.log"
+  },
+  {
+    "file": "audit/Section6Lemma66.lean",
+    "exit_code": 0,
+    "seconds": 46.2,
+    "log": "audit/independent-review-ancillary/audit-Section6Lemma66.log"
+  },
+  {
+    "file": "audit/Section6Lemma67.lean",
+    "exit_code": 0,
+    "seconds": 41.64,
+    "log": "audit/independent-review-ancillary/audit-Section6Lemma67.log"
+  },
+  {
+    "file": "audit/Section6Lemma68.lean",
+    "exit_code": 0,
+    "seconds": 40.48,
+    "log": "audit/independent-review-ancillary/audit-Section6Lemma68.log"
+  },
+  {
+    "file": "audit/Section6Lemma69.lean",
+    "exit_code": 0,
+    "seconds": 44.91,
+    "log": "audit/independent-review-ancillary/audit-Section6Lemma69.log"
+  },
+  {
+    "file": "audit/Section6Proposition610.lean",
+    "exit_code": 0,
+    "seconds": 48.98,
+    "log": "audit/independent-review-ancillary/audit-Section6Proposition610.log"
+  },
+  {
+    "file": "audit/Section6Proposition610NamespaceSupplement.lean",
+    "exit_code": 0,
+    "seconds": 40.2,
+    "log": "audit/independent-review-ancillary/audit-Section6Proposition610NamespaceSupplement.log"
+  },
+  {
+    "file": "audit/Section6Proposition611.lean",
+    "exit_code": 0,
+    "seconds": 50.19,
+    "log": "audit/independent-review-ancillary/audit-Section6Proposition611.log"
+  },
+  {
+    "file": "audit/Section6Proposition65.lean",
+    "exit_code": 0,
+    "seconds": 44.99,
+    "log": "audit/independent-review-ancillary/audit-Section6Proposition65.log"
+  },
+  {
+    "file": "audit/Section6WeightScaleAudit.lean",
+    "exit_code": 0,
+    "seconds": 45.25,
+    "log": "audit/independent-review-ancillary/audit-Section6WeightScaleAudit.log"
+  },
+  {
+    "file": "audit/Section7.lean",
+    "exit_code": 0,
+    "seconds": 38.08,
+    "log": "audit/independent-review-ancillary/audit-Section7.log"
+  },
+  {
+    "file": "audit/ShellMigrationStatements.lean",
+    "exit_code": 0,
+    "seconds": 41.92,
+    "log": "audit/independent-review-ancillary/audit-ShellMigrationStatements.log"
+  },
+  {
+    "file": "audit/TailTightness.lean",
+    "exit_code": 0,
+    "seconds": 43.03,
+    "log": "audit/independent-review-ancillary/audit-TailTightness.log"
+  },
+  {
+    "file": "proposals/Section2Compensator.lean",
+    "exit_code": 0,
+    "seconds": 36.44,
+    "log": "audit/independent-review-ancillary/proposals-Section2Compensator.log"
+  },
+  {
+    "file": "proposals/Section2ConditionalProbability.lean",
+    "exit_code": 0,
+    "seconds": 31.42,
+    "log": "audit/independent-review-ancillary/proposals-Section2ConditionalProbability.log"
+  },
+  {
+    "file": "proposals/Section2Predictability.lean",
+    "exit_code": 0,
+    "seconds": 29.66,
+    "log": "audit/independent-review-ancillary/proposals-Section2Predictability.log"
+  },
+  {
+    "file": "proposals/Section4TailTightness.lean",
+    "exit_code": 0,
+    "seconds": 34.56,
+    "log": "audit/independent-review-ancillary/proposals-Section4TailTightness.log"
+  }
+]

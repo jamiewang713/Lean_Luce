@@ -1,0 +1,14 @@
+Luce/FiniteBernoulliSpatial.lean:109:61: error: unsolved goals
+X : Type u_1
+inst✝¹ : MeasurableSpace X
+Ω : Type u_2
+mΩ : MeasurableSpace Ω
+P : Measure Ω
+n : ℕ
+B : FiniteAdaptedBernoulli P n
+inst✝ : IsProbabilityMeasure P
+x : Fin n → X
+ω : Ω
+k : Fin n
+a✝ : k ∈ Finset.univ
+⊢ ↑⟨B.probability k ω, ⋯⟩ = B.probability k ω

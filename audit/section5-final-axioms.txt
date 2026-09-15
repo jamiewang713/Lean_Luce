@@ -1,0 +1,26 @@
+'Luce.section5_main_general' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'section5_contractCheck' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.EndpointShellAssumption.cycle_shell_tightness' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'cycleShell_contractCheck' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.EndpointShellAssumption.cycle_trace_integrable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.EndpointShellAssumption.bulk_intensity_tendsto' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.bulk_joint_factorial_moments' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.bulk_cycle_point_probability_limit' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.EndpointShellAssumption.cycle_point_probability_limit' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.CountableLaw.tendsto_probabilityTotalVariation_of_singletons' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.CountableLaw.tendsto_bounded_integrals_of_totalVariation' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.EndpointShellAssumption.cycle_vector_totalVariation' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.EndpointShellAssumption.cycle_vector_weak' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.cycleCountVector_raceDraw_eq_rank' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.luce_cycle_vector_map_eq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.luce_cycle_test_integral_eq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Shell.section4_main_poisson_general' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'section4_contractCheck' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]

@@ -1,0 +1,14 @@
+'Luce.retained_maximum_probability_sum_le_time_split' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.early_deep_expectation_le_shell_sum' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.retained_deep_probability_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.early_finite_shell_sum_le_tail' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.buffered_finite_shell_sum_le_tail' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.not_mem_retainedCycleLabels' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.eventually_retained_labels_cover' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.EndpointShellAssumption.retained_maximum_tightness' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.retainedDeepCycleCount_expectation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.EndpointShellAssumption.retained_expectation_tightness' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]

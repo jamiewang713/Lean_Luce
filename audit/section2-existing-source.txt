@@ -1,0 +1,1 @@
+PASS: no prohibited proof tokens in the eight local model and capped-Poisson dependency modules.

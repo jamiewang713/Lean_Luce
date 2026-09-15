@@ -1,0 +1,33 @@
+{
+  "status": "failed",
+  "source_modules": 11,
+  "declarations": 54,
+  "axiom_reports": 54,
+  "full_build_passed": true,
+  "audit_passed": true,
+  "missing_reports": [],
+  "forbidden_axioms": {},
+  "source_issues": {},
+  "contract_hashes_unchanged": {
+    "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section7Contract.lean": true,
+    "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section7Definitions.lean": true
+  },
+  "preexisting_files_checked": 833,
+  "unexpected_preexisting_changes": [
+    "D:\\princeton\\Research\\Lean\\Lean_luce\\fixed_points_sampled_profile.tex"
+  ],
+  "library_entry_only_adds_section7_import": true,
+  "source_sha256": {
+    "Luce\\Section7.lean": "c273b4307446689889229c35c22edc83906f525cbffb6f201cd0da6309bc7dac",
+    "Luce\\Section7Asymptotic.lean": "e547ba5282fda12b4aaa44abaf5705ead122012fd091f163f25072b653ac01a6",
+    "Luce\\Section7BulkDensity.lean": "674fb30a1a602cd0a48503603835923311bb4077cc822d46b333fcf154cb3354",
+    "Luce\\Section7Contract.lean": "49a0f5fc00e8db9b5e324bc0e53a16dd569f12e8db454a0d7497dd50f008ede6",
+    "Luce\\Section7ContractCheck.lean": "5e6263d5fad8a7c59e96ff1f6ce21bc5e6eddf8c6218a3d4aa3865044150f671",
+    "Luce\\Section7Definitions.lean": "ee29abb62e6053db62aadc5484c0eab2f087e8fad41a641cb2506d269983ba8e",
+    "Luce\\Section7Gamma.lean": "8b4885c704b7e6c25d9ed54e9f58c47576439d6800f6b290428493b1bd691329",
+    "Luce\\Section7Probability.lean": "09456617b1a6f42c1023a958b0948fe371cda89076e42ed9edd8a605fc6dc81f",
+    "Luce\\Section7RankIntegral.lean": "c88458a9337100311a05ca65674db99de6c45e0cd9efca4fba0ec8c43609df0b",
+    "Luce\\Section7Tail.lean": "80f18e2b251fe4435698054c794f82cc76f7a60eefd1ea370fd31f4408c447ce",
+    "Luce\\Section7TailIntegral.lean": "b61234e1c1ef8af6fc381257bd836e8557958ef7cd673bbcb17efdb3606cf1dd"
+  }
+}

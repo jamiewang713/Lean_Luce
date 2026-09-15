@@ -1,0 +1,3340 @@
+% Sampled-profile copy: finite-mean shell conditions are retained;
+% Section 6 proves the sampled endpoint results directly.
+\documentclass[11pt]{article}
+
+\usepackage[letterpaper,margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+\hypersetup{
+  pdftitle={Fixed Points and Short Cycles of Luce Permutations: Poisson Limits and Power-Law Endpoint Singularities}
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\theoremstyle{plain}
+\newtheorem{assumption}[theorem]{Assumption}
+
+\newcommand{\E}{\mathbb E}
+\newcommand{\Pp}{\mathbb P}
+\newcommand{\R}{\mathbb R}
+\newcommand{\one}{\mathbf 1}
+\newcommand{\cF}{\mathcal F}
+\newcommand{\cL}{\mathcal L}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\Poi}{\operatorname{Poi}}
+\newcommand{\Luce}{\operatorname{Luce}}
+\newcommand{\TV}{\operatorname{TV}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\Fix}{\operatorname{Fix}}
+
+\title{Fixed Points and Short Cycles of Luce Permutations:\\
+Poisson Limits and Power-Law Endpoint Singularities}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The Luce, or Plackett--Luce, model generates a nonuniform random permutation
+by sampling without replacement with probabilities proportional to fixed
+weights.  Its global asymptotic geometry was determined in
+\cite{borga2025permutonlocallimitsluce}, where a Poisson law for the fixed
+points was conjectured.  We prove this conjecture under weak multiscale
+profile and endpoint conditions.  The fixed points converge to an inhomogeneous Poisson
+process, and the counts of cycles of any fixed collection of lengths converge
+jointly to independent Poisson random variables.  Power-law endpoint
+singularities produce a second regime in which the cycle means diverge.  We
+prove the corresponding joint central limit theorems and locate the cycles on
+logarithmic distance scales.  When both endpoints contribute, the cycle
+counts arising from them are asymptotically independent and their means add.
+\end{abstract}
+
+\tableofcontents
+\clearpage
+
+\section{Introduction}
+
+Among nonuniform laws on permutations, the Luce model is one of the simplest
+to define.  Give each label a positive weight and repeatedly choose from the
+remaining labels with probability proportional to weight.  The rule is the
+same at every step and is consistent under deletion of the labels already
+chosen.  Equivalently, attach independent exponential clocks to the labels
+and order their ringing times.  The first description makes Luce's law a
+natural model of sequential choice; the second makes it a tractable random
+permutation.  It is therefore a natural setting in which to ask how a
+deterministic inhomogeneity changes the familiar microscopic statistics of a
+uniform permutation.
+
+The asymptotic study of this object was initiated in
+\cite{borga2025permutonlocallimitsluce}.  Starting from a macroscopic weight
+profile, that work identified the limiting permuton, computed pattern
+densities, proved local limits for consecutive relative patterns, and
+established a central limit theorem for inversions.  These results give a
+detailed picture of the global geometry and of the relative order seen from a
+typical location.  The same work then asked about a statistic that neither
+description sees: the number of fixed points.  It predicted a Poisson law
+whose mean is the integral of the Luce permuton density along the diagonal
+\cite[Section~5.2]{borga2025permutonlocallimitsluce}.  That question is the
+starting point of this paper.
+
+The obstacle is not identifying the candidate mean; it is reaching the scale
+on which a fixed point lives.  A fixed point is the exact equality of a label
+and its rank.  It lies on a lattice-scale diagonal of zero permuton area,
+whereas a consecutive-pattern limit records relative order rather than exact
+alignment.  Permutations with the same permuton limit can consequently have
+completely different fixed-point behavior.  A general cycle criterion in
+\cite{mukherjee2016fixed} reaches the correct scale by assuming a uniform
+finite-dimensional local law, but the known Luce limits do not imply that
+hypothesis.  The gap is most pronounced in the final positions, where few
+clocks remain and the limiting density may be singular.
+
+Our first result proves the prediction in
+\cite{borga2025permutonlocallimitsluce} under minimal convergence assumptions
+on the weight profile and a multiscale condition at the final labels.  We prove
+the spatial statement: the fixed points themselves converge to an
+inhomogeneous Poisson process, with intensity given by the diagonal of the
+Luce permuton density.
+
+A fixed point is a cycle of length one, so the natural next question is
+whether the Poisson behavior persists for every fixed cycle length.  It does.
+The counts of cycles of lengths $1,\ldots,L$ converge jointly to independent
+Poisson variables, with means given by cyclic traces of the permuton density.
+This extension is not a formal product of one-point estimates: a cycle is a
+closed chain of exact assignments, and its vertices remain coupled through
+the common ranking.
+
+Certain structured failures of endpoint tightness reveal a second regime.
+Very small weights ring late, while very large weights ring early.  If a
+power-law singularity aligns one of these effects with the corresponding
+endpoint labels, then every logarithmic distance scale contributes a constant
+number of cycles.  The means are then of order
+$\log n$.  We prove the corresponding joint central limit theorems, identify
+the constants, and locate the cycles on logarithmic distance scales.  The
+cycle counts near the left and right endpoints are asymptotically independent,
+and their contributions add in the total count.  The size of the cycle
+intensity therefore separates two regimes: bounded intensities give Poisson
+limits, while diverging intensities give the corresponding centered and
+normalized Gaussian limits.  The Sukhatme profile considered in
+\cite{borga2025permutonlocallimitsluce} already belongs to the second regime
+for fixed points.
+
+The proof changes character at exactly the places suggested by this
+description.  In the bulk, concentration of the exponential race identifies
+the predictable probability of an exact match.  At the last few positions,
+the remaining total weight may be too small to concentrate relatively; a
+counting argument avoids that denominator altogether.  For longer cycles we
+resample a finite path of clocks into one background permutation, preserving
+the combinatorial constraint that each rank has one preimage.  Finally, at a
+power-law endpoint we study the surviving population at large times or the
+arrived population at small times.  Logarithmic distance turns the resulting
+ratio kernel into a translation-invariant one, and the cycle constants become
+its return densities.
+
+Let $\theta_{n,1},\ldots,\theta_{n,n}>0$.  A Luce permutation is obtained by
+drawing the labels sequentially without replacement, with probability
+proportional to their weights.  Thus, if $\pi_n(r)$ denotes the label drawn at
+step $r$, then
+\begin{equation}\label{eq:luce-law}
+ \Pp(\pi_n=\pi)
+ =\prod_{r=1}^n
+   \frac{\theta_{n,\pi(r)}}
+   {\sum_{j=r}^n\theta_{n,\pi(j)}}.
+\end{equation}
+We use $R_{n,i}=\pi_n^{-1}(i)$ for the rank of label $i$.  The fixed-point
+count and process are
+\begin{equation}\label{eq:fixed-process}
+ X_n:=\sum_{k=1}^n I_{n,k},\qquad
+ I_{n,k}:=\one\{R_{n,k}=k\},\qquad
+ \Xi_n:=\sum_{k=1}^n I_{n,k}\,\delta_{k/n}.
+\end{equation}
+This notation separates the draw order $\pi_n$ from the rank map $R_n$; the
+two are inverse permutations, while their fixed points agree.
+
+The exponential-race representation is fundamental.  Let
+$E_{n,i}\sim\operatorname{Exp}(\theta_{n,i})$ be independent.  Ordering these
+variables increasingly gives the Luce draw order, and
+\begin{equation}\label{eq:rank-representation}
+ R_{n,i}=1+\sum_{j\ne i}\one\{E_{n,j}<E_{n,i}\}.
+\end{equation}
+For $\ell\ge1$, let
+\begin{equation}\label{eq:cycle-counts}
+ C_{n,\ell}:=\frac1\ell
+ \sum_{(i_1,\ldots,i_\ell)\in[n]_{\ne}^{\ell}}
+ \prod_{a=1}^{\ell}\one\{R_{n,i_a}=i_{a+1}\},
+ \qquad i_{\ell+1}:=i_1.
+\end{equation}
+Thus $C_{n,1}=X_n$.  The draw order and rank map are inverses, so they have
+the same cycle counts.
+
+\subsection{Context and relation to earlier work}
+
+The model originates in the theory of stochastic choice.  The
+proportional-choice axiom was introduced in~\cite{luce1959individual}, and the
+induced law on complete rankings was developed in
+\cite{plackett1975analysis}.  The construction is closely related to the
+Bradley--Terry model for paired comparisons~\cite{bradley1952rank} and to the
+independent-utility viewpoint of~\cite{thurstone1927law}.  Probabilistically,
+it is successive size-biased sampling without replacement; the exponential
+race representation is discussed in~\cite{pitmantran2015sizebiased}.  The
+same distribution is the stationary ranking of the Tsetlin library and has
+also prompted exact enumerative questions~\cite{chatterjee2024enumerative}.
+
+Cycle counts provide a classical microscopic benchmark.  Under the uniform
+law, the counts of cycles of lengths $1,2,\ldots,L$ converge jointly to
+independent Poisson variables with means $1,1/2,\ldots,1/L$; the Ewens family
+belongs to the same logarithmic-combinatorial framework
+\cite{arratia2003logarithmic,tavare2021magical}.  A nonuniform law need not
+retain this behavior.  In the fixed-$q$ Mallows model, for example, bounded
+cycle counts can have linear means and Gaussian fluctuations, while the
+global cycle geometry undergoes a separate localization transition
+\cite{gladkich2018cycle,he2023cycles}.  Short cycles are therefore a sensitive
+test of which features of the uniform permutation survive inhomogeneity.
+
+Permutons give the natural global limit theory for permutation sequences
+\cite{hoppen2013limits}, but their topology averages away exact lattice
+coincidences.  A complementary theorem in~\cite{mukherjee2016fixed} shows
+that a uniform local approximation to all fixed-dimensional assignment
+probabilities implies independent Poisson limits for short cycles, with means
+given by cyclic traces of the limiting density.  This theorem explains the
+form of our constants, but does not subsume our results.  Its local hypothesis
+is stronger than permuton convergence and is not provided by the Luce bulk or
+consecutive-pattern limits, especially near a singular endpoint.  We instead
+derive microscopic control from the exponential race under the minimal
+profile hypotheses below, and then determine what replaces the finite-mean
+Poisson law when an endpoint contributes on every logarithmic scale.
+
+\subsection{Finite-mean regime}
+
+Because multiplying all weights by the same constant does not change the
+law, for the finite-mean results we normalize
+\begin{equation}\label{eq:normalization}
+ \frac1n\sum_{i=1}^n\theta_{n,i}=1.
+\end{equation}
+Let $f_n$ be the step profile
+\begin{equation}\label{eq:step-profile}
+ f_n(x)=\theta_{n,i},\qquad (i-1)/n<x\le i/n.
+\end{equation}
+
+\begin{assumption}\label{ass:profile}
+There is a measurable $f:(0,1)\to(0,\infty)$ such that
+\begin{equation}\label{eq:L1-profile}
+ \lVert f_n-f\rVert_{L^1(0,1)}\longrightarrow0.
+\end{equation}
+In particular, $\int_0^1f=1$.
+\end{assumption}
+
+Equivalently, under the normalization~\eqref{eq:normalization}, it is enough
+to assume $f_n\to f$ almost everywhere and $\int f=1$: Scheffe's lemma then
+gives~\eqref{eq:L1-profile}.  The integral condition rules out weight mass
+escaping through a vanishing fraction of labels.
+
+Define, for $t\ge0$,
+\begin{equation}\label{eq:HFD}
+ H(t):=\int_0^1e^{-t f(u)}\,du,\qquad
+ F(t):=1-H(t),\qquad
+ D(t):=\int_0^1 f(u)e^{-t f(u)}\,du.
+\end{equation}
+Since $f>0$ almost everywhere, $F$ is continuous and strictly increasing from
+$0$ to $1$.  Write $t_x:=F^{-1}(x)$ for $0<x<1$.  The limiting Luce permuton
+has density
+\begin{equation}\label{eq:rho}
+ \rho(x,y)=
+ \frac{f(x)e^{-f(x)t_y}}{D(t_y)},
+ \qquad (x,y)\in(0,1)^2.
+\end{equation}
+
+For the finite-mean theorems, the endpoint condition is most naturally
+stated on logarithmic depth shells.  Put
+\begin{equation}\label{eq:terminal-depth-notation}
+ k_{n,m}:=n-m+1,
+ \qquad 1\le m\le n.
+\end{equation}
+For every integer $j\ge1$, let
+\begin{equation}\label{eq:terminal-shells}
+ \mathcal D_{n,j}:=
+ \left\{m:j\le\log\frac{n}{m}<j+1\right\}.
+\end{equation}
+All shell cutoffs $J$ below tend to infinity through integers.
+When $\mathcal D_{n,j}$ is nonempty, define
+\begin{equation}\label{eq:shell-floor}
+ r_{n,j}:=\max\mathcal D_{n,j},
+ \qquad
+ b_{n,j}:=\min_{m\in\mathcal D_{n,j}}\theta_{n,k_{n,m}}.
+\end{equation}
+
+\begin{assumption}[Endpoint shell capacity]
+\label{ass:fixed-endpoint}
+Under the normalization~\eqref{eq:normalization},
+\begin{equation}\label{eq:shell-endpoint-condition}
+ \lim_{J\to\infty}\limsup_{n\to\infty}
+ \sum_{\substack{j\ge J\\\mathcal D_{n,j}\ne\varnothing}}
+ \exp\{-b_{n,j}j\}=0.
+\end{equation}
+\end{assumption}
+
+Since $j\le\log(n/r_{n,j})<j+1$, the condition is unchanged if $j$ in
+\eqref{eq:shell-endpoint-condition} is replaced by $\log(n/r_{n,j})$ or by
+$j+1$.  To see this, split the shells according as $b_{n,j}\le1$ or
+$b_{n,j}>1$; the change costs only a fixed factor in the first case and a
+summable geometric error in the second.
+
+Condition~\eqref{eq:shell-endpoint-condition} allows the terminal rates to
+vanish and permits different lower envelopes on different logarithmic depth
+scales.  A convenient stronger sufficient condition is the existence of
+$\gamma>0$, $\eps_0>0$, and $n_0$ such that
+\begin{equation}\label{eq:endpoint-lower}
+ \theta_{n,k}\ge\gamma
+ \quad\text{whenever }n\ge n_0\text{ and }(1-\eps_0)n\le k\le n.
+\end{equation}
+Another useful sufficient condition, which permits the terminal rates to
+vanish, is that for some $\delta>0$ and $J_0$, uniformly over $1\le m\le n$
+and all sufficiently large $n$,
+\begin{equation}\label{eq:logarithmic-endpoint-lower}
+ \theta_{n,n-m+1}\ge(1+\delta)
+ \frac{\log\log(en/m)}{\log(en/m)}
+ \quad\text{whenever }\log(en/m)\ge J_0.
+\end{equation}
+Indeed, for $m\in\mathcal D_{n,j}$ one has
+$\log(en/m)\in[j+1,j+2)$.  Since $x\mapsto(\log x)/x$ is eventually
+decreasing, for all sufficiently large $j$,
+\[
+ b_{n,j}j
+ \ge(1+\delta)\frac{j}{j+2}\log(j+2)
+ \ge(1+\delta/2)\log(j+2).
+\]
+Thus the shell costs are bounded by $(j+2)^{-1-\delta/2}$, whose tail is
+summable, and \eqref{eq:logarithmic-endpoint-lower} implies
+Assumption~\ref{ass:fixed-endpoint}.
+The shell condition is strictly weaker and is the hypothesis used in both
+finite-mean theorems below.
+
+\begin{theorem}\label{thm:main-poisson}
+Under Assumptions~\ref{ass:profile} and~\ref{ass:fixed-endpoint},
+\begin{equation}\label{eq:point-process-limit}
+ \Xi_n\ \Longrightarrow\ \operatorname{PRM}
+ \bigl(\rho(x,x)\,dx\bigr)
+\end{equation}
+as random finite point measures on $[0,1]$.  In particular,
+\begin{equation}\label{eq:count-poisson}
+ d_{\TV}\bigl(\cL(X_n),\Poi(\lambda)\bigr)\longrightarrow0,
+ \qquad
+ \lambda:=\int_0^1\rho(x,x)\,dx<\infty.
+\end{equation}
+\end{theorem}
+
+The conclusion is spatial, not only numerical: it records where the fixed
+points occur.  In particular, it implies the predicted Poisson law for their
+total number.
+
+For $\ell\ge1$, define
+\begin{equation}\label{eq:cycle-intensity}
+ \lambda_\ell:=\frac1\ell\int_{[0,1]^\ell}
+ \rho(x_1,x_2)\rho(x_2,x_3)\cdots\rho(x_\ell,x_1)
+ \,dx_1\cdots dx_\ell.
+\end{equation}
+
+\begin{theorem}\label{thm:short-cycles}
+Under Assumptions~\ref{ass:profile} and~\ref{ass:fixed-endpoint}, for every
+fixed $L$,
+\begin{equation}\label{eq:cycle-vector-limit}
+ (C_{n,1},\ldots,C_{n,L}) \Longrightarrow\
+ (Z_1,\ldots,Z_L),
+\end{equation}
+where $Z_1,\ldots,Z_L$ are independent and
+$Z_\ell\sim\Poi(\lambda_\ell)$.  The convergence in
+\eqref{eq:cycle-vector-limit} also holds in total variation on
+$\mathbb Z_+^L$.
+\end{theorem}
+
+When $f\equiv1$, one has $\rho\equiv1$ and
+$\lambda_\ell=1/\ell$, recovering the classical uniform-permutation law.
+The factor $1/\ell$ in~\eqref{eq:cycle-intensity} accounts for the $\ell$
+possible choices of a root on a directed cycle.  Both theorems allow a merely
+measurable limiting profile and highly irregular triangular arrays; no
+interior continuity or uniform upper and lower bounds are imposed.
+
+\subsection{Power-law endpoint regime}
+
+The endpoint condition in the Poisson theorem cannot simply be omitted.  A
+power zero at the right endpoint produces cycles near the upper-right corner
+of the permutation matrix; a sufficiently strong power pole at the left
+endpoint produces them near the lower-left corner.  In either case, every
+logarithmic distance scale from the corner contributes a constant amount.
+Adding those scales gives order $\log n$ cycles.
+
+The central limit theorems below are the diverging-mean counterparts of the
+finite-mean Poisson results.  If $\mu_n\to\mu<\infty$, the corresponding
+limit is $\Poi(\mu)$.  If instead $\mu_n\to\infty$, then the natural
+comparison is
+\[
+ \frac{\Poi(\mu_n)-\mu_n}{\sqrt{\mu_n}}
+ \Longrightarrow\mathcal N(0,1).
+\]
+Our endpoint theorems prove the corresponding CLTs for the actual cycle
+counts, jointly across cycle lengths, endpoint windows, and active corners.
+The relevant mean is of order $\log n$ in the power-law regime and, for fixed
+points, $\log\log n$ at the critical pole.
+
+\begin{assumption}\label{ass:simple-power-profile}
+For some continuous $f:(0,1)\to(0,\infty)$,
+\[
+ \theta_{n,i}=f((i-1/2)/n).
+\]
+At the right endpoint we allow either a power zero
+\[
+ f(1-s)=c_Rs^\beta(1+O(s^\eta)),
+ \qquad \beta,c_R,\eta>0,
+\]
+or a finite positive limit.  At the left endpoint we allow either a
+nonintegrable power pole
+\[
+ f(s)=c_Ls^{-\alpha}(1+O(s^\eta)),
+ \qquad \alpha>1,\quad c_L,\eta>0,
+\]
+or a finite positive limit.  At least one of the two power behaviors is
+present.
+\end{assumption}
+
+Call an endpoint \emph{active} when the corresponding power behavior is
+present.  Thus $f$ is bounded above and below on every interval separated
+from the active endpoints, and there are no other singularities.
+
+Near an active corner, transition probabilities depend asymptotically on the
+ratio of two endpoint distances.  Taking logarithms turns this ratio into a
+difference.  The resulting increment density is, for $\gamma,q>0$,
+\begin{equation}\label{eq:generic-power-kernel}
+ p_{\gamma,q}(w):=\gamma q e^{\gamma w}e^{-qe^{\gamma w}},
+ \qquad
+ \mathfrak b_{\gamma,\ell}(q):=\frac1\ell p_{\gamma,q}^{*\ell}(0).
+\end{equation}
+Here $p^{*\ell}$ denotes $\ell$-fold convolution.  Thus
+$p_{\gamma,q}^{*\ell}(0)/\ell$ is the return density of a closed $\ell$-step
+path, divided by the number of choices of its root.
+For an active right or left endpoint, respectively, put
+\begin{align}
+ q_R&:=\Gamma(1+1/\beta)^\beta,
+ &b_{R,\ell}&:=\mathfrak b_{\beta,\ell}(q_R),\label{eq:simple-q-right}\\
+ q_L&:=\Gamma(1-1/\alpha)^{-\alpha},
+ &b_{L,\ell}&:=\mathfrak b_{\alpha,\ell}(q_L).\label{eq:simple-q-left}
+\end{align}
+Set $b_{\sigma,\ell}=0$ when endpoint $\sigma$ is inactive, and put
+$B_\ell:=b_{R,\ell}+b_{L,\ell}$.
+
+The coefficient $b_{\sigma,\ell}$ is the mean number of $\ell$-cycles per
+unit of logarithmic distance at corner $\sigma$.  In particular,
+$b_{R,1}=\beta q_Re^{-q_R}$ and $b_{L,1}=\alpha q_Le^{-q_L}$.
+
+\begin{theorem}
+\label{thm:power-clt}
+Under Assumption~\ref{ass:simple-power-profile}, for every fixed $L$,
+\begin{equation}\label{eq:power-clt}
+ \left(
+ \frac{C_{n,\ell}-B_\ell\log n}
+ {\sqrt{B_\ell\log n}}
+ \right)_{\ell=1}^L
+ \ \Longrightarrow\ (Z_1,\ldots,Z_L),
+\end{equation}
+where $Z_1,\ldots,Z_L$ are independent standard normal variables.  Moreover,
+$\E C_{n,\ell}\sim B_\ell\log n$ for every fixed $\ell$.
+\end{theorem}
+
+The $\log n$ cycles are not concentrated among the first or last few labels.
+They are spread uniformly in logarithmic distance from an active endpoint.
+To make this precise, root a cycle $\mathfrak c$ at its largest label
+$v(\mathfrak c)$ and put
+\[
+ d_L(\mathfrak c):=v(\mathfrak c),
+ \qquad d_R(\mathfrak c):=n+1-v(\mathfrak c).
+\]
+Thus $u_\sigma(\mathfrak c):=\log d_\sigma(\mathfrak c)/\log n$ records its
+location relative to corner $\sigma$ on a scale from $0$ to $1$.  For
+$I=(a,b]\subset(0,1)$, let
+\begin{equation}\label{eq:spatial-cycle-count}
+ C_{n,\ell}^{\sigma}(I)
+ :=\#\{\ell\text{-cycles }\mathfrak c:u_\sigma(\mathfrak c)\in I\}.
+\end{equation}
+For fixed points this is simply the logarithmic location of the point.
+
+\begin{theorem}
+\label{thm:power-spatial}
+Under the assumptions of Theorem~\ref{thm:power-clt}, fix pairwise disjoint
+intervals $I_1,\ldots,I_J$ whose closures lie in $(0,1)$, and fix $L$.
+Jointly over active corners $\sigma$, lengths $1\le\ell\le L$, and
+$1\le j\le J$,
+\begin{equation}\label{eq:power-spatial-clt}
+ \frac{C_{n,\ell}^{\sigma}(I_j)
+   -b_{\sigma,\ell}|I_j|\log n}
+  {\sqrt{b_{\sigma,\ell}|I_j|\log n}}
+ \ \Longrightarrow\ \mathcal N(0,1),
+\end{equation}
+with independent limits.  Moreover, for every such interval $I$,
+\begin{equation}\label{eq:power-spatial-mean}
+ \E C_{n,\ell}^{\sigma}(I)
+ =b_{\sigma,\ell}|I|\log n+o(\log n).
+\end{equation}
+\end{theorem}
+
+In particular, the expected number of cycles with
+$n^a<d_\sigma\le n^b$ is
+$b_{\sigma,\ell}(b-a)\log n+o(\log n)$.  Different logarithmic intervals,
+cycle lengths, and endpoints fluctuate independently.  When both endpoints
+are active, their means add to the constant
+$B_\ell=b_{L,\ell}+b_{R,\ell}$ in Theorem~\ref{thm:power-clt}.
+
+This location describes the entire cycle, not only its root.  More precisely,
+for every $\delta>0$, the expected number of cycles counted above that contain
+a vertex whose logarithmic distance from the same endpoint differs from
+$\log d_\sigma(\mathfrak c)$ by more than $\delta\log n$ tends to zero.
+
+At the borderline pole $f(s)\asymp s^{-1}$, only fixed points diverge, and
+they do so on the smaller scale $\log\log n$.
+
+\begin{theorem}
+\label{thm:critical-pole}
+Suppose $\theta_{n,i}=f((i-1/2)/n)$ for a continuous positive $f$ satisfying
+\[
+ f(s)=c_Ls^{-1}(1+O(s^\eta))
+ \quad(s\downarrow0)
+\]
+for some $c_L,\eta>0$, and suppose $f$ has a finite positive limit at $1$.
+Then
+\begin{equation}\label{eq:critical-fixed-clt}
+ \frac{C_{n,1}-\log\log n}{\sqrt{\log\log n}}
+ \Longrightarrow\mathcal N(0,1),
+ \qquad
+ \E C_{n,1}\sim\log\log n.
+\end{equation}
+For every fixed $\ell\ge2$, one has $\sup_n\E C_{n,\ell}<\infty$.
+\end{theorem}
+
+Theorem~\ref{thm:critical-pole} is the CLT corresponding to a diverging mean,
+now with $\mu_n=\log\log n$.  The means of the longer cycles remain bounded
+at the critical exponent.
+
+Section~\ref{sec:power-law} proves these endpoint results directly for
+the sampled profiles stated above.  Its population estimates are derived
+from the endpoint expansions and the bounds supplied by positivity and
+continuity away from the active endpoints.  In particular, the finite-mean
+normalization and Assumptions~\ref{ass:profile}--\ref{ass:fixed-endpoint}
+are not imposed in the power-law or critical-pole regimes.
+
+
+The profile singled out in
+\cite[Section~5.2]{borga2025permutonlocallimitsluce} gives a concrete instance
+of the endpoint regime.
+
+% Lean: Luce.Sukhatme.corollary19 (Luce/Sukhatme.lean).
+% Exact statement and constants: Luce/SukhatmeContract.lean;
+% the displayed decimal approximation is not part of the Lean contract.
+\begin{corollary}\label{cor:sukhatme}
+Let $\pi_n$ be a Luce permutation with the standard Sukhatme weights
+\[
+ \theta_{n,i}=n-i+1,
+ \qquad 1\le i\le n.
+\]
+Put $p(w):=e^we^{-e^w}$ and
+$b_\ell:=p^{*\ell}(0)/\ell$.  For every fixed $L$,
+\begin{equation}\label{eq:sukhatme-cycle-clt}
+ \left(
+ \frac{C_{n,\ell}-b_\ell\log n}{\sqrt{b_\ell\log n}}
+ \right)_{\ell=1}^L
+ \Longrightarrow (Z_1,\ldots,Z_L),
+\end{equation}
+where the coordinates on the right are independent standard normal random
+variables, and $\E C_{n,\ell}\sim b_\ell\log n$.  The spatial conclusion of
+Theorem~\ref{thm:power-spatial} also holds, with a single active right corner
+and coefficients $b_\ell$.  In particular,
+\[
+ \frac{C_{n,1}-e^{-1}\log n}{\sqrt{e^{-1}\log n}}
+ \Longrightarrow\mathcal N(0,1),
+ \qquad
+ b_2=K_0(2)\approx0.113894,
+\]
+where $K_0$ is the modified Bessel function of the second kind.
+\end{corollary}
+
+\begin{proof}
+Take $f(x)=1-x$ and use the interior grid $i/(n+1)$.
+Its weights are $(n-i+1)/(n+1)$, so scale invariance gives precisely the
+Sukhatme law.  Lemma~\ref{lem:sp-interior-grid} extends the sampled-profile
+conclusions to this grid.  Here $\beta=1$ and $q_R=1$, giving the asserted
+constants and spatial limit.  In particular $p(0)=e^{-1}$, and
+\[
+ \frac12p^{*2}(0)
+ =\frac12\int_{\R}e^{-e^w-e^{-w}}\,dw=K_0(2).\qedhere
+\]
+\end{proof}
+
+Thus the standard Sukhatme model is already in the diverging-mean regime for
+fixed points, with mean asymptotic to $e^{-1}\log n$.
+Corollary~\ref{cor:sukhatme} proves the corresponding fixed-point CLT and
+confirms the behavior suggested by the simulations in
+\cite[Section~5.2]{borga2025permutonlocallimitsluce}.  More generally, when a
+right power zero and a left nonintegrable power pole are both present, cycles
+occur near both endpoints and their contributions add.
+
+\section{Predictable fixed-point probabilities}
+
+We expose the permutation in draw order.  At step $k$, only one event can
+create a fixed point: label $k$ must still be available and must be chosen
+next.  Its conditional probability is explicit even though the fixed-point
+indicators themselves are dependent.
+
+Let $\cF_{n,k}=\sigma(\pi_n(1),\ldots,\pi_n(k))$.  Immediately before draw
+$k$, define the remaining weight
+\begin{equation}\label{eq:remaining-weight}
+ W_{n,k}:=\sum_{i=1}^n\theta_{n,i}\one\{R_{n,i}\ge k\}.
+\end{equation}
+The conditional chance of a fixed point is
+\begin{equation}\label{eq:predictable-p}
+ p_{n,k}:=\Pp(I_{n,k}=1\mid\cF_{n,k-1})
+ =\frac{\theta_{n,k}\one\{R_{n,k}\ge k\}}{W_{n,k}}.
+\end{equation}
+Both the numerator indicator and the denominator are
+$\cF_{n,k-1}$-measurable.  The random measure
+\begin{equation}\label{eq:compensator-measure}
+ A_n:=\sum_{k=1}^n p_{n,k}\delta_{k/n}
+\end{equation}
+is the predictable compensator of $\Xi_n$ in draw order.  The fixed-point
+problem is therefore reduced to showing that $A_n$ approaches a deterministic
+measure and that its largest atom vanishes.  The following criterion records
+this reduction.
+
+\begin{lemma}\label{lem:predictable-poisson}
+Let $I_{n,k}\in\{0,1\}$ be adapted, let $x_{n,k}$ be deterministic points in
+a compact space $\mathsf X$, and let
+$p_{n,k}=\E(I_{n,k}\mid\cF_{n,k-1})$.  Suppose that for a finite deterministic
+measure $\nu$ on $\mathsf X$,
+\begin{equation}\label{eq:poisson-criterion}
+ \sum_kp_{n,k}\delta_{x_{n,k}}\Longrightarrow\nu
+ \quad\text{in probability},
+ \qquad
+ \max_kp_{n,k}\longrightarrow0
+ \quad\text{in probability}.
+\end{equation}
+Then $\sum_k I_{n,k}\delta_{x_{n,k}}$ converges to a Poisson random measure
+with intensity $\nu$.
+\end{lemma}
+
+\begin{proof}
+Fix a nonnegative continuous $g$, abbreviate
+$g_{n,k}=g(x_{n,k})$ and $q_{n,k}=1-e^{-g_{n,k}}$.  We first stop the array
+before either its total compensator exceeds $K$ or one conditional
+probability exceeds $\delta<1$.  Formally, define the predictable indicators
+recursively by
+\[
+ H_{n,k}:=\one\left\{p_{n,k}\le\delta,
+ \ \sum_{j<k}H_{n,j}p_{n,j}+p_{n,k}\le K\right\}.
+\]
+Set
+$\widetilde I_{n,k}=H_{n,k}I_{n,k}$ and
+$\widetilde p_{n,k}=H_{n,k}p_{n,k}$.  Then
+\begin{equation}\label{eq:likelihood-martingale}
+ L_{n,m}:=\prod_{k\le m}
+ \frac{e^{-g_{n,k}\widetilde I_{n,k}}}
+ {1-\widetilde p_{n,k}q_{n,k}}.
+\end{equation}
+Each factor has conditional mean one, so $(L_{n,m})_m$ is a nonnegative
+mean-one martingale.  This likelihood martingale replaces the product
+factorization available for independent indicators: here the future
+probabilities may depend on the preceding outcomes.
+
+For a single factor $Y_{n,k}$ in~\eqref{eq:likelihood-martingale},
+\[
+ \E(Y_{n,k}^2\mid\cF_{n,k-1})
+ =1+\frac{\widetilde p_{n,k}(1-\widetilde p_{n,k})q_{n,k}^2}
+ {(1-\widetilde p_{n,k}q_{n,k})^2}
+ \le \exp(C_{g,\delta}\widetilde p_{n,k}).
+\]
+Iteration therefore gives
+\begin{equation}\label{eq:likelihood-L2}
+ \sup_m\E L_{n,m}^2
+ \le \exp(C_{g,\delta}K),
+\end{equation}
+so the stopped likelihoods are uniformly integrable.  Meanwhile,
+\begin{align*}
+ \prod_k(1-\widetilde p_{n,k}q_{n,k})
+ &=\exp\left\{-\sum_k\widetilde p_{n,k}q_{n,k}
+       +O\left(\max_k\widetilde p_{n,k}
+                    \sum_k\widetilde p_{n,k}\right)\right\}\\
+ &\longrightarrow
+ \exp\left\{-\int(1-e^{-g})\,d\nu\right\}
+\end{align*}
+in probability whenever no term is deleted.  By~\eqref{eq:poisson-criterion},
+choose $K>\nu(\mathsf X)+1$ and any fixed $\delta\in(0,1)$.  The probability
+that a term is deleted tends to zero.  Multiplying the last convergence by
+the uniformly integrable likelihood in~\eqref{eq:likelihood-martingale}, and
+then removing the stopping, gives
+\[
+ \E\exp\left\{-\sum_k g(x_{n,k})I_{n,k}\right\}
+ \longrightarrow
+ \exp\left\{-\int(1-e^{-g})\,d\nu\right\},
+\]
+the Laplace functional of $\operatorname{PRM}(\nu)$.
+\end{proof}
+
+\section{The interior compensator}
+
+On every compact subinterval of $[0,1)$, a law of large numbers for the
+exponential race controls both the time of the $k$th arrival and the total
+rate still present at that time.  This identifies the compensator in the
+bulk.  The endpoint, where relative concentration can fail, is postponed to
+Section~\ref{sec:endpoint}.
+
+Let
+\begin{align}
+ \widehat F_n(t)&:=\frac1n\sum_{i=1}^n\one\{E_{n,i}\le t\},
+ &F_n(t)&:=\E\widehat F_n(t)
+ =\frac1n\sum_{i=1}^n(1-e^{-\theta_{n,i}t}),\label{eq:empirical-F}\\
+ \widehat D_n(t)&:=\frac1n\sum_{i=1}^n
+ \theta_{n,i}\one\{E_{n,i}\ge t\},
+ &D_n(t)&:=\E\widehat D_n(t)
+ =\frac1n\sum_{i=1}^n\theta_{n,i}e^{-\theta_{n,i}t}.
+ \label{eq:empirical-D}
+\end{align}
+Let $\tau_{n,k}$ be the $k$th order statistic of the exponential variables.
+Then $W_{n,k}=n\widehat D_n(\tau_{n,k})$ and
+\begin{equation}\label{eq:survival-indicator}
+ \one\{R_{n,k}\ge k\}=\one\{E_{n,k}\ge\tau_{n,k}\}.
+\end{equation}
+
+\begin{lemma}\label{lem:race-law}
+Under Assumption~\ref{ass:profile}, for every finite $T$,
+\begin{equation}\label{eq:uniform-race}
+ \sup_{0\le t\le T}|\widehat F_n(t)-F(t)|\longrightarrow0,
+ \qquad
+ \sup_{0\le t\le T}|\widehat D_n(t)-D(t)|\longrightarrow0
+\end{equation}
+in probability.  Consequently, for every $\alpha<1$,
+\begin{equation}\label{eq:uniform-quantile}
+ \max_{1\le k\le\alpha n}|\tau_{n,k}-t_{k/n}|\longrightarrow0
+ \quad\text{in probability}
+\end{equation}
+and
+\begin{equation}\label{eq:uniform-denominator}
+ \max_{1\le k\le\alpha n}
+ \left|\frac{W_{n,k}}n-D(t_{k/n})\right|\longrightarrow0
+ \quad\text{in probability}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+First, $L^1$ convergence implies
+\begin{equation}\label{eq:max-weight}
+ \frac1n\max_i\theta_{n,i}\longrightarrow0.
+\end{equation}
+Indeed, the mass of any interval of length $1/n$ under $f$ tends uniformly to
+zero, while $\lVert f_n-f\rVert_1\to0$.
+
+The maps $a\mapsto e^{-ta}$ and $a\mapsto ae^{-ta}$ are uniformly Lipschitz
+in $a\ge0$ when $t$ ranges over a compact interval; for the second map one may
+use $|(1-ta)e^{-ta}|\le1$.  Hence $F_n\to F$ and $D_n\to D$ uniformly on
+$[0,T]$.  At a fixed time, Hoeffding's inequality gives concentration of
+$\widehat F_n$, while
+\[
+ \Var(\widehat D_n(t))
+ \le \frac1{n^2}\sum_i\theta_{n,i}^2e^{-\theta_{n,i}t}
+ \le \frac{\max_i\theta_{n,i}}n.
+\]
+A finite grid, monotonicity in $t$, and uniform continuity of $F$ and $D$
+upgrade the fixed-time bounds to~\eqref{eq:uniform-race}.
+
+Since $F$ is strictly increasing, uniform convergence of the distribution
+functions implies uniform convergence of their quantiles on $[0,\alpha]$,
+which gives~\eqref{eq:uniform-quantile}.  Substituting the random quantiles in
+the second part of~\eqref{eq:uniform-race} gives
+\eqref{eq:uniform-denominator}.
+\end{proof}
+
+\begin{proposition}\label{prop:interior-compensator}
+Under Assumption~\ref{ass:profile}, for every $\alpha<1$ and every continuous
+$g:[0,\alpha]\to\R$,
+\begin{equation}\label{eq:weighted-compensator}
+ \sum_{k\le\alpha n}g(k/n)p_{n,k}
+ \longrightarrow
+ \int_0^\alpha g(x)\rho(x,x)\,dx
+\end{equation}
+in probability.  Moreover,
+\begin{equation}\label{eq:interior-max-p}
+ \max_{k\le\alpha n}p_{n,k}\longrightarrow0
+ \quad\text{in probability}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Put $t_k=t_{k/n}$ and $B_{n,k}=\one\{E_{n,k}\ge t_k\}$.  Since
+$d_\alpha:=\min_{0\le t\le t_\alpha}D(t)>0$, Lemma~\ref{lem:race-law} gives
+\begin{equation}\label{eq:p-first-approx}
+ \sum_{k\le\alpha n}g(k/n)p_{n,k}
+ =\frac1n\sum_{k\le\alpha n}
+ \frac{g(k/n)\theta_{n,k}\one\{E_{n,k}\ge\tau_{n,k}\}}
+ {D(t_k)}+o_{\Pp}(1).
+\end{equation}
+We next replace the survival indicator by $B_{n,k}$.
+
+Fix $\eta>0$.  The contribution of $k\le\eta n$ is bounded by a constant
+times $n^{-1}\sum_{k\le\eta n}\theta_{n,k}$, whose limit is
+$\int_0^\eta f$.  For $\eta n<k\le\alpha n$, $t_k$ is bounded away from zero.
+On the event in~\eqref{eq:uniform-quantile}, the two indicators can differ
+only when $E_{n,k}$ lies in a shrinking interval around $t_k$.  Uniformly on
+this range,
+\[
+ \theta_{n,k}\Pp(|E_{n,k}-t_k|\le\delta)
+ \le\int_{t_k-\delta}^{t_k+\delta}
+       \theta_{n,k}^2e^{-\theta_{n,k}s}\,ds
+ \le C_\eta\delta.
+\]
+First send $n\to\infty$, then $\delta\downarrow0$, and finally
+$\eta\downarrow0$.  This proves that the replacement costs $o_{\Pp}(1)$.
+
+The variables $B_{n,k}$ are independent.  On $k>\eta n$, the variance of the
+resulting normalized sum is $O_\eta(n^{-1})$, because
+$\sup_{a\ge0}a^2e^{-a t_\eta}<\infty$.  The initial $\eta n$ terms are again
+controlled by $n^{-1}\sum_{k\le\eta n}\theta_{n,k}$.  Therefore the sum is
+asymptotic in probability to its expectation.  It remains to identify that
+expectation.  On $[\eta,\alpha]$, view the sum as the integral of a step
+function and put $k_n(x)=\lceil nx\rceil$.  Uniformly there,
+$t_{k_n(x)/n}\to t_x$.  The map $a\mapsto ae^{-at}$ is globally
+one-Lipschitz, while, for $t\ge t_\eta/2$,
+$\sup_{a\ge0}a^2e^{-at}<\infty$.  Hence the uniform convergence of the times,
+the continuity of $g$ and $D$, and $\lVert f_n-f\rVert_1\to0$ give
+\begin{align*}
+ \frac1n\sum_{k\le\alpha n}
+ \frac{g(k/n)\theta_{n,k}e^{-\theta_{n,k}t_k}}{D(t_k)}
+ &\longrightarrow
+ \int_0^\alpha
+ \frac{g(x)f(x)e^{-f(x)t_x}}{D(t_x)}\,dx\\
+ &=\int_0^\alpha g(x)\rho(x,x)\,dx.
+\end{align*}
+The discarded initial block is bounded by
+$C_\alpha\int_0^\eta f_n(x)\,dx$; it vanishes after first taking
+$n\to\infty$ and then $\eta\downarrow0$.  This also handles $x=0$.
+
+For the maximum, on the high-probability event from
+Lemma~\ref{lem:race-law},
+\[
+ \max_{k\le\alpha n}p_{n,k}
+ \le \frac{2\max_i\theta_{n,i}}{nd_\alpha}=o(1)
+\]
+by~\eqref{eq:max-weight}.
+\end{proof}
+
+\begin{corollary}\label{cor:interior-poisson}
+For every $\alpha<1$,
+\begin{equation}\label{eq:interior-poisson}
+ \Xi_n|_{[0,\alpha]}\Longrightarrow
+ \operatorname{PRM}\bigl(\rho(x,x)\one_{[0,\alpha]}(x)\,dx\bigr).
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+Apply Lemma~\ref{lem:predictable-poisson} and
+Proposition~\ref{prop:interior-compensator}.
+\end{proof}
+
+\section{The last few positions}\label{sec:endpoint}
+
+It remains to rule out fixed points in the last $o(n)$ positions, uniformly
+enough to let $\alpha\uparrow1$.  Directly concentrating the remaining total
+weight is fragile: near the end its expectation may be tiny, so an absolute
+concentration estimate gives no useful relative error.  We instead condition
+on the ringing time of the candidate label and count how many other clocks
+survive.  The argument has no random denominator.
+
+For this section only, suppress the first subscript $n$.  Let
+\begin{equation}\label{eq:mean-survivors}
+ S(t):=\sum_{i=1}^ne^{-\theta_i t}=\E\sum_{i=1}^n\one\{E_i>t\}.
+\end{equation}
+
+\begin{lemma}\label{lem:rank-integral}
+For every label $k$,
+\begin{equation}\label{eq:rank-integral}
+ \Pp(R_k=k)=
+ \int_0^\infty \theta_k e^{-\theta_k t}
+ \Pp\left(\sum_{j\ne k}\one\{E_j>t\}=n-k\right)dt.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Condition on $E_k=t$.  The rank is $k$ exactly when $n-k$ of the other
+exponential variables are larger than $t$.
+\end{proof}
+
+For $m=1,\ldots,n$, write $k_m=n-m+1$ and put
+\[
+ N(t):=\sum_{j=1}^n\one\{E_j>t\},
+ \qquad
+ N_{-k}(t):=\sum_{j\ne k}\one\{E_j>t\}.
+\]
+For $x>0$, also write
+\begin{equation}\label{eq:Q-function}
+ \mathcal Q(x):=-\log(1-e^{-x}).
+\end{equation}
+
+The following block estimate is the basic endpoint-capacity inequality.  It
+uses the actual survivor curve $S$, and therefore can be substantially
+stronger than a bound obtained only from the mean-one normalization.
+
+\begin{proposition}[Block endpoint capacity]
+\label{prop:block-endpoint-capacity}
+Let $\mathcal B\subseteq[n]$ be a nonempty set of terminal depths, and put
+\[
+ r_{\mathcal B}:=\max\mathcal B,
+ \qquad
+ a_{\mathcal B}:=\min_{m\in\mathcal B}\theta_{k_m}.
+\]
+For $t_{\mathcal B}>0$, set
+\[
+ B_{\mathcal B}:=S(t_{\mathcal B})-1.
+\]
+If $B_{\mathcal B}>r_{\mathcal B}$, then
+\begin{equation}\label{eq:block-endpoint-capacity}
+ \E\sum_{m\in\mathcal B}I_{k_m}
+ \le
+ |\mathcal B|
+ \exp\left\{-\frac{(B_{\mathcal B}-r_{\mathcal B})^2}
+                         {2B_{\mathcal B}}\right\}
+ +\mathcal Q(a_{\mathcal B}t_{\mathcal B}).
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For $0\le t\le t_{\mathcal B}$ and $m\in\mathcal B$,
+\[
+ \E N_{-k_m}(t)\ge S(t)-1\ge B_{\mathcal B}.
+\]
+Since $m-1<r_{\mathcal B}<B_{\mathcal B}$, the Chernoff lower-tail bound
+gives
+\[
+ \Pp(N_{-k_m}(t)=m-1)
+ \le
+ \exp\left\{-\frac{(B_{\mathcal B}-r_{\mathcal B})^2}
+                         {2B_{\mathcal B}}\right\}.
+\]
+Lemma~\ref{lem:rank-integral}, followed by integration of the exponential
+density, bounds the total contribution from $t\le t_{\mathcal B}$ by the
+first term in~\eqref{eq:block-endpoint-capacity}.
+
+For the remaining times, independence gives
+\begin{align*}
+ \Pp(N(t)=m-1)
+ &\ge \Pp(E_{k_m}\le t,\,N_{-k_m}(t)=m-1)\\
+ &= (1-e^{-\theta_{k_m}t})
+    \Pp(N_{-k_m}(t)=m-1).
+\end{align*}
+Consequently,
+\[
+ \theta_{k_m}e^{-\theta_{k_m}t}
+ \Pp(N_{-k_m}(t)=m-1)
+ \le
+ \frac{\theta_{k_m}}{e^{\theta_{k_m}t}-1}
+ \Pp(N(t)=m-1).
+\]
+For fixed $t>0$, the map $a\mapsto a/(e^{at}-1)$ is decreasing.  Moreover,
+the integers $m-1$, $m\in\mathcal B$, are distinct.  Hence the sum of the
+last display over $m\in\mathcal B$ is at most
+\[
+ \frac{a_{\mathcal B}}{e^{a_{\mathcal B}t}-1}
+ \sum_{m\in\mathcal B}\Pp(N(t)=m-1)
+ \le \frac{a_{\mathcal B}}{e^{a_{\mathcal B}t}-1}.
+\]
+Integrating from $t_{\mathcal B}$ to infinity gives
+\[
+ \int_{t_{\mathcal B}}^\infty
+ \frac{a_{\mathcal B}}{e^{a_{\mathcal B}t}-1}\,dt
+ =-\log(1-e^{-a_{\mathcal B}t_{\mathcal B}}),
+\]
+which proves the claim.
+\end{proof}
+
+There is a complementary individual estimate for a label whose very small
+rate is badly aligned with its prescribed terminal depth.  Let
+$A_{m-1}^{(-k_m)}$ denote the sum of the $m-1$ smallest rates among
+$\{\theta_i:i\ne k_m\}$, with $A_0^{(-k_1)}=0$.
+
+\begin{lemma}[Individual slow-label charge]
+\label{lem:slow-label-charge}
+% Lean: Luce/EndpointSlowLabel.lean, individual_slow_label_charge.
+For every $m$,
+\begin{equation}\label{eq:slow-label-charge}
+ \Pp(R_{k_m}=k_m)
+ \le
+ \frac{\theta_{k_m}}
+      {\theta_{k_m}+A_{m-1}^{(-k_m)}}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Immediately before the draw at which $m$ clocks remain, condition on the
+surviving set.  If it contains $k_m$, the conditional chance that $k_m$ rings
+next is its rate divided by the total surviving rate.  The other $m-1$
+survivors have total rate at least $A_{m-1}^{(-k_m)}$.  Since a fixed point at
+$k_m$ requires both survival to this stage and selection at the next draw,
+taking expectations proves~\eqref{eq:slow-label-charge}.
+\end{proof}
+
+For a common block $m=1,\ldots,M$, the key deterministic observation is
+\begin{equation}\label{eq:two-candidate}
+ \sum_{m=1}^M\one\{N_{-k_m}(t)=m-1\}\le2.
+\end{equation}
+Indeed, if $N(t)=\sum_j\one\{E_j>t\}=s$, then the displayed event can hold only
+for $m=s$ when $E_{k_m}>t$, or for $m=s+1$ when $E_{k_m}\le t$.  Thus, at any
+fixed time, at most two terminal labels can have the correct survivor count.
+
+\begin{proposition}\label{prop:uniform-endpoint-bound}
+Assume~\eqref{eq:normalization}.  Let $1\le M\le\eps_0n$, and suppose
+$\theta_{k_m}\ge\gamma$ for $1\le m\le M$.  Put
+\begin{equation}\label{eq:B-definition}
+ B:=\sqrt{nM},
+\end{equation}
+and let $s$ be determined by $S(s)=B$.  If $M\le(B-1)/2$ and $s\ge1/\gamma$,
+then for a universal $c>0$,
+\begin{equation}\label{eq:tail-explicit}
+ \E\sum_{m=1}^M I_{k_m}
+ \le M e^{-cB}+2e^{-\gamma s}
+ \le M e^{-cB}+2\left(\frac{2B}{n}\right)^{\gamma/2}.
+\end{equation}
+Consequently,
+\begin{equation}\label{eq:tail-epsilon}
+ \limsup_{n\to\infty}
+ \E\sum_{k>(1-\eps)n}I_{n,k}
+ \le 2^{1+\gamma/2}\eps^{\gamma/4}
+\end{equation}
+for all sufficiently small $\eps>0$.
+\end{proposition}
+
+\begin{proof}
+For $t\le s$ and every $m\le M$,
+\[
+ \E N_{-k_m}(t)\ge S(t)-1\ge B-1\ge2M.
+\]
+A Chernoff lower-tail bound for a sum of independent Bernoulli variables gives
+\[
+ \Pp(N_{-k_m}(t)=m-1)\le e^{-cB}.
+\]
+Using Lemma~\ref{lem:rank-integral} and integrating the exponential density,
+the total contribution of $t\le s$ is at most $Me^{-cB}$.
+
+For $t\ge s\ge1/\gamma$, the map $a\mapsto ae^{-at}$ is decreasing on
+$[\gamma,\infty)$.  Hence, by~\eqref{eq:two-candidate},
+\begin{align*}
+ &\sum_{m=1}^M\int_s^\infty
+ \theta_{k_m}e^{-\theta_{k_m}t}
+ \Pp(N_{-k_m}(t)=m-1)\,dt\\
+ &\hspace{1in}\le
+ \int_s^\infty\gamma e^{-\gamma t}
+ \sum_{m=1}^M\Pp(N_{-k_m}(t)=m-1)\,dt
+ \le2e^{-\gamma s}.
+\end{align*}
+
+It remains to bound $s$.  The normalization implies that at least $n/2$
+weights are at most $2$.  Thus
+\[
+ S(t)\ge\frac n2e^{-2t}.
+\]
+Since $S(s)=B$, we get $s\ge\frac12\log(n/(2B))$, proving the second
+inequality in~\eqref{eq:tail-explicit}.
+
+Finally take $M=\lceil\eps n\rceil$.  Then $B/n\to\sqrt\eps$, the first
+term in~\eqref{eq:tail-explicit} vanishes, and the required side conditions
+hold when $\eps$ is sufficiently small.  This gives~\eqref{eq:tail-epsilon}.
+\end{proof}
+
+The particular survivor buffer used in the preceding argument is convenient
+but not intrinsic.  A square-root buffer will be useful for both fixed points
+and short cycles.
+
+\begin{lemma}[Diagonal shell buffer]
+\label{lem:diagonal-shell-buffer}
+Under Assumption~\ref{ass:fixed-endpoint}, the choice $h_j=\sqrt j$ satisfies
+\begin{equation}\label{eq:buffered-shell-condition}
+ \lim_{J\to\infty}\limsup_{n\to\infty}
+ \sum_{\substack{j\ge J\\\mathcal D_{n,j}\ne\varnothing}}
+ \mathcal Q\bigl(b_{n,j}(j-h_j)\bigr)=0.
+\end{equation}
+Moreover, $h_j\uparrow\infty$, $h_j<j/4$ eventually, and $j-h_j$ is
+nondecreasing.
+\end{lemma}
+
+\begin{proof}
+Write $x_{n,j}=b_{n,j}j$ and omit empty shells.  Put
+\[
+ y_{n,j}:=b_{n,j}(j-h_j)
+ =x_{n,j}\left(1-\frac1{\sqrt j}\right).
+ \]
+If $x_{n,j}\le\sqrt j$, then $y_{n,j}\ge x_{n,j}-1$ and hence
+$e^{-y_{n,j}}\le e e^{-x_{n,j}}$.  Otherwise,
+$y_{n,j}>\sqrt j-1$.  Assumption~\ref{ass:fixed-endpoint} therefore gives
+\[
+ \lim_{J\to\infty}\limsup_n\sum_{j\ge J}e^{-y_{n,j}}
+ \le
+ e\lim_{J\to\infty}\limsup_n\sum_{j\ge J}e^{-x_{n,j}}
+ +\lim_{J\to\infty}\sum_{j\ge J}e^{1-\sqrt j}=0.
+\]
+The same estimate shows that $y_{n,j}$ tends uniformly to infinity in the
+iterated tail.  Hence $\mathcal Q(y_{n,j})\le2e^{-y_{n,j}}$ there, proving
+\eqref{eq:buffered-shell-condition}.  The remaining assertions are immediate
+from $h_j=\sqrt j$.
+\end{proof}
+
+\begin{proposition}[Shell endpoint tightness]
+\label{prop:endpoint-bound}
+Under the normalization~\eqref{eq:normalization} and
+Assumption~\ref{ass:fixed-endpoint},
+\begin{equation}\label{eq:shell-tail-tightness}
+ \lim_{J\to\infty}\limsup_{n\to\infty}
+ \E\sum_{m\le ne^{-J}} I_{n,k_{n,m}}=0.
+\end{equation}
+Equivalently,
+\begin{equation}\label{eq:shell-tail-epsilon}
+ \lim_{\eps\downarrow0}\limsup_{n\to\infty}
+ \E\sum_{k>(1-\eps)n}I_{n,k}=0.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Let $h_j$ be supplied by Lemma~\ref{lem:diagonal-shell-buffer}.  For a
+nonempty shell $\mathcal D_{n,j}$, apply
+Proposition~\ref{prop:block-endpoint-capacity} with
+ \[
+ \mathcal B=\mathcal D_{n,j},
+ \qquad
+ t_{\mathcal B}=\log\frac{n}{r_{n,j}}-h_j.
+\]
+For all sufficiently large $j$ this time is positive.  Jensen's inequality
+and~\eqref{eq:normalization} give
+\[
+ S(t_{\mathcal B})
+ \ge ne^{-t_{\mathcal B}}
+ =r_{n,j}e^{h_j}.
+\]
+It follows that
+$B_{\mathcal B}\ge r_{n,j}e^{h_j}-1>r_{n,j}$ for all sufficiently large
+$j$, so the hypothesis of Proposition~\ref{prop:block-endpoint-capacity}
+holds.  Moreover, for a universal $c>0$,
+\[
+ \frac{(B_{\mathcal B}-r_{n,j})^2}{2B_{\mathcal B}}
+ \ge c r_{n,j}e^{h_j}.
+\]
+Thus the first term in
+\eqref{eq:block-endpoint-capacity} is at most
+\[
+ |\mathcal D_{n,j}|e^{-c r_{n,j}e^{h_j}}
+ \le r_{n,j}e^{-c r_{n,j}e^{h_j}}.
+\]
+The nonempty shells have distinct maxima.  Since $h_j$ is nondecreasing,
+\[
+ \sum_{j\ge J}r_{n,j}e^{-c r_{n,j}e^{h_j}}
+ \le\sum_{r\ge1}r e^{-c r e^{h_J}}
+ \longrightarrow0
+ \qquad(J\to\infty),
+\]
+uniformly in $n$.  The sum of the second terms in
+\eqref{eq:block-endpoint-capacity} tends to zero by
+\eqref{eq:buffered-shell-condition}, because
+$t_{\mathcal B}\ge j-h_j$ and $\mathcal Q$ is decreasing.  Since the union
+of the shells $j\ge J$
+is precisely the set of depths with $m\le ne^{-J}$, this proves
+\eqref{eq:shell-tail-tightness}; the equivalent formulation
+\eqref{eq:shell-tail-epsilon} follows by monotonicity.
+\end{proof}
+
+\begin{corollary}[Exceptional-shell refinement]
+\label{cor:exceptional-shell-refinement}
+% Lean: Luce/EndpointExceptionalTheorem.lean, corollary47_endpoint and corollary47_general.
+Assume the normalization~\eqref{eq:normalization}.  For each $n$, let
+$\mathcal E_n\subseteq[n]$ be a set of exceptional terminal depths and put
+\[
+ \mathcal G_{n,j}:=\mathcal D_{n,j}\setminus\mathcal E_n.
+\]
+When $\mathcal G_{n,j}$ is nonempty, define
+\[
+ r^{\mathrm G}_{n,j}:=\max\mathcal G_{n,j},
+ \qquad
+ b^{\mathrm G}_{n,j}
+ :=\min_{m\in\mathcal G_{n,j}}\theta_{n,k_{n,m}}.
+\]
+Let $A_{n,m-1}^{(-k_{n,m})}$ be the sum of the $m-1$ smallest rates after
+deleting $\theta_{n,k_{n,m}}$.  Suppose
+\begin{align}
+ \lim_{J\to\infty}\limsup_{n\to\infty}
+ \bigg[
+ \sum_{\substack{j\ge J\\\mathcal G_{n,j}\ne\varnothing}}
+   e^{-b^{\mathrm G}_{n,j}j}
+ +
+ \sum_{\substack{m\in\mathcal E_n\\m\le ne^{-J}}}
+ \frac{\theta_{n,k_{n,m}}}
+      {\theta_{n,k_{n,m}}+A_{n,m-1}^{(-k_{n,m})}}
+ \bigg]=0.
+ \label{eq:exceptional-shell-condition}
+\end{align}
+Then the endpoint conclusions
+\eqref{eq:shell-tail-tightness}--\eqref{eq:shell-tail-epsilon} hold.
+Consequently, Theorem~\ref{thm:main-poisson} remains valid if
+Assumption~\ref{ass:fixed-endpoint} is replaced by
+\eqref{eq:exceptional-shell-condition}.
+\end{corollary}
+
+\begin{proof}
+Apply the proof of Lemma~\ref{lem:diagonal-shell-buffer} to the regular
+blocks $\mathcal G_{n,j}$.  In the proof of
+Proposition~\ref{prop:endpoint-bound}, replace $\mathcal D_{n,j}$,
+$r_{n,j}$, and $b_{n,j}$ by their regular-block versions and use the cutoff
+$\log(n/r^{\mathrm G}_{n,j})-h_j$.  This cutoff is at least $j-h_j$, so the
+same decreasing-$\mathcal Q$ bound makes the regular contribution vanish.
+Lemma~\ref{lem:slow-label-charge} bounds the exceptional contribution by the
+second sum in~\eqref{eq:exceptional-shell-condition}.  Adding the two proves
+the endpoint bounds.  These bounds replace each invocation of
+Proposition~\ref{prop:endpoint-bound} in the proof of
+Theorem~\ref{thm:main-poisson}, which is otherwise unchanged.
+\end{proof}
+
+\begin{remark}\label{rmk:minimal-tail}
+The uniform terminal support condition~\eqref{eq:endpoint-lower} implies
+Assumption~\ref{ass:fixed-endpoint}.  Indeed, for all sufficiently large
+$j$, every label in $\mathcal D_{n,j}$ lies in that terminal interval, so
+$b_{n,j}\ge\gamma$ and the shell sum is bounded by the geometric tail
+$\sum_{j\ge J}e^{-\gamma j}$.  Proposition
+\ref{prop:uniform-endpoint-bound} records the corresponding direct estimate.
+
+At the shell level, \eqref{eq:logarithmic-endpoint-lower} can be weakened
+further.  For example,
+it is enough that, uniformly on all sufficiently late nonempty shells,
+\begin{equation}\label{eq:bertrand-shell-envelope}
+ b_{n,j}j
+ \ge \log j+(1+\delta)\log\log j
+\end{equation}
+for some $\delta>0$, because the shell costs are then bounded by
+$1/(j(\log j)^{1+\delta})$.  In terms of an individual terminal depth with
+$q=\log(n/m)$, the corresponding envelope has order
+\[
+ \theta_{n,n-m+1}
+ \ge
+ \frac{\log q+(1+\delta)\log\log q}{q}.
+\]
+The usual iterated-log refinements of the convergent Bertrand series give
+still weaker sufficient envelopes, and sparse bad shells need only have
+summable costs.  Provided the remaining shell costs already have uniformly
+vanishing tails, a single moving anomalous shell is allowed whenever its
+product $b_{n,j}j$ tends to infinity.
+
+The minimum $b_{n,j}$ can nevertheless be spoiled by one harmless ultra-slow
+label.  Corollary~\ref{cor:exceptional-shell-refinement} removes such labels
+from their regular shells and charges them individually.  This exception
+mechanism is proved here only for fixed points.  The short-cycle argument
+below uses the lower floor on every label in a shell, so no analogue under
+the exceptional-shell refinement is claimed.
+\end{remark}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main-poisson}]
+For fixed $\alpha<1$, Corollary~\ref{cor:interior-poisson} gives the desired
+Poisson limit on $[0,\alpha]$.  Proposition~\ref{prop:endpoint-bound} and
+Markov's inequality imply
+\begin{equation}\label{eq:tail-tightness}
+ \lim_{\alpha\uparrow1}\limsup_{n\to\infty}
+ \Pp\bigl(\Xi_n((\alpha,1])>0\bigr)=0.
+\end{equation}
+It remains to verify that the proposed limiting intensity is finite; weak
+convergence alone does not imply convergence of means.  Fix
+$\alpha<\beta<1$.  Interior count convergence, followed by truncation and
+Fatou's lemma, gives
+\begin{align*}
+ \int_\alpha^\beta\rho(x,x)\,dx
+ &=\E\Poi\left(\int_\alpha^\beta\rho(x,x)\,dx\right)\\
+ &\le\liminf_{n\to\infty}\E\Xi_n((\alpha,\beta])
+ \le\limsup_{n\to\infty}\E\Xi_n((\alpha,1]).
+\end{align*}
+Letting $\beta\uparrow1$ and using monotone convergence gives
+\[
+ \int_\alpha^1\rho(x,x)\,dx
+ \le\limsup_{n\to\infty}\E\Xi_n((\alpha,1]).
+\]
+Proposition~\ref{prop:endpoint-bound} shows that the right side tends to zero
+as $\alpha\uparrow1$, first along $\alpha=1-e^{-J}$ and then for arbitrary
+$\alpha$ by monotonicity.  Together with finiteness of the intensity on every
+compact subinterval of $[0,1)$, this proves both
+\begin{equation}\label{eq:intensity-tail-bound}
+ \lambda:=\int_0^1\rho(x,x)\,dx<\infty,
+ \qquad
+ \int_\alpha^1\rho(x,x)\,dx\longrightarrow0.
+\end{equation}
+Now let $\alpha\uparrow1$ in the interior point-process limit.  Equations
+\eqref{eq:tail-tightness} and~\eqref{eq:intensity-tail-bound} give the full
+convergence~\eqref{eq:point-process-limit}, and hence
+$X_n\Rightarrow\Poi(\lambda)$.
+
+For integer-valued random variables, convergence in distribution to a proper
+integer-valued law implies pointwise convergence of the probability mass
+functions; Scheffe's lemma then upgrades this to total variation convergence,
+giving~\eqref{eq:count-poisson}.
+\end{proof}
+
+\section{Short cycles}\label{sec:short-cycles}
+
+This section proves Theorem~\ref{thm:short-cycles}.  There are again two
+tasks.  In the bulk, a linear reservoir of moderate-rate clocks yields the
+finite-dimensional local law needed for factorial moments.  Near the
+endpoint, the fixed-point estimate no longer suffices: the label that closes
+a late cycle may come from anywhere.  We handle this by inserting every
+proposed finite path into a common background permutation.  The construction
+retains the essential permutation constraint that each rank has one
+preimage.
+
+For an integer $m$, write $[m]^r_{\ne}$ for the set of ordered $r$-tuples of
+distinct elements of $[m]$.
+
+\begin{lemma}\label{lem:moderate-reservoir}
+Under Assumption~\ref{ass:profile}, for every $\alpha<1$ there are
+$d,\eta>0$ such that, for all sufficiently large $n$,
+\begin{equation}\label{eq:moderate-reservoir}
+ \#\{i:\theta_{n,i}\ge d\}\ge(\alpha+2\eta)n.
+\end{equation}
+Consequently, after deleting a fixed number of clocks and before $\alpha n$
+arrivals, the remaining total rate is at least $d\eta n$.
+\end{lemma}
+
+\begin{proof}
+Since $f>0$ almost everywhere, choose $d,\eta>0$ so that
+$|\{x:f(x)\ge2d\}|>\alpha+3\eta$.  The part of this set on which $f_n<d$ has
+measure at most $d^{-1}\lVert f_n-f\rVert_1$, which proves
+\eqref{eq:moderate-reservoir}.  At most $\alpha n+O(1)$ members of the
+reservoir have arrived or been deleted, leaving at least $\eta n$ clocks of
+rate at least $d$.
+\end{proof}
+
+\begin{lemma}\label{lem:cyclic-local}
+Under Assumption~\ref{ass:profile}, fix $r\ge1$, $\alpha<1$, a permutation
+$\tau\in S_r$, and a continuous function $g:[0,\alpha]^r\to\R$.  Then
+\begin{align}
+ &\sum_{\boldsymbol i\in[\lfloor\alpha n\rfloor]^r_{\ne}}
+ g(\boldsymbol i/n)
+ \Pp\bigl(R_{n,i_a}=i_{\tau(a)},\ 1\le a\le r\bigr)
+ \label{eq:cyclic-local-limit}\\
+ &\hspace{0.7in}\longrightarrow
+ \int_{[0,\alpha]^r}g(\boldsymbol x)
+ \prod_{a=1}^r\rho(x_a,x_{\tau(a)})\,d\boldsymbol x.
+ \notag
+\end{align}
+Moreover, uniformly over distinct marked labels $i_1,\ldots,i_r$ and
+distinct ranks $j_1,\ldots,j_r\le\alpha n$,
+\begin{equation}\label{eq:weighted-bulk-cylinder}
+ \Pp(R_{n,i_a}=j_a,\ 1\le a\le r)
+ \le K_{r,\alpha}n^{-r}\prod_{a=1}^r\theta_{n,i_a}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Delete the marked clocks and denote the unmarked order statistics by
+$T_0=0<T_1<\cdots<T_{n-r}$.  If $W_q^\circ$ is the remaining unmarked rate,
+the memoryless property gives
+\begin{equation}\label{eq:race-gap-representation}
+ T_{q+1}-T_q=\frac{\xi_q}{W_q^\circ},
+\end{equation}
+where, conditionally on the elimination chain, the $\xi_q$ are independent
+standard exponentials.  Lemma~\ref{lem:moderate-reservoir} gives
+$W_q^\circ\ge d\eta n$ for $q\le\alpha n$.  Sorting the prescribed ranks,
+and grouping marked clocks which must enter the same unmarked gap, therefore
+gives
+\[
+ \Pp(R_{n,i_a}=j_a,\ a\le r)
+ \le K_{r,\alpha}n^{-r}\prod_{a=1}^r\theta_{n,i_a},
+\]
+which is \eqref{eq:weighted-bulk-cylinder}.
+
+We identify the asymptotic first with all marked rates bounded by a fixed
+$M$.  Deleting finitely many such clocks changes the empirical race by
+$o(1)$, uniformly in their labels.  Lemma~\ref{lem:race-law} and
+\eqref{eq:race-gap-representation} then show, uniformly when the prescribed
+ranks are separated by at least $\zeta n$, that
+\begin{equation}\label{eq:bounded-marked-asymptotic}
+ n^r\Pp(R_{n,i_a}=j_a,\ a\le r)
+ -\prod_{a=1}^r
+ \frac{\theta_{n,i_a}e^{-\theta_{n,i_a}t_{j_a/n}}}
+ {D(t_{j_a/n})}
+ \longrightarrow0.
+\end{equation}
+Indeed, each marked clock is inserted into a relevant unmarked gap; Taylor
+expansion of its exponential density is uniform for rates at most $M$, and
+the rescaled separated gaps converge jointly to independent standard
+exponentials.
+
+The contribution to \eqref{eq:cyclic-local-limit} of tuples containing a
+rate larger than $M$ is, by \eqref{eq:weighted-bulk-cylinder}, at most a
+constant times
+\begin{equation}\label{eq:bulk-high-truncation}
+ \sum_{a=1}^r
+ \left(\frac1n\sum_i\theta_{n,i}\one\{\theta_{n,i}>M\}\right)
+ \left(\frac1n\sum_i\theta_{n,i}\right)^{r-1}.
+\end{equation}
+It vanishes as first $n\to\infty$ and then $M\to\infty$.  After this rate
+truncation, tuples with two coordinates within $\zeta n$ have contribution
+$O_{r,M}(\zeta)$; the discarded high-rate part is still controlled by
+\eqref{eq:bulk-high-truncation}.
+
+It remains to pass from the grid kernel in
+\eqref{eq:bounded-marked-asymptotic} to $\rho$.  On rates at most $M$, the
+kernel is bounded and uniformly continuous in its rank coordinate on
+$[0,\alpha]$, so the grid sum differs from the corresponding step integral by
+$o_M(1)$.  The map $a\mapsto ae^{-at}$ is one-Lipschitz, uniformly for
+$a,t\ge0$, and $D(t_y)$ is bounded below for $y\le\alpha$.  A telescoping
+product and $\lVert f_n-f\rVert_1\to0$ identify the integral.  The parts on
+which either $f_n$ or $f$ exceeds $M$ are bounded by their $L^1$ tails,
+because every numerator is at most its source rate.  Let $n\to\infty$, then
+$\zeta\downarrow0$, and finally $M\to\infty$ to obtain
+\eqref{eq:cyclic-local-limit}.
+\end{proof}
+
+We now set up the endpoint resampling argument.  Fix a proposed $\ell$-cycle
+and abbreviate $\theta_{n,i}$ to $\theta_i$.  Generate a background family
+$E_i^0\sim\operatorname{Exp}(\theta_i)$, with order statistics
+\[
+ 0=T_0<T_1<\cdots<T_n<T_{n+1}=\infty,
+\]
+and replace the clocks on the proposed cycle by independent copies.  Put
+\begin{equation}\label{eq:ghost-window}
+ J_j:=\bigl(T_{(j-\ell)\vee0},T_{(j+\ell)\wedge(n+1)}\bigr),
+ \qquad
+ p_{i,j}:=\int_{J_j}\theta_i e^{-\theta_i t}\,dt.
+\end{equation}
+The window $J_j$ contains every time that could acquire rank $j$ after these
+$\ell$ replacements.  Since replacing $\ell$ clocks changes every rank by at
+most $\ell$, averaging over the background gives
+\begin{equation}\label{eq:ghost-cylinder-bound}
+ \Pp(R_{i_a}=j_a,\ 1\le a\le\ell)
+ \le\E\prod_{a=1}^\ell p_{i_a,j_a}.
+\end{equation}
+Each time belongs to at most $2\ell+1$ windows, and consequently
+\begin{equation}\label{eq:ghost-row-bound}
+ \sum_{j=1}^np_{i,j}\le2\ell+1.
+\end{equation}
+
+The next lemma iterates this insertion bound along a finite path.  Its
+distinct-source condition is exactly the condition supplied by a genuine
+cycle.
+
+\begin{lemma}\label{lem:finite-insertion-path}
+For fixed $\ell,m\ge1$ and every $v\in[n]$,
+\begin{equation}\label{eq:finite-insertion-path}
+ \E\sum_{\substack{u_0,\ldots,u_{m-1}\in[n]\\
+                    u_0,\ldots,u_{m-1}\ {\mathrm{distinct}}}}
+ p_{u_0,u_1}\cdots p_{u_{m-2},u_{m-1}}p_{u_{m-1},v}
+ \le K_{\ell,m}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Generate one independent replacement $E_i^1$ for every background clock.
+For a fixed source sequence $\boldsymbol u$, the product in
+\eqref{eq:finite-insertion-path} is the conditional probability that every
+$E_{u_a}^1$ falls in the window indexed by the next vertex, ending with
+$J_v$.  Swap $E_{u_a}^0$ with $E_{u_a}^1$ for all $a$.  These swaps concern
+distinct labels and preserve the joint law.  If $\widetilde R$ is the rank
+permutation of the new background, success before the swap implies
+\begin{equation}\label{eq:approximate-permutation-path}
+ |\widetilde R_{u_a}-u_{a+1}|\le q_{\ell,m}\quad(a<m-1),
+ \qquad
+ |\widetilde R_{u_{m-1}}-v|\le q_{\ell,m},
+\end{equation}
+where $q_{\ell,m}=\ell+m+2$ is sufficient: membership in an old window costs
+at most $\ell+1$ ranks, and the $m$ swaps cost at most another $m$.
+
+For a deterministic permutation $\sigma$, give $u$ an edge to every $w$ with
+$|\sigma(u)-w|\le q_{\ell,m}$.  Each target has indegree at most
+$2q_{\ell,m}+1$, since every rank has one preimage.  Thus at most
+$(2q_{\ell,m}+1)^m$ length-$m$ paths end at $v$.  Sum the
+measure-preserving comparison over $\boldsymbol u$.
+\end{proof}
+
+Put $c_j=\sum_kp_{k,j}$.  Expanding this sum and separating whether its source
+is new gives the useful consequence
+\begin{equation}\label{eq:added-predecessor}
+ \sup_{v\in[n]}\E
+ \sum_{\substack{i_2,\ldots,i_\ell\in[n]\setminus\{v\}\\
+                  i_2,\ldots,i_\ell\ {\mathrm{distinct}}}}
+ c_{i_2}p_{i_2,i_3}\cdots p_{i_\ell,v}\le K_\ell.
+\end{equation}
+Indeed, when the source $k$ in $c_{i_2}=\sum_kp_{k,i_2}$ is distinct from
+$i_2,\ldots,i_\ell$, Lemma~\ref{lem:finite-insertion-path} applies.  If
+$k=i_a$, discard the extra factor $p_{i_a,i_2}\le1$ and apply the lemma to
+the remaining path.  The interpretation for $\ell=1$ is
+$\sup_v\E c_v<\infty$.
+
+We first prepare two truncations: high rates globally and low rates on compact
+label intervals.  For $M>1$ and $\delta>0$, let
+\[
+ H_{n,M}:=\{i:\theta_{n,i}>M\},\qquad
+ L_{n,\delta}:=\{i:\theta_{n,i}<\delta\},
+\]
+and let $V_{n,L}(S)$ be the number of vertices in $S$ which belong to cycles
+of length at most $L$.
+
+\begin{proposition}[Rate truncation]\label{prop:cycle-rate-truncation}
+Under Assumption~\ref{ass:profile},
+\begin{align}
+ \lim_{M\to\infty}\limsup_n\E V_{n,L}(H_{n,M})&=0,
+ \label{eq:high-cycle-truncation}\\
+ \lim_{\delta\downarrow0}\limsup_n
+ \E V_{n,L}\bigl(L_{n,\delta}\cap[\lfloor\beta n\rfloor]\bigr)&=0
+ \qquad(\beta<1).
+ \label{eq:compact-low-cycle-truncation}
+\end{align}
+\end{proposition}
+
+\begin{proof}
+The $L^1$ profile convergence gives
+\begin{equation}\label{eq:profile-tail-controls}
+ \lim_{M\to\infty}\limsup_n\frac1n
+ \sum_{i\in H_{n,M}}\theta_{n,i}=0,
+ \qquad
+ \lim_{\delta\downarrow0}\limsup_n\frac{|L_{n,\delta}|}{n}=0.
+\end{equation}
+For the second relation, compare $\{f_n<\delta\}$ with
+$\{f<2\delta\}$ and use $f>0$ almost everywhere.
+
+Choose $M$ so large that the labels of rate at most $M$ carry total weight at
+least $n/2$.  If $\theta_i>M$, then, with
+$G_n(t)=\sum_k\theta_k e^{-\theta_kt}$,
+\[
+ \theta_i e^{-\theta_i t}\le\frac{2\theta_i}{n}G_n(t).
+\]
+Indeed, all rates at most $M$ have survival factor at least
+$e^{-\theta_i t}$.  Since $c_j=\int_{J_j}G_n(t)dt$, this gives
+\begin{equation}\label{eq:high-entry-comparison}
+ p_{i,j}\le\frac{2\theta_i}{n}c_j.
+\end{equation}
+Start a proposed cycle at $i\in H_{n,M}$, apply
+\eqref{eq:ghost-cylinder-bound} and then
+\eqref{eq:high-entry-comparison} to its first edge.  For $\ell\ge2$,
+\begin{align*}
+ \Pp(i\text{ belongs to an }\ell\text{-cycle})
+ &\le \E\sum_{\substack{i_2,\ldots,i_\ell\ne i\\
+                         i_2,\ldots,i_\ell\ {\mathrm{distinct}}}}
+ p_{i,i_2}p_{i_2,i_3}\cdots p_{i_\ell,i}\\
+ &\le \frac{2\theta_i}{n}\E
+ \sum_{\substack{i_2,\ldots,i_\ell\ne i\\
+                  i_2,\ldots,i_\ell\ {\mathrm{distinct}}}}
+ c_{i_2}p_{i_2,i_3}\cdots p_{i_\ell,i}
+ \le K_\ell\frac{\theta_i}{n}
+\end{align*}
+by \eqref{eq:added-predecessor}.  For fixed points, use
+$p_{i,i}\le2\theta_i c_i/n$ and the $\ell=1$ interpretation of that estimate.
+Summing over $i$ and $\ell\le L$ gives
+\begin{equation}\label{eq:quantitative-high-cycles}
+ \E V_{n,L}(H_{n,M})
+ \le\frac{K_L}{n}\sum_{i\in H_{n,M}}\theta_{n,i}.
+\end{equation}
+This proves \eqref{eq:high-cycle-truncation}.  Now fix $\beta<1$.  Lemma
+\ref{lem:moderate-reservoir}, applied at a fixed number larger than $\beta$,
+and \eqref{eq:race-gap-representation} give
+\begin{equation}\label{eq:interior-window-length}
+ \sup_{i\le\beta n}\E|J_i|\le K_L/n.
+\end{equation}
+In a cycle avoiding $H_{n,M}$, the edge closing into $i$ is at most
+$M|J_i|$.  Sum all other edges with \eqref{eq:ghost-row-bound} to get
+\[
+ \Pp\bigl(i\text{ lies in a short cycle avoiding }H_{n,M}\bigr)
+ \le K_{L,M}/n.
+\]
+A cycle meeting both sets contains at most $L$ vertices from
+$L_{n,\delta}\cap[\lfloor\beta n\rfloor]$ per high-rate vertex.  Therefore
+\[
+ \E V_{n,L}\bigl(L_{n,\delta}\cap[\lfloor\beta n\rfloor]\bigr)
+ \le L\E V_{n,L}(H_{n,M})
+   +K_{L,M}\frac{|L_{n,\delta}|}{n}.
+\]
+Use \eqref{eq:profile-tail-controls}, then let $M\to\infty$, to prove
+\eqref{eq:compact-low-cycle-truncation}.
+\end{proof}
+
+For $\alpha<1$, let $C_{n,\ell}^{(\alpha)}$ count cycles all of whose labels
+are at most $\alpha n$.
+
+\begin{proposition}[Short-cycle shell tightness]
+\label{prop:cycle-endpoint-bound}
+Under Assumptions~\ref{ass:profile} and~\ref{ass:fixed-endpoint}, for every
+fixed $L$,
+\begin{equation}\label{eq:cycle-tail-tightness}
+ \lim_{\alpha\uparrow1}\limsup_n
+ \E\sum_{\ell=1}^L
+ \bigl(C_{n,\ell}-C_{n,\ell}^{(\alpha)}\bigr)=0.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+The case $\ell=1$ is Proposition~\ref{prop:endpoint-bound}.  Fix
+$2\le\ell\le L$ and put $B=2\ell+1$.  We first restrict to cycles avoiding
+$H_{n,M}$.  Proposition~\ref{prop:cycle-rate-truncation} shows that the
+discarded contribution vanishes as $M\to\infty$.
+
+Fix a large shell cutoff $J_0$ and then $\beta<1$ so close to one that, for
+all sufficiently large $n$, every label larger than $\beta n$ belongs to a
+shell with index at least $J_0$.  We also discard cycles meeting
+$L_{n,\delta}\cap[\lfloor\beta n\rfloor]$.  Their contribution vanishes as
+$\delta\downarrow0$ by Proposition~\ref{prop:cycle-rate-truncation}.
+Thus every remaining cycle vertex has rate at most $M$, and every remaining
+vertex at most $\beta n$ has rate at least $\delta$.
+
+Rotate a proposed cycle uniquely as
+\[
+ u\longrightarrow v\longrightarrow i_3\longrightarrow\cdots
+ \longrightarrow i_\ell\longrightarrow u,
+ \qquad v=\max\{u,v,i_3,\ldots,i_\ell\}.
+\]
+Conditional on the common background in \eqref{eq:ghost-window}, let
+\[
+ A_{v,u}:=\sum_{i_3,\ldots,i_\ell}
+ p_{v,i_3}\cdots p_{i_\ell,u},
+\]
+where the intermediate sums range over retained labels; both distinctness
+and the genuine-cycle restrictions $i_a<v$ are dropped, while the outer pair
+remains restricted by $u<v$.  For $\ell=2$ this means
+$A_{v,u}=p_{v,u}$.  Iterating
+\eqref{eq:ghost-row-bound} gives the pointwise bound
+\begin{equation}\label{eq:marked-return-bound}
+ \sum_u A_{v,u}\le B^{\ell-1}.
+\end{equation}
+Consequently, for any set $S$ of retained predecessors and every $t$,
+\begin{equation}\label{eq:marked-edge-bound}
+ \sum_v\one\{t\in J_v\}\sum_{u\in S}
+ \theta_u e^{-\theta_ut}A_{v,u}
+ \le B^\ell\sup_{u\in S}\theta_u e^{-\theta_ut},
+\end{equation}
+because at most $B$ target windows contain $t$.
+Here the supremum is zero when $S$ is empty, and enlarging the actual sum
+from $u<v$ to all pairs can only increase its left side.
+The unique rotation cancels the factor $1/\ell$ in the definition of the
+cycle count.  Hence \eqref{eq:ghost-cylinder-bound} gives
+\[
+ \E\bigl[\#\{\text{retained $\ell$-cycles}\}\bigr]
+ \le \E\sum_{u<v}p_{u,v}A_{v,u},
+\]
+with any further restrictions imposed on the outer pair in both sums.
+
+Suppose first that the terminal depth of $v$ belongs to
+$\mathcal D_{n,j}$, $j\ge J$.  The part of $p_{u,v}$ coming from
+$t<j-h_j$ can be nonzero only if
+\[
+ T_{n-r_{n,j}+1-\ell}<j-h_j.
+\]
+Indeed, $v\ge n-r_{n,j}+1$ and $J_v$ starts at $T_{v-\ell}$.  Jensen's
+inequality and the normalization give
+\[
+ S(j-h_j)\ge ne^{-j+h_j}\ge r_{n,j}e^{h_j}.
+\]
+For all large $j$, a Chernoff lower-tail bound therefore yields
+\[
+ \Pp\bigl(T_{n-r_{n,j}+1-\ell}<j-h_j\bigr)
+ \le \exp\{-c r_{n,j}e^{h_j}\}.
+\]
+Pointwise in the common background, the early part of $p_{u,v}$ is at most
+the indicator of this event, so the total rooted weight for each $v$ is at
+most $B^{\ell-1}$ times that indicator.  Taking expectations and using
+$|\mathcal D_{n,j}|\le r_{n,j}$, all early-window contributions are bounded
+by a constant times
+\begin{equation}\label{eq:early-cycle-shells}
+ \sum_{\substack{j\ge J\\\mathcal D_{n,j}\ne\varnothing}}
+ r_{n,j}e^{-c r_{n,j}e^{h_j}}
+ \le\sum_{r\ge1}r e^{-c r e^{h_J}}
+ \longrightarrow0.
+\end{equation}
+Here the maxima $r_{n,j}$ of the nonempty shells are distinct integers and
+$h_j\ge h_J$ for $j\ge J$.
+
+It remains to integrate $p_{u,v}$ over $t\ge j-h_j$.  If $u>\beta n$, its
+terminal depth belongs to a shell $\mathcal D_{n,r}$ with $r\ge J_0$.
+Since $u<v$, one has $r\le j$, and Lemma
+\ref{lem:diagonal-shell-buffer} gives
+$t\ge j-h_j\ge r-h_r$.  By increasing $J_0$, we may make the limsup in
+\eqref{eq:buffered-shell-condition} smaller than $\mathcal Q(1)$; then, for
+all sufficiently large $n$, every nonempty source shell $r\ge J_0$ satisfies
+$b_{n,r}(r-h_r)>1$.  As
+$b_{n,r}\le\theta_u\le M$, the map $a\mapsto ae^{-at}$ is decreasing on
+this range, and hence
+\[
+ \theta_u e^{-\theta_u t}\le b_{n,r}e^{-b_{n,r}t}.
+\]
+Apply \eqref{eq:marked-edge-bound} separately to each source shell,
+retaining $u<v$ (and hence $r\le j$) before enlarging the time range to
+$[r-h_r,\infty)$, and then sum over the shells.  Their contribution is
+at most
+\begin{equation}\label{eq:late-cycle-shells}
+ B^\ell\sum_{\substack{r\ge J_0\\\mathcal D_{n,r}\ne\varnothing}}
+ \int_{r-h_r}^\infty b_{n,r}e^{-b_{n,r}t}\,dt
+ =B^\ell\sum_{\substack{r\ge J_0\\\mathcal D_{n,r}\ne\varnothing}}
+ e^{-b_{n,r}(r-h_r)},
+\end{equation}
+which vanishes as $J_0\to\infty$ by
+\eqref{eq:buffered-shell-condition}.
+
+Finally, if $u\le\beta n$, then $\delta\le\theta_u\le M$.  For $J$ large,
+$\delta(J-h_J)>1$, so on $t\ge j-h_j\ge J-h_J$,
+\[
+ \theta_u e^{-\theta_u t}\le\delta e^{-\delta t}.
+\]
+The same marked-edge bound makes this contribution at most
+\begin{equation}\label{eq:late-cycle-bulk}
+ B^\ell\int_{J-h_J}^\infty\delta e^{-\delta t}\,dt
+ =B^\ell e^{-\delta(J-h_J)},
+\end{equation}
+which vanishes as $J\to\infty$.
+
+Choose first $M$, then $J_0$ and the corresponding $\beta$, then $\delta$,
+and finally $J$, keeping these cutoffs fixed before taking each limsup in
+$n$.  Equations
+\eqref{eq:early-cycle-shells}--\eqref{eq:late-cycle-bulk}, followed by the
+two truncation estimates, prove \eqref{eq:cycle-tail-tightness}; replacing
+$1-e^{-J}$ by an arbitrary $\alpha\uparrow1$ only requires a rounding check.
+Integer rounding can add at most one terminal-depth label, which for all
+large $n$ lies in a shell with index at least $J-1$.  Thus the estimate with
+$J-1$ proves the result along $\alpha=1-e^{-J}$, and monotonicity gives the
+general limit.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:short-cycles}]
+Fix $\alpha<1$ and nonnegative integers $m_1,\ldots,m_L$, and put
+$r=\sum_{\ell=1}^L\ell m_\ell$.  Expanding the joint falling factorial gives
+an ordered collection of vertex-disjoint cycles.  Lemma
+\ref{lem:cyclic-local} therefore yields
+\begin{equation}\label{eq:cycle-factorial-moments}
+ \E\prod_{\ell=1}^L(C_{n,\ell}^{(\alpha)})_{m_\ell}
+ \longrightarrow
+ \prod_{\ell=1}^L\lambda_\ell(\alpha)^{m_\ell},
+\end{equation}
+where
+\[
+ \lambda_\ell(\alpha):=\frac1\ell
+ \int_{[0,\alpha]^\ell}
+ \prod_{a=1}^\ell\rho(x_a,x_{a+1})\,d\boldsymbol x,
+ \qquad x_{\ell+1}=x_1.
+\]
+These are the joint factorial moments of independent Poisson variables, so
+the truncated cycle vector has the asserted limit.
+
+Proposition~\ref{prop:cycle-endpoint-bound} gives the full endpoint
+tightness~\eqref{eq:cycle-tail-tightness}.
+
+First-moment convergence and \eqref{eq:cycle-tail-tightness} show that
+\[
+ \sup_{\alpha<\beta<1}
+ \bigl[\lambda_\ell(\beta)-\lambda_\ell(\alpha)\bigr]
+ \longrightarrow0
+ \qquad(\alpha\uparrow1).
+\]
+Hence the increasing $\lambda_\ell(\alpha)$ have finite
+limits, necessarily the integrals in \eqref{eq:cycle-intensity}.  Markov's
+inequality removes the label cutoff in \eqref{eq:cycle-factorial-moments} and
+proves \eqref{eq:cycle-vector-limit}.  Finally, weak convergence on the
+countable lattice $\mathbb Z_+^L$ gives pointwise convergence of mass
+functions; Scheffe's lemma upgrades it to total variation convergence.
+\end{proof}
+
+\section{Power-law endpoint singularities and cycle CLTs}
+\label{sec:power-law}
+
+We prove Theorems~\ref{thm:power-clt} and~\ref{thm:power-spatial}
+directly under Assumption~\ref{ass:simple-power-profile}.  The population
+estimates needed in the proof are consequences of that assumption, not
+additional assumptions on a triangular array.  The critical pole is treated
+separately under the hypotheses of Theorem~\ref{thm:critical-pole}.
+The mean-one normalization used in the finite-mean part of the paper is not
+imposed in this section.
+
+\subsection{Population estimates for sampled profiles}
+
+Write $E_{n,i}\sim\operatorname{Exp}(\theta_{n,i})$ for the independent
+clocks and define
+\begin{align}
+ H_n(t)&=\frac1n\sum_i e^{-t\theta_{n,i}},&
+ G_n(t)&=1-H_n(t),&
+ D_{n,r}(t)&=\frac1n\sum_i\theta_{n,i}^r e^{-t\theta_{n,i}}.
+ \label{eq:sp-transforms}
+\end{align}
+We abbreviate $D_{n,1}$ to $D_n$.  Fix a sufficiently small
+$\epsilon_*>0$.  At each active endpoint, the rates throughout the
+$\epsilon_*$-neighborhood are between two fixed positive multiples of the
+specified power.  On the complement of the active neighborhoods the rates
+are in a fixed interval $[d,M]\subset(0,\infty)$.  These facts follow by
+first shrinking the neighborhoods so that their relative errors are less
+than $1/2$, and then using continuity, positivity, and the finite positive
+limits at inactive endpoints.  No differentiability or monotonicity of $f$
+is used.
+
+\begin{lemma}[Population transforms]\label{lem:sp-populations}
+Under Assumption~\ref{ass:simple-power-profile}, at an active right endpoint,
+put $A_-=\Gamma(1+1/\beta)c_R^{-1/\beta}$.  For some $\zeta>0$,
+uniformly as $t\to\infty$ and $nt^{-1/\beta}\to\infty$,
+\begin{align}
+ H_n(t)&=A_-t^{-1/\beta}
+  \left(1+O\left(t^{-\zeta}+(nt^{-1/\beta})^{-1}\right)\right),\notag\\
+ D_n(t)&=\frac{A_-}{\beta}t^{-1-1/\beta}
+  \left(1+O\left(t^{-\zeta}+(nt^{-1/\beta})^{-1}\right)\right).
+ \label{eq:sp-slow-transforms}
+\end{align}
+At an active left endpoint, put
+$A_+=\Gamma(1-1/\alpha)c_L^{1/\alpha}$.  Uniformly as $t\downarrow0$
+and $nt^{1/\alpha}\to\infty$,
+\begin{align}
+ G_n(t)&=A_+t^{1/\alpha}
+  \left(1+O\left(t^\zeta+(nt^{1/\alpha})^{-1}\right)\right),\notag\\
+ D_n(t)&=\frac{A_+}{\alpha}t^{1/\alpha-1}
+  \left(1+O\left(t^\zeta+(nt^{1/\alpha})^{-1}\right)\right).
+ \label{eq:sp-fast-transforms}
+\end{align}
+The constants and exponent may depend on the active endpoint.
+After deleting any fixed number $r$ of clocks, the same statements hold
+for the sums divided by $n$, with constants uniform in the deleted labels.
+\end{lemma}
+
+\begin{proof}
+We estimate the unweighted transforms together with $tD_n(t)$.  For the
+explicit monotone or unimodal kernels below, midpoint averaging introduces
+an error bounded by their supremum times $O(n^{-1})$.
+
+At the right endpoint, reflect the sampling grid and compare $f(1-s)$
+with $cs^\beta$, where $c=c_R$.  The pure-power kernels have integrals
+\[
+ \int_0^\infty e^{-ct s^\beta}\,ds=A_-t^{-1/\beta},\qquad
+ \int_0^\infty ct s^\beta e^{-ct s^\beta}\,ds
+ =\frac{A_-}{\beta}t^{-1/\beta}.
+\]
+Their suprema are uniformly bounded, and their tails beyond $s=1$ are
+exponentially small for $t\ge1$.
+
+The endpoint expansion and the mean value theorem bound the errors in
+both kernels by
+\[
+ Ct s^{\beta+\eta}e^{-dt s^\beta}
+\]
+near zero, after absorbing a linear factor into the exponential.  This
+unimodal envelope has integral $O(t^{-(1+\eta)/\beta})$ and supremum
+$O(t^{-\eta/\beta})$.  Away from the endpoint, both rates are bounded
+below, so both kernels are exponentially small; here
+$tae^{-ta}\le(2/e)e^{-ta/2}$.  Consequently,
+\[
+ |H_n(t)-A_-t^{-1/\beta}|
+ +\left|tD_n(t)-\frac{A_-}{\beta}t^{-1/\beta}\right|
+ \le C\left(t^{-(1+\eta)/\beta}+n^{-1}\right).
+\]
+Division by the leading terms proves \eqref{eq:sp-slow-transforms}.
+
+At the left endpoint, choose $0<\eta'<\min\{\eta,\alpha-1\}$ and put
+$q=\alpha-\eta'>1$.  With $c=c_L$, the pure-power integrals are
+\[
+ \int_0^\infty(1-e^{-ct s^{-\alpha}})\,ds=A_+t^{1/\alpha},\qquad
+ \int_0^\infty ct s^{-\alpha}e^{-ct s^{-\alpha}}\,ds
+ =\frac{A_+}{\alpha}t^{1/\alpha}.
+\]
+Their midpoint errors are $O(n^{-1})$, and their tails beyond $1$ are
+$O(t)$.  The perturbation errors near zero are bounded by
+\[
+ Ct s^{-q}e^{-dt s^{-\alpha}}
+ \le Ct s^{-q}e^{-dt s^{-q}},\qquad 0<s<1.
+\]
+The last kernel has integral $O(t^{1/q})$ and bounded supremum.  Away
+from zero, boundedness of both rates gives an $O(t)$ contribution.
+Since $t\le t^{1/q}$ for $0<t\le1$,
+\[
+ |G_n(t)-A_+t^{1/\alpha}|
+ +\left|tD_n(t)-\frac{A_+}{\alpha}t^{1/\alpha}\right|
+ \le C(t^{1/q}+n^{-1}).
+\]
+This gives \eqref{eq:sp-fast-transforms} with
+$\zeta=1/q-1/\alpha>0$.
+
+Finally, deleting at most $r$ terms changes either unweighted sum divided
+by $n$ by at most $r/n$, and changes $tD_n$ by at most $r/(en)$.
+These errors are already allowed, uniformly in the deleted labels.
+\end{proof}
+
+\begin{lemma}[Quantiles and deterministic weight bounds]
+\label{lem:sp-quantiles}
+At an active right endpoint define $t^R_{n,m}$ by
+$H_n(t^R_{n,m})=m/n$; at an active left endpoint define $t^L_{n,m}$
+by $G_n(t^L_{n,m})=m/n$.  There is $\xi>0$ such that, uniformly for
+$m\to\infty$ and $m/n\to0$,
+\begin{align}
+ t^R_{n,m}&=(A_-n/m)^\beta(1+O(e_{n,m})),&
+ \theta_{n,n-m+1}t^R_{n,m}&=q_R(1+O(e_{n,m})),\notag\\
+ \frac{\theta_{n,n-m+1}}{nD_n(t^R_{n,m})}
+  &=\frac{\beta q_R}{m}(1+O(e_{n,m})),
+ &&\label{eq:sp-right-quantile}\\
+ t^L_{n,m}&=(m/(A_+n))^\alpha(1+O(e_{n,m})),&
+ \theta_{n,m}t^L_{n,m}&=q_L(1+O(e_{n,m})),\notag\\
+ \frac{\theta_{n,m}}{nD_n(t^L_{n,m})}
+  &=\frac{\alpha q_L}{m}(1+O(e_{n,m})),
+ &&\label{eq:sp-left-quantile}
+\end{align}
+where $e_{n,m}=(m/n)^\xi+m^{-1}$ and $q_R,q_L$ are exactly
+\eqref{eq:simple-q-right}--\eqref{eq:simple-q-left}.
+For $t=t^\sigma_{n,m}$ and $t/4\le s\le4t$,
+\begin{equation}
+ nD_n(s)\asymp m/t,\qquad nD_{n,2}(s)\le Cm/t^2.
+ \label{eq:sp-rough-moments}
+\end{equation}
+The corresponding survivor mean $nH_n$ on the right, or arrival mean
+$nG_n$ on the left, changes by at least $cum$ between $t$ and
+$(1\pm u)t$, for $0<u\le1/2$.  Moreover
+$D_n((1\pm u)t)/D_n(t)=1+O(u)$.
+
+After deleting at most $r$ clocks, the total rate in a gap with $h$
+survivors at the right endpoint is deterministically at least
+\begin{equation}
+ c n^{-\beta}h^{\beta+1}.
+ \label{eq:sp-right-weight-floor}
+\end{equation}
+At a gap after $h+O(r)$ early arrivals at the left endpoint it is at least
+\begin{equation}
+ c_r n^\alpha h^{1-\alpha},
+ \label{eq:sp-left-weight-floor}
+\end{equation}
+provided $h\ge4r+4$ and $h\le\epsilon_* n/4$.
+For ranks in any fixed compact subinterval of $(0,1)$, the deterministic
+quantiles lie in a compact subinterval of $(0,\infty)$, $nD_n$ is
+comparable to $n$, and the remaining rate is deterministically at least
+$c n$, uniformly after bounded deletions.
+\end{lemma}
+
+\begin{proof}
+Put $x=m/n$.  Positivity of the rates makes $H_n$ strictly decreasing and
+$G_n$ strictly increasing, so the quantiles exist uniquely for $0<m<n$.
+
+We first justify inversion in the joint regime.  On the right, choose a
+fixed large $S$ where the power error in Lemma~\ref{lem:sp-populations}
+is a small fraction of the leading term.  For $x$ small and $m$ large,
+$H_n(S)>x$, hence $t=t^R_{n,m}>S$.  At this quantile the additive
+estimate gives
+\[
+ |x-A_-t^{-1/\beta}|
+ \le Ct^{-\eta/\beta}A_-t^{-1/\beta}+C/n.
+\]
+Absorbing the small errors first gives $t\asymp x^{-\beta}$;
+substitution back into the inequality gives the stated relative expansion.
+The same argument on the left, starting at a fixed small $S$ with
+$G_n(S)>x$, gives $t^L_{n,m}\asymp x^\alpha$ and then its relative
+expansion.  Thus the population remainders become positive powers of $x$.
+
+The sampled endpoint expansions have an additional $O(m^{-1})$ error
+because the endpoint distance is $x(1-1/(2m))$.  Multiplying by the
+quantile expansions gives the rate-time products, using
+\[
+ c_RA_-^\beta=q_R,\qquad c_LA_+^{-\alpha}=q_L.
+\]
+The weighted population estimates give
+\[
+ nt^R_{n,m}D_n(t^R_{n,m})=\frac m\beta(1+O(e_{n,m})),\qquad
+ nt^L_{n,m}D_n(t^L_{n,m})=\frac m\alpha(1+O(e_{n,m})).
+\]
+Choose a common positive $\xi$ below all the resulting error exponents.
+Division then proves the formulas for $\theta/(nD_n)$.
+
+For $t=t^\sigma_{n,m}$, Lemma~\ref{lem:sp-populations} applies
+uniformly on $[t/8,8t]$ and gives $nD_n(s)\asymp m/t$.  The inequality
+\[
+ D_{n,2}(s)\le\frac{2}{es}D_n(s/2)
+\]
+therefore proves the second-moment bound on $[t/4,4t]$.  Integrating
+the exact derivatives
+\[
+ H_n'=-D_n,\qquad G_n'=D_n,\qquad D_n'=-D_{n,2}
+\]
+gives the mean separation and relative weight stability.  No asymptotic
+formula is differentiated.
+
+At the right endpoint, the global bound
+\[
+ \theta_{n,i}\ge c((n-i+1)/n)^\beta
+\]
+implies that any $h$ remaining labels have total rate at least
+\[
+ cn^{-\beta}\sum_{a=1}^h a^\beta\ge c'n^{-\beta}h^{\beta+1}.
+\]
+At the left endpoint, after at most $2h$ total removals, at least $h$
+of the first $3h$ labels remain.  Each has rate at least $c(n/h)^\alpha$,
+proving the left floor.  Bounded deletion and displacement budgets are
+absorbed into this count by increasing the fixed block multiple if
+necessary and shrinking the endpoint neighborhood.
+
+Finally, the population estimates, or global rate bounds at inactive
+endpoints, provide fixed $0<a<b$ with $G_n(a)<\delta$ and
+$H_n(b)<\delta$.  Thus interior quantiles lie in $[a,b]$.  A fixed
+interior block of bounded positive rates gives $D_n\ge c$ there, while
+$D_n(s)\le1/(es)$ gives the upper bound.  Bounded deletions preserve
+these estimates.  A linear number of survivors has total rate at least
+$cn$, by the right floor when that endpoint is active and by a global
+positive rate lower bound otherwise.
+\end{proof}
+
+
+\subsection{Joint insertion estimates}
+
+Throughout this subsection we assume Assumption~\ref{ass:simple-power-profile}.
+The number of marked labels is fixed; constants may depend on this number
+and on a fixed moment order.  No monotonicity of the sampled profile is used.
+Write
+\[
+ \iota_R(m)=n-m+1,\quad \iota_L(m)=m,\qquad
+ d_R(i)=n-i+1,\quad d_L(i)=i.
+\]
+Choose a sufficiently small fixed $\delta>0$.  At an active corner let
+\[
+ x_R(a,h)=(a/h)^\beta,\qquad x_L(a,h)=(h/a)^\alpha,
+ \qquad K_\sigma(a,h)=h^{-1}k_\sigma(a/h),
+\]
+where
+\[
+ k_R(u)=\beta q_Ru^\beta e^{-q_Ru^\beta},\qquad
+ k_L(u)=\alpha q_Lu^{-\alpha}e^{-q_Lu^{-\alpha}}.
+\]
+Here $q_R,q_L$ have the values in
+\eqref{eq:simple-q-right}--\eqref{eq:simple-q-left}.
+For a sufficiently small $c>0$ put
+\[
+ H_R(a,h)=\frac1h(a/h)^\beta e^{-c(a/h)^\beta},\qquad
+ H_L(a,h)=\frac1h(h/a)^\alpha e^{-c(h/a)^\alpha}.
+\]
+The constant $c$ will always retain exponential slack: decreasing it a
+fixed number of times is allowed.  In particular, any fixed polynomial in
+$x_\sigma$ can be absorbed by this slack.
+
+\paragraph{The exact marked probability space.}
+Delete a set $D$ of at most $r$ labels.  Order the remaining independent
+clocks as
+\[
+ 0=T_0^D<T_1^D<\cdots<T_N^D<T_{N+1}^D=\infty,
+ \qquad N=n-|D|.
+\]
+For a label $i\in D$ define its conditional probability of entering gap
+$q$ by
+\begin{equation}\label{eq:sp-gap-factor}
+ X_{i,q}^D=\int_{T_q^D}^{T_{q+1}^D}
+                  \theta_{n,i}e^{-\theta_{n,i}t}\,dt.
+\end{equation}
+Suppose that distinct marked labels $i_1,\ldots,i_s$ are required to have
+distinct full ranks $j_1,\ldots,j_s$, and take $D=\{i_1,\ldots,i_s\}$.
+If $j_{e_1}<\cdots<j_{e_s}$, set
+\begin{equation}\label{eq:sp-demanded-gap}
+ q_{e_b}=j_{e_b}-b,\qquad 1\le b\le s.
+\end{equation}
+For each repeated value $q$, integrate the corresponding marked clocks
+over the ordered simplex in $(T_q^D,T_{q+1}^D)$, in the order of their
+demanded ranks.  Denote this integral by $Z_q^D$.  Independence of the
+marked clocks gives the exact identity
+\begin{equation}\label{eq:sp-cylinder-simplex}
+ \Pp(R_{n,i_e}=j_e\text{ for all }e)
+       =\E\prod_{q}Z_q^D,
+ \qquad
+ \prod_qZ_q^D\le\prod_eX_{i_e,q_e}^D.
+\end{equation}
+The second assertion follows by enlarging each ordered simplex to its
+product box.  If the $q_e$ are distinct, it is an equality.  This accounts
+for adjacent demanded ranks without assigning independent ranks to clocks
+which must occupy one ordered gap.
+
+\begin{lemma}[Moments of one insertion]\label{lem:sp-insertion-moments}
+Fix positive integers $r,p_0$.  There are
+$h_0,\nu_0,\nu,c,C>0$ such that the following assertions hold, uniformly
+after deletion of at most $r$ labels and uniformly for gap indices within
+$r+1$ of the full-rank gap under consideration.  At an active corner,
+for $h_0\le a,h\le\delta n$ and $1\le p\le p_0$, put
+\[
+ \mathcal M_\sigma(a,h)
+       =\{x_\sigma(a,h)\le(a\wedge h)^{\nu_0}\},
+ \quad
+ E_R(a,h)=e^{-ca^\nu}\one_{\mathcal M_R(a,h)^c},\quad
+ E_L(a,h)=e^{-ch^\nu}\one_{\mathcal M_L(a,h)^c}.
+\]
+Then
+\begin{equation}\label{eq:sp-insertion-lp}
+ \|X_{\iota_\sigma(a),q}^D\|_p
+                  \le C\{H_\sigma(a,h)+E_\sigma(a,h)\}.
+\end{equation}
+The exceptional kernels have bounded row and column sums.  More precisely,
+after decreasing $\nu$ and $c$,
+\begin{equation}\label{eq:sp-extreme-restricted-sums}
+ \sup_{a\ge A}\sum_{h\ge A}E_\sigma(a,h)
+ +\sup_{h\ge A}\sum_{a\ge A}E_\sigma(a,h)
+ \le Ce^{-cA^\nu}.
+\end{equation}
+The same restricted-sum assertion holds for
+$H_\sigma\one_{\mathcal M_\sigma^c}$.
+\end{lemma}
+
+\begin{proof}
+Fix $0<\nu_0\le1$, increase $h_0$ to absorb the deletion and gap-shift
+budgets, and shrink $\delta$ as necessary.  Write
+\[
+ i=\iota_\sigma(a),\qquad \theta=\theta_{n,i},\qquad
+ s=T_q^D,\qquad x=x_\sigma(a,h).
+\]
+Conditional on the background elimination chain, the nonfinal gap length
+is $\Delta=\xi/W$, where $\xi$ is standard exponential and independent
+of the preceding spacings, hence of $s$.  Lemma~\ref{lem:sp-quantiles}
+and endpoint comparability give
+\[
+ W\ge cn^{-\beta}h^{\beta+1}\ (R),\qquad
+ W\ge cn^\alpha h^{1-\alpha}\ (L),\qquad \theta/W\le Cx/h.
+\]
+Since $X_{i,q}^D=e^{-\theta s}(1-e^{-\theta\Delta})$, integration
+over $\xi$ yields
+\begin{equation}\label{eq:sp-insertion-moment-reduction}
+ \E[(X_{i,q}^D)^p]
+ \le p!(Cx/h)^p\,\E e^{-p\theta s}.
+\end{equation}
+
+Put $\tau_h^R=(n/h)^\beta$ and $\tau_h^L=(h/n)^\alpha$.  At a
+sufficiently small fixed multiple of $\tau_h^\sigma$, the population
+estimates place the survivor mean on the right well above the gap
+threshold, or the arrival mean on the left well below it.  These
+comparisons retain a fixed margin after the allowed deletions and shifts.
+Chernoff bounds therefore give
+\begin{equation}\label{eq:sp-order-lower-tail}
+ \Pp(s<k\tau_h^\sigma)\le Ce^{-dh},\qquad
+ \E e^{-p\theta s}\le C(e^{-dx}+e^{-dh}),
+\end{equation}
+using $\theta\tau_h^\sigma\asymp x$.  On the moderate set, $x\le h$,
+so \eqref{eq:sp-insertion-moment-reduction}, followed by taking $p$-th
+roots, gives $C(x/h)e^{-cx}$.
+
+For the right extreme region, put $\gamma=\beta/(\beta+1)$.  If
+$h\le a^\gamma$, repeat the survivor-count argument at comparison depth
+$y=a^\gamma$, that is, at time $k(n/y)^\beta$.  The mean is a
+sufficiently large multiple of $y$, and
+$\theta(n/y)^\beta\asymp(a/y)^\beta=y$.  Thus the survival expectation
+is at most $Ce^{-da^\gamma}$.  If $h>a^\gamma$, use
+\eqref{eq:sp-order-lower-tail}.  Together,
+\begin{equation}\label{eq:sp-right-laplace-extreme}
+ \E e^{-p\theta s}\le C(e^{-dx}+e^{-da^\gamma}).
+\end{equation}
+On $\mathcal M_R^c$,
+\[
+ a>h,\qquad x>a^{\beta\nu_0/(\beta+\nu_0)},\qquad x/h\le a^\beta.
+\]
+Choosing
+$\nu<\min\{\beta\nu_0/(\beta+\nu_0),\gamma\}$, polynomial absorption
+in \eqref{eq:sp-insertion-moment-reduction} gives $Ce^{-ca^\nu}$.
+
+Similarly, on $\mathcal M_L^c$,
+\[
+ h>a,\qquad x>h^{\alpha\nu_0/(\alpha+\nu_0)},\qquad x/h\le h^\alpha.
+\]
+Equations~\eqref{eq:sp-insertion-moment-reduction}
+and~\eqref{eq:sp-order-lower-tail} give $Ce^{-ch^\nu}$ for
+$\nu<\min\{\alpha\nu_0/(\alpha+\nu_0),1\}$.  Constants can be chosen
+uniformly for $1\le p\le p_0$, proving the insertion bound.
+
+For the restricted sums, keep these kernels fixed.  The right exceptional
+support satisfies $h<a^{\beta/(\beta+\nu_0)}<a$.  Its row sum is
+therefore at most $ae^{-ca^\nu}$, and its restricted column sum is at
+most $\sum_{a\ge A}e^{-ca^\nu}$.  Both give the required
+stretched-exponential tail after weakening the tail constant.  The left
+case follows with the roles interchanged.
+
+Finally, on the extreme sets, the displayed lower bounds for $x$ and
+the inequality $xe^{-cx}\le Ce^{-cx/2}$ dominate the restricted typical
+kernels by exceptional kernels with positive stretched-exponential
+exponents.  The same summation argument applies.  Taking common smaller
+constants and exponents in the tail bounds completes the proof.
+\end{proof}
+
+\begin{lemma}[Global domination and excursions]\label{lem:sp-domination}
+For every fixed $r$ there is a deterministic nonnegative matrix $M_n(i,j)$
+such that every cylinder of at most $r$ distinct marked labels and distinct
+demanded ranks satisfies
+\begin{equation}\label{eq:sp-global-cylinder-bound}
+ \Pp(R_{n,i_e}=j_e\text{ for all }e)\le C_r\prod_eM_n(i_e,j_e).
+\end{equation}
+It can be chosen to have
+\begin{equation}\label{eq:sp-global-row-bound}
+ \sup_i\sum_jM_n(i,j)\le C_r,
+\end{equation}
+and, with $m=d_\sigma(j)$ at an active corner,
+\begin{equation}\label{eq:sp-global-target-bound}
+ \sup_iM_n(i,j)\le C_r/m
+       \quad(m\le\delta n),\qquad
+ \sup_iM_n(i,j)\le C_r/n
+       \quad(\delta n\le j\le(1-\delta)n).
+\end{equation}
+Its column sums are bounded for active-corner and middle targets.  For
+source and target in the same active corner it is bounded by
+$C_r(H_\sigma+E_\sigma)$, apart from a fixed number of endpoint indices,
+which obey the bounds in the proof below.  For some $\kappa>0$ it also has
+\begin{align}
+ \sup_i\sum_jM_n(i,j)
+       \left(\frac{d_R(j)}{d_R(i)}\right)^\kappa&\le C_r
+          &&\text{if $R$ is active},\label{eq:sp-right-weighted-row}\\
+ \sup_i\sum_jM_n(i,j)
+       \left(\frac{d_L(i)}{d_L(j)}\right)^\kappa&\le C_r
+          &&\text{if $L$ is active}.\label{eq:sp-left-weighted-row}
+\end{align}
+In particular, for fixed $\ell$, the expected number of $\ell$-cycles
+whose largest vertex is $\iota_\sigma(m)$ is at most $C_\ell/m$ at an
+active corner and at most $C_\ell/n$ in the middle.  Among cycles rooted at
+active-corner distances $A\le m\le B\le\delta n$, requiring every vertex
+to have its distance in $[A,B]$ discards only $O_\ell(1)$ in expectation.
+\end{lemma}
+
+\begin{proof}
+Put $p=r+1$.  Define $M_n(i,j)$ as the maximum of $\|X_{i,q}^D\|_p$
+over deletion sets of size at most $p$ and valid background gaps satisfying
+$|q-(j-1)|\le p+1$.  Here the gap integral defines $X_{i,q}^D$ for
+every source label, whether or not it belongs to $D$.  This is a finite
+maximum, and $0\le M_n(i,j)\le1$.  All estimates below are uniform in
+these choices, which may vary from entry to entry.
+
+For a cylinder with $s\le r$ marks, the ordered-simplex bound and
+H\"older's inequality give
+\[
+ \Pp(R_{n,i_e}=j_e\text{ for all }e)
+ \le \E\prod_eX_{i_e,q_e}^D
+ \le\prod_e\|X_{i_e,q_e}^D\|_s
+ \le\prod_eM_n(i_e,j_e).
+\]
+Thus it remains to establish the matrix estimates.
+
+For targets away from a fixed number of endpoint indices, the moment
+reduction in Lemma~\ref{lem:sp-insertion-moments} gives the ordinary bound
+\begin{equation}\label{eq:sp-global-ordinary-kernel}
+ \frac{C}{d_j}\theta_{n,i}\tau_j e^{-c\theta_{n,i}\tau_j},
+ \qquad
+ (d_j,\tau_j)=
+ \begin{cases}
+ (j,(j/n)^\alpha),&\text{active left targets},\\
+ (n-j+1,(n/(n-j+1))^\beta),&\text{active right targets},\\
+ (n,1),&\text{middle targets}.
+ \end{cases}
+\end{equation}
+For sources and targets in the same active corner,
+Lemma~\ref{lem:sp-insertion-moments} supplies the exceptional term
+$CE_\sigma$.  Outside the right source block, the rates are bounded
+below; its alternative-time argument, now at comparison depth
+$n^{\beta/(\beta+1)}$, supplies an exceptional term $Ce^{-cn^\nu}$.
+Outside the left source block the rates are bounded above, so
+$\theta_i(j/n)^\alpha<1$ after shrinking the target block and the
+moderate estimate suffices.  Middle targets have remainder $Ce^{-cn}$.
+Polynomial rate prefactors are absorbed into these exponentials.
+
+For the finitely many earliest active-left targets, the remaining-rate
+floor gives $C\theta_i/n^\alpha$.  For the finitely many active-right
+terminal targets, including the infinite final gap, bound the insertion
+factor by survival to an earlier fixed terminal depth.  The
+alternative-time estimate gives $Ce^{-ca^\nu}$ for right-source depth
+$a$, and $Ce^{-cn^\nu}$ outside that block.
+
+At an inactive left endpoint, rates are bounded above and the remaining
+rate is at least $cn$; retain the bound $C\theta_i/n$.  At an inactive
+right endpoint, rates are bounded below, and a linear number are also
+bounded above by a fixed $M$.  At time $c_0\log(n/m)$, this latter
+group has at least $c\sqrt{nm}$ expected survivors when $c_0M<1/2$.
+Chernoff and the moment reduction give
+\begin{equation}\label{eq:sp-inactive-terminal-kernel}
+ M_n(i,j)\le
+ \frac{C\theta_i}{m}(m/n)^{c\theta_i}
+ +Ce^{-c\sqrt{nm}},\qquad m=n-j+1.
+\end{equation}
+For bounded $m$, the survival factor alone gives the same bound after
+reducing $c$.  These estimates cover all gaps.
+
+The ordinary row sums are bounded by sum--integral comparison, using
+$u=\theta_i\tau_j$.  The active-corner integrals reduce to constant
+multiples of $\int_0^\infty e^{-cu}\,du$; the inactive terminal integral is
+\[
+ \int_0^1\theta_i u^{c\theta_i-1}\,du=1/c.
+\]
+The middle and inactive-left row sums are bounded directly.  Exceptional
+sums are bounded by Lemma~\ref{lem:sp-insertion-moments} and
+stretched-exponential decay.
+
+For active columns, the same comparison gives
+\[
+ \sum_a(h/a)^\alpha e^{-c(h/a)^\alpha}\le Ch,\qquad
+ \sum_a(a/h)^\beta e^{-c(a/h)^\beta}\le Ch.
+\]
+Sources outside the corresponding corner contribute at most
+$Cn(h/n)^\alpha\le Ch$ on the left and
+$Cn e^{-c(n/h)^\beta}\le Ch$ on the right.  Division by the target
+depth proves the column bounds.  Middle columns follow from boundedness
+of $\theta e^{-c\theta}$.  The fixed endpoint columns use
+$\sum_a a^{-\alpha}<\infty$ and $\sum_a e^{-ca^\nu}<\infty$.
+Finally, boundedness of $ue^{-cu}$, together with the exceptional support
+restrictions, gives the target maxima.  Enlarging constants handles the
+finitely many small array sizes.
+
+Choose a common $\kappa>0$ with $\kappa<\beta$ at an active right
+endpoint and $\kappa<\alpha$ at an active left endpoint.  The local
+ordinary row integrals remain bounded after inserting the respective
+weights $(h/a)^\kappa$ and $(a/h)^\kappa$.  Local exceptional edges
+have weight at most one.
+
+For a right source of depth $a$, the total mass outside the right target
+block is $O(\theta_i)=O((a/n)^\beta)$, which absorbs $(n/a)^\kappa$.
+Sources outside that source block have bounded right-depth ratios, so
+their ordinary row bound suffices.  For the left weight, targets outside
+the left block have bounded weight.  Sources outside the left source
+block have bounded rates, and their left-target contribution is bounded by
+\[
+ C\theta_i n^{-\alpha}
+ \sum_{h\le\delta n}h^{\alpha-1}(n/h)^\kappa\le C.
+\]
+The fixed endpoint estimates above also satisfy these weighted bounds.
+This proves both global weighted row estimates.
+
+For cycles of length $\ell$, use the construction with a sufficient mark
+budget.  At a root $v$, bound the closing edge by $C/d_\sigma(v)$,
+or $C/n$ in the middle, and sum the remaining edges using the row bound.
+Dropping distinctness and maximality only enlarges the sum, proving the
+rooted-cycle estimates.
+
+Finally, a largest-label right root of depth $m$ can leave $[A,B]$
+only through depths greater than $B$; a left root can leave only through
+depths below $A$.  Iterating the weighted row bounds along an open path,
+and summing over its possible escape positions, gives respective path bounds
+\[
+ C_\ell(m/B)^\kappa,\qquad C_\ell(A/m)^\kappa.
+\]
+Multiplying by the closing-edge bound $C_\ell/m$ and summing over
+$A\le m\le B$ gives $O_\ell(1)$ in either case.  The row bounds are
+global, so these estimates include paths through the middle or the
+opposite corner.
+\end{proof}
+
+\paragraph{Order-time concentration with a marked background.}
+Let $t_h^\sigma$ denote the deterministic full-array mean quantile:
+$nH_n(t_h^R)=h$ or $nG_n(t_h^L)=h$, and let
+$\mu_h^\sigma=nD_n(t_h^\sigma)$.  These equations also specify the
+notation when a bounded deletion is made; the deletion is treated as an
+error, not as a change of quantile.
+Lemma~\ref{lem:sp-quantiles} and Chernoff give, at a gap of corner
+distance $h+O_r(1)$,
+\begin{equation}\label{eq:sp-joint-population-concentration}
+ \Pp\left(
+   |T_q^D/t_h^\sigma-1|>Ch^{-1/4}
+   \text{ or }|W_q^D/\mu_h^\sigma-1|>Ch^{-1/4}
+        \right)
+ \le Ce^{-c\sqrt h}.
+\end{equation}
+Here is the weight argument explicitly.  For independent Bernoulli
+variables $B_i$ with means $p_i=e^{-\theta_i s}$, the inequalities
+$\log(1+z)\le z$ and
+$e^v-1-v\le\tfrac12v^2e^{|v|}$ give
+\[
+ \log\E\exp\left\{\lambda\sum_i\theta_i(B_i-p_i)\right\}
+ \le\frac{\lambda^2}{2}\sum_i\theta_i^2
+                         e^{-\theta_i(s-|\lambda|)}
+ \le\frac{\lambda^2}{2}nD_{n,2}(s/2),
+ \qquad |\lambda|\le s/2.
+\]
+Here $D_{n,2}(s)=n^{-1}\sum_i\theta_i^2e^{-s\theta_i}$.
+At $s=t_\pm=(1\pm h^{-1/4})t_h^\sigma$, the deterministic bound is
+$nD_{n,2}(s/2)\le Ch/(t_h^\sigma)^2$.
+Taking $\lambda$ equal to a sufficiently small constant times
+$h^{-1/4}t_h^\sigma$, with either sign, proves an exponential bound
+$2e^{-c\sqrt h}$ at deviation $h^{3/4}/t_h^\sigma$.
+Deleting a fixed number of clocks changes a weighted mean by at most
+$C_r/t_h^\sigma$, since $\theta e^{-\theta t}\le C/t$.
+The count-mean separation places $T_q^D$ between $t_-$ and $t_+$ with
+error $Ce^{-c\sqrt h}$; monotonicity of the surviving weight in time and
+the deterministic mean stability then prove the display.  Monotonicity of
+the profile is not involved.
+
+\begin{proposition}[Joint local insertion law]\label{prop:sp-joint-insertion}
+Fix $r$.  For each of at most $r$ marked edges choose an active corner
+$\sigma_e$, a source $i_e=\iota_{\sigma_e}(a_e)$ and a demanded full rank
+$j_e=\iota_{\sigma_e}(h_e)$, with distinct sources and distinct ranks.
+Different edges may belong to different active corners.  Suppose that
+$h_0\le a_e,h_e\le\delta n$, that all edges are moderate in the sense of
+Lemma~\ref{lem:sp-insertion-moments}, and that $|j_e-j_f|>2r$ for $e\ne f$.
+There are $\kappa,C>0$, depending on $r$, such that
+\begin{align}
+ &\left|\Pp(R_{n,i_e}=j_e\text{ for all }e)
+                   -\prod_eK_{\sigma_e}(a_e,h_e)\right|\notag\\
+ &\qquad\le C\prod_eH_{\sigma_e}(a_e,h_e)
+   \sum_e\left\{(a_e\wedge h_e)^{-\kappa}
+                   +((a_e\vee h_e)/n)^\kappa\right\}.
+ \label{eq:sp-joint-insertion-error}
+\end{align}
+For all other configurations the product domination in
+\eqref{eq:sp-global-cylinder-bound} remains valid, including adjacent
+demanded ranks.  In particular, if every endpoint distance belongs to
+$[A,B]$, the error on the moderate separated configurations is bounded by
+$C(A^{-\kappa}+(B/n)^\kappa)\prod_eH_{\sigma_e}(a_e,h_e)$.
+\end{proposition}
+
+\begin{proof}
+Delete the marked labels and order the demanded ranks as in
+\eqref{eq:sp-demanded-gap}.  Their separation makes the corresponding
+background gaps distinct and, after increasing $h_0$, nonfinal.  Write
+\[
+ X_e=X_{i_e,q_e}^D,\qquad
+ \xi_e=W_e(T_{q_e+1}^D-T_{q_e}^D),\qquad
+ K_e=K_{\sigma_e}(a_e,h_e),\quad H_e=H_{\sigma_e}(a_e,h_e).
+\]
+The exact insertion identity gives
+\[
+ \Pp(R_{n,i_e}=j_e\text{ for all }e)=\E\prod_eX_e.
+\]
+Conditional on the background elimination chain, the selected normalized
+gaps are independent standard exponentials.  Consequently, with $s$ the
+number of marks and $Y=\prod_e\xi_e$,
+\[
+ \E Y=1,\qquad \E(\xi_eY)=2,\qquad \E Y^2=2^s.
+\]
+We use these identities without asserting independence of the insertion
+factors.
+
+The quantile and remaining-weight estimates give measurable events $G_e$
+with
+\[
+ \Pp(G_e^c)\le Ch_e^{-1/2},
+\]
+on which the gap starting time and remaining rate differ relatively from
+their deterministic values by $O(h_e^{-1/4})$.  Together with the sampled
+endpoint expansions, these estimates imply, for some $\rho>0$,
+\[
+ K_e\le CH_e,\qquad X_e\le CH_e\xi_e,\qquad
+ |X_e-K_e\xi_e|
+ \le CH_e\left(\varepsilon_e\xi_e+\frac{\xi_e^2}{h_e}\right),
+\]
+where
+\[
+ \varepsilon_e=h_e^{-1/4}+(a_e\wedge h_e)^{-1}
+ +\left(\frac{a_e\vee h_e}{n}\right)^\rho.
+\]
+Indeed, expand $1-e^{-\theta_e\Delta_e}$ to first order, using
+$\Delta_e=\xi_e/W_e$, and compare the coefficient
+$e^{-\theta_eT_{q_e}^D}\theta_e/W_e$ with $K_e$.
+The exponential slack in $H_e$ absorbs the resulting powers of
+$x_{\sigma_e}(a_e,h_e)$.  All estimates are uniform in the bounded
+deletions and rank displacements.
+
+Put $G=\bigcap_eG_e$.  Telescoping the product on $G$ gives
+\[
+ \left|\prod_eX_e-\left(\prod_eK_e\right)Y\right|
+ \le C_r\left(\prod_eH_e\right)
+ Y\sum_e\left(\varepsilon_e+\frac{\xi_e}{h_e}\right).
+\]
+Integration and the displayed gap moments bound this contribution by
+$C_r\prod_eH_e\sum_e(\varepsilon_e+h_e^{-1})$.
+
+On $G^c$, H\"older and the moderate-case estimate of
+Lemma~\ref{lem:sp-insertion-moments} give
+\begin{equation}\label{eq:sp-holder-weighted-bad}
+ \E\left[\one_{G^c}\prod_eX_e\right]
+ \le \Pp(G^c)^{1/2}\prod_e\|X_e\|_{2s}
+ \le C_r\left(\prod_eH_e\right)\Pp(G^c)^{1/2}.
+\end{equation}
+The comparison product has the same bound by Cauchy--Schwarz, since
+$\E Y^2=2^s$ and $K_e\le CH_e$.  Moreover,
+\[
+ \Pp(G^c)^{1/2}
+ \le C_r\left(\sum_eh_e^{-1/2}\right)^{1/2}
+ \le C_r\sum_eh_e^{-1/4}.
+\]
+Thus no independence between $G$ and the selected gaps is needed.
+
+Choose a common $0<\kappa\le\min\{\rho,1/8\}$, and take the moderation
+exponent to be $1/16$.  Every error above is bounded by a constant times
+\[
+ \sum_e\left\{(a_e\wedge h_e)^{-\kappa}
+ +\left(\frac{a_e\vee h_e}{n}\right)^\kappa\right\}.
+\]
+Since $\E Y=1$, this proves \eqref{eq:sp-joint-insertion-error}.
+Restricting all distances to $[A,B]$ gives the interval estimate,
+absorbing the number of marks into the constant.  Global domination for
+the remaining configurations follows from Lemma~\ref{lem:sp-domination}.
+The empty configuration is immediate.
+\end{proof}
+
+
+\begin{lemma}[An integrable density envelope]\label{lem:sp-density-envelope}
+Let $E_1,\ldots,E_n$ be independent continuous random variables with
+densities $g_1,\ldots,g_n$, and let $R_i$ be the rank of $E_i$ in increasing
+order.  Suppose $S\subseteq[n]$ and $h:\R\to[0,\infty)$ satisfy
+$g_i(t)\le h(t)$ for $i\in S$ and $\int_\R h(t)\,dt<\infty$.
+For every fixed $\ell\ge1$, there is a constant $K_\ell$, independent of
+$n$, the clock laws, and $S$, such that
+\[
+ \E\#\{i\in S:i\text{ belongs to an }\ell\text{-cycle of }R\}
+ \le K_\ell\int_\R h(t)\,dt.
+\]
+\end{lemma}
+
+\begin{proof}
+We prove the assertion with $K_\ell=3^\ell$.  For a background vector
+$x=(x_1,\ldots,x_n)$, let $x^{i,t}$ be obtained by replacing $x_i$ with
+$t$, and write
+\[
+ F_i(x)=\one\{i\text{ belongs to an }\ell\text{-cycle of the rank
+ permutation of }x\}.
+\]
+Independence and integration in the $i$-th coordinate give
+\[
+ \E F_i(E)=\int_{\mathbb R}g_i(t)\,\E F_i(E^{i,t})\,dt.
+\]
+Thus density domination and Tonelli's theorem yield
+\[
+ \E\sum_{i\in S}F_i(E)
+ \le\int_{\mathbb R}h(t)\,
+       \E\sum_{i\in S}F_i(E^{i,t})\,dt.
+\]
+
+It remains to bound the sum inside the expectation.  Fix distinct
+background values $x_1,\ldots,x_n$ and a time $t$ different from all of
+them.  Let $R$ be the background rank permutation and
+$N(t)=\#\{j:x_j<t\}$.  Replacing one coordinate changes the rank of
+every unchanged clock by at most one; the replacement clock itself has
+rank within one of $N(t)+1$.
+
+Suppose $i$ belongs to an $\ell$-cycle of the modified rank permutation
+$R^{i,t}$.  Following that cycle from the successor of $i$ back to $i$
+gives a sequence
+\[
+ v_1=R^{i,t}(i),\quad v_2,\ldots,v_\ell=i
+\]
+satisfying
+\[
+ |v_1-(N(t)+1)|\le1,\qquad
+ |v_{a+1}-R(v_a)|\le1\quad(1\le a<\ell).
+\]
+Indeed, exact cycle length ensures that the intermediate sources $v_a$
+differ from the replaced label $i$.  There are at most three choices
+for $v_1$, and at most three for each subsequent label.  Hence there
+are at most $3^\ell$ such sequences.  Their final labels determine
+their roots, so
+\[
+ \sum_{i\in S}F_i(x^{i,t})\le3^\ell.
+\]
+
+For each fixed $t$, independence and the existence of densities ensure
+that the background values are almost surely distinct and avoid $t$.
+Applying this deterministic bound in the preceding integral proves
+\[
+ \E\#\{i\in S:i\text{ belongs to an }\ell\text{-cycle of }R\}
+ \le3^\ell\int_{\mathbb R}h(t)\,dt.
+\]
+\end{proof}
+
+
+\subsection{Cycle bounds and logarithmic traces}
+\label{subsec:sp-cycle-traces}
+
+Throughout this subsection and the next two we assume
+Assumption~\ref{ass:simple-power-profile}.  Constants may depend on the
+profile and on a fixed upper bound for the number of marked clocks.  Write
+\[
+ d_R(i)=n+1-i,\qquad d_L(i)=i.
+\]
+A cycle is always rooted at its largest label, as in the introduction.
+Its root therefore has the smallest right distance and the largest left
+distance among its vertices.
+
+We first record consequences of the insertion estimates that hold before
+any asymptotic approximation is made.  The domination matrix in
+Lemma~\ref{lem:sp-domination} can be chosen for any fixed number of marked
+clocks.  We denote it by $F$; thus the probability of a prescribed finite
+collection of assignments is bounded by the product of its $F$ entries.
+Its row sums are bounded.  For an active target corner $\sigma$, its
+entries satisfy
+\begin{equation}\label{eq:sp-F-target}
+ F(i,j)\le \frac{C}{d_\sigma(j)}
+ \quad\text{when }j\text{ belongs to a sufficiently small fixed
+ neighborhood of that corner}.
+\end{equation}
+The same lemma supplies the weighted row bounds, with some $\kappa>0$,
+\begin{align}
+ \sum_jF(i,j)\left(\frac{d_R(j)}{d_R(i)}\right)^\kappa&\le C,
+ &&\text{at an active right corner},\label{eq:sp-row-right}\\
+ \sum_jF(i,j)\left(\frac{d_L(i)}{d_L(j)}\right)^\kappa&\le C,
+ &&\text{at an active left corner}.\label{eq:sp-row-left}
+\end{align}
+Here and below the global versions of these bounds include paths that
+leave the endpoint neighborhood.  Products along any fixed number of
+steps have the same bounds with a different constant, because the weight
+in each display telescopes along the path.
+
+\begin{lemma}[Root and excursion bounds]\label{lem:sp-root-excursion}
+Fix $L$.  At an active corner $\sigma$, the expected number of
+$\ell$-cycles with root distance $m$ is at most $C_L/m$, uniformly for
+$\ell\le L$ and $m$ in a sufficiently small fixed endpoint neighborhood.
+The contribution of a fixed middle interval, and that of every inactive
+endpoint, is bounded uniformly in $n$.
+
+For $1\le A\le B$ within an active endpoint neighborhood, the expected
+number of cycles whose root distance lies in $[A,B]$ but which have a
+vertex outside that distance interval is $O_L(1)$.  More generally, for
+$R\ge1$, the expected number with root distance in $[A,B]$ and with some
+vertex at logarithmic distance at least $\log R$ from the root is at most
+\begin{equation}\label{eq:sp-log-excursion}
+ C_L(1+\log(B/A))R^{-\kappa_L}.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+The active-corner root bound and the $O_\ell(1)$ interval-exit bound follow
+from Lemma~\ref{lem:sp-domination}.  Taking maxima of the constants and a
+common smaller endpoint neighborhood makes both estimates uniform for
+$1\le\ell\le L$.
+
+In a fixed middle interval or a sufficiently small neighborhood of an
+inactive endpoint, the sampled rates lie in some fixed interval
+$[d,M]\subset(0,\infty)$.  Their densities are dominated by
+\[
+ h(t)=Me^{-dt}\one_{\{t\ge0\}},\qquad
+ \int_{\mathbb R}h(t)\,dt=M/d.
+\]
+Lemma~\ref{lem:sp-density-envelope} therefore bounds the expected number
+of vertices in these regions belonging to an $\ell$-cycle by
+$3^\ell M/d$.  This also bounds the number of cycles rooted there,
+uniformly for $\ell\le L$.
+
+It remains to prove the logarithmic-excursion estimate.  Fix a root of
+endpoint distance $m$.  For $1\le R\le2$, its contribution is at most
+$C_L/m$, which is bounded by $C'_Lm^{-1}R^{-\kappa_L}$ after increasing
+the constant.
+
+Suppose $R>2$.  At the right corner, the largest-label root has minimum
+endpoint distance.  Thus logarithmic distance at least $\log R$ requires
+a vertex of distance at least $Rm$, and hence greater than $Rm/2$.
+Apply the global weighted row bound along the open path to that vertex,
+and the ordinary row bound thereafter.  Bounding the closing edge by
+$C_L/m$ gives
+\[
+ \frac{C_L}{m}\left(\frac{m}{Rm/2}\right)^{\kappa_L}
+ \le \frac{C'_L}{m}R^{-\kappa_L}.
+\]
+At the left corner, the root has maximum endpoint distance.  The
+corresponding event requires a vertex of distance at most $m/R$, hence
+below $2m/R$.  The left weighted row bound gives the same estimate.
+Summing over the possible vertex positions changes only the constant;
+the global bounds include paths through the middle or the opposite corner.
+
+Finally,
+\[
+ \sum_{\substack{m\in\mathbb N\\A\le m\le B}}\frac1m
+ \le1+\log(B/A).
+\]
+Summing the per-root estimate proves \eqref{eq:sp-log-excursion}.
+A common positive exponent and common constants may be chosen over the
+finitely many cycle lengths and active corners.
+\end{proof}
+
+For an active corner put
+\[
+ K_R(a,b)=\frac1b\,\beta q_R(a/b)^\beta
+              e^{-q_R(a/b)^\beta},\qquad
+ K_L(a,b)=\frac1b\,\alpha q_L(a/b)^{-\alpha}
+              e^{-q_L(a/b)^{-\alpha}}.
+\]
+These are deterministic ideal kernels on endpoint distances.  They are
+not asserted to be globally uniform pointwise approximations to an
+averaged insertion probability.  They are used below only through
+Proposition~\ref{prop:sp-joint-insertion} and its domination estimates.
+In logarithmic coordinates their increment densities are, respectively,
+$p_{\beta,q_R}$ and the reflection of $p_{\alpha,q_L}$.  Denote the
+appropriate density by $p_\sigma$.  Reflection does not change its return
+density at zero, and
+\[
+ b_{\sigma,\ell}=\frac1\ell p_\sigma^{*\ell}(0).
+\]
+
+For integer cutoffs $A\le B$, let $\lambda_{n,\sigma,\ell}(A,B)$ be the
+sum of $\prod_{j=1}^\ell K_\sigma(a_j,a_{j+1})$, $a_{\ell+1}=a_1$,
+over distinct vertices in $[A,B]$, divided by $\ell$.  If a root interval
+is specified, retain only cycles whose largest-label root has its
+distance in that interval.  These exact ideal sums, including their
+boundary corrections, will be the means used in the factorial-moment
+comparison.
+
+\begin{lemma}[Ideal traces]\label{lem:sp-ideal-traces}
+For fixed $\ell$, as $A\to\infty$, uniformly for $B\ge A$,
+\begin{equation}\label{eq:sp-ideal-total}
+ \lambda_{n,\sigma,\ell}(A,B)
+ =b_{\sigma,\ell}\log(B/A)+O_\ell(1)
+   +O_\ell\bigl((1+\log(B/A))/A\bigr).
+\end{equation}
+Let $A_n=\lceil\exp((\log n)^{1/4})\rceil$ and
+$B_n=\lfloor n/A_n\rfloor$.  For a fixed interval
+$I=(a,b]$ with $0<a<b<1$, the ideal sum restricted to vertices in
+$[A_n,B_n]$ and root distance in $(n^a,n^b]$ satisfies
+\begin{equation}\label{eq:sp-ideal-spatial}
+ \lambda_{n,\sigma,\ell,I}
+ =b_{\sigma,\ell}|I|\log n
+   +O_\ell\bigl((1+\log n)^K A_n^{-\kappa}\bigr)
+\end{equation}
+for some $\kappa>0$ and finite $K$.
+\end{lemma}
+
+\begin{proof}
+Write $\lambda_\sigma(A,B)=\lambda_{n,\sigma,\ell}(A,B)$ and
+$p=p_\sigma$.  For $y_0=y_\ell=0$, put
+\[
+ W(\boldsymbol y)=\prod_{j=0}^{\ell-1}p(y_j-y_{j+1}),
+ \qquad
+ R(\boldsymbol y)=\max_{0\le j<\ell}y_j-\min_{0\le j<\ell}y_j.
+\]
+The explicit density satisfies $p(x)+|p'(x)|\le Ce^{-g|x|}$.
+Consequently $\int e^{cR}W<\infty$ for some $c>0$, by bounding one
+factor and integrating the remaining increments.  In logarithmic
+coordinates, the continuous trace over an interval of width $T$ is
+\[
+ \frac1\ell\int_{\mathbb R^{\ell-1}}(T-R)_+W
+ =b_{\sigma,\ell}T-d_{\sigma,\ell}+O_\ell(e^{-cT}),
+ \qquad
+ d_{\sigma,\ell}=\frac1\ell\int_{\mathbb R^{\ell-1}}RW.
+\]
+Indeed, $\int W=p^{*\ell}(0)$, and
+$(T-R)_+=T-R+(R-T)_+$; exponential integrability bounds the last
+term.  For $\ell=1$, the range and boundary constant are zero.
+
+The identity
+\[
+ K_\sigma(u,v)=\frac{p(\log u-\log v)}{v}
+\]
+allows comparison with logarithmic cells
+$[\log m,\log(m+1))$.  Their widths are
+$m^{-1}(1+O(A^{-1}))$.  Telescoping the product and using the derivative
+envelope gives total error $O_\ell((1+T)/A)$, including the upper
+boundary adjustment, where $T=\log(B/A)$.  Removing repeated vertices
+costs $O_\ell(A^{-1})$: bounded kernel rows and the entry bound $C/v$
+bound each prescribed coincidence by
+$C_\ell\sum_{m=A}^B m^{-2}$.
+Thus, uniformly for $B\ge A$,
+\[
+ \lambda_\sigma(A,B)
+ =b_{\sigma,\ell}\log(B/A)-d_{\sigma,\ell}
+ +O_\ell\!\left(\frac{1+\log(B/A)}{A}
+                  +e^{-c\log(B/A)}\right).
+\]
+This implies~\eqref{eq:sp-ideal-total}.
+
+For the spatial estimate, set $P=\lfloor n^a\rfloor$ and
+$Q=\lfloor n^b\rfloor$.  For large $n$, $A_n\le P<Q<B_n$.
+Since the canonical root has maximum left depth and minimum right
+depth, respectively, the exact identities are
+\[
+ \lambda_{n,\sigma,\ell,I}
+ =
+ \begin{cases}
+  \lambda_L(A_n,Q)-\lambda_L(A_n,P),&\sigma=L,\\
+  \lambda_R(P+1,B_n)-\lambda_R(Q+1,B_n),&\sigma=R.
+ \end{cases}
+\]
+Apply the refined expansion to both terms.  The constants
+$d_{\sigma,\ell}$ cancel.  Every interval appearing here has
+logarithmic width at least $c_I\log n$, so its exponential remainder
+is $O(A_n^{-1})$, since $\log A_n=o(\log n)$.  The lattice errors are
+$O_\ell((1+\log n)/A_n)$, and rounding changes the difference of
+logarithmic widths from $(b-a)\log n$ by $O(n^{-a})$.  Hence
+\[
+ \lambda_{n,\sigma,\ell,I}
+ =b_{\sigma,\ell}(b-a)\log n
+ +O_\ell\!\left(\frac{1+\log n}{A_n}\right),
+\]
+which proves~\eqref{eq:sp-ideal-spatial} with $K=\kappa=1$.
+\end{proof}
+
+\subsection{Mixed factorial moments}
+\label{subsec:sp-factorial-moments}
+
+We now compare actual core cycles with the ideal sums.  All constants in
+this comparison may depend on the fixed factorial-moment order.  This
+dependence is harmless; no estimate uniform in that order is needed.
+
+\begin{lemma}[Overlaps and nearby ranks]\label{lem:sp-collisions}
+Fix a finite number $s$ of proposed cycles of lengths at most $L$, all
+with vertices in endpoint cores of distances $[A,B]$.  Suppose their
+joint weight is bounded by a product of a matrix having bounded row sums
+and entries at most $C/b$ for a core target of distance $b$.  The sum of
+such weights over assignments in which the actual labels in two specified
+vertex slots differ by at most a fixed $D$ is at most
+\begin{equation}\label{eq:sp-collision-sum}
+ C_{s,L,D}A^{-1}(1+\log(B/A))^{s-1}.
+\end{equation}
+For slots in the same corner this is equivalent to their endpoint
+distances differing by at most $D$.  This includes equal vertices.
+The same bound, with a changed constant,
+holds for the union over every pair of slots.
+\end{lemma}
+
+\begin{proof}
+Put $H=1+\log(B/A)$, and write $d_\sigma(i)$ for the endpoint
+distance of label $i$.  Restrict $F$ to each corner core, obtaining
+$F_\sigma$.  Bounded rows and the target bound imply, for every
+fixed $j\ge1$,
+\[
+ (F_\sigma^j)(u,v)\le \frac{C_j}{d_\sigma(v)},
+ \qquad
+ \operatorname{Tr}(F_\sigma^j)\le C_jH.
+\]
+For two distinct slots in one cycle, split the cycle into the two
+positive-length paths between them.  For slots in different cycles,
+root each cycle at its selected slot.  In either case, summing the
+other vertices of the affected cycles gives at most
+\[
+ \frac{C_{s,L}}{d_\sigma(u)d_\tau(v)}.
+\]
+
+Each label has at most $2D+1$ labels within distance $D$.  Since
+endpoint distance is injective on each core and
+$2/(xy)\le x^{-2}+y^{-2}$,
+\[
+ \sum_{\substack{u\text{ in the }\sigma\text{ core},\
+                  v\text{ in the }\tau\text{ core}\\ |u-v|\le D}}
+ \frac1{d_\sigma(u)d_\tau(v)}
+ \le (2D+1)\sum_{m=A}^B m^{-2}
+ \le \frac{2(2D+1)}A.
+\]
+This includes mixed corners without requiring their cores to be
+disjoint.  The unaffected cycles contribute at most
+$C_{s,L}H^{s-1}$, since $H\ge1$, proving the specified-pair bound.
+Summing over at most $(sL)^2$ slot pairs proves the union bound.
+For slots in the same corner, label differences equal
+endpoint-distance differences.  The argument also permits different
+matrices on different cycles when their bounds are uniform.
+\end{proof}
+
+Consider any fixed finite list of categories $c$, each specifying a
+corner, a length, and either its whole core or a prescribed root interval.
+For categories of the same corner and length require the root intervals
+to be disjoint.  Let $Y_{n,c}$ count the actual cycles in that category
+whose every vertex lies in its core, and let $\lambda_{n,c}$ be the exact
+ideal sum with precisely these restrictions.
+
+\begin{proposition}[Core factorial moments]\label{prop:sp-factorial-moments}
+With $A_n,B_n$ as in Lemma~\ref{lem:sp-ideal-traces}, for every fixed
+multi-index $\boldsymbol r=(r_c)$ there are
+$\kappa_{\boldsymbol r}>0$ and $K_{\boldsymbol r}<\infty$ such that
+\begin{equation}\label{eq:sp-factorial-comparison}
+ \left|\E\prod_c(Y_{n,c})_{r_c}
+             -\prod_c\lambda_{n,c}^{r_c}\right|
+ \le C_{\boldsymbol r}(1+\log n)^{K_{\boldsymbol r}}
+                    A_n^{-\kappa_{\boldsymbol r}}.
+\end{equation}
+Here $(x)_r=x(x-1)\cdots(x-r+1)$.
+\end{proposition}
+
+\begin{proof}
+Let $s=\sum_c r_c$, $m=\sum_c r_c\ell_c$, and
+$\mathcal D=\prod_c\ell_c^{r_c}$.  The case $s=0$ is immediate.
+Write $A=A_n$, $B=B_n$, and $H=1+\log(B/A)$.
+
+Expand the mixed falling factorial into ordered lists of cycles and
+represent each cycle by an ordered vertex tuple.  For large $n$,
+the endpoint cores are disjoint; together with category disjointness,
+this ensures that all selected permutation cycles are distinct and
+hence vertex-disjoint.  Thus the actual moment is the sum of joint
+rank probabilities over globally distinct assignments, divided by
+$\mathcal D$.  The product of exact ideal means has the same
+representation with ideal edge weights and distinctness required
+only within each cycle.  Both sums retain the prescribed root
+restrictions.
+
+First discard assignments with two labels within distance $2m$.
+Lemma~\ref{lem:sp-collisions}, applied to the actual domination matrix
+and to the ideal kernels, bounds their contribution by
+$CA^{-1}H^{s-1}$.
+
+Next discard nonmoderate edges.  In endpoint coordinates, either
+matrix $F$ has bounded rows, entries at most $C/b$, and, for a
+suitable $t>0$,
+\[
+ \sum_b F(a,b)V_\sigma(b)\le CV_\sigma(a),
+ \qquad
+ V_L(a)=a^{-t},\quad V_R(a)=a^t.
+\]
+For any specified edge $a_i\to a_{i+1}$, cut that edge, bound it by
+$C/a_{i+1}$, and propagate the weighted-row estimate along the
+remaining path.  This gives
+\[
+ \sum_{a_1,\ldots,a_\ell\in[A,B]}
+ \left(\prod_{j=1}^{\ell}F(a_j,a_{j+1})\right)
+ \frac{V_\sigma(a_i)}{V_\sigma(a_{i+1})}
+ \le C_\ell H,
+ \qquad a_{\ell+1}=a_1.
+\]
+Writing $\gamma_L=\alpha$ and $\gamma_R=\beta$, the displayed ratio
+equals $x_\sigma(a_i,a_{i+1})^{t/\gamma_\sigma}$.
+Failure of moderation therefore makes it at least $A^\eta$ for some
+$\eta>0$.  Summing over edges and the remaining cycles bounds all
+nonmoderate assignments by $CA^{-\eta}H^s$.  This applies to the full
+domination matrix, including its exceptional terms, and to the ideal
+kernels.
+
+On the remaining assignments, apply
+Proposition~\ref{prop:sp-joint-insertion} jointly to all $m$ marked
+vertices, including both corners in the same race.  Its error is at
+most
+\[
+ C\bigl(A^{-\kappa}+(B/n)^\kappa\bigr)
+ \prod_e H_{\sigma_e}(a_e,h_e).
+\]
+The envelope kernels have bounded rows and target bounds, so their
+product sums to at most $CH^s$.  Since $B/n\le A^{-1}$, this
+contribution is $CA^{-\kappa}H^s$.  Category restrictions remain in
+the comparison and are dropped only when bounding nonnegative
+error sums.
+
+Combining the three contributions, reducing the positive exponent
+if necessary, and using $H\le1+\log n$ gives
+\[
+ C_{\boldsymbol r}(1+\log n)^{s+1}A_n^{-\kappa_{\boldsymbol r}}.
+\]
+Division by $\mathcal D\ge1$ proves~\eqref{eq:sp-factorial-comparison},
+with $K_{\boldsymbol r}=s+1$.
+\end{proof}
+
+\subsection{Power-law CLTs and localization}
+\label{subsec:sp-power-conclusions}
+
+\begin{proof}[Proof of Theorem~\ref{thm:power-clt}]
+Let $Y_{n,\sigma,\ell}$ denote the core counts and
+$\lambda_{n,\sigma,\ell}$ their exact ideal means.  By
+Lemma~\ref{lem:sp-ideal-traces},
+\[
+ \lambda_{n,\sigma,\ell}
+ =b_{\sigma,\ell}\log n+O(1+\log A_n).
+\]
+Proposition~\ref{prop:sp-factorial-moments} determines their limiting
+centered mixed moments: conversion from falling factorials to ordinary
+powers introduces only fixed powers of $\log n$, while
+\[
+ (1+\log n)^K A_n^{-\kappa}\longrightarrow0
+ \qquad(K<\infty,\ \kappa>0).
+\]
+Thus the mixed moments of the counts centered at their exact ideal
+means and divided by their square roots agree, up to $o(1)$, with the
+corresponding products of normalized Poisson moments.
+
+For completeness, this comparison can be made algebraically.  Define
+the linear functional $\mathcal L_\lambda$ on polynomials by
+$\mathcal L_\lambda((x)_r)=\lambda^r$.  Its centered moments
+$M_r(\lambda)=\mathcal L_\lambda((x-\lambda)^r)$ satisfy
+\[
+ M_0=1,\qquad M_1=0,\qquad
+ M_{r+1}(\lambda)
+ =\lambda\sum_{j=0}^{r-1}\binom{r}{j}M_j(\lambda).
+\]
+After normalization by $\lambda^{(r+1)/2}$, induction gives the standard
+Gaussian moments as $\lambda\to\infty$.  Hence the normalized core
+counts have limiting mixed moments equal to those of independent
+standard normals.  Taylor expansion of the characteristic function of
+each linear combination, with the remainder controlled by even moments,
+gives convergence of characteristic functions by taking $n\to\infty$
+first and then increasing the Taylor order.  L\'evy's theorem yields
+joint Gaussian convergence.
+
+Since $\log A_n=O((\log n)^{1/4})$, replacing the ideal means by
+$b_{\sigma,\ell}\log n$ preserves this limit.
+Lemma~\ref{lem:sp-root-excursion} also gives
+\[
+ \E\left|C_{n,\ell}-\sum_{\sigma\ {\rm active}}
+ Y_{n,\sigma,\ell}\right|
+ =O(1+\log A_n)=o(\sqrt{\log n}),
+\]
+by summing the bounds for roots outside the core, cycles leaving the
+core, and the middle and inactive endpoint regions.  The normalized
+error therefore vanishes in $L^1$.
+
+For each length, the corner limits combine with weights
+$\sqrt{b_{\sigma,\ell}/B_\ell}$, whose squares sum to one.  This proves
+the asserted independent standard normal limits.  The first
+factorial-moment comparison and the same omission bound give
+$\E C_{n,\ell}\sim B_\ell\log n$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:power-spatial}]
+Apply Proposition~\ref{prop:sp-factorial-moments} to the categories
+$(\sigma,\ell,I_j)$, retaining the largest-label root.
+Lemma~\ref{lem:sp-ideal-traces} gives their exact ideal means as
+\[
+ \lambda_{n,\sigma,\ell,I_j}
+ =b_{\sigma,\ell}|I_j|\log n+o(\sqrt{\log n}).
+\]
+The mixed-moment and characteristic-function argument in the preceding
+proof therefore gives independent Gaussian limits for all normalized
+core counts.
+
+Since $\overline{I_j}\subset(0,1)$, every root in $n^{I_j}$ lies in
+$[A_n,B_n]$ for sufficiently large $n$.
+Lemma~\ref{lem:sp-root-excursion} bounds the expected number of such
+cycles having a vertex outside the core by $O(1)$.  Consequently the
+normalized difference between the full and core counts tends to zero
+in $L^1$, proving the joint CLT.  The first factorial-moment comparison
+and this same bound prove the stated mean asymptotics.
+
+Finally, the largest-label root has minimum right distance and maximum
+left distance.  If a vertex's logarithmic distance differs from the
+root's by more than $\delta\log n$, the corresponding distance ratio
+exceeds $n^\delta$.  The excursion bound in
+Lemma~\ref{lem:sp-root-excursion} therefore bounds the expected number
+of such cycles by
+\[
+ C_L(1+\log n)n^{-\kappa_L\delta}\longrightarrow0,
+\]
+which proves localization for every vertex.
+\end{proof}
+
+
+\subsection{The critical pole}
+
+We first record the martingale criterion used for fixed points.
+\begin{proposition}\label{prop:sp-fixed-martingale}
+Let $I_{n,k}\in\{0,1\}$ be adapted to a filtration, and put
+$p_{n,k}=\E(I_{n,k}\mid\cF_{n,k-1})$.  If $v_n\to\infty$ and
+\[
+ \sum_kp_{n,k}=v_n+o_{\Pp}(\sqrt{v_n}),
+ \qquad \sum_kp_{n,k}^2=o_{\Pp}(v_n),
+\]
+then $(\sum_kI_{n,k}-v_n)/\sqrt{v_n}\Longrightarrow\mathcal N(0,1)$.
+If additionally $\E\sum_kp_{n,k}\sim v_n$, then
+$\E\sum_k I_{n,k}\sim v_n$.
+\end{proposition}
+\begin{proof}
+Write $A_n=\sum_kp_{n,k}$.  Stop each row before its compensator would
+exceed $2v_n$.  The stopped and original rows agree on
+$\{A_n\le2v_n\}$, whose probability tends to one.  Thus the stopped
+row inherits both convergence assumptions, and its normalized square
+sum is bounded by $2$, so
+\[
+ \E\!\left[\frac1{v_n}\sum_kp_{n,k}^2\right]\longrightarrow0.
+\]
+Hereafter work with the stopped row and suppress $n$.
+
+Fix $t\in\mathbb R$, put $u=t/\sqrt v$, $a=e^{iu}-1$, and define
+\[
+ S_k=\sum_{j\le k}I_j,\qquad A_k=\sum_{j\le k}p_j,
+ \qquad Z_k=e^{iuS_k-aA_k}.
+\]
+The conditional Bernoulli identity gives
+\[
+ \E(Z_k\mid\cF_{k-1})
+ =Z_{k-1}e^{-ap_k}(1+ap_k).
+\]
+Since $A_k\le2v$, we have $|Z_k|\le C_t$.  Also
+$\lvert e^{-ap}(1+ap)-1\rvert\le C|a|^2p^2$ for large $n$.
+Telescoping expectations therefore yields
+\[
+ |\E Z_N-1|
+ \le C_t\,\E\!\left[\frac1v\sum_kp_k^2\right]
+ \longrightarrow0.
+\]
+
+The first hypothesis implies $a(A_N-v)\to0$ in probability.  Both
+$e^{aA_N-iuv}$ and $e^{av-iuv}$ have modulus at most one, so their
+difference tends to zero in $L^1$.  Consequently
+\[
+ \E e^{iu(S_N-v)}
+ =e^{av-iuv}\E Z_N+o(1)
+ \longrightarrow e^{-t^2/2},
+\]
+because $v(e^{iu}-1-iu)\to-t^2/2$.  L\'evy's continuity theorem,
+followed by removal of stopping, proves the CLT.  Finally,
+$\E\sum_kI_{n,k}=\E\sum_kp_{n,k}$, proving the expectation assertion.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:critical-pole}]
+Write $c=c_L$.  The profile assumptions give
+\begin{equation}\label{eq:sp-critical-global-comparison}
+ \theta_{n,i}\asymp \frac ni,
+ \qquad
+ \sum_{i=1}^n\left|\theta_{n,i}-\frac{cn}{i-1/2}\right|\le Cn.
+\end{equation}
+Indeed, the error from the pole is bounded by an integrable power
+near zero and is bounded on intervals separated from zero.
+Comparing with the pure-pole integrals and their Riemann sums
+therefore gives
+\begin{equation}\label{eq:sp-critical-transforms}
+ G_n(t)=ct\log(1/t)+O(t+n^{-1}),\qquad
+ D_n(t)=c\log(1/t)+O(1+(nt)^{-1}),
+\end{equation}
+where $G_n(t)=n^{-1}\sum_i(1-e^{-t\theta_{n,i}})$ and
+$D_n(t)=n^{-1}\sum_i\theta_{n,i}e^{-t\theta_{n,i}}$.
+The same rate comparison shows that deleting at most $m$ labels
+leaves total rate at least
+\[
+ n\{c\log(n/m)-C\}.
+\]
+To see this, restrict the harmonic comparison to $i\ge m$: the
+deleted terms have total at most $m/m=1$.
+
+Choose a sufficiently small fixed $\eps>0$, and put
+\[
+ A=\lceil\sqrt n\rceil,\qquad B=\lfloor\eps n\rfloor,
+ \qquad z_m=\log(n/m).
+\]
+Let $W_m$ be the rate remaining before draw $m$, and $J_m$ indicate
+that label $m$ remains.  Then $p_{n,m}=\theta_{n,m}J_m/W_m$.
+
+For $A\le m\le B$, test the arrival count at
+\[
+ t_-=\frac{m}{16cnz_m},\qquad t_+=\frac{8m}{cnz_m}.
+\]
+The population estimates place its means below $m/2$ and above
+$2m$, respectively.  Chernoff bounds, the remaining-rate lower
+bound, and the estimate for $D_n(t_-)$ give
+\[
+ \begin{aligned}
+ W_m&\ge n(cz_m-C),\\
+ \E W_m&\le cnz_m+Cn(1+\log z_m+z_m/m),\\
+ \Pp(J_m=0)&\le C(z_m^{-1}+m^{-1}).
+ \end{aligned}
+\]
+For the second estimate, bound $W_m$ by the surviving rate at $t_-$
+when fewer than $m$ arrivals have occurred.  The complementary
+contribution is at most $Cn^2e^{-c'm}\le Cn/m$, since $n\le m^2$.
+For the third, use $\Pp(E_{n,m}\le t_+)\le\theta_{n,m}t_+$ and the
+lower arrival-tail bound.
+
+For small enough $\eps$, the first estimate gives
+$W_m\ge cnz_m/2$.  Combining the three estimates with the sampled
+endpoint expansion yields
+\[
+ \E\left|p_{n,m}-\frac1{mz_m}\right|
+ \le \frac C{mz_m}
+ \left\{\frac{1+\log z_m}{z_m}+\frac1m+(m/n)^\eta\right\}.
+\]
+Here the reciprocal error follows from
+\[
+ \E|W_m-cnz_m|
+ \le \E W_m-cnz_m+2Cn.
+\]
+Integral comparison shows that the displayed probability errors
+have bounded sum.
+
+Define $q_{n,m}=1/(mz_m)$ on $[A,B]$ and zero elsewhere.  Before $A$,
+the deterministic bound $p_{n,m}\le C/(mz_m)$ has bounded sum.
+Beyond $B$, the rates have uniform positive lower and upper bounds,
+so Lemma~\ref{lem:sp-density-envelope} gives
+$\sum_{m>B}\E p_{n,m}=O(1)$.  Thus
+\[
+ \sum_m\E|p_{n,m}-q_{n,m}|=O(1),\qquad
+ \sum_mq_{n,m}=\log\log n+O(1),\qquad
+ \sum_mq_{n,m}^2=O(1).
+\]
+Since $0\le p_{n,m},q_{n,m}\le1$, these imply
+\[
+ \sum_mp_{n,m}=\log\log n+O_{\Pp}(1),\qquad
+ \E\sum_mp_{n,m}=\log\log n+O(1),\qquad
+ \E\sum_mp_{n,m}^2=O(1).
+\]
+Proposition~\ref{prop:sp-fixed-martingale} proves the fixed-point
+CLT and mean asymptotic.
+
+Now fix $\ell\ge2$.  Choose a sufficiently large fixed $M=M_\ell$,
+and decrease $\eps$ if necessary.  Cycles meeting labels below $M$
+number at most $M$; cycles meeting labels above $B$ have bounded
+expected number by Lemma~\ref{lem:sp-density-envelope}.  It remains
+to consider cycles contained in $[M,B]$.
+
+Put $L_j=\log(n/j)$.  The deleted-rate lower bound and the arrival
+estimate at a small multiple of $j/(nL_j)$, combined with the
+exponential spacing moments, give an insertion domination kernel
+\[
+ F_n(i,j)=\frac{C_\ell}{iL_j}
+ \exp\!\left(-\gamma_\ell\frac{j}{iL_j}\right),
+ \qquad M\le i,j\le B.
+\]
+This estimate is uniform under the finitely many deletions and rank
+shifts needed for an $\ell$-cycle.  The arrival-tail error is absorbed
+into the displayed exponential because $j/(iL_j)\le j$.
+H\"older's inequality therefore bounds each cycle probability by
+the product of its $F_n$-weights.
+
+Root the cycle at its largest label $m=i_1$, and set
+\[
+ z=L_m,\qquad v_j=\log(m/i_j)\ge0,\qquad
+ S=\sum_{j=1}^{\ell}v_j,\qquad v_1=v_{\ell+1}=0.
+\]
+A closed path has some drop $v_j-v_{j+1}\ge S/(2\ell^2)$.  Hence
+\[
+ \sum_{j=1}^{\ell}\frac{i_{j+1}}{i_jL_{i_{j+1}}}
+ \ge \frac{e^{S/(2\ell^2)}}{z+S}.
+\]
+The elementary bound $e^{-\gamma x}\le Cx^{-1/2}$ then gives
+\[
+ \exp\!\left(-\gamma_\ell
+ \frac{e^{S/(2\ell^2)}}{z+S}\right)
+ \le C_\ell z^{1/2}e^{-S/(8\ell^2)}.
+\]
+Since every $L_{i_j}\ge z$ and $\ell\ge2$, writing
+$a=1/(8\ell^2)$ yields
+\[
+ \prod_{j=1}^{\ell}F_n(i_j,i_{j+1})
+ \le \frac{C_\ell}{mz^{3/2}}
+ \prod_{j=2}^{\ell}\frac1{i_j}\left(\frac{i_j}{m}\right)^a.
+\]
+Each remaining vertex sums to at most $1+1/a$, even after dropping
+distinctness.  The contribution rooted at $m$ is therefore at most
+$C_\ell/(mL_m^{3/2})$.  Finally,
+\[
+ \sum_{m=M}^{B}\frac1{mL_m^{3/2}}
+ \le C\left(1+\int_{\log(1/\eps)}^\infty z^{-3/2}\,dz\right)<\infty.
+\]
+Adding the omitted cycles proves the uniform expectation bound;
+finitely many smaller $n$ are absorbed into the constant.
+\end{proof}
+
+
+\subsection{The sampling grid and Sukhatme weights}
+
+The midpoint convention keeps the statement of the profile assumption
+simple.  The following observation connects it to the exact weights in
+Corollary~\ref{cor:sukhatme}.
+
+\begin{lemma}[Interior-grid sampling]\label{lem:sp-interior-grid}
+The conclusions of Theorems~\ref{thm:power-clt}
+and~\ref{thm:power-spatial} also hold if the sampling rule in
+Assumption~\ref{ass:simple-power-profile} is replaced by
+\[
+ \theta_{n,i}=f(i/(n+1)),\qquad 1\le i\le n.
+\]
+The same replacement is valid in Theorem~\ref{thm:critical-pole}.
+\end{lemma}
+
+\begin{proof}
+All sample points remain in $(0,1)$.  The endpoint distances are now
+$m/(n+1)$ at both ends.  On an active endpoint block the deterministic
+expansions used above become
+\[
+ \theta_{n,n-m+1}
+ =c_R(m/(n+1))^\beta(1+O((m/n)^\eta)),\qquad
+ \theta_{n,m}
+ =c_L(m/(n+1))^{-\alpha}(1+O((m/n)^\eta)).
+\]
+Compared with their leading expressions on the midpoint grid, these
+add relative errors $O(m^{-1}+n^{-1})$.  In the proof of
+Lemma~\ref{lem:sp-populations}, the mesh is $1/(n+1)$ rather than $1/n$;
+division of the sums by $n$ adds a factor $1+1/n$.  The error in an
+unweighted sum remains $O(n^{-1})$, and that in a weighted sum remains
+$O((nt)^{-1})$.  Thus the population and quantile estimates, including
+their leading constants, are unchanged.  Endpoint comparability and
+the positive upper and lower bounds off the active neighborhoods are
+also unchanged.
+
+The insertion and cycle arguments use precisely these deterministic
+estimates and bounds.  The additional error on their core is
+$O(A_n^{-1}+n^{-1})$, which is already allowed by the mixed factorial
+moment estimates.  The bounds outside the core remain uniform.
+This proves the two power-law assertions.  For the critical pole the
+same sum--integral estimates give $G_n(t)=c_Lt\log(1/t)+O(t+n^{-1})$
+and $D_n(t)=c_L\log(1/t)+O(1+(nt)^{-1})$ in the range used above;
+global comparability with $n/i$ persists.  Hence the critical
+fixed-point and longer-cycle arguments apply as well.
+This is a verification of the proof inputs for the second grid; it
+does not assert a coupling between the cycle counts on the two grids.
+\end{proof}
+
+
+\section{Independent-clock extensions}\label{sec:clock-extensions}
+
+The bulk density~\eqref{eq:rho} uses the exponential form of the Luce race,
+but the last-position estimate has a distribution-free core.  This identifies
+a broader class of ranking models for which the same fixed-point strategy is
+available.
+
+Let $T_1,\ldots,T_n$ be independent continuous random variables with
+densities $g_i$ and survival functions $\overline G_i$.  Order them
+increasingly and write
+\[
+ R_i=1+\sum_{j\ne i}\one\{T_j<T_i\},\qquad
+ S(t):=\sum_{i=1}^n\overline G_i(t).
+\]
+As before, put $k_m=n-m+1$.
+
+\begin{proposition}
+\label{prop:general-clock-tail}
+Let $1\le M\le n$, choose $B$ with $B-1\ge2M$, and let $s$ satisfy
+$S(s)=B$.  Suppose that an integrable function $h$ satisfies
+\begin{equation}\label{eq:clock-density-envelope}
+ g_{k_m}(t)\le h(t),\qquad 1\le m\le M,\quad t\ge s.
+\end{equation}
+Then, for a universal $c>0$,
+\begin{equation}\label{eq:general-clock-tail}
+ \sum_{m=1}^M\Pp(R_{k_m}=k_m)
+ \le M e^{-cB}+2\int_s^\infty h(t)\,dt.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Conditioning on $T_{k_m}=t$ gives the exact identity
+\[
+ \Pp(R_{k_m}=k_m)=\int_{-\infty}^{\infty}g_{k_m}(t)
+ \Pp\left(\sum_{j\ne k_m}\one\{T_j>t\}=m-1\right)dt.
+\]
+For $t\le s$, the survivor count in parentheses has mean at least
+$S(t)-1\ge B-1\ge2M$, so its lower tail is at most $e^{-cB}$ by a Chernoff
+bound.  The integral over this range, summed over $m$, is at most
+$Me^{-cB}$.
+
+For fixed $t$, couple all the inner probabilities using one independent
+sample of the clocks.  If $N(t)=\sum_j\one\{T_j>t\}$, the event in the last
+display can hold only for $m=N(t)$ or $m=N(t)+1$.  Hence the sum of its
+indicators over $m\le M$ is at most two.  On $t\ge s$, use
+\eqref{eq:clock-density-envelope}, take expectations, and integrate to obtain
+the second term in~\eqref{eq:general-clock-tail}.
+\end{proof}
+
+Suppose more generally that the clock attached to label $i/n$ has a limiting
+distribution function $G(x,t)$ and density $g(x,t)$.  If
+\[
+ F(t):=\int_0^1G(x,t)\,dx,\qquad
+ d(t):=\int_0^1g(x,t)\,dx,
+\]
+assume that $F$ is strictly increasing on the range under consideration and
+that $d(t_y)>0$.  With $t_y=F^{-1}(y)$, the natural bulk density is
+\begin{equation}\label{eq:general-clock-density}
+ \rho_T(x,y)=\frac{g(x,t_y)}{d(t_y)}.
+\end{equation}
+Thus a bulk local-rank theorem together with
+Proposition~\ref{prop:general-clock-tail} gives the same architecture as the
+fixed-point proof above, provided one can choose triangular-array parameters
+$M_n,B_n,s_n,h_n$ for which the right side of
+\eqref{eq:general-clock-tail} tends to zero.  A candidate bulk density is not
+enough by itself: one must still prove compensator convergence, or an
+equivalent microscopic local law.
+
+Longer cycles require another input.  Their late closing label need not be a
+terminal label, so Proposition~\ref{prop:general-clock-tail} alone does not
+control them.  In the exponential case, Lemma~\ref{lem:finite-insertion-path}
+and Propositions~\ref{prop:cycle-rate-truncation}
+and~\ref{prop:cycle-endpoint-bound} overcome this obstruction by swapping a
+finite insertion path into the background, charging exceptional rates, and
+marking the edge into the largest cycle label.  The finite-path lemma is
+distribution-free; the truncation and shell bounds for another clock family
+must come from suitable density comparisons and endpoint envelopes.
+
+A concrete testing ground is the common-shape Gamma ranking family of
+\cite{stern1990models}.  Shape one is the exponential race and hence the Luce
+model.  For fixed Gamma shape and terminal rates bounded below, the terminal
+densities have a common polynomial-times-exponential envelope, so
+Proposition~\ref{prop:general-clock-tail} applies; a bulk local law remains to
+be established.  The independent-utility ranking models of
+\cite{thurstone1927law} are another natural target, provided their terminal
+densities admit an integrable envelope and the corresponding bulk local limit
+is available.  Separately, the finite-dimensional criterion of
+\cite{mukherjee2016fixed} already yields the cyclic trace law
+\eqref{eq:cycle-intensity} for permuton-sampled permutations with strictly
+positive continuous densities, Mallows permutations with $n(1-q_n)$
+convergent, and certain continuous exponential-family models.
+
+The extension also has sharp limits.  For each fixed Ewens
+parameter $\vartheta>0$, asymptotically uniform one-point marginals coexist
+with limiting $\ell$-cycle mean $\vartheta/\ell$~\cite{tavare2021magical};
+thus a microscopic hypothesis remains essential.  For fixed $q\in(0,1)$,
+Mallows permutations lie in a localized regime in which bounded-cycle counts
+have linear means and joint Gaussian rather than Poisson
+fluctuations~\cite{he2023cycles}.  These examples underline the central
+point: the macroscopic limit predicts the form of the cycle constants only
+after a model-specific argument has reached the microscopic scale.
+
+\bibliographystyle{alphaabbr}
+\small
+\bibliography{fixed_points}
+
+\end{document}

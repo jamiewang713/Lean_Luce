@@ -1,0 +1,1229 @@
+audit/PredictableProbability.lean:13:21: warning: Variable name `hP` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hP
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+theorem Luce.Section2ConditionalLockedAudit.approved_statement.{u} : PredictableProbabilityStatement :=
+fun {Ω} [MeasurableSpace Ω] {n} => predictable_fixed_point_probability
+'Luce.Section2ConditionalLockedAudit.approved_statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+def Luce.Weights.removeFirst : {n : ℕ} → Luce.Weights (n + 1) → Fin (n + 1) → Luce.Weights n :=
+fun {n} w p => { rate := fun i => w.rate ((Equiv.swap 0 p) i.succ), positive := ⋯ }
+theorem Luce.Weights.sum_rate_perm : ∀ {n : ℕ} (w : Luce.Weights n) (π : Equiv.Perm (Fin n)),
+  ∑ j, w.rate (π j) = w.total Finset.univ :=
+fun {n} w π => Equiv.sum_comp π w.rate
+theorem Luce.Weights.decomposeFin_tail_sum : ∀ {n : ℕ} (w : Luce.Weights (n + 1)) (p : Fin (n + 1))
+  (τ : Equiv.Perm (Fin n)) (r : Fin n),
+  ∑ j with r.succ ≤ j, w.rate ((Equiv.Perm.decomposeFin.symm (p, τ)) j) =
+    ∑ j with r ≤ j, (w.removeFirst p).rate (τ j) :=
+fun {n} w p τ r =>
+  Eq.mpr
+    (id
+      (congr (congrArg Eq (Finset.sum_filter (LE.le r.succ) fun a => w.rate ((Equiv.Perm.decomposeFin.symm (p, τ)) a)))
+        (Finset.sum_filter (LE.le r) fun a => (w.removeFirst p).rate (τ a))))
+    (Eq.mpr
+      (id
+        (congrArg (fun _a => _a = ∑ a, if r ≤ a then (w.removeFirst p).rate (τ a) else 0)
+          (Fin.sum_univ_succ fun a => if r.succ ≤ a then w.rate ((Equiv.Perm.decomposeFin.symm (p, τ)) a) else 0)))
+      (of_eq_true
+        (Eq.trans
+          (congrFun'
+            (congrArg Eq
+              (Eq.trans
+                (congr
+                  (congrArg HAdd.hAdd
+                    (ite_cond_eq_false (w.rate ((Equiv.Perm.decomposeFin.symm (p, τ)) 0)) 0
+                      (Eq.trans nonpos_iff_eq_zero._simp_1 (Fin.succ_ne_zero._simp_1 r))))
+                  (Finset.sum_congr (Eq.refl Finset.univ) fun x a =>
+                    ite_congr Fin.succ_le_succ_iff._simp_1
+                      (fun a => congrArg w.rate (Equiv.Perm.decomposeFin_symm_apply_succ τ p x)) fun a => Eq.refl 0))
+                (zero_add (∑ x, if r ≤ x then w.rate ((Equiv.swap 0 p) (τ x).succ) else 0))))
+            (∑ a, if r ≤ a then w.rate ((Equiv.swap 0 p) (τ a).succ) else 0))
+          (eq_self (∑ x, if r ≤ x then w.rate ((Equiv.swap 0 p) (τ x).succ) else 0)))))
+theorem Luce.Weights.mass_decomposeFin : ∀ {n : ℕ} (w : Luce.Weights (n + 1)) (p : Fin (n + 1))
+  (τ : Equiv.Perm (Fin n)),
+  w.mass (Equiv.Perm.decomposeFin.symm (p, τ)) = w.rate p / w.total Finset.univ * (w.removeFirst p).mass τ :=
+fun {n} w p τ =>
+  Eq.mpr
+    (id
+      (congrArg (fun _a => _a = w.rate p / w.total Finset.univ * (w.removeFirst p).mass τ)
+        (Luce.Weights.mass.eq_1 w (Equiv.Perm.decomposeFin.symm (p, τ)))))
+    (Eq.mpr
+      (id
+        (congrArg (fun _a => _a = w.rate p / w.total Finset.univ * (w.removeFirst p).mass τ)
+          (Fin.prod_univ_succ fun r =>
+            w.rate ((Equiv.Perm.decomposeFin.symm (p, τ)) r) /
+              ∑ j with r ≤ j, w.rate ((Equiv.Perm.decomposeFin.symm (p, τ)) j))))
+      (Eq.mpr
+        (id
+          (congrFun'
+            (congrArg Eq
+              (congrFun'
+                (congrArg HMul.hMul
+                  (congr (congrArg HDiv.hDiv (congrArg w.rate (Equiv.Perm.decomposeFin_symm_apply_zero p τ)))
+                    (Finset.sum_congr
+                      (Eq.trans (Finset.filter_congr fun x a => Iff.of_eq (Luce.Weights.mass_decomposeFin._simp_1_2 x))
+                        (Finset.filter_true Finset.univ))
+                      fun x a => Eq.refl (w.rate ((Equiv.Perm.decomposeFin.symm (p, τ)) x)))))
+                (∏ i,
+                  w.rate ((Equiv.Perm.decomposeFin.symm (p, τ)) i.succ) /
+                    ∑ x with i.succ ≤ x, w.rate ((Equiv.Perm.decomposeFin.symm (p, τ)) x))))
+            (w.rate p / w.total Finset.univ * (w.removeFirst p).mass τ)))
+        (Eq.mpr
+          (id
+            (congrArg
+              (fun _a =>
+                w.rate p / _a *
+                    ∏ i,
+                      w.rate ((Equiv.Perm.decomposeFin.symm (p, τ)) i.succ) /
+                        ∑ x with i.succ ≤ x, w.rate ((Equiv.Perm.decomposeFin.symm (p, τ)) x) =
+                  w.rate p / w.total Finset.univ * (w.removeFirst p).mass τ)
+              (Luce.Weights.sum_rate_perm w (Equiv.Perm.decomposeFin.symm (p, τ)))))
+          ((fun {α β γ} [HMul α β γ] a a_1 e_a =>
+              Eq.rec (motive := fun a_2 e_a => ∀ (a_3 a_4 : β), a_3 = a_4 → a * a_3 = a_2 * a_4)
+                (fun a_2 a_3 e_a => e_a ▸ Eq.refl (a * a_2)) e_a)
+            (w.rate p / w.total Finset.univ) (w.rate p / w.total Finset.univ) (Eq.refl (w.rate p / w.total Finset.univ))
+            (∏ i,
+              w.rate ((Equiv.Perm.decomposeFin.symm (p, τ)) i.succ) /
+                ∑ x with i.succ ≤ x, w.rate ((Equiv.Perm.decomposeFin.symm (p, τ)) x))
+            ((w.removeFirst p).mass τ)
+            (Finset.prod_congr rfl fun r a =>
+              Eq.mpr
+                (id
+                  (congrArg
+                    (fun _a =>
+                      w.rate ((Equiv.Perm.decomposeFin.symm (p, τ)) r.succ) / _a =
+                        (w.removeFirst p).rate (τ r) / ∑ j with r ≤ j, (w.removeFirst p).rate (τ j))
+                    (Luce.Weights.decomposeFin_tail_sum w p τ r)))
+                (Eq.mpr
+                  (id
+                    (congrArg
+                      (fun _a =>
+                        w.rate _a / ∑ j with r ≤ j, (w.removeFirst p).rate (τ j) =
+                          (w.removeFirst p).rate (τ r) / ∑ j with r ≤ j, (w.removeFirst p).rate (τ j))
+                      (Equiv.Perm.decomposeFin_symm_apply_succ τ p r)))
+                  (Eq.refl (w.rate ((Equiv.swap 0 p) (τ r).succ) / ∑ j with r ≤ j, (w.removeFirst p).rate (τ j)))))))))
+theorem Luce.Weights.sum_mass : ∀ {n : ℕ} (w : Luce.Weights n), ∑ τ, w.mass τ = 1 :=
+fun {n} w =>
+  Nat.recAux (motive := fun {n} => ∀ (w : Luce.Weights n), ∑ τ, w.mass τ = 1)
+    (fun w =>
+      of_eq_true
+        (Eq.trans
+          (congrFun'
+            (congrArg Eq
+              (Eq.trans
+                (Eq.trans
+                  (congr (congrArg Finset.sum Finset.univ_unique)
+                    (funext fun τ =>
+                      Eq.trans
+                        (Eq.trans
+                          (Finset.prod_congr Finset.univ_eq_empty fun x a =>
+                            Eq.trans
+                              (congrArg (HDiv.hDiv (w.rate (τ x)))
+                                (Finset.sum_congr
+                                  (Eq.trans
+                                    (Eq.trans (Finset.filter_congr fun x_1 a => Iff.of_eq le_of_subsingleton._simp_1)
+                                      (Finset.filter_true Finset.univ))
+                                    Finset.univ_eq_empty)
+                                  fun x a => Eq.refl (w.rate (τ x))))
+                              (div_zero (w.rate (τ x))))
+                          (Finset.prod_const 0))
+                        (pow_zero 0)))
+                  (Finset.sum_const 1))
+                (Eq.trans (congrFun' (congrArg HSMul.hSMul (Finset.card_singleton 1)) 1) (one_smul ℕ 1))))
+            1)
+          (eq_self 1)))
+    (fun n ih w =>
+      Eq.mpr (id (congrArg (fun _a => _a = 1) (Eq.symm (Equiv.sum_comp Equiv.Perm.decomposeFin.symm w.mass))))
+        (Eq.mpr
+          (id (congrArg (fun _a => _a = 1) (Fintype.sum_prod_type fun i => w.mass (Equiv.Perm.decomposeFin.symm i))))
+          (Eq.mpr
+            (id
+              (congrFun'
+                (congrArg Eq
+                  (Finset.sum_congr (Eq.refl Finset.univ) fun x a =>
+                    Eq.trans
+                      (Eq.trans
+                        (Finset.sum_congr (Eq.refl Finset.univ) fun x_1 a => Luce.Weights.mass_decomposeFin w x x_1)
+                        (Luce.Weights.sum_mass._simp_1_2 Finset.univ (w.removeFirst x).mass
+                          (w.rate x / w.total Finset.univ)))
+                      (Eq.trans
+                        (congrArg (HMul.hMul (w.rate x / w.total Finset.univ)) ((fun w => ih w) (w.removeFirst x)))
+                        (mul_one (w.rate x / w.total Finset.univ)))))
+                1))
+            (Eq.mpr
+              (id
+                (congrFun'
+                  (congrArg Eq
+                    (Eq.trans
+                      (Finset.sum_congr (Eq.refl Finset.univ) fun x a =>
+                        div_eq_mul_inv (w.rate x) (w.total Finset.univ))
+                      (Luce.Weights.sum_mass._simp_1_3 Finset.univ w.rate (w.total Finset.univ)⁻¹)))
+                  1))
+              (mul_inv_cancel₀ (LT.lt.ne' (Luce.Weights.total_pos w Finset.univ_nonempty)))))))
+    n w
+def Luce.prefixAgrees : {n : ℕ} → Equiv.Perm (Fin n) → Equiv.Perm (Fin n) → ℕ → Prop :=
+fun {n} σ τ m => ∀ (j : Fin n), ↑j < m → σ j = τ j
+def Luce.prefixMass : {n : ℕ} → Luce.Weights n → Equiv.Perm (Fin n) → ℕ → ℝ :=
+fun {n} w σ m => ∏ r with ↑r < m, w.rate (σ r) / ∑ j with r ≤ j, w.rate (σ j)
+theorem Luce.prefixAgrees_zero : ∀ {n : ℕ} (σ τ : Equiv.Perm (Fin n)), Luce.prefixAgrees σ τ 0 :=
+fun {n} σ τ =>
+  of_eq_true
+    (Eq.trans
+      (forall_congr fun j =>
+        Eq.trans (implies_congr not_lt_zero._simp_1 (Eq.refl (σ j = τ j))) IsEmpty.forall_iff._simp_1)
+      (implies_true (Fin n)))
+theorem Luce.prefixAgrees_self : ∀ {n : ℕ} (σ : Equiv.Perm (Fin n)) (m : ℕ), Luce.prefixAgrees σ σ m :=
+fun {n} σ m x x_1 => rfl
+theorem Luce.prefixMass_zero : ∀ {n : ℕ} (w : Luce.Weights n) (σ : Equiv.Perm (Fin n)), Luce.prefixMass w σ 0 = 1 :=
+fun {n} w σ =>
+  of_eq_true
+    (Eq.trans
+      (congrFun'
+        (congrArg Eq
+          (Eq.trans
+            (Eq.trans
+              (Finset.prod_congr
+                (Eq.trans (Finset.filter_congr fun x a => Iff.of_eq not_lt_zero._simp_1)
+                  (Finset.filter_false Finset.univ))
+                fun x a => Eq.refl (w.rate (σ x) / ∑ j with x ≤ j, w.rate (σ j)))
+              (Finset.prod_div_distrib (fun x => w.rate (σ x)) fun x => ∑ j with x ≤ j, w.rate (σ j)))
+            (div_self (of_eq_true (Eq.trans (congrArg Not one_ne_zero._simp_1) not_false_eq_true)))))
+        1)
+      (eq_self 1))
+theorem Luce.prefixMass_full : ∀ {n : ℕ} (w : Luce.Weights n) (σ : Equiv.Perm (Fin n)),
+  Luce.prefixMass w σ n = w.mass σ :=
+fun {n} w σ =>
+  of_eq_true
+    (Eq.trans
+      (congr
+        (congrArg Eq
+          (Eq.trans
+            (Finset.prod_congr
+              (Eq.trans (Finset.filter_congr fun x a => Iff.of_eq (Fin.is_lt._simp_1 x))
+                (Finset.filter_true Finset.univ))
+              fun x a => Eq.refl (w.rate (σ x) / ∑ j with x ≤ j, w.rate (σ j)))
+            (Finset.prod_div_distrib (fun x => w.rate (σ x)) fun x => ∑ j with x ≤ j, w.rate (σ j))))
+        (Finset.prod_div_distrib (fun x => w.rate (σ x)) fun x => ∑ j with x ≤ j, w.rate (σ j)))
+      (eq_self ((∏ j, w.rate (σ j)) / ∏ x, ∑ j with x ≤ j, w.rate (σ j))))
+theorem Luce.prefixAgrees_decomposeFin : ∀ {n : ℕ} (p q : Fin (n + 1)) (σ τ : Equiv.Perm (Fin n)) (m : ℕ),
+  Luce.prefixAgrees (Equiv.Perm.decomposeFin.symm (p, σ)) (Equiv.Perm.decomposeFin.symm (q, τ)) (m + 1) ↔
+    p = q ∧ Luce.prefixAgrees σ τ m :=
+fun {n} p q σ τ m =>
+  Eq.mpr
+    (id
+      (congrFun'
+        (congrArg Iff
+          (Eq.trans Luce.prefixAgrees_decomposeFin._simp_1_2
+            (congr
+              (congrArg And
+                (Eq.trans
+                  (implies_congr (Luce.prefixAgrees_decomposeFin._simp_1_3 m)
+                    (congr (congrArg Eq (Equiv.Perm.decomposeFin_symm_apply_zero p σ))
+                      (Equiv.Perm.decomposeFin_symm_apply_zero q τ)))
+                  (Luce.prefixAgrees_decomposeFin._simp_1_4 fun x => p = q)))
+              (forall_congr fun i =>
+                implies_congr Luce.prefixAgrees_decomposeFin._simp_1_5
+                  (congr (congrArg Eq (Equiv.Perm.decomposeFin_symm_apply_succ σ p i))
+                    (Equiv.Perm.decomposeFin_symm_apply_succ τ q i))))))
+        (p = q ∧ ∀ (j : Fin n), ↑j < m → σ j = τ j)))
+    {
+      mp := fun a =>
+        And.casesOn a fun hpq htail =>
+          ⟨hpq,
+            Eq.ndrec (motive := fun q =>
+              (∀ (i : Fin n), ↑i < m → (Equiv.swap 0 p) (σ i).succ = (Equiv.swap 0 q) (τ i).succ) →
+                ∀ (j : Fin n), ↑j < m → σ j = τ j)
+              (fun htail j hj => Fin.succ_inj.mp (Equiv.injective (Equiv.swap 0 p) (htail j hj))) hpq htail⟩,
+      mpr := fun a =>
+        And.casesOn a fun left htail =>
+          left ▸ ⟨rfl, fun j hj => congrArg (fun a => (Equiv.swap 0 p) a.succ) (htail j hj)⟩ }
+theorem Luce.prefixMass_decomposeFin : ∀ {n : ℕ} (w : Luce.Weights (n + 1)) (p : Fin (n + 1)) (σ : Equiv.Perm (Fin n))
+  (m : ℕ),
+  Luce.prefixMass w (Equiv.Perm.decomposeFin.symm (p, σ)) (m + 1) =
+    w.rate p / w.total Finset.univ * Luce.prefixMass (w.removeFirst p) σ m :=
+fun {n} w p σ m =>
+  Eq.mpr
+    (id
+      (congr
+        (congrArg Eq
+          (Finset.prod_filter (fun a => ↑a < m + 1) fun a =>
+            w.rate ((Equiv.Perm.decomposeFin.symm (p, σ)) a) /
+              ∑ j with a ≤ j, w.rate ((Equiv.Perm.decomposeFin.symm (p, σ)) j)))
+        (congrArg (HMul.hMul (w.rate p / w.total Finset.univ))
+          (Finset.prod_filter (fun a => ↑a < m) fun a =>
+            (w.removeFirst p).rate (σ a) / ∑ j with a ≤ j, (w.removeFirst p).rate (σ j)))))
+    (Eq.mpr
+      (id
+        (congrArg
+          (fun _a =>
+            _a =
+              w.rate p / w.total Finset.univ *
+                ∏ a, if ↑a < m then (w.removeFirst p).rate (σ a) / ∑ j with a ≤ j, (w.removeFirst p).rate (σ j) else 1)
+          (Fin.prod_univ_succ fun a =>
+            if ↑a < m + 1 then
+              w.rate ((Equiv.Perm.decomposeFin.symm (p, σ)) a) /
+                ∑ j with a ≤ j, w.rate ((Equiv.Perm.decomposeFin.symm (p, σ)) j)
+            else 1)))
+      (have hzero :=
+        Eq.mpr
+          (id
+            (congrFun'
+              (congrArg Eq
+                (Finset.sum_congr
+                  (Eq.trans (Finset.filter_congr fun x a => Iff.of_eq zero_le._simp_1) (Finset.filter_true Finset.univ))
+                  fun x a => Eq.refl (w.rate ((Equiv.Perm.decomposeFin.symm (p, σ)) x))))
+              (w.total Finset.univ)))
+          (Eq.mp
+            (congrFun'
+              (congrArg Eq
+                (Finset.sum_congr (Eq.refl Finset.univ) fun x a =>
+                  Eq.refl (w.rate ((Equiv.Perm.decomposeFin.symm (p, σ)) x))))
+              (w.total Finset.univ))
+            (Luce.Weights.sum_rate_perm w (Equiv.Perm.decomposeFin.symm (p, σ))));
+      Eq.mpr
+        (id
+          (congrFun'
+            (congrArg Eq
+              (congrFun'
+                (congrArg HMul.hMul
+                  (Eq.trans
+                    (ite.congr_simp (↑0 < m + 1) True (Luce.prefixMass_decomposeFin._simp_1_2 m)
+                      (w.rate ((Equiv.Perm.decomposeFin.symm (p, σ)) 0) /
+                        ∑ j with 0 ≤ j, w.rate ((Equiv.Perm.decomposeFin.symm (p, σ)) j))
+                      (w.rate p / w.total Finset.univ)
+                      (congr (congrArg HDiv.hDiv (congrArg w.rate (Equiv.Perm.decomposeFin_symm_apply_zero p σ))) hzero)
+                      1 1 (Eq.refl 1))
+                    (if_true (w.rate p / w.total Finset.univ) 1)))
+                (∏ i,
+                  if ↑i.succ < m + 1 then
+                    w.rate ((Equiv.Perm.decomposeFin.symm (p, σ)) i.succ) /
+                      ∑ j with i.succ ≤ j, w.rate ((Equiv.Perm.decomposeFin.symm (p, σ)) j)
+                  else 1)))
+            (w.rate p / w.total Finset.univ *
+              ∏ a, if ↑a < m then (w.removeFirst p).rate (σ a) / ∑ j with a ≤ j, (w.removeFirst p).rate (σ j) else 1)))
+        ((fun {α β γ} [HMul α β γ] a a_1 e_a =>
+            Eq.rec (motive := fun a_2 e_a => ∀ (a_3 a_4 : β), a_3 = a_4 → a * a_3 = a_2 * a_4)
+              (fun a_2 a_3 e_a => e_a ▸ Eq.refl (a * a_2)) e_a)
+          (w.rate p / w.total Finset.univ) (w.rate p / w.total Finset.univ) (Eq.refl (w.rate p / w.total Finset.univ))
+          (∏ i,
+            if ↑i.succ < m + 1 then
+              w.rate ((Equiv.Perm.decomposeFin.symm (p, σ)) i.succ) /
+                ∑ j with i.succ ≤ j, w.rate ((Equiv.Perm.decomposeFin.symm (p, σ)) j)
+            else 1)
+          (∏ a, if ↑a < m then (w.removeFirst p).rate (σ a) / ∑ j with a ≤ j, (w.removeFirst p).rate (σ j) else 1)
+          (Finset.prod_congr rfl fun r a =>
+            Eq.mpr
+              (id
+                (congrFun'
+                  (congrArg Eq
+                    (ite_congr Luce.prefixMass_decomposeFin._simp_1_3
+                      (fun a =>
+                        Eq.refl
+                          (w.rate ((Equiv.Perm.decomposeFin.symm (p, σ)) r.succ) /
+                            ∑ j with r.succ ≤ j, w.rate ((Equiv.Perm.decomposeFin.symm (p, σ)) j)))
+                      fun a => Eq.refl 1))
+                  (if ↑r < m then (w.removeFirst p).rate (σ r) / ∑ j with r ≤ j, (w.removeFirst p).rate (σ j) else 1)))
+              (if h : ↑r < m then
+                Eq.mpr (id (congr (congrArg Eq (if_pos h)) (if_pos h)))
+                  (Eq.mpr
+                    (id
+                      (congrArg
+                        (fun _a =>
+                          w.rate ((Equiv.Perm.decomposeFin.symm (p, σ)) r.succ) / _a =
+                            (w.removeFirst p).rate (σ r) / ∑ j with r ≤ j, (w.removeFirst p).rate (σ j))
+                        (Luce.Weights.decomposeFin_tail_sum w p σ r)))
+                    (Eq.mpr
+                      (id
+                        (congrArg
+                          (fun _a =>
+                            w.rate _a / ∑ j with r ≤ j, (w.removeFirst p).rate (σ j) =
+                              (w.removeFirst p).rate (σ r) / ∑ j with r ≤ j, (w.removeFirst p).rate (σ j))
+                          (Equiv.Perm.decomposeFin_symm_apply_succ σ p r)))
+                      (Eq.refl (w.rate ((Equiv.swap 0 p) (σ r).succ) / ∑ j with r ≤ j, (w.removeFirst p).rate (σ j)))))
+              else Eq.mpr (id (congr (congrArg Eq (if_neg h)) (if_neg h))) (Eq.refl 1))))))
+theorem Luce.sum_mass_prefix : ∀ {n : ℕ} (w : Luce.Weights n) (σ : Equiv.Perm (Fin n)),
+  ∀ m ≤ n, (∑ τ, if Luce.prefixAgrees σ τ m then w.mass τ else 0) = Luce.prefixMass w σ m :=
+fun {n} w σ m hm =>
+  Nat.recAux (motive := fun {n} =>
+    ∀ (w : Luce.Weights n) (σ : Equiv.Perm (Fin n)),
+      ∀ m ≤ n, (∑ τ, if Luce.prefixAgrees σ τ m then w.mass τ else 0) = Luce.prefixMass w σ m)
+    (fun w σ m hm =>
+      have hmzero := Nat.eq_zero_of_le_zero hm;
+      Eq.ndrec (motive := fun m =>
+        m ≤ 0 → (∑ τ, if Luce.prefixAgrees σ τ m then w.mass τ else 0) = Luce.prefixMass w σ m)
+        (fun hm =>
+          Eq.mpr
+            (id
+              (congr
+                (congrArg Eq
+                  (Finset.sum_congr (Eq.refl Finset.univ) fun x a =>
+                    Eq.trans
+                      (ite_congr (Luce.sum_mass_prefix._simp_1_1 σ x) (fun a => Eq.refl (w.mass x)) fun a => Eq.refl 0)
+                      (if_true (w.mass x) 0)))
+                (Luce.prefixMass_zero w σ)))
+            (Luce.Weights.sum_mass w))
+        (Eq.symm hmzero) hm)
+    (fun n ih w σ m hm =>
+      Nat.casesAuxOn (motive := fun a =>
+        m = a → (∑ τ, if Luce.prefixAgrees σ τ m then w.mass τ else 0) = Luce.prefixMass w σ m) m
+        (fun h =>
+          Eq.ndrec (motive := fun m =>
+            m ≤ n + 1 → (∑ τ, if Luce.prefixAgrees σ τ m then w.mass τ else 0) = Luce.prefixMass w σ m)
+            (fun hm =>
+              Eq.mpr
+                (id
+                  (congr
+                    (congrArg Eq
+                      (Finset.sum_congr (Eq.refl Finset.univ) fun x a =>
+                        Eq.trans
+                          (ite_congr (Luce.sum_mass_prefix._simp_1_1 σ x) (fun a => Eq.refl (w.mass x)) fun a =>
+                            Eq.refl 0)
+                          (if_true (w.mass x) 0)))
+                    (Luce.prefixMass_zero w σ)))
+                (Luce.Weights.sum_mass w))
+            (Eq.symm h) hm)
+        (fun m_1 h =>
+          Eq.ndrec (motive := fun m =>
+            m ≤ n + 1 → (∑ τ, if Luce.prefixAgrees σ τ m then w.mass τ else 0) = Luce.prefixMass w σ m)
+            (fun hm =>
+              Exists.casesOn (Equiv.surjective Equiv.Perm.decomposeFin.symm σ) fun w_1 h =>
+                Prod.casesOn (motive := fun x =>
+                  Equiv.Perm.decomposeFin.symm x = σ →
+                    (∑ τ, if Luce.prefixAgrees σ τ (m_1 + 1) then w.mass τ else 0) = Luce.prefixMass w σ (m_1 + 1))
+                  w_1
+                  (fun p σ_1 h =>
+                    h ▸
+                      Eq.mpr
+                        (id
+                          (congrArg (fun _a => _a = Luce.prefixMass w (Equiv.Perm.decomposeFin.symm (p, σ_1)) (m_1 + 1))
+                            (Eq.symm
+                              (Equiv.sum_comp Equiv.Perm.decomposeFin.symm fun τ =>
+                                if Luce.prefixAgrees (Equiv.Perm.decomposeFin.symm (p, σ_1)) τ (m_1 + 1) then w.mass τ
+                                else 0))))
+                        (Eq.mpr
+                          (id
+                            (congrArg
+                              (fun _a => _a = Luce.prefixMass w (Equiv.Perm.decomposeFin.symm (p, σ_1)) (m_1 + 1))
+                              (Fintype.sum_prod_type fun i =>
+                                if
+                                    Luce.prefixAgrees (Equiv.Perm.decomposeFin.symm (p, σ_1))
+                                      (Equiv.Perm.decomposeFin.symm i) (m_1 + 1) then
+                                  w.mass (Equiv.Perm.decomposeFin.symm i)
+                                else 0)))
+                          (Eq.mpr
+                            (id
+                              (congrFun'
+                                (congrArg Eq
+                                  (Finset.sum_congr (Eq.refl Finset.univ) fun x a =>
+                                    Finset.sum_congr (Eq.refl Finset.univ) fun x_1 a =>
+                                      ite_congr (Luce.sum_mass_prefix._simp_1_2 p x σ_1 x_1 m_1)
+                                        (fun a => Luce.Weights.mass_decomposeFin w x x_1) fun a => Eq.refl 0))
+                                (Luce.prefixMass w (Equiv.Perm.decomposeFin.symm (p, σ_1)) (m_1 + 1))))
+                            (Eq.mpr
+                              (id
+                                (congrArg
+                                  (fun _a => _a = Luce.prefixMass w (Equiv.Perm.decomposeFin.symm (p, σ_1)) (m_1 + 1))
+                                  (Finset.sum_eq_single p
+                                    (fun q a hqp =>
+                                      of_eq_true
+                                        (Eq.trans
+                                          (congrFun'
+                                            (congrArg Eq
+                                              (Eq.trans
+                                                (Finset.sum_congr (Eq.refl Finset.univ) fun x a =>
+                                                  ite_cond_eq_false
+                                                    (w.rate q / w.total Finset.univ * (w.removeFirst q).mass x) 0
+                                                    (Eq.trans
+                                                      (congrFun' (congrArg And (eq_false (Ne.symm hqp)))
+                                                        (Luce.prefixAgrees σ_1 x m_1))
+                                                      (false_and (Luce.prefixAgrees σ_1 x m_1))))
+                                                Finset.sum_const_zero))
+                                            0)
+                                          (eq_self 0)))
+                                    (of_eq_true
+                                      (Eq.trans
+                                        (implies_congr
+                                          (Eq.trans (congrArg Not (Finset.mem_univ._simp_1 p)) not_true_eq_false)
+                                          (congrFun'
+                                            (congrArg Eq
+                                              (Finset.sum_congr (Eq.refl Finset.univ) fun x a =>
+                                                ite_congr
+                                                  (Eq.trans
+                                                    (congrFun' (congrArg And (eq_self p)) (Luce.prefixAgrees σ_1 x m_1))
+                                                    (true_and (Luce.prefixAgrees σ_1 x m_1)))
+                                                  (fun a =>
+                                                    Eq.refl (w.rate p / w.total Finset.univ * (w.removeFirst p).mass x))
+                                                  fun a => Eq.refl 0))
+                                            0))
+                                        IsEmpty.forall_iff._simp_1)))))
+                              (Eq.mpr
+                                (id
+                                  (congrFun'
+                                    (congrArg Eq
+                                      (Finset.sum_congr (Eq.refl Finset.univ) fun x a =>
+                                        ite_congr
+                                          (Eq.trans (congrFun' (congrArg And (eq_self p)) (Luce.prefixAgrees σ_1 x m_1))
+                                            (true_and (Luce.prefixAgrees σ_1 x m_1)))
+                                          (fun a => Eq.refl (w.rate p / w.total Finset.univ * (w.removeFirst p).mass x))
+                                          fun a => Eq.refl 0))
+                                    (Luce.prefixMass w (Equiv.Perm.decomposeFin.symm (p, σ_1)) (m_1 + 1))))
+                                (have hfactor :=
+                                  Eq.mpr
+                                    (id
+                                      (congrArg
+                                        (fun _a =>
+                                          (∑ τ,
+                                              if Luce.prefixAgrees σ_1 τ m_1 then
+                                                w.rate p / w.total Finset.univ * (w.removeFirst p).mass τ
+                                              else 0) =
+                                            _a)
+                                        (Finset.mul_sum Finset.univ
+                                          (fun τ => if Luce.prefixAgrees σ_1 τ m_1 then (w.removeFirst p).mass τ else 0)
+                                          (w.rate p / w.total Finset.univ))))
+                                    (Finset.sum_congr rfl fun τ a =>
+                                      if h : Luce.prefixAgrees σ_1 τ m_1 then
+                                        Eq.mpr
+                                          (id
+                                            (congr (congrArg Eq (if_pos h))
+                                              (congrArg (HMul.hMul (w.rate p / w.total Finset.univ)) (if_pos h))))
+                                          (of_eq_true
+                                            (eq_self (w.rate p / w.total Finset.univ * (w.removeFirst p).mass τ)))
+                                      else
+                                        Eq.mpr
+                                          (id
+                                            (congr (congrArg Eq (if_neg h))
+                                              (congrArg (HMul.hMul (w.rate p / w.total Finset.univ)) (if_neg h))))
+                                          (of_eq_true
+                                            (Eq.trans (congrArg (Eq 0) (mul_zero (w.rate p / w.total Finset.univ)))
+                                              (eq_self 0))));
+                                Eq.mpr
+                                  (id
+                                    (congrArg
+                                      (fun _a =>
+                                        _a = Luce.prefixMass w (Equiv.Perm.decomposeFin.symm (p, σ_1)) (m_1 + 1))
+                                      hfactor))
+                                  (Eq.mpr
+                                    (id
+                                      (congrArg
+                                        (fun _a =>
+                                          w.rate p / w.total Finset.univ * _a =
+                                            Luce.prefixMass w (Equiv.Perm.decomposeFin.symm (p, σ_1)) (m_1 + 1))
+                                        (ih (w.removeFirst p) σ_1 m_1 (Nat.le_of_succ_le_succ hm))))
+                                    (Eq.mpr
+                                      (id
+                                        (congrArg
+                                          (fun _a =>
+                                            w.rate p / w.total Finset.univ * Luce.prefixMass (w.removeFirst p) σ_1 m_1 =
+                                              _a)
+                                          (Luce.prefixMass_decomposeFin w p σ_1 m_1)))
+                                      (Eq.refl
+                                        (w.rate p / w.total Finset.univ *
+                                          Luce.prefixMass (w.removeFirst p) σ_1 m_1))))))))))
+                  h)
+            (Eq.symm h) hm)
+        (Eq.refl m))
+    n w σ m hm
+theorem Luce.remaining_total_eq_tail_sum : ∀ {n : ℕ} (w : Luce.Weights n) (σ : Equiv.Perm (Fin n)) (k : Fin n),
+  w.total (Luce.remaining σ k) = ∑ j with k ≤ j, w.rate (σ j) :=
+fun {n} w σ k =>
+  Eq.mpr
+    (id
+      (congr (congrArg Eq (Finset.sum_filter (fun a => k ≤ (Equiv.symm σ) a) w.rate))
+        (Finset.sum_filter (LE.le k) fun a => w.rate (σ a))))
+    (Eq.mp
+      (congrArg (Eq (∑ i, if k ≤ (Equiv.symm σ) i then w.rate i else 0))
+        (Finset.sum_congr (Eq.refl Finset.univ) fun x a =>
+          ite_congr (congrArg (LE.le k) (Equiv.symm_apply_apply σ x)) (fun a => Eq.refl (w.rate (σ x))) fun a =>
+            Eq.refl 0))
+      (Eq.symm (Equiv.sum_comp σ fun i => if k ≤ (Equiv.symm σ) i then w.rate i else 0)))
+theorem Luce.prefixMass_succ : ∀ {n : ℕ} (w : Luce.Weights n) (σ : Equiv.Perm (Fin n)) (k : Fin n),
+  Luce.prefixMass w σ (↑k + 1) = Luce.prefixMass w σ ↑k * (w.rate (σ k) / w.total (Luce.remaining σ k)) :=
+fun {n} w σ k =>
+  have hset :=
+    Finset.ext fun r =>
+      Eq.mpr
+        (id
+          (congr
+            (congrArg Iff
+              (Eq.trans Luce.prefixMass_succ._simp_1_1
+                (Eq.trans (congrFun' (congrArg And (Luce.prefixMass_succ._simp_1_2 r)) (↑r < ↑k + 1))
+                  (true_and (↑r < ↑k + 1)))))
+            (Eq.trans Luce.prefixMass_succ._simp_1_3
+              (congr (congrArg Or Luce.prefixMass_succ._simp_1_4)
+                (Eq.trans Luce.prefixMass_succ._simp_1_1
+                  (Eq.trans (congrFun' (congrArg And (Luce.prefixMass_succ._simp_1_2 r)) (↑r < ↑k))
+                    (true_and (↑r < ↑k))))))))
+        (Decidable.byContradiction fun a => Luce.prefixMass_succ._proof_1_5 k r a);
+  id
+    (Eq.mpr
+      (id
+        (congrArg
+          (fun _a =>
+            ∏ r ∈ _a, w.rate (σ r) / ∑ j with r ≤ j, w.rate (σ j) =
+              (∏ r with ↑r < ↑k, w.rate (σ r) / ∑ j with r ≤ j, w.rate (σ j)) *
+                (w.rate (σ k) / w.total (Luce.remaining σ k)))
+          hset))
+      (Eq.mpr
+        (id
+          (congrArg
+            (fun _a =>
+              _a =
+                (∏ r with ↑r < ↑k, w.rate (σ r) / ∑ j with r ≤ j, w.rate (σ j)) *
+                  (w.rate (σ k) / w.total (Luce.remaining σ k)))
+            (Finset.prod_insert
+              (of_eq_true
+                (Eq.trans
+                  (congrArg Not
+                    (Eq.trans
+                      (Eq.trans
+                        (congrFun'
+                          (congrArg Membership.mem (Finset.filter_congr fun x a => Iff.of_eq Fin.val_fin_lt._simp_1)) k)
+                        Finset.mem_filter._simp_1)
+                      (Eq.trans (congr (congrArg And (Finset.mem_univ._simp_1 k)) (lt_self_iff_false._simp_1 k))
+                        (and_false True))))
+                  not_false_eq_true)))))
+        (Eq.mpr
+          (id
+            (congrArg
+              (fun _a =>
+                (w.rate (σ k) / ∑ j with k ≤ j, w.rate (σ j)) *
+                    ∏ x with ↑x < ↑k, w.rate (σ x) / ∑ j with x ≤ j, w.rate (σ j) =
+                  (∏ r with ↑r < ↑k, w.rate (σ r) / ∑ j with r ≤ j, w.rate (σ j)) * (w.rate (σ k) / _a))
+              (Luce.remaining_total_eq_tail_sum w σ k)))
+          (mul_comm (w.rate (σ k) / ∑ j with k ≤ j, w.rate (σ j))
+            (∏ x with ↑x < ↑k, w.rate (σ x) / ∑ j with x ≤ j, w.rate (σ j))))))
+theorem Luce.prefixMass_eq_of_prefix_agreement : ∀ {n : ℕ} (w : Luce.Weights n) (σ τ : Equiv.Perm (Fin n)) (m : ℕ),
+  Luce.prefixAgrees σ τ m → Luce.prefixMass w σ m = Luce.prefixMass w τ m :=
+fun {n} w σ τ m hprefix =>
+  Finset.prod_congr rfl fun r hr =>
+    have hrm := (Finset.mem_filter.mp hr).right;
+    have hrem := Luce.remaining_eq_of_prefix_agreement σ τ r fun j hj => hprefix j (lt_trans hj hrm);
+    Eq.mpr
+      (id
+        (congrArg (fun _a => w.rate (σ r) / _a = w.rate (τ r) / ∑ j with r ≤ j, w.rate (τ j))
+          (Eq.symm (Luce.remaining_total_eq_tail_sum w σ r))))
+      (Eq.mpr
+        (id
+          (congrArg (fun _a => w.rate (σ r) / w.total (Luce.remaining σ r) = w.rate (τ r) / _a)
+            (Eq.symm (Luce.remaining_total_eq_tail_sum w τ r))))
+        (Eq.mpr (id (congrArg (fun _a => w.rate (σ r) / w.total _a = w.rate (τ r) / w.total (Luce.remaining τ r)) hrem))
+          (Eq.mpr
+            (id
+              (congrArg
+                (fun _a => w.rate _a / w.total (Luce.remaining τ r) = w.rate (τ r) / w.total (Luce.remaining τ r))
+                (hprefix r hrm)))
+            (Eq.refl (w.rate (τ r) / w.total (Luce.remaining τ r))))))
+theorem Luce.exists_prefixAgrees_next_eq : ∀ {n : ℕ} (σ : Equiv.Perm (Fin n)) (k i : Fin n),
+  k ≤ (Equiv.symm σ) i → ∃ τ, Luce.prefixAgrees σ τ ↑k ∧ τ k = i :=
+fun {n} σ k i havailable =>
+  Exists.intro (Equiv.trans σ (Equiv.swap (σ k) i))
+    ⟨fun j hj =>
+      have hji := (Luce.inverse_ge_iff_no_earlier_draw σ k i).mp havailable j hj;
+      have hjk := fun h => ne_of_lt hj (congrArg Fin.val (Equiv.injective σ h));
+      of_eq_true (Eq.trans (congrArg (Eq (σ j)) (Equiv.swap_apply_of_ne_of_ne hjk hji)) (eq_self (σ j))),
+      of_eq_true (Eq.trans (congrFun' (congrArg Eq (Equiv.swap_apply_left (σ k) i)) i) (eq_self i))⟩
+theorem Luce.prefixAgrees_succ_iff : ∀ {n : ℕ} (σ τ : Equiv.Perm (Fin n)) (k : Fin n),
+  Luce.prefixAgrees σ τ (↑k + 1) ↔ Luce.prefixAgrees σ τ ↑k ∧ σ k = τ k :=
+fun {n} σ τ k =>
+  { mp := fun h => ⟨fun j hj => h j (Nat.lt_succ_of_lt hj), h k (Nat.lt_succ_self ↑k)⟩,
+    mpr := fun a =>
+      And.casesOn a fun hprefix hnext j hj =>
+        Or.casesOn (lt_or_eq_of_le (Nat.le_of_lt_succ hj)) (fun hlt => hprefix j hlt) fun heq =>
+          Eq.mpr (id (congr (congrArg Eq (congrArg (⇑σ) (Fin.ext heq))) (congrArg (⇑τ) (Fin.ext heq)))) hnext }
+theorem Luce.sum_mass_prefix_next : ∀ {n : ℕ} (w : Luce.Weights n) (σ : Equiv.Perm (Fin n)) (k i : Fin n),
+  (∑ τ, if Luce.prefixAgrees σ τ ↑k ∧ τ k = i then w.mass τ else 0) =
+    w.choice (Luce.remaining σ k) i * Luce.prefixMass w σ ↑k :=
+fun {n} w σ k i =>
+  if havailable : k ≤ (Equiv.symm σ) i then
+    Exists.casesOn (Luce.exists_prefixAgrees_next_eq σ k i havailable) fun ρ h =>
+      And.casesOn h fun hσρ hρk =>
+        have heq := fun τ =>
+          Eq.mpr
+            (id
+              (congrArg (fun _a => Luce.prefixAgrees σ τ ↑k ∧ τ k = i ↔ _a)
+                (propext (Luce.prefixAgrees_succ_iff ρ τ k))))
+            {
+              mp := fun a =>
+                And.casesOn a fun hστ hτk =>
+                  ⟨fun j hj => Eq.trans (Eq.symm (hσρ j hj)) (hστ j hj), Eq.trans hρk (Eq.symm hτk)⟩,
+              mpr := fun a =>
+                And.casesOn a fun hρτ hτk => ⟨fun j hj => Eq.trans (hσρ j hj) (hρτ j hj), Eq.trans (Eq.symm hτk) hρk⟩ };
+        Eq.mpr
+          (id
+            (congrFun'
+              (congrArg Eq
+                (Finset.sum_congr (Eq.refl Finset.univ) fun x a =>
+                  ite_congr ((fun τ => propext (heq τ)) x) (fun a => Eq.refl (w.mass x)) fun a => Eq.refl 0))
+              (w.choice (Luce.remaining σ k) i * Luce.prefixMass w σ ↑k)))
+          (Eq.mpr
+            (id
+              (congrArg (fun _a => _a = w.choice (Luce.remaining σ k) i * Luce.prefixMass w σ ↑k)
+                (Luce.sum_mass_prefix w ρ (↑k + 1) (Nat.succ_le_of_lt k.isLt))))
+            (Eq.mpr
+              (id
+                (congrArg (fun _a => _a = w.choice (Luce.remaining σ k) i * Luce.prefixMass w σ ↑k)
+                  (Luce.prefixMass_succ w ρ k)))
+              (Eq.mpr
+                (id
+                  (congrArg
+                    (fun _a =>
+                      Luce.prefixMass w ρ ↑k * (w.rate _a / w.total (Luce.remaining ρ k)) =
+                        w.choice (Luce.remaining σ k) i * Luce.prefixMass w σ ↑k)
+                    hρk))
+                (Eq.mpr
+                  (id
+                    (congrArg
+                      (fun _a =>
+                        _a * (w.rate i / w.total (Luce.remaining ρ k)) =
+                          w.choice (Luce.remaining σ k) i * Luce.prefixMass w σ ↑k)
+                      (Eq.symm (Luce.prefixMass_eq_of_prefix_agreement w σ ρ (↑k) hσρ))))
+                  (Eq.mpr
+                    (id
+                      (congrArg
+                        (fun _a =>
+                          Luce.prefixMass w σ ↑k * (w.rate i / w.total _a) =
+                            w.choice (Luce.remaining σ k) i * Luce.prefixMass w σ ↑k)
+                        (Eq.symm (Luce.remaining_eq_of_prefix_agreement σ ρ k hσρ))))
+                    (have hchoice :=
+                      if_pos
+                        (Eq.mpr
+                          (id
+                            (Eq.trans Luce.sum_mass_prefix_next._simp_1_1
+                              (Eq.trans
+                                (congrFun' (congrArg And (Luce.sum_mass_prefix_next._simp_1_2 i))
+                                  (k ≤ (Equiv.symm σ) i))
+                                (true_and (k ≤ (Equiv.symm σ) i)))))
+                          havailable);
+                    Eq.mpr
+                      (id
+                        (congrArg
+                          (fun _a =>
+                            Luce.prefixMass w σ ↑k * (w.rate i / w.total (Luce.remaining σ k)) =
+                              _a * Luce.prefixMass w σ ↑k)
+                          hchoice))
+                      (Eq.mpr
+                        (id
+                          (congrArg (fun _a => _a = w.rate i / w.total (Luce.remaining σ k) * Luce.prefixMass w σ ↑k)
+                            (mul_comm (Luce.prefixMass w σ ↑k) (w.rate i / w.total (Luce.remaining σ k)))))
+                        (Eq.refl (w.rate i / w.total (Luce.remaining σ k) * Luce.prefixMass w σ ↑k)))))))))
+  else
+    have hnone := fun τ a =>
+      And.casesOn a fun hστ hτk =>
+        have hrem := Luce.remaining_eq_of_prefix_agreement σ τ k hστ;
+        have hi :=
+          Eq.mpr (id (congrArg (fun _a => _a ∈ Luce.remaining τ k) (Eq.symm hτk)))
+            (of_eq_true
+              (Eq.trans Finset.mem_filter._simp_1
+                (Eq.trans
+                  (congr (congrArg And (Finset.mem_univ._simp_1 (τ k)))
+                    (Eq.trans (congrArg (LE.le k) (Equiv.symm_apply_apply τ k)) (Std.le_refl._simp_1 k)))
+                  (and_self True))));
+        havailable (Finset.mem_filter.mp (Eq.mp (congrArg (fun _a => i ∈ _a) (Eq.symm hrem)) hi)).right;
+    Eq.mpr
+      (id
+        (congrFun'
+          (congrArg Eq
+            (Eq.trans
+              (Finset.sum_congr (Eq.refl Finset.univ) fun x a =>
+                Eq.trans (ite_congr ((fun τ => eq_false (hnone τ)) x) (fun a => Eq.refl (w.mass x)) fun a => Eq.refl 0)
+                  (if_false (w.mass x) 0))
+              Finset.sum_const_zero))
+          (w.choice (Luce.remaining σ k) i * Luce.prefixMass w σ ↑k)))
+      (have hchoice :=
+        if_neg
+          (Eq.mpr
+            (id
+              (congrArg Not
+                (Eq.trans Luce.sum_mass_prefix_next._simp_1_1
+                  (Eq.trans (congrFun' (congrArg And (Luce.sum_mass_prefix_next._simp_1_2 i)) (k ≤ (Equiv.symm σ) i))
+                    (true_and (k ≤ (Equiv.symm σ) i))))))
+            havailable);
+      Eq.mpr (id (congrArg (fun _a => 0 = _a * Luce.prefixMass w σ ↑k) hchoice))
+        (Eq.mpr (id (congrArg (fun _a => 0 = _a) (zero_mul (Luce.prefixMass w σ ↑k)))) (Eq.refl 0)))
+theorem Luce.fixed_point_mass_fiber_identity : ∀ {n : ℕ} (w : Luce.Weights n) (σ : Equiv.Perm (Fin n)) (k : Fin n),
+  (∑ τ with Luce.prefixVector τ ↑k = Luce.prefixVector σ ↑k, w.mass τ * if (Equiv.symm τ) k = k then 1 else 0) =
+    Luce.predictableChance w σ k * ∑ τ with Luce.prefixVector τ ↑k = Luce.prefixVector σ ↑k, w.mass τ :=
+fun {n} w σ k =>
+  have hprefix := fun τ =>
+    Eq.mpr (id (congrArg (fun _a => _a ↔ Luce.prefixAgrees σ τ ↑k) (propext (Luce.prefixVector_eq_iff τ σ ↑k))))
+      { mp := fun h j hj => Eq.symm (h j hj), mpr := fun h j hj => Eq.symm (h j hj) };
+  Eq.mpr
+    (id
+      (congr
+        (congrArg Eq
+          (Eq.trans
+            (Finset.sum_congr (Finset.filter_congr fun x a => Iff.of_eq ((fun τ => propext (hprefix τ)) x)) fun x a =>
+              congrArg (HMul.hMul (w.mass x))
+                (ite_congr (Luce.fixed_point_mass_fiber_identity._simp_1_1 x k) (fun a => Eq.refl 1) fun a =>
+                  Eq.refl 0))
+            (Finset.sum_filter (fun a => Luce.prefixAgrees σ a ↑k) fun a => w.mass a * if a k = k then 1 else 0)))
+        (congrArg (HMul.hMul (Luce.predictableChance w σ k))
+          (Eq.trans
+            (Finset.sum_congr (Finset.filter_congr fun x a => Iff.of_eq ((fun τ => propext (hprefix τ)) x)) fun x a =>
+              Eq.refl (w.mass x))
+            (Finset.sum_filter (fun a => Luce.prefixAgrees σ a ↑k) w.mass)))))
+    (have hleft :=
+      Finset.sum_congr rfl fun τ a =>
+        if hp : Luce.prefixAgrees σ τ ↑k then
+          if hf : τ k = k then
+            of_eq_true
+              (Eq.trans
+                (congr
+                  (congrArg Eq
+                    (Eq.trans (ite_cond_eq_true (w.mass τ * if τ k = k then 1 else 0) 0 (eq_true hp))
+                      (Eq.trans
+                        (congrArg (HMul.hMul (w.mass τ))
+                          (ite_cond_eq_true 1 0 (Eq.trans (congrFun' (congrArg Eq hf) k) (eq_self k))))
+                        (mul_one (w.mass τ)))))
+                  (ite_cond_eq_true (w.mass τ) 0
+                    (Eq.trans (congr (congrArg And (eq_true hp)) (Eq.trans (congrFun' (congrArg Eq hf) k) (eq_self k)))
+                      (and_self True))))
+                (eq_self (w.mass τ)))
+          else
+            of_eq_true
+              (Eq.trans
+                (congr
+                  (congrArg Eq
+                    (Eq.trans (ite_cond_eq_true (w.mass τ * if τ k = k then 1 else 0) 0 (eq_true hp))
+                      (Eq.trans (congrArg (HMul.hMul (w.mass τ)) (ite_cond_eq_false 1 0 (eq_false hf)))
+                        (mul_zero (w.mass τ)))))
+                  (ite_cond_eq_false (w.mass τ) 0
+                    (Eq.trans (congr (congrArg And (eq_true hp)) (eq_false hf)) (and_false True))))
+                (eq_self 0))
+        else
+          if hf : τ k = k then
+            of_eq_true
+              (Eq.trans
+                (congr (congrArg Eq (ite_cond_eq_false (w.mass τ * if τ k = k then 1 else 0) 0 (eq_false hp)))
+                  (ite_cond_eq_false (w.mass τ) 0
+                    (Eq.trans (congr (congrArg And (eq_false hp)) (Eq.trans (congrFun' (congrArg Eq hf) k) (eq_self k)))
+                      (and_true False))))
+                (eq_self 0))
+          else
+            of_eq_true
+              (Eq.trans
+                (congr (congrArg Eq (ite_cond_eq_false (w.mass τ * if τ k = k then 1 else 0) 0 (eq_false hp)))
+                  (ite_cond_eq_false (w.mass τ) 0
+                    (Eq.trans (congr (congrArg And (eq_false hp)) (eq_false hf)) (and_self False))))
+                (eq_self 0));
+    Eq.mpr
+      (id
+        (congrArg (fun _a => _a = Luce.predictableChance w σ k * ∑ a, if Luce.prefixAgrees σ a ↑k then w.mass a else 0)
+          hleft))
+      (Eq.mpr
+        (id
+          (congrArg
+            (fun _a => _a = Luce.predictableChance w σ k * ∑ a, if Luce.prefixAgrees σ a ↑k then w.mass a else 0)
+            (Luce.sum_mass_prefix_next w σ k k)))
+        (Eq.mpr
+          (id
+            (congrArg
+              (fun _a => w.choice (Luce.remaining σ k) k * Luce.prefixMass w σ ↑k = Luce.predictableChance w σ k * _a)
+              (Luce.sum_mass_prefix w σ (↑k) (Nat.le_of_lt k.isLt))))
+          (Eq.refl (w.choice (Luce.remaining σ k) k * Luce.prefixMass w σ ↑k)))))
+def Luce.prefixVector : {n : ℕ} → Equiv.Perm (Fin n) → (m : ℕ) → { j // ↑j < m } → Fin n :=
+fun {n} σ m j => σ ↑j
+theorem Luce.drawHistory_eq_comap_prefixVector.{u_1} : ∀ {Ω : Type u_1} {n : ℕ} (π : Ω → Equiv.Perm (Fin n)) (m : ℕ),
+  Luce.drawHistory π m = MeasurableSpace.comap (fun ω => Luce.prefixVector (π ω) m) ⊤ :=
+fun {Ω} {n} π m =>
+  let this := ⊤;
+  have htop := top_unique fun x x_1 => MeasurableSet.of_discrete;
+  Eq.mpr
+    (id
+      (congrArg (fun _a => Luce.drawHistory π m = MeasurableSpace.comap (fun ω => Luce.prefixVector (π ω) m) _a)
+        (Eq.symm htop)))
+    (Eq.mpr
+      (id
+        (congrArg (Eq (⨆ j, ⨆ (_ : ↑j < m), MeasurableSpace.comap (fun ω => (π ω) j) ⊤))
+          (Eq.trans (MeasurableSpace.comap_process_pi fun a b => Luce.prefixVector (π b) m a)
+            (Eq.trans iSup_subtype
+              (congrArg iSup
+                (funext fun i =>
+                  iSup_congr_Prop (Iff.of_eq (Eq.refl (↑i < m))) fun x =>
+                    Eq.refl (MeasurableSpace.comap (fun b => (π b) i) inferInstance)))))))
+      (Eq.refl (⨆ j, ⨆ (_ : ↑j < m), MeasurableSpace.comap (fun ω => (π ω) j) ⊤)))
+theorem Luce.prefixVector_eq_iff : ∀ {n : ℕ} (σ τ : Equiv.Perm (Fin n)) (m : ℕ),
+  Luce.prefixVector σ m = Luce.prefixVector τ m ↔ ∀ (j : Fin n), ↑j < m → σ j = τ j :=
+fun {n} σ τ m => { mp := fun h j hj => congrFun h ⟨j, hj⟩, mpr := fun h => funext fun j => h (↑j) j.property }
+theorem Luce.remaining_eq_of_prefix_agreement : ∀ {n : ℕ} (σ τ : Equiv.Perm (Fin n)) (k : Fin n),
+  (∀ j < k, σ j = τ j) → Luce.remaining σ k = Luce.remaining τ k :=
+fun {n} σ τ k hprefix =>
+  Finset.ext fun i =>
+    Eq.mpr
+      (id
+        (congr
+          (congrArg Iff
+            (Eq.trans
+              (Eq.trans
+                (congrFun'
+                  (congrArg Membership.mem
+                    (Finset.filter_congr fun x a => Iff.of_eq (Luce.remaining_eq_of_prefix_agreement._simp_1_3 σ k x)))
+                  i)
+                Luce.remaining_eq_of_prefix_agreement._simp_1_1)
+              (Eq.trans
+                (congrFun' (congrArg And (Luce.remaining_eq_of_prefix_agreement._simp_1_2 i)) (∀ j < k, σ j ≠ i))
+                (true_and (∀ j < k, σ j ≠ i)))))
+          (Eq.trans
+            (Eq.trans
+              (congrFun'
+                (congrArg Membership.mem
+                  (Finset.filter_congr fun x a => Iff.of_eq (Luce.remaining_eq_of_prefix_agreement._simp_1_3 τ k x)))
+                i)
+              Luce.remaining_eq_of_prefix_agreement._simp_1_1)
+            (Eq.trans (congrFun' (congrArg And (Luce.remaining_eq_of_prefix_agreement._simp_1_2 i)) (∀ j < k, τ j ≠ i))
+              (true_and (∀ j < k, τ j ≠ i))))))
+      { mp := fun h j hj => Eq.mpr (id (congrFun' (congrArg Ne (Eq.symm (hprefix j hj))) i)) (h j hj),
+        mpr := fun h j hj => Eq.mpr (id (congrFun' (congrArg Ne (hprefix j hj)) i)) (h j hj) }
+theorem Luce.predictableChance_eq_of_prefix_agreement : ∀ {n : ℕ} (w : Luce.Weights n) (σ τ : Equiv.Perm (Fin n))
+  (k : Fin n), (∀ j < k, σ j = τ j) → Luce.predictableChance w σ k = Luce.predictableChance w τ k :=
+fun {n} w σ τ k hprefix =>
+  id
+    (Eq.mpr
+      (id
+        (congrArg (fun _a => w.choice _a k = w.choice (Luce.remaining τ k) k)
+          (Luce.remaining_eq_of_prefix_agreement σ τ k hprefix)))
+      (Eq.refl (w.choice (Luce.remaining τ k) k)))
+theorem Luce.integrable_finite_state.{u_1, u_2} : ∀ {Ω : Type u_1} {S : Type u_2} {mΩ : MeasurableSpace Ω}
+  {P : Measure Ω} [IsProbabilityMeasure P] [Fintype S] (Z : Ω → S),
+  Measurable Z → ∀ (f : S → ℝ), Integrable (fun ω => f (Z ω)) P :=
+fun {Ω} {S} {mΩ} {P} [IsProbabilityMeasure P] [Fintype S] Z hZ f =>
+  have hset := fun s => id (hZ trivial);
+  have hrepr :=
+    funext fun ω =>
+      of_eq_true
+        (Eq.trans
+          (congrArg (Eq (f (Z ω)))
+            (Eq.trans
+              (Eq.trans
+                (congrArg Finset.univ.sum
+                  (funext fun s =>
+                    ite_congr
+                      (congrFun'
+                        (congrArg Membership.mem
+                          (congrArg Set.ofPred (funext fun ω => Luce.integrable_finite_state._simp_1_1)))
+                        ω)
+                      (fun a => Eq.refl (f s)) fun a => Eq.refl 0))
+                (Finset.sum_ite_eq' Finset.univ (Z ω) f))
+              (ite_cond_eq_true (f (Z ω)) 0 (Finset.mem_univ._simp_1 (Z ω)))))
+          (eq_self (f (Z ω))));
+  Eq.mpr (id (congrArg (fun _a => Integrable _a P) hrepr))
+    (integrable_finsetSum Finset.univ fun s x => Integrable.indicator (integrable_const (f s)) (hset s))
+theorem Luce.integral_finite_state.{u_1, u_2} : ∀ {Ω : Type u_1} {S : Type u_2} {mΩ : MeasurableSpace Ω} {P : Measure Ω}
+  [IsProbabilityMeasure P] [inst : Fintype S] (Z : Ω → S),
+  Measurable Z → ∀ (f : S → ℝ), ∫ (ω : Ω), f (Z ω) ∂P = ∑ s, P.real {ω | Z ω = s} * f s :=
+fun {Ω} {S} {mΩ} {P} [IsProbabilityMeasure P] [Fintype S] Z hZ f =>
+  have hset := fun s => id (hZ trivial);
+  have hrepr :=
+    funext fun ω =>
+      of_eq_true
+        (Eq.trans
+          (congrArg (Eq (f (Z ω)))
+            (Eq.trans
+              (Eq.trans
+                (congrArg Finset.univ.sum
+                  (funext fun s =>
+                    ite_congr
+                      (congrFun'
+                        (congrArg Membership.mem
+                          (congrArg Set.ofPred (funext fun ω => Luce.integral_finite_state._simp_1_1)))
+                        ω)
+                      (fun a => Eq.refl (f s)) fun a => Eq.refl 0))
+                (Finset.sum_ite_eq' Finset.univ (Z ω) f))
+              (ite_cond_eq_true (f (Z ω)) 0 (Finset.mem_univ._simp_1 (Z ω)))))
+          (eq_self (f (Z ω))));
+  Eq.mpr (id (congrArg (fun _a => integral P _a = ∑ s, P.real {ω | Z ω = s} * f s) hrepr))
+    (Eq.mpr
+      (id
+        (congrArg (fun _a => _a = ∑ s, P.real {ω | Z ω = s} * f s)
+          (integral_finsetSum Finset.univ fun s x => Integrable.indicator (integrable_const (f s)) (hset s))))
+      (Finset.sum_congr rfl fun s a =>
+        Eq.mpr (id (congrArg (fun _a => _a = P.real {ω | Z ω = s} * f s) (integral_indicator_const (f s) (hset s))))
+          (Eq.mpr (id (congrArg (fun _a => _a = P.real {ω | Z ω = s} * f s) (smul_eq_mul (P.real {ω | Z ω = s}) (f s))))
+            (Eq.refl (P.real {ω | Z ω = s} * f s)))))
+theorem Luce.condExp_finite_history.{u_1, u_2, u_3} : ∀ {Ω : Type u_1} {S : Type u_2} {T : Type u_3}
+  {mΩ : MeasurableSpace Ω} {P : Measure Ω} [IsProbabilityMeasure P] [inst : Fintype S] [Fintype T]
+  [inst_2 : DecidableEq T] (Z : Ω → S),
+  Measurable Z →
+    ∀ (H : S → T) (f : S → ℝ) (g : T → ℝ),
+      (∀ (t : T), ∑ s with H s = t, P.real {ω | Z ω = s} * f s = g t * ∑ s with H s = t, P.real {ω | Z ω = s}) →
+        P[fun ω => f (Z ω) | MeasurableSpace.comap (fun ω => H (Z ω)) ⊤] =ᵐ[P] fun ω => g (H (Z ω)) :=
+fun {Ω} {S} {T} {mΩ} {P} [IsProbabilityMeasure P] [Fintype S] [Fintype T] [DecidableEq T] Z hZ H f g hfiber =>
+  let this := ⊤;
+  let this_1 := ⊤;
+  have hH := fun x x_1 => trivial;
+  have hY := Measurable.comp hH hZ;
+  have hg := fun x x_1 => trivial;
+  have hgm := Measurable.comp hg (comap_measurable fun ω => H (Z ω));
+  have hgi := Luce.integrable_finite_state Z hZ fun s => g (H s);
+  Filter.EventuallyEq.symm
+    (ae_eq_condExp_of_forall_setIntegral_eq (Measurable.comap_le hY) (Luce.integrable_finite_state Z hZ f)
+      (fun x x_1 x_2 => Integrable.integrableOn hgi)
+      (fun a ha a_1 =>
+        Exists.casesOn (MeasurableSpace.measurableSet_comap.mp ha) fun b h =>
+          And.casesOn h fun hb right =>
+            Eq.ndrec (motive := fun a =>
+              MeasurableSet a → P a < ⊤ → ∫ (x : Ω) in a, g (H (Z x)) ∂P = ∫ (x : Ω) in a, f (Z x) ∂P)
+              (fun ha a =>
+                have hset := hY hb;
+                have hleft :=
+                  Eq.mpr
+                    (id
+                      (congrArg (fun _a => _a = ∑ s, P.real {ω | Z ω = s} * if H s ∈ b then g (H s) else 0)
+                        (Eq.symm (integral_indicator hset))))
+                    (Eq.mpr
+                      (id
+                        (congrFun'
+                          (congrArg Eq
+                            (congrArg (integral P)
+                              (funext fun x =>
+                                ite_congr Luce.condExp_finite_history._simp_1_1 (fun a => Eq.refl (g (H (Z x))))
+                                  fun a => Eq.refl 0)))
+                          (∑ s, P.real {ω | Z ω = s} * if H s ∈ b then g (H s) else 0)))
+                      (Luce.integral_finite_state Z hZ fun s => if H s ∈ b then g (H s) else 0));
+                have hright :=
+                  Eq.mpr
+                    (id
+                      (congrArg (fun _a => _a = ∑ s, P.real {ω | Z ω = s} * if H s ∈ b then f s else 0)
+                        (Eq.symm (integral_indicator hset))))
+                    (Eq.mpr
+                      (id
+                        (congrFun'
+                          (congrArg Eq
+                            (congrArg (integral P)
+                              (funext fun x =>
+                                ite_congr Luce.condExp_finite_history._simp_1_1 (fun a => Eq.refl (f (Z x))) fun a =>
+                                  Eq.refl 0)))
+                          (∑ s, P.real {ω | Z ω = s} * if H s ∈ b then f s else 0)))
+                      (Luce.integral_finite_state Z hZ fun s => if H s ∈ b then f s else 0));
+                Eq.mpr (id (congrArg (fun _a => _a = ∫ (x : Ω) in (fun ω => H (Z ω)) ⁻¹' b, f (Z x) ∂P) hleft))
+                  (Eq.mpr
+                    (id (congrArg (fun _a => (∑ s, P.real {ω | Z ω = s} * if H s ∈ b then g (H s) else 0) = _a) hright))
+                    (Eq.mpr
+                      (id
+                        (congrArg (fun _a => _a = ∑ s, P.real {ω | Z ω = s} * if H s ∈ b then f s else 0)
+                          (Eq.symm
+                            (Finset.sum_fiberwise Finset.univ H fun s =>
+                              P.real {ω | Z ω = s} * if H s ∈ b then g (H s) else 0))))
+                      (Eq.mpr
+                        (id
+                          (congrArg
+                            (fun _a =>
+                              (∑ j, ∑ i with H i = j, P.real {ω | Z ω = i} * if H i ∈ b then g (H i) else 0) = _a)
+                            (Eq.symm
+                              (Finset.sum_fiberwise Finset.univ H fun s =>
+                                P.real {ω | Z ω = s} * if H s ∈ b then f s else 0))))
+                        (Finset.sum_congr rfl fun t a =>
+                          if ht : t ∈ b then
+                            Trans.trans
+                              (Trans.trans
+                                (Trans.trans
+                                  (Finset.sum_congr rfl fun s hs =>
+                                    of_eq_true
+                                      (Eq.trans
+                                        (congrFun'
+                                          (congrArg Eq
+                                            (congrArg (HMul.hMul (P.real {ω | Z ω = s}))
+                                              (Eq.trans
+                                                (ite_congr (congrArg (Membership.mem b) (Finset.mem_filter.mp hs).right)
+                                                  (fun a => congrArg g (Finset.mem_filter.mp hs).right) fun a =>
+                                                  Eq.refl 0)
+                                                ((fun x_0 x_1 x_2 x_3 =>
+                                                    (fun x_0 x_1 x_2 x_3 => if_pos ht) x_0 x_1 x_2 x_3)
+                                                  (Classical.propDecidable (t ∈ b)) ℝ (g t) 0))))
+                                          (P.real {ω | Z ω = s} * g t))
+                                        (eq_self (P.real {ω | Z ω = s} * g t))))
+                                  (Eq.mpr
+                                    (id
+                                      (congrArg (fun _a => _a = g t * ∑ s with H s = t, P.real {ω | Z ω = s})
+                                        (Eq.symm (Finset.sum_mul {s | H s = t} (fun s => P.real {ω | Z ω = s}) (g t)))))
+                                    (Eq.mpr
+                                      (id
+                                        (congrArg (fun _a => _a = g t * ∑ s with H s = t, P.real {ω | Z ω = s})
+                                          (mul_comm (∑ i with H i = t, P.real {ω | Z ω = i}) (g t))))
+                                      (Eq.refl (g t * ∑ i with H i = t, P.real {ω | Z ω = i})))))
+                                (Eq.symm (hfiber t)))
+                              (Finset.sum_congr rfl fun s hs =>
+                                of_eq_true
+                                  (Eq.trans
+                                    (congrArg (Eq (P.real {ω | Z ω = s} * f s))
+                                      (congrArg (HMul.hMul (P.real {ω | Z ω = s}))
+                                        (Eq.trans
+                                          (ite_congr (congrArg (Membership.mem b) (Finset.mem_filter.mp hs).right)
+                                            (fun a => Eq.refl (f s)) fun a => Eq.refl 0)
+                                          ((fun x_0 x_1 x_2 x_3 => (fun x_0 x_1 x_2 x_3 => if_pos ht) x_0 x_1 x_2 x_3)
+                                            (Classical.propDecidable (t ∈ b)) ℝ (f s) 0))))
+                                    (eq_self (P.real {ω | Z ω = s} * f s))))
+                          else
+                            have hzero := fun v =>
+                              Finset.sum_eq_zero fun s hs =>
+                                of_eq_true
+                                  (Eq.trans
+                                    (congrFun'
+                                      (congrArg Eq
+                                        (Eq.trans
+                                          (congrArg (HMul.hMul (P.real {ω | Z ω = s}))
+                                            (Eq.trans
+                                              (ite_congr (congrArg (Membership.mem b) (Finset.mem_filter.mp hs).right)
+                                                (fun a => Eq.refl (v s)) fun a => Eq.refl 0)
+                                              ((fun x_0 x_1 x_2 x_3 =>
+                                                  (fun x_0 x_1 x_2 x_3 => if_neg ht) x_0 x_1 x_2 x_3)
+                                                (Classical.propDecidable (t ∈ b)) ℝ (v s) 0)))
+                                          (mul_zero (P.real {ω | Z ω = s}))))
+                                      0)
+                                    (eq_self 0));
+                            Eq.mpr
+                              (id
+                                (congrArg
+                                  (fun _a => _a = ∑ i with H i = t, P.real {ω | Z ω = i} * if H i ∈ b then f i else 0)
+                                  (hzero fun s => g (H s))))
+                              (Eq.mpr (id (congrArg (fun _a => 0 = _a) (hzero f))) (Eq.refl 0)))))))
+              right ha a_1)
+      (StronglyMeasurable.aestronglyMeasurable (Measurable.stronglyMeasurable hgm)))
+theorem Luce.condExp_finite_history_of_representatives.{u_1, u_2, u_3} : ∀ {Ω : Type u_1} {S : Type u_2} {T : Type u_3}
+  {mΩ : MeasurableSpace Ω} {P : Measure Ω} [IsProbabilityMeasure P] [inst : Fintype S] [Fintype T]
+  [inst_2 : DecidableEq T] (Z : Ω → S),
+  Measurable Z →
+    ∀ (H : S → T) (f r : S → ℝ),
+      (∀ (s₁ s₂ : S), H s₁ = H s₂ → r s₁ = r s₂) →
+        (∀ (s : S), ∑ u with H u = H s, P.real {ω | Z ω = u} * f u = r s * ∑ u with H u = H s, P.real {ω | Z ω = u}) →
+          P[fun ω => f (Z ω) | MeasurableSpace.comap (fun ω => H (Z ω)) ⊤] =ᵐ[P] fun ω => r (Z ω) :=
+fun {Ω} {S} {T} {mΩ} {P} [IsProbabilityMeasure P] [Fintype S] [Fintype T] [DecidableEq T] Z hZ H f r hconst hfiber =>
+  let g := fun t => if h : ∃ s, H s = t then r h.choose else 0;
+  have hg := fun s =>
+    id
+      (if h : ∃ s_1, H s_1 = H s then
+        Eq.mpr (id (congrFun' (congrArg Eq (dif_pos h)) (r s))) (hconst h.choose s (Exists.choose_spec h))
+      else Eq.mpr (id (congrFun' (congrArg Eq (dif_neg h)) (r s))) (False.elim (h (Exists.intro s rfl))));
+  have hfiber' := fun t =>
+    if h : ∃ s, H s = t then
+      Exists.casesOn h fun s h =>
+        h ▸
+          Eq.mpr
+            (id
+              (congrArg
+                (fun _a =>
+                  ∑ s with H s = H s, P.real {ω | Z ω = s} * f s = _a * ∑ s with H s = H s, P.real {ω | Z ω = s})
+                (hg s)))
+            (hfiber s)
+    else
+      have he := Finset.filter_eq_empty_iff.mpr fun ⦃s⦄ a hs => h (Exists.intro s hs);
+      of_eq_true
+        (Eq.trans
+          (congr (congrArg Eq (Finset.sum_congr he fun x a => Eq.refl (P.real {ω | Z ω = x} * f x)))
+            (Eq.trans (congrArg (HMul.hMul (g t)) (Finset.sum_congr he fun x a => Eq.refl (P.real {ω | Z ω = x})))
+              (mul_zero (g t))))
+          (eq_self 0));
+  Filter.EventuallyEq.trans (Luce.condExp_finite_history Z hZ H f g hfiber') (ae_of_all P fun ω => hg (Z ω))
+theorem Luce.drawHistory_le.{u} : ∀ {Ω : Type u} [mΩ : MeasurableSpace Ω] {n : ℕ} (π : Ω → Equiv.Perm (Fin n)),
+  Measurable π → ∀ (m : ℕ), Luce.drawHistory π m ≤ mΩ :=
+fun {Ω} [MeasurableSpace Ω] {n} π hπ m =>
+  iSup_le fun j =>
+    iSup_le fun i =>
+      have hj := fun x x_1 => trivial;
+      Measurable.comap_le (Measurable.comp hj hπ)
+theorem Luce.measurable_predictableChance_history.{u} : ∀ {Ω : Type u} {n : ℕ} (w : Luce.Weights n)
+  (π : Ω → Equiv.Perm (Fin n)) (k : Fin n), Measurable fun ω => Luce.predictableChance w (π ω) k :=
+fun {Ω} {n} w π k =>
+  Eq.mpr (id (congrArg Measurable (funext fun ω => Luce.predictableChance_formula w (π ω) k)))
+    (Measurable.div (Measurable.ite (Luce.measurableSet_label_available π k k) measurable_const measurable_const)
+      (Luce.measurable_remaining_weight w π k))
+theorem Luce.integrable_predictableChance.{u} : ∀ {Ω : Type u} [mΩ : MeasurableSpace Ω] (P : Measure Ω)
+  [IsProbabilityMeasure P] {n : ℕ} (w : Luce.Weights n) (π : Ω → Equiv.Perm (Fin n)),
+  Measurable π → ∀ (k : Fin n), Integrable (fun ω => Luce.predictableChance w (π ω) k) P :=
+fun {Ω} [MeasurableSpace Ω] P [IsProbabilityMeasure P] {n} w π hπ k =>
+  ⟨Measurable.aestronglyMeasurable
+      (Measurable.mono (Luce.measurable_predictableChance_history w π k) (Luce.drawHistory_le π hπ ↑k) le_rfl),
+    HasFiniteIntegral.of_mem_Icc 0 1
+      (ae_of_all P fun ω =>
+        ⟨Luce.Weights.choice_nonneg w (Luce.remaining (π ω) k) k,
+          Luce.Weights.choice_le_one w (Luce.remaining (π ω) k) k⟩)⟩
+theorem Luce.integrable_fixed_point_indicator.{u} : ∀ {Ω : Type u} [mΩ : MeasurableSpace Ω] (P : Measure Ω)
+  [IsProbabilityMeasure P] {n : ℕ} (π : Ω → Equiv.Perm (Fin n)),
+  Measurable π → ∀ (k : Fin n), Integrable (fun ω => if (Equiv.symm (π ω)) k = k then 1 else 0) P :=
+fun {Ω} [MeasurableSpace Ω] P [IsProbabilityMeasure P] {n} π hπ k =>
+  have hs :=
+    hπ
+      (have this := trivial;
+      this);
+  ⟨Measurable.aestronglyMeasurable (Measurable.ite hs measurable_const measurable_const),
+    HasFiniteIntegral.of_mem_Icc 0 1
+      (ae_of_all P fun ω =>
+        if h : (Equiv.symm (π ω)) k = k then
+          Eq.mpr (id (congrArg (Membership.mem (Set.Icc 0 1)) (if_pos h)))
+            (of_eq_true
+              (Eq.trans Set.mem_Icc._simp_1
+                (Eq.trans (congr (congrArg And zero_le_one._simp_1) (Std.le_refl._simp_1 1)) (and_self True))))
+        else
+          Eq.mpr (id (congrArg (Membership.mem (Set.Icc 0 1)) (if_neg h)))
+            (of_eq_true
+              (Eq.trans Set.mem_Icc._simp_1
+                (Eq.trans (congr (congrArg And (Std.le_refl._simp_1 0)) zero_le_one._simp_1) (and_self True)))))⟩
+theorem Luce.predictable_fixed_point_probability.{u} : ∀ {Ω : Type u} [mΩ : MeasurableSpace Ω] {n : ℕ} (P : Measure Ω)
+  [IsProbabilityMeasure P] (w : Luce.Weights n) (π : Ω → Equiv.Perm (Fin n)),
+  Measurable π →
+    (∀ (σ : Equiv.Perm (Fin n)), P.real {ω | π ω = σ} = w.mass σ) →
+      ∀ (k : Fin n),
+        P[fun ω => if (Equiv.symm (π ω)) k = k then 1 else 0 | Luce.drawHistory π ↑k] =ᵐ[P] fun ω =>
+          (if k ≤ (Equiv.symm (π ω)) k then w.rate k else 0) / w.total (Luce.remaining (π ω) k) :=
+fun {Ω} [MeasurableSpace Ω] {n} P [IsProbabilityMeasure P] w π hπ hMass k =>
+  have hconstant := fun σ τ h =>
+    Luce.predictableChance_eq_of_prefix_agreement w σ τ k ((Luce.prefixVector_eq_iff σ τ ↑k).mp h);
+  have hfiber := fun σ =>
+    Eq.mpr
+      (id
+        (congr
+          (congrArg Eq
+            (Finset.sum_congr (Eq.refl {τ | Luce.prefixVector τ ↑k = Luce.prefixVector σ ↑k}) fun x a =>
+              congrFun' (congrArg HMul.hMul ((fun σ => hMass σ) x)) (if (Equiv.symm x) k = k then 1 else 0)))
+          (congrArg (HMul.hMul (Luce.predictableChance w σ k))
+            (Finset.sum_congr (Eq.refl {τ | Luce.prefixVector τ ↑k = Luce.prefixVector σ ↑k}) fun x a =>
+              (fun σ => hMass σ) x))))
+      (Luce.fixed_point_mass_fiber_identity w σ k);
+  have h :=
+    Luce.condExp_finite_history_of_representatives π hπ (fun σ => Luce.prefixVector σ ↑k)
+      (fun σ => if (Equiv.symm σ) k = k then 1 else 0) (fun σ => Luce.predictableChance w σ k) hconstant hfiber;
+  Eq.mp
+    (congrArg ((ae P).EventuallyEq P[fun ω => if (Equiv.symm (π ω)) k = k then 1 else 0 | Luce.drawHistory π ↑k])
+      (funext fun ω => Luce.predictableChance_formula w (π ω) k))
+    (Eq.mp
+      (congrArg
+        (fun _a =>
+          P[fun ω => if (Equiv.symm (π ω)) k = k then 1 else 0 | _a] =ᵐ[P] fun ω => Luce.predictableChance w (π ω) k)
+        (Eq.symm (Luce.drawHistory_eq_comap_prefixVector π ↑k)))
+      h)
+'Luce.Weights.removeFirst' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Weights.sum_rate_perm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Weights.decomposeFin_tail_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Weights.mass_decomposeFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Weights.sum_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.prefixAgrees' depends on axioms: [Quot.sound]
+'Luce.prefixMass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.prefixAgrees_zero' depends on axioms: [propext, Quot.sound]
+'Luce.prefixAgrees_self' depends on axioms: [Quot.sound]
+'Luce.prefixMass_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.prefixMass_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.prefixAgrees_decomposeFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.prefixMass_decomposeFin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.sum_mass_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.remaining_total_eq_tail_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.prefixMass_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.prefixMass_eq_of_prefix_agreement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.exists_prefixAgrees_next_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.prefixAgrees_succ_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.sum_mass_prefix_next' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.fixed_point_mass_fiber_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.prefixVector' depends on axioms: [Quot.sound]
+'Luce.drawHistory_eq_comap_prefixVector' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.prefixVector_eq_iff' depends on axioms: [Quot.sound]
+'Luce.remaining_eq_of_prefix_agreement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.predictableChance_eq_of_prefix_agreement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.integrable_finite_state' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.integral_finite_state' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.condExp_finite_history' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.condExp_finite_history_of_representatives' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.drawHistory_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.measurable_predictableChance_history' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.integrable_predictableChance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.integrable_fixed_point_indicator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.predictable_fixed_point_probability' depends on axioms: [propext, Classical.choice, Quot.sound]

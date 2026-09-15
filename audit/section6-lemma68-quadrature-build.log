@@ -1,0 +1,90 @@
+⚠ [937/1126] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3656/3675] Replayed Luce.Section6IncrementDensity
+warning: Luce/Section6IncrementDensity.lean:61:63: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3670/3675] Replayed Luce.Section6LogCells
+warning: Luce/Section6LogCells.lean:81:42: Variable name `hA` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hA
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3671/3675] Replayed Luce.Section6DensityPerturbation
+warning: Luce/Section6DensityPerturbation.lean:20:31: Variable name `he0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _he0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3674/3675] Built Luce.Section6ContinuousBoxTrace (16s)
+warning: Luce/Section6ContinuousBoxTrace.lean:86:67: Unused tactic linter: `rfl` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Luce/Section6ContinuousBoxTrace.lean:86:67: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Luce/Section6ContinuousBoxTrace.lean:75:111: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Luce/Section6ContinuousBoxTrace.lean:76:63: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Luce/Section6ContinuousBoxTrace.lean:128:17: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hcons, Set.indicator_apply, logTraceBox68, Set.mem_pi, Set.mem_univ, forall_const, Set.mem_Ioc,
+    closedLogCycleWeight_translate]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✖ [3675/3675] Building Luce.Section6LogCellQuadrature (15s)
+trace: .> LEAN_PATH=D:\princeton\Research\Lean\Lean_luce\.lake\packages\Cli\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\batteries\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\Qq\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\aesop\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\importGraph\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\plausible\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\mathlib\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean c:\Users\JiaminWang\.elan\toolchains\leanprover--lean4---v4.33.1\bin\lean.exe D:\princeton\Research\Lean\Lean_luce\Luce\Section6LogCellQuadrature.lean -o D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6LogCellQuadrature.olean -i D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6LogCellQuadrature.ilean -c D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6LogCellQuadrature.c --setup D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6LogCellQuadrature.setup.json --json
+error: Luce/Section6LogCellQuadrature.lean:71:20: unexpected token '|*'; expected '|' or '|ₘ'
+error: Luce/Section6LogCellQuadrature.lean:45:65: unsolved goals
+case calc.step
+p : ℝ → ℝ
+hp : ∀ (x : ℝ), 0 ≤ p x
+hd : Differentiable ℝ p
+C g : ℝ
+hC : 0 ≤ C
+hg : 0 ≤ g
+hb : ∀ (x : ℝ), p x + ‖deriv p x‖ ≤ C * Real.exp (-g * |x|)
+A B k : ℕ
+hA : 1 ≤ A
+a : IdealDepthTuple A B k
+x : Fin (k + 1) → ℝ
+hx : x ∈ logCellCube68 a
+e : ℝ := 1 / ↑A
+R : ℝ := ∏ j, logCellCorrection68 ↑(a j)
+P : ℝ := closedLogCycleWeight p k fun j => Real.log ↑↑(a j)
+Q : ℝ := closedLogCycleWeight p k x
+V : ℝ := closedLogCycleWeight (fun t => Real.exp (-g * |t|)) k x
+D : ℝ := (C * Real.exp (2 * g)) ^ (k + 1) * V
+he0 : 0 ≤ e
+he1 : e ≤ 1
+hax : ∀ (j : Fin (k + 1)), |Real.log ↑↑(a j) - x j| ≤ e
+hc :
+  |(closedLogCycleWeight p k fun j => Real.log ↑↑(a j)) - closedLogCycleWeight p k x| ≤
+      (↑k + 1) * (2 * e) * (C * Real.exp (2 * g)) ^ (k + 1) * closedLogCycleWeight (fun t => Real.exp (-g * |t|)) k x ∧
+    closedLogCycleWeight p k x ≤
+      (C * Real.exp (2 * g)) ^ (k + 1) * closedLogCycleWeight (fun t => Real.exp (-g * |t|)) k x
+hPQ : |P - Q| ≤ 2 * (↑k + 1) * e * D
+hQ : Q ≤ D
+hQ0 : 0 ≤ Q
+hD0 : 0 ≤ D
+hR : 0 ≤ R ∧ R ≤ 2 ^ (k + 1) ∧ |R - 1| ≤ (↑k + 1) * e * 2 ^ (k + 1)
+⊢ R * |P - Q| + |R - 1| ≤ logGridErrorConstant68 C g k / ↑A * V
+error: Lean exited with code 1
+Some required targets logged failures:
+- Luce.Section6LogCellQuadrature
+error: build failed

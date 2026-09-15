@@ -1,0 +1,41 @@
+⚠ [937/1116] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3656/3670] Replayed Luce.Section6IncrementDensity
+warning: Luce/Section6IncrementDensity.lean:61:63: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✖ [3670/3670] Building Luce.Section6LogCells (15s)
+trace: .> LEAN_PATH=D:\princeton\Research\Lean\Lean_luce\.lake\packages\Cli\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\batteries\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\Qq\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\aesop\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\importGraph\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\plausible\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\mathlib\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean c:\Users\JiaminWang\.elan\toolchains\leanprover--lean4---v4.33.1\bin\lean.exe D:\princeton\Research\Lean\Lean_luce\Luce\Section6LogCells.lean -o D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6LogCells.olean -i D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6LogCells.ilean -c D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6LogCells.c --setup D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6LogCells.setup.json --json
+error: Luce/Section6LogCells.lean:25:2: Type mismatch: After simplification, term
+  h
+ has type
+  @Eq (Set ℝ) (⋃ i, ⋃ (_ : A ≤ i ∧ i ≤ B), Ioc (Real.log ↑i) (Real.log ↑(Order.succ i)))
+    (Ioc (Real.log ↑A) (Real.log ↑(B + 1)))
+but is expected to have type
+  @Eq (Set ℝ) (⋃ x, ⋃ (_ : A ≤ x ∧ x ≤ B), Ioc (Real.log ↑x) (Real.log ↑(x + 1)))
+    (Ioc (Real.log ↑A) (Real.log ↑(B + 1)))
+error: Luce/Section6LogCells.lean:70:6: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ⋃ x, univ.pi fun a => ?t a (x a)
+in the target expression
+  (⋃ a, univ.pi fun j => logCell68 ↑(a j)) = univ.pi fun x => Ioc (Real.log ↑A) (Real.log ↑(B + 1))
+
+A B k : ℕ
+⊢ (⋃ a, univ.pi fun j => logCell68 ↑(a j)) = univ.pi fun x => Ioc (Real.log ↑A) (Real.log ↑(B + 1))
+warning: Luce/Section6LogCells.lean:80:42: Variable name `hA` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hA
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+error: Lean exited with code 1
+Some required targets logged failures:
+- Luce.Section6LogCells
+error: build failed

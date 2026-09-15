@@ -1,0 +1,55 @@
+⚠ [937/1123] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3656/3676] Replayed Luce.Section6IncrementDensity
+warning: Luce/Section6IncrementDensity.lean:61:63: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3670/3676] Replayed Luce.Section6LogCells
+warning: Luce/Section6LogCells.lean:81:42: Variable name `hA` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hA
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3671/3676] Replayed Luce.Section6DensityPerturbation
+warning: Luce/Section6DensityPerturbation.lean:20:31: Variable name `he0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _he0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3674/3676] Replayed Luce.Section6ContinuousBoxTrace
+warning: Luce/Section6ContinuousBoxTrace.lean:86:67: Unused tactic linter: `rfl` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Luce/Section6ContinuousBoxTrace.lean:86:67: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: Luce/Section6ContinuousBoxTrace.lean:75:111: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Luce/Section6ContinuousBoxTrace.lean:76:63: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Luce/Section6ContinuousBoxTrace.lean:128:17: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hcons, Set.indicator_apply, logTraceBox68, Set.mem_pi, Set.mem_univ, forall_const, Set.mem_Ioc,
+    closedLogCycleWeight_translate]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+⚠ [3675/3676] Built Luce.Section6LogCellQuadrature (15s)
+warning: Luce/Section6LogCellQuadrature.lean:62:25: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3676/3676] Built Luce.Section6LogGridComparison (15s)
+Build completed successfully (3676 jobs).

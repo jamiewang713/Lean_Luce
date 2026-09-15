@@ -1,0 +1,16 @@
+Luce/Section5HighRates.lean:155:58: error: Application type mismatch: The argument
+  n
+has type
+  ℝ
+but is expected to have type
+  ℕ
+in the application
+  w n
+Luce/Section5HighRates.lean:156:11: error: Application type mismatch: The argument
+  n
+has type
+  ℝ
+but is expected to have type
+  ℕ
+in the application
+  w n

@@ -1,0 +1,306 @@
+Luce.Section6.lemma67 : Luce.Section6.Lemma67Contract.lemma67
+def Luce.Section6.Lemma67Contract.active : Prop :=
+∀ (f : Real → Real) (left right : Luce.Section6.EndpointBehavior),
+  Luce.Section6.PowerProfile f left right →
+    ∀ (L : Nat),
+      ∃ C delta kappa,
+        And (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) C)
+          (And
+            (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+              delta)
+            (And
+              (@LT.lt.{0} Real Real.instLT delta
+                (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+              (And
+                (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                  kappa)
+                (∀ (k : Nat),
+                  @LT.lt.{0} Nat instLTNat k L →
+                    ∀ (side : Luce.Section6.Corner),
+                      (Luce.Section6.cornerBehavior left right side).active →
+                        Luce.Section6.Lemma67Contract.endpointEstimates f k side C delta kappa))))
+def Luce.Section6.Lemma67Contract.endpointEstimates : (Real → Real) →
+  Nat → Luce.Section6.Corner → Real → Real → Real → Prop :=
+fun f k side C delta kappa =>
+  ∀ (grid : Luce.Section6.SamplingGrid) (w : Luce.WeightArray),
+    Luce.Section6.SampledRates grid w f →
+      And
+        (∀ (n : Nat) (v : Fin n),
+          @LE.le.{0} Real Real.instLE
+              (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                (@Nat.cast.{0} Real Real.instNatCast (@Luce.Section6.cornerDistance side n v))
+                (@Nat.cast.{0} Real Real.instNatCast n))
+              delta →
+            @LE.le.{0} Real Real.instLE
+              (@MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+                (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                  (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                  (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                (@Luce.exponentialRace n (w n)) fun clocks =>
+                @Nat.cast.{0} Real Real.instNatCast
+                  (@Luce.Section6.selectedRootCycleCount n (@Luce.raceRankPermutation n clocks) k
+                    (@singleton.{0, 0} (Fin n) (Finset.{0} (Fin n)) (@Finset.instSingleton.{0} (Fin n)) v)))
+              (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) C
+                (@Nat.cast.{0} Real Real.instNatCast (@Luce.Section6.cornerDistance side n v))))
+        (And
+          (∀ (n : Nat) (A B : Real),
+            @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) A →
+              @LE.le.{0} Real Real.instLE A B →
+                @LE.le.{0} Real Real.instLE
+                    (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                      (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) B
+                      (@Nat.cast.{0} Real Real.instNatCast n))
+                    delta →
+                  @LE.le.{0} Real Real.instLE
+                    (@MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+                      (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                        (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                      (@Luce.exponentialRace n (w n)) fun clocks =>
+                      @Nat.cast.{0} Real Real.instNatCast
+                        (@Luce.Section6.intervalDiscardedCycleCount n (@Luce.raceRankPermutation n clocks) side k A B))
+                    C)
+          (∀ (n : Nat) (A B R : Real),
+            @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) A →
+              @LE.le.{0} Real Real.instLE A B →
+                @LE.le.{0} Real Real.instLE
+                    (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                      (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) B
+                      (@Nat.cast.{0} Real Real.instNatCast n))
+                    delta →
+                  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                      R →
+                    @LE.le.{0} Real Real.instLE
+                      (@MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+                        (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                          (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                        (@Luce.exponentialRace n (w n)) fun clocks =>
+                        @Nat.cast.{0} Real Real.instNatCast
+                          (@Luce.Section6.logarithmicExcursionCount n (@Luce.raceRankPermutation n clocks) side k A B
+                            R))
+                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) C
+                          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                            (Real.log
+                              (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) B A))))
+                        (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow) R
+                          (@Neg.neg.{0} Real Real.instNeg kappa)))))
+def Luce.Section6.Lemma67Contract.regular : Prop :=
+∀ (f : Real → Real) (left right : Luce.Section6.EndpointBehavior),
+  Luce.Section6.PowerProfile f left right →
+    ∀ (L : Nat) (eps : Real),
+      @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) eps →
+        @LT.lt.{0} Real Real.instLT eps (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+          ∃ C,
+            And
+              (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                C)
+              (∀ (grid : Luce.Section6.SamplingGrid) (w : Luce.WeightArray),
+                Luce.Section6.SampledRates grid w f →
+                  ∀ (n k : Nat),
+                    @LT.lt.{0} Nat instLTNat k L →
+                      @LE.le.{0} Real Real.instLE
+                        (@MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+                          (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                            (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                            (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                          (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                          (@Luce.exponentialRace n (w n)) fun clocks =>
+                          @Nat.cast.{0} Real Real.instNatCast
+                            (@Luce.Section6.selectedRootCycleCount n (@Luce.raceRankPermutation n clocks) k
+                              (Luce.Section6.offActiveLabels left right n eps)))
+                        C)
+def Luce.Section6.selectedRootCycleCount : {n : Nat} → Equiv.Perm.{1} (Fin n) → Nat → Finset.{0} (Fin n) → Nat :=
+fun {n} p k S =>
+  @Finset.card.{0} ↥(@Luce.Section5.cycleOrbits.{0} (Fin n) (Fin.fintype n) (instDecidableEqFin n) p k)
+    {c |
+      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+        (@Luce.Section5.cycleMaximum n p k c)}
+def Luce.Section6.logarithmicExcursionCount : {n : Nat} →
+  Equiv.Perm.{1} (Fin n) → Luce.Section6.Corner → Nat → Real → Real → Real → Nat :=
+fun {n} p side k A B R =>
+  @Finset.card.{0} ↥(@Luce.Section5.cycleOrbits.{0} (Fin n) (Fin.fintype n) (instDecidableEqFin n) p k)
+    {c |
+      And
+        (@LE.le.{0} Real Real.instLE A
+          (@Nat.cast.{0} Real Real.instNatCast
+            (@Luce.Section6.cornerDistance side n (@Luce.Section5.cycleMaximum n p k c))))
+        (And
+          (@LE.le.{0} Real Real.instLE
+            (@Nat.cast.{0} Real Real.instNatCast
+              (@Luce.Section6.cornerDistance side n (@Luce.Section5.cycleMaximum n p k c)))
+            B)
+          (∃ v,
+            And
+              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                (@Cycle.toFinset.{0} (Fin n) (instDecidableEqFin n)
+                  (@Subtype.val.{1} (Cycle.{0} (Fin n))
+                    (fun x =>
+                      @Membership.mem.{0, 0} (Cycle.{0} (Fin n)) (Finset.{0} (Cycle.{0} (Fin n)))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Cycle.{0} (Fin n))) (Cycle.{0} (Fin n))
+                          (@Finset.instSetLike.{0} (Cycle.{0} (Fin n))))
+                        (@Luce.Section5.cycleOrbits.{0} (Fin n) (Fin.fintype n) (instDecidableEqFin n) p k) x)
+                    c))
+                v)
+              (@LE.le.{0} Real Real.instLE (Real.log R)
+                (@abs.{0} Real Real.lattice Real.instAddGroup
+                  (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                    (Real.log (@Nat.cast.{0} Real Real.instNatCast (@Luce.Section6.cornerDistance side n v)))
+                    (Real.log
+                      (@Nat.cast.{0} Real Real.instNatCast
+                        (@Luce.Section6.cornerDistance side n (@Luce.Section5.cycleMaximum n p k c)))))))))}
+def Luce.Section6.offActiveLabels : Luce.Section6.EndpointBehavior →
+  Luce.Section6.EndpointBehavior → (n : Nat) → Real → Finset.{0} (Fin n) :=
+fun left right n eps =>
+  {i |
+    And
+      (left.active →
+        @LE.le.{0} Real Real.instLE eps
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+              (@Nat.cast.{0} Real Real.instNatCast (@Fin.val n i))
+              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+            (@Nat.cast.{0} Real Real.instNatCast n)))
+      (right.active →
+        @LE.le.{0} Real Real.instLE eps
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@Nat.cast.{0} Real Real.instNatCast (@Luce.Section6.cornerDistance Luce.Section6.Corner.right n i))
+            (@Nat.cast.{0} Real Real.instNatCast n)))}
+theorem Luce.Section6.lemma67 : Luce.Section6.Lemma67Contract.lemma67 :=
+⋯
+Luce.Section6.lemma67_excursion_totals : ∀ (f : Real → Real) (left right : Luce.Section6.EndpointBehavior),
+  Luce.Section6.PowerProfile f left right →
+    ∀ (L : Nat),
+      ∃ C delta q,
+        And (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) C)
+          (And
+            (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+              delta)
+            (And
+              (@LT.lt.{0} Real Real.instLT delta
+                (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+              (And
+                (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                  q)
+                (∀ (grid : Luce.Section6.SamplingGrid) (w : Luce.WeightArray),
+                  Luce.Section6.SampledRates grid w f →
+                    ∀ (side : Luce.Section6.Corner),
+                      (Luce.Section6.cornerBehavior left right side).active →
+                        ∀ (n : Nat) (A B : Real),
+                          @LE.le.{0} Real Real.instLE
+                              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) A →
+                            @LE.le.{0} Real Real.instLE A B →
+                              @LE.le.{0} Real Real.instLE
+                                  (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                    (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) B
+                                    (@Nat.cast.{0} Real Real.instNatCast n))
+                                  delta →
+                                And
+                                  (@LE.le.{0} Real Real.instLE
+                                    (@MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+                                      (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                                        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                                        (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                                      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                                      (@Luce.exponentialRace n (w n)) fun clocks =>
+                                      @Nat.cast.{0} Real Real.instNatCast
+                                        (∑ k,
+                                          @Luce.Section6.intervalDiscardedCycleCount n
+                                            (@Luce.raceRankPermutation n clocks) side (@Fin.val L k) A B))
+                                    C)
+                                  (∀ (R : Real),
+                                    @LE.le.{0} Real Real.instLE
+                                        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) R →
+                                      @LE.le.{0} Real Real.instLE
+                                        (@MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+                                          (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                                            (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real
+                                              Real.normedAddCommGroup)
+                                            (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                                          (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a =>
+                                            Real.measurableSpace)
+                                          (@Luce.exponentialRace n (w n)) fun clocks =>
+                                          @Nat.cast.{0} Real Real.instNatCast
+                                            (∑ k,
+                                              @Luce.Section6.logarithmicExcursionCount n
+                                                (@Luce.raceRankPermutation n clocks) side (@Fin.val L k) A B R))
+                                        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) C
+                                            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                                              (Real.log
+                                                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                  (@instHDiv.{0} Real
+                                                    (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                                  B A))))
+                                          (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+                                            R (@Neg.neg.{0} Real Real.instNeg q))))))))
+Luce.Section6.lemma67_regular_totals : ∀ (f : Real → Real) (left right : Luce.Section6.EndpointBehavior),
+  Luce.Section6.PowerProfile f left right →
+    ∀ (L : Nat) {eps : Real},
+      @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) eps →
+        @LT.lt.{0} Real Real.instLT eps (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+          ∃ C,
+            And
+              (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                C)
+              (∀ (grid : Luce.Section6.SamplingGrid) (w : Luce.WeightArray),
+                Luce.Section6.SampledRates grid w f →
+                  ∀ (n : Nat),
+                    @LE.le.{0} Real Real.instLE
+                      (@MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+                        (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                          (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                        (@Luce.exponentialRace n (w n)) fun clocks =>
+                        @Nat.cast.{0} Real Real.instNatCast
+                          (∑ k,
+                            @Luce.Section6.selectedRootCycleCount n (@Luce.raceRankPermutation n clocks) (@Fin.val L k)
+                              (Luce.Section6.offActiveLabels left right n eps)))
+                      C)
+'Luce.Section6.selected_root_count_le_vertices' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.selected_root_expectation_of_rates' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.PowerProfile.off_active_root_expectation' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.Section6.cornerDistance_pos67' depends on axioms: [propext, Quot.sound.{u}]
+'Luce.Section6.cornerDistance_injective67' depends on axioms: [propext, Quot.sound.{u}]
+'Luce.Section6.log_distance_right_ratio' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.log_distance_left_ratio' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.harmonic_interval_sum67' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.harmonic_real_subset67' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.small_ratio_absorption67' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.right_half_threshold67' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.left_double_threshold67' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.PowerProfile.right_root_log_probability' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.Section6.PowerProfile.left_root_log_probability' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.Section6.logarithmic_excursion_expectation_of_root_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.Section6.PowerProfile.active_log_expectation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.finite_uniform_cycle_constants' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.endpointEstimates_mono67' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.selected_root_singleton67' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.PowerProfile.endpoint_estimates67' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.lemma67_active' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.lemma67_regular' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.lemma67' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.sum_cycle_expectations67' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.lemma67_excursion_totals' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.lemma67_regular_totals' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+LEMMA67_AXIOM_AUDIT_PASSED: only propext, Classical.choice and Quot.sound

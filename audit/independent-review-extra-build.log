@@ -1,0 +1,170 @@
+⚠ [2767/2782] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [2777/2782] Replayed Luce.ExponentialRace
+warning: Luce/ExponentialRace.lean:27:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialRace.lean:35:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialRace.lean:45:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialRace.lean:52:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialRace.lean:72:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialRace.lean:98:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [2778/2782] Replayed Luce.RaceOrder
+warning: Luce/RaceOrder.lean:16:4: Try `simp at hi` instead of `simpa using hi`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Luce/RaceOrder.lean:32:6: Try `simp at hi` instead of `simpa using hi`
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [2779/2782] Replayed Luce.RankIntegral
+warning: Luce/RankIntegral.lean:35:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+⚠ [2780/2782] Replayed Luce.ExponentialFacts
+warning: Luce/ExponentialFacts.lean:30:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialFacts.lean:31:2: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+warning: Luce/ExponentialFacts.lean:40:22: This simp argument is unused:
+  eq_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Set.diagonal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+ℹ [2782/2782] Built Luce.RankIntegralDependencyAudit (20s)
+info: Luce/RankIntegralDependencyAudit.lean:8:0: Luce.Weights (n : ℕ) : Type
+info: Luce/RankIntegralDependencyAudit.lean:9:0: Luce.raceRank {n : ℕ} (times : Fin n → ℝ) (i : Fin n) : ℕ
+info: Luce/RankIntegralDependencyAudit.lean:10:0: Luce.survivorSet {n : ℕ} (times : Fin n → ℝ) (t : ℝ) : Finset (Fin n)
+info: Luce/RankIntegralDependencyAudit.lean:11:0: Luce.exponentialRace {n : ℕ} (w : Luce.Weights n) : MeasureTheory.Measure (Fin n → ℝ)
+info: Luce/RankIntegralDependencyAudit.lean:12:0: Luce.backgroundRace {n : ℕ} (w : Luce.Weights (n + 1)) (i : Fin (n + 1)) : MeasureTheory.Measure (Fin n → ℝ)
+info: Luce/RankIntegralDependencyAudit.lean:13:0: Luce.raceRank_eq_iff_survivors {n : ℕ} (times : Fin n → ℝ) (hinj : Function.Injective times) (i : Fin n) (k : ℕ)
+  (hk : 1 ≤ k) (hkn : k ≤ n) : Luce.raceRank times i = k ↔ (Luce.survivorSet times (times i)).card = n - k
+info: Luce/RankIntegralDependencyAudit.lean:14:0: Luce.exponentialRace_disintegrate {n : ℕ} (w : Luce.Weights (n + 1)) (i : Fin (n + 1)) (g : ℝ × (Fin n → ℝ) → ENNReal)
+  (hg : Measurable g) :
+  ∫⁻ (clocks : Fin (n + 1) → ℝ), g (clocks i, fun j => clocks (i.succAbove j)) ∂Luce.exponentialRace w =
+    ∫⁻ (t : ℝ),
+      ProbabilityTheory.exponentialPDF (w.rate i) t *
+        ∫⁻ (background : Fin n → ℝ), g (t, background) ∂Luce.backgroundRace w i
+info: Luce/RankIntegralDependencyAudit.lean:15:0: Luce.rank_integral_survivors {n : ℕ} (w : Luce.Weights (n + 1)) (i : Fin (n + 1)) (m : ℕ) :
+  (Luce.exponentialRace w) {clocks | (Luce.backgroundSurvivors (clocks i) fun j => clocks (i.succAbove j)) = m} =
+    ∫⁻ (t : ℝ),
+      ProbabilityTheory.exponentialPDF (w.rate i) t *
+        (Luce.backgroundRace w i) {background | Luce.backgroundSurvivors t background = m}
+info: Luce/RankIntegralDependencyAudit.lean:16:0: Luce.rank_integral_real {n : ℕ} (w : Luce.Weights (n + 1)) (i : Fin (n + 1)) (m : ℕ) :
+  (Luce.exponentialRace w).real {clocks | (Luce.backgroundSurvivors (clocks i) fun j => clocks (i.succAbove j)) = m} =
+    ∫ (t : ℝ),
+      ProbabilityTheory.exponentialPDFReal (w.rate i) t *
+        (Luce.backgroundRace w i).real {background | Luce.backgroundSurvivors t background = m}
+info: Luce/RankIntegralDependencyAudit.lean:17:0: Luce.raceRank_probability_integral {n : ℕ} (w : Luce.Weights (n + 1)) (i : Fin (n + 1)) (r : ℕ) (hr : 1 ≤ r)
+  (hrn : r ≤ n + 1) :
+  (Luce.exponentialRace w).real {clocks | Luce.raceRank clocks i = r} =
+    ∫ (t : ℝ) in Set.Ioi 0,
+      w.rate i * Real.exp (-w.rate i * t) *
+        (Luce.exponentialRace w).real {clocks | ((Luce.survivorSet clocks t).erase i).card = n + 1 - r}
+info: Luce/RankIntegralDependencyAudit.lean:18:0: Luce.fixed_point_probability_integral {n : ℕ} (w : Luce.Weights (n + 1)) (i : Fin (n + 1)) :
+  (Luce.exponentialRace w).real {clocks | Luce.raceRank clocks i = ↑i + 1} =
+    ∫ (t : ℝ) in Set.Ioi 0,
+      w.rate i * Real.exp (-w.rate i * t) *
+        (Luce.exponentialRace w).real {clocks | ((Luce.survivorSet clocks t).erase i).card = n - ↑i}
+info: Luce/RankIntegralDependencyAudit.lean:20:0: 'Luce.Weights' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:21:0: 'Luce.raceRank' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:22:0: 'Luce.survivorSet' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:23:0: 'Luce.raceRank_add_survivors' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:24:0: 'Luce.raceRank_eq_iff_survivors' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:25:0: 'Luce.beforeCount_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:26:0: 'Luce.raceRank_strict' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:27:0: 'Luce.raceRank_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:28:0: 'Luce.clockRank' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:29:0: 'Luce.clockRank_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:30:0: 'Luce.rankPermutation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:31:0: 'Luce.drawPermutation' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:32:0: 'Luce.arrivalTime' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:33:0: 'Luce.clockRank_le_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:34:0: 'Luce.rank_survives_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:35:0: 'Luce.remaining_eq_clock_survivors' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:36:0: 'Luce.exponentialRace' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:37:0: 'Luce.exponentialRace_isProbability' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:38:0: 'Luce.exponentialRace_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:39:0: 'Luce.exponentialRace_independent' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:40:0: 'Luce.backgroundRace' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:41:0: 'Luce.backgroundRace_isProbability' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:42:0: 'Luce.backgroundSurvivors' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:43:0: 'Luce.measurable_backgroundSurvivors' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:44:0: 'Luce.exponentialRace_disintegrate' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:45:0: 'Luce.rank_integral_survivors' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:46:0: 'Luce.expMeasure_nullSingleton' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:47:0: 'Luce.exponentialRace_collision_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:48:0: 'Luce.exponentialRace_injective_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:49:0: 'Luce.backgroundSurvivors_eq_erase' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:50:0: 'Luce.exponentialRace_background' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:51:0: 'Luce.background_probability_eq_common' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:52:0: 'Luce.rank_integral_real' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:53:0: 'Luce.rank_integral_common' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:54:0: 'Luce.exponentialPDFReal_eq_piecewise' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:55:0: 'Luce.integral_exponentialPDFReal' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:56:0: 'Luce.raceRank_probability_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/RankIntegralDependencyAudit.lean:57:0: 'Luce.fixed_point_probability_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (2782 jobs).

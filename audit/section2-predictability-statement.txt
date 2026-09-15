@@ -1,0 +1,9 @@
+proposals/Section2Predictability.lean:20:0: warning: Definition `Luce.Section2Proposal.drawHistory` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+def Luce.Section2Proposal.drawHistory.{u} : {Ω : Type u} → {n : ℕ} → (Ω → Equiv.Perm (Fin n)) → ℕ → MeasurableSpace Ω :=
+fun {Ω} {n} π m => ⨆ j, ⨆ (_ : ↑j < m), MeasurableSpace.comap (fun ω => (π ω) j) ⊤
+def Luce.Section2Proposal.PredictabilityStatement.{u} : Prop :=
+∀ {Ω : Type u} {n : ℕ} (w : Weights n) (π : Ω → Equiv.Perm (Fin n)) (k : Fin n),
+  (Measurable fun ω => if k ≤ (Equiv.symm (π ω)) k then 1 else 0) ∧ Measurable fun ω => w.total (remaining (π ω) k)
+'Luce.Section2Proposal.drawHistory' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section2Proposal.PredictabilityStatement' depends on axioms: [propext, Classical.choice, Quot.sound]

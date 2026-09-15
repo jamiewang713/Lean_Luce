@@ -1,0 +1,1507 @@
+def Luce.Section6.Proposition611Contract.proposition611 : Prop :=
+∀ (Ω : Nat → Type) [inst : (n : Nat) → MeasurableSpace.{0} (Ω n)]
+  (P : (n : Nat) → @MeasureTheory.Measure.{0} (Ω n) (inst n))
+  [∀ (n : Nat), @MeasureTheory.IsProbabilityMeasure.{0} (Ω n) (inst n) (P n)] (N : Nat → Nat)
+  (B : (n : Nat) → @Luce.FiniteAdaptedBernoulli.{0} (Ω n) (inst n) (P n) (N n)) (v : Nat → Real),
+  @Filter.Tendsto.{0, 0} Nat Real v (@Filter.atTop.{0} Nat Nat.instPreorder)
+      (@Filter.atTop.{0} Real Real.instPreorder) →
+    @Luce.ConvergesInProbability.{0} Ω inst P
+        (fun n ω =>
+          @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+              (∑ k, @Luce.FiniteAdaptedBernoulli.probability.{0} (Ω n) (inst n) (P n) (N n) (B n) k ω) (v n))
+            (v n).sqrt)
+        (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) →
+      @Luce.ConvergesInProbability.{0} Ω inst P
+          (fun n ω =>
+            @HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+              (∑ k,
+                @HPow.hPow.{0, 0, 0} Real Nat Real
+                  (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                  (@Luce.FiniteAdaptedBernoulli.probability.{0} (Ω n) (inst n) (P n) (N n) (B n) k ω)
+                  (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              (v n))
+          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) →
+        And
+          (∀
+            (F :
+              @BoundedContinuousFunction.{0, 0} Real Real
+                (@UniformSpace.toTopologicalSpace.{0} Real
+                  (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                Real.pseudoMetricSpace),
+            @Filter.Tendsto.{0, 0} Nat Real
+              (fun n =>
+                @MeasureTheory.integral.{0, 0} (Ω n) Real Real.normedAddCommGroup
+                  (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                    (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                    (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                  (inst n) (P n) fun ω =>
+                  @DFunLike.coe.{1, 1, 1}
+                    (@BoundedContinuousFunction.{0, 0} Real Real
+                      (@UniformSpace.toTopologicalSpace.{0} Real
+                        (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                      Real.pseudoMetricSpace)
+                    Real (fun x => Real)
+                    (@BoundedContinuousFunction.instFunLike.{0, 0} Real Real
+                      (@UniformSpace.toTopologicalSpace.{0} Real
+                        (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                      Real.pseudoMetricSpace)
+                    F
+                    (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                      (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                      (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                        (∑ k, @Luce.FiniteAdaptedBernoulli.observationReal.{0} (Ω n) (inst n) (P n) (N n) (B n) k ω)
+                        (v n))
+                      (v n).sqrt))
+              (@Filter.atTop.{0} Nat Nat.instPreorder)
+              (@nhds.{0} Real
+                (@UniformSpace.toTopologicalSpace.{0} Real
+                  (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                (@MeasureTheory.integral.{0, 0} Real Real Real.normedAddCommGroup
+                  (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                    (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                    (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                  Real.measurableSpace
+                  (ProbabilityTheory.gaussianReal
+                    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                    (@OfNat.ofNat.{0} NNReal (nat_lit 1) (@One.toOfNat1.{0} NNReal NNReal.instOne)))
+                  fun x =>
+                  @DFunLike.coe.{1, 1, 1}
+                    (@BoundedContinuousFunction.{0, 0} Real Real
+                      (@UniformSpace.toTopologicalSpace.{0} Real
+                        (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                      Real.pseudoMetricSpace)
+                    Real (fun x => Real)
+                    (@BoundedContinuousFunction.instFunLike.{0, 0} Real Real
+                      (@UniformSpace.toTopologicalSpace.{0} Real
+                        (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                      Real.pseudoMetricSpace)
+                    F x)))
+          (@Filter.Tendsto.{0, 0} Nat Real
+              (fun n =>
+                @HDiv.hDiv.{0, 0, 0} Real Real Real
+                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                  (@MeasureTheory.integral.{0, 0} (Ω n) Real Real.normedAddCommGroup
+                    (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                      (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                      (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                    (inst n) (P n) fun ω =>
+                    ∑ k, @Luce.FiniteAdaptedBernoulli.probability.{0} (Ω n) (inst n) (P n) (N n) (B n) k ω)
+                  (v n))
+              (@Filter.atTop.{0} Nat Nat.instPreorder)
+              (@nhds.{0} Real
+                (@UniformSpace.toTopologicalSpace.{0} Real
+                  (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))) →
+            @Filter.Tendsto.{0, 0} Nat Real
+              (fun n =>
+                @HDiv.hDiv.{0, 0, 0} Real Real Real
+                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                  (@MeasureTheory.integral.{0, 0} (Ω n) Real Real.normedAddCommGroup
+                    (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                      (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                      (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                    (inst n) (P n) fun ω =>
+                    ∑ k, @Luce.FiniteAdaptedBernoulli.observationReal.{0} (Ω n) (inst n) (P n) (N n) (B n) k ω)
+                  (v n))
+              (@Filter.atTop.{0} Nat Nat.instPreorder)
+              (@nhds.{0} Real
+                (@UniformSpace.toTopologicalSpace.{0} Real
+                  (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+Luce.BernoulliCLT.coefficient_re_nonpos (u : Real) :
+  @LE.le.{0} Real Real.instLE (Luce.BernoulliCLT.coefficient u).re
+    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+'Luce.BernoulliCLT.coefficient_re_nonpos' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.coefficient_norm_le {u : Real}
+  (hu :
+    @LE.le.{0} Real Real.instLE (@abs.{0} Real Real.lattice Real.instAddGroup u)
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))) :
+  @LE.le.{0} Real Real.instLE (@Norm.norm.{0} Complex Complex.instNorm (Luce.BernoulliCLT.coefficient u))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+      (@abs.{0} Real Real.lattice Real.instAddGroup u))
+'Luce.BernoulliCLT.coefficient_norm_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.coefficient_neg_re_le {u : Real}
+  (hu :
+    @LE.le.{0} Real Real.instLE (@abs.{0} Real Real.lattice Real.instAddGroup u)
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))) :
+  @LE.le.{0} Real Real.instLE (@Neg.neg.{0} Real Real.instNeg (Luce.BernoulliCLT.coefficient u).re)
+    (@HPow.hPow.{0, 0, 0} Real Nat Real
+      (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) u
+      (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+'Luce.BernoulliCLT.coefficient_neg_re_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.exp_compensation_error {z : Complex}
+  (hz :
+    @LE.le.{0} Real Real.instLE (@Norm.norm.{0} Complex Complex.instNorm z)
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))) :
+  @LE.le.{0} Real Real.instLE
+    (@Norm.norm.{0} Complex Complex.instNorm
+      (@HSub.hSub.{0, 0, 0} Complex Complex Complex (@instHSub.{0} Complex Complex.instSub)
+        (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+          (Complex.exp (@Neg.neg.{0} Complex Complex.instNeg z))
+          (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd)
+            (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne)) z))
+        (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne))))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@OfNat.ofNat.{0} Real (nat_lit 3) (@instOfNatAtLeastTwo.{0} Real (nat_lit 3) Real.instNatCast ⋯))
+      (@HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@Norm.norm.{0} Complex Complex.instNorm z) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+'Luce.BernoulliCLT.exp_compensation_error' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.coefficient_norm_le_two (u : Real) :
+  @LE.le.{0} Real Real.instLE (@Norm.norm.{0} Complex Complex.instNorm (Luce.BernoulliCLT.coefficient u))
+    (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+'Luce.BernoulliCLT.coefficient_norm_le_two' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.coefficient_norm_le_all (u : Real) :
+  @LE.le.{0} Real Real.instLE (@Norm.norm.{0} Complex Complex.instNorm (Luce.BernoulliCLT.coefficient u))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@OfNat.ofNat.{0} Real (nat_lit 4) (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast ⋯))
+      (@abs.{0} Real Real.lattice Real.instAddGroup u))
+'Luce.BernoulliCLT.coefficient_norm_le_all' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.coefficient_neg_re_le_all (u : Real) :
+  @LE.le.{0} Real Real.instLE (@Neg.neg.{0} Real Real.instNeg (Luce.BernoulliCLT.coefficient u).re)
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+      (@HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) u
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+'Luce.BernoulliCLT.coefficient_neg_re_le_all' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.norm_exp_le_one {z : Complex}
+  (hz : @LE.le.{0} Real Real.instLE z.re (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))) :
+  @LE.le.{0} Real Real.instLE (@Norm.norm.{0} Complex Complex.instNorm (Complex.exp z))
+    (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+'Luce.BernoulliCLT.norm_exp_le_one' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.exp_difference_le {z w : Complex}
+  (hw : @LE.le.{0} Real Real.instLE w.re (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+  (hzw :
+    @LE.le.{0} Real Real.instLE
+      (@Norm.norm.{0} Complex Complex.instNorm
+        (@HSub.hSub.{0, 0, 0} Complex Complex Complex (@instHSub.{0} Complex Complex.instSub) z w))
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))) :
+  @LE.le.{0} Real Real.instLE
+    (@Norm.norm.{0} Complex Complex.instNorm
+      (@HSub.hSub.{0, 0, 0} Complex Complex Complex (@instHSub.{0} Complex Complex.instSub) (Complex.exp z)
+        (Complex.exp w)))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+      (@Norm.norm.{0} Complex Complex.instNorm
+        (@HSub.hSub.{0, 0, 0} Complex Complex Complex (@instHSub.{0} Complex Complex.instSub) z w)))
+'Luce.BernoulliCLT.exp_difference_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliProcess.cltCount_measurable.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) (N : Nat) :
+  @Measurable.{u_1, 0} Ω Real mΩ Real.measurableSpace (@Luce.BernoulliProcess.cltCount.{u_1} Ω mΩ μ X N)
+'Luce.BernoulliProcess.cltCount_measurable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliProcess.cltMass_measurable.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) (N : Nat) :
+  @Measurable.{u_1, 0} Ω Real mΩ Real.measurableSpace (@Luce.BernoulliProcess.cltMass.{u_1} Ω mΩ μ X N)
+'Luce.BernoulliProcess.cltMass_measurable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliProcess.cltSquares_measurable.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) (N : Nat) :
+  @Measurable.{u_1, 0} Ω Real mΩ Real.measurableSpace (@Luce.BernoulliProcess.cltSquares.{u_1} Ω mΩ μ X N)
+'Luce.BernoulliProcess.cltSquares_measurable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliProcess.cltMass_nonneg.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) (N : Nat) (ω : Ω) :
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+    (@Luce.BernoulliProcess.cltMass.{u_1} Ω mΩ μ X N ω)
+'Luce.BernoulliProcess.cltMass_nonneg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliProcess.cltSquares_nonneg.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) (N : Nat) (ω : Ω) :
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+    (@Luce.BernoulliProcess.cltSquares.{u_1} Ω mΩ μ X N ω)
+'Luce.BernoulliProcess.cltSquares_nonneg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliProcess.cltSquares_le_mass.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) (N : Nat) (ω : Ω) :
+  @LE.le.{0} Real Real.instLE (@Luce.BernoulliProcess.cltSquares.{u_1} Ω mΩ μ X N ω)
+    (@Luce.BernoulliProcess.cltMass.{u_1} Ω mΩ μ X N ω)
+'Luce.BernoulliProcess.cltSquares_le_mass' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliProcess.cltMass_mono.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) {m N : Nat}
+  (hm : @LE.le.{0} Nat instLENat m N) (ω : Ω) :
+  @LE.le.{0} Real Real.instLE (@Luce.BernoulliProcess.cltMass.{u_1} Ω mΩ μ X m ω)
+    (@Luce.BernoulliProcess.cltMass.{u_1} Ω mΩ μ X N ω)
+'Luce.BernoulliProcess.cltMass_mono' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliProcess.cltSquares_integrable.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω mΩ μ]
+  (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) (N : Nat) :
+  @MeasureTheory.Integrable.{0, u_1} Real
+    (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+    (@SeminormedAddGroup.toContinuousENorm.{0} Real
+      (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+        (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+          (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+            (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+              (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+    Ω mΩ (@Luce.BernoulliProcess.cltSquares.{u_1} Ω mΩ μ X N) μ
+'Luce.BernoulliProcess.cltSquares_integrable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliProcess.characteristicCompensation_adapted.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) (u : Real) (N : Nat) :
+  @MeasureTheory.StronglyMeasurable.{u_1, 0} Ω Complex
+    (@UniformSpace.toTopologicalSpace.{0} Complex
+      (@PseudoMetricSpace.toUniformSpace.{0} Complex
+        (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+          (@SeminormedCommRing.toSeminormedRing.{0} Complex
+            (@NormedCommRing.toSeminormedCommRing.{0} Complex
+              (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+    (@MeasureTheory.Filtration.seq.{u_1, 0} Ω Nat Nat.instPreorder mΩ (@Luce.BernoulliProcess.filtration.{u_1} Ω mΩ μ X)
+      N)
+    (@Luce.BernoulliProcess.characteristicCompensation.{u_1} Ω mΩ μ X u N)
+'Luce.BernoulliProcess.characteristicCompensation_adapted' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Luce.BernoulliProcess.characteristicCompensation_norm.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) (u : Real) (N : Nat) (ω : Ω) :
+  @Eq.{1} Real
+    (@Norm.norm.{0} Complex Complex.instNorm (@Luce.BernoulliProcess.characteristicCompensation.{u_1} Ω mΩ μ X u N ω))
+    (Real.exp
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@Neg.neg.{0} Real Real.instNeg (Luce.BernoulliCLT.coefficient u).re)
+        (@Luce.BernoulliProcess.cltMass.{u_1} Ω mΩ μ X N ω)))
+'Luce.BernoulliProcess.characteristicCompensation_norm' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Luce.BernoulliProcess.characteristicCompensation_bound.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) (u : Real) {N : Nat} {K : Real}
+  (hK : ∀ (ω : Ω), @LE.le.{0} Real Real.instLE (@Luce.BernoulliProcess.cltMass.{u_1} Ω mΩ μ X N ω) K) {m : Nat}
+  (hm : @LE.le.{0} Nat instLENat m N) (ω : Ω) :
+  @LE.le.{0} Real Real.instLE
+    (@Norm.norm.{0} Complex Complex.instNorm (@Luce.BernoulliProcess.characteristicCompensation.{u_1} Ω mΩ μ X u m ω))
+    (Real.exp
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@Neg.neg.{0} Real Real.instNeg (Luce.BernoulliCLT.coefficient u).re) K))
+'Luce.BernoulliProcess.characteristicCompensation_bound' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Luce.BernoulliProcess.characteristicCompensation_integrable.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω mΩ μ]
+  (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) (u : Real) (N : Nat) :
+  @MeasureTheory.Integrable.{0, u_1} Complex
+    (@UniformSpace.toTopologicalSpace.{0} Complex
+      (@PseudoMetricSpace.toUniformSpace.{0} Complex
+        (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+          (@SeminormedCommRing.toSeminormedRing.{0} Complex
+            (@NormedCommRing.toSeminormedCommRing.{0} Complex
+              (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+    (@SeminormedAddGroup.toContinuousENorm.{0} Complex
+      (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Complex
+        (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+          (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+            (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))))))
+    Ω mΩ (@Luce.BernoulliProcess.characteristicCompensation.{u_1} Ω mΩ μ X u N) μ
+'Luce.BernoulliProcess.characteristicCompensation_integrable' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Luce.BernoulliProcess.integrable_observation_smul.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω mΩ μ]
+  (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) {H : Ω → Complex}
+  (hH :
+    @MeasureTheory.Integrable.{0, u_1} Complex
+      (@UniformSpace.toTopologicalSpace.{0} Complex
+        (@PseudoMetricSpace.toUniformSpace.{0} Complex
+          (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+            (@SeminormedCommRing.toSeminormedRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+      (@SeminormedAddGroup.toContinuousENorm.{0} Complex
+        (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Complex
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))))))
+      Ω mΩ H μ)
+  (k : Nat) :
+  @MeasureTheory.Integrable.{0, u_1} Complex
+    (@UniformSpace.toTopologicalSpace.{0} Complex
+      (@PseudoMetricSpace.toUniformSpace.{0} Complex
+        (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+          (@SeminormedCommRing.toSeminormedRing.{0} Complex
+            (@NormedCommRing.toSeminormedCommRing.{0} Complex
+              (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+    (@SeminormedAddGroup.toContinuousENorm.{0} Complex
+      (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Complex
+        (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+          (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+            (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))))))
+    Ω mΩ
+    (fun ω =>
+      @HSMul.hSMul.{0, 0, 0} Real Complex Complex
+        (@instHSMul.{0, 0} Real Complex
+          (@Algebra.toSMul.{0, 0} Real Complex
+            (@Semifield.toCommSemiring.{0} Real
+              (@Field.toSemifield.{0} Real (@NormedField.toField.{0} Real Real.normedField)))
+            (@Ring.toSemiring.{0} Complex
+              (@SeminormedRing.toRing.{0} Complex
+                (@SeminormedCommRing.toSeminormedRing.{0} Complex
+                  (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                    (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))))
+            (@NormedAlgebra.toAlgebra.{0, 0} Real Complex Real.normedField
+              (@SeminormedCommRing.toSeminormedRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))
+              (@RCLike.toNormedAlgebra.{0} Complex Complex.instRCLike))))
+        (@Luce.BernoulliProcess.observation.{u_1} Ω mΩ μ X k ω) (H ω))
+    μ
+'Luce.BernoulliProcess.integrable_observation_smul' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliProcess.integrable_probability_smul.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) {H : Ω → Complex}
+  (hH :
+    @MeasureTheory.Integrable.{0, u_1} Complex
+      (@UniformSpace.toTopologicalSpace.{0} Complex
+        (@PseudoMetricSpace.toUniformSpace.{0} Complex
+          (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+            (@SeminormedCommRing.toSeminormedRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+      (@SeminormedAddGroup.toContinuousENorm.{0} Complex
+        (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Complex
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))))))
+      Ω mΩ H μ)
+  (k : Nat) :
+  @MeasureTheory.Integrable.{0, u_1} Complex
+    (@UniformSpace.toTopologicalSpace.{0} Complex
+      (@PseudoMetricSpace.toUniformSpace.{0} Complex
+        (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+          (@SeminormedCommRing.toSeminormedRing.{0} Complex
+            (@NormedCommRing.toSeminormedCommRing.{0} Complex
+              (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+    (@SeminormedAddGroup.toContinuousENorm.{0} Complex
+      (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Complex
+        (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+          (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+            (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))))))
+    Ω mΩ
+    (fun ω =>
+      @HSMul.hSMul.{0, 0, 0} Real Complex Complex
+        (@instHSMul.{0, 0} Real Complex
+          (@Algebra.toSMul.{0, 0} Real Complex
+            (@Semifield.toCommSemiring.{0} Real
+              (@Field.toSemifield.{0} Real (@NormedField.toField.{0} Real Real.normedField)))
+            (@Ring.toSemiring.{0} Complex
+              (@SeminormedRing.toRing.{0} Complex
+                (@SeminormedCommRing.toSeminormedRing.{0} Complex
+                  (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                    (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))))
+            (@NormedAlgebra.toAlgebra.{0, 0} Real Complex Real.normedField
+              (@SeminormedCommRing.toSeminormedRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))
+              (@RCLike.toNormedAlgebra.{0} Complex Complex.instRCLike))))
+        (@Luce.BernoulliProcess.probability.{u_1} Ω mΩ μ X k ω) (H ω))
+    μ
+'Luce.BernoulliProcess.integrable_probability_smul' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliProcess.integral_predictable_observation_smul.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω mΩ μ]
+  (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) {H : Ω → Complex} (k : Nat)
+  (hH :
+    @MeasureTheory.StronglyMeasurable.{u_1, 0} Ω Complex
+      (@UniformSpace.toTopologicalSpace.{0} Complex
+        (@PseudoMetricSpace.toUniformSpace.{0} Complex
+          (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+            (@SeminormedCommRing.toSeminormedRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+      (@MeasureTheory.Filtration.seq.{u_1, 0} Ω Nat Nat.instPreorder mΩ
+        (@Luce.BernoulliProcess.filtration.{u_1} Ω mΩ μ X) k)
+      H)
+  (hi :
+    @MeasureTheory.Integrable.{0, u_1} Complex
+      (@UniformSpace.toTopologicalSpace.{0} Complex
+        (@PseudoMetricSpace.toUniformSpace.{0} Complex
+          (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+            (@SeminormedCommRing.toSeminormedRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+      (@SeminormedAddGroup.toContinuousENorm.{0} Complex
+        (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Complex
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))))))
+      Ω mΩ H μ) :
+  @Eq.{1} Complex
+    (@MeasureTheory.integral.{u_1, 0} Ω Complex Complex.instNormedAddCommGroup
+      (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+        instInnerProductSpaceRealComplex)
+      mΩ μ fun ω =>
+      @HSMul.hSMul.{0, 0, 0} Real Complex Complex
+        (@instHSMul.{0, 0} Real Complex
+          (@Algebra.toSMul.{0, 0} Real Complex
+            (@Semifield.toCommSemiring.{0} Real
+              (@Field.toSemifield.{0} Real (@NormedField.toField.{0} Real Real.normedField)))
+            (@Ring.toSemiring.{0} Complex
+              (@SeminormedRing.toRing.{0} Complex
+                (@SeminormedCommRing.toSeminormedRing.{0} Complex
+                  (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                    (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))))
+            (@NormedAlgebra.toAlgebra.{0, 0} Real Complex Real.normedField
+              (@SeminormedCommRing.toSeminormedRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))
+              (@RCLike.toNormedAlgebra.{0} Complex Complex.instRCLike))))
+        (@Luce.BernoulliProcess.observation.{u_1} Ω mΩ μ X k ω) (H ω))
+    (@MeasureTheory.integral.{u_1, 0} Ω Complex Complex.instNormedAddCommGroup
+      (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+        instInnerProductSpaceRealComplex)
+      mΩ μ fun ω =>
+      @HSMul.hSMul.{0, 0, 0} Real Complex Complex
+        (@instHSMul.{0, 0} Real Complex
+          (@Algebra.toSMul.{0, 0} Real Complex
+            (@Semifield.toCommSemiring.{0} Real
+              (@Field.toSemifield.{0} Real (@NormedField.toField.{0} Real Real.normedField)))
+            (@Ring.toSemiring.{0} Complex
+              (@SeminormedRing.toRing.{0} Complex
+                (@SeminormedCommRing.toSeminormedRing.{0} Complex
+                  (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                    (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))))
+            (@NormedAlgebra.toAlgebra.{0, 0} Real Complex Real.normedField
+              (@SeminormedCommRing.toSeminormedRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))
+              (@RCLike.toNormedAlgebra.{0} Complex Complex.instRCLike))))
+        (@Luce.BernoulliProcess.probability.{u_1} Ω mΩ μ X k ω) (H ω))
+'Luce.BernoulliProcess.integral_predictable_observation_smul' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Luce.BernoulliProcess.integral_bernoulli_affine.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω mΩ μ]
+  (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) {H : Ω → Complex} (k : Nat)
+  (hH :
+    @MeasureTheory.StronglyMeasurable.{u_1, 0} Ω Complex
+      (@UniformSpace.toTopologicalSpace.{0} Complex
+        (@PseudoMetricSpace.toUniformSpace.{0} Complex
+          (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+            (@SeminormedCommRing.toSeminormedRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+      (@MeasureTheory.Filtration.seq.{u_1, 0} Ω Nat Nat.instPreorder mΩ
+        (@Luce.BernoulliProcess.filtration.{u_1} Ω mΩ μ X) k)
+      H)
+  (hi :
+    @MeasureTheory.Integrable.{0, u_1} Complex
+      (@UniformSpace.toTopologicalSpace.{0} Complex
+        (@PseudoMetricSpace.toUniformSpace.{0} Complex
+          (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+            (@SeminormedCommRing.toSeminormedRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+      (@SeminormedAddGroup.toContinuousENorm.{0} Complex
+        (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Complex
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))))))
+      Ω mΩ H μ)
+  (a : Complex) :
+  @Eq.{1} Complex
+    (@MeasureTheory.integral.{u_1, 0} Ω Complex Complex.instNormedAddCommGroup
+      (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+        instInnerProductSpaceRealComplex)
+      mΩ μ fun ω =>
+      @HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) (H ω)
+        (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd)
+          (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne))
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) a
+            ↑(@Luce.BernoulliProcess.observation.{u_1} Ω mΩ μ X k ω))))
+    (@MeasureTheory.integral.{u_1, 0} Ω Complex Complex.instNormedAddCommGroup
+      (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+        instInnerProductSpaceRealComplex)
+      mΩ μ fun ω =>
+      @HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) (H ω)
+        (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd)
+          (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne))
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) a
+            ↑(@Luce.BernoulliProcess.probability.{u_1} Ω mΩ μ X k ω))))
+'Luce.BernoulliProcess.integral_bernoulli_affine' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliProcess.characteristicCompensation_succ.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) (u : Real) (k : Nat) (ω : Ω) :
+  @Eq.{1} Complex
+    (@Luce.BernoulliProcess.characteristicCompensation.{u_1} Ω mΩ μ X u
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+      ω)
+    (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+      (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+        (@Luce.BernoulliProcess.characteristicCompensation.{u_1} Ω mΩ μ X u k ω)
+        (Complex.exp
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+            (@Neg.neg.{0} Complex Complex.instNeg (Luce.BernoulliCLT.coefficient u))
+            ↑(@Luce.BernoulliProcess.probability.{u_1} Ω mΩ μ X k ω))))
+      (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd)
+        (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne))
+        (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+          (Luce.BernoulliCLT.coefficient u) ↑(@Luce.BernoulliProcess.observation.{u_1} Ω mΩ μ X k ω))))
+'Luce.BernoulliProcess.characteristicCompensation_succ' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Luce.BernoulliProcess.integrable_compensation_prefactor.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω mΩ μ]
+  (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) (u : Real) (k : Nat) :
+  @MeasureTheory.Integrable.{0, u_1} Complex
+    (@UniformSpace.toTopologicalSpace.{0} Complex
+      (@PseudoMetricSpace.toUniformSpace.{0} Complex
+        (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+          (@SeminormedCommRing.toSeminormedRing.{0} Complex
+            (@NormedCommRing.toSeminormedCommRing.{0} Complex
+              (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+    (@SeminormedAddGroup.toContinuousENorm.{0} Complex
+      (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Complex
+        (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+          (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+            (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))))))
+    Ω mΩ
+    (fun ω =>
+      @HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+        (@Luce.BernoulliProcess.characteristicCompensation.{u_1} Ω mΩ μ X u k ω)
+        (Complex.exp
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+            (@Neg.neg.{0} Complex Complex.instNeg (Luce.BernoulliCLT.coefficient u))
+            ↑(@Luce.BernoulliProcess.probability.{u_1} Ω mΩ μ X k ω))))
+    μ
+'Luce.BernoulliProcess.integrable_compensation_prefactor' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Luce.BernoulliProcess.integral_characteristicCompensation_succ.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω mΩ μ]
+  (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) (u : Real) (k : Nat) :
+  @Eq.{1} Complex
+    (@MeasureTheory.integral.{u_1, 0} Ω Complex Complex.instNormedAddCommGroup
+      (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+        instInnerProductSpaceRealComplex)
+      mΩ μ fun ω =>
+      @Luce.BernoulliProcess.characteristicCompensation.{u_1} Ω mΩ μ X u
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        ω)
+    (@MeasureTheory.integral.{u_1, 0} Ω Complex Complex.instNormedAddCommGroup
+      (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+        instInnerProductSpaceRealComplex)
+      mΩ μ fun ω =>
+      @HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+        (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+          (@Luce.BernoulliProcess.characteristicCompensation.{u_1} Ω mΩ μ X u k ω)
+          (Complex.exp
+            (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+              (@Neg.neg.{0} Complex Complex.instNeg (Luce.BernoulliCLT.coefficient u))
+              ↑(@Luce.BernoulliProcess.probability.{u_1} Ω mΩ μ X k ω))))
+        (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd)
+          (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne))
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+            (Luce.BernoulliCLT.coefficient u) ↑(@Luce.BernoulliProcess.probability.{u_1} Ω mΩ μ X k ω))))
+'Luce.BernoulliProcess.integral_characteristicCompensation_succ' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Luce.BernoulliProcess.compensation_drift_integrable.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω mΩ μ]
+  (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) (u : Real) (k : Nat) :
+  @MeasureTheory.Integrable.{0, u_1} Complex
+    (@UniformSpace.toTopologicalSpace.{0} Complex
+      (@PseudoMetricSpace.toUniformSpace.{0} Complex
+        (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+          (@SeminormedCommRing.toSeminormedRing.{0} Complex
+            (@NormedCommRing.toSeminormedCommRing.{0} Complex
+              (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+    (@SeminormedAddGroup.toContinuousENorm.{0} Complex
+      (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Complex
+        (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+          (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+            (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))))))
+    Ω mΩ
+    (fun ω =>
+      @HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+        (@Luce.BernoulliProcess.characteristicCompensation.{u_1} Ω mΩ μ X u k ω)
+        (@HSub.hSub.{0, 0, 0} Complex Complex Complex (@instHSub.{0} Complex Complex.instSub)
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+            (Complex.exp
+              (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+                (@Neg.neg.{0} Complex Complex.instNeg (Luce.BernoulliCLT.coefficient u))
+                ↑(@Luce.BernoulliProcess.probability.{u_1} Ω mΩ μ X k ω)))
+            (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd)
+              (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne))
+              (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+                (Luce.BernoulliCLT.coefficient u) ↑(@Luce.BernoulliProcess.probability.{u_1} Ω mΩ μ X k ω))))
+          (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne))))
+    μ
+'Luce.BernoulliProcess.compensation_drift_integrable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliProcess.integral_compensation_drift.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω mΩ μ]
+  (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) (u : Real) (k : Nat) :
+  @Eq.{1} Complex
+    (@HSub.hSub.{0, 0, 0} Complex Complex Complex (@instHSub.{0} Complex Complex.instSub)
+      (@MeasureTheory.integral.{u_1, 0} Ω Complex Complex.instNormedAddCommGroup
+        (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+          instInnerProductSpaceRealComplex)
+        mΩ μ fun ω =>
+        @Luce.BernoulliProcess.characteristicCompensation.{u_1} Ω mΩ μ X u
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          ω)
+      (@MeasureTheory.integral.{u_1, 0} Ω Complex Complex.instNormedAddCommGroup
+        (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+          instInnerProductSpaceRealComplex)
+        mΩ μ fun ω => @Luce.BernoulliProcess.characteristicCompensation.{u_1} Ω mΩ μ X u k ω))
+    (@MeasureTheory.integral.{u_1, 0} Ω Complex Complex.instNormedAddCommGroup
+      (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+        instInnerProductSpaceRealComplex)
+      mΩ μ fun ω =>
+      @HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+        (@Luce.BernoulliProcess.characteristicCompensation.{u_1} Ω mΩ μ X u k ω)
+        (@HSub.hSub.{0, 0, 0} Complex Complex Complex (@instHSub.{0} Complex Complex.instSub)
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+            (Complex.exp
+              (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+                (@Neg.neg.{0} Complex Complex.instNeg (Luce.BernoulliCLT.coefficient u))
+                ↑(@Luce.BernoulliProcess.probability.{u_1} Ω mΩ μ X k ω)))
+            (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd)
+              (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne))
+              (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+                (Luce.BernoulliCLT.coefficient u) ↑(@Luce.BernoulliProcess.probability.{u_1} Ω mΩ μ X k ω))))
+          (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne))))
+'Luce.BernoulliProcess.integral_compensation_drift' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliProcess.characteristicCompensation_step_error.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω mΩ μ]
+  (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) {u K : Real} {N k : Nat}
+  (ha :
+    @LE.le.{0} Real Real.instLE (@Norm.norm.{0} Complex Complex.instNorm (Luce.BernoulliCLT.coefficient u))
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+  (hK : ∀ (ω : Ω), @LE.le.{0} Real Real.instLE (@Luce.BernoulliProcess.cltMass.{u_1} Ω mΩ μ X N ω) K)
+  (hk : @LT.lt.{0} Nat instLTNat k N) :
+  @LE.le.{0} Real Real.instLE
+    (@Norm.norm.{0} Complex Complex.instNorm
+      (@HSub.hSub.{0, 0, 0} Complex Complex Complex (@instHSub.{0} Complex Complex.instSub)
+        (@MeasureTheory.integral.{u_1, 0} Ω Complex Complex.instNormedAddCommGroup
+          (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+            (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+            instInnerProductSpaceRealComplex)
+          mΩ μ fun ω =>
+          @Luce.BernoulliProcess.characteristicCompensation.{u_1} Ω mΩ μ X u
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            ω)
+        (@MeasureTheory.integral.{u_1, 0} Ω Complex Complex.instNormedAddCommGroup
+          (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+            (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+            instInnerProductSpaceRealComplex)
+          mΩ μ fun ω => @Luce.BernoulliProcess.characteristicCompensation.{u_1} Ω mΩ μ X u k ω)))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (Real.exp
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@Neg.neg.{0} Real Real.instNeg (Luce.BernoulliCLT.coefficient u).re) K))
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@OfNat.ofNat.{0} Real (nat_lit 3) (@instOfNatAtLeastTwo.{0} Real (nat_lit 3) Real.instNatCast ⋯))
+          (@HPow.hPow.{0, 0, 0} Real Nat Real
+            (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+            (@Norm.norm.{0} Complex Complex.instNorm (Luce.BernoulliCLT.coefficient u))
+            (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+      (@MeasureTheory.integral.{u_1, 0} Ω Real Real.normedAddCommGroup
+        (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+          (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+        mΩ μ fun ω =>
+        @HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+          (@Luce.BernoulliProcess.probability.{u_1} Ω mΩ μ X k ω)
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+'Luce.BernoulliProcess.characteristicCompensation_step_error' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Luce.BernoulliProcess.characteristicCompensation_error.{u_1} {Ω : Type u_1} {mΩ : MeasurableSpace.{u_1} Ω}
+  {μ : @MeasureTheory.Measure.{u_1} Ω mΩ} [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω mΩ μ]
+  (X : @Luce.BernoulliProcess.{u_1} Ω mΩ μ) {u K : Real} {N : Nat}
+  (ha :
+    @LE.le.{0} Real Real.instLE (@Norm.norm.{0} Complex Complex.instNorm (Luce.BernoulliCLT.coefficient u))
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+  (hK : ∀ (ω : Ω), @LE.le.{0} Real Real.instLE (@Luce.BernoulliProcess.cltMass.{u_1} Ω mΩ μ X N ω) K) :
+  @LE.le.{0} Real Real.instLE
+    (@Norm.norm.{0} Complex Complex.instNorm
+      (@HSub.hSub.{0, 0, 0} Complex Complex Complex (@instHSub.{0} Complex Complex.instSub)
+        (@MeasureTheory.integral.{u_1, 0} Ω Complex Complex.instNormedAddCommGroup
+          (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+            (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+            instInnerProductSpaceRealComplex)
+          mΩ μ fun ω => @Luce.BernoulliProcess.characteristicCompensation.{u_1} Ω mΩ μ X u N ω)
+        (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne))))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (Real.exp
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@Neg.neg.{0} Real Real.instNeg (Luce.BernoulliCLT.coefficient u).re) K))
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@OfNat.ofNat.{0} Real (nat_lit 3) (@instOfNatAtLeastTwo.{0} Real (nat_lit 3) Real.instNatCast ⋯))
+          (@HPow.hPow.{0, 0, 0} Real Nat Real
+            (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+            (@Norm.norm.{0} Complex Complex.instNorm (Luce.BernoulliCLT.coefficient u))
+            (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+      (@MeasureTheory.integral.{u_1, 0} Ω Real Real.normedAddCommGroup
+        (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+          (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+        mΩ μ fun ω => @Luce.BernoulliProcess.cltSquares.{u_1} Ω mΩ μ X N ω))
+'Luce.BernoulliProcess.characteristicCompensation_error' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Luce.BernoulliCLT.integral_complex_difference_off.{u_1} {Ω : Type u_1} [MeasurableSpace.{u_1} Ω]
+  {μ : @MeasureTheory.Measure.{u_1} Ω inst✝} [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω inst✝ μ] {A B : Ω → Complex}
+  (hAi :
+    @MeasureTheory.Integrable.{0, u_1} Complex
+      (@UniformSpace.toTopologicalSpace.{0} Complex
+        (@PseudoMetricSpace.toUniformSpace.{0} Complex
+          (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+            (@SeminormedCommRing.toSeminormedRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+      (@SeminormedAddGroup.toContinuousENorm.{0} Complex
+        (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Complex
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))))))
+      Ω inst✝ A μ)
+  (hBi :
+    @MeasureTheory.Integrable.{0, u_1} Complex
+      (@UniformSpace.toTopologicalSpace.{0} Complex
+        (@PseudoMetricSpace.toUniformSpace.{0} Complex
+          (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+            (@SeminormedCommRing.toSeminormedRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+      (@SeminormedAddGroup.toContinuousENorm.{0} Complex
+        (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Complex
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))))))
+      Ω inst✝ B μ)
+  (hA :
+    ∀ (ω : Ω),
+      @LE.le.{0} Real Real.instLE (@Norm.norm.{0} Complex Complex.instNorm (A ω))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+  (hB :
+    ∀ (ω : Ω),
+      @LE.le.{0} Real Real.instLE (@Norm.norm.{0} Complex Complex.instNorm (B ω))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+  (bad : Set.{u_1} Ω) (hbad : @MeasurableSet.{u_1} Ω inst✝ bad) (heq : ∀ ω ∉ bad, @Eq.{1} Complex (A ω) (B ω)) :
+  @LE.le.{0} Real Real.instLE
+    (@Norm.norm.{0} Complex Complex.instNorm
+      (@HSub.hSub.{0, 0, 0} Complex Complex Complex (@instHSub.{0} Complex Complex.instSub)
+        (@MeasureTheory.integral.{u_1, 0} Ω Complex Complex.instNormedAddCommGroup
+          (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+            (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+            instInnerProductSpaceRealComplex)
+          inst✝ μ fun ω => A ω)
+        (@MeasureTheory.integral.{u_1, 0} Ω Complex Complex.instNormedAddCommGroup
+          (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+            (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+            instInnerProductSpaceRealComplex)
+          inst✝ μ fun ω => B ω)))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+      (@MeasureTheory.Measure.real.{u_1} Ω inst✝ μ bad))
+'Luce.BernoulliCLT.integral_complex_difference_off' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.integral_complex_product_error.{u_1} {Ω : Type u_1} [MeasurableSpace.{u_1} Ω]
+  {μ : @MeasureTheory.Measure.{u_1} Ω inst✝} [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω inst✝ μ] {Z F : Ω → Complex}
+  {c : Complex} {C : Real}
+  (hZ :
+    @MeasureTheory.Integrable.{0, u_1} Complex
+      (@UniformSpace.toTopologicalSpace.{0} Complex
+        (@PseudoMetricSpace.toUniformSpace.{0} Complex
+          (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+            (@SeminormedCommRing.toSeminormedRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+      (@SeminormedAddGroup.toContinuousENorm.{0} Complex
+        (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Complex
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))))))
+      Ω inst✝ Z μ)
+  (hF :
+    @MeasureTheory.Integrable.{0, u_1} Complex
+      (@UniformSpace.toTopologicalSpace.{0} Complex
+        (@PseudoMetricSpace.toUniformSpace.{0} Complex
+          (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+            (@SeminormedCommRing.toSeminormedRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+      (@SeminormedAddGroup.toContinuousENorm.{0} Complex
+        (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Complex
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Complex
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Complex
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Complex
+                (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                  (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex)))))))
+      Ω inst✝ F μ)
+  (hbound : ∀ (ω : Ω), @LE.le.{0} Real Real.instLE (@Norm.norm.{0} Complex Complex.instNorm (Z ω)) C) :
+  @LE.le.{0} Real Real.instLE
+    (@Norm.norm.{0} Complex Complex.instNorm
+      (@HSub.hSub.{0, 0, 0} Complex Complex Complex (@instHSub.{0} Complex Complex.instSub)
+        (@MeasureTheory.integral.{u_1, 0} Ω Complex Complex.instNormedAddCommGroup
+          (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+            (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+            instInnerProductSpaceRealComplex)
+          inst✝ μ fun ω =>
+          @HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) (Z ω) (F ω))
+        (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul) c
+          (@MeasureTheory.integral.{u_1, 0} Ω Complex Complex.instNormedAddCommGroup
+            (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+              (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+              instInnerProductSpaceRealComplex)
+            inst✝ μ fun ω => Z ω))))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) C
+      (@MeasureTheory.integral.{u_1, 0} Ω Real Real.normedAddCommGroup
+        (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+          (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+        inst✝ μ fun ω =>
+        @Norm.norm.{0} Complex Complex.instNorm
+          (@HSub.hSub.{0, 0, 0} Complex Complex Complex (@instHSub.{0} Complex Complex.instSub) (F ω) c)))
+'Luce.BernoulliCLT.integral_complex_product_error' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.integral_exp_difference_tendsto.{u_1} {Ω : Nat → Type u_1} [(n : Nat) → MeasurableSpace.{u_1} (Ω n)]
+  (μ : (n : Nat) → @MeasureTheory.Measure.{u_1} (Ω n) (inst✝ n))
+  [∀ (n : Nat), @MeasureTheory.IsProbabilityMeasure.{u_1} (Ω n) (inst✝ n) (μ n)] {f g : (n : Nat) → Ω n → Complex}
+  {R : (n : Nat) → Ω n → Real}
+  (hf : ∀ (n : Nat), @Measurable.{u_1, 0} (Ω n) Complex (inst✝ n) Complex.measurableSpace (f n))
+  (hg : ∀ (n : Nat), @Measurable.{u_1, 0} (Ω n) Complex (inst✝ n) Complex.measurableSpace (g n))
+  (hfre :
+    ∀ (n : Nat) (ω : Ω n),
+      @LE.le.{0} Real Real.instLE (f n ω).re
+        (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+  (hgre :
+    ∀ (n : Nat) (ω : Ω n),
+      @LE.le.{0} Real Real.instLE (g n ω).re
+        (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+  {C : Real}
+  (hC : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) C)
+  (hbound :
+    ∀ (n : Nat) (ω : Ω n),
+      @LE.le.{0} Real Real.instLE
+        (@Norm.norm.{0} Complex Complex.instNorm
+          (@HSub.hSub.{0, 0, 0} Complex Complex Complex (@instHSub.{0} Complex Complex.instSub) (f n ω) (g n ω)))
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) C
+          (@abs.{0} Real Real.lattice Real.instAddGroup (R n ω))))
+  (hR :
+    @Luce.ConvergesInProbability.{u_1} Ω inst✝ μ R
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))) :
+  @Filter.Tendsto.{0, 0} Nat Real
+    (fun n =>
+      @MeasureTheory.integral.{u_1, 0} (Ω n) Real Real.normedAddCommGroup
+        (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+          (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+        (inst✝ n) (μ n) fun ω =>
+        @Norm.norm.{0} Complex Complex.instNorm
+          (@HSub.hSub.{0, 0, 0} Complex Complex Complex (@instHSub.{0} Complex Complex.instSub) (Complex.exp (f n ω))
+            (Complex.exp (g n ω))))
+    (@Filter.atTop.{0} Nat Nat.instPreorder)
+    (@nhds.{0} Real
+      (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+'Luce.BernoulliCLT.integral_exp_difference_tendsto' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.gaussian_exponent_error {v t : Real}
+  (hv : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) v)
+  (hu :
+    @LE.le.{0} Real Real.instLE
+      (@abs.{0} Real Real.lattice Real.instAddGroup
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) t
+          v.sqrt))
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))) :
+  @LE.le.{0} Real Real.instLE
+    (@Norm.norm.{0} Complex Complex.instNorm
+      (@HAdd.hAdd.{0, 0, 0} Complex Complex Complex (@instHAdd.{0} Complex Complex.instAdd)
+        (@HSub.hSub.{0, 0, 0} Complex Complex Complex (@instHSub.{0} Complex Complex.instSub)
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+            (Luce.BernoulliCLT.coefficient
+              (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) t v.sqrt))
+            ↑v)
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+            (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+              (↑(@HDiv.hDiv.{0, 0, 0} Real Real Real
+                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) t v.sqrt))
+              Complex.I)
+            ↑v))
+        (@HDiv.hDiv.{0, 0, 0} Complex Complex Complex
+          (@instHDiv.{0} Complex (@DivInvMonoid.toDiv.{0} Complex Complex.instDivInvMonoid))
+          (@HPow.hPow.{0, 0, 0} Complex Nat Complex
+            (@instHPow.{0, 0} Complex Nat
+              (@NPow.toPow.{0} Complex
+                (@Monoid.toNPow.{0} Complex (@Semiring.toMonoid.{0} Complex Complex.instSemiring))))
+            (↑t) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+          (@OfNat.ofNat.{0} Complex (nat_lit 2) (@instOfNatAtLeastTwo.{0} Complex (nat_lit 2) Complex.instNatCast ⋯)))))
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@abs.{0} Real Real.lattice Real.instAddGroup t) (@OfNat.ofNat.{0} Nat (nat_lit 3) (instOfNatNat (nat_lit 3))))
+      v.sqrt)
+'Luce.BernoulliCLT.gaussian_exponent_error' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.gaussian_exponent_tendsto {v : Nat → Real}
+  (hv :
+    @Filter.Tendsto.{0, 0} Nat Real v (@Filter.atTop.{0} Nat Nat.instPreorder)
+      (@Filter.atTop.{0} Real Real.instPreorder))
+  (t : Real) :
+  @Filter.Tendsto.{0, 0} Nat Complex
+    (fun n =>
+      @HSub.hSub.{0, 0, 0} Complex Complex Complex (@instHSub.{0} Complex Complex.instSub)
+        (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+          (Luce.BernoulliCLT.coefficient
+            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) t (v n).sqrt))
+          ↑(v n))
+        (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+            (↑(@HDiv.hDiv.{0, 0, 0} Real Real Real
+                (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) t (v n).sqrt))
+            Complex.I)
+          ↑(v n)))
+    (@Filter.atTop.{0} Nat Nat.instPreorder)
+    (@nhds.{0} Complex
+      (@UniformSpace.toTopologicalSpace.{0} Complex
+        (@PseudoMetricSpace.toUniformSpace.{0} Complex
+          (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+            (@SeminormedCommRing.toSeminormedRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+      (@HDiv.hDiv.{0, 0, 0} Complex Complex Complex
+        (@instHDiv.{0} Complex (@DivInvMonoid.toDiv.{0} Complex Complex.instDivInvMonoid))
+        (@Neg.neg.{0} Complex Complex.instNeg
+          (@HPow.hPow.{0, 0, 0} Complex Nat Complex
+            (@instHPow.{0, 0} Complex Nat
+              (@NPow.toPow.{0} Complex
+                (@Monoid.toNPow.{0} Complex (@Semiring.toMonoid.{0} Complex Complex.instSemiring))))
+            (↑t) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+        (@OfNat.ofNat.{0} Complex (nat_lit 2) (@instOfNatAtLeastTwo.{0} Complex (nat_lit 2) Complex.instNatCast ⋯))))
+'Luce.BernoulliCLT.gaussian_exponent_tendsto' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.gaussian_factor_tendsto {v : Nat → Real}
+  (hv :
+    @Filter.Tendsto.{0, 0} Nat Real v (@Filter.atTop.{0} Nat Nat.instPreorder)
+      (@Filter.atTop.{0} Real Real.instPreorder))
+  (t : Real) :
+  @Filter.Tendsto.{0, 0} Nat Complex
+    (fun n =>
+      Complex.exp
+        (@HSub.hSub.{0, 0, 0} Complex Complex Complex (@instHSub.{0} Complex Complex.instSub)
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+            (Luce.BernoulliCLT.coefficient
+              (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) t (v n).sqrt))
+            ↑(v n))
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+            (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+              (↑(@HDiv.hDiv.{0, 0, 0} Real Real Real
+                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) t (v n).sqrt))
+              Complex.I)
+            ↑(v n))))
+    (@Filter.atTop.{0} Nat Nat.instPreorder)
+    (@nhds.{0} Complex
+      (@UniformSpace.toTopologicalSpace.{0} Complex
+        (@PseudoMetricSpace.toUniformSpace.{0} Complex
+          (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+            (@SeminormedCommRing.toSeminormedRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+      (Complex.exp
+        (@HDiv.hDiv.{0, 0, 0} Complex Complex Complex
+          (@instHDiv.{0} Complex (@DivInvMonoid.toDiv.{0} Complex Complex.instDivInvMonoid))
+          (@Neg.neg.{0} Complex Complex.instNeg
+            (@HPow.hPow.{0, 0, 0} Complex Nat Complex
+              (@instHPow.{0, 0} Complex Nat
+                (@NPow.toPow.{0} Complex
+                  (@Monoid.toNPow.{0} Complex (@Semiring.toMonoid.{0} Complex Complex.instSemiring))))
+              (↑t) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+          (@OfNat.ofNat.{0} Complex (nat_lit 2) (@instOfNatAtLeastTwo.{0} Complex (nat_lit 2) Complex.instNatCast ⋯)))))
+'Luce.BernoulliCLT.gaussian_factor_tendsto' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliProcess.stop_cltMass_le.{u_1} {Ω : Type u_1} [MeasurableSpace.{u_1} Ω]
+  {μ : @MeasureTheory.Measure.{u_1} Ω inst✝} [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω inst✝ μ]
+  (X : @Luce.BernoulliProcess.{u_1} Ω inst✝ μ) (K : Real)
+  (hK : @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) K)
+  (N : Nat) (ω : Ω) :
+  @LE.le.{0} Real Real.instLE
+    (@Luce.BernoulliProcess.cltMass.{u_1} Ω inst✝ μ
+      (@Luce.BernoulliProcess.stop.{u_1} Ω inst✝ μ inst✝¹ X
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) K)
+      N ω)
+    K
+'Luce.BernoulliProcess.stop_cltMass_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliProcess.stop_cltSquares_le.{u_1} {Ω : Type u_1} [MeasurableSpace.{u_1} Ω]
+  {μ : @MeasureTheory.Measure.{u_1} Ω inst✝} [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω inst✝ μ]
+  (X : @Luce.BernoulliProcess.{u_1} Ω inst✝ μ) (K : Real) (N : Nat) (ω : Ω) :
+  @LE.le.{0} Real Real.instLE
+    (@Luce.BernoulliProcess.cltSquares.{u_1} Ω inst✝ μ
+      (@Luce.BernoulliProcess.stop.{u_1} Ω inst✝ μ inst✝¹ X
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) K)
+      N ω)
+    (@Luce.BernoulliProcess.cltSquares.{u_1} Ω inst✝ μ X N ω)
+'Luce.BernoulliProcess.stop_cltSquares_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliProcess.stop_clt_eq_of_mass_le.{u_1} {Ω : Type u_1} [MeasurableSpace.{u_1} Ω]
+  {μ : @MeasureTheory.Measure.{u_1} Ω inst✝} [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω inst✝ μ]
+  (X : @Luce.BernoulliProcess.{u_1} Ω inst✝ μ) {K : Real} {N : Nat} {ω : Ω}
+  (hK : @LE.le.{0} Real Real.instLE (@Luce.BernoulliProcess.cltMass.{u_1} Ω inst✝ μ X N ω) K) :
+  And
+    (@Eq.{1} Real
+      (@Luce.BernoulliProcess.cltCount.{u_1} Ω inst✝ μ
+        (@Luce.BernoulliProcess.stop.{u_1} Ω inst✝ μ inst✝¹ X
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) K)
+        N ω)
+      (@Luce.BernoulliProcess.cltCount.{u_1} Ω inst✝ μ X N ω))
+    (@Eq.{1} Real
+      (@Luce.BernoulliProcess.cltMass.{u_1} Ω inst✝ μ
+        (@Luce.BernoulliProcess.stop.{u_1} Ω inst✝ μ inst✝¹ X
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) K)
+        N ω)
+      (@Luce.BernoulliProcess.cltMass.{u_1} Ω inst✝ μ X N ω))
+'Luce.BernoulliProcess.stop_clt_eq_of_mass_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.relative_mass_probability.{u_1} {Ω : Nat → Type u_1} [(n : Nat) → MeasurableSpace.{u_1} (Ω n)]
+  (μ : (n : Nat) → @MeasureTheory.Measure.{u_1} (Ω n) (inst✝ n))
+  [∀ (n : Nat), @MeasureTheory.IsProbabilityMeasure.{u_1} (Ω n) (inst✝ n) (μ n)] {A : (n : Nat) → Ω n → Real}
+  {v : Nat → Real}
+  (hv :
+    ∀ (n : Nat),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) (v n))
+  (hA :
+    @Luce.ConvergesInProbability.{u_1} Ω inst✝ μ
+      (fun n ω =>
+        @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (A n ω) (v n)) (v n).sqrt)
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))) :
+  @Luce.ConvergesInProbability.{u_1} Ω inst✝ μ
+    (fun n ω =>
+      @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+        (A n ω) (v n))
+    (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+'Luce.BernoulliCLT.relative_mass_probability' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.mass_cap_probability.{u_1} {Ω : Nat → Type u_1} [(n : Nat) → MeasurableSpace.{u_1} (Ω n)]
+  (μ : (n : Nat) → @MeasureTheory.Measure.{u_1} (Ω n) (inst✝ n))
+  [∀ (n : Nat), @MeasureTheory.IsProbabilityMeasure.{u_1} (Ω n) (inst✝ n) (μ n)] {A : (n : Nat) → Ω n → Real}
+  {v : Nat → Real}
+  (hv :
+    ∀ (n : Nat),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) (v n))
+  (hA :
+    @Luce.ConvergesInProbability.{u_1} Ω inst✝ μ
+      (fun n ω =>
+        @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (A n ω) (v n)) (v n).sqrt)
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))) :
+  @Filter.Tendsto.{0, 0} Nat Real
+    (fun n =>
+      @MeasureTheory.Measure.real.{u_1} (Ω n) (inst✝ n) (μ n)
+        (@Set.ofPred.{u_1} (Ω n) fun ω =>
+          @LT.lt.{0} Real Real.instLT
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯)) (v n))
+            (A n ω)))
+    (@Filter.atTop.{0} Nat Nat.instPreorder)
+    (@nhds.{0} Real
+      (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+'Luce.BernoulliCLT.mass_cap_probability' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.scaled_coefficient_bounds {v t : Real}
+  (hv : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) v) :
+  And
+    (@LE.le.{0} Real Real.instLE
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@Neg.neg.{0} Real Real.instNeg
+          (Luce.BernoulliCLT.coefficient
+              (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) t v.sqrt)).re)
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯)) v))
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@OfNat.ofNat.{0} Real (nat_lit 4) (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast ⋯))
+        (@HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) t
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+    (@LE.le.{0} Real Real.instLE
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+          (@Norm.norm.{0} Complex Complex.instNorm
+            (Luce.BernoulliCLT.coefficient
+              (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) t v.sqrt)))
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        v)
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@OfNat.ofNat.{0} Real (nat_lit 16) (@instOfNatAtLeastTwo.{0} Real (nat_lit 16) Real.instNatCast ⋯))
+        (@HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) t
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))))
+'Luce.BernoulliCLT.scaled_coefficient_bounds' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.capped_compensation_tendsto.{u_1} {Ω : Nat → Type u_1} [(n : Nat) → MeasurableSpace.{u_1} (Ω n)]
+  (μ : (n : Nat) → @MeasureTheory.Measure.{u_1} (Ω n) (inst✝ n))
+  [∀ (n : Nat), @MeasureTheory.IsProbabilityMeasure.{u_1} (Ω n) (inst✝ n) (μ n)]
+  (X : (n : Nat) → @Luce.BernoulliProcess.{u_1} (Ω n) (inst✝ n) (μ n)) (N : Nat → Nat) {v : Nat → Real}
+  (hv :
+    ∀ (n : Nat),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) (v n))
+  (hvlim :
+    @Filter.Tendsto.{0, 0} Nat Real v (@Filter.atTop.{0} Nat Nat.instPreorder)
+      (@Filter.atTop.{0} Real Real.instPreorder))
+  (hcap :
+    ∀ (n : Nat) (ω : Ω n),
+      @LE.le.{0} Real Real.instLE (@Luce.BernoulliProcess.cltMass.{u_1} (Ω n) (inst✝ n) (μ n) (X n) (N n) ω)
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯)) (v n)))
+  (hB :
+    @Luce.ConvergesInProbability.{u_1} Ω inst✝ μ
+      (fun n ω =>
+        @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@Luce.BernoulliProcess.cltSquares.{u_1} (Ω n) (inst✝ n) (μ n) (X n) (N n) ω) (v n))
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+  (t : Real) :
+  @Filter.Tendsto.{0, 0} Nat Complex
+    (fun n =>
+      @MeasureTheory.integral.{u_1, 0} (Ω n) Complex Complex.instNormedAddCommGroup
+        (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+          instInnerProductSpaceRealComplex)
+        (inst✝ n) (μ n) fun ω =>
+        @Luce.BernoulliProcess.characteristicCompensation.{u_1} (Ω n) (inst✝ n) (μ n) (X n)
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            t (v n).sqrt)
+          (N n) ω)
+    (@Filter.atTop.{0} Nat Nat.instPreorder)
+    (@nhds.{0} Complex
+      (@UniformSpace.toTopologicalSpace.{0} Complex
+        (@PseudoMetricSpace.toUniformSpace.{0} Complex
+          (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+            (@SeminormedCommRing.toSeminormedRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+      (@OfNat.ofNat.{0} Complex (nat_lit 1) (@One.toOfNat1.{0} Complex Complex.instOne)))
+'Luce.BernoulliCLT.capped_compensation_tendsto' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.capped_characteristic_tendsto.{u_1} {Ω : Nat → Type u_1} [(n : Nat) → MeasurableSpace.{u_1} (Ω n)]
+  (μ : (n : Nat) → @MeasureTheory.Measure.{u_1} (Ω n) (inst✝ n))
+  [∀ (n : Nat), @MeasureTheory.IsProbabilityMeasure.{u_1} (Ω n) (inst✝ n) (μ n)]
+  (X : (n : Nat) → @Luce.BernoulliProcess.{u_1} (Ω n) (inst✝ n) (μ n)) (N : Nat → Nat) {v : Nat → Real}
+  (hv :
+    ∀ (n : Nat),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) (v n))
+  (hvlim :
+    @Filter.Tendsto.{0, 0} Nat Real v (@Filter.atTop.{0} Nat Nat.instPreorder)
+      (@Filter.atTop.{0} Real Real.instPreorder))
+  (hcap :
+    ∀ (n : Nat) (ω : Ω n),
+      @LE.le.{0} Real Real.instLE (@Luce.BernoulliProcess.cltMass.{u_1} (Ω n) (inst✝ n) (μ n) (X n) (N n) ω)
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯)) (v n)))
+  (hA :
+    @Luce.ConvergesInProbability.{u_1} Ω inst✝ μ
+      (fun n ω =>
+        @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@Luce.BernoulliProcess.cltMass.{u_1} (Ω n) (inst✝ n) (μ n) (X n) (N n) ω) (v n))
+          (v n).sqrt)
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+  (hB :
+    @Luce.ConvergesInProbability.{u_1} Ω inst✝ μ
+      (fun n ω =>
+        @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@Luce.BernoulliProcess.cltSquares.{u_1} (Ω n) (inst✝ n) (μ n) (X n) (N n) ω) (v n))
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+  (t : Real) :
+  @Filter.Tendsto.{0, 0} Nat Complex
+    (fun n =>
+      @MeasureTheory.integral.{u_1, 0} (Ω n) Complex Complex.instNormedAddCommGroup
+        (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+          instInnerProductSpaceRealComplex)
+        (inst✝ n) (μ n) fun ω =>
+        Complex.exp
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+            (↑(@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                  (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                    (@Luce.BernoulliProcess.cltCount.{u_1} (Ω n) (inst✝ n) (μ n) (X n) (N n) ω) (v n))
+                  (v n).sqrt)
+                t))
+            Complex.I))
+    (@Filter.atTop.{0} Nat Nat.instPreorder)
+    (@nhds.{0} Complex
+      (@UniformSpace.toTopologicalSpace.{0} Complex
+        (@PseudoMetricSpace.toUniformSpace.{0} Complex
+          (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+            (@SeminormedCommRing.toSeminormedRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+      (Complex.exp
+        (@HDiv.hDiv.{0, 0, 0} Complex Complex Complex
+          (@instHDiv.{0} Complex (@DivInvMonoid.toDiv.{0} Complex Complex.instDivInvMonoid))
+          (@Neg.neg.{0} Complex Complex.instNeg
+            (@HPow.hPow.{0, 0, 0} Complex Nat Complex
+              (@instHPow.{0, 0} Complex Nat
+                (@NPow.toPow.{0} Complex
+                  (@Monoid.toNPow.{0} Complex (@Semiring.toMonoid.{0} Complex Complex.instSemiring))))
+              (↑t) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+          (@OfNat.ofNat.{0} Complex (nat_lit 2) (@instOfNatAtLeastTwo.{0} Complex (nat_lit 2) Complex.instNatCast ⋯)))))
+'Luce.BernoulliCLT.capped_characteristic_tendsto' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.characteristic_tendsto_of_one_le.{u_1} {Ω : Nat → Type u_1} [(n : Nat) → MeasurableSpace.{u_1} (Ω n)]
+  (μ : (n : Nat) → @MeasureTheory.Measure.{u_1} (Ω n) (inst✝ n))
+  [∀ (n : Nat), @MeasureTheory.IsProbabilityMeasure.{u_1} (Ω n) (inst✝ n) (μ n)]
+  (X : (n : Nat) → @Luce.BernoulliProcess.{u_1} (Ω n) (inst✝ n) (μ n)) (N : Nat → Nat) {v : Nat → Real}
+  (hv :
+    ∀ (n : Nat),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) (v n))
+  (hvlim :
+    @Filter.Tendsto.{0, 0} Nat Real v (@Filter.atTop.{0} Nat Nat.instPreorder)
+      (@Filter.atTop.{0} Real Real.instPreorder))
+  (hA :
+    @Luce.ConvergesInProbability.{u_1} Ω inst✝ μ
+      (fun n ω =>
+        @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@Luce.BernoulliProcess.cltMass.{u_1} (Ω n) (inst✝ n) (μ n) (X n) (N n) ω) (v n))
+          (v n).sqrt)
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+  (hB :
+    @Luce.ConvergesInProbability.{u_1} Ω inst✝ μ
+      (fun n ω =>
+        @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@Luce.BernoulliProcess.cltSquares.{u_1} (Ω n) (inst✝ n) (μ n) (X n) (N n) ω) (v n))
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+  (t : Real) :
+  @Filter.Tendsto.{0, 0} Nat Complex
+    (fun n =>
+      @MeasureTheory.integral.{u_1, 0} (Ω n) Complex Complex.instNormedAddCommGroup
+        (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+          instInnerProductSpaceRealComplex)
+        (inst✝ n) (μ n) fun ω =>
+        Complex.exp
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+            (↑(@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                  (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                    (@Luce.BernoulliProcess.cltCount.{u_1} (Ω n) (inst✝ n) (μ n) (X n) (N n) ω) (v n))
+                  (v n).sqrt)
+                t))
+            Complex.I))
+    (@Filter.atTop.{0} Nat Nat.instPreorder)
+    (@nhds.{0} Complex
+      (@UniformSpace.toTopologicalSpace.{0} Complex
+        (@PseudoMetricSpace.toUniformSpace.{0} Complex
+          (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+            (@SeminormedCommRing.toSeminormedRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+      (Complex.exp
+        (@HDiv.hDiv.{0, 0, 0} Complex Complex Complex
+          (@instHDiv.{0} Complex (@DivInvMonoid.toDiv.{0} Complex Complex.instDivInvMonoid))
+          (@Neg.neg.{0} Complex Complex.instNeg
+            (@HPow.hPow.{0, 0, 0} Complex Nat Complex
+              (@instHPow.{0, 0} Complex Nat
+                (@NPow.toPow.{0} Complex
+                  (@Monoid.toNPow.{0} Complex (@Semiring.toMonoid.{0} Complex Complex.instSemiring))))
+              (↑t) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+          (@OfNat.ofNat.{0} Complex (nat_lit 2) (@instOfNatAtLeastTwo.{0} Complex (nat_lit 2) Complex.instNatCast ⋯)))))
+'Luce.BernoulliCLT.characteristic_tendsto_of_one_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.characteristic_tendsto.{u_1} {Ω : Nat → Type u_1} [(n : Nat) → MeasurableSpace.{u_1} (Ω n)]
+  (μ : (n : Nat) → @MeasureTheory.Measure.{u_1} (Ω n) (inst✝ n))
+  [∀ (n : Nat), @MeasureTheory.IsProbabilityMeasure.{u_1} (Ω n) (inst✝ n) (μ n)]
+  (X : (n : Nat) → @Luce.BernoulliProcess.{u_1} (Ω n) (inst✝ n) (μ n)) (N : Nat → Nat) {v : Nat → Real}
+  (hvlim :
+    @Filter.Tendsto.{0, 0} Nat Real v (@Filter.atTop.{0} Nat Nat.instPreorder)
+      (@Filter.atTop.{0} Real Real.instPreorder))
+  (hA :
+    @Luce.ConvergesInProbability.{u_1} Ω inst✝ μ
+      (fun n ω =>
+        @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@Luce.BernoulliProcess.cltMass.{u_1} (Ω n) (inst✝ n) (μ n) (X n) (N n) ω) (v n))
+          (v n).sqrt)
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+  (hB :
+    @Luce.ConvergesInProbability.{u_1} Ω inst✝ μ
+      (fun n ω =>
+        @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@Luce.BernoulliProcess.cltSquares.{u_1} (Ω n) (inst✝ n) (μ n) (X n) (N n) ω) (v n))
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+  (t : Real) :
+  @Filter.Tendsto.{0, 0} Nat Complex
+    (fun n =>
+      @MeasureTheory.integral.{u_1, 0} (Ω n) Complex Complex.instNormedAddCommGroup
+        (@InnerProductSpace.toNormedSpace.{0, 0} Real Complex Real.instRCLike
+          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Complex Complex.instNormedAddCommGroup)
+          instInnerProductSpaceRealComplex)
+        (inst✝ n) (μ n) fun ω =>
+        Complex.exp
+          (@HMul.hMul.{0, 0, 0} Complex Complex Complex (@instHMul.{0} Complex Complex.instMul)
+            (↑(@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                  (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                    (@Luce.BernoulliProcess.cltCount.{u_1} (Ω n) (inst✝ n) (μ n) (X n) (N n) ω) (v n))
+                  (v n).sqrt)
+                t))
+            Complex.I))
+    (@Filter.atTop.{0} Nat Nat.instPreorder)
+    (@nhds.{0} Complex
+      (@UniformSpace.toTopologicalSpace.{0} Complex
+        (@PseudoMetricSpace.toUniformSpace.{0} Complex
+          (@SeminormedRing.toPseudoMetricSpace.{0} Complex
+            (@SeminormedCommRing.toSeminormedRing.{0} Complex
+              (@NormedCommRing.toSeminormedCommRing.{0} Complex
+                (@CommCStarAlgebra.toNormedCommRing.{0} Complex instCommCStarAlgebraComplex))))))
+      (Complex.exp
+        (@HDiv.hDiv.{0, 0, 0} Complex Complex Complex
+          (@instHDiv.{0} Complex (@DivInvMonoid.toDiv.{0} Complex Complex.instDivInvMonoid))
+          (@Neg.neg.{0} Complex Complex.instNeg
+            (@HPow.hPow.{0, 0, 0} Complex Nat Complex
+              (@instHPow.{0, 0} Complex Nat
+                (@NPow.toPow.{0} Complex
+                  (@Monoid.toNPow.{0} Complex (@Semiring.toMonoid.{0} Complex Complex.instSemiring))))
+              (↑t) (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+          (@OfNat.ofNat.{0} Complex (nat_lit 2) (@instOfNatAtLeastTwo.{0} Complex (nat_lit 2) Complex.instNatCast ⋯)))))
+'Luce.BernoulliCLT.characteristic_tendsto' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.BernoulliCLT.boundedContinuous_tendsto.{u_1} {Ω : Nat → Type u_1} [(n : Nat) → MeasurableSpace.{u_1} (Ω n)]
+  (μ : (n : Nat) → @MeasureTheory.Measure.{u_1} (Ω n) (inst✝ n))
+  [∀ (n : Nat), @MeasureTheory.IsProbabilityMeasure.{u_1} (Ω n) (inst✝ n) (μ n)]
+  (X : (n : Nat) → @Luce.BernoulliProcess.{u_1} (Ω n) (inst✝ n) (μ n)) (N : Nat → Nat) {v : Nat → Real}
+  (hvlim :
+    @Filter.Tendsto.{0, 0} Nat Real v (@Filter.atTop.{0} Nat Nat.instPreorder)
+      (@Filter.atTop.{0} Real Real.instPreorder))
+  (hA :
+    @Luce.ConvergesInProbability.{u_1} Ω inst✝ μ
+      (fun n ω =>
+        @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+            (@Luce.BernoulliProcess.cltMass.{u_1} (Ω n) (inst✝ n) (μ n) (X n) (N n) ω) (v n))
+          (v n).sqrt)
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+  (hB :
+    @Luce.ConvergesInProbability.{u_1} Ω inst✝ μ
+      (fun n ω =>
+        @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@Luce.BernoulliProcess.cltSquares.{u_1} (Ω n) (inst✝ n) (μ n) (X n) (N n) ω) (v n))
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+  (F :
+    @BoundedContinuousFunction.{0, 0} Real Real
+      (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+      Real.pseudoMetricSpace) :
+  @Filter.Tendsto.{0, 0} Nat Real
+    (fun n =>
+      @MeasureTheory.integral.{u_1, 0} (Ω n) Real Real.normedAddCommGroup
+        (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+          (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+        (inst✝ n) (μ n) fun ω =>
+        @DFunLike.coe.{1, 1, 1}
+          (@BoundedContinuousFunction.{0, 0} Real Real
+            (@UniformSpace.toTopologicalSpace.{0} Real
+              (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+            Real.pseudoMetricSpace)
+          Real (fun x => Real)
+          (@BoundedContinuousFunction.instFunLike.{0, 0} Real Real
+            (@UniformSpace.toTopologicalSpace.{0} Real
+              (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+            Real.pseudoMetricSpace)
+          F
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+              (@Luce.BernoulliProcess.cltCount.{u_1} (Ω n) (inst✝ n) (μ n) (X n) (N n) ω) (v n))
+            (v n).sqrt))
+    (@Filter.atTop.{0} Nat Nat.instPreorder)
+    (@nhds.{0} Real
+      (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+      (@MeasureTheory.integral.{0, 0} Real Real Real.normedAddCommGroup
+        (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+          (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+        Real.measurableSpace
+        (ProbabilityTheory.gaussianReal (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+          (@OfNat.ofNat.{0} NNReal (nat_lit 1) (@One.toOfNat1.{0} NNReal NNReal.instOne)))
+        fun x =>
+        @DFunLike.coe.{1, 1, 1}
+          (@BoundedContinuousFunction.{0, 0} Real Real
+            (@UniformSpace.toTopologicalSpace.{0} Real
+              (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+            Real.pseudoMetricSpace)
+          Real (fun x => Real)
+          (@BoundedContinuousFunction.instFunLike.{0, 0} Real Real
+            (@UniformSpace.toTopologicalSpace.{0} Real
+              (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+            Real.pseudoMetricSpace)
+          F x))
+'Luce.BernoulliCLT.boundedContinuous_tendsto' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.FiniteAdaptedBernoulli.toProcess_cltCount.{u_1} {Ω : Type u_1} [MeasurableSpace.{u_1} Ω]
+  {μ : @MeasureTheory.Measure.{u_1} Ω inst✝} [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω inst✝ μ] {N : Nat}
+  (B : @Luce.FiniteAdaptedBernoulli.{u_1} Ω inst✝ μ N) (ω : Ω) :
+  @Eq.{1} Real
+    (@Luce.BernoulliProcess.cltCount.{u_1} Ω inst✝ μ (@Luce.FiniteAdaptedBernoulli.toProcess.{u_1} Ω inst✝ μ N B inst✝¹)
+      N ω)
+    (∑ k, @Luce.FiniteAdaptedBernoulli.observationReal.{u_1} Ω inst✝ μ N B k ω)
+'Luce.FiniteAdaptedBernoulli.toProcess_cltCount' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.FiniteAdaptedBernoulli.toProcess_cltMass.{u_1} {Ω : Type u_1} [MeasurableSpace.{u_1} Ω]
+  {μ : @MeasureTheory.Measure.{u_1} Ω inst✝} [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω inst✝ μ] {N : Nat}
+  (B : @Luce.FiniteAdaptedBernoulli.{u_1} Ω inst✝ μ N) (ω : Ω) :
+  @Eq.{1} Real
+    (@Luce.BernoulliProcess.cltMass.{u_1} Ω inst✝ μ (@Luce.FiniteAdaptedBernoulli.toProcess.{u_1} Ω inst✝ μ N B inst✝¹)
+      N ω)
+    (∑ k, @Luce.FiniteAdaptedBernoulli.probability.{u_1} Ω inst✝ μ N B k ω)
+'Luce.FiniteAdaptedBernoulli.toProcess_cltMass' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.FiniteAdaptedBernoulli.toProcess_cltSquares.{u_1} {Ω : Type u_1} [MeasurableSpace.{u_1} Ω]
+  {μ : @MeasureTheory.Measure.{u_1} Ω inst✝} [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω inst✝ μ] {N : Nat}
+  (B : @Luce.FiniteAdaptedBernoulli.{u_1} Ω inst✝ μ N) (ω : Ω) :
+  @Eq.{1} Real
+    (@Luce.BernoulliProcess.cltSquares.{u_1} Ω inst✝ μ
+      (@Luce.FiniteAdaptedBernoulli.toProcess.{u_1} Ω inst✝ μ N B inst✝¹) N ω)
+    (∑ k,
+      @HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@Luce.FiniteAdaptedBernoulli.probability.{u_1} Ω inst✝ μ N B k ω)
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+'Luce.FiniteAdaptedBernoulli.toProcess_cltSquares' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.FiniteAdaptedBernoulli.integral_observation_sum_eq_probability_sum.{u_1} {Ω : Type u_1} [MeasurableSpace.{u_1} Ω]
+  {μ : @MeasureTheory.Measure.{u_1} Ω inst✝} [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω inst✝ μ] {N : Nat}
+  (B : @Luce.FiniteAdaptedBernoulli.{u_1} Ω inst✝ μ N) :
+  @Eq.{1} Real
+    (@MeasureTheory.integral.{u_1, 0} Ω Real Real.normedAddCommGroup
+      (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+        (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+      inst✝ μ fun ω => ∑ k, @Luce.FiniteAdaptedBernoulli.observationReal.{u_1} Ω inst✝ μ N B k ω)
+    (@MeasureTheory.integral.{u_1, 0} Ω Real Real.normedAddCommGroup
+      (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+        (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+      inst✝ μ fun ω => ∑ k, @Luce.FiniteAdaptedBernoulli.probability.{u_1} Ω inst✝ μ N B k ω)
+'Luce.FiniteAdaptedBernoulli.integral_observation_sum_eq_probability_sum' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+Luce.Section6.proposition611 : Luce.Section6.Proposition611Contract.proposition611
+'Luce.Section6.proposition611' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+Luce.Section6.proposition611_contractCheck : Luce.Section6.Proposition611Contract.proposition611
+'Luce.Section6.proposition611_contractCheck' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]

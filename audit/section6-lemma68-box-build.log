@@ -1,0 +1,43 @@
+⚠ [937/1096] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3656/3671] Replayed Luce.Section6IncrementDensity
+warning: Luce/Section6IncrementDensity.lean:61:63: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✖ [3671/3671] Building Luce.Section6ContinuousBoxTrace (15s)
+trace: .> LEAN_PATH=D:\princeton\Research\Lean\Lean_luce\.lake\packages\Cli\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\batteries\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\Qq\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\aesop\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\importGraph\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\plausible\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\mathlib\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean c:\Users\JiaminWang\.elan\toolchains\leanprover--lean4---v4.33.1\bin\lean.exe D:\princeton\Research\Lean\Lean_luce\Luce\Section6ContinuousBoxTrace.lean -o D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6ContinuousBoxTrace.olean -i D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6ContinuousBoxTrace.ilean -c D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6ContinuousBoxTrace.c --setup D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6ContinuousBoxTrace.setup.json --json
+error: Luce/Section6ContinuousBoxTrace.lean:76:38: typeclass instance problem is stuck
+  Decidable (z ∈ ?m.500)
+
+Note: Lean will not try to resolve this typeclass instance problem because the type argument to `Decidable` contains metavariables. This argument must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+error: Luce/Section6ContinuousBoxTrace.lean:86:31: Type mismatch
+  Eq.symm (indicator_apply ?m.675 ?m.676 s)
+has type
+  @ite ?m.678 (s ∈ ?m.675) ?m.677 (?m.676 s) 0 = indicator ?m.675 ?m.676 s
+but is expected to have type
+  @ite ℝ (s ∈ Ioc (L - logTupleRoot Corner.right k (Fin.cons 0 y)) (U - logTupleRoot Corner.left k (Fin.cons 0 y)))
+      decidableMemIoc (closedLogCycleWeight p k (Fin.cons 0 y)) 0 =
+    (Ioc (L - logTupleRoot Corner.right k (Fin.cons 0 y)) (U - logTupleRoot Corner.left k (Fin.cons 0 y))).indicator
+      (fun x => closedLogCycleWeight p k (Fin.cons 0 y)) s
+warning: Luce/Section6ContinuousBoxTrace.lean:128:17: This simp argument is unused:
+  Pi.add_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hcons, Set.indicator_apply, logTraceBox68, Set.mem_pi, Set.mem_univ, forall_const, Set.mem_Ioc,
+    closedLogCycleWeight_translate]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+error: Lean exited with code 1
+Some required targets logged failures:
+- Luce.Section6ContinuousBoxTrace
+error: build failed

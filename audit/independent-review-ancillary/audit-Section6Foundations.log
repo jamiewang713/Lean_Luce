@@ -1,0 +1,664 @@
+def Luce.Section6.PowerProfile : (Real → Real) →
+  Luce.Section6.EndpointBehavior → Luce.Section6.EndpointBehavior → Prop :=
+fun f left right =>
+  And
+    (@ContinuousOn.{0, 0} Real Real
+      (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+      (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace)) f
+      (@Set.Ioo.{0} Real Real.instPreorder (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+    (And
+      (∀ (x : Real),
+        @Membership.mem.{0, 0} Real (Set.{0} Real) (@Set.instMembership.{0} Real)
+            (@Set.Ioo.{0} Real Real.instPreorder
+              (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+            x →
+          @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (f x))
+      (And (Luce.Section6.LeftBehavior f left)
+        (And (Luce.Section6.RightBehavior f right) (Or left.active right.active))))
+def Luce.Section6.LeftBehavior : (Real → Real) → Luce.Section6.EndpointBehavior → Prop :=
+fun f x =>
+  Luce.Section6.EndpointBehavior.active.match_1.{1} (fun x => Prop) x
+    (fun c =>
+      And (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) c)
+        (@Filter.Tendsto.{0, 0} Real Real f
+          (@nhdsWithin.{0} Real
+            (@UniformSpace.toTopologicalSpace.{0} Real
+              (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+            (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            (@Set.Ioi.{0} Real Real.instPreorder
+              (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))))
+          (@nhds.{0} Real
+            (@UniformSpace.toTopologicalSpace.{0} Real
+              (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+            c)))
+    fun c alpha eta =>
+    And (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) c)
+      (And (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) alpha)
+        (And
+          (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) eta)
+          (Luce.Section6.PowerExpansion f c (@Neg.neg.{0} Real Real.instNeg alpha) eta)))
+def Luce.Section6.RightBehavior : (Real → Real) → Luce.Section6.EndpointBehavior → Prop :=
+fun f x =>
+  Luce.Section6.EndpointBehavior.active.match_1.{1} (fun x => Prop) x
+    (fun c =>
+      And (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) c)
+        (@Filter.Tendsto.{0, 0} Real Real
+          (fun s =>
+            f
+              (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) s))
+          (@nhdsWithin.{0} Real
+            (@UniformSpace.toTopologicalSpace.{0} Real
+              (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+            (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            (@Set.Ioi.{0} Real Real.instPreorder
+              (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))))
+          (@nhds.{0} Real
+            (@UniformSpace.toTopologicalSpace.{0} Real
+              (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+            c)))
+    fun c beta eta =>
+    And (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) c)
+      (And
+        (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) beta)
+        (And
+          (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) eta)
+          (Luce.Section6.PowerExpansion
+            (fun s =>
+              f
+                (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) s))
+            c beta eta)))
+def Luce.Section6.CriticalProfile : (Real → Real) → Real → Real → Real → Prop :=
+fun f c eta rightLimit =>
+  And
+    (@ContinuousOn.{0, 0} Real Real
+      (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+      (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace)) f
+      (@Set.Ioo.{0} Real Real.instPreorder (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+    (And
+      (∀ (x : Real),
+        @Membership.mem.{0, 0} Real (Set.{0} Real) (@Set.instMembership.{0} Real)
+            (@Set.Ioo.{0} Real Real.instPreorder
+              (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+            x →
+          @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (f x))
+      (And (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) c)
+        (And
+          (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) eta)
+          (And
+            (Luce.Section6.PowerExpansion f c
+              (@Neg.neg.{0} Real Real.instNeg (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+              eta)
+            (And
+              (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                rightLimit)
+              (@Filter.Tendsto.{0, 0} Real Real
+                (fun s =>
+                  f
+                    (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) s))
+                (@nhdsWithin.{0} Real
+                  (@UniformSpace.toTopologicalSpace.{0} Real
+                    (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                  (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                  (@Set.Ioi.{0} Real Real.instPreorder
+                    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))))
+                (@nhds.{0} Real
+                  (@UniformSpace.toTopologicalSpace.{0} Real
+                    (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                  rightLimit)))))))
+def Luce.Section6.PowerExpansion : (Real → Real) → Real → Real → Real → Prop :=
+fun g c exponent eta =>
+  @Asymptotics.IsBigO.{0, 0, 0} Real Real Real Real.norm Real.norm
+    (@nhdsWithin.{0} Real
+      (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+      (@Set.Ioi.{0} Real Real.instPreorder (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))))
+    (fun s =>
+      @HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (g s)
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) c
+            (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow) s exponent)))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+    fun s => @HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow) s eta
+def Luce.Section6.SampledRates : Luce.Section6.SamplingGrid → Luce.WeightArray → (Real → Real) → Prop :=
+fun grid w f =>
+  ∀ (n : Nat) (i : Fin n), @Eq.{1} Real (@Luce.Weights.rate n (w n) i) (f (Luce.Section6.samplePoint grid n i))
+@[reducible] def Luce.Section6.SpatialIndex : Luce.Section6.EndpointBehavior →
+  Luce.Section6.EndpointBehavior → Nat → Nat → Type :=
+fun left right L J =>
+  Prod.{0, 0} (@Subtype.{1} Luce.Section6.Corner fun side => (Luce.Section6.cornerBehavior left right side).active)
+    (Prod.{0, 0} (Fin L) (Fin J))
+def SampledProfileContract.powerLaw.{u} : Luce.Section6.SamplingGrid → Prop :=
+fun grid =>
+  ∀ (Ω : Nat → Type u) (mΩ : (n : Nat) → MeasurableSpace.{u} (Ω n))
+    (P : (n : Nat) → @MeasureTheory.Measure.{u} (Ω n) (mΩ n)),
+    (∀ (n : Nat), @MeasureTheory.IsProbabilityMeasure.{u} (Ω n) (mΩ n) (P n)) →
+      ∀ (w : Luce.WeightArray) (f : Real → Real) (left right : Luce.Section6.EndpointBehavior),
+        Luce.Section6.SampledRates grid w f →
+          Luce.Section6.PowerProfile f left right →
+            ∀ (π : (n : Nat) → Ω n → Equiv.Perm.{1} (Fin n)),
+              (∀ (n : Nat),
+                  @Measurable.{u, 0} (Ω n) (Equiv.Perm.{1} (Fin n)) (mΩ n)
+                    (@Top.top.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                      (@OrderTop.toTop.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                        (@Preorder.toLE.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                          (@PartialOrder.toPreorder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                            (@SemilatticeSup.toPartialOrder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                              (@Lattice.toSemilatticeSup.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                (@CompleteLattice.toLattice.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                  (@MeasurableSpace.instCompleteLattice.{0} (Equiv.Perm.{1} (Fin n))))))))
+                        (@BoundedOrder.toOrderTop.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                          (@Preorder.toLE.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                            (@PartialOrder.toPreorder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                              (@SemilatticeSup.toPartialOrder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                (@Lattice.toSemilatticeSup.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                  (@CompleteLattice.toLattice.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                    (@MeasurableSpace.instCompleteLattice.{0} (Equiv.Perm.{1} (Fin n))))))))
+                          (@CompleteLattice.toBoundedOrder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                            (@MeasurableSpace.instCompleteLattice.{0} (Equiv.Perm.{1} (Fin n)))))))
+                    (π n)) →
+                (∀ (n : Nat) (σ : Equiv.Perm.{1} (Fin n)),
+                    @Eq.{1} Real
+                      (@MeasureTheory.Measure.real.{u} (Ω n) (mΩ n) (P n)
+                        (@Set.ofPred.{u} (Ω n) fun ω => @Eq.{1} (Equiv.Perm.{1} (Fin n)) (π n ω) σ))
+                      (@Luce.Weights.mass n (w n) σ)) →
+                  And
+                    (∀ (k : Nat),
+                      And
+                        (@LT.lt.{0} Real Real.instLT
+                          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                          (Luce.Section6.totalCoefficient left right k))
+                        (@Filter.Tendsto.{0, 0} Nat Real
+                          (fun n =>
+                            @HDiv.hDiv.{0, 0, 0} Real Real Real
+                              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                              (@MeasureTheory.integral.{u, 0} (Ω n) Real Real.normedAddCommGroup
+                                (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                                  (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                                  (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                                (mΩ n) (P n) fun ω =>
+                                @Nat.cast.{0} Real Real.instNatCast
+                                  (@Luce.Section5.cycleCount.{0} (Fin n) (Fin.fintype n) (instDecidableEqFin n) (π n ω)
+                                    k))
+                              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                (Luce.Section6.totalCoefficient left right k)
+                                (Real.log (@Nat.cast.{0} Real Real.instNatCast n))))
+                          (@Filter.atTop.{0} Nat Nat.instPreorder)
+                          (@nhds.{0} Real
+                            (@UniformSpace.toTopologicalSpace.{0} Real
+                              (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))))
+                    (∀ (L : Nat)
+                      (F :
+                        @BoundedContinuousFunction.{0, 0} (Fin L → Real) Real
+                          (@Pi.topologicalSpace.{0, 0} (Fin L) (fun a => Real) fun i =>
+                            @UniformSpace.toTopologicalSpace.{0} Real
+                              (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                          Real.pseudoMetricSpace),
+                      @Filter.Tendsto.{0, 0} Nat Real
+                        (fun n =>
+                          @MeasureTheory.integral.{u, 0} (Ω n) Real Real.normedAddCommGroup
+                            (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                              (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                              (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                            (mΩ n) (P n) fun ω =>
+                            @DFunLike.coe.{1, 1, 1}
+                              (@BoundedContinuousFunction.{0, 0} (Fin L → Real) Real
+                                (@Pi.topologicalSpace.{0, 0} (Fin L) (fun a => Real) fun i =>
+                                  @UniformSpace.toTopologicalSpace.{0} Real
+                                    (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                                Real.pseudoMetricSpace)
+                              (Fin L → Real) (fun x => Real)
+                              (@BoundedContinuousFunction.instFunLike.{0, 0} (Fin L → Real) Real
+                                (@Pi.topologicalSpace.{0, 0} (Fin L) (fun a => Real) fun i =>
+                                  @UniformSpace.toTopologicalSpace.{0} Real
+                                    (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                                Real.pseudoMetricSpace)
+                              F (@Luce.Section6.normalizedCycleVector n (π n ω) left right L))
+                        (@Filter.atTop.{0} Nat Nat.instPreorder)
+                        (@nhds.{0} Real
+                          (@UniformSpace.toTopologicalSpace.{0} Real
+                            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                          (@MeasureTheory.integral.{0, 0} (Fin L → Real) Real Real.normedAddCommGroup
+                            (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                              (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                              (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                            (@MeasurableSpace.pi.{0, 0} (Fin L) (fun a => Real) fun a => Real.measurableSpace)
+                            (@Luce.Section6.standardNormalVector.{0} (Fin L) (Fin.fintype L)) fun z =>
+                            @DFunLike.coe.{1, 1, 1}
+                              (@BoundedContinuousFunction.{0, 0} (Fin L → Real) Real
+                                (@Pi.topologicalSpace.{0, 0} (Fin L) (fun a => Real) fun i =>
+                                  @UniformSpace.toTopologicalSpace.{0} Real
+                                    (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                                Real.pseudoMetricSpace)
+                              (Fin L → Real) (fun x => Real)
+                              (@BoundedContinuousFunction.instFunLike.{0, 0} (Fin L → Real) Real
+                                (@Pi.topologicalSpace.{0, 0} (Fin L) (fun a => Real) fun i =>
+                                  @UniformSpace.toTopologicalSpace.{0} Real
+                                    (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                                Real.pseudoMetricSpace)
+                              F z)))
+def SampledProfileContract.spatial.{u} : Luce.Section6.SamplingGrid → Prop :=
+fun grid =>
+  ∀ (Ω : Nat → Type u) (mΩ : (n : Nat) → MeasurableSpace.{u} (Ω n))
+    (P : (n : Nat) → @MeasureTheory.Measure.{u} (Ω n) (mΩ n)),
+    (∀ (n : Nat), @MeasureTheory.IsProbabilityMeasure.{u} (Ω n) (mΩ n) (P n)) →
+      ∀ (w : Luce.WeightArray) (f : Real → Real) (left right : Luce.Section6.EndpointBehavior),
+        Luce.Section6.SampledRates grid w f →
+          Luce.Section6.PowerProfile f left right →
+            ∀ (π : (n : Nat) → Ω n → Equiv.Perm.{1} (Fin n)),
+              (∀ (n : Nat),
+                  @Measurable.{u, 0} (Ω n) (Equiv.Perm.{1} (Fin n)) (mΩ n)
+                    (@Top.top.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                      (@OrderTop.toTop.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                        (@Preorder.toLE.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                          (@PartialOrder.toPreorder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                            (@SemilatticeSup.toPartialOrder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                              (@Lattice.toSemilatticeSup.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                (@CompleteLattice.toLattice.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                  (@MeasurableSpace.instCompleteLattice.{0} (Equiv.Perm.{1} (Fin n))))))))
+                        (@BoundedOrder.toOrderTop.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                          (@Preorder.toLE.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                            (@PartialOrder.toPreorder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                              (@SemilatticeSup.toPartialOrder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                (@Lattice.toSemilatticeSup.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                  (@CompleteLattice.toLattice.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                    (@MeasurableSpace.instCompleteLattice.{0} (Equiv.Perm.{1} (Fin n))))))))
+                          (@CompleteLattice.toBoundedOrder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                            (@MeasurableSpace.instCompleteLattice.{0} (Equiv.Perm.{1} (Fin n)))))))
+                    (π n)) →
+                (∀ (n : Nat) (σ : Equiv.Perm.{1} (Fin n)),
+                    @Eq.{1} Real
+                      (@MeasureTheory.Measure.real.{u} (Ω n) (mΩ n) (P n)
+                        (@Set.ofPred.{u} (Ω n) fun ω => @Eq.{1} (Equiv.Perm.{1} (Fin n)) (π n ω) σ))
+                      (@Luce.Weights.mass n (w n) σ)) →
+                  ∀ (L J : Nat) (a b : Fin J → Real),
+                    (∀ (j : Fin J),
+                        And
+                          (@LT.lt.{0} Real Real.instLT
+                            (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (a j))
+                          (And (@LT.lt.{0} Real Real.instLT (a j) (b j))
+                            (@LT.lt.{0} Real Real.instLT (b j)
+                              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))) →
+                      (@Pairwise.{0} (Fin J) fun i j =>
+                          @Disjoint.{0} (Set.{0} Real)
+                            (@ChainCompletePartialOrder.toPartialOrder.{0} (Set.{0} Real)
+                              (@ChainCompletePartialOrder.instOfCompleteLattice.{0} (Set.{0} Real)
+                                (@CompleteBooleanAlgebra.toCompleteLattice.{0} (Set.{0} Real)
+                                  (@CompleteAtomicBooleanAlgebra.toCompleteBooleanAlgebra.{0} (Set.{0} Real)
+                                    (@Set.instCompleteAtomicBooleanAlgebra.{0} Real)))))
+                            (@HeytingAlgebra.toOrderBot.{0} (Set.{0} Real)
+                              (@Order.Frame.toHeytingAlgebra.{0} (Set.{0} Real)
+                                (@CompleteDistribLattice.toFrame.{0} (Set.{0} Real)
+                                  (@CompleteBooleanAlgebra.toCompleteDistribLattice.{0} (Set.{0} Real)
+                                    (@CompleteAtomicBooleanAlgebra.toCompleteBooleanAlgebra.{0} (Set.{0} Real)
+                                      (@Set.instCompleteAtomicBooleanAlgebra.{0} Real))))))
+                            (@Set.Ioc.{0} Real Real.instPreorder (a i) (b i))
+                            (@Set.Ioc.{0} Real Real.instPreorder (a j) (b j))) →
+                        And
+                          (∀ (z : Luce.Section6.SpatialIndex left right L J),
+                            And
+                              (@LT.lt.{0} Real Real.instLT
+                                (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                                (Luce.Section6.cornerCoefficient
+                                  (@Subtype.val.{1} Luce.Section6.Corner
+                                    (fun side => (Luce.Section6.cornerBehavior left right side).active)
+                                    (@Prod.fst.{0, 0}
+                                      (@Subtype.{1} Luce.Section6.Corner fun side =>
+                                        (Luce.Section6.cornerBehavior left right side).active)
+                                      (Prod.{0, 0} (Fin L) (Fin J)) z))
+                                  (Luce.Section6.cornerBehavior left right
+                                    (@Subtype.val.{1} Luce.Section6.Corner
+                                      (fun side => (Luce.Section6.cornerBehavior left right side).active)
+                                      (@Prod.fst.{0, 0}
+                                        (@Subtype.{1} Luce.Section6.Corner fun side =>
+                                          (Luce.Section6.cornerBehavior left right side).active)
+                                        (Prod.{0, 0} (Fin L) (Fin J)) z)))
+                                  (@Fin.val L
+                                    (@Prod.fst.{0, 0} (Fin L) (Fin J)
+                                      (@Prod.snd.{0, 0}
+                                        (@Subtype.{1} Luce.Section6.Corner fun side =>
+                                          (Luce.Section6.cornerBehavior left right side).active)
+                                        (Prod.{0, 0} (Fin L) (Fin J)) z)))))
+                              (@Filter.Tendsto.{0, 0} Nat Real
+                                (fun n =>
+                                  @HDiv.hDiv.{0, 0, 0} Real Real Real
+                                    (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                    (@MeasureTheory.integral.{u, 0} (Ω n) Real Real.normedAddCommGroup
+                                      (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                                        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                                        (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                                      (mΩ n) (P n) fun ω =>
+                                      @Nat.cast.{0} Real Real.instNatCast
+                                        (@Luce.Section6.spatialCycleCount n (π n ω)
+                                          (@Subtype.val.{1} Luce.Section6.Corner
+                                            (fun side => (Luce.Section6.cornerBehavior left right side).active)
+                                            (@Prod.fst.{0, 0}
+                                              (@Subtype.{1} Luce.Section6.Corner fun side =>
+                                                (Luce.Section6.cornerBehavior left right side).active)
+                                              (Prod.{0, 0} (Fin L) (Fin J)) z))
+                                          (@Fin.val L
+                                            (@Prod.fst.{0, 0} (Fin L) (Fin J)
+                                              (@Prod.snd.{0, 0}
+                                                (@Subtype.{1} Luce.Section6.Corner fun side =>
+                                                  (Luce.Section6.cornerBehavior left right side).active)
+                                                (Prod.{0, 0} (Fin L) (Fin J)) z)))
+                                          (a
+                                            (@Prod.snd.{0, 0} (Fin L) (Fin J)
+                                              (@Prod.snd.{0, 0}
+                                                (@Subtype.{1} Luce.Section6.Corner fun side =>
+                                                  (Luce.Section6.cornerBehavior left right side).active)
+                                                (Prod.{0, 0} (Fin L) (Fin J)) z)))
+                                          (b
+                                            (@Prod.snd.{0, 0} (Fin L) (Fin J)
+                                              (@Prod.snd.{0, 0}
+                                                (@Subtype.{1} Luce.Section6.Corner fun side =>
+                                                  (Luce.Section6.cornerBehavior left right side).active)
+                                                (Prod.{0, 0} (Fin L) (Fin J)) z)))))
+                                    (Real.log (@Nat.cast.{0} Real Real.instNatCast n)))
+                                (@Filter.atTop.{0} Nat Nat.instPreorder)
+                                (@nhds.{0} Real
+                                  (@UniformSpace.toTopologicalSpace.{0} Real
+                                    (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                    (Luce.Section6.cornerCoefficient
+                                      (@Subtype.val.{1} Luce.Section6.Corner
+                                        (fun side => (Luce.Section6.cornerBehavior left right side).active)
+                                        (@Prod.fst.{0, 0}
+                                          (@Subtype.{1} Luce.Section6.Corner fun side =>
+                                            (Luce.Section6.cornerBehavior left right side).active)
+                                          (Prod.{0, 0} (Fin L) (Fin J)) z))
+                                      (Luce.Section6.cornerBehavior left right
+                                        (@Subtype.val.{1} Luce.Section6.Corner
+                                          (fun side => (Luce.Section6.cornerBehavior left right side).active)
+                                          (@Prod.fst.{0, 0}
+                                            (@Subtype.{1} Luce.Section6.Corner fun side =>
+                                              (Luce.Section6.cornerBehavior left right side).active)
+                                            (Prod.{0, 0} (Fin L) (Fin J)) z)))
+                                      (@Fin.val L
+                                        (@Prod.fst.{0, 0} (Fin L) (Fin J)
+                                          (@Prod.snd.{0, 0}
+                                            (@Subtype.{1} Luce.Section6.Corner fun side =>
+                                              (Luce.Section6.cornerBehavior left right side).active)
+                                            (Prod.{0, 0} (Fin L) (Fin J)) z))))
+                                    (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                      (b
+                                        (@Prod.snd.{0, 0} (Fin L) (Fin J)
+                                          (@Prod.snd.{0, 0}
+                                            (@Subtype.{1} Luce.Section6.Corner fun side =>
+                                              (Luce.Section6.cornerBehavior left right side).active)
+                                            (Prod.{0, 0} (Fin L) (Fin J)) z)))
+                                      (a
+                                        (@Prod.snd.{0, 0} (Fin L) (Fin J)
+                                          (@Prod.snd.{0, 0}
+                                            (@Subtype.{1} Luce.Section6.Corner fun side =>
+                                              (Luce.Section6.cornerBehavior left right side).active)
+                                            (Prod.{0, 0} (Fin L) (Fin J)) z))))))))
+                          (And
+                            (∀
+                              (F :
+                                @BoundedContinuousFunction.{0, 0} (Luce.Section6.SpatialIndex left right L J → Real)
+                                  Real
+                                  (@Pi.topologicalSpace.{0, 0} (Luce.Section6.SpatialIndex left right L J)
+                                    (fun a => Real) fun i =>
+                                    @UniformSpace.toTopologicalSpace.{0} Real
+                                      (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                                  Real.pseudoMetricSpace),
+                              @Filter.Tendsto.{0, 0} Nat Real
+                                (fun n =>
+                                  @MeasureTheory.integral.{u, 0} (Ω n) Real Real.normedAddCommGroup
+                                    (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                                      (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                                      (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                                    (mΩ n) (P n) fun ω =>
+                                    @DFunLike.coe.{1, 1, 1}
+                                      (@BoundedContinuousFunction.{0, 0}
+                                        (Luce.Section6.SpatialIndex left right L J → Real) Real
+                                        (@Pi.topologicalSpace.{0, 0} (Luce.Section6.SpatialIndex left right L J)
+                                          (fun a => Real) fun i =>
+                                          @UniformSpace.toTopologicalSpace.{0} Real
+                                            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                                        Real.pseudoMetricSpace)
+                                      (Luce.Section6.SpatialIndex left right L J → Real) (fun x => Real)
+                                      (@BoundedContinuousFunction.instFunLike.{0, 0}
+                                        (Luce.Section6.SpatialIndex left right L J → Real) Real
+                                        (@Pi.topologicalSpace.{0, 0} (Luce.Section6.SpatialIndex left right L J)
+                                          (fun a => Real) fun i =>
+                                          @UniformSpace.toTopologicalSpace.{0} Real
+                                            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                                        Real.pseudoMetricSpace)
+                                      F (@Luce.Section6.normalizedSpatialVector n (π n ω) left right L J a b))
+                                (@Filter.atTop.{0} Nat Nat.instPreorder)
+                                (@nhds.{0} Real
+                                  (@UniformSpace.toTopologicalSpace.{0} Real
+                                    (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                                  (@MeasureTheory.integral.{0, 0} (Luce.Section6.SpatialIndex left right L J → Real)
+                                    Real Real.normedAddCommGroup
+                                    (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                                      (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                                      (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                                    (@MeasurableSpace.pi.{0, 0} (Luce.Section6.SpatialIndex left right L J)
+                                      (fun a => Real) fun a => Real.measurableSpace)
+                                    (@Luce.Section6.standardNormalVector.{0} (Luce.Section6.SpatialIndex left right L J)
+                                      (Luce.Section6.instFintypeSpatialIndex left right L J))
+                                    fun z =>
+                                    @DFunLike.coe.{1, 1, 1}
+                                      (@BoundedContinuousFunction.{0, 0}
+                                        (Luce.Section6.SpatialIndex left right L J → Real) Real
+                                        (@Pi.topologicalSpace.{0, 0} (Luce.Section6.SpatialIndex left right L J)
+                                          (fun a => Real) fun i =>
+                                          @UniformSpace.toTopologicalSpace.{0} Real
+                                            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                                        Real.pseudoMetricSpace)
+                                      (Luce.Section6.SpatialIndex left right L J → Real) (fun x => Real)
+                                      (@BoundedContinuousFunction.instFunLike.{0, 0}
+                                        (Luce.Section6.SpatialIndex left right L J → Real) Real
+                                        (@Pi.topologicalSpace.{0, 0} (Luce.Section6.SpatialIndex left right L J)
+                                          (fun a => Real) fun i =>
+                                          @UniformSpace.toTopologicalSpace.{0} Real
+                                            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                                        Real.pseudoMetricSpace)
+                                      F z)))
+                            (∀ (z : Luce.Section6.SpatialIndex left right L J) (delta : Real),
+                              @LT.lt.{0} Real Real.instLT
+                                  (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) delta →
+                                @Filter.Tendsto.{0, 0} Nat Real
+                                  (fun n =>
+                                    @MeasureTheory.integral.{u, 0} (Ω n) Real Real.normedAddCommGroup
+                                      (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                                        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                                        (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                                      (mΩ n) (P n) fun ω =>
+                                      @Nat.cast.{0} Real Real.instNatCast
+                                        (@Luce.Section6.excursionCycleCount n (π n ω)
+                                          (@Subtype.val.{1} Luce.Section6.Corner
+                                            (fun side => (Luce.Section6.cornerBehavior left right side).active)
+                                            (@Prod.fst.{0, 0}
+                                              (@Subtype.{1} Luce.Section6.Corner fun side =>
+                                                (Luce.Section6.cornerBehavior left right side).active)
+                                              (Prod.{0, 0} (Fin L) (Fin J)) z))
+                                          (@Fin.val L
+                                            (@Prod.fst.{0, 0} (Fin L) (Fin J)
+                                              (@Prod.snd.{0, 0}
+                                                (@Subtype.{1} Luce.Section6.Corner fun side =>
+                                                  (Luce.Section6.cornerBehavior left right side).active)
+                                                (Prod.{0, 0} (Fin L) (Fin J)) z)))
+                                          (a
+                                            (@Prod.snd.{0, 0} (Fin L) (Fin J)
+                                              (@Prod.snd.{0, 0}
+                                                (@Subtype.{1} Luce.Section6.Corner fun side =>
+                                                  (Luce.Section6.cornerBehavior left right side).active)
+                                                (Prod.{0, 0} (Fin L) (Fin J)) z)))
+                                          (b
+                                            (@Prod.snd.{0, 0} (Fin L) (Fin J)
+                                              (@Prod.snd.{0, 0}
+                                                (@Subtype.{1} Luce.Section6.Corner fun side =>
+                                                  (Luce.Section6.cornerBehavior left right side).active)
+                                                (Prod.{0, 0} (Fin L) (Fin J)) z)))
+                                          delta))
+                                  (@Filter.atTop.{0} Nat Nat.instPreorder)
+                                  (@nhds.{0} Real
+                                    (@UniformSpace.toTopologicalSpace.{0} Real
+                                      (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                                    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))))
+def SampledProfileContract.critical.{u} : Luce.Section6.SamplingGrid → Prop :=
+fun grid =>
+  ∀ (Ω : Nat → Type u) (mΩ : (n : Nat) → MeasurableSpace.{u} (Ω n))
+    (P : (n : Nat) → @MeasureTheory.Measure.{u} (Ω n) (mΩ n)),
+    (∀ (n : Nat), @MeasureTheory.IsProbabilityMeasure.{u} (Ω n) (mΩ n) (P n)) →
+      ∀ (w : Luce.WeightArray) (f : Real → Real) (c eta rightLimit : Real),
+        Luce.Section6.SampledRates grid w f →
+          Luce.Section6.CriticalProfile f c eta rightLimit →
+            ∀ (π : (n : Nat) → Ω n → Equiv.Perm.{1} (Fin n)),
+              (∀ (n : Nat),
+                  @Measurable.{u, 0} (Ω n) (Equiv.Perm.{1} (Fin n)) (mΩ n)
+                    (@Top.top.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                      (@OrderTop.toTop.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                        (@Preorder.toLE.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                          (@PartialOrder.toPreorder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                            (@SemilatticeSup.toPartialOrder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                              (@Lattice.toSemilatticeSup.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                (@CompleteLattice.toLattice.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                  (@MeasurableSpace.instCompleteLattice.{0} (Equiv.Perm.{1} (Fin n))))))))
+                        (@BoundedOrder.toOrderTop.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                          (@Preorder.toLE.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                            (@PartialOrder.toPreorder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                              (@SemilatticeSup.toPartialOrder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                (@Lattice.toSemilatticeSup.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                  (@CompleteLattice.toLattice.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                    (@MeasurableSpace.instCompleteLattice.{0} (Equiv.Perm.{1} (Fin n))))))))
+                          (@CompleteLattice.toBoundedOrder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                            (@MeasurableSpace.instCompleteLattice.{0} (Equiv.Perm.{1} (Fin n)))))))
+                    (π n)) →
+                (∀ (n : Nat) (σ : Equiv.Perm.{1} (Fin n)),
+                    @Eq.{1} Real
+                      (@MeasureTheory.Measure.real.{u} (Ω n) (mΩ n) (P n)
+                        (@Set.ofPred.{u} (Ω n) fun ω => @Eq.{1} (Equiv.Perm.{1} (Fin n)) (π n ω) σ))
+                      (@Luce.Weights.mass n (w n) σ)) →
+                  And
+                    (∀
+                      (F :
+                        @BoundedContinuousFunction.{0, 0} Real Real
+                          (@UniformSpace.toTopologicalSpace.{0} Real
+                            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                          Real.pseudoMetricSpace),
+                      @Filter.Tendsto.{0, 0} Nat Real
+                        (fun n =>
+                          @MeasureTheory.integral.{u, 0} (Ω n) Real Real.normedAddCommGroup
+                            (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                              (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                              (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                            (mΩ n) (P n) fun ω =>
+                            @DFunLike.coe.{1, 1, 1}
+                              (@BoundedContinuousFunction.{0, 0} Real Real
+                                (@UniformSpace.toTopologicalSpace.{0} Real
+                                  (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                                Real.pseudoMetricSpace)
+                              Real (fun x => Real)
+                              (@BoundedContinuousFunction.instFunLike.{0, 0} Real Real
+                                (@UniformSpace.toTopologicalSpace.{0} Real
+                                  (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                                Real.pseudoMetricSpace)
+                              F
+                              (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                  (@Nat.cast.{0} Real Real.instNatCast
+                                    (@Luce.Section5.cycleCount.{0} (Fin n) (Fin.fintype n) (instDecidableEqFin n)
+                                      (π n ω) (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+                                  (Real.log (Real.log (@Nat.cast.{0} Real Real.instNatCast n))))
+                                (Real.log (Real.log (@Nat.cast.{0} Real Real.instNatCast n))).sqrt))
+                        (@Filter.atTop.{0} Nat Nat.instPreorder)
+                        (@nhds.{0} Real
+                          (@UniformSpace.toTopologicalSpace.{0} Real
+                            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                          (@MeasureTheory.integral.{0, 0} Real Real Real.normedAddCommGroup
+                            (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                              (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                              (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                            Real.measurableSpace
+                            (ProbabilityTheory.gaussianReal
+                              (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                              (@OfNat.ofNat.{0} NNReal (nat_lit 1) (@One.toOfNat1.{0} NNReal NNReal.instOne)))
+                            fun z =>
+                            @DFunLike.coe.{1, 1, 1}
+                              (@BoundedContinuousFunction.{0, 0} Real Real
+                                (@UniformSpace.toTopologicalSpace.{0} Real
+                                  (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                                Real.pseudoMetricSpace)
+                              Real (fun x => Real)
+                              (@BoundedContinuousFunction.instFunLike.{0, 0} Real Real
+                                (@UniformSpace.toTopologicalSpace.{0} Real
+                                  (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                                Real.pseudoMetricSpace)
+                              F z)))
+                    (And
+                      (@Filter.Tendsto.{0, 0} Nat Real
+                        (fun n =>
+                          @HDiv.hDiv.{0, 0, 0} Real Real Real
+                            (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                            (@MeasureTheory.integral.{u, 0} (Ω n) Real Real.normedAddCommGroup
+                              (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                                (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                                (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                              (mΩ n) (P n) fun ω =>
+                              @Nat.cast.{0} Real Real.instNatCast
+                                (@Luce.Section5.cycleCount.{0} (Fin n) (Fin.fintype n) (instDecidableEqFin n) (π n ω)
+                                  (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+                            (Real.log (Real.log (@Nat.cast.{0} Real Real.instNatCast n))))
+                        (@Filter.atTop.{0} Nat Nat.instPreorder)
+                        (@nhds.{0} Real
+                          (@UniformSpace.toTopologicalSpace.{0} Real
+                            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+                      (∀ (k : Nat),
+                        ∃ C,
+                          ∀ (n : Nat),
+                            @LE.le.{0} Real Real.instLE
+                              (@MeasureTheory.integral.{u, 0} (Ω n) Real Real.normedAddCommGroup
+                                (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                                  (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                                  (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                                (mΩ n) (P n) fun ω =>
+                                @Nat.cast.{0} Real Real.instNatCast
+                                  (@Luce.Section5.cycleCount.{0} (Fin n) (Fin.fintype n) (instDecidableEqFin n) (π n ω)
+                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+                              C))
+def SampledProfileContract.section6.{u} : Prop :=
+And (SampledProfileContract.powerLaw.{u} Luce.Section6.SamplingGrid.midpoint)
+  (And (SampledProfileContract.spatial.{u} Luce.Section6.SamplingGrid.midpoint)
+    (And (SampledProfileContract.critical.{u} Luce.Section6.SamplingGrid.midpoint)
+      (And (SampledProfileContract.powerLaw.{u} Luce.Section6.SamplingGrid.interior)
+        (And (SampledProfileContract.spatial.{u} Luce.Section6.SamplingGrid.interior)
+          (SampledProfileContract.critical.{u} Luce.Section6.SamplingGrid.interior)))))
+'Luce.Section6.samplePoint_mem' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.sampledWeights_sampled' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.samplePoint_rev' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.PowerExpansion.relative_error_tendsto' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.PowerExpansion.eventually_comparable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.PowerProfile.right_eventually_comparable' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.Section6.PowerProfile.left_eventually_comparable' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.Section6.CriticalProfile.eventually_comparable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.populationG_eq_one_sub_H' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.populationH_deletion_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.populationG_deletion_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.populationD_one_deletion_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.populationD_hasDerivAt' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.populationH_hasDerivAt' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.populationG_hasDerivAt' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.finite_average_deletion' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.finite_average_deletion_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.rateKernel_le_exp_neg_one_div' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Section6.survivalKernel_hasDerivAt_time' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]

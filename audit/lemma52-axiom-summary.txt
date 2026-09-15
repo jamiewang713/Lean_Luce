@@ -1,0 +1,3 @@
+audit/lemma52-audit.log : 16 axiom reports; 0 extra axioms (universe annotations normalized)
+audit/lemma52-section5-audit.log : 69 axiom reports; 0 extra axioms (universe annotations normalized)
+audit/lemma52-proof-audit.log : 23 axiom reports; 0 extra axioms (universe annotations normalized)

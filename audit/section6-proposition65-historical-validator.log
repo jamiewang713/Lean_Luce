@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "D:\princeton\Research\Lean\Lean_luce\audit\validate_section6_progress.py", line 13, in <module>
+    assert {name for name, _ in reports} == expected
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

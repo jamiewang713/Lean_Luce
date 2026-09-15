@@ -1,0 +1,13 @@
+Luce/ConditionalProbabilityBasics.lean
+Luce/DrawHistory.lean
+Luce/DrawHistoryPermutation.lean
+Luce/FiniteHistoryConditional.lean
+Luce/HistoryAtoms.lean
+Luce/HistoryPredictability.lean
+Luce/LuceMassRecursion.lean
+Luce/LuceNextDraw.lean
+Luce/LucePrefixMass.lean
+Luce/LucePrefixRecursion.lean
+Luce/LucePrefixTransition.lean
+Luce/Model.lean
+Luce/PredictableProbability.lean

@@ -1,0 +1,1201 @@
+def Luce.Section6.Lemma69Contract.lemma69 : Prop :=
+∀ (s L D : Nat) (C : Real),
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) C →
+    ∃ K,
+      And (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) K)
+        (∀ (n A B : Nat),
+          @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) A →
+            @LE.le.{0} Nat instLENat A B →
+              ∀ (side : Fin s → Luce.Section6.Corner) (k : Fin s → Nat),
+                (∀ (c : Fin s),
+                    @LE.le.{0} Nat instLENat
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (k c)
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      L) →
+                  ∀ (F : Fin n → Fin n → Real),
+                    (∀ (a b : Fin n),
+                        @LE.le.{0} Real Real.instLE
+                          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (F a b)) →
+                      (∀ (a : Fin n), @LE.le.{0} Real Real.instLE (∑ b, F a b) C) →
+                        (∀ (c : Fin s) (b : Luce.Section6.CollisionCore n A B (side c)) (a : Fin n),
+                            @LE.le.{0} Real Real.instLE
+                              (F a
+                                (@Subtype.val.{1} (Fin n)
+                                  (fun v =>
+                                    And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance (side c) n v))
+                                      (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance (side c) n v) B))
+                                  b))
+                              (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) C
+                                (@Nat.cast.{0} Real Real.instNatCast
+                                  (@Luce.Section6.cornerDistance (side c) n
+                                    (@Subtype.val.{1} (Fin n)
+                                      (fun v =>
+                                        And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance (side c) n v))
+                                          (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance (side c) n v) B))
+                                      b))))) →
+                          ∀ (W : @Luce.Section6.CollisionAssignment s n A B side k → Real),
+                            (∀ (x : @Luce.Section6.CollisionAssignment s n A B side k),
+                                @LE.le.{0} Real Real.instLE (W x)
+                                  (@Luce.Section6.collisionFamilyWeight s n A B side k F x)) →
+                              And
+                                (∀ (p q : @Luce.Section6.CollisionSlot s k),
+                                  @Ne.{1} (@Luce.Section6.CollisionSlot s k) p q →
+                                    @LE.le.{0} Real Real.instLE (@Luce.Section6.collisionPairSum s n A B side k W D p q)
+                                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) K
+                                          (@Nat.cast.{0} Real Real.instNatCast A))
+                                        (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                          (@instHPow.{0, 0} Real Nat
+                                            (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                                            (Real.log
+                                              (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                (@instHDiv.{0} Real
+                                                  (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                                (@Nat.cast.{0} Real Real.instNatCast B)
+                                                (@Nat.cast.{0} Real Real.instNatCast A))))
+                                          (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) s
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+                                (@LE.le.{0} Real Real.instLE (@Luce.Section6.collisionUnionSum s n A B side k W D)
+                                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                    (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                      (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) K
+                                      (@Nat.cast.{0} Real Real.instNatCast A))
+                                    (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                      (@instHPow.{0, 0} Real Nat
+                                        (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                                        (Real.log
+                                          (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                            (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                            (@Nat.cast.{0} Real Real.instNatCast B)
+                                            (@Nat.cast.{0} Real Real.instNatCast A))))
+                                      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) s
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))))
+def Luce.Section6.collisionCycleWeight.{u_1} : {α : Type u_1} →
+  (α → α → Real) →
+    (k : Nat) →
+      (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+          α) →
+        Real :=
+fun {α} F k x =>
+  ∏ j,
+    F (x j)
+      (x
+        (@DFunLike.coe.{1, 1, 1}
+          (Equiv.Perm.{1}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (fun x =>
+            Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (@EquivLike.toFunLike.{1, 1, 1}
+            (Equiv.Perm.{1}
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@Equiv.instEquivLike.{1, 1}
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+          (finRotate
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          j))
+def Luce.Section6.collisionFamilyWeight : {s n A B : Nat} →
+  (side : Fin s → Luce.Section6.Corner) →
+    (k : Fin s → Nat) → (Fin n → Fin n → Real) → @Luce.Section6.CollisionAssignment s n A B side k → Real :=
+fun {s n A B} side k F x =>
+  ∏ c,
+    @Luce.Section6.collisionCycleWeight.{0} (Luce.Section6.CollisionCore n A B (side c))
+      (fun a b =>
+        F
+          (@Subtype.val.{1} (Fin n)
+            (fun v =>
+              And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance (side c) n v))
+                (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance (side c) n v) B))
+            a)
+          (@Subtype.val.{1} (Fin n)
+            (fun v =>
+              And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance (side c) n v))
+                (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance (side c) n v) B))
+            b))
+      (k c) (x c)
+def Luce.Section6.collisionPairSum : {s n A B : Nat} →
+  {side : Fin s → Luce.Section6.Corner} →
+    {k : Fin s → Nat} →
+      (@Luce.Section6.CollisionAssignment s n A B side k → Real) →
+        Nat → @Luce.Section6.CollisionSlot s k → @Luce.Section6.CollisionSlot s k → Real :=
+fun {s n A B} {side} {k} W D p q => ∑ x with (@Luce.Section6.collisionNearby s n A B side k D p q) x, W x
+def Luce.Section6.collisionUnionSum : {s n A B : Nat} →
+  {side : Fin s → Luce.Section6.Corner} →
+    {k : Fin s → Nat} → (@Luce.Section6.CollisionAssignment s n A B side k → Real) → Nat → Real :=
+fun {s n A B} {side} {k} W D =>
+  ∑ x with
+    ∃ p q, And (@Ne.{1} (@Luce.Section6.CollisionSlot s k) p q) (@Luce.Section6.collisionNearby s n A B side k D p q x),
+    W x
+theorem Luce.Section6.collision_core_matrix_row : ∀ {n A B : Nat} (side : Luce.Section6.Corner)
+  (F : Fin n → Fin n → Real),
+  (∀ (a b : Fin n),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (F a b)) →
+    ∀ {C : Real},
+      (∀ (a : Fin n), @LE.le.{0} Real Real.instLE (∑ b, F a b) C) →
+        ∀ (a : Luce.Section6.CollisionCore n A B side),
+          @LE.le.{0} Real Real.instLE
+            (∑ b,
+              F
+                (@Subtype.val.{1} (Fin n)
+                  (fun v =>
+                    And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                      (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                  a)
+                (@Subtype.val.{1} (Fin n)
+                  (fun v =>
+                    And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                      (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                  b))
+            C :=
+⋯
+'Luce.Section6.collision_core_matrix_row' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_core_cycle_test : ∀ {n A B k L : Nat} (side : Luce.Section6.Corner)
+  (F : Fin n → Fin n → Real),
+  (∀ (a b : Fin n),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (F a b)) →
+    ∀ {C : Real},
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) C →
+        (∀ (a : Fin n), @LE.le.{0} Real Real.instLE (∑ b, F a b) C) →
+          (∀ (b : Luce.Section6.CollisionCore n A B side) (a : Fin n),
+              @LE.le.{0} Real Real.instLE
+                (F a
+                  (@Subtype.val.{1} (Fin n)
+                    (fun v =>
+                      And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                        (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                    b))
+                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) C
+                  (@Nat.cast.{0} Real Real.instNatCast
+                    (@Luce.Section6.cornerDistance side n
+                      (@Subtype.val.{1} (Fin n)
+                        (fun v =>
+                          And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                            (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                        b))))) →
+            @LE.le.{0} Nat instLENat
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                L →
+              ∀
+                (i :
+                  Fin
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (g : Luce.Section6.CollisionCore n A B side → Real),
+                (∀ (a : Luce.Section6.CollisionCore n A B side),
+                    @LE.le.{0} Real Real.instLE
+                      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (g a)) →
+                  @LE.le.{0} Real Real.instLE
+                    (∑ x,
+                      @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                        (@Luce.Section6.collisionCycleWeight.{0} (Luce.Section6.CollisionCore n A B side)
+                          (fun a b =>
+                            F
+                              (@Subtype.val.{1} (Fin n)
+                                (fun v =>
+                                  And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                                    (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                                a)
+                              (@Subtype.val.{1} (Fin n)
+                                (fun v =>
+                                  And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                                    (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                                b))
+                          k x)
+                        (g (x i)))
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@HPow.hPow.{0, 0, 0} Real Nat Real
+                        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) C
+                        L)
+                      (∑ a,
+                        @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                          (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                            (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                            (@Nat.cast.{0} Real Real.instNatCast
+                              (@Luce.Section6.cornerDistance side n
+                                (@Subtype.val.{1} (Fin n)
+                                  (fun v =>
+                                    And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                                      (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                                  a))))
+                          (g a))) :=
+⋯
+'Luce.Section6.collision_core_cycle_test' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_core_cycle_two_test : ∀ {n A B k L : Nat} (side : Luce.Section6.Corner)
+  (F : Fin n → Fin n → Real),
+  (∀ (a b : Fin n),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (F a b)) →
+    ∀ {C : Real},
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) C →
+        (∀ (a : Fin n), @LE.le.{0} Real Real.instLE (∑ b, F a b) C) →
+          (∀ (b : Luce.Section6.CollisionCore n A B side) (a : Fin n),
+              @LE.le.{0} Real Real.instLE
+                (F a
+                  (@Subtype.val.{1} (Fin n)
+                    (fun v =>
+                      And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                        (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                    b))
+                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) C
+                  (@Nat.cast.{0} Real Real.instNatCast
+                    (@Luce.Section6.cornerDistance side n
+                      (@Subtype.val.{1} (Fin n)
+                        (fun v =>
+                          And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                            (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                        b))))) →
+            @LE.le.{0} Nat instLENat
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                L →
+              ∀
+                (i j :
+                  Fin
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+                @Ne.{1}
+                    (Fin
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                    i j →
+                  ∀ (g : Luce.Section6.CollisionCore n A B side → Luce.Section6.CollisionCore n A B side → Real),
+                    (∀ (a b : Luce.Section6.CollisionCore n A B side),
+                        @LE.le.{0} Real Real.instLE
+                          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (g a b)) →
+                      @LE.le.{0} Real Real.instLE
+                        (∑ x,
+                          @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                            (@Luce.Section6.collisionCycleWeight.{0} (Luce.Section6.CollisionCore n A B side)
+                              (fun a b =>
+                                F
+                                  (@Subtype.val.{1} (Fin n)
+                                    (fun v =>
+                                      And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                                        (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                                    a)
+                                  (@Subtype.val.{1} (Fin n)
+                                    (fun v =>
+                                      And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                                        (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                                    b))
+                              k x)
+                            (g (x i) (x j)))
+                        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                          (@HPow.hPow.{0, 0, 0} Real Nat Real
+                            (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                            C L)
+                          (∑ a,
+                            ∑ b,
+                              @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                  (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                    (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                    (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                                    (@Nat.cast.{0} Real Real.instNatCast
+                                      (@Luce.Section6.cornerDistance side n
+                                        (@Subtype.val.{1} (Fin n)
+                                          (fun v =>
+                                            And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                                              (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                                          a))))
+                                  (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                    (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                    (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                                    (@Nat.cast.{0} Real Real.instNatCast
+                                      (@Luce.Section6.cornerDistance side n
+                                        (@Subtype.val.{1} (Fin n)
+                                          (fun v =>
+                                            And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                                              (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                                          b)))))
+                                (g a b))) :=
+⋯
+'Luce.Section6.collision_core_cycle_two_test' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_core_cycle_trace : ∀ {n A B k L : Nat} (side : Luce.Section6.Corner),
+  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) A →
+    @LE.le.{0} Nat instLENat A B →
+      ∀ (F : Fin n → Fin n → Real),
+        (∀ (a b : Fin n),
+            @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+              (F a b)) →
+          ∀ {C : Real},
+            @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) C →
+              (∀ (a : Fin n), @LE.le.{0} Real Real.instLE (∑ b, F a b) C) →
+                (∀ (b : Luce.Section6.CollisionCore n A B side) (a : Fin n),
+                    @LE.le.{0} Real Real.instLE
+                      (F a
+                        (@Subtype.val.{1} (Fin n)
+                          (fun v =>
+                            And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                              (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                          b))
+                      (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                        (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) C
+                        (@Nat.cast.{0} Real Real.instNatCast
+                          (@Luce.Section6.cornerDistance side n
+                            (@Subtype.val.{1} (Fin n)
+                              (fun v =>
+                                And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                                  (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                              b))))) →
+                  @LE.le.{0} Nat instLENat
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      L →
+                    @LE.le.{0} Real Real.instLE
+                      (∑ x,
+                        @Luce.Section6.collisionCycleWeight.{0} (Luce.Section6.CollisionCore n A B side)
+                          (fun a b =>
+                            F
+                              (@Subtype.val.{1} (Fin n)
+                                (fun v =>
+                                  And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                                    (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                                a)
+                              (@Subtype.val.{1} (Fin n)
+                                (fun v =>
+                                  And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                                    (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                                b))
+                          k x)
+                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                        (@HPow.hPow.{0, 0, 0} Real Nat Real
+                          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) C
+                          L)
+                        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                          (Real.log
+                            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                              (@Nat.cast.{0} Real Real.instNatCast B) (@Nat.cast.{0} Real Real.instNatCast A))))) :=
+⋯
+'Luce.Section6.collision_core_cycle_trace' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_two_test_tensor.{u_1, u_2, u_3, u_4} : ∀ {α : Type u_1} {β : Type u_2} {X : Type u_3}
+  {Y : Type u_4} [inst : Fintype.{u_1} α] [inst_1 : Fintype.{u_2} β] [inst_2 : Fintype.{u_3} X]
+  [inst_3 : Fintype.{u_4} Y] (w : X → Real) (z : Y → Real),
+  (∀ (x : X),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (w x)) →
+    (∀ (y : Y),
+        @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (z y)) →
+      ∀ (p : X → α) (q : Y → β) (u : α → Real) (v : β → Real),
+        (∀ (a : α),
+            @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+              (u a)) →
+          (∀ (b : β),
+              @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                (v b)) →
+            ∀ {Q : Real},
+              @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                  Q →
+                (∀ (g : α → Real),
+                    (∀ (a : α),
+                        @LE.le.{0} Real Real.instLE
+                          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (g a)) →
+                      @LE.le.{0} Real Real.instLE
+                        (∑ x, @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (w x) (g (p x)))
+                        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) Q
+                          (∑ a, @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (u a) (g a)))) →
+                  (∀ (g : β → Real),
+                      (∀ (b : β),
+                          @LE.le.{0} Real Real.instLE
+                            (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (g b)) →
+                        @LE.le.{0} Real Real.instLE
+                          (∑ y, @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (z y) (g (q y)))
+                          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) Q
+                            (∑ b, @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (v b) (g b)))) →
+                    ∀ (g : α → β → Real),
+                      (∀ (a : α) (b : β),
+                          @LE.le.{0} Real Real.instLE
+                            (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (g a b)) →
+                        @LE.le.{0} Real Real.instLE
+                          (∑ x,
+                            ∑ y,
+                              @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (w x) (z y))
+                                (g (p x) (q y)))
+                          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                            (@HPow.hPow.{0, 0, 0} Real Nat Real
+                              (@instHPow.{0, 0} Real Nat
+                                (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                              Q (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                            (∑ a,
+                              ∑ b,
+                                @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (u a) (v b))
+                                  (g a b))) :=
+⋯
+'Luce.Section6.collision_two_test_tensor' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_cycle_test_reindex.{u_1} : ∀ {α : Type u_1} [inst : Fintype.{u_1} α] (F : α → α → Real)
+  (k : Nat)
+  (i :
+    Fin
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (g :
+    (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+        α) →
+      Real),
+  @Eq.{1} Real
+    (∑ x,
+      @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@Luce.Section6.collisionCycleWeight.{u_1} α F k x) (g x))
+    (∑ x,
+      @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@Luce.Section6.collisionCycleWeight.{u_1} α F k x)
+        (g fun j =>
+          x
+            (@DFunLike.coe.{1, 1, 1}
+              (Equiv.{1, 1}
+                (Fin
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (Fin
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (fun x =>
+                Fin
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (@EquivLike.toFunLike.{1, 1, 1}
+                (Equiv.{1, 1}
+                  (Fin
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                  (Fin
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+                (Fin
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (Fin
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (@Equiv.instEquivLike.{1, 1}
+                  (Fin
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                  (Fin
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+              (@Equiv.symm.{1, 1}
+                (Fin
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (Fin
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (@finCycle
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  i))
+              j))) :=
+⋯
+'Luce.Section6.collision_cycle_test_reindex' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_cycle_test_zero_bound.{u_1} : ∀ {α : Type u_1} [inst : Fintype.{u_1} α]
+  (F : α → α → Real),
+  (∀ (a b : α),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (F a b)) →
+    ∀ (v : α → Real),
+      (∀ (a : α),
+          @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            (v a)) →
+        ∀ {C : Real},
+          @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) C →
+            (∀ (a : α), @LE.le.{0} Real Real.instLE (∑ b, F a b) C) →
+              (∀ (a b : α),
+                  @LE.le.{0} Real Real.instLE (F a b)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) C (v b))) →
+                ∀ (k : Nat) (g : α → Real),
+                  (∀ (a : α),
+                      @LE.le.{0} Real Real.instLE
+                        (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (g a)) →
+                    @LE.le.{0} Real Real.instLE
+                      (∑ x,
+                        @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                          (@Luce.Section6.collisionCycleWeight.{u_1} α F k x)
+                          (g
+                            (x
+                              (@OfNat.ofNat.{0}
+                                (Fin
+                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                (nat_lit 0)
+                                (@Fin.instOfNat
+                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                  ⋯ (nat_lit 0))))))
+                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                        (@HPow.hPow.{0, 0, 0} Real Nat Real
+                          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) C
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (∑ a, @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (v a) (g a))) :=
+⋯
+'Luce.Section6.collision_cycle_test_zero_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_cycle_test_bound.{u_1} : ∀ {α : Type u_1} [inst : Fintype.{u_1} α] (F : α → α → Real),
+  (∀ (a b : α),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (F a b)) →
+    ∀ (v : α → Real),
+      (∀ (a : α),
+          @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            (v a)) →
+        ∀ {C : Real},
+          @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) C →
+            (∀ (a : α), @LE.le.{0} Real Real.instLE (∑ b, F a b) C) →
+              (∀ (a b : α),
+                  @LE.le.{0} Real Real.instLE (F a b)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) C (v b))) →
+                ∀ (k : Nat)
+                  (i :
+                    Fin
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                  (g : α → Real),
+                  (∀ (a : α),
+                      @LE.le.{0} Real Real.instLE
+                        (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (g a)) →
+                    @LE.le.{0} Real Real.instLE
+                      (∑ x,
+                        @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                          (@Luce.Section6.collisionCycleWeight.{u_1} α F k x) (g (x i)))
+                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                        (@HPow.hPow.{0, 0, 0} Real Nat Real
+                          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) C
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (∑ a, @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (v a) (g a))) :=
+⋯
+'Luce.Section6.collision_cycle_test_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_cycle_two_test_zero_bound.{u_1} : ∀ {α : Type u_1} [inst : Fintype.{u_1} α]
+  (F : α → α → Real),
+  (∀ (a b : α),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (F a b)) →
+    ∀ (v : α → Real),
+      (∀ (a : α),
+          @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            (v a)) →
+        ∀ {C : Real},
+          @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) C →
+            (∀ (a : α), @LE.le.{0} Real Real.instLE (∑ b, F a b) C) →
+              (∀ (a b : α),
+                  @LE.le.{0} Real Real.instLE (F a b)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) C (v b))) →
+                ∀ (k : Nat) (j : Fin k) (g : α → α → Real),
+                  (∀ (a b : α),
+                      @LE.le.{0} Real Real.instLE
+                        (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (g a b)) →
+                    @LE.le.{0} Real Real.instLE
+                      (∑ x,
+                        @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                          (@Luce.Section6.collisionCycleWeight.{u_1} α F k x)
+                          (g
+                            (x
+                              (@OfNat.ofNat.{0}
+                                (Fin
+                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                (nat_lit 0)
+                                (@Fin.instOfNat
+                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                                  ⋯ (nat_lit 0))))
+                            (x (@Fin.succ k j))))
+                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                        (@HPow.hPow.{0, 0, 0} Real Nat Real
+                          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) C
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (∑ a,
+                          ∑ b,
+                            @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (v a) (v b))
+                              (g a b))) :=
+⋯
+'Luce.Section6.collision_cycle_two_test_zero_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_cycle_two_test_bound.{u_1} : ∀ {α : Type u_1} [inst : Fintype.{u_1} α]
+  (F : α → α → Real),
+  (∀ (a b : α),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (F a b)) →
+    ∀ (v : α → Real),
+      (∀ (a : α),
+          @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            (v a)) →
+        ∀ {C : Real},
+          @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) C →
+            (∀ (a : α), @LE.le.{0} Real Real.instLE (∑ b, F a b) C) →
+              (∀ (a b : α),
+                  @LE.le.{0} Real Real.instLE (F a b)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) C (v b))) →
+                ∀ (k : Nat)
+                  (i j :
+                    Fin
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+                  @Ne.{1}
+                      (Fin
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                      i j →
+                    ∀ (g : α → α → Real),
+                      (∀ (a b : α),
+                          @LE.le.{0} Real Real.instLE
+                            (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (g a b)) →
+                        @LE.le.{0} Real Real.instLE
+                          (∑ x,
+                            @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                              (@Luce.Section6.collisionCycleWeight.{u_1} α F k x) (g (x i) (x j)))
+                          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                            (@HPow.hPow.{0, 0, 0} Real Nat Real
+                              (@instHPow.{0, 0} Real Nat
+                                (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                              C
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (∑ a,
+                              ∑ b,
+                                @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (v a) (v b))
+                                  (g a b))) :=
+⋯
+'Luce.Section6.collision_cycle_two_test_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_core_depth_sum_le : ∀ {n A B : Nat} (side : Luce.Section6.Corner) (f : Nat → Real),
+  (∀ (m : Nat),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (f m)) →
+    @LE.le.{0} Real Real.instLE
+      (∑ v,
+        f
+          (@Luce.Section6.cornerDistance side n
+            (@Subtype.val.{1} (Fin n)
+              (fun v =>
+                And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                  (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+              v)))
+      (∑ m ∈ @Finset.Icc.{0} Nat Nat.instPreorder Nat.instLocallyFiniteOrder A B, f m) :=
+⋯
+'Luce.Section6.collision_core_depth_sum_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_core_harmonic : ∀ {n A B : Nat} (side : Luce.Section6.Corner),
+  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) A →
+    @LE.le.{0} Nat instLENat A B →
+      @LE.le.{0} Real Real.instLE
+        (∑ v,
+          @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+            (@Nat.cast.{0} Real Real.instNatCast
+              (@Luce.Section6.cornerDistance side n
+                (@Subtype.val.{1} (Fin n)
+                  (fun v =>
+                    And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                      (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                  v))))
+        (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+          (Real.log
+            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+              (@Nat.cast.{0} Real Real.instNatCast B) (@Nat.cast.{0} Real Real.instNatCast A)))) :=
+⋯
+'Luce.Section6.collision_core_harmonic' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_core_square_sum : ∀ {n A B : Nat} (side : Luce.Section6.Corner),
+  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) A →
+    @LE.le.{0} Nat instLENat A B →
+      @LE.le.{0} Real Real.instLE
+        (∑ v,
+          @HPow.hPow.{0, 0, 0} Real Nat Real
+            (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+              (@Nat.cast.{0} Real Real.instNatCast
+                (@Luce.Section6.cornerDistance side n
+                  (@Subtype.val.{1} (Fin n)
+                    (fun v =>
+                      And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                        (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                    v))))
+            (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+          (@Nat.cast.{0} Real Real.instNatCast A)) :=
+⋯
+'Luce.Section6.collision_core_square_sum' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_nearby_card : ∀ {n A B : Nat} (side : Luce.Section6.Corner) (a : Fin n) (D : Nat),
+  @LE.le.{0} Nat instLENat
+    (@Finset.card.{0} (Luce.Section6.CollisionCore n A B side)
+      {b |
+        @LE.le.{0} Nat instLENat
+          ((@Fin.val n a).dist
+            (@Fin.val n
+              (@Subtype.val.{1} (Fin n)
+                (fun v =>
+                  And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                    (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                b)))
+          D})
+    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+        (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) D)
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) :=
+⋯
+'Luce.Section6.collision_nearby_card' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_nearby_reciprocal_sum : ∀ {n A B : Nat} (side side' : Luce.Section6.Corner),
+  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) A →
+    @LE.le.{0} Nat instLENat A B →
+      ∀ (D : Nat),
+        @LE.le.{0} Real Real.instLE
+          (∑ a,
+            ∑ b,
+              @ite.{1} Real
+                (@LE.le.{0} Nat instLENat
+                  ((@Fin.val n
+                        (@Subtype.val.{1} (Fin n)
+                          (fun v =>
+                            And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                              (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                          a)).dist
+                    (@Fin.val n
+                      (@Subtype.val.{1} (Fin n)
+                        (fun v =>
+                          And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side' n v))
+                            (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side' n v) B))
+                        b)))
+                  D)
+                (((@Fin.val n
+                          (@Subtype.val.{1} (Fin n)
+                            (fun v =>
+                              And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                                (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                            a)).dist
+                      (@Fin.val n
+                        (@Subtype.val.{1} (Fin n)
+                          (fun v =>
+                            And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side' n v))
+                              (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side' n v) B))
+                          b))).decLe
+                  D)
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                  (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                    (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                    (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                    (@Nat.cast.{0} Real Real.instNatCast
+                      (@Luce.Section6.cornerDistance side n
+                        (@Subtype.val.{1} (Fin n)
+                          (fun v =>
+                            And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side n v))
+                              (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side n v) B))
+                          a))))
+                  (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                    (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                    (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                    (@Nat.cast.{0} Real Real.instNatCast
+                      (@Luce.Section6.cornerDistance side' n
+                        (@Subtype.val.{1} (Fin n)
+                          (fun v =>
+                            And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance side' n v))
+                              (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance side' n v) B))
+                          b)))))
+                (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+              (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                  (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                  (@Nat.cast.{0} Real Real.instNatCast D))
+                (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+            (@Nat.cast.{0} Real Real.instNatCast A)) :=
+⋯
+'Luce.Section6.collision_nearby_reciprocal_sum' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_pair_sum_test : ∀ {s n A B : Nat} {side : Fin s → Luce.Section6.Corner}
+  {k : Fin s → Nat} (W : @Luce.Section6.CollisionAssignment s n A B side k → Real) (D : Nat)
+  (p q : @Luce.Section6.CollisionSlot s k),
+  @Eq.{1} Real (@Luce.Section6.collisionPairSum s n A B side k W D p q)
+    (∑ x,
+      @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (W x)
+        (@ite.{1} Real
+          (@LE.le.{0} Nat instLENat
+            ((@Fin.val n (@Luce.Section6.collisionLabel s n A B side k x p)).dist
+              (@Fin.val n (@Luce.Section6.collisionLabel s n A B side k x q)))
+            D)
+          (((@Fin.val n (@Luce.Section6.collisionLabel s n A B side k x p)).dist
+                (@Fin.val n (@Luce.Section6.collisionLabel s n A B side k x q))).decLe
+            D)
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))) :=
+⋯
+'Luce.Section6.collision_pair_sum_test' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_family_pair_bound : ∀ {s n A B L : Nat} (D : Nat),
+  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) A →
+    @LE.le.{0} Nat instLENat A B →
+      ∀ (side : Fin s → Luce.Section6.Corner) (k : Fin s → Nat),
+        (∀ (c : Fin s),
+            @LE.le.{0} Nat instLENat
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (k c)
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+              L) →
+          ∀ (F : Fin n → Fin n → Real),
+            (∀ (a b : Fin n),
+                @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                  (F a b)) →
+              ∀ {C : Real},
+                @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                    C →
+                  (∀ (a : Fin n), @LE.le.{0} Real Real.instLE (∑ b, F a b) C) →
+                    (∀ (c : Fin s) (b : Luce.Section6.CollisionCore n A B (side c)) (a : Fin n),
+                        @LE.le.{0} Real Real.instLE
+                          (F a
+                            (@Subtype.val.{1} (Fin n)
+                              (fun v =>
+                                And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance (side c) n v))
+                                  (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance (side c) n v) B))
+                              b))
+                          (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                            (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) C
+                            (@Nat.cast.{0} Real Real.instNatCast
+                              (@Luce.Section6.cornerDistance (side c) n
+                                (@Subtype.val.{1} (Fin n)
+                                  (fun v =>
+                                    And (@LE.le.{0} Nat instLENat A (@Luce.Section6.cornerDistance (side c) n v))
+                                      (@LE.le.{0} Nat instLENat (@Luce.Section6.cornerDistance (side c) n v) B))
+                                  b))))) →
+                      ∀ (p q : @Luce.Section6.CollisionSlot s k),
+                        @Ne.{1} (@Luce.Section6.CollisionSlot s k) p q →
+                          @LE.le.{0} Real Real.instLE
+                            (@Luce.Section6.collisionPairSum s n A B side k
+                              (@Luce.Section6.collisionFamilyWeight s n A B side k F) D p q)
+                            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                  (@instHPow.{0, 0} Real Nat
+                                    (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                  (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                    (@instHPow.{0, 0} Real Nat
+                                      (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                    C L)
+                                  (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                    (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                      (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                                    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                        (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                          (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                                        (@Nat.cast.{0} Real Real.instNatCast D))
+                                      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+                                  (@Nat.cast.{0} Real Real.instNatCast A)))
+                              (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                (@instHPow.{0, 0} Real Nat
+                                  (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                  (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                    (@instHPow.{0, 0} Real Nat
+                                      (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                    C L)
+                                  (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                    (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                                    (Real.log
+                                      (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                        (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                        (@Nat.cast.{0} Real Real.instNatCast B)
+                                        (@Nat.cast.{0} Real Real.instNatCast A)))))
+                                (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) s
+                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))) :=
+⋯
+'Luce.Section6.collision_family_pair_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collisionCycleWeight_nonneg.{u_1} : ∀ {α : Type u_1} {F : α → α → Real},
+  (∀ (a b : α),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (F a b)) →
+    ∀ (k : Nat)
+      (x :
+        Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+          α),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+        (@Luce.Section6.collisionCycleWeight.{u_1} α F k x) :=
+⋯
+'Luce.Section6.collisionCycleWeight_nonneg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collisionCycleWeight_cons.{u_1} : ∀ {α : Type u_1} (F : α → α → Real) (k : Nat) (a : α)
+  (x : Fin k → α),
+  @Eq.{1} Real (@Luce.Section6.collisionCycleWeight.{u_1} α F k (@Fin.cons.{u_1 + 1} k (fun a => α) a x))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Luce.forwardPathWeight.{u_1} α k F a x)
+      (F (@Fin.cons.{u_1 + 1} k (fun a => α) a x (Fin.last k)) a)) :=
+⋯
+'Luce.Section6.collisionCycleWeight_cons' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collisionCycleWeight_rotate.{u_1} : ∀ {α : Type u_1} (F : α → α → Real) (k : Nat)
+  (i :
+    Fin
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (x :
+    Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+      α),
+  @Eq.{1} Real
+    (@Luce.Section6.collisionCycleWeight.{u_1} α F k fun j =>
+      x
+        (@DFunLike.coe.{1, 1, 1}
+          (Equiv.Perm.{1}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (fun x =>
+            Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (@EquivLike.toFunLike.{1, 1, 1}
+            (Equiv.Perm.{1}
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@Equiv.instEquivLike.{1, 1}
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))))
+          (@finCycle
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            i)
+          j))
+    (@Luce.Section6.collisionCycleWeight.{u_1} α F k x) :=
+⋯
+'Luce.Section6.collisionCycleWeight_rotate' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_path_test_bound.{u_1} : ∀ {α : Type u_1} [inst : Fintype.{u_1} α] (F : α → α → Real),
+  (∀ (a b : α),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (F a b)) →
+    ∀ (v : α → Real),
+      (∀ (a : α),
+          @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            (v a)) →
+        ∀ {C : Real},
+          @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) C →
+            (∀ (a : α), @LE.le.{0} Real Real.instLE (∑ b, F a b) C) →
+              (∀ (a b : α),
+                  @LE.le.{0} Real Real.instLE (F a b)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) C (v b))) →
+                ∀ (k : Nat) (i : Fin k) (a : α) (g : α → Real),
+                  (∀ (b : α),
+                      @LE.le.{0} Real Real.instLE
+                        (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (g b)) →
+                    @LE.le.{0} Real Real.instLE
+                      (∑ x,
+                        @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                          (@Luce.forwardPathWeight.{u_1} α k F a x) (g (x i)))
+                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                        (@HPow.hPow.{0, 0, 0} Real Nat Real
+                          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) C
+                          k)
+                        (∑ b, @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (v b) (g b))) :=
+⋯
+'Luce.Section6.collision_path_test_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_prod_split.{u_1} : ∀ {ι : Type u_1} [inst : Fintype.{u_1} ι]
+  [inst_1 : DecidableEq.{u_1 + 1} ι] (i : ι) (f : ι → Real),
+  @Eq.{1} Real (∏ c, f c)
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (f i)
+      (∏ c, f (@Subtype.val.{u_1 + 1} ι (fun c => @Ne.{u_1 + 1} ι c i) c))) :=
+⋯
+'Luce.Section6.collision_prod_split' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_card_complement.{u_1} : ∀ {ι : Type u_1} [inst : Fintype.{u_1} ι]
+  [inst_1 : DecidableEq.{u_1 + 1} ι] (i : ι),
+  @Eq.{1} Nat
+    (@Fintype.card.{u_1} (@Subtype.{u_1 + 1} ι fun c => @Ne.{u_1 + 1} ι c i)
+      (@Subtype.fintype.{u_1} ι (fun c => @Ne.{u_1 + 1} ι c i)
+        (fun a => @instDecidableNot (@Eq.{u_1 + 1} ι a i) (inst_1 a i)) inst))
+    (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (@Fintype.card.{u_1} ι inst)
+      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) :=
+⋯
+'Luce.Section6.collision_card_complement' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_product_test_one.{u_1, u_2} : ∀ {ι : Type u_1} [inst : Fintype.{u_1} ι]
+  [inst_1 : DecidableEq.{u_1 + 1} ι] {β : ι → Type u_2} [inst_2 : (i : ι) → Fintype.{u_2} (β i)]
+  (w : (i : ι) → β i → Real) (i : ι) (g : β i → Real),
+  @Eq.{1} Real (∑ x, @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (∏ c, w c (x c)) (g (x i)))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (∑ a, @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (w i a) (g a))
+      (∏ c, ∑ a, w (@Subtype.val.{u_1 + 1} ι (fun c => @Ne.{u_1 + 1} ι c i) c) a)) :=
+⋯
+'Luce.Section6.collision_product_test_one' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_product_test_two.{u_1, u_2} : ∀ {ι : Type u_1} [inst : Fintype.{u_1} ι]
+  [inst_1 : DecidableEq.{u_1 + 1} ι] {β : ι → Type u_2} [inst_2 : (i : ι) → Fintype.{u_2} (β i)]
+  (w : (i : ι) → β i → Real) (i j : ι) (hji : @Ne.{u_1 + 1} ι j i) (g : β i → β j → Real),
+  @Eq.{1} Real
+    (∑ x, @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (∏ c, w c (x c)) (g (x i) (x j)))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (∑ a,
+        ∑ b,
+          @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (w i a) (w j b)) (g a b))
+      (∏ c,
+        ∑ a,
+          w
+            (@Subtype.val.{u_1 + 1} ι (fun c => @Ne.{u_1 + 1} ι c i)
+              (@Subtype.val.{u_1 + 1} (@Subtype.{u_1 + 1} ι fun c => @Ne.{u_1 + 1} ι c i)
+                (fun c =>
+                  @Ne.{u_1 + 1} (@Subtype.{u_1 + 1} ι fun c => @Ne.{u_1 + 1} ι c i) c
+                    (@Subtype.mk.{u_1 + 1} ι (fun c => @Ne.{u_1 + 1} ι c i) j hji))
+                c))
+            a)) :=
+⋯
+'Luce.Section6.collision_product_test_two' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_complement_product_le.{u_1} : ∀ {ι : Type u_1} [inst : Fintype.{u_1} ι]
+  [inst_1 : DecidableEq.{u_1 + 1} ι] (i : ι) (t : ι → Real),
+  (∀ (c : ι),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (t c)) →
+    ∀ {T : Real},
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) T →
+        (∀ (c : ι), @LE.le.{0} Real Real.instLE (t c) T) →
+          @LE.le.{0} Real Real.instLE (∏ c, t (@Subtype.val.{u_1 + 1} ι (fun c => @Ne.{u_1 + 1} ι c i) c))
+            (@HPow.hPow.{0, 0, 0} Real Nat Real
+              (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) T
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (@Fintype.card.{u_1} ι inst)
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) :=
+⋯
+'Luce.Section6.collision_complement_product_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_two_complement_product_le.{u_1} : ∀ {ι : Type u_1} [inst : Fintype.{u_1} ι]
+  [inst_1 : DecidableEq.{u_1 + 1} ι] (i j : ι) (hji : @Ne.{u_1 + 1} ι j i) (t : ι → Real),
+  (∀ (c : ι),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (t c)) →
+    ∀ {T : Real},
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) T →
+        (∀ (c : ι), @LE.le.{0} Real Real.instLE (t c) T) →
+          @LE.le.{0} Real Real.instLE
+            (∏ c,
+              t
+                (@Subtype.val.{u_1 + 1} ι (fun c => @Ne.{u_1 + 1} ι c i)
+                  (@Subtype.val.{u_1 + 1} (@Subtype.{u_1 + 1} ι fun c => @Ne.{u_1 + 1} ι c i)
+                    (fun c =>
+                      @Ne.{u_1 + 1} (@Subtype.{u_1 + 1} ι fun c => @Ne.{u_1 + 1} ι c i) c
+                        (@Subtype.mk.{u_1 + 1} ι (fun c => @Ne.{u_1 + 1} ι c i) j hji))
+                    c)))
+            (@HPow.hPow.{0, 0, 0} Real Nat Real
+              (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid))) T
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (@Fintype.card.{u_1} ι inst)
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) :=
+⋯
+'Luce.Section6.collision_two_complement_product_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_same_corner_distance : ∀ {n : Nat} (side : Luce.Section6.Corner) (a b : Fin n),
+  @Eq.{1} Nat ((@Luce.Section6.cornerDistance side n a).dist (@Luce.Section6.cornerDistance side n b))
+    ((@Fin.val n a).dist (@Fin.val n b)) :=
+⋯
+'Luce.Section6.collision_same_corner_distance' depends on axioms: [propext, Quot.sound.{u}]
+theorem Luce.Section6.collision_slot_card_le : ∀ {s L : Nat} (k : Fin s → Nat),
+  (∀ (c : Fin s),
+      @LE.le.{0} Nat instLENat
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (k c)
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        L) →
+    @LE.le.{0} Nat instLENat
+      (@Fintype.card.{0} (@Luce.Section6.CollisionSlot s k)
+        (@Sigma.instFintype.{0, 0} (Fin s)
+          (fun c =>
+            Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (k c)
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (fun i =>
+            Fin.fintype
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (k i)
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (Fin.fintype s)))
+      (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat) s L) :=
+⋯
+'Luce.Section6.collision_slot_card_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collisionPairSum_mono : ∀ {s n A B : Nat} {side : Fin s → Luce.Section6.Corner} {k : Fin s → Nat}
+  {W V : @Luce.Section6.CollisionAssignment s n A B side k → Real},
+  (∀ (x : @Luce.Section6.CollisionAssignment s n A B side k), @LE.le.{0} Real Real.instLE (W x) (V x)) →
+    ∀ (D : Nat) (p q : @Luce.Section6.CollisionSlot s k),
+      @LE.le.{0} Real Real.instLE (@Luce.Section6.collisionPairSum s n A B side k W D p q)
+        (@Luce.Section6.collisionPairSum s n A B side k V D p q) :=
+⋯
+'Luce.Section6.collisionPairSum_mono' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collisionUnionSum_mono : ∀ {s n A B : Nat} {side : Fin s → Luce.Section6.Corner} {k : Fin s → Nat}
+  {W V : @Luce.Section6.CollisionAssignment s n A B side k → Real},
+  (∀ (x : @Luce.Section6.CollisionAssignment s n A B side k), @LE.le.{0} Real Real.instLE (W x) (V x)) →
+    ∀ (D : Nat),
+      @LE.le.{0} Real Real.instLE (@Luce.Section6.collisionUnionSum s n A B side k W D)
+        (@Luce.Section6.collisionUnionSum s n A B side k V D) :=
+⋯
+'Luce.Section6.collisionUnionSum_mono' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.collision_union_le_card_sq : ∀ {s n A B : Nat} {side : Fin s → Luce.Section6.Corner}
+  {k : Fin s → Nat} (W : @Luce.Section6.CollisionAssignment s n A B side k → Real),
+  (∀ (x : @Luce.Section6.CollisionAssignment s n A B side k),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (W x)) →
+    ∀ (D : Nat) {R : Real},
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) R →
+        (∀ (p q : @Luce.Section6.CollisionSlot s k),
+            @Ne.{1} (@Luce.Section6.CollisionSlot s k) p q →
+              @LE.le.{0} Real Real.instLE (@Luce.Section6.collisionPairSum s n A B side k W D p q) R) →
+          @LE.le.{0} Real Real.instLE (@Luce.Section6.collisionUnionSum s n A B side k W D)
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@HPow.hPow.{0, 0, 0} Real Nat Real
+                (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                (@Nat.cast.{0} Real Real.instNatCast
+                  (@Fintype.card.{0} (@Luce.Section6.CollisionSlot s k)
+                    (@Sigma.instFintype.{0, 0} (Fin s)
+                      (fun c =>
+                        Fin
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (k c)
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                      (fun i =>
+                        Fin.fintype
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (k i)
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                      (Fin.fintype s))))
+                (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              R) :=
+⋯
+'Luce.Section6.collision_union_le_card_sq' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.lemma69 : Luce.Section6.Lemma69Contract.lemma69 :=
+⋯
+'Luce.Section6.lemma69' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.lemma69_contractCheck : Luce.Section6.Lemma69Contract.lemma69 :=
+Luce.Section6.lemma69
+'Luce.Section6.lemma69_contractCheck' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]

@@ -1,0 +1,80 @@
+⚠ [3064/3121] Replayed Luce.Section65TaylorBound
+warning: Luce/Section65TaylorBound.lean:19:8: This simp argument is unused:
+  norm_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_pow, Complex.norm_exp, Complex.mul_re, Complex.exp_re, Real.norm_eq_abs]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+warning: Luce/Section65TaylorBound.lean:19:62: This simp argument is unused:
+  Complex.exp_re
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [norm_mul, norm_pow, Complex.norm_exp, Complex.mul_re, Real.norm_eq_abs]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+✖ [3131/3131] Building Luce.Section65MomentRemainder (15s)
+trace: .> LEAN_PATH=D:\princeton\Research\Lean\Lean_luce\.lake\packages\Cli\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\batteries\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\Qq\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\aesop\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\importGraph\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\plausible\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\mathlib\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean c:\Users\JiaminWang\.elan\toolchains\leanprover--lean4---v4.33.1\bin\lean.exe D:\princeton\Research\Lean\Lean_luce\Luce\Section65MomentRemainder.lean -o D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section65MomentRemainder.olean -i D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section65MomentRemainder.ilean -c D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section65MomentRemainder.c --setup D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section65MomentRemainder.setup.json --json
+error: Luce/Section65MomentRemainder.lean:17:12: unexpected token '|*'; expected '|' or '|ₘ'
+error: Luce/Section65MomentRemainder.lean:14:47: Application type mismatch: The argument
+  abs_nonneg x
+has type
+  0 ≤ |x|
+of sort `Prop` but is expected to have type
+  ℝ
+of sort `Type` in the application
+  Real.pow_div_factorial_le_exp (abs_nonneg x)
+error: Luce/Section65MomentRemainder.lean:16:4: Unexpected syntax
+  failed to pretty print term (use 'set_option pp.rawOnError true' for raw representation)
+error: Luce/Section65MomentRemainder.lean:12:80: unsolved goals
+μ : Measure ℝ
+he : Integrable (fun x => Real.exp (2 * |x|)) μ
+hp : ∀ (n : ℕ) (x : ℝ), |x| ^ (n + 1) / ↑n.factorial ≤ Real.exp (2 * |x|)
+⊢ Tendsto (fun n => (∫ (x : ℝ), |x| ^ (n + 1) ∂μ) / ↑n.factorial) atTop (𝓝 0)
+error: Luce/Section65MomentRemainder.lean:31:47: failed to synthesize instance of type class
+  LE Type
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+error: Luce/Section65MomentRemainder.lean:31:49: failed to synthesize instance of type class
+  OfNat Type 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  Type
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+error: Luce/Section65MomentRemainder.lean:56:15: Function expected at
+  norm_sub_le (u n) (p m n)
+but this term has type
+  ‖u n - p m n‖ ≤ ‖u n‖ + ‖p m n‖
+
+Note: Expected a function because this term is being applied to the argument
+  v
+error: Luce/Section65MomentRemainder.lean:44:29: unsolved goals
+u : ℕ → ℂ
+v : ℂ
+p : ℕ → ℕ → ℂ
+q : ℕ → ℂ
+R : ℕ → ℕ → ℝ
+r : ℕ → ℝ
+hu : ∀ (m n : ℕ), ‖u n - p m n‖ ≤ R m n
+hv : ∀ (m : ℕ), ‖v - q m‖ ≤ r m
+hp : ∀ (m : ℕ), Tendsto (p m) atTop (𝓝 (q m))
+hR : ∀ (m : ℕ), Tendsto (R m) atTop (𝓝 (r m))
+hr : Tendsto r atTop (𝓝 0)
+eps : ℝ
+heps : eps > 0
+m : ℕ
+hm : r m < eps / 4
+N1 : ℕ
+hN1 : ∀ n ≥ N1, dist (p m n) (q m) < eps / 4
+N2 : ℕ
+hN2 : ∀ (b : ℕ), N2 ≤ b → R m b < eps / 2
+n : ℕ
+hn : n ≥ max N1 N2
+h1 : dist (p m n) (q m) < eps / 4
+h2 : R m n < eps / 2
+⊢ dist (u n) v < eps
+error: Lean exited with code 1
+Some required targets logged failures:
+- Luce.Section65MomentRemainder
+error: build failed

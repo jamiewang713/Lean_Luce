@@ -1,0 +1,1210 @@
+theorem Luce.Section7.general_clock_tail_tendsto_zero.{u_1} : ∀ {Ω : Nat → Type u_1}
+  [inst : (k : Nat) → MeasurableSpace.{u_1} (Ω k)] (P : (k : Nat) → @MeasureTheory.Measure.{u_1} (Ω k) (inst k))
+  [∀ (k : Nat), @MeasureTheory.IsProbabilityMeasure.{u_1} (Ω k) (inst k) (P k)] (N M : Nat → Nat)
+  (g : (k : Nat) → Fin (N k) → Luce.Section7.ClockDensity) (T : (k : Nat) → Fin (N k) → Ω k → Real),
+  (∀ (k : Nat) (i : Fin (N k)),
+      @ProbabilityTheory.HasLaw.{u_1, 0} (Ω k) Real (inst k) Real.measurableSpace (T k i) (g k i).law (P k)) →
+    (∀ (k : Nat),
+        @ProbabilityTheory.iIndepFun.{u_1, 0, 0} (Ω k) (Fin (N k)) (inst k) (fun x => Real)
+          (fun x => Real.measurableSpace) (T k) (P k)) →
+      ∀ (hM : ∀ (k : Nat), @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (M k))
+        (hMN : ∀ (k : Nat), @LE.le.{0} Nat instLENat (M k) (N k)) (B s : Nat → Real) (h : Nat → Real → Real),
+        (∀ (k : Nat),
+            @LE.le.{0} Real Real.instLE
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                (@Nat.cast.{0} Real Real.instNatCast (M k)))
+              (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (B k)
+                (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))) →
+          (∀ (k : Nat),
+              @Eq.{1} Real
+                (∑ i,
+                  @MeasureTheory.Measure.real.{u_1} (Ω k) (inst k) (P k)
+                    (@Set.ofPred.{u_1} (Ω k) fun ω => @LT.lt.{0} Real Real.instLT (s k) (T k i ω)))
+                (B k)) →
+            (∀ (k : Nat),
+                @MeasureTheory.IntegrableOn.{0, 0} Real Real Real.measurableSpace
+                  (@UniformSpace.toTopologicalSpace.{0} Real
+                    (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                  (@SeminormedAddGroup.toContinuousENorm.{0} Real
+                    (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+                      (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+                        (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                          (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                            (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+                  (h k) (@Set.Ioi.{0} Real Real.instPreorder (s k))
+                  (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace)) →
+              (∀ (k m : Nat),
+                  @Membership.mem.{0, 0} Nat (Finset.{0} Nat)
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} Nat) Nat (@Finset.instSetLike.{0} Nat))
+                      (@Finset.Icc.{0} Nat Nat.instPreorder Nat.instLocallyFiniteOrder
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (M k))
+                      m →
+                    ∀ (t : Real),
+                      @GE.ge.{0} Real Real.instLE t (s k) →
+                        @LE.le.{0} Real Real.instLE ((g k (Luce.Section7.terminalLabel (N k) ⋯ m)).density t) (h k t)) →
+                @Filter.Tendsto.{0, 0} Nat Real
+                    (fun k =>
+                      @HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                          (@Nat.cast.{0} Real Real.instNatCast (M k))
+                          (Real.exp
+                            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                              (@Neg.neg.{0} Real Real.instNeg Luce.Section7.tailConstant) (B k))))
+                        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                          (@OfNat.ofNat.{0} Real (nat_lit 2)
+                            (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                          (@MeasureTheory.integral.{0, 0} Real Real Real.normedAddCommGroup
+                            (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                              (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                              (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                            (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+                            (@MeasureTheory.Measure.restrict.{0} Real
+                              (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+                              (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace)
+                              (@Set.Ioi.{0} Real Real.instPreorder (s k)))
+                            fun t => h k t)))
+                    (@Filter.atTop.{0} Nat Nat.instPreorder)
+                    (@nhds.{0} Real
+                      (@UniformSpace.toTopologicalSpace.{0} Real
+                        (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))) →
+                  @Filter.Tendsto.{0, 0} Nat Real
+                    (fun k =>
+                      ∑
+                        m ∈
+                          @Finset.Icc.{0} Nat Nat.instPreorder Nat.instLocallyFiniteOrder
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) (M k),
+                        @MeasureTheory.Measure.real.{u_1} (Ω k) (inst k) (P k)
+                          (@Set.ofPred.{u_1} (Ω k) fun ω =>
+                            @Eq.{1} Nat (@Luce.rankOf (N k) (fun i => T k i ω) (Luce.Section7.terminalLabel (N k) ⋯ m))
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) (N k) m)
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+                    (@Filter.atTop.{0} Nat Nat.instPreorder)
+                    (@nhds.{0} Real
+                      (@UniformSpace.toTopologicalSpace.{0} Real
+                        (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))) :=
+⋯
+'Luce.Section7.general_clock_tail_tendsto_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+def Luce.Section7.populationCDF : (Real → Real → Real) → Real → Real :=
+fun G t =>
+  @MeasureTheory.integral.{0, 0} Real Real Real.normedAddCommGroup
+    (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+      (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+      (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+    (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+    (@MeasureTheory.Measure.restrict.{0} Real (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+      (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace)
+      (@Set.Ioc.{0} Real Real.instPreorder (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+    fun x => G x t
+'Luce.Section7.populationCDF' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+def Luce.Section7.populationDensity : (Real → Real → Real) → Real → Real :=
+fun g t =>
+  @MeasureTheory.integral.{0, 0} Real Real Real.normedAddCommGroup
+    (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+      (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+      (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+    (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+    (@MeasureTheory.Measure.restrict.{0} Real (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+      (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace)
+      (@Set.Ioc.{0} Real Real.instPreorder (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+    fun x => g x t
+'Luce.Section7.populationDensity' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+def Luce.Section7.populationQuantile : (Real → Real → Real) → Real → Real :=
+fun G y => @Function.invFun.{1, 1} Real Real ⋯ (Luce.Section7.populationCDF G) y
+'Luce.Section7.populationQuantile' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.populationCDF_quantile : ∀ (G : Real → Real → Real) {y : Real},
+  @Membership.mem.{0, 0} Real (Set.{0} Real) (@Set.instMembership.{0} Real)
+      (@Set.range.{0, 1} Real Real (Luce.Section7.populationCDF G)) y →
+    @Eq.{1} Real (Luce.Section7.populationCDF G (Luce.Section7.populationQuantile G y)) y :=
+⋯
+'Luce.Section7.populationCDF_quantile' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.populationQuantile_unique : ∀ (G : Real → Real → Real),
+  @StrictMono.{0, 0} Real Real Real.instPreorder Real.instPreorder (Luce.Section7.populationCDF G) →
+    ∀ {y t : Real},
+      @Eq.{1} Real (Luce.Section7.populationCDF G t) y → @Eq.{1} Real (Luce.Section7.populationQuantile G y) t :=
+⋯
+'Luce.Section7.populationQuantile_unique' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+def Luce.Section7.bulkDensityAt : (Real → Real → Real) → Real → Real → Real :=
+fun g x t =>
+  @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) (g x t)
+    (Luce.Section7.populationDensity g t)
+'Luce.Section7.bulkDensityAt' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+def Luce.Section7.bulkDensity : (Real → Real → Real) → (Real → Real → Real) → Real → Real → Real :=
+fun G g x y => Luce.Section7.bulkDensityAt g x (Luce.Section7.populationQuantile G y)
+'Luce.Section7.bulkDensity' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.bulkDensityAt_nonneg : ∀ (g : Real → Real → Real) (x t : Real),
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (g x t) →
+    @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+        (Luce.Section7.populationDensity g t) →
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+        (Luce.Section7.bulkDensityAt g x t) :=
+⋯
+'Luce.Section7.bulkDensityAt_nonneg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.bulkDensityAt_integrable : ∀ (g : Real → Real → Real) (t : Real),
+  @MeasureTheory.IntegrableOn.{0, 0} Real Real
+      (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+      (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+      (@SeminormedAddGroup.toContinuousENorm.{0} Real
+        (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+      (fun x => g x t)
+      (@Set.Ioc.{0} Real Real.instPreorder (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+      (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) →
+    @MeasureTheory.IntegrableOn.{0, 0} Real Real
+      (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+      (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+      (@SeminormedAddGroup.toContinuousENorm.{0} Real
+        (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+      (fun x => Luce.Section7.bulkDensityAt g x t)
+      (@Set.Ioc.{0} Real Real.instPreorder (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+      (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) :=
+⋯
+'Luce.Section7.bulkDensityAt_integrable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.bulkDensityAt_integral : ∀ (g : Real → Real → Real) (t : Real),
+  @Ne.{1} Real (Luce.Section7.populationDensity g t)
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) →
+    @Eq.{1} Real
+      (@MeasureTheory.integral.{0, 0} Real Real Real.normedAddCommGroup
+        (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+          (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+        (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+        (@MeasureTheory.Measure.restrict.{0} Real
+          (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+          (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace)
+          (@Set.Ioc.{0} Real Real.instPreorder
+            (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+        fun x => Luce.Section7.bulkDensityAt g x t)
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) :=
+⋯
+'Luce.Section7.bulkDensityAt_integral' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.bulkDensity_integral : ∀ (G g : Real → Real → Real) (y : Real),
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+      (Luce.Section7.populationDensity g (Luce.Section7.populationQuantile G y)) →
+    @Eq.{1} Real
+      (@MeasureTheory.integral.{0, 0} Real Real Real.normedAddCommGroup
+        (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+          (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+        (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+        (@MeasureTheory.Measure.restrict.{0} Real
+          (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+          (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace)
+          (@Set.Ioc.{0} Real Real.instPreorder
+            (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+        fun x => Luce.Section7.bulkDensity G g x y)
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) :=
+⋯
+'Luce.Section7.bulkDensity_integral' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@[defeq] theorem Luce.Section7.bulkDensityAt_exponential : ∀ (f : Real → Real) (x t : Real),
+  @Eq.{1} Real
+    (Luce.Section7.bulkDensityAt
+      (fun x t =>
+        @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (f x)
+          (Real.exp
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Neg.neg.{0} Real Real.instNeg t)
+              (f x))))
+      x t)
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (Luce.rateKernel t (f x))
+      (@Luce.profileD.{0} Real (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+        (@MeasureTheory.Measure.restrict.{0} Real
+          (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+          (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace)
+          (@Set.Ioc.{0} Real Real.instPreorder
+            (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+        f t)) :=
+⋯
+'Luce.Section7.bulkDensityAt_exponential' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+def Luce.Section7.GeneralClockTailStatement.{u} : Prop :=
+∃ c,
+  And (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) c)
+    (∀ (Ω : Type u) [inst : MeasurableSpace.{u} Ω] (P : @MeasureTheory.Measure.{u} Ω inst)
+      [@MeasureTheory.IsProbabilityMeasure.{u} Ω inst P] (n M : Nat)
+      (hM : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) M)
+      (hMn : @LE.le.{0} Nat instLENat M n) (g : Fin n → Real → Real),
+      (∀ (i : Fin n), @Measurable.{0, 0} Real Real Real.measurableSpace Real.measurableSpace (g i)) →
+        (∀ (i : Fin n) (t : Real),
+            @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+              (g i t)) →
+          (∀ (i : Fin n),
+              @MeasureTheory.Integrable.{0, 0} Real
+                (@UniformSpace.toTopologicalSpace.{0} Real
+                  (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                (@SeminormedAddGroup.toContinuousENorm.{0} Real
+                  (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+                    (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+                      (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                        (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                          (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+                Real Real.measurableSpace (g i) (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace)) →
+            (∀ (i : Fin n),
+                @Eq.{1} Real
+                  (@MeasureTheory.integral.{0, 0} Real Real Real.normedAddCommGroup
+                    (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                      (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                      (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                    (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+                    (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) fun t => g i t)
+                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))) →
+              ∀ (T : Fin n → Ω → Real),
+                (∀ (i : Fin n),
+                    @ProbabilityTheory.HasLaw.{u, 0} Ω Real inst
+                      (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace) (T i)
+                      (@MeasureTheory.Measure.withDensity.{0} Real
+                        (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+                        (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) fun t => ENNReal.ofReal (g i t))
+                      P) →
+                  @ProbabilityTheory.iIndepFun.{u, 0, 0} Ω (Fin n) inst (fun x => Real) (fun x => Real.measurableSpace)
+                      T P →
+                    ∀ (B s : Real) (h : Real → Real),
+                      @GE.ge.{0} Real Real.instLE
+                          (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) B
+                            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+                          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                            (@OfNat.ofNat.{0} Real (nat_lit 2)
+                              (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                                Luce.Section7.GeneralClockTailStatement._proof_1))
+                            (@Nat.cast.{0} Real Real.instNatCast M)) →
+                        @Eq.{1} Real
+                            (∑ i,
+                              @MeasureTheory.Measure.real.{u} Ω inst P
+                                (@Set.ofPred.{u} Ω fun ω => @LT.lt.{0} Real Real.instLT s (T i ω)))
+                            B →
+                          @MeasureTheory.Integrable.{0, 0} Real
+                              (@UniformSpace.toTopologicalSpace.{0} Real
+                                (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                              (@SeminormedAddGroup.toContinuousENorm.{0} Real
+                                (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+                                  (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+                                    (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                                      (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                                        (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+                              Real Real.measurableSpace h
+                              (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) →
+                            (∀ (m : Nat),
+                                @Membership.mem.{0, 0} Nat (Finset.{0} Nat)
+                                    (@SetLike.instMembership.{0, 0} (Finset.{0} Nat) Nat (@Finset.instSetLike.{0} Nat))
+                                    (@Finset.Icc.{0} Nat Nat.instPreorder Nat.instLocallyFiniteOrder
+                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) M)
+                                    m →
+                                  ∀ (t : Real),
+                                    @GE.ge.{0} Real Real.instLE t s →
+                                      @LE.le.{0} Real Real.instLE (g (Luce.Section7.terminalLabel n ⋯ m) t) (h t)) →
+                              @LE.le.{0} Real Real.instLE
+                                (∑
+                                  m ∈
+                                    @Finset.Icc.{0} Nat Nat.instPreorder Nat.instLocallyFiniteOrder
+                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) M,
+                                  @MeasureTheory.Measure.real.{u} Ω inst P
+                                    (@Set.ofPred.{u} Ω fun ω =>
+                                      @Eq.{1} Nat (@Luce.rankOf n (fun i => T i ω) (Luce.Section7.terminalLabel n ⋯ m))
+                                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                          (@Fin.val n (Luce.Section7.terminalLabel n ⋯ m))
+                                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+                                (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                    (@Nat.cast.{0} Real Real.instNatCast M)
+                                    (Real.exp
+                                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                        (@Neg.neg.{0} Real Real.instNeg c) B)))
+                                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                    (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                      (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast
+                                        Luce.Section7.GeneralClockTailStatement._proof_1))
+                                    (@MeasureTheory.integral.{0, 0} Real Real Real.normedAddCommGroup
+                                      (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                                        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                                        (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                                      (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+                                      (@MeasureTheory.Measure.restrict.{0} Real
+                                        (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+                                        (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace)
+                                        (@Set.Ioi.{0} Real Real.instPreorder s))
+                                      fun t => h t))))
+'Luce.Section7.GeneralClockTailStatement' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.proposition71.{u} : Luce.Section7.GeneralClockTailStatement.{u} :=
+⋯
+'Luce.Section7.proposition71' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+structure Luce.Section7.ClockDensity : Type
+number of parameters: 0
+fields:
+  Luce.Section7.ClockDensity.density : Real → Real
+  Luce.Section7.ClockDensity.measurable : @Measurable.{0, 0} Real Real Real.measurableSpace Real.measurableSpace
+      self.density
+  Luce.Section7.ClockDensity.nonneg : ∀ (t : Real),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+        (self.density t)
+  Luce.Section7.ClockDensity.integrable : @MeasureTheory.Integrable.{0, 0} Real
+      (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+      (@SeminormedAddGroup.toContinuousENorm.{0} Real
+        (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+      Real (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace) self.density
+      (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace)
+  Luce.Section7.ClockDensity.integral_one : @Eq.{1} Real
+      (@MeasureTheory.integral.{0, 0} Real Real Real.normedAddCommGroup
+        (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+          (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+        (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+        (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) fun t => self.density t)
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+constructor:
+  Luce.Section7.ClockDensity.mk (density : Real → Real)
+    (measurable : @Measurable.{0, 0} Real Real Real.measurableSpace Real.measurableSpace density)
+    (nonneg :
+      ∀ (t : Real),
+        @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+          (density t))
+    (integrable :
+      @MeasureTheory.Integrable.{0, 0} Real
+        (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+        (@SeminormedAddGroup.toContinuousENorm.{0} Real
+          (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+            (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+              (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                  (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+        Real (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace) density
+        (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace))
+    (integral_one :
+      @Eq.{1} Real
+        (@MeasureTheory.integral.{0, 0} Real Real Real.normedAddCommGroup
+          (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+            (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+            (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+          (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+          (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) fun t => density t)
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))) :
+    Luce.Section7.ClockDensity
+'Luce.Section7.ClockDensity' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+def Luce.Section7.ClockDensity.law : Luce.Section7.ClockDensity →
+  @MeasureTheory.Measure.{0} Real Real.measurableSpace :=
+fun g =>
+  @MeasureTheory.Measure.withDensity.{0} Real (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+    (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) fun t => ENNReal.ofReal (g.density t)
+'Luce.Section7.ClockDensity.law' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+def Luce.Section7.clockRace : {n : Nat} →
+  (Fin n → Luce.Section7.ClockDensity) →
+    @MeasureTheory.Measure.{0} (Fin n → Real)
+      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace) :=
+fun {n} g =>
+  @MeasureTheory.Measure.pi.{0, 0} (Fin n) (fun a => Real) (Fin.fintype n) (fun a => Real.measurableSpace) fun i =>
+    (g i).law
+'Luce.Section7.clockRace' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+def Luce.Section7.survival : {n : Nat} → (Fin n → Luce.Section7.ClockDensity) → Fin n → Real → Real :=
+fun {n} g i t =>
+  @MeasureTheory.Measure.real.{0} Real Real.measurableSpace (g i).law (@Set.Ioi.{0} Real Real.instPreorder t)
+'Luce.Section7.survival' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+def Luce.Section7.survivorMean : {n : Nat} → (Fin n → Luce.Section7.ClockDensity) → Real → Real :=
+fun {n} g t => ∑ i, @Luce.Section7.survival n g i t
+'Luce.Section7.survivorMean' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+def Luce.Section7.survivorProbability : {n : Nat} → (Fin n → Luce.Section7.ClockDensity) → Fin n → Nat → Real → Real :=
+fun {n} g i m t =>
+  @MeasureTheory.Measure.real.{0} (Fin n → Real)
+    (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace) (@Luce.Section7.clockRace n g)
+    (@Set.ofPred.{0} (Fin n → Real) fun e => @Eq.{1} Nat (@Luce.otherSurvivors n e i t) m)
+'Luce.Section7.survivorProbability' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+def Luce.Section7.terminalLabel : (n : Nat) →
+  @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n → Nat → Fin n :=
+fun n hn m =>
+  @Fin.mk n
+    (@Min.min.{0} Nat instMinNat (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) n m)
+      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) n
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+    ⋯
+'Luce.Section7.terminalLabel' depends on axioms: [propext, Quot.sound.{u}]
+theorem Luce.Section7.terminalLabel_val : ∀ {n m : Nat}
+  (hn : @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n),
+  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) m →
+    @Eq.{1} Nat (@Fin.val n (Luce.Section7.terminalLabel n hn m))
+      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) n m) :=
+⋯
+'Luce.Section7.terminalLabel_val' depends on axioms: [propext, Quot.sound.{u}]
+def Luce.Section7.tailConstant : Real :=
+@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+  Luce.bernoulliLowerTailConstant
+  (@OfNat.ofNat.{0} Real (nat_lit 2)
+    (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast Luce.Section7.tailConstant._proof_1))
+'Luce.Section7.tailConstant' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.tailConstant_pos : @LT.lt.{0} Real Real.instLT
+  (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) Luce.Section7.tailConstant :=
+⋯
+'Luce.Section7.tailConstant_pos' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.gamma_density_integrable : ∀ {a r : Real},
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) a →
+    @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) r →
+      @MeasureTheory.Integrable.{0, 0} Real
+        (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+        (@SeminormedAddGroup.toContinuousENorm.{0} Real
+          (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+            (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+              (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                  (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+        Real (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+        (ProbabilityTheory.gammaPDFReal a r) (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) :=
+⋯
+'Luce.Section7.gamma_density_integrable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+def Luce.Section7.gammaDensity : (a r : Real) →
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) a →
+    @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) r →
+      Luce.Section7.ClockDensity :=
+fun a r ha hr =>
+  { density := ProbabilityTheory.gammaPDFReal a r, measurable := ⋯, nonneg := ⋯, integrable := ⋯, integral_one := ⋯ }
+'Luce.Section7.gammaDensity' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@[defeq] theorem Luce.Section7.gammaDensity_law : ∀ (a r : Real)
+  (ha : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) a)
+  (hr : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) r),
+  @Eq.{1} (@MeasureTheory.Measure.{0} Real Real.measurableSpace) (Luce.Section7.gammaDensity a r ha hr).law
+    (ProbabilityTheory.gammaMeasure a r) :=
+⋯
+'Luce.Section7.gammaDensity_law' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+@[defeq] theorem Luce.Section7.gammaDensity_one_law : ∀ (r : Real)
+  (hr : @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) r),
+  @Eq.{1} (@MeasureTheory.Measure.{0} Real Real.measurableSpace)
+    (Luce.Section7.gammaDensity (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) r ⋯ hr).law
+    (ProbabilityTheory.expMeasure r) :=
+⋯
+'Luce.Section7.gammaDensity_one_law' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.gamma_rate_envelope : ∀ {a r γ t : Real},
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) a →
+    @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) γ →
+      @LE.le.{0} Real Real.instLE γ r →
+        @LE.le.{0} Real Real.instLE
+            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) a γ)
+            t →
+          @LE.le.{0} Real Real.instLE
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow) r a)
+              (Real.exp
+                (@Neg.neg.{0} Real Real.instNeg
+                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) r t))))
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow) γ a)
+              (Real.exp
+                (@Neg.neg.{0} Real Real.instNeg
+                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) γ t)))) :=
+⋯
+'Luce.Section7.gamma_rate_envelope' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.gamma_density_envelope : ∀ {a r γ t : Real},
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) a →
+    @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) γ →
+      @LE.le.{0} Real Real.instLE γ r →
+        @LE.le.{0} Real Real.instLE
+            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) a γ)
+            t →
+          @LE.le.{0} Real Real.instLE (ProbabilityTheory.gammaPDFReal a r t) (ProbabilityTheory.gammaPDFReal a γ t) :=
+⋯
+'Luce.Section7.gamma_density_envelope' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.gamma_common_integrable_envelope : ∀ {a γ : Real},
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) a →
+    @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) γ →
+      ∃ h,
+        And
+          (@MeasureTheory.Integrable.{0, 0} Real
+            (@UniformSpace.toTopologicalSpace.{0} Real
+              (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+            (@SeminormedAddGroup.toContinuousENorm.{0} Real
+              (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+                (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+                  (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                    (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                      (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+            Real Real.measurableSpace h (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace))
+          (∀ (r : Real),
+            @GE.ge.{0} Real Real.instLE r γ →
+              ∀ (t : Real),
+                @GE.ge.{0} Real Real.instLE t
+                    (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                      (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) a γ) →
+                  @LE.le.{0} Real Real.instLE (ProbabilityTheory.gammaPDFReal a r t) (h t)) :=
+⋯
+'Luce.Section7.gamma_common_integrable_envelope' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.clockRace_eval : ∀ {n : Nat} (g : Fin n → Luce.Section7.ClockDensity) (i : Fin n),
+  @MeasureTheory.MeasurePreserving.{0, 0} (Fin n → Real) Real
+    (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace) Real.measurableSpace
+    (@Function.eval.{1, 1} (Fin n) (fun x => Real) i) (@Luce.Section7.clockRace n g) (g i).law :=
+⋯
+'Luce.Section7.clockRace_eval' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.clockRace_independent : ∀ {n : Nat} (g : Fin n → Luce.Section7.ClockDensity),
+  @ProbabilityTheory.iIndepFun.{0, 0, 0} (Fin n → Real) (Fin n)
+    (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace) (fun i => Real)
+    (fun x => Real.measurableSpace) (fun i e => e i) (@Luce.Section7.clockRace n g) :=
+⋯
+'Luce.Section7.clockRace_independent' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.clockRace_collision_zero : ∀ {n : Nat} (g : Fin n → Luce.Section7.ClockDensity) {i j : Fin n},
+  @Ne.{1} (Fin n) i j →
+    @Eq.{1} ENNReal
+      (@DFunLike.coe.{1, 1, 1}
+        (@MeasureTheory.Measure.{0} (Fin n → Real)
+          (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace))
+        (Set.{0} (Fin n → Real)) (fun x => ENNReal)
+        (@MeasureTheory.Measure.instFunLike.{0} (Fin n → Real)
+          (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace))
+        (@Luce.Section7.clockRace n g) (@Set.ofPred.{0} (Fin n → Real) fun e => @Eq.{1} Real (e i) (e j)))
+      (@OfNat.ofNat.{0} ENNReal (nat_lit 0) (@Zero.toOfNat0.{0} ENNReal ENNReal.instZero)) :=
+⋯
+'Luce.Section7.clockRace_collision_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.clockRace_injective_ae : ∀ {n : Nat} (g : Fin n → Luce.Section7.ClockDensity),
+  @Filter.Eventually.{0} (Fin n → Real) (fun e => @Function.Injective.{1, 1} (Fin n) Real e)
+    (@MeasureTheory.ae.{0, 0} (Fin n → Real)
+      (@MeasureTheory.Measure.{0} (Fin n → Real)
+        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace))
+      (@MeasureTheory.Measure.instFunLike.{0} (Fin n → Real)
+        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace))
+      ⋯ (@Luce.Section7.clockRace n g)) :=
+⋯
+'Luce.Section7.clockRace_injective_ae' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.otherSurvivors_eq_erase : ∀ {n : Nat} (e : Fin n → Real) (i : Fin n) (t : Real),
+  @Eq.{1} Nat (@Luce.otherSurvivors n e i t)
+    (@Finset.card.{0} (Fin n) (@Finset.erase.{0} (Fin n) (instDecidableEqFin n) (@Luce.survivorSet n e t) i)) :=
+⋯
+'Luce.Section7.otherSurvivors_eq_erase' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.measurable_survivorProbability : ∀ {n : Nat} (g : Fin n → Luce.Section7.ClockDensity) (i : Fin n)
+  (m : Nat),
+  @Measurable.{0, 0} Real Real Real.measurableSpace Real.measurableSpace (@Luce.Section7.survivorProbability n g i m) :=
+⋯
+'Luce.Section7.measurable_survivorProbability' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.sum_survivorProbability_le_two : ∀ {n : Nat} (g : Fin n → Luce.Section7.ClockDensity)
+  (candidate : Nat → Fin n) (M : Nat) (t : Real),
+  @LE.le.{0} Real Real.instLE
+    (∑
+      m ∈
+        @Finset.Icc.{0} Nat Nat.instPreorder Nat.instLocallyFiniteOrder
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) M,
+      @Luce.Section7.survivorProbability n g (candidate m)
+        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        t)
+    (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯)) :=
+⋯
+'Luce.Section7.sum_survivorProbability_le_two' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.survivorMean_antitone : ∀ {n : Nat} (g : Fin n → Luce.Section7.ClockDensity),
+  @Antitone.{0, 0} Real Real Real.instPreorder Real.instPreorder (@Luce.Section7.survivorMean n g) :=
+⋯
+'Luce.Section7.survivorMean_antitone' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.integral_survivalIndicator : ∀ {n : Nat} (g : Fin n → Luce.Section7.ClockDensity) (t : Real)
+  (i : Fin n),
+  @Eq.{1} Real
+    (@MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+      (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+        (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace) (@Luce.Section7.clockRace n g)
+      fun e => @Luce.clockSurvivalIndicator n t i e)
+    (@Luce.Section7.survival n g i t) :=
+⋯
+'Luce.Section7.integral_survivalIndicator' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.mean_other_survivors_lower : ∀ {n : Nat} (g : Fin n → Luce.Section7.ClockDensity) (i : Fin n)
+  (t : Real),
+  @LE.le.{0} Real Real.instLE
+    (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) (@Luce.Section7.survivorMean n g t)
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+    (∑ j ∈ @Finset.erase.{0} (Fin n) (instDecidableEqFin n) (@Finset.univ.{0} (Fin n) (Fin.fintype n)) i,
+      @MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+        (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+          (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+        (@Luce.Section7.clockRace n g) fun e => @Luce.clockSurvivalIndicator n t j e) :=
+⋯
+'Luce.Section7.mean_other_survivors_lower' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.survivorProbability_early : ∀ {n : Nat} (g : Fin n → Luce.Section7.ClockDensity) (i : Fin n)
+  {m M : Nat} {t s B : Real},
+  @LE.le.{0} Nat instLENat m M →
+    @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) M →
+      @LE.le.{0} Real Real.instLE t s →
+        @Eq.{1} Real (@Luce.Section7.survivorMean n g s) B →
+          @LE.le.{0} Real Real.instLE
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                (@Nat.cast.{0} Real Real.instNatCast M))
+              (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) B
+                (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))) →
+            @LE.le.{0} Real Real.instLE
+              (@Luce.Section7.survivorProbability n g i
+                (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                t)
+              (Real.exp
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                  (@Neg.neg.{0} Real Real.instNeg Luce.Section7.tailConstant) B)) :=
+⋯
+'Luce.Section7.survivorProbability_early' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.background_probability : ∀ {n : Nat}
+  (g :
+    Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+      Luce.Section7.ClockDensity)
+  (i :
+    Fin
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (t : Real) (m : Nat),
+  @Eq.{1} ENNReal
+    (@DFunLike.coe.{1, 1, 1}
+      (@MeasureTheory.Measure.{0} (Fin n → Real)
+        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace))
+      (Set.{0} (Fin n → Real)) (fun x => ENNReal)
+      (@MeasureTheory.Measure.instFunLike.{0} (Fin n → Real)
+        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace))
+      (@Luce.Section7.clockRace n fun j => g (@Fin.succAbove n i j))
+      (@Set.ofPred.{0} (Fin n → Real) fun e => @Eq.{1} Nat (@Luce.backgroundSurvivors n t e) m))
+    (@DFunLike.coe.{1, 1, 1}
+      (@MeasureTheory.Measure.{0}
+        (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+          Real)
+        (@MeasurableSpace.pi.{0, 0}
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (fun a => Real) fun a => Real.measurableSpace))
+      (Set.{0}
+        (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+          Real))
+      (fun x => ENNReal)
+      (@MeasureTheory.Measure.instFunLike.{0}
+        (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+          Real)
+        (@MeasurableSpace.pi.{0, 0}
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (fun a => Real) fun a => Real.measurableSpace))
+      (@Luce.Section7.clockRace
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        g)
+      (@Set.ofPred.{0}
+        (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+          Real)
+        fun e =>
+        @Eq.{1} Nat
+          (@Luce.otherSurvivors
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            e i t)
+          m)) :=
+⋯
+'Luce.Section7.background_probability' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.clockRace_disintegrate : ∀ {n : Nat}
+  (g :
+    Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+      Luce.Section7.ClockDensity)
+  (i :
+    Fin
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (f : Prod.{0, 0} Real (Fin n → Real) → ENNReal),
+  @Measurable.{0, 0} (Prod.{0, 0} Real (Fin n → Real)) ENNReal
+      (@Prod.instMeasurableSpace.{0, 0} Real (Fin n → Real) Real.measurableSpace
+        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace))
+      ENNReal.measurableSpace f →
+    @Eq.{1} ENNReal
+      (@MeasureTheory.lintegral.{0}
+        (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+          Real)
+        (@MeasurableSpace.pi.{0, 0}
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (fun a => Real) fun a => Real.measurableSpace)
+        (@Luce.Section7.clockRace
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          g)
+        fun e => f (@Prod.mk.{0, 0} Real (Fin n → Real) (e i) fun j => e (@Fin.succAbove n i j)))
+      (@MeasureTheory.lintegral.{0} Real (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+        (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) fun t =>
+        @HMul.hMul.{0, 0, 0} ENNReal ENNReal ENNReal
+          (@instHMul.{0} ENNReal
+            (@Distrib.toMul.{0} ENNReal
+              (@instDistribOfSemiring.{0} ENNReal (@CommSemiring.toSemiring.{0} ENNReal ENNReal.instCommSemiring))))
+          (ENNReal.ofReal ((g i).density t))
+          (@MeasureTheory.lintegral.{0} (Fin n → Real)
+            (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+            (@Luce.Section7.clockRace n fun j => g (@Fin.succAbove n i j)) fun e =>
+            f (@Prod.mk.{0, 0} Real (Fin n → Real) t e))) :=
+⋯
+'Luce.Section7.clockRace_disintegrate' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.rank_integral_survivors : ∀ {n : Nat}
+  (g :
+    Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+      Luce.Section7.ClockDensity)
+  (i :
+    Fin
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+  (m : Nat),
+  @Eq.{1} ENNReal
+    (@DFunLike.coe.{1, 1, 1}
+      (@MeasureTheory.Measure.{0}
+        (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+          Real)
+        (@MeasurableSpace.pi.{0, 0}
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (fun a => Real) fun a => Real.measurableSpace))
+      (Set.{0}
+        (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+          Real))
+      (fun x => ENNReal)
+      (@MeasureTheory.Measure.instFunLike.{0}
+        (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+          Real)
+        (@MeasurableSpace.pi.{0, 0}
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (fun a => Real) fun a => Real.measurableSpace))
+      (@Luce.Section7.clockRace
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        g)
+      (@Set.ofPred.{0}
+        (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+          Real)
+        fun e =>
+        @Eq.{1} Nat
+          (@Luce.otherSurvivors
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            e i (e i))
+          m))
+    (@MeasureTheory.lintegral.{0} Real (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+      (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) fun t =>
+      @HMul.hMul.{0, 0, 0} ENNReal ENNReal ENNReal
+        (@instHMul.{0} ENNReal
+          (@Distrib.toMul.{0} ENNReal
+            (@instDistribOfSemiring.{0} ENNReal (@CommSemiring.toSemiring.{0} ENNReal ENNReal.instCommSemiring))))
+        (ENNReal.ofReal ((g i).density t))
+        (@DFunLike.coe.{1, 1, 1}
+          (@MeasureTheory.Measure.{0}
+            (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+              Real)
+            (@MeasurableSpace.pi.{0, 0}
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (fun a => Real) fun a => Real.measurableSpace))
+          (Set.{0}
+            (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+              Real))
+          (fun x => ENNReal)
+          (@MeasureTheory.Measure.instFunLike.{0}
+            (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+              Real)
+            (@MeasurableSpace.pi.{0, 0}
+              (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (fun a => Real) fun a => Real.measurableSpace))
+          (@Luce.Section7.clockRace
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            g)
+          (@Set.ofPred.{0}
+            (Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+              Real)
+            fun e =>
+            @Eq.{1} Nat
+              (@Luce.otherSurvivors
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) n
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                e i t)
+              m))) :=
+⋯
+'Luce.Section7.rank_integral_survivors' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.rank_integrand_integrable : ∀ {n : Nat} (g : Fin n → Luce.Section7.ClockDensity) (i : Fin n)
+  (m : Nat),
+  @MeasureTheory.Integrable.{0, 0} Real
+    (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+    (@SeminormedAddGroup.toContinuousENorm.{0} Real
+      (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+        (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+          (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+            (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+              (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+    Real (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+    (fun t =>
+      @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) ((g i).density t)
+        (@Luce.Section7.survivorProbability n g i m t))
+    (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) :=
+⋯
+'Luce.Section7.rank_integrand_integrable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.rankOf_eq_raceRank : ∀ {n : Nat} (e : Fin n → Real) (i : Fin n),
+  @Eq.{1} Nat (@Luce.rankOf n e i) (@Luce.raceRank n e i) :=
+⋯
+'Luce.Section7.rankOf_eq_raceRank' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.clockRace_rank_integral : ∀ {n : Nat} (g : Fin n → Luce.Section7.ClockDensity) (i : Fin n)
+  (r : Nat),
+  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) r →
+    @LE.le.{0} Nat instLENat r n →
+      @Eq.{1} Real
+        (@MeasureTheory.Measure.real.{0} (Fin n → Real)
+          (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+          (@Luce.Section7.clockRace n g) (@Set.ofPred.{0} (Fin n → Real) fun e => @Eq.{1} Nat (@Luce.rankOf n e i) r))
+        (@MeasureTheory.integral.{0, 0} Real Real Real.normedAddCommGroup
+          (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+            (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+            (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+          (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+          (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) fun t =>
+          @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) ((g i).density t)
+            (@Luce.Section7.survivorProbability n g i
+              (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) n r) t)) :=
+⋯
+'Luce.Section7.clockRace_rank_integral' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.general_clock_rank_integral.{u_1} : ∀ {Ω : Type u_1} [inst : MeasurableSpace.{u_1} Ω]
+  (P : @MeasureTheory.Measure.{u_1} Ω inst) [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω inst P] {n : Nat}
+  (g : Fin n → Luce.Section7.ClockDensity) (T : Fin n → Ω → Real),
+  (∀ (i : Fin n), @ProbabilityTheory.HasLaw.{u_1, 0} Ω Real inst Real.measurableSpace (T i) (g i).law P) →
+    @ProbabilityTheory.iIndepFun.{u_1, 0, 0} Ω (Fin n) inst (fun x => Real) (fun x => Real.measurableSpace) T P →
+      ∀ (i : Fin n) (r : Nat),
+        @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) r →
+          @LE.le.{0} Nat instLENat r n →
+            @Eq.{1} Real
+              (@MeasureTheory.Measure.real.{u_1} Ω inst P
+                (@Set.ofPred.{u_1} Ω fun ω => @Eq.{1} Nat (@Luce.rankOf n (fun j => T j ω) i) r))
+              (@MeasureTheory.integral.{0, 0} Real Real Real.normedAddCommGroup
+                (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                  (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                  (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+                (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) fun t =>
+                @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) ((g i).density t)
+                  (@MeasureTheory.Measure.real.{u_1} Ω inst P
+                    (@Set.ofPred.{u_1} Ω fun ω =>
+                      @Eq.{1} Nat (@Luce.otherSurvivors n (fun j => T j ω) i t)
+                        (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) n r)))) :=
+⋯
+'Luce.Section7.general_clock_rank_integral' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.clockRace_tail_integrals : ∀ {n : Nat} (g : Fin n → Luce.Section7.ClockDensity)
+  (candidate : Nat → Fin n) {M : Nat} {B s : Real} (h : Real → Real),
+  @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) M →
+    @LE.le.{0} Real Real.instLE
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+          (@Nat.cast.{0} Real Real.instNatCast M))
+        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) B
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))) →
+      @Eq.{1} Real (@Luce.Section7.survivorMean n g s) B →
+        @MeasureTheory.IntegrableOn.{0, 0} Real Real
+            (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+            (@UniformSpace.toTopologicalSpace.{0} Real
+              (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+            (@SeminormedAddGroup.toContinuousENorm.{0} Real
+              (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+                (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+                  (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                    (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                      (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+            h (@Set.Ioi.{0} Real Real.instPreorder s) (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) →
+          (∀ (m : Nat),
+              @Membership.mem.{0, 0} Nat (Finset.{0} Nat)
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} Nat) Nat (@Finset.instSetLike.{0} Nat))
+                  (@Finset.Icc.{0} Nat Nat.instPreorder Nat.instLocallyFiniteOrder
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) M)
+                  m →
+                ∀ (t : Real),
+                  @GE.ge.{0} Real Real.instLE t s → @LE.le.{0} Real Real.instLE ((g (candidate m)).density t) (h t)) →
+            @LE.le.{0} Real Real.instLE
+              (∑
+                m ∈
+                  @Finset.Icc.{0} Nat Nat.instPreorder Nat.instLocallyFiniteOrder
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) M,
+                @MeasureTheory.integral.{0, 0} Real Real Real.normedAddCommGroup
+                  (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                    (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                    (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                  (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+                  (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) fun t =>
+                  @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) ((g (candidate m)).density t)
+                    (@Luce.Section7.survivorProbability n g (candidate m)
+                      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) m
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      t))
+              (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                  (@Nat.cast.{0} Real Real.instNatCast M)
+                  (Real.exp
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@Neg.neg.{0} Real Real.instNeg Luce.Section7.tailConstant) B)))
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                  (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                  (@MeasureTheory.integral.{0, 0} Real Real Real.normedAddCommGroup
+                    (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                      (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                      (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                    (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+                    (@MeasureTheory.Measure.restrict.{0} Real
+                      (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+                      (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace)
+                      (@Set.Ioi.{0} Real Real.instPreorder s))
+                    fun t => h t))) :=
+⋯
+'Luce.Section7.clockRace_tail_integrals' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.clockRace_tail : ∀ {n M : Nat} (g : Fin n → Luce.Section7.ClockDensity)
+  (hM : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) M)
+  (hMn : @LE.le.{0} Nat instLENat M n) {B s : Real} (h : Real → Real),
+  @LE.le.{0} Real Real.instLE
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+        (@Nat.cast.{0} Real Real.instNatCast M))
+      (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) B
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))) →
+    @Eq.{1} Real (@Luce.Section7.survivorMean n g s) B →
+      @MeasureTheory.IntegrableOn.{0, 0} Real Real
+          (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+          (@UniformSpace.toTopologicalSpace.{0} Real
+            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+          (@SeminormedAddGroup.toContinuousENorm.{0} Real
+            (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+              (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+                (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                  (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                    (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+          h (@Set.Ioi.{0} Real Real.instPreorder s) (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) →
+        (∀ (m : Nat),
+            @Membership.mem.{0, 0} Nat (Finset.{0} Nat)
+                (@SetLike.instMembership.{0, 0} (Finset.{0} Nat) Nat (@Finset.instSetLike.{0} Nat))
+                (@Finset.Icc.{0} Nat Nat.instPreorder Nat.instLocallyFiniteOrder
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) M)
+                m →
+              ∀ (t : Real),
+                @GE.ge.{0} Real Real.instLE t s →
+                  @LE.le.{0} Real Real.instLE ((g (Luce.Section7.terminalLabel n ⋯ m)).density t) (h t)) →
+          @LE.le.{0} Real Real.instLE
+            (∑
+              m ∈
+                @Finset.Icc.{0} Nat Nat.instPreorder Nat.instLocallyFiniteOrder
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) M,
+              @MeasureTheory.Measure.real.{0} (Fin n → Real)
+                (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                (@Luce.Section7.clockRace n g)
+                (@Set.ofPred.{0} (Fin n → Real) fun e =>
+                  @Eq.{1} Nat (@Luce.rankOf n e (Luce.Section7.terminalLabel n ⋯ m))
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) n m)
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@Nat.cast.{0} Real Real.instNatCast M)
+                (Real.exp
+                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                    (@Neg.neg.{0} Real Real.instNeg Luce.Section7.tailConstant) B)))
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                (@MeasureTheory.integral.{0, 0} Real Real Real.normedAddCommGroup
+                  (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                    (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                    (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                  (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+                  (@MeasureTheory.Measure.restrict.{0} Real
+                    (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+                    (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace)
+                    (@Set.Ioi.{0} Real Real.instPreorder s))
+                  fun t => h t))) :=
+⋯
+'Luce.Section7.clockRace_tail' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.general_clock_tail.{u_1} : ∀ {Ω : Type u_1} [inst : MeasurableSpace.{u_1} Ω]
+  (P : @MeasureTheory.Measure.{u_1} Ω inst) [@MeasureTheory.IsProbabilityMeasure.{u_1} Ω inst P] {n M : Nat}
+  (g : Fin n → Luce.Section7.ClockDensity) (T : Fin n → Ω → Real),
+  (∀ (i : Fin n), @ProbabilityTheory.HasLaw.{u_1, 0} Ω Real inst Real.measurableSpace (T i) (g i).law P) →
+    @ProbabilityTheory.iIndepFun.{u_1, 0, 0} Ω (Fin n) inst (fun x => Real) (fun x => Real.measurableSpace) T P →
+      ∀ (hM : @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) M)
+        (hMn : @LE.le.{0} Nat instLENat M n) {B s : Real} (h : Real → Real),
+        @LE.le.{0} Real Real.instLE
+            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+              (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+              (@Nat.cast.{0} Real Real.instNatCast M))
+            (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) B
+              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))) →
+          @Eq.{1} Real
+              (∑ i,
+                @MeasureTheory.Measure.real.{u_1} Ω inst P
+                  (@Set.ofPred.{u_1} Ω fun ω => @LT.lt.{0} Real Real.instLT s (T i ω)))
+              B →
+            @MeasureTheory.IntegrableOn.{0, 0} Real Real
+                (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+                (@UniformSpace.toTopologicalSpace.{0} Real
+                  (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                (@SeminormedAddGroup.toContinuousENorm.{0} Real
+                  (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+                    (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+                      (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                        (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                          (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+                h (@Set.Ioi.{0} Real Real.instPreorder s)
+                (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) →
+              (∀ (m : Nat),
+                  @Membership.mem.{0, 0} Nat (Finset.{0} Nat)
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} Nat) Nat (@Finset.instSetLike.{0} Nat))
+                      (@Finset.Icc.{0} Nat Nat.instPreorder Nat.instLocallyFiniteOrder
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) M)
+                      m →
+                    ∀ (t : Real),
+                      @GE.ge.{0} Real Real.instLE t s →
+                        @LE.le.{0} Real Real.instLE ((g (Luce.Section7.terminalLabel n ⋯ m)).density t) (h t)) →
+                @LE.le.{0} Real Real.instLE
+                  (∑
+                    m ∈
+                      @Finset.Icc.{0} Nat Nat.instPreorder Nat.instLocallyFiniteOrder
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) M,
+                    @MeasureTheory.Measure.real.{u_1} Ω inst P
+                      (@Set.ofPred.{u_1} Ω fun ω =>
+                        @Eq.{1} Nat (@Luce.rankOf n (fun i => T i ω) (Luce.Section7.terminalLabel n ⋯ m))
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                            (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) n m)
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+                  (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@Nat.cast.{0} Real Real.instNatCast M)
+                      (Real.exp
+                        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                          (@Neg.neg.{0} Real Real.instNeg Luce.Section7.tailConstant) B)))
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                      (@OfNat.ofNat.{0} Real (nat_lit 2) (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                      (@MeasureTheory.integral.{0, 0} Real Real Real.normedAddCommGroup
+                        (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                          (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                        (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+                        (@MeasureTheory.Measure.restrict.{0} Real
+                          (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+                          (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace)
+                          (@Set.Ioi.{0} Real Real.instPreorder s))
+                        fun t => h t))) :=
+⋯
+'Luce.Section7.general_clock_tail' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section7.density_integral_bound.{u_1} : ∀ {ι : Type u_1} (indices : Finset.{u_1} ι)
+  (g : ι → Luce.Section7.ClockDensity) (p : ι → Real → Real) (s q : Real) (h : Real → Real),
+  @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) q →
+    @MeasureTheory.IntegrableOn.{0, 0} Real Real
+        (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+        (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+        (@SeminormedAddGroup.toContinuousENorm.{0} Real
+          (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+            (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+              (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                  (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+        h (@Set.Ioi.{0} Real Real.instPreorder s) (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) →
+      (∀ (i : ι),
+          @Membership.mem.{u_1, u_1} ι (Finset.{u_1} ι)
+              (@SetLike.instMembership.{u_1, u_1} (Finset.{u_1} ι) ι (@Finset.instSetLike.{u_1} ι)) indices i →
+            @Measurable.{0, 0} Real Real Real.measurableSpace Real.measurableSpace (p i)) →
+        (∀ (i : ι),
+            @Membership.mem.{u_1, u_1} ι (Finset.{u_1} ι)
+                (@SetLike.instMembership.{u_1, u_1} (Finset.{u_1} ι) ι (@Finset.instSetLike.{u_1} ι)) indices i →
+              ∀ (t : Real),
+                And
+                  (@LE.le.{0} Real Real.instLE
+                    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (p i t))
+                  (@LE.le.{0} Real Real.instLE (p i t)
+                    (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))) →
+          (∀ (i : ι),
+              @Membership.mem.{u_1, u_1} ι (Finset.{u_1} ι)
+                  (@SetLike.instMembership.{u_1, u_1} (Finset.{u_1} ι) ι (@Finset.instSetLike.{u_1} ι)) indices i →
+                ∀ (t : Real), @LE.le.{0} Real Real.instLE t s → @LE.le.{0} Real Real.instLE (p i t) q) →
+            (∀ (t : Real),
+                @Membership.mem.{0, 0} Real (Set.{0} Real) (@Set.instMembership.{0} Real)
+                    (@Set.Ioi.{0} Real Real.instPreorder s) t →
+                  @LE.le.{0} Real Real.instLE
+                    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (h t)) →
+              (∀ (i : ι),
+                  @Membership.mem.{u_1, u_1} ι (Finset.{u_1} ι)
+                      (@SetLike.instMembership.{u_1, u_1} (Finset.{u_1} ι) ι (@Finset.instSetLike.{u_1} ι)) indices i →
+                    ∀ (t : Real),
+                      @Membership.mem.{0, 0} Real (Set.{0} Real) (@Set.instMembership.{0} Real)
+                          (@Set.Ioi.{0} Real Real.instPreorder s) t →
+                        @LE.le.{0} Real Real.instLE ((g i).density t) (h t)) →
+                (∀ (t : Real),
+                    @Membership.mem.{0, 0} Real (Set.{0} Real) (@Set.instMembership.{0} Real)
+                        (@Set.Ioi.{0} Real Real.instPreorder s) t →
+                      @LE.le.{0} Real Real.instLE (∑ i ∈ indices, p i t)
+                        (@OfNat.ofNat.{0} Real (nat_lit 2)
+                          (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))) →
+                  @LE.le.{0} Real Real.instLE
+                    (∑ i ∈ indices,
+                      @MeasureTheory.integral.{0, 0} Real Real Real.normedAddCommGroup
+                        (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                          (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                          (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                        (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+                        (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) fun t =>
+                        @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) ((g i).density t) (p i t))
+                    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                        (@Nat.cast.{0} Real Real.instNatCast (@Finset.card.{u_1} ι indices)) q)
+                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                        (@OfNat.ofNat.{0} Real (nat_lit 2)
+                          (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))
+                        (@MeasureTheory.integral.{0, 0} Real Real Real.normedAddCommGroup
+                          (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                            (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                            (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                          (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+                          (@MeasureTheory.Measure.restrict.{0} Real
+                            (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+                            (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace)
+                            (@Set.Ioi.{0} Real Real.instPreorder s))
+                          fun t => h t))) :=
+⋯
+'Luce.Section7.density_integral_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]

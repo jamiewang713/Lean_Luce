@@ -1,0 +1,130 @@
+{
+  "production_sources": {
+    "files": 840,
+    "lines": 69856,
+    "theorems": 2859,
+    "definitions": 528
+  },
+  "changed_lean_sources_since_snapshot": [
+    "audit/IndependentReview.lean"
+  ],
+  "changed_production_sources_since_snapshot": [],
+  "new_lean_sources_since_snapshot": [],
+  "current_ancillary_count": 57,
+  "ancillary_completed": 57,
+  "ancillary_failures": [
+    {
+      "file": "audit/Section6Current.lean",
+      "exit_code": 1,
+      "seconds": 71.42,
+      "log": "audit/independent-review-ancillary/audit-Section6Current.log",
+      "diagnostics": [
+        "audit/Section6Current.lean:899:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_bound`",
+        "audit/Section6Current.lean:900:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_bound`",
+        "audit/Section6Current.lean:901:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_continuous`",
+        "audit/Section6Current.lean:902:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_continuous`",
+        "audit/Section6Current.lean:903:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_integrable`",
+        "audit/Section6Current.lean:904:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_integrable`",
+        "audit/Section6Current.lean:905:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_nonneg`",
+        "audit/Section6Current.lean:906:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_nonneg`",
+        "audit/Section6Current.lean:1683:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.integral_observation_sum_eq_probability_sum`",
+        "audit/Section6Current.lean:1684:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.integral_observation_sum_eq_probability_sum`",
+        "audit/Section6Current.lean:2327:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.reflect`",
+        "audit/Section6Current.lean:2328:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.reflect`",
+        "audit/Section6Current.lean:2647:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.toProcess_cltCount`",
+        "audit/Section6Current.lean:2648:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.toProcess_cltCount`",
+        "audit/Section6Current.lean:2649:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.toProcess_cltMass`",
+        "audit/Section6Current.lean:2650:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.toProcess_cltMass`",
+        "audit/Section6Current.lean:2651:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.toProcess_cltSquares`",
+        "audit/Section6Current.lean:2652:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.toProcess_cltSquares`"
+      ],
+      "unknown_constants": [
+        "Luce.Section6.convolution_bound",
+        "Luce.Section6.convolution_continuous",
+        "Luce.Section6.convolution_integrable",
+        "Luce.Section6.convolution_nonneg",
+        "Luce.Section6.integral_observation_sum_eq_probability_sum",
+        "Luce.Section6.reflect",
+        "Luce.Section6.toProcess_cltCount",
+        "Luce.Section6.toProcess_cltMass",
+        "Luce.Section6.toProcess_cltSquares"
+      ]
+    },
+    {
+      "file": "audit/Section6CurrentLemma69Snapshot.lean",
+      "exit_code": 1,
+      "seconds": 70.55,
+      "log": "audit/independent-review-ancillary/audit-Section6CurrentLemma69Snapshot.log",
+      "diagnostics": [
+        "audit/Section6CurrentLemma69Snapshot.lean:729:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_bound`",
+        "audit/Section6CurrentLemma69Snapshot.lean:730:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_bound`",
+        "audit/Section6CurrentLemma69Snapshot.lean:731:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_continuous`",
+        "audit/Section6CurrentLemma69Snapshot.lean:732:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_continuous`",
+        "audit/Section6CurrentLemma69Snapshot.lean:733:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_integrable`",
+        "audit/Section6CurrentLemma69Snapshot.lean:734:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_integrable`",
+        "audit/Section6CurrentLemma69Snapshot.lean:735:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_nonneg`",
+        "audit/Section6CurrentLemma69Snapshot.lean:736:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_nonneg`",
+        "audit/Section6CurrentLemma69Snapshot.lean:1649:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.reflect`",
+        "audit/Section6CurrentLemma69Snapshot.lean:1650:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.reflect`"
+      ],
+      "unknown_constants": [
+        "Luce.Section6.convolution_bound",
+        "Luce.Section6.convolution_continuous",
+        "Luce.Section6.convolution_integrable",
+        "Luce.Section6.convolution_nonneg",
+        "Luce.Section6.reflect"
+      ]
+    },
+    {
+      "file": "audit/Section6CurrentSection65Before.lean",
+      "exit_code": 1,
+      "seconds": 68.25,
+      "log": "audit/independent-review-ancillary/audit-Section6CurrentSection65Before.log",
+      "diagnostics": [
+        "audit/Section6CurrentSection65Before.lean:783:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_bound`",
+        "audit/Section6CurrentSection65Before.lean:784:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_bound`",
+        "audit/Section6CurrentSection65Before.lean:785:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_continuous`",
+        "audit/Section6CurrentSection65Before.lean:786:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_continuous`",
+        "audit/Section6CurrentSection65Before.lean:787:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_integrable`",
+        "audit/Section6CurrentSection65Before.lean:788:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_integrable`",
+        "audit/Section6CurrentSection65Before.lean:789:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_nonneg`",
+        "audit/Section6CurrentSection65Before.lean:790:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_nonneg`",
+        "audit/Section6CurrentSection65Before.lean:1881:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.reflect`",
+        "audit/Section6CurrentSection65Before.lean:1882:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.reflect`"
+      ],
+      "unknown_constants": [
+        "Luce.Section6.convolution_bound",
+        "Luce.Section6.convolution_continuous",
+        "Luce.Section6.convolution_integrable",
+        "Luce.Section6.convolution_nonneg",
+        "Luce.Section6.reflect"
+      ]
+    }
+  ],
+  "ancillary_not_yet_checked": [],
+  "compiled_audit_summary": [
+    "REVIEW_EXECUTABLE_COMPANION: Luce.identityNormalizedGaps._unsafe_rec",
+    "REVIEW_EXECUTABLE_COMPANION: Luce.Section6.convolutionDensity._unsafe_rec",
+    "REVIEW_EXECUTABLE_COMPANION: Luce.Section6.openPathWeight68._unsafe_rec",
+    "REVIEW_EXECUTABLE_COMPANION: Luce.Section6.pathVariation68._unsafe_rec",
+    "REVIEW_EXECUTABLE_COMPANION: Luce.Section6.traceConvolution68._unsafe_rec",
+    "REVIEW_PRODUCTION_DECLARATIONS: 5902",
+    "REVIEW_SAFE_PRODUCTION_ROOTS: 5897",
+    "REVIEW_EXECUTABLE_COMPANION_COUNT: 5",
+    "REVIEW_THEOREM_AXIOM_CONSTANTS: 5120",
+    "REVIEW_TRANSITIVE_CHECKED_DECLARATIONS: 64089",
+    "REVIEW_AXIOM_UNION: [propext, Classical.choice, Quot.sound]",
+    "REVIEW_PASSED: every safe production definition and theorem has checked dependencies; no nonstandard axiom, unsafe dependency, or partial dependency",
+    "REVIEW_PROGRESS: visited 10000 declarations",
+    "REVIEW_PROGRESS: visited 20000 declarations",
+    "REVIEW_PROGRESS: visited 30000 declarations",
+    "REVIEW_PROGRESS: visited 40000 declarations",
+    "REVIEW_PROGRESS: visited 50000 declarations",
+    "REVIEW_PROGRESS: visited 60000 declarations"
+  ],
+  "compiled_audit_passed": true,
+  "final_build_passed": true,
+  "compiled_errors": [],
+  "manuscript_sha256": "1d1fc1ac82bb6b4cc26fb7d730afb553d3ac963ba867b41fc91662780b321ff2",
+  "final_audit_source_sha256": "90f60bf0f38a17f843f11386f5e1b038b7e2ea2207ad6d800ecfc34d6dd68802"
+}

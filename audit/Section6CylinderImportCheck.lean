@@ -1,0 +1,7 @@
+import Luce.Section6DominationMatrix
+import Luce.Section6InsertionHolder
+import Mathlib.MeasureTheory.Function.LpSeminorm.CompareExp
+
+#check Luce.Section6.insertionDominationMatrix
+#check Luce.Section6.markedRankCylinder_probability_le_Lp_product
+#check MeasureTheory.eLpNorm_le_eLpNorm_of_exponent_le

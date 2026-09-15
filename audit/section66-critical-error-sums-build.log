@@ -1,0 +1,71 @@
+⚠ [937/1056] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [3405/3407] Replayed Luce.Section6ExcursionDepthSums
+info: Luce/Section6ExcursionDepthSums.lean:48:50: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+⚠ [3406/3407] Replayed Luce.Section6CriticalLogSums
+warning: Luce/Section6CriticalLogSums.lean:16:101: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Luce/Section6CriticalLogSums.lean:29:83: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Luce/Section6CriticalLogSums.lean:29:83: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+✖ [3407/3407] Building Luce.Section6CriticalErrorSums (16s)
+trace: .> LEAN_PATH=D:\princeton\Research\Lean\Lean_luce\.lake\packages\Cli\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\batteries\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\Qq\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\aesop\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\importGraph\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\plausible\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\mathlib\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean c:\Users\JiaminWang\.elan\toolchains\leanprover--lean4---v4.33.1\bin\lean.exe D:\princeton\Research\Lean\Lean_luce\Luce\Section6CriticalErrorSums.lean -o D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6CriticalErrorSums.olean -i D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6CriticalErrorSums.ilean -c D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6CriticalErrorSums.c --setup D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6CriticalErrorSums.setup.json --json
+error: Luce/Section6CriticalErrorSums.lean:58:4: Tactic `rfl` failed: The left-hand side
+  (↑m ^ 2)⁻¹
+is not definitionally equal to the right-hand side
+  1 / ↑m ^ 2
+
+A B : ℕ
+hA : 1 ≤ A
+hAB : A ≤ B
+hB : 1 ≤ B
+h : ∑ x ∈ Finset.Icc 1 B, ↑x ^ (-2) ≤ 2
+m : ℕ
+⊢ (↑m ^ 2)⁻¹ = 1 / ↑m ^ 2
+error: Luce/Section6CriticalErrorSums.lean:107:8: No goals to be solved
+error: Luce/Section6CriticalErrorSums.lean:87:59: unsolved goals
+case calc.step
+eta n : ℝ
+heta : 0 < eta
+hn : 0 < n
+A B : ℕ
+hA : 1 ≤ A
+hAB : A ≤ B
+hBn : ↑B ≤ n
+hzB : 3 / 2 ≤ Real.log n - Real.log ↑B
+hA0 : 0 < ↑A
+hB0 : 0 < ↑B
+hlog : ∑ m ∈ Finset.Icc A B, (1 + Real.log (Real.log n - Real.log ↑m)) / (↑m * (Real.log n - Real.log ↑m) ^ 2) ≤ 9
+hinv : ∑ m ∈ Finset.Icc A B, 1 / ↑m ^ 2 ≤ 2
+hpower : ∑ m ∈ Finset.Icc A B, 1 / ↑m * (↑m / ↑B) ^ eta ≤ 1 + 1 / eta
+hz : ∀ m ∈ Finset.Icc A B, 1 ≤ Real.log n - Real.log ↑m
+m : ℕ
+hm : m ∈ Finset.Icc A B
+hm0 : 0 < ↑m
+hz0 : 0 < Real.log n - Real.log ↑m
+hzInv : 1 / (Real.log n - Real.log ↑m) ≤ 1
+hpow : (↑m / n) ^ eta ≤ (↑m / ↑B) ^ eta
+h1 : 1 / ↑m ^ 2 * (1 / (Real.log n - Real.log ↑m)) ≤ 1 / ↑m ^ 2 * 1
+h2 : 1 / ↑m * (1 / (Real.log n - Real.log ↑m) * (↑m / n) ^ eta) ≤ 1 / ↑m * (↑m / ↑B) ^ eta
+⊢ (1 + Real.log (Real.log n - Real.log ↑m)) / (↑m * (Real.log n - Real.log ↑m) ^ 2) + 1 / ↑m ^ 2 * 1 +
+      1 / ↑m * (↑m / ↑B) ^ eta ≤
+    (1 + Real.log (Real.log n - Real.log ↑m)) / (↑m * (Real.log n - Real.log ↑m) ^ 2) + 1 / ↑m ^ 2 +
+      1 / ↑m * (↑m / ↑B) ^ eta
+error: Lean exited with code 1
+Some required targets logged failures:
+- Luce.Section6CriticalErrorSums
+error: build failed

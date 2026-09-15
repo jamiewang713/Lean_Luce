@@ -1,0 +1,38 @@
+⚠ [937/1077] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✖ [3656/3656] Building Luce.Section6IncrementDensity (15s)
+trace: .> LEAN_PATH=D:\princeton\Research\Lean\Lean_luce\.lake\packages\Cli\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\batteries\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\Qq\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\aesop\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\importGraph\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\plausible\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\mathlib\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean c:\Users\JiaminWang\.elan\toolchains\leanprover--lean4---v4.33.1\bin\lean.exe D:\princeton\Research\Lean\Lean_luce\Luce\Section6IncrementDensity.lean -o D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6IncrementDensity.olean -i D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6IncrementDensity.ilean -c D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6IncrementDensity.c --setup D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6IncrementDensity.setup.json --json
+error: Luce/Section6IncrementDensity.lean:41:13: `simp` made no progress
+warning: Luce/Section6IncrementDensity.lean:61:63: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+error: Luce/Section6IncrementDensity.lean:74:8: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  |?m.78|
+in the target expression
+  (fun x => Real.exp (c * x)) x = (fun x => Real.exp (-c * |x|)) x
+
+c : ℝ
+hc : 0 < c
+x : ℝ
+hx : x ∈ Iic 0
+⊢ (fun x => Real.exp (c * x)) x = (fun x => Real.exp (-c * |x|)) x
+error: Luce/Section6IncrementDensity.lean:74:22: Application type mismatch: The argument
+  hx
+has type
+  x ∈ Iic 0
+but is expected to have type
+  ?m.78 ≤ 0
+in the application
+  abs_of_nonpos hx
+error: Lean exited with code 1
+Some required targets logged failures:
+- Luce.Section6IncrementDensity
+error: build failed

@@ -1,0 +1,224 @@
+def Luce.retainedMaximumCycleEvent : {n : ℕ} → ℕ → Finset (Fin n) → Fin n → Set (Fin n → ℝ) :=
+fun {n} k S v =>
+  {e |
+    Function.minimalPeriod (⇑(Luce.raceRankPermutation e)) v = k + 1 ∧
+      (∀ u ∈ (Function.periodicOrbit (⇑(Luce.raceRankPermutation e)) v).toFinset, u ≤ v) ∧
+        (Function.periodicOrbit (⇑(Luce.raceRankPermutation e)) v).toFinset ⊆ S}
+theorem Luce.retainedMaximumCycleEvent_eq_actual_roots : ∀ {n : ℕ} (k : ℕ) (S : Finset (Fin n)) (v : Fin n),
+  Luce.retainedMaximumCycleEvent k S v =
+    {e |
+      v ∈ Luce.Section5.maximumCycleRoots (Luce.raceRankPermutation e) k ∧
+        (Function.periodicOrbit (⇑(Luce.raceRankPermutation e)) v).toFinset ⊆ S} :=
+fun {n} k S v =>
+  Set.ext fun e =>
+    of_eq_true
+      (Eq.trans
+        (congr (congrArg Iff Set.mem_setOf_eq)
+          (Eq.trans
+            (congrFun'
+              (congrArg Membership.mem
+                (congrArg Set.ofPred
+                  (funext fun e =>
+                    Eq.trans
+                      (congrFun'
+                        (congrArg And
+                          (Luce.retainedMaximumCycleEvent_eq_actual_roots._simp_1_2 (Luce.raceRankPermutation e) k v))
+                        ((Function.periodicOrbit (⇑(Luce.raceRankPermutation e)) v).toFinset ⊆ S))
+                      Luce.retainedMaximumCycleEvent_eq_actual_roots._simp_1_3)))
+              e)
+            Set.mem_setOf_eq))
+        (iff_self
+          (Function.minimalPeriod (⇑(Luce.raceRankPermutation e)) v = k + 1 ∧
+            (∀ u ∈ (Function.periodicOrbit (⇑(Luce.raceRankPermutation e)) v).toFinset, u ≤ v) ∧
+              (Function.periodicOrbit (⇑(Luce.raceRankPermutation e)) v).toFinset ⊆ S)))
+@Luce.retained_maximum_cycle_probability_le_ghost : ∀ {n : Nat} (w : Luce.Weights n) (k : Nat) (S : Finset.{0} (Fin n))
+  (v : Fin n),
+  @LE.le.{0} Real Real.instLE
+    (@MeasureTheory.Measure.real.{0} (Fin n → Real)
+      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (a : Fin n) => Real) fun (a : Fin n) => Real.measurableSpace)
+      (@Luce.exponentialRace n w) (@Luce.retainedMaximumCycleEvent n k S v))
+    (@MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+      (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+        (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (a : Fin n) => Real) fun (a : Fin n) => Real.measurableSpace)
+      (@Luce.exponentialRace n w) fun (old : Fin n → Real) =>
+      @Finset.sum.{0, 0} (Fin k → Fin n) Real Real.instAddCommMonoid
+        (@Finset.filter.{0} (Fin k → Fin n)
+          (fun (u : Fin k → Fin n) =>
+            And (@Function.Injective.{1, 1} (Fin k) (Fin n) u)
+              (And (∀ (a : Fin k), @LT.lt.{0} (Fin n) (@instLTFin n) (u a) v)
+                (∀
+                  (a :
+                    Fin
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                    (@Fin.cons.{1} k
+                      (fun
+                          (a :
+                            Fin
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                        Fin n)
+                      v u a))))
+          (fun (a : Fin k → Fin n) =>
+            @instDecidableAnd (@Function.Injective.{1, 1} (Fin k) (Fin n) a)
+              (And (∀ (a_1 : Fin k), @LT.lt.{0} (Fin n) (@instLTFin n) (a a_1) v)
+                (∀
+                  (a_1 :
+                    Fin
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                    (@Fin.cons.{1} k
+                      (fun
+                          (a :
+                            Fin
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                        Fin n)
+                      v a a_1)))
+              (@Fintype.decidableInjectiveFintype.{0, 0} (Fin k) (Fin n) (instDecidableEqFin n) (Fin.fintype k) a)
+              (@instDecidableAnd (∀ (a_1 : Fin k), @LT.lt.{0} (Fin n) (@instLTFin n) (a a_1) v)
+                (∀
+                  (a_1 :
+                    Fin
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                    (@Fin.cons.{1} k
+                      (fun
+                          (a :
+                            Fin
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                        Fin n)
+                      v a a_1))
+                (@Nat.decidableForallFin k (fun (a_1 : Fin k) => @LT.lt.{0} (Fin n) (@instLTFin n) (a a_1) v)
+                  fun (a_1 : Fin k) => @Fin.decLt n (a a_1) v)
+                (@Nat.decidableForallFin
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                  (fun
+                      (a_1 :
+                        Fin
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      (@Fin.cons.{1} k
+                        (fun
+                            (a :
+                              Fin
+                                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                          Fin n)
+                        v a a_1))
+                  fun
+                    (a_1 :
+                      Fin
+                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                  @Finset.decidableMem.{0} (Fin n) (instDecidableEqFin n)
+                    (@Fin.cons.{1} k
+                      (fun
+                          (a :
+                            Fin
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                        Fin n)
+                      v a a_1)
+                    S)))
+          (@Finset.univ.{0} (Fin k → Fin n)
+            (@Pi.instFintype.{0, 0} (Fin k) (fun (a : Fin k) => Fin n) (instDecidableEqFin k) (Fin.fintype k)
+              fun (a : Fin k) => Fin.fintype n)))
+        fun (u : Fin k → Fin n) =>
+        @Finset.prod.{0, 0}
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          Real Real.instCommMonoid
+          (@Finset.univ.{0}
+            (Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (Fin.fintype
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+          fun
+            (a :
+              Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+          @Luce.ghostEntry n w
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            old
+            (@Fin.cons.{1} k
+              (fun
+                  (a :
+                    Fin
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                Fin n)
+              v u a)
+            (@Fin.snoc.{1} k
+              (fun
+                  (a :
+                    Fin
+                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) =>
+                Fin n)
+              u v a))
+@Luce.retained_maximum_cycle_probability_le_return : ∀ {n : Nat} (w : Luce.Weights n) (k : Nat) (S : Finset.{0} (Fin n))
+  (v : Fin n),
+  @LE.le.{0} Real Real.instLE
+    (@MeasureTheory.Measure.real.{0} (Fin n → Real)
+      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (a : Fin n) => Real) fun (a : Fin n) => Real.measurableSpace)
+      (@Luce.exponentialRace n w)
+      (@Luce.retainedMaximumCycleEvent n
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+        S v))
+    (@MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+      (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+        (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (a : Fin n) => Real) fun (a : Fin n) => Real.measurableSpace)
+      (@Luce.exponentialRace n w) fun (old : Fin n → Real) =>
+      @Finset.sum.{0, 0} (Fin n) Real Real.instAddCommMonoid (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+        fun (u : Fin n) =>
+        @ite.{1} Real
+          (And
+            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S u)
+            (@LT.lt.{0} (Fin n) (@instLTFin n) u v))
+          (@instDecidableAnd
+            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S u)
+            (@LT.lt.{0} (Fin n) (@instLTFin n) u v) (@Finset.decidableMem.{0} (Fin n) (instDecidableEqFin n) u S)
+            (@Fin.decLt n u v))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@Luce.ghostEntry n w
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+              old u v)
+            (@Luce.markedReturnWeight.{0} (Fin n) (Fin.fintype n)
+              (@Luce.ghostEntry n w
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                  (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))))
+                old)
+              k v u))
+          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+'Luce.retainedMaximumCycleEvent_eq_actual_roots' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.measurableSet_retainedMaximumCycleEvent' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.exists_retained_maximum_cycle_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.retained_maximum_cycle_probability_le_ghost' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.retained_maximum_ghost_sum_le_return' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.marked_return_product_eq_cylinder_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.integrable_marked_return_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.retained_maximum_cycle_probability_le_return' depends on axioms: [propext, Classical.choice, Quot.sound]

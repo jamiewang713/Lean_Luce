@@ -1,0 +1,3 @@
+audit/proposition54-statement-types.log : 12 axiom reports; 0 extra axioms (universe annotations normalized)
+audit/proposition54-proof-audit.log : 3 axiom reports; 0 extra axioms (universe annotations normalized)
+audit/proposition54-section5-audit.log : 71 axiom reports; 0 extra axioms (universe annotations normalized)

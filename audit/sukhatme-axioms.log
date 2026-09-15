@@ -1,0 +1,63 @@
+def Luce.Sukhatme.Corollary19.{u} : Prop :=
+Luce.Sukhatme.coefficient 0 = Real.exp (-1) ∧
+  Luce.Sukhatme.coefficient 1 = Luce.Sukhatme.besselK0 2 ∧
+    ∀ (Ω : ℕ → Type u) (mΩ : (n : ℕ) → MeasurableSpace (Ω n)) (P : (n : ℕ) → MeasureTheory.Measure (Ω n)),
+      (∀ (n : ℕ), MeasureTheory.IsProbabilityMeasure (P n)) →
+        ∀ (π : (n : ℕ) → Ω n → Equiv.Perm (Fin n)),
+          (∀ (n : ℕ), Measurable (π n)) →
+            (∀ (n : ℕ) (σ : Equiv.Perm (Fin n)), (P n).real {ω | π n ω = σ} = (Luce.Sukhatme.weights n).mass σ) →
+              (∀ (k : ℕ),
+                  0 < Luce.Sukhatme.coefficient k ∧
+                    Filter.Tendsto
+                      (fun n =>
+                        (∫ (ω : Ω n), ↑(Luce.Section5.cycleCount (π n ω) k) ∂P n) /
+                          (Luce.Sukhatme.coefficient k * Real.log ↑n))
+                      Filter.atTop (nhds 1)) ∧
+                (∀ (L : ℕ) (F : BoundedContinuousFunction (Fin L → ℝ) ℝ),
+                    Filter.Tendsto (fun n => ∫ (ω : Ω n), F (Luce.Sukhatme.normalizedCycleVector (π n ω) L) ∂P n)
+                      Filter.atTop (nhds (∫ (z : Fin L → ℝ), F z ∂Luce.Section6.standardNormalVector (Fin L)))) ∧
+                  (∀ (F : BoundedContinuousFunction ℝ ℝ),
+                      Filter.Tendsto
+                        (fun n =>
+                          ∫ (ω : Ω n),
+                            F
+                              ((↑(Luce.Section5.cycleCount (π n ω) 0) - Real.exp (-1) * Real.log ↑n) /
+                                √(Real.exp (-1) * Real.log ↑n)) ∂P n)
+                        Filter.atTop (nhds (∫ (z : ℝ), F z ∂ProbabilityTheory.gaussianReal 0 1))) ∧
+                    ∀ (L J : ℕ) (a b : Fin J → ℝ),
+                      (∀ (j : Fin J), 0 < a j ∧ a j < b j ∧ b j < 1) →
+                        (Pairwise fun i j => Disjoint (Set.Ioc (a i) (b i)) (Set.Ioc (a j) (b j))) →
+                          (∀ (k : Fin L) (j : Fin J),
+                              Filter.Tendsto
+                                (fun n =>
+                                  (∫ (ω : Ω n),
+                                      ↑(Luce.Section6.spatialCycleCount (π n ω) Luce.Section6.Corner.right (↑k) (a j)
+                                          (b j)) ∂P n) /
+                                    Real.log ↑n)
+                                Filter.atTop (nhds (Luce.Sukhatme.coefficient ↑k * (b j - a j)))) ∧
+                            (∀ (F : BoundedContinuousFunction (Fin L × Fin J → ℝ) ℝ),
+                                Filter.Tendsto
+                                  (fun n => ∫ (ω : Ω n), F (Luce.Sukhatme.normalizedSpatialVector (π n ω) L J a b) ∂P n)
+                                  Filter.atTop
+                                  (nhds
+                                    (∫ (z : Fin L × Fin J → ℝ),
+                                      F z ∂Luce.Section6.standardNormalVector (Fin L × Fin J)))) ∧
+                              ∀ (k : Fin L) (j : Fin J) (delta : ℝ),
+                                0 < delta →
+                                  Filter.Tendsto
+                                    (fun n =>
+                                      ∫ (ω : Ω n),
+                                        ↑(Luce.Section6.excursionCycleCount (π n ω) Luce.Section6.Corner.right (↑k)
+                                            (a j) (b j) delta) ∂P n)
+                                    Filter.atTop (nhds 0)
+'Luce.Sukhatme.corollary19' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Sukhatme.profile' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Sukhatme.sampled_rates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Sukhatme.sampled_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Sukhatme.density_eq_incrementDensity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Sukhatme.convolution_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Sukhatme.coefficient_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Sukhatme.coefficient_one_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Sukhatme.bessel_integrand_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Sukhatme.coefficient_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Sukhatme.gaussian_spatial_reindex' depends on axioms: [propext, Classical.choice, Quot.sound]

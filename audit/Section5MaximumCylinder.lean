@@ -1,0 +1,16 @@
+import Luce.Section5MaximumReturnExpectation
+
+#print Luce.retainedMaximumCycleEvent
+#print Luce.retainedMaximumCycleEvent_eq_actual_roots
+set_option pp.all true in
+#check @Luce.retained_maximum_cycle_probability_le_ghost
+set_option pp.all true in
+#check @Luce.retained_maximum_cycle_probability_le_return
+#print axioms Luce.retainedMaximumCycleEvent_eq_actual_roots
+#print axioms Luce.measurableSet_retainedMaximumCycleEvent
+#print axioms Luce.exists_retained_maximum_cycle_tail
+#print axioms Luce.retained_maximum_cycle_probability_le_ghost
+#print axioms Luce.retained_maximum_ghost_sum_le_return
+#print axioms Luce.marked_return_product_eq_cylinder_sum
+#print axioms Luce.integrable_marked_return_product
+#print axioms Luce.retained_maximum_cycle_probability_le_return

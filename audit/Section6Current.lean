@@ -1,0 +1,2714 @@
+import Luce.Section6
+
+set_option pp.explicit true
+set_option pp.universes true
+set_option pp.fullNames true
+set_option pp.proofs false
+
+#print SampledProfileContract.powerLaw
+#print SampledProfileContract.spatial
+#print SampledProfileContract.critical
+#print SampledProfileContract.section6
+
+#print Luce.Weights
+#print Luce.WeightArray
+#print Luce.Section6.Proposition65Contract.localLaw
+#print Luce.Section6.Proposition65Contract.proposition65
+#print Luce.Section6.localCornerQ
+#print Luce.Section6.localCornerExponent
+#print Luce.Section6.localCornerRatio
+#print Luce.Section6.localIdealKernel
+#print Luce.Section6.localEnvelopeKernel
+#print Luce.Section6.skeletonStart
+#print Luce.Section6.laterSelectedRate
+#print Luce.Section6.selectedFill
+#print Luce.Section6.Lemma64Contract.matrix
+#print Luce.Section6.Lemma64Contract.cycles
+#print Luce.Section6.Lemma64Contract.lemma64
+#print Luce.Section6.intervalDiscardedCycleCount
+#print Luce.Section6.PowerProfile
+#print Luce.Section6.LeftBehavior
+#print Luce.Section6.RightBehavior
+#print Luce.Section6.PowerExpansion
+#print Luce.Section6.SampledRates
+#print Luce.Section6.samplePoint
+#print Luce.Section6.insertionChoices
+#print Luce.Section6.insertionDominationENN
+#print Luce.Section6.insertionDominationMatrix
+#print Luce.Section6.exceptionalEnvelope
+#print Luce.Section6.extremeTypicalEnvelope
+#print Luce.Section6.restrictedKernelSums
+#print Luce.Section6.CountApprox65.mean
+#print axioms Luce.Section6.CountApprox65.mean
+#print Luce.Section6.CountApprox65.normalized
+#print axioms Luce.Section6.CountApprox65.normalized
+#print Luce.Section6.CriticalProfile.critical_domination_matrix
+#print axioms Luce.Section6.CriticalProfile.critical_domination_matrix
+#print Luce.Section6.CriticalProfile.critical_insertion_Lp
+#print axioms Luce.Section6.CriticalProfile.critical_insertion_Lp
+#print Luce.Section6.CriticalProfile.critical_root_probability
+#print axioms Luce.Section6.CriticalProfile.critical_root_probability
+#print Luce.Section6.CriticalProfile.deleted_gap_survival
+#print axioms Luce.Section6.CriticalProfile.deleted_gap_survival
+#print Luce.Section6.CriticalProfile.deleted_remaining_floor
+#print axioms Luce.Section6.CriticalProfile.deleted_remaining_floor
+#print Luce.Section6.CriticalProfile.eventually_comparable
+#print axioms Luce.Section6.CriticalProfile.eventually_comparable
+#print Luce.Section6.CriticalProfile.fixed_point_limits
+#print axioms Luce.Section6.CriticalProfile.fixed_point_limits
+#print Luce.Section6.CriticalProfile.fixed_point_race_limits
+#print axioms Luce.Section6.CriticalProfile.fixed_point_race_limits
+#print Luce.Section6.CriticalProfile.global_comparison
+#print axioms Luce.Section6.CriticalProfile.global_comparison
+#print Luce.Section6.CriticalProfile.global_error_bound
+#print axioms Luce.Section6.CriticalProfile.global_error_bound
+#print Luce.Section6.CriticalProfile.hazard_approximation
+#print axioms Luce.Section6.CriticalProfile.hazard_approximation
+#print Luce.Section6.CriticalProfile.late_vertex_expectation
+#print axioms Luce.Section6.CriticalProfile.late_vertex_expectation
+#print Luce.Section6.CriticalProfile.longer_cycle_race_bound
+#print axioms Luce.Section6.CriticalProfile.longer_cycle_race_bound
+#print Luce.Section6.CriticalProfile.main_missing_expectation
+#print axioms Luce.Section6.CriticalProfile.main_missing_expectation
+#print Luce.Section6.CriticalProfile.main_probability_approximation
+#print axioms Luce.Section6.CriticalProfile.main_probability_approximation
+#print Luce.Section6.CriticalProfile.main_remaining_expectation
+#print axioms Luce.Section6.CriticalProfile.main_remaining_expectation
+#print Luce.Section6.CriticalProfile.population_estimates
+#print axioms Luce.Section6.CriticalProfile.population_estimates
+#print Luce.Section6.CriticalProfile.population_pole_comparison
+#print axioms Luce.Section6.CriticalProfile.population_pole_comparison
+#print Luce.Section6.CriticalProfile.predictable_envelope
+#print axioms Luce.Section6.CriticalProfile.predictable_envelope
+#print Luce.Section6.CriticalProfile.probe_brackets
+#print axioms Luce.Section6.CriticalProfile.probe_brackets
+#print Luce.Section6.CriticalProfile.probe_estimates
+#print axioms Luce.Section6.CriticalProfile.probe_estimates
+#print Luce.Section6.CriticalProfile.reference_rows
+#print axioms Luce.Section6.CriticalProfile.reference_rows
+#print Luce.Section6.CriticalProfile.remaining_weight_floor
+#print axioms Luce.Section6.CriticalProfile.remaining_weight_floor
+#print Luce.Section6.CriticalProfile.sampled_error_average
+#print axioms Luce.Section6.CriticalProfile.sampled_error_average
+#print Luce.Section6.CriticalProfile.sampled_global_comparison
+#print axioms Luce.Section6.CriticalProfile.sampled_global_comparison
+#print Luce.Section6.LeftBehavior.eventually_lower
+#print axioms Luce.Section6.LeftBehavior.eventually_lower
+#print Luce.Section6.LogGrowth65.mul
+#print axioms Luce.Section6.LogGrowth65.mul
+#print Luce.Section6.LogGrowth65.neg
+#print axioms Luce.Section6.LogGrowth65.neg
+#print Luce.Section6.LogGrowth65.pow
+#print axioms Luce.Section6.LogGrowth65.pow
+#print Luce.Section6.LogGrowth65.prod
+#print axioms Luce.Section6.LogGrowth65.prod
+#print Luce.Section6.MeanApprox65.diverges
+#print axioms Luce.Section6.MeanApprox65.diverges
+#print Luce.Section6.MeanApprox65.growth
+#print axioms Luce.Section6.MeanApprox65.growth
+#print Luce.Section6.MeanApprox65.ratio
+#print axioms Luce.Section6.MeanApprox65.ratio
+#print Luce.Section6.MeanApprox65.ratio_one
+#print axioms Luce.Section6.MeanApprox65.ratio_one
+#print Luce.Section6.MeanApprox65.scale
+#print axioms Luce.Section6.MeanApprox65.scale
+#print Luce.Section6.MeanApprox65.shift
+#print axioms Luce.Section6.MeanApprox65.shift
+#print Luce.Section6.PowerExpansion.absolute_error_bound
+#print axioms Luce.Section6.PowerExpansion.absolute_error_bound
+#print Luce.Section6.PowerExpansion.eventually_comparable
+#print axioms Luce.Section6.PowerExpansion.eventually_comparable
+#print Luce.Section6.PowerExpansion.exists_comparison_neighborhood
+#print axioms Luce.Section6.PowerExpansion.exists_comparison_neighborhood
+#print Luce.Section6.PowerExpansion.exists_fast_error_exponent
+#print axioms Luce.Section6.PowerExpansion.exists_fast_error_exponent
+#print Luce.Section6.PowerExpansion.kernel_perturbation_bounds
+#print axioms Luce.Section6.PowerExpansion.kernel_perturbation_bounds
+#print Luce.Section6.PowerExpansion.mono_error_exponent
+#print axioms Luce.Section6.PowerExpansion.mono_error_exponent
+#print Luce.Section6.PowerExpansion.relative_error_tendsto
+#print axioms Luce.Section6.PowerExpansion.relative_error_tendsto
+#print Luce.Section6.PowerExpansion.sampled_relative_error
+#print axioms Luce.Section6.PowerExpansion.sampled_relative_error
+#print Luce.Section6.PowerProfile.active_discarded_bounds
+#print axioms Luce.Section6.PowerProfile.active_discarded_bounds
+#print Luce.Section6.PowerProfile.active_left_envelope
+#print axioms Luce.Section6.PowerProfile.active_left_envelope
+#print Luce.Section6.PowerProfile.active_log_expectation
+#print axioms Luce.Section6.PowerProfile.active_log_expectation
+#print Luce.Section6.PowerProfile.active_matrix_column
+#print axioms Luce.Section6.PowerProfile.active_matrix_column
+#print Luce.Section6.PowerProfile.active_matrix_target
+#print axioms Luce.Section6.PowerProfile.active_matrix_target
+#print Luce.Section6.PowerProfile.active_matrix_target_columns
+#print axioms Luce.Section6.PowerProfile.active_matrix_target_columns
+#print Luce.Section6.PowerProfile.active_right_envelope
+#print axioms Luce.Section6.PowerProfile.active_right_envelope
+#print Luce.Section6.PowerProfile.active_root_bounds
+#print axioms Luce.Section6.PowerProfile.active_root_bounds
+#print Luce.Section6.PowerProfile.bounds_off_active
+#print axioms Luce.Section6.PowerProfile.bounds_off_active
+#print Luce.Section6.PowerProfile.common_weighted_exponent
+#print axioms Luce.Section6.PowerProfile.common_weighted_exponent
+#print Luce.Section6.PowerProfile.core_family_local_law
+#print axioms Luce.Section6.PowerProfile.core_family_local_law
+#print Luce.Section6.PowerProfile.core_family_quantitative
+#print axioms Luce.Section6.PowerProfile.core_family_quantitative
+#print Luce.Section6.PowerProfile.cornerCoefficient_nonneg65
+#print axioms Luce.Section6.PowerProfile.cornerCoefficient_nonneg65
+#print Luce.Section6.PowerProfile.cornerCoefficient_pos65
+#print axioms Luce.Section6.PowerProfile.cornerCoefficient_pos65
+#print Luce.Section6.PowerProfile.corner_cross_depth_relative_error
+#print axioms Luce.Section6.PowerProfile.corner_cross_depth_relative_error
+#print Luce.Section6.PowerProfile.corner_joint_quantile_window
+#print axioms Luce.Section6.PowerProfile.corner_joint_quantile_window
+#print Luce.Section6.PowerProfile.corner_moderate_insertion_moment
+#print axioms Luce.Section6.PowerProfile.corner_moderate_insertion_moment
+#print Luce.Section6.PowerProfile.corner_pointwise_window
+#print axioms Luce.Section6.PowerProfile.corner_pointwise_window
+#print Luce.Section6.PowerProfile.domination_matrix_common_weighted_rows
+#print axioms Luce.Section6.PowerProfile.domination_matrix_common_weighted_rows
+#print Luce.Section6.PowerProfile.domination_matrix_fixed_left_column
+#print axioms Luce.Section6.PowerProfile.domination_matrix_fixed_left_column
+#print Luce.Section6.PowerProfile.domination_matrix_fixed_left_power
+#print axioms Luce.Section6.PowerProfile.domination_matrix_fixed_left_power
+#print Luce.Section6.PowerProfile.domination_matrix_fixed_left_rate
+#print axioms Luce.Section6.PowerProfile.domination_matrix_fixed_left_rate
+#print Luce.Section6.PowerProfile.domination_matrix_fixed_right_column
+#print axioms Luce.Section6.PowerProfile.domination_matrix_fixed_right_column
+#print Luce.Section6.PowerProfile.domination_matrix_fixed_right_common
+#print axioms Luce.Section6.PowerProfile.domination_matrix_fixed_right_common
+#print Luce.Section6.PowerProfile.domination_matrix_fixed_right_decay
+#print axioms Luce.Section6.PowerProfile.domination_matrix_fixed_right_decay
+#print Luce.Section6.PowerProfile.domination_matrix_fixed_right_outside
+#print axioms Luce.Section6.PowerProfile.domination_matrix_fixed_right_outside
+#print Luce.Section6.PowerProfile.domination_matrix_interior_column
+#print axioms Luce.Section6.PowerProfile.domination_matrix_interior_column
+#print Luce.Section6.PowerProfile.domination_matrix_interior_column_all_n
+#print axioms Luce.Section6.PowerProfile.domination_matrix_interior_column_all_n
+#print Luce.Section6.PowerProfile.domination_matrix_interior_target
+#print axioms Luce.Section6.PowerProfile.domination_matrix_interior_target
+#print Luce.Section6.PowerProfile.domination_matrix_interior_target_all_n
+#print axioms Luce.Section6.PowerProfile.domination_matrix_interior_target_all_n
+#print Luce.Section6.PowerProfile.domination_matrix_left_column
+#print axioms Luce.Section6.PowerProfile.domination_matrix_left_column
+#print Luce.Section6.PowerProfile.domination_matrix_left_column_above_cutoff
+#print axioms Luce.Section6.PowerProfile.domination_matrix_left_column_above_cutoff
+#print Luce.Section6.PowerProfile.domination_matrix_left_corner_column
+#print axioms Luce.Section6.PowerProfile.domination_matrix_left_corner_column
+#print Luce.Section6.PowerProfile.domination_matrix_left_corner_envelope
+#print axioms Luce.Section6.PowerProfile.domination_matrix_left_corner_envelope
+#print Luce.Section6.PowerProfile.domination_matrix_left_envelope_assembly
+#print axioms Luce.Section6.PowerProfile.domination_matrix_left_envelope_assembly
+#print Luce.Section6.PowerProfile.domination_matrix_left_target
+#print axioms Luce.Section6.PowerProfile.domination_matrix_left_target
+#print Luce.Section6.PowerProfile.domination_matrix_left_weighted_row
+#print axioms Luce.Section6.PowerProfile.domination_matrix_left_weighted_row
+#print Luce.Section6.PowerProfile.domination_matrix_left_weighted_row_all_n
+#print axioms Luce.Section6.PowerProfile.domination_matrix_left_weighted_row_all_n
+#print Luce.Section6.PowerProfile.domination_matrix_outside_left_column
+#print axioms Luce.Section6.PowerProfile.domination_matrix_outside_left_column
+#print Luce.Section6.PowerProfile.domination_matrix_outside_left_target
+#print axioms Luce.Section6.PowerProfile.domination_matrix_outside_left_target
+#print Luce.Section6.PowerProfile.domination_matrix_outside_right_column
+#print axioms Luce.Section6.PowerProfile.domination_matrix_outside_right_column
+#print Luce.Section6.PowerProfile.domination_matrix_outside_right_target
+#print axioms Luce.Section6.PowerProfile.domination_matrix_outside_right_target
+#print Luce.Section6.PowerProfile.domination_matrix_right_column
+#print axioms Luce.Section6.PowerProfile.domination_matrix_right_column
+#print Luce.Section6.PowerProfile.domination_matrix_right_column_above_cutoff
+#print axioms Luce.Section6.PowerProfile.domination_matrix_right_column_above_cutoff
+#print Luce.Section6.PowerProfile.domination_matrix_right_corner_column
+#print axioms Luce.Section6.PowerProfile.domination_matrix_right_corner_column
+#print Luce.Section6.PowerProfile.domination_matrix_right_corner_envelope
+#print axioms Luce.Section6.PowerProfile.domination_matrix_right_corner_envelope
+#print Luce.Section6.PowerProfile.domination_matrix_right_envelope_assembly
+#print axioms Luce.Section6.PowerProfile.domination_matrix_right_envelope_assembly
+#print Luce.Section6.PowerProfile.domination_matrix_right_target
+#print axioms Luce.Section6.PowerProfile.domination_matrix_right_target
+#print Luce.Section6.PowerProfile.domination_matrix_right_weighted_row
+#print axioms Luce.Section6.PowerProfile.domination_matrix_right_weighted_row
+#print Luce.Section6.PowerProfile.domination_matrix_right_weighted_row_all_n
+#print axioms Luce.Section6.PowerProfile.domination_matrix_right_weighted_row_all_n
+#print Luce.Section6.PowerProfile.domination_matrix_row_bound
+#print axioms Luce.Section6.PowerProfile.domination_matrix_row_bound
+#print Luce.Section6.PowerProfile.domination_matrix_row_bound_all_n
+#print axioms Luce.Section6.PowerProfile.domination_matrix_row_bound_all_n
+#print Luce.Section6.PowerProfile.early_insertion_rate_Lp
+#print axioms Luce.Section6.PowerProfile.early_insertion_rate_Lp
+#print Luce.Section6.PowerProfile.early_insertion_rate_row
+#print axioms Luce.Section6.PowerProfile.early_insertion_rate_row
+#print Luce.Section6.PowerProfile.early_left_insertion_Lp
+#print axioms Luce.Section6.PowerProfile.early_left_insertion_Lp
+#print Luce.Section6.PowerProfile.early_left_weighted_insertion_row
+#print axioms Luce.Section6.PowerProfile.early_left_weighted_insertion_row
+#print Luce.Section6.PowerProfile.early_right_weighted_row
+#print axioms Luce.Section6.PowerProfile.early_right_weighted_row
+#print Luce.Section6.PowerProfile.early_shifted_rate_Lp
+#print axioms Luce.Section6.PowerProfile.early_shifted_rate_Lp
+#print Luce.Section6.PowerProfile.endpoint_estimates67
+#print axioms Luce.Section6.PowerProfile.endpoint_estimates67
+#print Luce.Section6.PowerProfile.factorial_domination_data
+#print axioms Luce.Section6.PowerProfile.factorial_domination_data
+#print Luce.Section6.PowerProfile.fixed_right_kernel_moment
+#print axioms Luce.Section6.PowerProfile.fixed_right_kernel_moment
+#print Luce.Section6.PowerProfile.global_left_sampled_power_upper
+#print axioms Luce.Section6.PowerProfile.global_left_sampled_power_upper
+#print Luce.Section6.PowerProfile.global_left_weighted_insertion_row
+#print axioms Luce.Section6.PowerProfile.global_left_weighted_insertion_row
+#print Luce.Section6.PowerProfile.global_lower_of_right_finite
+#print axioms Luce.Section6.PowerProfile.global_lower_of_right_finite
+#print Luce.Section6.PowerProfile.global_right_weighted_insertion_row
+#print axioms Luce.Section6.PowerProfile.global_right_weighted_insertion_row
+#print Luce.Section6.PowerProfile.global_uniform_insertion_row
+#print axioms Luce.Section6.PowerProfile.global_uniform_insertion_row
+#print Luce.Section6.PowerProfile.global_upper_of_left_finite
+#print axioms Luce.Section6.PowerProfile.global_upper_of_left_finite
+#print Luce.Section6.PowerProfile.inactive_left_insertion_Lp
+#print axioms Luce.Section6.PowerProfile.inactive_left_insertion_Lp
+#print Luce.Section6.PowerProfile.inactive_left_shifted_Lp
+#print axioms Luce.Section6.PowerProfile.inactive_left_shifted_Lp
+#print Luce.Section6.PowerProfile.inactive_right_all_gaps_envelope
+#print axioms Luce.Section6.PowerProfile.inactive_right_all_gaps_envelope
+#print Luce.Section6.PowerProfile.inactive_right_all_gaps_power_kernel
+#print axioms Luce.Section6.PowerProfile.inactive_right_all_gaps_power_kernel
+#print Luce.Section6.PowerProfile.inactive_right_insertion_Lp
+#print axioms Luce.Section6.PowerProfile.inactive_right_insertion_Lp
+#print Luce.Section6.PowerProfile.inactive_right_insertion_envelope
+#print axioms Luce.Section6.PowerProfile.inactive_right_insertion_envelope
+#print Luce.Section6.PowerProfile.inactive_right_insertion_row
+#print axioms Luce.Section6.PowerProfile.inactive_right_insertion_row
+#print Luce.Section6.PowerProfile.inactive_right_shifted_moment
+#print axioms Luce.Section6.PowerProfile.inactive_right_shifted_moment
+#print Luce.Section6.PowerProfile.interior_cycle_vertex_probability
+#print axioms Luce.Section6.PowerProfile.interior_cycle_vertex_probability
+#print Luce.Section6.PowerProfile.interior_deleted_insertion_moment
+#print axioms Luce.Section6.PowerProfile.interior_deleted_insertion_moment
+#print Luce.Section6.PowerProfile.interior_gap_start_lower_tail
+#print axioms Luce.Section6.PowerProfile.interior_gap_start_lower_tail
+#print Luce.Section6.PowerProfile.interior_insertion_Lp
+#print axioms Luce.Section6.PowerProfile.interior_insertion_Lp
+#print Luce.Section6.PowerProfile.interior_insertion_envelope
+#print axioms Luce.Section6.PowerProfile.interior_insertion_envelope
+#print Luce.Section6.PowerProfile.interior_insertion_rate_row
+#print axioms Luce.Section6.PowerProfile.interior_insertion_rate_row
+#print Luce.Section6.PowerProfile.interior_insertion_target_bound
+#print axioms Luce.Section6.PowerProfile.interior_insertion_target_bound
+#print Luce.Section6.PowerProfile.interior_insertion_uniform_row
+#print axioms Luce.Section6.PowerProfile.interior_insertion_uniform_row
+#print Luce.Section6.PowerProfile.interior_maximum_root_expectation
+#print axioms Luce.Section6.PowerProfile.interior_maximum_root_expectation
+#print Luce.Section6.PowerProfile.interior_quantile_deletedD_bounds
+#print axioms Luce.Section6.PowerProfile.interior_quantile_deletedD_bounds
+#print Luce.Section6.PowerProfile.interior_quantile_populationD_bounds
+#print axioms Luce.Section6.PowerProfile.interior_quantile_populationD_bounds
+#print Luce.Section6.PowerProfile.interior_quantile_time_bounds
+#print axioms Luce.Section6.PowerProfile.interior_quantile_time_bounds
+#print Luce.Section6.PowerProfile.interior_quantile_time_lower
+#print axioms Luce.Section6.PowerProfile.interior_quantile_time_lower
+#print Luce.Section6.PowerProfile.interior_rank_cylinder_bound
+#print axioms Luce.Section6.PowerProfile.interior_rank_cylinder_bound
+#print Luce.Section6.PowerProfile.interior_rate_remainder
+#print axioms Luce.Section6.PowerProfile.interior_rate_remainder
+#print Luce.Section6.PowerProfile.interior_remaining_rate
+#print axioms Luce.Section6.PowerProfile.interior_remaining_rate
+#print Luce.Section6.PowerProfile.interior_remaining_rate_deleted
+#print axioms Luce.Section6.PowerProfile.interior_remaining_rate_deleted
+#print Luce.Section6.PowerProfile.interior_shifted_insertion_moment
+#print axioms Luce.Section6.PowerProfile.interior_shifted_insertion_moment
+#print Luce.Section6.PowerProfile.interior_survival_envelope
+#print axioms Luce.Section6.PowerProfile.interior_survival_envelope
+#print Luce.Section6.PowerProfile.large_time_populationH
+#print axioms Luce.Section6.PowerProfile.large_time_populationH
+#print Luce.Section6.PowerProfile.left_arrival_difference_bound
+#print axioms Luce.Section6.PowerProfile.left_arrival_difference_bound
+#print Luce.Section6.PowerProfile.left_corner_all_targets_weighted_row
+#print axioms Luce.Section6.PowerProfile.left_corner_all_targets_weighted_row
+#print Luce.Section6.PowerProfile.left_corner_insertion_target_bound
+#print axioms Luce.Section6.PowerProfile.left_corner_insertion_target_bound
+#print Luce.Section6.PowerProfile.left_corner_weighted_insertion_row
+#print axioms Luce.Section6.PowerProfile.left_corner_weighted_insertion_row
+#print Luce.Section6.PowerProfile.left_cross_depth_relative_error
+#print axioms Luce.Section6.PowerProfile.left_cross_depth_relative_error
+#print Luce.Section6.PowerProfile.left_cycle_vertex_probability
+#print axioms Luce.Section6.PowerProfile.left_cycle_vertex_probability
+#print Luce.Section6.PowerProfile.left_deletedD_relative_error
+#print axioms Luce.Section6.PowerProfile.left_deletedD_relative_error
+#print Luce.Section6.PowerProfile.left_deletedG_relative_error
+#print axioms Luce.Section6.PowerProfile.left_deletedG_relative_error
+#print Luce.Section6.PowerProfile.left_deleted_insertion_moment
+#print axioms Luce.Section6.PowerProfile.left_deleted_insertion_moment
+#print Luce.Section6.PowerProfile.left_deleted_populations_relative_error
+#print axioms Luce.Section6.PowerProfile.left_deleted_populations_relative_error
+#print Luce.Section6.PowerProfile.left_deleted_quantile_separation
+#print axioms Luce.Section6.PowerProfile.left_deleted_quantile_separation
+#print Luce.Section6.PowerProfile.left_discarded_expectation
+#print axioms Luce.Section6.PowerProfile.left_discarded_expectation
+#print Luce.Section6.PowerProfile.left_discarded_expectation_nat
+#print axioms Luce.Section6.PowerProfile.left_discarded_expectation_nat
+#print Luce.Section6.PowerProfile.left_early_deleted_mean
+#print axioms Luce.Section6.PowerProfile.left_early_deleted_mean
+#print Luce.Section6.PowerProfile.left_endpoint_uniform_row
+#print axioms Luce.Section6.PowerProfile.left_endpoint_uniform_row
+#print Luce.Section6.PowerProfile.left_endpoint_weighted_insertion_row
+#print axioms Luce.Section6.PowerProfile.left_endpoint_weighted_insertion_row
+#print Luce.Section6.PowerProfile.left_escaping_path_bound
+#print axioms Luce.Section6.PowerProfile.left_escaping_path_bound
+#print Luce.Section6.PowerProfile.left_eventually_comparable
+#print axioms Luce.Section6.PowerProfile.left_eventually_comparable
+#print Luce.Section6.PowerProfile.left_excursion_cycle_probability
+#print axioms Luce.Section6.PowerProfile.left_excursion_cycle_probability
+#print Luce.Section6.PowerProfile.left_extreme_insertion_Lp
+#print axioms Luce.Section6.PowerProfile.left_extreme_insertion_Lp
+#print Luce.Section6.PowerProfile.left_fixed_removal_rate_floor
+#print axioms Luce.Section6.PowerProfile.left_fixed_removal_rate_floor
+#print Luce.Section6.PowerProfile.left_gap_quantile_window
+#print axioms Luce.Section6.PowerProfile.left_gap_quantile_window
+#print Luce.Section6.PowerProfile.left_gap_start_lower_tail
+#print axioms Luce.Section6.PowerProfile.left_gap_start_lower_tail
+#print Luce.Section6.PowerProfile.left_initial_block_rate_floor
+#print axioms Luce.Section6.PowerProfile.left_initial_block_rate_floor
+#print Luce.Section6.PowerProfile.left_insertion_Lp_envelope
+#print axioms Luce.Section6.PowerProfile.left_insertion_Lp_envelope
+#print Luce.Section6.PowerProfile.left_insertion_exponential_moment
+#print axioms Luce.Section6.PowerProfile.left_insertion_exponential_moment
+#print Luce.Section6.PowerProfile.left_insertion_moment_reduction
+#print axioms Luce.Section6.PowerProfile.left_insertion_moment_reduction
+#print Luce.Section6.PowerProfile.left_insertion_moments
+#print axioms Luce.Section6.PowerProfile.left_insertion_moments
+#print Luce.Section6.PowerProfile.left_joint_quantile_window
+#print axioms Luce.Section6.PowerProfile.left_joint_quantile_window
+#print Luce.Section6.PowerProfile.left_marked_rate_time_lower
+#print axioms Luce.Section6.PowerProfile.left_marked_rate_time_lower
+#print Luce.Section6.PowerProfile.left_maximum_root_expectation
+#print axioms Luce.Section6.PowerProfile.left_maximum_root_expectation
+#print Luce.Section6.PowerProfile.left_moderate_insertion_Lp
+#print axioms Luce.Section6.PowerProfile.left_moderate_insertion_Lp
+#print Luce.Section6.PowerProfile.left_moderate_insertion_moment
+#print axioms Luce.Section6.PowerProfile.left_moderate_insertion_moment
+#print Luce.Section6.PowerProfile.left_outside_insertion_Lp
+#print axioms Luce.Section6.PowerProfile.left_outside_insertion_Lp
+#print Luce.Section6.PowerProfile.left_outside_insertion_target_bound
+#print axioms Luce.Section6.PowerProfile.left_outside_insertion_target_bound
+#print Luce.Section6.PowerProfile.left_outside_scaled_rate_bounded
+#print axioms Luce.Section6.PowerProfile.left_outside_scaled_rate_bounded
+#print Luce.Section6.PowerProfile.left_outside_scaled_rate_small
+#print axioms Luce.Section6.PowerProfile.left_outside_scaled_rate_small
+#print Luce.Section6.PowerProfile.left_outside_shifted_insertion_Lp
+#print axioms Luce.Section6.PowerProfile.left_outside_shifted_insertion_Lp
+#print Luce.Section6.PowerProfile.left_populationD_comparable
+#print axioms Luce.Section6.PowerProfile.left_populationD_comparable
+#print Luce.Section6.PowerProfile.left_populationD_quantile_window
+#print axioms Luce.Section6.PowerProfile.left_populationD_quantile_window
+#print Luce.Section6.PowerProfile.left_populationD_relative_error
+#print axioms Luce.Section6.PowerProfile.left_populationD_relative_error
+#print Luce.Section6.PowerProfile.left_populationG_comparison
+#print axioms Luce.Section6.PowerProfile.left_populationG_comparison
+#print Luce.Section6.PowerProfile.left_populationG_envelope
+#print axioms Luce.Section6.PowerProfile.left_populationG_envelope
+#print Luce.Section6.PowerProfile.left_populationG_power_error
+#print axioms Luce.Section6.PowerProfile.left_populationG_power_error
+#print Luce.Section6.PowerProfile.left_populationG_relative_error
+#print axioms Luce.Section6.PowerProfile.left_populationG_relative_error
+#print Luce.Section6.PowerProfile.left_populations_power_error
+#print axioms Luce.Section6.PowerProfile.left_populations_power_error
+#print Luce.Section6.PowerProfile.left_quantile_comparable
+#print axioms Luce.Section6.PowerProfile.left_quantile_comparable
+#print Luce.Section6.PowerProfile.left_quantile_hazard_relative_error
+#print axioms Luce.Section6.PowerProfile.left_quantile_hazard_relative_error
+#print Luce.Section6.PowerProfile.left_quantile_mean_separation
+#print axioms Luce.Section6.PowerProfile.left_quantile_mean_separation
+#print Luce.Section6.PowerProfile.left_quantile_moments
+#print axioms Luce.Section6.PowerProfile.left_quantile_moments
+#print Luce.Section6.PowerProfile.left_quantile_relative_error
+#print axioms Luce.Section6.PowerProfile.left_quantile_relative_error
+#print Luce.Section6.PowerProfile.left_quantile_scaledD_relative_error
+#print axioms Luce.Section6.PowerProfile.left_quantile_scaledD_relative_error
+#print Luce.Section6.PowerProfile.left_quantile_weight_stability
+#print axioms Luce.Section6.PowerProfile.left_quantile_weight_stability
+#print Luce.Section6.PowerProfile.left_rate_time_relative_error
+#print axioms Luce.Section6.PowerProfile.left_rate_time_relative_error
+#print Luce.Section6.PowerProfile.left_remaining_rate_floor
+#print axioms Luce.Section6.PowerProfile.left_remaining_rate_floor
+#print Luce.Section6.PowerProfile.left_remaining_rate_floor_bounded_displacement
+#print axioms Luce.Section6.PowerProfile.left_remaining_rate_floor_bounded_displacement
+#print Luce.Section6.PowerProfile.left_root_log_probability
+#print axioms Luce.Section6.PowerProfile.left_root_log_probability
+#print Luce.Section6.PowerProfile.left_sampled_ordinary_weighted_row
+#print axioms Luce.Section6.PowerProfile.left_sampled_ordinary_weighted_row
+#print Luce.Section6.PowerProfile.left_sampled_rate_relative_error
+#print axioms Luce.Section6.PowerProfile.left_sampled_rate_relative_error
+#print Luce.Section6.PowerProfile.left_sampled_rate_upper
+#print axioms Luce.Section6.PowerProfile.left_sampled_rate_upper
+#print Luce.Section6.PowerProfile.left_sampled_weighted_subset
+#print axioms Luce.Section6.PowerProfile.left_sampled_weighted_subset
+#print Luce.Section6.PowerProfile.left_scaled_populationD_comparison
+#print axioms Luce.Section6.PowerProfile.left_scaled_populationD_comparison
+#print Luce.Section6.PowerProfile.left_scaled_populationD_power_error
+#print axioms Luce.Section6.PowerProfile.left_scaled_populationD_power_error
+#print Luce.Section6.PowerProfile.left_scaled_rate_difference_bound
+#print axioms Luce.Section6.PowerProfile.left_scaled_rate_difference_bound
+#print Luce.Section6.PowerProfile.left_shifted_insertion_moment
+#print axioms Luce.Section6.PowerProfile.left_shifted_insertion_moment
+#print Luce.Section6.PowerProfile.left_survival_envelope
+#print axioms Luce.Section6.PowerProfile.left_survival_envelope
+#print Luce.Section6.PowerProfile.left_unrestricted_insertion_Lp
+#print axioms Luce.Section6.PowerProfile.left_unrestricted_insertion_Lp
+#print Luce.Section6.PowerProfile.left_weight_quantile_concentration
+#print axioms Luce.Section6.PowerProfile.left_weight_quantile_concentration
+#print Luce.Section6.PowerProfile.left_weighted_rate_bound
+#print axioms Luce.Section6.PowerProfile.left_weighted_rate_bound
+#print Luce.Section6.PowerProfile.local_corner_parameters_pos
+#print axioms Luce.Section6.PowerProfile.local_corner_parameters_pos
+#print Luce.Section6.PowerProfile.logarithmic_rate_remainder
+#print axioms Luce.Section6.PowerProfile.logarithmic_rate_remainder
+#print Luce.Section6.PowerProfile.lower_away_right
+#print axioms Luce.Section6.PowerProfile.lower_away_right
+#print Luce.Section6.PowerProfile.off_active_root_expectation
+#print axioms Luce.Section6.PowerProfile.off_active_root_expectation
+#print Luce.Section6.PowerProfile.outside_left_all_weighted_row
+#print axioms Luce.Section6.PowerProfile.outside_left_all_weighted_row
+#print Luce.Section6.PowerProfile.outside_left_manuscript_weighted_row
+#print axioms Luce.Section6.PowerProfile.outside_left_manuscript_weighted_row
+#print Luce.Section6.PowerProfile.outside_left_weighted_insertion_row
+#print axioms Luce.Section6.PowerProfile.outside_left_weighted_insertion_row
+#print Luce.Section6.PowerProfile.outside_right_all_weighted_row
+#print axioms Luce.Section6.PowerProfile.outside_right_all_weighted_row
+#print Luce.Section6.PowerProfile.outside_right_weighted_insertion_row
+#print axioms Luce.Section6.PowerProfile.outside_right_weighted_insertion_row
+#print Luce.Section6.PowerProfile.outside_terminal_insertion_rate_row
+#print axioms Luce.Section6.PowerProfile.outside_terminal_insertion_rate_row
+#print Luce.Section6.PowerProfile.proposition65_sum
+#print axioms Luce.Section6.PowerProfile.proposition65_sum
+#print Luce.Section6.PowerProfile.right_comparison_depth_survival
+#print axioms Luce.Section6.PowerProfile.right_comparison_depth_survival
+#print Luce.Section6.PowerProfile.right_comparison_depth_survival_rate
+#print axioms Luce.Section6.PowerProfile.right_comparison_depth_survival_rate
+#print Luce.Section6.PowerProfile.right_corner_all_targets_weighted_row
+#print axioms Luce.Section6.PowerProfile.right_corner_all_targets_weighted_row
+#print Luce.Section6.PowerProfile.right_corner_insertion_target_bound
+#print axioms Luce.Section6.PowerProfile.right_corner_insertion_target_bound
+#print Luce.Section6.PowerProfile.right_corner_weighted_insertion_row
+#print axioms Luce.Section6.PowerProfile.right_corner_weighted_insertion_row
+#print Luce.Section6.PowerProfile.right_cross_depth_relative_error
+#print axioms Luce.Section6.PowerProfile.right_cross_depth_relative_error
+#print Luce.Section6.PowerProfile.right_cycle_vertex_probability
+#print axioms Luce.Section6.PowerProfile.right_cycle_vertex_probability
+#print Luce.Section6.PowerProfile.right_deletedD_relative_error
+#print axioms Luce.Section6.PowerProfile.right_deletedD_relative_error
+#print Luce.Section6.PowerProfile.right_deletedH_lower_region
+#print axioms Luce.Section6.PowerProfile.right_deletedH_lower_region
+#print Luce.Section6.PowerProfile.right_deletedH_relative_error
+#print axioms Luce.Section6.PowerProfile.right_deletedH_relative_error
+#print Luce.Section6.PowerProfile.right_deleted_insertion_moment
+#print axioms Luce.Section6.PowerProfile.right_deleted_insertion_moment
+#print Luce.Section6.PowerProfile.right_deleted_populations_relative_error
+#print axioms Luce.Section6.PowerProfile.right_deleted_populations_relative_error
+#print Luce.Section6.PowerProfile.right_deleted_quantile_separation
+#print axioms Luce.Section6.PowerProfile.right_deleted_quantile_separation
+#print Luce.Section6.PowerProfile.right_discarded_expectation
+#print axioms Luce.Section6.PowerProfile.right_discarded_expectation
+#print Luce.Section6.PowerProfile.right_discarded_expectation_nat
+#print axioms Luce.Section6.PowerProfile.right_discarded_expectation_nat
+#print Luce.Section6.PowerProfile.right_early_deleted_mean
+#print axioms Luce.Section6.PowerProfile.right_early_deleted_mean
+#print Luce.Section6.PowerProfile.right_early_deleted_mean_real_depth
+#print axioms Luce.Section6.PowerProfile.right_early_deleted_mean_real_depth
+#print Luce.Section6.PowerProfile.right_endpoint_uniform_row
+#print axioms Luce.Section6.PowerProfile.right_endpoint_uniform_row
+#print Luce.Section6.PowerProfile.right_endpoint_weighted_insertion_row
+#print axioms Luce.Section6.PowerProfile.right_endpoint_weighted_insertion_row
+#print Luce.Section6.PowerProfile.right_escaping_path_bound
+#print axioms Luce.Section6.PowerProfile.right_escaping_path_bound
+#print Luce.Section6.PowerProfile.right_eventually_comparable
+#print axioms Luce.Section6.PowerProfile.right_eventually_comparable
+#print Luce.Section6.PowerProfile.right_excursion_cycle_probability
+#print axioms Luce.Section6.PowerProfile.right_excursion_cycle_probability
+#print Luce.Section6.PowerProfile.right_extreme_insertion_Lp
+#print axioms Luce.Section6.PowerProfile.right_extreme_insertion_Lp
+#print Luce.Section6.PowerProfile.right_extreme_survival
+#print axioms Luce.Section6.PowerProfile.right_extreme_survival
+#print Luce.Section6.PowerProfile.right_gap_quantile_window
+#print axioms Luce.Section6.PowerProfile.right_gap_quantile_window
+#print Luce.Section6.PowerProfile.right_gap_start_lower_tail
+#print axioms Luce.Section6.PowerProfile.right_gap_start_lower_tail
+#print Luce.Section6.PowerProfile.right_global_lower_power
+#print axioms Luce.Section6.PowerProfile.right_global_lower_power
+#print Luce.Section6.PowerProfile.right_insertion_Lp_envelope
+#print axioms Luce.Section6.PowerProfile.right_insertion_Lp_envelope
+#print Luce.Section6.PowerProfile.right_insertion_exponential_moment
+#print axioms Luce.Section6.PowerProfile.right_insertion_exponential_moment
+#print Luce.Section6.PowerProfile.right_insertion_moment_reduction
+#print axioms Luce.Section6.PowerProfile.right_insertion_moment_reduction
+#print Luce.Section6.PowerProfile.right_insertion_moments
+#print axioms Luce.Section6.PowerProfile.right_insertion_moments
+#print Luce.Section6.PowerProfile.right_joint_quantile_window
+#print axioms Luce.Section6.PowerProfile.right_joint_quantile_window
+#print Luce.Section6.PowerProfile.right_marked_rate_time_lower
+#print axioms Luce.Section6.PowerProfile.right_marked_rate_time_lower
+#print Luce.Section6.PowerProfile.right_maximum_root_expectation
+#print axioms Luce.Section6.PowerProfile.right_maximum_root_expectation
+#print Luce.Section6.PowerProfile.right_moderate_insertion_Lp
+#print axioms Luce.Section6.PowerProfile.right_moderate_insertion_Lp
+#print Luce.Section6.PowerProfile.right_moderate_insertion_moment
+#print axioms Luce.Section6.PowerProfile.right_moderate_insertion_moment
+#print Luce.Section6.PowerProfile.right_outside_insertion_Lp
+#print axioms Luce.Section6.PowerProfile.right_outside_insertion_Lp
+#print Luce.Section6.PowerProfile.right_outside_insertion_envelope
+#print axioms Luce.Section6.PowerProfile.right_outside_insertion_envelope
+#print Luce.Section6.PowerProfile.right_outside_insertion_inverse_row
+#print axioms Luce.Section6.PowerProfile.right_outside_insertion_inverse_row
+#print Luce.Section6.PowerProfile.right_outside_insertion_target_bound
+#print axioms Luce.Section6.PowerProfile.right_outside_insertion_target_bound
+#print Luce.Section6.PowerProfile.right_outside_survival
+#print axioms Luce.Section6.PowerProfile.right_outside_survival
+#print Luce.Section6.PowerProfile.right_outside_targets_scaled_row
+#print axioms Luce.Section6.PowerProfile.right_outside_targets_scaled_row
+#print Luce.Section6.PowerProfile.right_outside_targets_weighted_row
+#print axioms Luce.Section6.PowerProfile.right_outside_targets_weighted_row
+#print Luce.Section6.PowerProfile.right_populationD_comparable
+#print axioms Luce.Section6.PowerProfile.right_populationD_comparable
+#print Luce.Section6.PowerProfile.right_populationD_quantile_window
+#print axioms Luce.Section6.PowerProfile.right_populationD_quantile_window
+#print Luce.Section6.PowerProfile.right_populationD_relative_error
+#print axioms Luce.Section6.PowerProfile.right_populationD_relative_error
+#print Luce.Section6.PowerProfile.right_populationH_comparison
+#print axioms Luce.Section6.PowerProfile.right_populationH_comparison
+#print Luce.Section6.PowerProfile.right_populationH_error
+#print axioms Luce.Section6.PowerProfile.right_populationH_error
+#print Luce.Section6.PowerProfile.right_populationH_power_error
+#print axioms Luce.Section6.PowerProfile.right_populationH_power_error
+#print Luce.Section6.PowerProfile.right_populationH_relative_error
+#print axioms Luce.Section6.PowerProfile.right_populationH_relative_error
+#print Luce.Section6.PowerProfile.right_quantile_comparable
+#print axioms Luce.Section6.PowerProfile.right_quantile_comparable
+#print Luce.Section6.PowerProfile.right_quantile_hazard_relative_error
+#print axioms Luce.Section6.PowerProfile.right_quantile_hazard_relative_error
+#print Luce.Section6.PowerProfile.right_quantile_mean_separation
+#print axioms Luce.Section6.PowerProfile.right_quantile_mean_separation
+#print Luce.Section6.PowerProfile.right_quantile_moments
+#print axioms Luce.Section6.PowerProfile.right_quantile_moments
+#print Luce.Section6.PowerProfile.right_quantile_relative_error
+#print axioms Luce.Section6.PowerProfile.right_quantile_relative_error
+#print Luce.Section6.PowerProfile.right_quantile_scaledD_relative_error
+#print axioms Luce.Section6.PowerProfile.right_quantile_scaledD_relative_error
+#print Luce.Section6.PowerProfile.right_quantile_weight_stability
+#print axioms Luce.Section6.PowerProfile.right_quantile_weight_stability
+#print Luce.Section6.PowerProfile.right_rate_remainder
+#print axioms Luce.Section6.PowerProfile.right_rate_remainder
+#print Luce.Section6.PowerProfile.right_rate_time_relative_error
+#print axioms Luce.Section6.PowerProfile.right_rate_time_relative_error
+#print Luce.Section6.PowerProfile.right_remaining_rate_floor
+#print axioms Luce.Section6.PowerProfile.right_remaining_rate_floor
+#print Luce.Section6.PowerProfile.right_root_log_probability
+#print axioms Luce.Section6.PowerProfile.right_root_log_probability
+#print Luce.Section6.PowerProfile.right_sampled_ordinary_weighted_row
+#print axioms Luce.Section6.PowerProfile.right_sampled_ordinary_weighted_row
+#print Luce.Section6.PowerProfile.right_sampled_rate_floor
+#print axioms Luce.Section6.PowerProfile.right_sampled_rate_floor
+#print Luce.Section6.PowerProfile.right_sampled_rate_relative_error
+#print axioms Luce.Section6.PowerProfile.right_sampled_rate_relative_error
+#print Luce.Section6.PowerProfile.right_sampled_rate_upper
+#print axioms Luce.Section6.PowerProfile.right_sampled_rate_upper
+#print Luce.Section6.PowerProfile.right_sampled_weighted_subset
+#print axioms Luce.Section6.PowerProfile.right_sampled_weighted_subset
+#print Luce.Section6.PowerProfile.right_scaled_populationD_comparison
+#print axioms Luce.Section6.PowerProfile.right_scaled_populationD_comparison
+#print Luce.Section6.PowerProfile.right_scaled_populationD_power_error
+#print axioms Luce.Section6.PowerProfile.right_scaled_populationD_power_error
+#print Luce.Section6.PowerProfile.right_scaled_rate_difference_bound
+#print axioms Luce.Section6.PowerProfile.right_scaled_rate_difference_bound
+#print Luce.Section6.PowerProfile.right_shifted_insertion_moment
+#print axioms Luce.Section6.PowerProfile.right_shifted_insertion_moment
+#print Luce.Section6.PowerProfile.right_source_full_weighted_insertion_row
+#print axioms Luce.Section6.PowerProfile.right_source_full_weighted_insertion_row
+#print Luce.Section6.PowerProfile.right_survival_difference_bound
+#print axioms Luce.Section6.PowerProfile.right_survival_difference_bound
+#print Luce.Section6.PowerProfile.right_survival_envelope
+#print axioms Luce.Section6.PowerProfile.right_survival_envelope
+#print Luce.Section6.PowerProfile.right_unrestricted_shifted_moment
+#print axioms Luce.Section6.PowerProfile.right_unrestricted_shifted_moment
+#print Luce.Section6.PowerProfile.right_weight_quantile_concentration
+#print axioms Luce.Section6.PowerProfile.right_weight_quantile_concentration
+#print Luce.Section6.PowerProfile.sampled_lower_outside_right
+#print axioms Luce.Section6.PowerProfile.sampled_lower_outside_right
+#print Luce.Section6.PowerProfile.sampled_rate_polynomial_upper
+#print axioms Luce.Section6.PowerProfile.sampled_rate_polynomial_upper
+#print Luce.Section6.PowerProfile.sampled_upper_outside_left
+#print axioms Luce.Section6.PowerProfile.sampled_upper_outside_left
+#print Luce.Section6.PowerProfile.small_time_populationG
+#print axioms Luce.Section6.PowerProfile.small_time_populationG
+#print Luce.Section6.PowerProfile.terminal_inactive_right_envelope
+#print axioms Luce.Section6.PowerProfile.terminal_inactive_right_envelope
+#print Luce.Section6.PowerProfile.terminal_outside_right_Lp
+#print axioms Luce.Section6.PowerProfile.terminal_outside_right_Lp
+#print Luce.Section6.PowerProfile.terminal_right_depth_Lp
+#print axioms Luce.Section6.PowerProfile.terminal_right_depth_Lp
+#print Luce.Section6.PowerProfile.totalCoefficient_pos65
+#print axioms Luce.Section6.PowerProfile.totalCoefficient_pos65
+#print Luce.Section6.PowerProfile.upper_away_left
+#print axioms Luce.Section6.PowerProfile.upper_away_left
+#print Luce.Section6.RapidError65.add
+#print axioms Luce.Section6.RapidError65.add
+#print Luce.Section6.RapidError65.congr
+#print axioms Luce.Section6.RapidError65.congr
+#print Luce.Section6.RapidError65.const_mul
+#print axioms Luce.Section6.RapidError65.const_mul
+#print Luce.Section6.RapidError65.mul_growth
+#print axioms Luce.Section6.RapidError65.mul_growth
+#print Luce.Section6.RapidError65.sum
+#print axioms Luce.Section6.RapidError65.sum
+#print Luce.Section6.RapidError65.tendsto
+#print axioms Luce.Section6.RapidError65.tendsto
+#print Luce.Section6.RightBehavior.eventually_upper
+#print axioms Luce.Section6.RightBehavior.eventually_upper
+#print Luce.Section6.TraceDensity68.closedPath_integrable
+#print axioms Luce.Section6.TraceDensity68.closedPath_integrable
+#print Luce.Section6.TraceDensity68.closedPath_integral
+#print axioms Luce.Section6.TraceDensity68.closedPath_integral
+#print Luce.Section6.TraceDensity68.continuous_root_trace
+#print axioms Luce.Section6.TraceDensity68.continuous_root_trace
+#print Luce.Section6.TraceDensity68.openPath_integral
+#print axioms Luce.Section6.TraceDensity68.openPath_integral
+#print Luce.Section6.absolute_error_of_relative
+#print axioms Luce.Section6.absolute_error_of_relative
+#print Luce.Section6.actual_normalized_product_error
+#print axioms Luce.Section6.actual_normalized_product_error
+#print Luce.Section6.affine_power65
+#print axioms Luce.Section6.affine_power65
+#print Luce.Section6.affine_product_integral65
+#print axioms Luce.Section6.affine_product_integral65
+#print Luce.Section6.antitoneOn_clip_max
+#print axioms Luce.Section6.antitoneOn_clip_max
+#print Luce.Section6.antitone_cell_sum_error
+#print axioms Luce.Section6.antitone_cell_sum_error
+#print Luce.Section6.antitone_depth_sum_le
+#print axioms Luce.Section6.antitone_depth_sum_le
+#print Luce.Section6.antitone_negative_power_quantile_error
+#print axioms Luce.Section6.antitone_negative_power_quantile_error
+#print Luce.Section6.antitone_quantile_smallness
+#print axioms Luce.Section6.antitone_quantile_smallness
+#print Luce.Section6.antitone_sample_average_error
+#print axioms Luce.Section6.antitone_sample_average_error
+#print Luce.Section6.arrivalQuantile_le_iff
+#print axioms Luce.Section6.arrivalQuantile_le_iff
+#print Luce.Section6.arrivalQuantile_nonneg
+#print axioms Luce.Section6.arrivalQuantile_nonneg
+#print Luce.Section6.arrivalQuantile_populationG
+#print axioms Luce.Section6.arrivalQuantile_populationG
+#print Luce.Section6.arrivalQuantile_pos
+#print axioms Luce.Section6.arrivalQuantile_pos
+#print Luce.Section6.bernoulli_mgf_upper
+#print axioms Luce.Section6.bernoulli_mgf_upper
+#print Luce.Section6.bernoulli_relative_lower_tail
+#print axioms Luce.Section6.bernoulli_relative_lower_tail
+#print Luce.Section6.bernoulli_relative_upper_tail
+#print axioms Luce.Section6.bernoulli_relative_upper_tail
+#print Luce.Section6.bernoulli_sum_exp_integrable
+#print axioms Luce.Section6.bernoulli_sum_exp_integrable
+#print Luce.Section6.bernoulli_upper_tail_of_mean_le_half
+#print axioms Luce.Section6.bernoulli_upper_tail_of_mean_le_half
+#print Luce.Section6.bounded_terminal_logarithmic_kernel
+#print axioms Luce.Section6.bounded_terminal_logarithmic_kernel
+#print Luce.Section6.categoryAssignmentOfCollection_collectionOfAssignment
+#print axioms Luce.Section6.categoryAssignmentOfCollection_collectionOfAssignment
+#print Luce.Section6.categoryCollectionOfAssignment_assignmentOfCollection
+#print axioms Luce.Section6.categoryCollectionOfAssignment_assignmentOfCollection
+#print Luce.Section6.categorySetRootDepth_cycle65
+#print axioms Luce.Section6.categorySetRootDepth_cycle65
+#print Luce.Section6.category_assignment_card
+#print axioms Luce.Section6.category_assignment_card
+#print Luce.Section6.category_assignment_orbit_set
+#print axioms Luce.Section6.category_assignment_orbit_set
+#print Luce.Section6.category_collection_block_mem
+#print axioms Luce.Section6.category_collection_block_mem
+#print Luce.Section6.category_collection_card
+#print axioms Luce.Section6.category_collection_card
+#print Luce.Section6.category_collection_disjoint
+#print axioms Luce.Section6.category_collection_disjoint
+#print Luce.Section6.category_collection_distinct
+#print axioms Luce.Section6.category_collection_distinct
+#print Luce.Section6.category_core_actual_sum_reindex
+#print axioms Luce.Section6.category_core_actual_sum_reindex
+#print Luce.Section6.category_core_enumeration_injective
+#print axioms Luce.Section6.category_core_enumeration_injective
+#print Luce.Section6.category_core_enumeration_rank_event
+#print axioms Luce.Section6.category_core_enumeration_rank_event
+#print Luce.Section6.category_core_enumeration_restrictions
+#print axioms Luce.Section6.category_core_enumeration_restrictions
+#print Luce.Section6.category_core_family_equiv_apply
+#print axioms Luce.Section6.category_core_family_equiv_apply
+#print Luce.Section6.category_core_vertex_equiv_rotate
+#print axioms Luce.Section6.category_core_vertex_equiv_rotate
+#print Luce.Section6.category_factorial_eq_assignment_card
+#print axioms Luce.Section6.category_factorial_eq_assignment_card
+#print Luce.Section6.category_factorial_eq_assignment_sum
+#print axioms Luce.Section6.category_factorial_eq_assignment_sum
+#print Luce.Section6.category_factorial_expectation_eq_rank_sum
+#print axioms Luce.Section6.category_factorial_expectation_eq_rank_sum
+#print Luce.Section6.category_root_factor_pos
+#print axioms Luce.Section6.category_root_factor_pos
+#print Luce.Section6.category_roots_card
+#print axioms Luce.Section6.category_roots_card
+#print Luce.Section6.category_rotation_factor_ge_one
+#print axioms Luce.Section6.category_rotation_factor_ge_one
+#print Luce.Section6.category_set_root_eq_tuple_root
+#print axioms Luce.Section6.category_set_root_eq_tuple_root
+#print Luce.Section6.category_slot_product
+#print axioms Luce.Section6.category_slot_product
+#print Luce.Section6.centeredPoissonMoment65_expansion
+#print axioms Luce.Section6.centeredPoissonMoment65_expansion
+#print Luce.Section6.centeredPoissonMoment65_rec
+#print axioms Luce.Section6.centeredPoissonMoment65_rec
+#print Luce.Section6.centered_polynomial_expansion65
+#print axioms Luce.Section6.centered_polynomial_expansion65
+#print Luce.Section6.centered_power_expansion65
+#print axioms Luce.Section6.centered_power_expansion65
+#print Luce.Section6.charFun_derivative_moment_bound
+#print axioms Luce.Section6.charFun_derivative_moment_bound
+#print Luce.Section6.charFun_momentTaylor_bound
+#print axioms Luce.Section6.charFun_momentTaylor_bound
+#print Luce.Section6.charFun_one_tendsto_of_moments
+#print axioms Luce.Section6.charFun_one_tendsto_of_moments
+#print Luce.Section6.characteristic_integral_l1_bound65
+#print axioms Luce.Section6.characteristic_integral_l1_bound65
+#print Luce.Section6.clippedSpan68_bounds
+#print axioms Luce.Section6.clippedSpan68_bounds
+#print Luce.Section6.clippedSpan68_full
+#print axioms Luce.Section6.clippedSpan68_full
+#print Luce.Section6.clipped_unimodal_identity
+#print axioms Luce.Section6.clipped_unimodal_identity
+#print Luce.Section6.clockArrivalIndicator_independent
+#print axioms Luce.Section6.clockArrivalIndicator_independent
+#print Luce.Section6.clockArrivalIndicator_zero_one
+#print axioms Luce.Section6.clockArrivalIndicator_zero_one
+#print Luce.Section6.clockBeforeCount_le_size
+#print axioms Luce.Section6.clockBeforeCount_le_size
+#print Luce.Section6.closedLogCycleWeight_const_mul68
+#print axioms Luce.Section6.closedLogCycleWeight_const_mul68
+#print Luce.Section6.closedLogCycleWeight_continuous68
+#print axioms Luce.Section6.closedLogCycleWeight_continuous68
+#print Luce.Section6.closedLogCycleWeight_eq_openPath
+#print axioms Luce.Section6.closedLogCycleWeight_eq_openPath
+#print Luce.Section6.closedLogCycleWeight_nonneg68
+#print axioms Luce.Section6.closedLogCycleWeight_nonneg68
+#print Luce.Section6.closedLogCycleWeight_translate
+#print axioms Luce.Section6.closedLogCycleWeight_translate
+#print Luce.Section6.closed_cycle_perturbation68
+#print axioms Luce.Section6.closed_cycle_perturbation68
+#print Luce.Section6.collisionCycleWeight_cons
+#print axioms Luce.Section6.collisionCycleWeight_cons
+#print Luce.Section6.collisionCycleWeight_nonneg
+#print axioms Luce.Section6.collisionCycleWeight_nonneg
+#print Luce.Section6.collisionCycleWeight_rotate
+#print axioms Luce.Section6.collisionCycleWeight_rotate
+#print Luce.Section6.collisionPairSum_mono
+#print axioms Luce.Section6.collisionPairSum_mono
+#print Luce.Section6.collisionUnionSum_mono
+#print axioms Luce.Section6.collisionUnionSum_mono
+#print Luce.Section6.collision_card_complement
+#print axioms Luce.Section6.collision_card_complement
+#print Luce.Section6.collision_complement_product_le
+#print axioms Luce.Section6.collision_complement_product_le
+#print Luce.Section6.collision_core_cycle_test
+#print axioms Luce.Section6.collision_core_cycle_test
+#print Luce.Section6.collision_core_cycle_trace
+#print axioms Luce.Section6.collision_core_cycle_trace
+#print Luce.Section6.collision_core_cycle_two_test
+#print axioms Luce.Section6.collision_core_cycle_two_test
+#print Luce.Section6.collision_core_depth_sum_le
+#print axioms Luce.Section6.collision_core_depth_sum_le
+#print Luce.Section6.collision_core_harmonic
+#print axioms Luce.Section6.collision_core_harmonic
+#print Luce.Section6.collision_core_matrix_row
+#print axioms Luce.Section6.collision_core_matrix_row
+#print Luce.Section6.collision_core_square_sum
+#print axioms Luce.Section6.collision_core_square_sum
+#print Luce.Section6.collision_cycle_test_bound
+#print axioms Luce.Section6.collision_cycle_test_bound
+#print Luce.Section6.collision_cycle_test_reindex
+#print axioms Luce.Section6.collision_cycle_test_reindex
+#print Luce.Section6.collision_cycle_test_zero_bound
+#print axioms Luce.Section6.collision_cycle_test_zero_bound
+#print Luce.Section6.collision_cycle_two_test_bound
+#print axioms Luce.Section6.collision_cycle_two_test_bound
+#print Luce.Section6.collision_cycle_two_test_zero_bound
+#print axioms Luce.Section6.collision_cycle_two_test_zero_bound
+#print Luce.Section6.collision_family_pair_bound
+#print axioms Luce.Section6.collision_family_pair_bound
+#print Luce.Section6.collision_log_weight68
+#print axioms Luce.Section6.collision_log_weight68
+#print Luce.Section6.collision_nearby_card
+#print axioms Luce.Section6.collision_nearby_card
+#print Luce.Section6.collision_nearby_reciprocal_sum
+#print axioms Luce.Section6.collision_nearby_reciprocal_sum
+#print Luce.Section6.collision_pair_sum_test
+#print axioms Luce.Section6.collision_pair_sum_test
+#print Luce.Section6.collision_path_test_bound
+#print axioms Luce.Section6.collision_path_test_bound
+#print Luce.Section6.collision_prod_split
+#print axioms Luce.Section6.collision_prod_split
+#print Luce.Section6.collision_product_test_one
+#print axioms Luce.Section6.collision_product_test_one
+#print Luce.Section6.collision_product_test_two
+#print axioms Luce.Section6.collision_product_test_two
+#print Luce.Section6.collision_same_corner_distance
+#print axioms Luce.Section6.collision_same_corner_distance
+#print Luce.Section6.collision_slot_card_le
+#print axioms Luce.Section6.collision_slot_card_le
+#print Luce.Section6.collision_two_complement_product_le
+#print axioms Luce.Section6.collision_two_complement_product_le
+#print Luce.Section6.collision_two_test_tensor
+#print axioms Luce.Section6.collision_two_test_tensor
+#print Luce.Section6.collision_union_le_card_sq
+#print axioms Luce.Section6.collision_union_le_card_sq
+#print Luce.Section6.collision_varying_matrices_pair_bound
+#print axioms Luce.Section6.collision_varying_matrices_pair_bound
+#print Luce.Section6.common_decay_parameters
+#print axioms Luce.Section6.common_decay_parameters
+#print Luce.Section6.comparable_depth_rpow_bounds
+#print axioms Luce.Section6.comparable_depth_rpow_bounds
+#print Luce.Section6.complex_tendsto_of_finite_approximations
+#print axioms Luce.Section6.complex_tendsto_of_finite_approximations
+#print Luce.Section6.continuousOn_reflect
+#print axioms Luce.Section6.continuousOn_reflect
+#print Luce.Section6.continuous_box_trace_bound68
+#print axioms Luce.Section6.continuous_box_trace_bound68
+#print Luce.Section6.continuous_box_trace_integral68
+#print axioms Luce.Section6.continuous_box_trace_integral68
+#print Luce.Section6.continuous_gapStartFromNormalized
+#print axioms Luce.Section6.continuous_gapStartFromNormalized
+#print Luce.Section6.continuous_root_first_coordinate
+#print axioms Luce.Section6.continuous_root_first_coordinate
+#print Luce.Section6.continuous_skeleton_start
+#print axioms Luce.Section6.continuous_skeleton_start
+#print Luce.Section6.continuous_trace_first_coordinate
+#print axioms Luce.Section6.continuous_trace_first_coordinate
+#print Luce.Section6.continuous_trace_first_coordinate_Ioc68
+#print axioms Luce.Section6.continuous_trace_first_coordinate_Ioc68
+#print Luce.Section6.convolutionDensity_bound
+#print axioms Luce.Section6.convolutionDensity_bound
+#print Luce.Section6.convolutionDensity_integrable
+#print axioms Luce.Section6.convolutionDensity_integrable
+#print Luce.Section6.convolutionDensity_integral
+#print axioms Luce.Section6.convolutionDensity_integral
+#print Luce.Section6.convolutionDensity_nonneg
+#print axioms Luce.Section6.convolutionDensity_nonneg
+#print Luce.Section6.convolutionDensity_pos65
+#print axioms Luce.Section6.convolutionDensity_pos65
+#print Luce.Section6.convolution_bound
+#print axioms Luce.Section6.convolution_bound
+#print Luce.Section6.convolution_continuous
+#print axioms Luce.Section6.convolution_continuous
+#print Luce.Section6.convolution_integrable
+#print axioms Luce.Section6.convolution_integrable
+#print Luce.Section6.convolution_nonneg
+#print axioms Luce.Section6.convolution_nonneg
+#print Luce.Section6.coordinate_mul_gap_product
+#print axioms Luce.Section6.coordinate_mul_gap_product
+#print Luce.Section6.coreCategoryCount_eq_filtered65
+#print axioms Luce.Section6.coreCategoryCount_eq_filtered65
+#print Luce.Section6.coreCount_le_windowCount65
+#print axioms Luce.Section6.coreCount_le_windowCount65
+#print Luce.Section6.coreCount_meanApprox65
+#print axioms Luce.Section6.coreCount_meanApprox65
+#print Luce.Section6.core_category_cycle_sets_disjoint
+#print axioms Luce.Section6.core_category_cycle_sets_disjoint
+#print Luce.Section6.core_category_expectation_eq_family_sum
+#print axioms Luce.Section6.core_category_expectation_eq_family_sum
+#print Luce.Section6.core_category_expectation_eq_rank_sum
+#print axioms Luce.Section6.core_category_expectation_eq_rank_sum
+#print Luce.Section6.core_category_ideal_product_eq_family_sum
+#print axioms Luce.Section6.core_category_ideal_product_eq_family_sum
+#print Luce.Section6.core_category_mean_eq_tuple_sum
+#print axioms Luce.Section6.core_category_mean_eq_tuple_sum
+#print Luce.Section6.core_centered_moment_rapid65
+#print axioms Luce.Section6.core_centered_moment_rapid65
+#print Luce.Section6.core_error_tendsto65
+#print axioms Luce.Section6.core_error_tendsto65
+#print Luce.Section6.core_factorial_rapid65
+#print axioms Luce.Section6.core_factorial_rapid65
+#print Luce.Section6.core_family_actual_domination
+#print axioms Luce.Section6.core_family_actual_domination
+#print Luce.Section6.core_family_actual_nonneg
+#print axioms Luce.Section6.core_family_actual_nonneg
+#print Luce.Section6.core_family_bad_sum_bound
+#print axioms Luce.Section6.core_family_bad_sum_bound
+#print Luce.Section6.core_family_block_injective
+#print axioms Luce.Section6.core_family_block_injective
+#print Luce.Section6.core_family_comparison_of_bounds
+#print axioms Luce.Section6.core_family_comparison_of_bounds
+#print Luce.Section6.core_family_ideal_le_product
+#print axioms Luce.Section6.core_family_ideal_le_product
+#print Luce.Section6.core_family_ideal_nonneg
+#print axioms Luce.Section6.core_family_ideal_nonneg
+#print Luce.Section6.core_family_ideal_of_injective
+#print axioms Luce.Section6.core_family_ideal_of_injective
+#print Luce.Section6.core_family_ideal_sum_factors
+#print axioms Luce.Section6.core_family_ideal_sum_factors
+#print Luce.Section6.core_family_injective_of_separated
+#print axioms Luce.Section6.core_family_injective_of_separated
+#print Luce.Section6.core_ideal_category_sum_reindex
+#print axioms Luce.Section6.core_ideal_category_sum_reindex
+#print Luce.Section6.core_log_ratio_error65
+#print axioms Luce.Section6.core_log_ratio_error65
+#print Luce.Section6.core_normalized_finite_moments65
+#print axioms Luce.Section6.core_normalized_finite_moments65
+#print Luce.Section6.core_normalized_mixed_moments65
+#print axioms Luce.Section6.core_normalized_mixed_moments65
+#print Luce.Section6.core_polynomial_rapid65
+#print axioms Luce.Section6.core_polynomial_rapid65
+#print Luce.Section6.core_potential_row
+#print axioms Luce.Section6.core_potential_row
+#print Luce.Section6.core_target_mixed_moments65
+#print axioms Luce.Section6.core_target_mixed_moments65
+#print Luce.Section6.core_tuple_labels_injective_iff
+#print axioms Luce.Section6.core_tuple_labels_injective_iff
+#print Luce.Section6.cornerCoefficient_logDensity68
+#print axioms Luce.Section6.cornerCoefficient_logDensity68
+#print Luce.Section6.cornerCoefficient_pos65
+#print axioms Luce.Section6.cornerCoefficient_pos65
+#print Luce.Section6.cornerCoreCount_filtered65
+#print axioms Luce.Section6.cornerCoreCount_filtered65
+#print Luce.Section6.cornerDistance_injective67
+#print axioms Luce.Section6.cornerDistance_injective67
+#print Luce.Section6.cornerDistance_le_population65
+#print axioms Luce.Section6.cornerDistance_le_population65
+#print Luce.Section6.cornerDistance_pos67
+#print axioms Luce.Section6.cornerDistance_pos67
+#print Luce.Section6.cornerDistance_positive
+#print axioms Luce.Section6.cornerDistance_positive
+#print Luce.Section6.cornerLogDensity68_differentiable
+#print axioms Luce.Section6.cornerLogDensity68_differentiable
+#print Luce.Section6.cornerLogDensity68_envelope
+#print axioms Luce.Section6.cornerLogDensity68_envelope
+#print Luce.Section6.cornerLogDensity68_smooth_envelope
+#print axioms Luce.Section6.cornerLogDensity68_smooth_envelope
+#print Luce.Section6.cornerLogDensity68_traceDensity
+#print axioms Luce.Section6.cornerLogDensity68_traceDensity
+#print Luce.Section6.cornerQuantileTime_positive
+#print axioms Luce.Section6.cornerQuantileTime_positive
+#print Luce.Section6.corner_potential_pos
+#print axioms Luce.Section6.corner_potential_pos
+#print Luce.Section6.corner_potential_quotient
+#print axioms Luce.Section6.corner_potential_quotient
+#print Luce.Section6.corner_potential_ratio_power
+#print axioms Luce.Section6.corner_potential_ratio_power
+#print Luce.Section6.corner_weighted_row_to_potential
+#print axioms Luce.Section6.corner_weighted_row_to_potential
+#print Luce.Section6.countApprox65_of_bound
+#print axioms Luce.Section6.countApprox65_of_bound
+#print Luce.Section6.countApprox65_of_const_bound
+#print axioms Luce.Section6.countApprox65_of_const_bound
+#print Luce.Section6.covered_filter_card65
+#print axioms Luce.Section6.covered_filter_card65
+#print Luce.Section6.critical
+#print axioms Luce.Section6.critical
+#print Luce.Section6.criticalArrivalCount_measurable
+#print axioms Luce.Section6.criticalArrivalCount_measurable
+#print Luce.Section6.critical_arrival_count_card
+#print axioms Luce.Section6.critical_arrival_count_card
+#print Luce.Section6.critical_arrival_linear_error
+#print axioms Luce.Section6.critical_arrival_linear_error
+#print Luce.Section6.critical_arrival_lower_tail
+#print axioms Luce.Section6.critical_arrival_lower_tail
+#print Luce.Section6.critical_arrival_upper_tail
+#print axioms Luce.Section6.critical_arrival_upper_tail
+#print Luce.Section6.critical_arrivals_le_rank
+#print axioms Luce.Section6.critical_arrivals_le_rank
+#print Luce.Section6.critical_block_log_lower
+#print axioms Luce.Section6.critical_block_log_lower
+#print Luce.Section6.critical_block_square_sum
+#print axioms Luce.Section6.critical_block_square_sum
+#print Luce.Section6.critical_block_sum
+#print axioms Luce.Section6.critical_block_sum
+#print Luce.Section6.critical_contractCheck
+#print axioms Luce.Section6.critical_contractCheck
+#print Luce.Section6.critical_corner_choice
+#print axioms Luce.Section6.critical_corner_choice
+#print Luce.Section6.critical_cutoffs_eventually
+#print axioms Luce.Section6.critical_cutoffs_eventually
+#print Luce.Section6.critical_cycle_count_complement
+#print axioms Luce.Section6.critical_cycle_count_complement
+#print Luce.Section6.critical_cycle_count_le
+#print axioms Luce.Section6.critical_cycle_count_le
+#print Luce.Section6.critical_cycle_count_split
+#print axioms Luce.Section6.critical_cycle_count_split
+#print Luce.Section6.critical_cycle_decay_pos
+#print axioms Luce.Section6.critical_cycle_decay_pos
+#print Luce.Section6.critical_cycle_expectation_le
+#print axioms Luce.Section6.critical_cycle_expectation_le
+#print Luce.Section6.critical_cycle_kernel_bound
+#print axioms Luce.Section6.critical_cycle_kernel_bound
+#print Luce.Section6.critical_cycle_one_drop
+#print axioms Luce.Section6.critical_cycle_one_drop
+#print Luce.Section6.critical_deleted_harmonic_lower
+#print axioms Luce.Section6.critical_deleted_harmonic_lower
+#print Luce.Section6.critical_drawn_card
+#print axioms Luce.Section6.critical_drawn_card
+#print Luce.Section6.critical_drawn_labels
+#print axioms Luce.Section6.critical_drawn_labels
+#print Luce.Section6.critical_early_sum_bound
+#print axioms Luce.Section6.critical_early_sum_bound
+#print Luce.Section6.critical_exceptional_weight_absorption
+#print axioms Luce.Section6.critical_exceptional_weight_absorption
+#print Luce.Section6.critical_full_count
+#print axioms Luce.Section6.critical_full_count
+#print Luce.Section6.critical_full_observation
+#print axioms Luce.Section6.critical_full_observation
+#print Luce.Section6.critical_full_probability
+#print axioms Luce.Section6.critical_full_probability
+#print Luce.Section6.critical_harmonic_tail_lower
+#print axioms Luce.Section6.critical_harmonic_tail_lower
+#print Luce.Section6.critical_interior_contractCheck
+#print axioms Luce.Section6.critical_interior_contractCheck
+#print Luce.Section6.critical_inv_sq_integral
+#print axioms Luce.Section6.critical_inv_sq_integral
+#print Luce.Section6.critical_inverse_square_sum
+#print axioms Luce.Section6.critical_inverse_square_sum
+#print Luce.Section6.critical_label_image
+#print axioms Luce.Section6.critical_label_image
+#print Luce.Section6.critical_log_cycle_exponential
+#print axioms Luce.Section6.critical_log_cycle_exponential
+#print Luce.Section6.critical_log_error_power_bound
+#print axioms Luce.Section6.critical_log_error_power_bound
+#print Luce.Section6.critical_log_error_sum
+#print axioms Luce.Section6.critical_log_error_sum
+#print Luce.Section6.critical_log_primitive_deriv
+#print axioms Luce.Section6.critical_log_primitive_deriv
+#print Luce.Section6.critical_log_root_sum
+#print axioms Luce.Section6.critical_log_root_sum
+#print Luce.Section6.critical_log_summand_deriv
+#print axioms Luce.Section6.critical_log_summand_deriv
+#print Luce.Section6.critical_loglog_tendsto
+#print axioms Luce.Section6.critical_loglog_tendsto
+#print Luce.Section6.critical_main_block_error_sum
+#print axioms Luce.Section6.critical_main_block_error_sum
+#print Luce.Section6.critical_main_error_sum
+#print axioms Luce.Section6.critical_main_error_sum
+#print Luce.Section6.critical_midpoint_contractCheck
+#print axioms Luce.Section6.critical_midpoint_contractCheck
+#print Luce.Section6.critical_missing_expectation_upper
+#print axioms Luce.Section6.critical_missing_expectation_upper
+#print Luce.Section6.critical_path_variation_sum
+#print axioms Luce.Section6.critical_path_variation_sum
+#print Luce.Section6.critical_pole_arrival_integral
+#print axioms Luce.Section6.critical_pole_arrival_integral
+#print Luce.Section6.critical_pole_arrival_intervalIntegrable
+#print axioms Luce.Section6.critical_pole_arrival_intervalIntegrable
+#print Luce.Section6.critical_pole_weight_integral
+#print axioms Luce.Section6.critical_pole_weight_integral
+#print Luce.Section6.critical_pole_weight_intervalIntegrable
+#print axioms Luce.Section6.critical_pole_weight_intervalIntegrable
+#print Luce.Section6.critical_predictable_error
+#print axioms Luce.Section6.critical_predictable_error
+#print Luce.Section6.critical_predictable_integral_error
+#print axioms Luce.Section6.critical_predictable_integral_error
+#print Luce.Section6.critical_predictable_sum_expectation
+#print axioms Luce.Section6.critical_predictable_sum_expectation
+#print Luce.Section6.critical_probability_reference_error
+#print axioms Luce.Section6.critical_probability_reference_error
+#print Luce.Section6.critical_probe_arrival_lower
+#print axioms Luce.Section6.critical_probe_arrival_lower
+#print Luce.Section6.critical_probe_arrival_upper
+#print axioms Luce.Section6.critical_probe_arrival_upper
+#print Luce.Section6.critical_probe_log
+#print axioms Luce.Section6.critical_probe_log
+#print Luce.Section6.critical_raceDraw_eq_rank_symm
+#print axioms Luce.Section6.critical_raceDraw_eq_rank_symm
+#print Luce.Section6.critical_range_decay
+#print axioms Luce.Section6.critical_range_decay
+#print Luce.Section6.critical_rank_le_arrivals
+#print axioms Luce.Section6.critical_rank_le_arrivals
+#print Luce.Section6.critical_reciprocal_error
+#print axioms Luce.Section6.critical_reciprocal_error
+#print Luce.Section6.critical_reference_error_split
+#print axioms Luce.Section6.critical_reference_error_split
+#print Luce.Section6.critical_reference_mass_bound
+#print axioms Luce.Section6.critical_reference_mass_bound
+#print Luce.Section6.critical_reference_row_bounds
+#print axioms Luce.Section6.critical_reference_row_bounds
+#print Luce.Section6.critical_reference_row_mass
+#print axioms Luce.Section6.critical_reference_row_mass
+#print Luce.Section6.critical_reference_row_sum
+#print axioms Luce.Section6.critical_reference_row_sum
+#print Luce.Section6.critical_reference_sum_integral
+#print axioms Luce.Section6.critical_reference_sum_integral
+#print Luce.Section6.critical_remaining_expectation_upper
+#print axioms Luce.Section6.critical_remaining_expectation_upper
+#print Luce.Section6.critical_remaining_harmonic_lower
+#print axioms Luce.Section6.critical_remaining_harmonic_lower
+#print Luce.Section6.critical_remaining_survival_bound
+#print axioms Luce.Section6.critical_remaining_survival_bound
+#print Luce.Section6.critical_retained_count_eq_subtype
+#print axioms Luce.Section6.critical_retained_count_eq_subtype
+#print Luce.Section6.critical_retained_expectation
+#print axioms Luce.Section6.critical_retained_expectation
+#print Luce.Section6.critical_retained_probability_le_matrix
+#print axioms Luce.Section6.critical_retained_probability_le_matrix
+#print Luce.Section6.critical_retained_probability_zero
+#print axioms Luce.Section6.critical_retained_probability_zero
+#print Luce.Section6.critical_retained_sum_bound
+#print axioms Luce.Section6.critical_retained_sum_bound
+#print Luce.Section6.critical_sampled_power_sum
+#print axioms Luce.Section6.critical_sampled_power_sum
+#print Luce.Section6.critical_shift_log_bounds
+#print axioms Luce.Section6.critical_shift_log_bounds
+#print Luce.Section6.critical_tuple_weight_sum
+#print axioms Luce.Section6.critical_tuple_weight_sum
+#print Luce.Section6.critical_vertex_expectation_of_rates
+#print axioms Luce.Section6.critical_vertex_expectation_of_rates
+#print Luce.Section6.critical_weighted_vertex_sum
+#print axioms Luce.Section6.critical_weighted_vertex_sum
+#print Luce.Section6.crossDepthError_le_two
+#print axioms Luce.Section6.crossDepthError_le_two
+#print Luce.Section6.crossDepthError_nonneg
+#print axioms Luce.Section6.crossDepthError_nonneg
+#print Luce.Section6.cross_depth_relative_transport
+#print axioms Luce.Section6.cross_depth_relative_transport
+#print Luce.Section6.cross_depth_uniform_transport
+#print axioms Luce.Section6.cross_depth_uniform_transport
+#print Luce.Section6.cycleCount_meanApprox65
+#print axioms Luce.Section6.cycleCount_meanApprox65
+#print Luce.Section6.cycle_closing_potential_bound
+#print axioms Luce.Section6.cycle_closing_potential_bound
+#print Luce.Section6.cycle_count_at_maximum_eq_indicator
+#print axioms Luce.Section6.cycle_count_at_maximum_eq_indicator
+#print Luce.Section6.cycle_edge_potential_bound
+#print axioms Luce.Section6.cycle_edge_potential_bound
+#print Luce.Section6.cycle_exponential_moment68
+#print axioms Luce.Section6.cycle_exponential_moment68
+#print Luce.Section6.cycle_family_single_test_bound
+#print axioms Luce.Section6.cycle_family_single_test_bound
+#print Luce.Section6.cycle_large_edge_potential_bound
+#print axioms Luce.Section6.cycle_large_edge_potential_bound
+#print Luce.Section6.cycle_range_moment68
+#print axioms Luce.Section6.cycle_range_moment68
+#print Luce.Section6.cycle_vertex_envelope_lintegral
+#print axioms Luce.Section6.cycle_vertex_envelope_lintegral
+#print Luce.Section6.cycle_vertex_probability_le_matrix_rows
+#print axioms Luce.Section6.cycle_vertex_probability_le_matrix_rows
+#print Luce.Section6.deletedD_le_populationD
+#print axioms Luce.Section6.deletedD_le_populationD
+#print Luce.Section6.deletedG_le_populationG
+#print axioms Luce.Section6.deletedG_le_populationG
+#print Luce.Section6.deletedGapKernel_le_earlier_survival
+#print axioms Luce.Section6.deletedGapKernel_le_earlier_survival
+#print Luce.Section6.deletedGapKernel_le_earlier_survival_ae
+#print axioms Luce.Section6.deletedGapKernel_le_earlier_survival_ae
+#print Luce.Section6.deleted_arrival_relative_tails
+#print axioms Luce.Section6.deleted_arrival_relative_tails
+#print Luce.Section6.deleted_arrival_window_mean_lower
+#print axioms Luce.Section6.deleted_arrival_window_mean_lower
+#print Luce.Section6.deleted_arrivals_add_survivors
+#print axioms Luce.Section6.deleted_arrivals_add_survivors
+#print Luce.Section6.deleted_arrivals_le_beforeCount_of_lt
+#print axioms Luce.Section6.deleted_arrivals_le_beforeCount_of_lt
+#print Luce.Section6.deleted_beforeCount_add_survivors_le
+#print axioms Luce.Section6.deleted_beforeCount_add_survivors_le
+#print Luce.Section6.deleted_beforeCount_le_arrivals
+#print axioms Luce.Section6.deleted_beforeCount_le_arrivals
+#print Luce.Section6.deleted_before_count_upper_tail
+#print axioms Luce.Section6.deleted_before_count_upper_tail
+#print Luce.Section6.deleted_gapStart_gt_imp_arrivals_le
+#print axioms Luce.Section6.deleted_gapStart_gt_imp_arrivals_le
+#print Luce.Section6.deleted_gap_moment_le_earlier_survival
+#print axioms Luce.Section6.deleted_gap_moment_le_earlier_survival
+#print Luce.Section6.deleted_gap_rate_eq_surviving_weight
+#print axioms Luce.Section6.deleted_gap_rate_eq_surviving_weight
+#print Luce.Section6.deleted_gap_rate_eq_surviving_weight_ae
+#print axioms Luce.Section6.deleted_gap_rate_eq_surviving_weight_ae
+#print Luce.Section6.deleted_gap_start_relative_early_arrival
+#print axioms Luce.Section6.deleted_gap_start_relative_early_arrival
+#print Luce.Section6.deleted_gap_start_relative_early_survivor
+#print axioms Luce.Section6.deleted_gap_start_relative_early_survivor
+#print Luce.Section6.deleted_gap_start_relative_late_arrival
+#print axioms Luce.Section6.deleted_gap_start_relative_late_arrival
+#print Luce.Section6.deleted_gap_start_relative_late_survivor
+#print axioms Luce.Section6.deleted_gap_start_relative_late_survivor
+#print Luce.Section6.deleted_gap_start_tail_of_arrival_mean
+#print axioms Luce.Section6.deleted_gap_start_tail_of_arrival_mean
+#print Luce.Section6.deleted_gap_start_tail_of_survivor_mean
+#print axioms Luce.Section6.deleted_gap_start_tail_of_survivor_mean
+#print Luce.Section6.deleted_gap_start_tail_of_survivor_mean_sharp
+#print axioms Luce.Section6.deleted_gap_start_tail_of_survivor_mean_sharp
+#print Luce.Section6.deleted_joint_window_probability
+#print axioms Luce.Section6.deleted_joint_window_probability
+#print Luce.Section6.deleted_kernel_Lp_exponent_mono
+#print axioms Luce.Section6.deleted_kernel_Lp_exponent_mono
+#print Luce.Section6.deleted_kernel_Lp_of_rate_floor
+#print axioms Luce.Section6.deleted_kernel_Lp_of_rate_floor
+#print Luce.Section6.deleted_kernel_eLpNorm_eq_moment
+#print axioms Luce.Section6.deleted_kernel_eLpNorm_eq_moment
+#print Luce.Section6.deleted_kernel_eLpNorm_le_of_moment
+#print axioms Luce.Section6.deleted_kernel_eLpNorm_le_of_moment
+#print Luce.Section6.deleted_kernel_eLpNorm_le_one
+#print axioms Luce.Section6.deleted_kernel_eLpNorm_le_one
+#print Luce.Section6.deleted_kernel_le_insertionDominationMatrix
+#print axioms Luce.Section6.deleted_kernel_le_insertionDominationMatrix
+#print Luce.Section6.deleted_kernel_memLp
+#print axioms Luce.Section6.deleted_kernel_memLp
+#print Luce.Section6.deleted_kernel_moment_bound_of_rate_floor
+#print axioms Luce.Section6.deleted_kernel_moment_bound_of_rate_floor
+#print Luce.Section6.deleted_kernel_moment_sum_bound
+#print axioms Luce.Section6.deleted_kernel_moment_sum_bound
+#print Luce.Section6.deleted_kernel_power_integrable
+#print axioms Luce.Section6.deleted_kernel_power_integrable
+#print Luce.Section6.deleted_kernel_product_integrable
+#print axioms Luce.Section6.deleted_kernel_product_integrable
+#print Luce.Section6.deleted_kernel_product_le_Lp
+#print axioms Luce.Section6.deleted_kernel_product_le_Lp
+#print Luce.Section6.deleted_kernel_product_order_sum
+#print axioms Luce.Section6.deleted_kernel_product_order_sum
+#print Luce.Section6.deleted_kernel_product_second_moment_bound
+#print axioms Luce.Section6.deleted_kernel_product_second_moment_bound
+#print Luce.Section6.deleted_kernel_product_square_integrable
+#print axioms Luce.Section6.deleted_kernel_product_square_integrable
+#print Luce.Section6.deleted_kernel_product_square_le_Lp
+#print axioms Luce.Section6.deleted_kernel_product_square_le_Lp
+#print Luce.Section6.deleted_order_gap_moment_bound
+#print axioms Luce.Section6.deleted_order_gap_moment_bound
+#print Luce.Section6.deleted_order_integral_partition
+#print axioms Luce.Section6.deleted_order_integral_partition
+#print Luce.Section6.deleted_order_kernel_moment_bound
+#print axioms Luce.Section6.deleted_order_kernel_moment_bound
+#print Luce.Section6.deleted_order_kernel_product_integral
+#print axioms Luce.Section6.deleted_order_kernel_product_integral
+#print Luce.Section6.deleted_order_normalized_integral
+#print axioms Luce.Section6.deleted_order_normalized_integral
+#print Luce.Section6.deleted_remaining_weight_chebyshev
+#print axioms Luce.Section6.deleted_remaining_weight_chebyshev
+#print Luce.Section6.deleted_remaining_weight_mean
+#print axioms Luce.Section6.deleted_remaining_weight_mean
+#print Luce.Section6.deleted_remaining_weight_variance
+#print axioms Luce.Section6.deleted_remaining_weight_variance
+#print Luce.Section6.deleted_survival_envelope_of_bounds
+#print axioms Luce.Section6.deleted_survival_envelope_of_bounds
+#print Luce.Section6.deleted_survival_integrable
+#print axioms Luce.Section6.deleted_survival_integrable
+#print Luce.Section6.deleted_survival_integral_le_one
+#print axioms Luce.Section6.deleted_survival_integral_le_one
+#print Luce.Section6.deleted_survival_integral_partition
+#print axioms Luce.Section6.deleted_survival_integral_partition
+#print Luce.Section6.deleted_survival_split
+#print axioms Luce.Section6.deleted_survival_split
+#print Luce.Section6.deleted_surviving_weight_antitone
+#print axioms Luce.Section6.deleted_surviving_weight_antitone
+#print Luce.Section6.deleted_survivor_mean_identity
+#print axioms Luce.Section6.deleted_survivor_mean_identity
+#print Luce.Section6.deleted_survivor_relative_tails
+#print axioms Luce.Section6.deleted_survivor_relative_tails
+#print Luce.Section6.deleted_survivor_window_mean_lower
+#print axioms Luce.Section6.deleted_survivor_window_mean_lower
+#print Luce.Section6.deleted_weight_mean_drift
+#print axioms Luce.Section6.deleted_weight_mean_drift
+#print Luce.Section6.deleted_weight_quantile_window_probability
+#print axioms Luce.Section6.deleted_weight_quantile_window_probability
+#print Luce.Section6.deleted_weight_random_time_bound
+#print axioms Luce.Section6.deleted_weight_random_time_bound
+#print Luce.Section6.deleted_weight_scaled_chebyshev
+#print axioms Luce.Section6.deleted_weight_scaled_chebyshev
+#print Luce.Section6.density_envelope_product
+#print axioms Luce.Section6.density_envelope_product
+#print Luce.Section6.density_perturbation68
+#print axioms Luce.Section6.density_perturbation68
+#print Luce.Section6.depth_decay_mono
+#print axioms Luce.Section6.depth_decay_mono
+#print Luce.Section6.descPochhammer_shift65
+#print axioms Luce.Section6.descPochhammer_shift65
+#print Luce.Section6.discarded_expectation_real_of_nat
+#print axioms Luce.Section6.discarded_expectation_real_of_nat
+#print Luce.Section6.disjoint_filter_card_sum_le65
+#print axioms Luce.Section6.disjoint_filter_card_sum_le65
+#print Luce.Section6.disjoint_indicators_sum_le_one65
+#print axioms Luce.Section6.disjoint_indicators_sum_le_one65
+#print Luce.Section6.endpointEstimates_mono67
+#print axioms Luce.Section6.endpointEstimates_mono67
+#print Luce.Section6.endpoint_block_terminal_buffer
+#print axioms Luce.Section6.endpoint_block_terminal_buffer
+#print Luce.Section6.endpoint_envelope_target_bound
+#print axioms Luce.Section6.endpoint_envelope_target_bound
+#print Luce.Section6.escaping_cycle_probability_le_cylinders
+#print axioms Luce.Section6.escaping_cycle_probability_le_cylinders
+#print Luce.Section6.escaping_cycle_probability_le_paths
+#print axioms Luce.Section6.escaping_cycle_probability_le_paths
+#print Luce.Section6.exceptionalEnvelope_column_summable
+#print axioms Luce.Section6.exceptionalEnvelope_column_summable
+#print Luce.Section6.exceptionalEnvelope_column_tail
+#print axioms Luce.Section6.exceptionalEnvelope_column_tail
+#print Luce.Section6.exceptionalEnvelope_le_exp
+#print axioms Luce.Section6.exceptionalEnvelope_le_exp
+#print Luce.Section6.exceptionalEnvelope_nonneg
+#print axioms Luce.Section6.exceptionalEnvelope_nonneg
+#print Luce.Section6.exceptionalEnvelope_restricted_sums
+#print axioms Luce.Section6.exceptionalEnvelope_restricted_sums
+#print Luce.Section6.exceptionalEnvelope_row_summable
+#print axioms Luce.Section6.exceptionalEnvelope_row_summable
+#print Luce.Section6.exceptionalEnvelope_row_tail
+#print axioms Luce.Section6.exceptionalEnvelope_row_tail
+#print Luce.Section6.exceptionalEnvelope_support
+#print axioms Luce.Section6.exceptionalEnvelope_support
+#print Luce.Section6.exceptionalEnvelope_target_bound
+#print axioms Luce.Section6.exceptionalEnvelope_target_bound
+#print Luce.Section6.exceptionalEnvelope_transpose_restricted_sums
+#print axioms Luce.Section6.exceptionalEnvelope_transpose_restricted_sums
+#print Luce.Section6.exceptional_envelope_mono_decay
+#print axioms Luce.Section6.exceptional_envelope_mono_decay
+#print Luce.Section6.exceptional_weighted_factor_le
+#print axioms Luce.Section6.exceptional_weighted_factor_le
+#print Luce.Section6.excursionCount_le_logarithmic65
+#print axioms Luce.Section6.excursionCount_le_logarithmic65
+#print Luce.Section6.excursionCycleCount_symm65
+#print axioms Luce.Section6.excursionCycleCount_symm65
+#print Luce.Section6.exists_escaping_cycle_tail
+#print axioms Luce.Section6.exists_escaping_cycle_tail
+#print Luce.Section6.exists_interior_label_block
+#print axioms Luce.Section6.exists_interior_label_block
+#print Luce.Section6.exists_populationG_eq
+#print axioms Luce.Section6.exists_populationG_eq
+#print Luce.Section6.exists_power_exp_bound
+#print axioms Luce.Section6.exists_power_exp_bound
+#print Luce.Section6.exp_abs_shift_bound68
+#print axioms Luce.Section6.exp_abs_shift_bound68
+#print Luce.Section6.exp_neg_min_le_sum
+#print axioms Luce.Section6.exp_neg_min_le_sum
+#print Luce.Section6.exp_neg_rate_log_ratio
+#print axioms Luce.Section6.exp_neg_rate_log_ratio
+#print Luce.Section6.exp_pathVariation68_integrable
+#print axioms Luce.Section6.exp_pathVariation68_integrable
+#print Luce.Section6.exponentialGapMass_factor
+#print axioms Luce.Section6.exponentialGapMass_factor
+#print Luce.Section6.exponentialGapMass_le_survival
+#print axioms Luce.Section6.exponentialGapMass_le_survival
+#print Luce.Section6.exponentialGapMass_normalized_pow_le
+#print axioms Luce.Section6.exponentialGapMass_normalized_pow_le
+#print Luce.Section6.exponentialPDF_toReal_integrable
+#print axioms Luce.Section6.exponentialPDF_toReal_integrable
+#print Luce.Section6.exponentialRace_biInter_disjoint_support
+#print axioms Luce.Section6.exponentialRace_biInter_disjoint_support
+#print Luce.Section6.exponentialRace_inter_of_disjoint_support
+#print axioms Luce.Section6.exponentialRace_inter_of_disjoint_support
+#print Luce.Section6.exponential_le_power
+#print axioms Luce.Section6.exponential_le_power
+#print Luce.Section6.extremeTypicalEnvelope_le_exceptional
+#print axioms Luce.Section6.extremeTypicalEnvelope_le_exceptional
+#print Luce.Section6.extremeTypicalEnvelope_nonneg
+#print axioms Luce.Section6.extremeTypicalEnvelope_nonneg
+#print Luce.Section6.extreme_moment_absorption
+#print axioms Luce.Section6.extreme_moment_absorption
+#print Luce.Section6.extreme_ratio_bounds
+#print axioms Luce.Section6.extreme_ratio_bounds
+#print Luce.Section6.factorial_core_error_inputs
+#print axioms Luce.Section6.factorial_core_error_inputs
+#print Luce.Section6.factorial_error_algebra
+#print axioms Luce.Section6.factorial_error_algebra
+#print Luce.Section6.factorial_finite_common_upper_bound
+#print axioms Luce.Section6.factorial_finite_common_upper_bound
+#print Luce.Section6.factorial_finite_positive_lower_bound
+#print axioms Luce.Section6.factorial_finite_positive_lower_bound
+#print Luce.Section6.fast_arrival_boundary_continuous
+#print axioms Luce.Section6.fast_arrival_boundary_continuous
+#print Luce.Section6.fast_arrival_boundary_hasDerivAt
+#print axioms Luce.Section6.fast_arrival_boundary_hasDerivAt
+#print Luce.Section6.fast_arrival_boundary_tendsto
+#print axioms Luce.Section6.fast_arrival_boundary_tendsto
+#print Luce.Section6.fast_arrival_prototype_error
+#print axioms Luce.Section6.fast_arrival_prototype_error
+#print Luce.Section6.fast_arrival_quadrature
+#print axioms Luce.Section6.fast_arrival_quadrature
+#print Luce.Section6.fast_arrival_tail_bound
+#print axioms Luce.Section6.fast_arrival_tail_bound
+#print Luce.Section6.fast_power_envelope_average_bound
+#print axioms Luce.Section6.fast_power_envelope_average_bound
+#print Luce.Section6.fast_weighted_prototype_error
+#print axioms Luce.Section6.fast_weighted_prototype_error
+#print Luce.Section6.fast_weighted_quadrature
+#print axioms Luce.Section6.fast_weighted_quadrature
+#print Luce.Section6.fast_weighted_tail_bound
+#print axioms Luce.Section6.fast_weighted_tail_bound
+#print Luce.Section6.filter_card_le_add65
+#print axioms Luce.Section6.filter_card_le_add65
+#print Luce.Section6.filter_card_real65
+#print axioms Luce.Section6.filter_card_real65
+#print Luce.Section6.filtered_cycle_count_eq_indicator_sum
+#print axioms Luce.Section6.filtered_cycle_count_eq_indicator_sum
+#print Luce.Section6.filtered_cycle_count_eq_root_count
+#print axioms Luce.Section6.filtered_cycle_count_eq_root_count
+#print Luce.Section6.filtered_cycle_expectation_eq_probability_sum
+#print axioms Luce.Section6.filtered_cycle_expectation_eq_probability_sum
+#print Luce.Section6.filtered_root_orbit_count_symm65
+#print axioms Luce.Section6.filtered_root_orbit_count_symm65
+#print Luce.Section6.finite_average_deletion
+#print axioms Luce.Section6.finite_average_deletion
+#print Luce.Section6.finite_average_deletion_bound
+#print axioms Luce.Section6.finite_average_deletion_bound
+#print Luce.Section6.finite_exponential_product_density
+#print axioms Luce.Section6.finite_exponential_product_density
+#print Luce.Section6.finite_indicator_sum_eq_subtype
+#print axioms Luce.Section6.finite_indicator_sum_eq_subtype
+#print Luce.Section6.finite_limit_eventually_bounds
+#print axioms Luce.Section6.finite_limit_eventually_bounds
+#print Luce.Section6.finite_local_comparison
+#print axioms Luce.Section6.finite_local_comparison
+#print Luce.Section6.finite_local_kernel_bounds
+#print axioms Luce.Section6.finite_local_kernel_bounds
+#print Luce.Section6.finite_nonneg_le_one_add_sum
+#print axioms Luce.Section6.finite_nonneg_le_one_add_sum
+#print Luce.Section6.finite_or_weight_sum
+#print axioms Luce.Section6.finite_or_weight_sum
+#print Luce.Section6.finite_positive_lower_bound
+#print axioms Luce.Section6.finite_positive_lower_bound
+#print Luce.Section6.finite_rank_cylinder_domination
+#print axioms Luce.Section6.finite_rank_cylinder_domination
+#print Luce.Section6.finite_rank_cylinder_reindex
+#print axioms Luce.Section6.finite_rank_cylinder_reindex
+#print Luce.Section6.finite_sampled_rate_ratio_bound
+#print axioms Luce.Section6.finite_sampled_rate_ratio_bound
+#print Luce.Section6.finite_uniform_cycle_constants
+#print axioms Luce.Section6.finite_uniform_cycle_constants
+#print Luce.Section6.finite_union_weight_sum
+#print axioms Luce.Section6.finite_union_weight_sum
+#print Luce.Section6.forward_path_escape_bound
+#print axioms Luce.Section6.forward_path_escape_bound
+#print Luce.Section6.forward_path_occupation_bound
+#print axioms Luce.Section6.forward_path_occupation_bound
+#print Luce.Section6.forward_path_terminal_potential
+#print axioms Luce.Section6.forward_path_terminal_potential
+#print Luce.Section6.gapCoordinates_map_law
+#print axioms Luce.Section6.gapCoordinates_map_law
+#print Luce.Section6.gapOrderedInsertion_congr_on_block
+#print axioms Luce.Section6.gapOrderedInsertion_congr_on_block
+#print Luce.Section6.gapOrderedKernel_eq_simplex_lintegral
+#print axioms Luce.Section6.gapOrderedKernel_eq_simplex_lintegral
+#print Luce.Section6.gapOrderedKernel_eq_simplex_measure
+#print axioms Luce.Section6.gapOrderedKernel_eq_simplex_measure
+#print Luce.Section6.gapOrderedKernel_le_one
+#print axioms Luce.Section6.gapOrderedKernel_le_one
+#print Luce.Section6.gapOrderedProduct_integrable
+#print axioms Luce.Section6.gapOrderedProduct_integrable
+#print Luce.Section6.gapSimplexIntegral_ae_eq_openValue
+#print axioms Luce.Section6.gapSimplexIntegral_ae_eq_openValue
+#print Luce.Section6.gapSimplexIntegral_eq_open
+#print axioms Luce.Section6.gapSimplexIntegral_eq_open
+#print Luce.Section6.gapSimplexIntegral_integrable_and_eq
+#print axioms Luce.Section6.gapSimplexIntegral_integrable_and_eq
+#print Luce.Section6.gapSimplexProduct_integrable
+#print axioms Luce.Section6.gapSimplexProduct_integrable
+#print Luce.Section6.gapSimplexRegion_ae_eq_open
+#print axioms Luce.Section6.gapSimplexRegion_ae_eq_open
+#print Luce.Section6.gapSimplexRegion_preimage
+#print axioms Luce.Section6.gapSimplexRegion_preimage
+#print Luce.Section6.gapStartFromNormalized_congr
+#print axioms Luce.Section6.gapStartFromNormalized_congr
+#print Luce.Section6.gapStartFromNormalized_eq_previous
+#print axioms Luce.Section6.gapStartFromNormalized_eq_previous
+#print Luce.Section6.gapStartFromNormalized_nonneg
+#print axioms Luce.Section6.gapStartFromNormalized_nonneg
+#print Luce.Section6.gapStartFromNormalized_update
+#print axioms Luce.Section6.gapStartFromNormalized_update
+#print Luce.Section6.gapStart_indep_current
+#print axioms Luce.Section6.gapStart_indep_current
+#print Luce.Section6.gapStart_lt_imp_beforeCount
+#print axioms Luce.Section6.gapStart_lt_imp_beforeCount
+#print Luce.Section6.gapStart_lt_of_beforeCount
+#print axioms Luce.Section6.gapStart_lt_of_beforeCount
+#print Luce.Section6.gapStart_survival_moment_factorization
+#print axioms Luce.Section6.gapStart_survival_moment_factorization
+#print Luce.Section6.gap_label_blocks_disjoint
+#print axioms Luce.Section6.gap_label_blocks_disjoint
+#print Luce.Section6.gap_moment_coordinate_slice
+#print axioms Luce.Section6.gap_moment_coordinate_slice
+#print Luce.Section6.gap_start_eq_skeleton_add_selected
+#print axioms Luce.Section6.gap_start_eq_skeleton_add_selected
+#print Luce.Section6.gap_start_eq_skeleton_add_selected_indices
+#print axioms Luce.Section6.gap_start_eq_skeleton_add_selected_indices
+#print Luce.Section6.gaussianMoment65_deriv
+#print axioms Luce.Section6.gaussianMoment65_deriv
+#print Luce.Section6.gaussianMoment65_rec
+#print axioms Luce.Section6.gaussianMoment65_rec
+#print Luce.Section6.gaussianMoment65_sum_rec
+#print axioms Luce.Section6.gaussianMoment65_sum_rec
+#print Luce.Section6.gaussian_blocks_characteristic65
+#print axioms Luce.Section6.gaussian_blocks_characteristic65
+#print Luce.Section6.gaussian_charFun_one_tendsto_of_moments
+#print axioms Luce.Section6.gaussian_charFun_one_tendsto_of_moments
+#print Luce.Section6.gaussian_moment_remainder_tendsto
+#print axioms Luce.Section6.gaussian_moment_remainder_tendsto
+#print Luce.Section6.half_relative_error_bounds
+#print axioms Luce.Section6.half_relative_error_bounds
+#print Luce.Section6.harmonic_interval_sum67
+#print axioms Luce.Section6.harmonic_interval_sum67
+#print Luce.Section6.harmonic_real_subset67
+#print axioms Luce.Section6.harmonic_real_subset67
+#print Luce.Section6.idealCoreLower_log_sublinear68
+#print axioms Luce.Section6.idealCoreLower_log_sublinear68
+#print Luce.Section6.idealCoreLower_pos68
+#print axioms Luce.Section6.idealCoreLower_pos68
+#print Luce.Section6.idealCycleWeight_log68
+#print axioms Luce.Section6.idealCycleWeight_log68
+#print Luce.Section6.idealRootTrace_floor68
+#print axioms Luce.Section6.idealRootTrace_floor68
+#print Luce.Section6.idealRootTrace_left_sub68
+#print axioms Luce.Section6.idealRootTrace_left_sub68
+#print Luce.Section6.idealRootTrace_right_sub68
+#print axioms Luce.Section6.idealRootTrace_right_sub68
+#print Luce.Section6.idealSpatialTrace68_window_bound
+#print axioms Luce.Section6.idealSpatialTrace68_window_bound
+#print Luce.Section6.idealSpatialTrace_meanApprox65
+#print axioms Luce.Section6.idealSpatialTrace_meanApprox65
+#print Luce.Section6.idealSpatialWindow68_eventually
+#print axioms Luce.Section6.idealSpatialWindow68_eventually
+#print Luce.Section6.idealTrace_eq_logDistinct68
+#print axioms Luce.Section6.idealTrace_eq_logDistinct68
+#print Luce.Section6.idealTrace_meanApprox65
+#print axioms Luce.Section6.idealTrace_meanApprox65
+#print Luce.Section6.idealTrace_refined68
+#print axioms Luce.Section6.idealTrace_refined68
+#print Luce.Section6.idealTrace_restrict68
+#print axioms Luce.Section6.idealTrace_restrict68
+#print Luce.Section6.idealTupleRoot_left_le68
+#print axioms Luce.Section6.idealTupleRoot_left_le68
+#print Luce.Section6.idealTupleRoot_right_gt68
+#print axioms Luce.Section6.idealTupleRoot_right_gt68
+#print Luce.Section6.ideal_core_eventual_domain
+#print axioms Luce.Section6.ideal_core_eventual_domain
+#print Luce.Section6.ideal_core_lower_tendsto
+#print axioms Luce.Section6.ideal_core_lower_tendsto
+#print Luce.Section6.ideal_core_nonempty_eventually
+#print axioms Luce.Section6.ideal_core_nonempty_eventually
+#print Luce.Section6.ideal_core_upper_le_div
+#print axioms Luce.Section6.ideal_core_upper_le_div
+#print Luce.Section6.ideal_core_upper_le_population
+#print axioms Luce.Section6.ideal_core_upper_le_population
+#print Luce.Section6.imaginary_exp_integrable65
+#print axioms Luce.Section6.imaginary_exp_integrable65
+#print Luce.Section6.imaginary_exp_lipschitz65
+#print axioms Luce.Section6.imaginary_exp_lipschitz65
+#print Luce.Section6.inactive_coefficient_zero65
+#print axioms Luce.Section6.inactive_coefficient_zero65
+#print Luce.Section6.inactive_terminal_kernel_row_bound
+#print axioms Luce.Section6.inactive_terminal_kernel_row_bound
+#print Luce.Section6.inactive_terminal_kernel_subset_bound
+#print axioms Luce.Section6.inactive_terminal_kernel_subset_bound
+#print Luce.Section6.inactive_terminal_ordinary_row_bound
+#print axioms Luce.Section6.inactive_terminal_ordinary_row_bound
+#print Luce.Section6.incrementDensity_bound
+#print axioms Luce.Section6.incrementDensity_bound
+#print Luce.Section6.incrementDensity_continuous
+#print axioms Luce.Section6.incrementDensity_continuous
+#print Luce.Section6.incrementDensity_deriv_bound
+#print axioms Luce.Section6.incrementDensity_deriv_bound
+#print Luce.Section6.incrementDensity_deriv_continuous
+#print axioms Luce.Section6.incrementDensity_deriv_continuous
+#print Luce.Section6.incrementDensity_exponential_envelope
+#print axioms Luce.Section6.incrementDensity_exponential_envelope
+#print Luce.Section6.incrementDensity_exponential_moment
+#print axioms Luce.Section6.incrementDensity_exponential_moment
+#print Luce.Section6.incrementDensity_hasDerivAt
+#print axioms Luce.Section6.incrementDensity_hasDerivAt
+#print Luce.Section6.incrementDensity_integrable
+#print axioms Luce.Section6.incrementDensity_integrable
+#print Luce.Section6.incrementDensity_integral
+#print axioms Luce.Section6.incrementDensity_integral
+#print Luce.Section6.incrementDensity_pos
+#print axioms Luce.Section6.incrementDensity_pos
+#print Luce.Section6.incrementDensity_traceDensity68
+#print axioms Luce.Section6.incrementDensity_traceDensity68
+#print Luce.Section6.independent_real_coordinates_avoid_ae
+#print axioms Luce.Section6.independent_real_coordinates_avoid_ae
+#print Luce.Section6.independent_real_coordinates_injective_ae
+#print axioms Luce.Section6.independent_real_coordinates_injective_ae
+#print Luce.Section6.initial_block_remaining_rate
+#print axioms Luce.Section6.initial_block_remaining_rate
+#print Luce.Section6.insertionChoices_nonempty
+#print axioms Luce.Section6.insertionChoices_nonempty
+#print Luce.Section6.insertionDominationENN_le_one
+#print axioms Luce.Section6.insertionDominationENN_le_one
+#print Luce.Section6.insertionDominationMatrix_attained
+#print axioms Luce.Section6.insertionDominationMatrix_attained
+#print Luce.Section6.insertionDominationMatrix_le_one
+#print axioms Luce.Section6.insertionDominationMatrix_le_one
+#print Luce.Section6.insertionDominationMatrix_nonneg
+#print axioms Luce.Section6.insertionDominationMatrix_nonneg
+#print Luce.Section6.insertionDominationMatrix_row_le_size
+#print axioms Luce.Section6.insertionDominationMatrix_row_le_size
+#print Luce.Section6.insertionDominationMatrix_row_selection
+#print axioms Luce.Section6.insertionDominationMatrix_row_selection
+#print Luce.Section6.insertionDominationMatrix_weighted_row_le_size
+#print axioms Luce.Section6.insertionDominationMatrix_weighted_row_le_size
+#print Luce.Section6.insertionDominationMatrix_weighted_row_transfer
+#print axioms Luce.Section6.insertionDominationMatrix_weighted_row_transfer
+#print Luce.Section6.insertion_envelope_mono
+#print axioms Luce.Section6.insertion_envelope_mono
+#print Luce.Section6.integrableOn_fast_arrival
+#print axioms Luce.Section6.integrableOn_fast_arrival
+#print Luce.Section6.integrableOn_fast_weighted_power
+#print axioms Luce.Section6.integrableOn_fast_weighted_power
+#print Luce.Section6.integrableOn_power_exp
+#print axioms Luce.Section6.integrableOn_power_exp
+#print Luce.Section6.integrableOn_slow_survival
+#print axioms Luce.Section6.integrableOn_slow_survival
+#print Luce.Section6.integrableOn_weighted_power
+#print axioms Luce.Section6.integrableOn_weighted_power
+#print Luce.Section6.integrable_density_envelope
+#print axioms Luce.Section6.integrable_density_envelope
+#print Luce.Section6.integrable_exp_neg_abs68
+#print axioms Luce.Section6.integrable_exp_neg_abs68
+#print Luce.Section6.integrable_fin_cons68
+#print axioms Luce.Section6.integrable_fin_cons68
+#print Luce.Section6.integrable_marked_gap_coordinate_product
+#print axioms Luce.Section6.integrable_marked_gap_coordinate_product
+#print Luce.Section6.integrable_marked_gap_weighted_error
+#print axioms Luce.Section6.integrable_marked_gap_weighted_error
+#print Luce.Section6.integral_category_block_indicator
+#print axioms Luce.Section6.integral_category_block_indicator
+#print Luce.Section6.integral_clockArrivalIndicator
+#print axioms Luce.Section6.integral_clockArrivalIndicator
+#print Luce.Section6.integral_comparison_good_bad
+#print axioms Luce.Section6.integral_comparison_good_bad
+#print Luce.Section6.integral_exp_neg_abs68
+#print axioms Luce.Section6.integral_exp_neg_abs68
+#print Luce.Section6.integral_exp_substitution68
+#print axioms Luce.Section6.integral_exp_substitution68
+#print Luce.Section6.integral_fast_arrival
+#print axioms Luce.Section6.integral_fast_arrival
+#print Luce.Section6.integral_fast_weighted_power
+#print axioms Luce.Section6.integral_fast_weighted_power
+#print Luce.Section6.integral_fin_cons68
+#print axioms Luce.Section6.integral_fin_cons68
+#print Luce.Section6.integral_marked_gap_coordinate_product
+#print axioms Luce.Section6.integral_marked_gap_coordinate_product
+#print Luce.Section6.integral_marked_gap_weighted_error
+#print axioms Luce.Section6.integral_marked_gap_weighted_error
+#print Luce.Section6.integral_observation_sum_eq_probability_sum
+#print axioms Luce.Section6.integral_observation_sum_eq_probability_sum
+#print Luce.Section6.integral_power_density
+#print axioms Luce.Section6.integral_power_density
+#print Luce.Section6.integral_power_exp
+#print axioms Luce.Section6.integral_power_exp
+#print Luce.Section6.integral_power_weighted_density
+#print axioms Luce.Section6.integral_power_weighted_density
+#print Luce.Section6.integral_slow_survival
+#print axioms Luce.Section6.integral_slow_survival
+#print Luce.Section6.integral_weighted_power
+#print axioms Luce.Section6.integral_weighted_power
+#print Luce.Section6.interior_deletedD_bounds
+#print axioms Luce.Section6.interior_deletedD_bounds
+#print Luce.Section6.interior_deleted_survivor_reservoir
+#print axioms Luce.Section6.interior_deleted_survivor_reservoir
+#print Luce.Section6.interior_envelope_le_inverse_row
+#print axioms Luce.Section6.interior_envelope_le_inverse_row
+#print Luce.Section6.interior_envelope_sum_bound
+#print axioms Luce.Section6.interior_envelope_sum_bound
+#print Luce.Section6.interior_logarithmic_survivor_mean
+#print axioms Luce.Section6.interior_logarithmic_survivor_mean
+#print Luce.Section6.interior_populationD_bounds
+#print axioms Luce.Section6.interior_populationD_bounds
+#print Luce.Section6.interior_sampled_rate_bounds
+#print axioms Luce.Section6.interior_sampled_rate_bounds
+#print Luce.Section6.interval_discarded_count_eq_zero_of_lt
+#print axioms Luce.Section6.interval_discarded_count_eq_zero_of_lt
+#print Luce.Section6.interval_discarded_count_rounding
+#print axioms Luce.Section6.interval_discarded_count_rounding
+#print Luce.Section6.invariant_statistic_raceDraw_eq_rank65
+#print axioms Luce.Section6.invariant_statistic_raceDraw_eq_rank65
+#print Luce.Section6.inverse_power_kernel_row_bound
+#print axioms Luce.Section6.inverse_power_kernel_row_bound
+#print Luce.Section6.inverse_power_relative_error
+#print axioms Luce.Section6.inverse_power_relative_error
+#print Luce.Section6.joint_gap_moment_bound
+#print axioms Luce.Section6.joint_gap_moment_bound
+#print Luce.Section6.joint_normalized_estimate
+#print axioms Luce.Section6.joint_normalized_estimate
+#print Luce.Section6.joint_power_error_small
+#print axioms Luce.Section6.joint_power_error_small
+#print Luce.Section6.laplaceDensity68_traceDensity
+#print axioms Luce.Section6.laplaceDensity68_traceDensity
+#print Luce.Section6.later_selected_rate_nonneg
+#print axioms Luce.Section6.later_selected_rate_nonneg
+#print Luce.Section6.later_selected_rate_reindex
+#print axioms Luce.Section6.later_selected_rate_reindex
+#print Luce.Section6.leftQuantileTime_spec
+#print axioms Luce.Section6.leftQuantileTime_spec
+#print Luce.Section6.left_bounded_source_kernel_le_inverse_row
+#print axioms Luce.Section6.left_bounded_source_kernel_le_inverse_row
+#print Luce.Section6.left_corner_envelope_column_bound
+#print axioms Luce.Section6.left_corner_envelope_column_bound
+#print Luce.Section6.left_depth_factor_comparison
+#print axioms Luce.Section6.left_depth_factor_comparison
+#print Luce.Section6.left_double_threshold67
+#print axioms Luce.Section6.left_double_threshold67
+#print Luce.Section6.left_envelope_weighted_sum_bound
+#print axioms Luce.Section6.left_envelope_weighted_sum_bound
+#print Luce.Section6.left_exceptional_weighted_row_bound
+#print axioms Luce.Section6.left_exceptional_weighted_row_bound
+#print Luce.Section6.left_excursion_depth_sum
+#print axioms Luce.Section6.left_excursion_depth_sum
+#print Luce.Section6.left_excursion_kernel_sum
+#print axioms Luce.Section6.left_excursion_kernel_sum
+#print Luce.Section6.left_insertion_ratio_identity
+#print axioms Luce.Section6.left_insertion_ratio_identity
+#print Luce.Section6.left_ordinary_column_bound
+#print axioms Luce.Section6.left_ordinary_column_bound
+#print Luce.Section6.left_ordinary_weighted_row_bound
+#print axioms Luce.Section6.left_ordinary_weighted_row_bound
+#print Luce.Section6.left_power_ratio
+#print axioms Luce.Section6.left_power_ratio
+#print Luce.Section6.left_power_time_identity
+#print axioms Luce.Section6.left_power_time_identity
+#print Luce.Section6.left_rate_floor_ratio
+#print axioms Luce.Section6.left_rate_floor_ratio
+#print Luce.Section6.left_rate_time_leading
+#print axioms Luce.Section6.left_rate_time_leading
+#print Luce.Section6.left_typical_extreme_restricted_sums
+#print axioms Luce.Section6.left_typical_extreme_restricted_sums
+#print Luce.Section6.lemma64
+#print axioms Luce.Section6.lemma64
+#print Luce.Section6.lemma64_contractCheck
+#print axioms Luce.Section6.lemma64_contractCheck
+#print Luce.Section6.lemma64_cycles
+#print axioms Luce.Section6.lemma64_cycles
+#print Luce.Section6.lemma64_cycles_contractCheck
+#print axioms Luce.Section6.lemma64_cycles_contractCheck
+#print Luce.Section6.lemma64_matrix
+#print axioms Luce.Section6.lemma64_matrix
+#print Luce.Section6.lemma66
+#print axioms Luce.Section6.lemma66
+#print Luce.Section6.lemma67
+#print axioms Luce.Section6.lemma67
+#print Luce.Section6.lemma67_active
+#print axioms Luce.Section6.lemma67_active
+#print Luce.Section6.lemma67_excursion_totals
+#print axioms Luce.Section6.lemma67_excursion_totals
+#print Luce.Section6.lemma67_regular
+#print axioms Luce.Section6.lemma67_regular
+#print Luce.Section6.lemma67_regular_totals
+#print axioms Luce.Section6.lemma67_regular_totals
+#print Luce.Section6.lemma68
+#print axioms Luce.Section6.lemma68
+#print Luce.Section6.lemma68_contractCheck
+#print axioms Luce.Section6.lemma68_contractCheck
+#print Luce.Section6.lemma68_spatial
+#print axioms Luce.Section6.lemma68_spatial
+#print Luce.Section6.lemma68_total
+#print axioms Luce.Section6.lemma68_total
+#print Luce.Section6.lemma69
+#print axioms Luce.Section6.lemma69
+#print Luce.Section6.lemma69_contractCheck
+#print axioms Luce.Section6.lemma69_contractCheck
+#print Luce.Section6.linearCombination65_power
+#print axioms Luce.Section6.linearCombination65_power
+#print Luce.Section6.linearCombination_blocks65
+#print axioms Luce.Section6.linearCombination_blocks65
+#print Luce.Section6.linear_exp_absorption
+#print axioms Luce.Section6.linear_exp_absorption
+#print Luce.Section6.linear_exponential_bound
+#print axioms Luce.Section6.linear_exponential_bound
+#print Luce.Section6.lintegral_single_coordinate
+#print axioms Luce.Section6.lintegral_single_coordinate
+#print Luce.Section6.localCornerRatio_positive
+#print axioms Luce.Section6.localCornerRatio_positive
+#print Luce.Section6.localEnvelopeKernel_antitone
+#print axioms Luce.Section6.localEnvelopeKernel_antitone
+#print Luce.Section6.localEnvelopeKernel_positive
+#print axioms Luce.Section6.localEnvelopeKernel_positive
+#print Luce.Section6.localIdealKernel_le_envelope
+#print axioms Luce.Section6.localIdealKernel_le_envelope
+#print Luce.Section6.localIdealKernel_log68
+#print axioms Luce.Section6.localIdealKernel_log68
+#print Luce.Section6.localIdealKernel_nonneg
+#print axioms Luce.Section6.localIdealKernel_nonneg
+#print Luce.Section6.localPowerError_interval
+#print axioms Luce.Section6.localPowerError_interval
+#print Luce.Section6.localPowerError_nonneg
+#print axioms Luce.Section6.localPowerError_nonneg
+#print Luce.Section6.local_coefficient_slack
+#print axioms Luce.Section6.local_coefficient_slack
+#print Luce.Section6.local_envelope_matrix_bounds
+#print axioms Luce.Section6.local_envelope_matrix_bounds
+#print Luce.Section6.local_envelope_target_bound
+#print axioms Luce.Section6.local_envelope_target_bound
+#print Luce.Section6.local_envelope_weighted_rows
+#print axioms Luce.Section6.local_envelope_weighted_rows
+#print Luce.Section6.local_error_powers
+#print axioms Luce.Section6.local_error_powers
+#print Luce.Section6.local_gap_coefficient_bounds
+#print axioms Luce.Section6.local_gap_coefficient_bounds
+#print Luce.Section6.local_ideal_eq_scaled_envelope
+#print axioms Luce.Section6.local_ideal_eq_scaled_envelope
+#print Luce.Section6.local_ideal_matrix_bounds
+#print axioms Luce.Section6.local_ideal_matrix_bounds
+#print Luce.Section6.localization65
+#print axioms Luce.Section6.localization65
+#print Luce.Section6.logCell68_disjoint
+#print axioms Luce.Section6.logCell68_disjoint
+#print Luce.Section6.logCell68_offset
+#print axioms Luce.Section6.logCell68_offset
+#print Luce.Section6.logCell68_union
+#print axioms Luce.Section6.logCell68_union
+#print Luce.Section6.logCellCorrection68_bounds
+#print axioms Luce.Section6.logCellCorrection68_bounds
+#print Luce.Section6.logCellCorrection68_product_bounds
+#print axioms Luce.Section6.logCellCorrection68_product_bounds
+#print Luce.Section6.logCellCube68_constant_identity
+#print axioms Luce.Section6.logCellCube68_constant_identity
+#print Luce.Section6.logCellCube68_disjoint
+#print axioms Luce.Section6.logCellCube68_disjoint
+#print Luce.Section6.logCellCube68_integrable
+#print axioms Luce.Section6.logCellCube68_integrable
+#print Luce.Section6.logCellCube68_integral_error
+#print axioms Luce.Section6.logCellCube68_integral_error
+#print Luce.Section6.logCellCube68_measurable
+#print axioms Luce.Section6.logCellCube68_measurable
+#print Luce.Section6.logCellCube68_pointwise_error
+#print axioms Luce.Section6.logCellCube68_pointwise_error
+#print Luce.Section6.logCellCube68_union
+#print axioms Luce.Section6.logCellCube68_union
+#print Luce.Section6.logCellCube68_volume
+#print axioms Luce.Section6.logCellCube68_volume
+#print Luce.Section6.logCellWidth68_bounds
+#print axioms Luce.Section6.logCellWidth68_bounds
+#print Luce.Section6.logCellWidth68_pos
+#print axioms Luce.Section6.logCellWidth68_pos
+#print Luce.Section6.logDistinctTrace68_comparison
+#print axioms Luce.Section6.logDistinctTrace68_comparison
+#print Luce.Section6.logDistinctTrace68_refined
+#print axioms Luce.Section6.logDistinctTrace68_refined
+#print Luce.Section6.logGridTrace68_comparison
+#print axioms Luce.Section6.logGridTrace68_comparison
+#print Luce.Section6.logGrowth65_const
+#print axioms Luce.Section6.logGrowth65_const
+#print Luce.Section6.logGrowth65_of_ratio
+#print axioms Luce.Section6.logGrowth65_of_ratio
+#print Luce.Section6.logLocation_window_iff65
+#print axioms Luce.Section6.logLocation_window_iff65
+#print Luce.Section6.logTraceBox68_integrable
+#print axioms Luce.Section6.logTraceBox68_integrable
+#print Luce.Section6.logTraceBox68_measurable
+#print axioms Luce.Section6.logTraceBox68_measurable
+#print Luce.Section6.logTupleRange_continuous68
+#print axioms Luce.Section6.logTupleRange_continuous68
+#print Luce.Section6.logTupleRange_le_pathVariation68
+#print axioms Luce.Section6.logTupleRange_le_pathVariation68
+#print Luce.Section6.logTupleRange_nonneg
+#print axioms Luce.Section6.logTupleRange_nonneg
+#print Luce.Section6.logTupleRoot_continuous68
+#print axioms Luce.Section6.logTupleRoot_continuous68
+#print Luce.Section6.logTupleRoot_translate
+#print axioms Luce.Section6.logTupleRoot_translate
+#print Luce.Section6.logWeight65_one_le
+#print axioms Luce.Section6.logWeight65_one_le
+#print Luce.Section6.log_core_lower_sqrt_tendsto65
+#print axioms Luce.Section6.log_core_lower_sqrt_tendsto65
+#print Luce.Section6.log_distance_left_ratio
+#print axioms Luce.Section6.log_distance_left_ratio
+#print Luce.Section6.log_distance_right_ratio
+#print axioms Luce.Section6.log_distance_right_ratio
+#print Luce.Section6.log_envelope_box_bound68
+#print axioms Luce.Section6.log_envelope_box_bound68
+#print Luce.Section6.log_floor_errors68
+#print axioms Luce.Section6.log_floor_errors68
+#print Luce.Section6.log_floor_errors_le_one68
+#print axioms Luce.Section6.log_floor_errors_le_one68
+#print Luce.Section6.log_grid_raw_comparison68
+#print axioms Luce.Section6.log_grid_raw_comparison68
+#print Luce.Section6.log_kernel_row68
+#print axioms Luce.Section6.log_kernel_row68
+#print Luce.Section6.log_kernel_target68
+#print axioms Luce.Section6.log_kernel_target68
+#print Luce.Section6.log_population_core_upper65
+#print axioms Luce.Section6.log_population_core_upper65
+#print Luce.Section6.log_two_sub_half_pos
+#print axioms Luce.Section6.log_two_sub_half_pos
+#print Luce.Section6.logarithmic_excursion_expectation_of_root_bound
+#print axioms Luce.Section6.logarithmic_excursion_expectation_of_root_bound
+#print Luce.Section6.logarithmic_gap_start_tail
+#print axioms Luce.Section6.logarithmic_gap_start_tail
+#print Luce.Section6.logarithmic_survival_envelope
+#print axioms Luce.Section6.logarithmic_survival_envelope
+#print Luce.Section6.logarithmic_survival_sqrt_identity
+#print axioms Luce.Section6.logarithmic_survival_sqrt_identity
+#print Luce.Section6.luce_cycle_statistic_integral_eq
+#print axioms Luce.Section6.luce_cycle_statistic_integral_eq
+#print Luce.Section6.luce_invariant_integral_eq65
+#print axioms Luce.Section6.luce_invariant_integral_eq65
+#print Luce.Section6.markedNormalizedGaps_nonneg_ae
+#print axioms Luce.Section6.markedNormalizedGaps_nonneg_ae
+#print Luce.Section6.markedRankCylinder_iff_ordered_counts
+#print axioms Luce.Section6.markedRankCylinder_iff_ordered_counts
+#print Luce.Section6.markedRankCylinder_probability_eq_gap_product
+#print axioms Luce.Section6.markedRankCylinder_probability_eq_gap_product
+#print Luce.Section6.markedRankCylinder_probability_eq_orderedInsertion
+#print axioms Luce.Section6.markedRankCylinder_probability_eq_orderedInsertion
+#print Luce.Section6.markedRankCylinder_probability_eq_sortedOrderedInsertion
+#print axioms Luce.Section6.markedRankCylinder_probability_eq_sortedOrderedInsertion
+#print Luce.Section6.markedRankCylinder_probability_le_Lp_product
+#print axioms Luce.Section6.markedRankCylinder_probability_le_Lp_product
+#print Luce.Section6.markedRankCylinder_probability_le_domination_matrix
+#print axioms Luce.Section6.markedRankCylinder_probability_le_domination_matrix
+#print Luce.Section6.markedRankCylinder_real_probability_eq_gap_product
+#print axioms Luce.Section6.markedRankCylinder_real_probability_eq_gap_product
+#print Luce.Section6.markedRankCylinder_real_probability_eq_openSimplex_product
+#print axioms Luce.Section6.markedRankCylinder_real_probability_eq_openSimplex_product
+#print Luce.Section6.markedRankCylinder_real_probability_eq_simplex_product
+#print axioms Luce.Section6.markedRankCylinder_real_probability_eq_simplex_product
+#print Luce.Section6.markedRankCylinder_real_probability_eq_sortedOrderedInsertion
+#print axioms Luce.Section6.markedRankCylinder_real_probability_eq_sortedOrderedInsertion
+#print Luce.Section6.markedRankCylinder_real_probability_le_domination_matrix
+#print axioms Luce.Section6.markedRankCylinder_real_probability_le_domination_matrix
+#print Luce.Section6.markedRankCylinder_real_probability_le_gap_product
+#print axioms Luce.Section6.markedRankCylinder_real_probability_le_gap_product
+#print Luce.Section6.marked_normalized_skeleton_integral
+#print axioms Luce.Section6.marked_normalized_skeleton_integral
+#print Luce.Section6.maximumCycleRoots_symm65
+#print axioms Luce.Section6.maximumCycleRoots_symm65
+#print Luce.Section6.maximum_root_expectation_le_cycle_probability
+#print axioms Luce.Section6.maximum_root_expectation_le_cycle_probability
+#print Luce.Section6.maximum_root_left_escape_iff
+#print axioms Luce.Section6.maximum_root_left_escape_iff
+#print Luce.Section6.maximum_root_right_escape_iff
+#print axioms Luce.Section6.maximum_root_right_escape_iff
+#print Luce.Section6.meanApprox65_of_core_log_bound
+#print axioms Luce.Section6.meanApprox65_of_core_log_bound
+#print Luce.Section6.measurableSet_gapOrderedInsertion
+#print axioms Luce.Section6.measurableSet_gapOrderedInsertion
+#print Luce.Section6.measurableSet_gapSimplexRegion
+#print axioms Luce.Section6.measurableSet_gapSimplexRegion
+#print Luce.Section6.measurableSet_openOrderGap
+#print axioms Luce.Section6.measurableSet_openOrderGap
+#print Luce.Section6.measurableSet_orderedMarkedInsertion
+#print axioms Luce.Section6.measurableSet_orderedMarkedInsertion
+#print Luce.Section6.measurable_clockArrivalIndicator
+#print axioms Luce.Section6.measurable_clockArrivalIndicator
+#print Luce.Section6.measurable_gapOrderedKernel
+#print axioms Luce.Section6.measurable_gapOrderedKernel
+#print Luce.Section6.measurable_orderedInsertionKernel
+#print axioms Luce.Section6.measurable_orderedInsertionKernel
+#print Luce.Section6.memLp_race_permutation_statistic65
+#print axioms Luce.Section6.memLp_race_permutation_statistic65
+#print Luce.Section6.mem_openOrderGap_iff_count
+#print axioms Luce.Section6.mem_openOrderGap_iff_count
+#print Luce.Section6.mem_terminalGap_iff_count
+#print axioms Luce.Section6.mem_terminalGap_iff_count
+#print Luce.Section6.moderate_exponential_sum_le
+#print axioms Luce.Section6.moderate_exponential_sum_le
+#print Luce.Section6.moderate_ratio_le_depth
+#print axioms Luce.Section6.moderate_ratio_le_depth
+#print Luce.Section6.momentTaylor_eq_taylor
+#print axioms Luce.Section6.momentTaylor_eq_taylor
+#print Luce.Section6.momentTaylor_tendsto
+#print axioms Luce.Section6.momentTaylor_tendsto
+#print Luce.Section6.moment_remainder_tendsto
+#print axioms Luce.Section6.moment_remainder_tendsto
+#print Luce.Section6.monotoneOn_clip_min
+#print axioms Luce.Section6.monotoneOn_clip_min
+#print Luce.Section6.monotone_nat_log68
+#print axioms Luce.Section6.monotone_nat_log68
+#print Luce.Section6.monotone_positive_power_quantile_error
+#print axioms Luce.Section6.monotone_positive_power_quantile_error
+#print Luce.Section6.monotone_quantile_smallness
+#print axioms Luce.Section6.monotone_quantile_smallness
+#print Luce.Section6.monotone_sample_average_error
+#print axioms Luce.Section6.monotone_sample_average_error
+#print Luce.Section6.negative_power_inverse_estimate
+#print axioms Luce.Section6.negative_power_inverse_estimate
+#print Luce.Section6.negative_power_weighted_comparison
+#print axioms Luce.Section6.negative_power_weighted_comparison
+#print Luce.Section6.negative_power_window_region
+#print axioms Luce.Section6.negative_power_window_region
+#print Luce.Section6.noninjective_cycle_sum68
+#print axioms Luce.Section6.noninjective_cycle_sum68
+#print Luce.Section6.nonmoderate_cycle_edge_sum
+#print axioms Luce.Section6.nonmoderate_cycle_edge_sum
+#print Luce.Section6.nonmoderate_cycle_family_sum
+#print axioms Luce.Section6.nonmoderate_cycle_family_sum
+#print Luce.Section6.nonmoderate_edge_has_large_potential
+#print axioms Luce.Section6.nonmoderate_edge_has_large_potential
+#print Luce.Section6.normalization_affine65
+#print axioms Luce.Section6.normalization_affine65
+#print Luce.Section6.normalized_gap_comparison
+#print axioms Luce.Section6.normalized_gap_comparison
+#print Luce.Section6.normalized_gap_product_comparison
+#print axioms Luce.Section6.normalized_gap_product_comparison
+#print Luce.Section6.normalized_gap_taylor_with_decay
+#print axioms Luce.Section6.normalized_gap_taylor_with_decay
+#print Luce.Section6.normalized_insertion_product_bounds
+#print axioms Luce.Section6.normalized_insertion_product_bounds
+#print Luce.Section6.normalized_insertion_product_integrable
+#print axioms Luce.Section6.normalized_insertion_product_integrable
+#print Luce.Section6.normalized_local_pointwise
+#print axioms Luce.Section6.normalized_local_pointwise
+#print Luce.Section6.normalized_skeleton_integral
+#print axioms Luce.Section6.normalized_skeleton_integral
+#print Luce.Section6.not_offActiveLabels65
+#print axioms Luce.Section6.not_offActiveLabels65
+#print Luce.Section6.ofReal_insertionDominationMatrix
+#print axioms Luce.Section6.ofReal_insertionDominationMatrix
+#print Luce.Section6.one_add_log_core_lower_sqrt_tendsto65
+#print axioms Luce.Section6.one_add_log_core_lower_sqrt_tendsto65
+#print Luce.Section6.one_depth_error_le_cross
+#print axioms Luce.Section6.one_depth_error_le_cross
+#print Luce.Section6.one_gap_moment_bound
+#print axioms Luce.Section6.one_gap_moment_bound
+#print Luce.Section6.one_sub_exp_neg_bounds
+#print axioms Luce.Section6.one_sub_exp_neg_bounds
+#print Luce.Section6.openGapSimplexIntegral_integrable
+#print axioms Luce.Section6.openGapSimplexIntegral_integrable
+#print Luce.Section6.openGapSimplexProduct_integrable
+#print axioms Luce.Section6.openGapSimplexProduct_integrable
+#print Luce.Section6.openPathWeight68_const_mul
+#print axioms Luce.Section6.openPathWeight68_const_mul
+#print Luce.Section6.openPathWeight68_continuous
+#print axioms Luce.Section6.openPathWeight68_continuous
+#print Luce.Section6.openPathWeight68_eq_prod
+#print axioms Luce.Section6.openPathWeight68_eq_prod
+#print Luce.Section6.openPathWeight68_exp
+#print axioms Luce.Section6.openPathWeight68_exp
+#print Luce.Section6.openPathWeight68_mono
+#print axioms Luce.Section6.openPathWeight68_mono
+#print Luce.Section6.openPathWeight68_nonneg
+#print axioms Luce.Section6.openPathWeight68_nonneg
+#print Luce.Section6.opposite_core_sets_disjoint
+#print axioms Luce.Section6.opposite_core_sets_disjoint
+#print Luce.Section6.orderedInsertionKernel_eq_gap_product
+#print axioms Luce.Section6.orderedInsertionKernel_eq_gap_product
+#print Luce.Section6.orderedInsertionKernel_eq_product_of_strictMono
+#print axioms Luce.Section6.orderedInsertionKernel_eq_product_of_strictMono
+#print Luce.Section6.orderedInsertionKernel_integrable
+#print axioms Luce.Section6.orderedInsertionKernel_integrable
+#print Luce.Section6.orderedInsertionKernel_le_one
+#print axioms Luce.Section6.orderedInsertionKernel_le_one
+#print Luce.Section6.orderedInsertionKernel_le_product
+#print axioms Luce.Section6.orderedInsertionKernel_le_product
+#print Luce.Section6.orderedMarkedInsertion_iff_gap_partition
+#print axioms Luce.Section6.orderedMarkedInsertion_iff_gap_partition
+#print Luce.Section6.ordered_gap_integrable_transfer
+#print axioms Luce.Section6.ordered_gap_integrable_transfer
+#print Luce.Section6.ordered_gap_integral_transfer
+#print axioms Luce.Section6.ordered_gap_integral_transfer
+#print Luce.Section6.ordered_race_gap_moment_bound
+#print axioms Luce.Section6.ordered_race_gap_moment_bound
+#print Luce.Section6.ordered_remaining_rate_antitone
+#print axioms Luce.Section6.ordered_remaining_rate_antitone
+#print Luce.Section6.ordinary_envelope_mono_decay
+#print axioms Luce.Section6.ordinary_envelope_mono_decay
+#print Luce.Section6.ordinary_power_column_bound
+#print axioms Luce.Section6.ordinary_power_column_bound
+#print Luce.Section6.outside_depth_decay
+#print axioms Luce.Section6.outside_depth_decay
+#print Luce.Section6.outside_left_weighted_power_identity
+#print axioms Luce.Section6.outside_left_weighted_power_identity
+#print Luce.Section6.outside_left_weighted_subset_bound
+#print axioms Luce.Section6.outside_left_weighted_subset_bound
+#print Luce.Section6.outside_left_weighted_sum_bound
+#print axioms Luce.Section6.outside_left_weighted_sum_bound
+#print Luce.Section6.outside_right_kernel_inverse_row
+#print axioms Luce.Section6.outside_right_kernel_inverse_row
+#print Luce.Section6.pathVariation68_nonneg
+#print axioms Luce.Section6.pathVariation68_nonneg
+#print Luce.Section6.pathVariation68_vertex
+#print axioms Luce.Section6.pathVariation68_vertex
+#print Luce.Section6.periodicOrbit_finset_sameCycle65
+#print axioms Luce.Section6.periodicOrbit_finset_sameCycle65
+#print Luce.Section6.periodicOrbit_finset_symm65
+#print axioms Luce.Section6.periodicOrbit_finset_symm65
+#print Luce.Section6.poissonFunctional65_centered_stein
+#print axioms Luce.Section6.poissonFunctional65_centered_stein
+#print Luce.Section6.poissonFunctional65_expansion
+#print axioms Luce.Section6.poissonFunctional65_expansion
+#print Luce.Section6.poissonFunctional65_stein
+#print axioms Luce.Section6.poissonFunctional65_stein
+#print Luce.Section6.polynomial_eval_expansion65
+#print axioms Luce.Section6.polynomial_eval_expansion65
+#print Luce.Section6.polynomial_expansion65
+#print axioms Luce.Section6.polynomial_expansion65
+#print Luce.Section6.populationD_absolute_variation
+#print axioms Luce.Section6.populationD_absolute_variation
+#print Luce.Section6.populationD_antitone
+#print axioms Luce.Section6.populationD_antitone
+#print Luce.Section6.populationD_hasDerivAt
+#print axioms Luce.Section6.populationD_hasDerivAt
+#print Luce.Section6.populationD_one_deletion_bound
+#print axioms Luce.Section6.populationD_one_deletion_bound
+#print Luce.Section6.populationD_one_difference_bound
+#print axioms Luce.Section6.populationD_one_difference_bound
+#print Luce.Section6.populationD_one_eq_reflected_samples
+#print axioms Luce.Section6.populationD_one_eq_reflected_samples
+#print Luce.Section6.populationD_one_eq_samples
+#print axioms Luce.Section6.populationD_one_eq_samples
+#print Luce.Section6.populationD_one_upper
+#print axioms Luce.Section6.populationD_one_upper
+#print Luce.Section6.populationD_pos
+#print axioms Luce.Section6.populationD_pos
+#print Luce.Section6.populationD_relative_stability
+#print axioms Luce.Section6.populationD_relative_stability
+#print Luce.Section6.populationD_relative_variation
+#print axioms Luce.Section6.populationD_relative_variation
+#print Luce.Section6.populationD_two_le
+#print axioms Luce.Section6.populationD_two_le
+#print Luce.Section6.populationG_arrivalQuantile
+#print axioms Luce.Section6.populationG_arrivalQuantile
+#print Luce.Section6.populationG_deletion_bound
+#print axioms Luce.Section6.populationG_deletion_bound
+#print Luce.Section6.populationG_eq_one_sub_H
+#print axioms Luce.Section6.populationG_eq_one_sub_H
+#print Luce.Section6.populationG_eq_samples
+#print axioms Luce.Section6.populationG_eq_samples
+#print Luce.Section6.populationG_hasDerivAt
+#print axioms Luce.Section6.populationG_hasDerivAt
+#print Luce.Section6.populationG_le_uniform_rate
+#print axioms Luce.Section6.populationG_le_uniform_rate
+#print Luce.Section6.populationG_mean_separation
+#print axioms Luce.Section6.populationG_mean_separation
+#print Luce.Section6.populationG_separation
+#print axioms Luce.Section6.populationG_separation
+#print Luce.Section6.populationG_strictMono
+#print axioms Luce.Section6.populationG_strictMono
+#print Luce.Section6.populationG_tendsto_one
+#print axioms Luce.Section6.populationG_tendsto_one
+#print Luce.Section6.populationG_zero
+#print axioms Luce.Section6.populationG_zero
+#print Luce.Section6.populationH_deletion_bound
+#print axioms Luce.Section6.populationH_deletion_bound
+#print Luce.Section6.populationH_eq_reflected_samples
+#print axioms Luce.Section6.populationH_eq_reflected_samples
+#print Luce.Section6.populationH_hasDerivAt
+#print axioms Luce.Section6.populationH_hasDerivAt
+#print Luce.Section6.populationH_le_uniform_rate
+#print axioms Luce.Section6.populationH_le_uniform_rate
+#print Luce.Section6.populationH_mean_separation
+#print axioms Luce.Section6.populationH_mean_separation
+#print Luce.Section6.populationH_separation
+#print axioms Luce.Section6.populationH_separation
+#print Luce.Section6.populationH_strictAnti
+#print axioms Luce.Section6.populationH_strictAnti
+#print Luce.Section6.populationH_survivorQuantile
+#print axioms Luce.Section6.populationH_survivorQuantile
+#print Luce.Section6.populationH_tendsto_zero
+#print axioms Luce.Section6.populationH_tendsto_zero
+#print Luce.Section6.populationH_zero
+#print axioms Luce.Section6.populationH_zero
+#print Luce.Section6.population_moments_from_power_window
+#print axioms Luce.Section6.population_moments_from_power_window
+#print Luce.Section6.positive_continuous_compact_bounds
+#print axioms Luce.Section6.positive_continuous_compact_bounds
+#print Luce.Section6.positive_continuous_lower_from_left
+#print axioms Luce.Section6.positive_continuous_lower_from_left
+#print Luce.Section6.positive_continuous_upper_from_left
+#print axioms Luce.Section6.positive_continuous_upper_from_left
+#print Luce.Section6.positive_depth_interval_rounding
+#print axioms Luce.Section6.positive_depth_interval_rounding
+#print Luce.Section6.positive_depth_subset_sum_le
+#print axioms Luce.Section6.positive_depth_subset_sum_le
+#print Luce.Section6.positive_natset_order_bound
+#print axioms Luce.Section6.positive_natset_order_bound
+#print Luce.Section6.positive_natset_rpow_sum_ge
+#print axioms Luce.Section6.positive_natset_rpow_sum_ge
+#print Luce.Section6.positive_power_inverse_estimate
+#print axioms Luce.Section6.positive_power_inverse_estimate
+#print Luce.Section6.positive_power_relative_error
+#print axioms Luce.Section6.positive_power_relative_error
+#print Luce.Section6.positive_power_sum_upper
+#print axioms Luce.Section6.positive_power_sum_upper
+#print Luce.Section6.positive_power_weighted_comparison
+#print axioms Luce.Section6.positive_power_weighted_comparison
+#print Luce.Section6.positive_power_window_region
+#print axioms Luce.Section6.positive_power_window_region
+#print Luce.Section6.positive_reflect
+#print axioms Luce.Section6.positive_reflect
+#print Luce.Section6.powerCategories_disjoint65
+#print axioms Luce.Section6.powerCategories_disjoint65
+#print Luce.Section6.powerCornerWeight_square_sum65
+#print axioms Luce.Section6.powerCornerWeight_square_sum65
+#print Luce.Section6.powerLaw65
+#print axioms Luce.Section6.powerLaw65
+#print Luce.Section6.powerLaw65_contractCheck
+#print axioms Luce.Section6.powerLaw65_contractCheck
+#print Luce.Section6.power_core_target_moments65
+#print axioms Luce.Section6.power_core_target_moments65
+#print Luce.Section6.power_density_cell_bound
+#print axioms Luce.Section6.power_density_cell_bound
+#print Luce.Section6.power_density_integrable
+#print axioms Luce.Section6.power_density_integrable
+#print Luce.Section6.power_density_positive_sum_bound
+#print axioms Luce.Section6.power_density_positive_sum_bound
+#print Luce.Section6.power_envelope_absorption
+#print axioms Luce.Section6.power_envelope_absorption
+#print Luce.Section6.power_envelope_average_bound
+#print axioms Luce.Section6.power_envelope_average_bound
+#print Luce.Section6.power_over_depth_comparison
+#print axioms Luce.Section6.power_over_depth_comparison
+#print Luce.Section6.power_race_clt65
+#print axioms Luce.Section6.power_race_clt65
+#print Luce.Section6.power_weighted_cell_bound
+#print axioms Luce.Section6.power_weighted_cell_bound
+#print Luce.Section6.power_weighted_density_integrable
+#print axioms Luce.Section6.power_weighted_density_integrable
+#print Luce.Section6.power_weighted_positive_sum_bound
+#print axioms Luce.Section6.power_weighted_positive_sum_bound
+#print Luce.Section6.power_window_comparison
+#print axioms Luce.Section6.power_window_comparison
+#print Luce.Section6.power_window_inside_core65
+#print axioms Luce.Section6.power_window_inside_core65
+#print Luce.Section6.prod_perturbation68
+#print axioms Luce.Section6.prod_perturbation68
+#print Luce.Section6.product_eq_multiplicity65
+#print axioms Luce.Section6.product_eq_multiplicity65
+#print Luce.Section6.proposition610
+#print axioms Luce.Section6.proposition610
+#print Luce.Section6.proposition610_contractCheck
+#print axioms Luce.Section6.proposition610_contractCheck
+#print Luce.Section6.proposition611
+#print axioms Luce.Section6.proposition611
+#print Luce.Section6.proposition611_contractCheck
+#print axioms Luce.Section6.proposition611_contractCheck
+#print Luce.Section6.proposition65
+#print axioms Luce.Section6.proposition65
+#print Luce.Section6.proposition65_contractCheck
+#print axioms Luce.Section6.proposition65_contractCheck
+#print Luce.Section6.proposition65_localLaw
+#print axioms Luce.Section6.proposition65_localLaw
+#print Luce.Section6.quantile_exponential_tail_le_polynomial
+#print axioms Luce.Section6.quantile_exponential_tail_le_polynomial
+#print Luce.Section6.quarter_window_cutoff
+#print axioms Luce.Section6.quarter_window_cutoff
+#print Luce.Section6.quarter_window_probability_scale
+#print axioms Luce.Section6.quarter_window_probability_scale
+#print Luce.Section6.quarter_window_square_root
+#print axioms Luce.Section6.quarter_window_square_root
+#print Luce.Section6.raceGapRate_eq_surviving_weight
+#print axioms Luce.Section6.raceGapRate_eq_surviving_weight
+#print Luce.Section6.race_affine_moments65
+#print axioms Luce.Section6.race_affine_moments65
+#print Luce.Section6.race_characteristic_clt65
+#print axioms Luce.Section6.race_characteristic_clt65
+#print Luce.Section6.race_characteristic_perturbation65
+#print axioms Luce.Section6.race_characteristic_perturbation65
+#print Luce.Section6.race_integral_add65
+#print axioms Luce.Section6.race_integral_add65
+#print Luce.Section6.race_integral_sum65
+#print axioms Luce.Section6.race_integral_sum65
+#print Luce.Section6.race_linear_moment_tendsto65
+#print axioms Luce.Section6.race_linear_moment_tendsto65
+#print Luce.Section6.race_moments_characteristic65
+#print axioms Luce.Section6.race_moments_characteristic65
+#print Luce.Section6.race_moments_clt65
+#print axioms Luce.Section6.race_moments_clt65
+#print Luce.Section6.random_gap_weight_probability_bound
+#print axioms Luce.Section6.random_gap_weight_probability_bound
+#print Luce.Section6.rapidError65_of_core_bound
+#print axioms Luce.Section6.rapidError65_of_core_bound
+#print Luce.Section6.rapidError65_zero
+#print axioms Luce.Section6.rapidError65_zero
+#print Luce.Section6.rateKernel_antitone_after_peak
+#print axioms Luce.Section6.rateKernel_antitone_after_peak
+#print Luce.Section6.rateKernel_bound_above_lower
+#print axioms Luce.Section6.rateKernel_bound_above_lower
+#print Luce.Section6.rateKernel_le_exp_neg_one_div
+#print axioms Luce.Section6.rateKernel_le_exp_neg_one_div
+#print Luce.Section6.rateKernel_monotone_before_peak
+#print axioms Luce.Section6.rateKernel_monotone_before_peak
+#print Luce.Section6.rateKernel_split_time
+#print axioms Luce.Section6.rateKernel_split_time
+#print Luce.Section6.rateKernel_sub_bound_with_decay
+#print axioms Luce.Section6.rateKernel_sub_bound_with_decay
+#print Luce.Section6.rate_times_half_power_bound
+#print axioms Luce.Section6.rate_times_half_power_bound
+#print Luce.Section6.ratio_power_over_depth_le
+#print axioms Luce.Section6.ratio_power_over_depth_le
+#print Luce.Section6.reciprocal_depth_power_product_le_one
+#print axioms Luce.Section6.reciprocal_depth_power_product_le_one
+#print Luce.Section6.reciprocal_scaled_rpow
+#print axioms Luce.Section6.reciprocal_scaled_rpow
+#print Luce.Section6.reciprocal_square_sum68
+#print axioms Luce.Section6.reciprocal_square_sum68
+#print Luce.Section6.refined_interval_core_bound68
+#print axioms Luce.Section6.refined_interval_core_bound68
+#print Luce.Section6.reflect
+#print axioms Luce.Section6.reflect
+#print Luce.Section6.relativeIdealTrace68_error
+#print axioms Luce.Section6.relativeIdealTrace68_error
+#print Luce.Section6.relativeIdealTrace68_remainder
+#print axioms Luce.Section6.relativeIdealTrace68_remainder
+#print Luce.Section6.relative_error_power_upper
+#print axioms Luce.Section6.relative_error_power_upper
+#print Luce.Section6.relative_mean_separation
+#print axioms Luce.Section6.relative_mean_separation
+#print Luce.Section6.relative_product_error
+#print axioms Luce.Section6.relative_product_error
+#print Luce.Section6.relative_quotient_error
+#print axioms Luce.Section6.relative_quotient_error
+#print Luce.Section6.relative_trace_integrable68
+#print axioms Luce.Section6.relative_trace_integrable68
+#print Luce.Section6.relative_window_budget
+#print axioms Luce.Section6.relative_window_budget
+#print Luce.Section6.replacementPathCode_injective
+#print axioms Luce.Section6.replacementPathCode_injective
+#print Luce.Section6.replacementPath_count_le
+#print axioms Luce.Section6.replacementPath_count_le
+#print Luce.Section6.replacement_cycle_has_path
+#print axioms Luce.Section6.replacement_cycle_has_path
+#print Luce.Section6.restore_bounded_exponential
+#print axioms Luce.Section6.restore_bounded_exponential
+#print Luce.Section6.restrictedKernelSums_of_exceptional_domination
+#print axioms Luce.Section6.restrictedKernelSums_of_exceptional_domination
+#print Luce.Section6.restrictedKernelSums_transpose
+#print axioms Luce.Section6.restrictedKernelSums_transpose
+#print Luce.Section6.restricted_embedding_sum
+#print axioms Luce.Section6.restricted_embedding_sum
+#print Luce.Section6.reverse_ratio_power
+#print axioms Luce.Section6.reverse_ratio_power
+#print Luce.Section6.rightQuantileTime_spec
+#print axioms Luce.Section6.rightQuantileTime_spec
+#print Luce.Section6.right_corner_envelope_column_bound
+#print axioms Luce.Section6.right_corner_envelope_column_bound
+#print Luce.Section6.right_depth_factor_comparison
+#print axioms Luce.Section6.right_depth_factor_comparison
+#print Luce.Section6.right_envelope_weighted_sum_bound
+#print axioms Luce.Section6.right_envelope_weighted_sum_bound
+#print Luce.Section6.right_exceptional_weighted_row_bound
+#print axioms Luce.Section6.right_exceptional_weighted_row_bound
+#print Luce.Section6.right_excursion_depth_sum
+#print axioms Luce.Section6.right_excursion_depth_sum
+#print Luce.Section6.right_excursion_kernel_sum
+#print axioms Luce.Section6.right_excursion_kernel_sum
+#print Luce.Section6.right_extreme_depth_cutoff
+#print axioms Luce.Section6.right_extreme_depth_cutoff
+#print Luce.Section6.right_extreme_depth_le
+#print axioms Luce.Section6.right_extreme_depth_le
+#print Luce.Section6.right_extreme_exponent_bounds
+#print axioms Luce.Section6.right_extreme_exponent_bounds
+#print Luce.Section6.right_extreme_scale_identity
+#print axioms Luce.Section6.right_extreme_scale_identity
+#print Luce.Section6.right_fixed_targets_weighted_row
+#print axioms Luce.Section6.right_fixed_targets_weighted_row
+#print Luce.Section6.right_half_threshold67
+#print axioms Luce.Section6.right_half_threshold67
+#print Luce.Section6.right_insertion_ratio_identity
+#print axioms Luce.Section6.right_insertion_ratio_identity
+#print Luce.Section6.right_ordinary_column_bound
+#print axioms Luce.Section6.right_ordinary_column_bound
+#print Luce.Section6.right_ordinary_weighted_row_bound
+#print axioms Luce.Section6.right_ordinary_weighted_row_bound
+#print Luce.Section6.right_outside_kernel_subset_bound
+#print axioms Luce.Section6.right_outside_kernel_subset_bound
+#print Luce.Section6.right_perturbation_power_identity
+#print axioms Luce.Section6.right_perturbation_power_identity
+#print Luce.Section6.right_power_time_identity
+#print axioms Luce.Section6.right_power_time_identity
+#print Luce.Section6.right_rate_time_leading
+#print axioms Luce.Section6.right_rate_time_leading
+#print Luce.Section6.right_typical_extreme_restricted_sums
+#print axioms Luce.Section6.right_typical_extreme_restricted_sums
+#print Luce.Section6.rootCoreSpan68_bounds
+#print axioms Luce.Section6.rootCoreSpan68_bounds
+#print Luce.Section6.rootCoreSpan68_full
+#print axioms Luce.Section6.rootCoreSpan68_full
+#print Luce.Section6.rooted_category_collection_card
+#print axioms Luce.Section6.rooted_category_collection_card
+#print Luce.Section6.rpow_relative_lipschitz
+#print axioms Luce.Section6.rpow_relative_lipschitz
+#print Luce.Section6.samplePoint_ge_half_label
+#print axioms Luce.Section6.samplePoint_ge_half_label
+#print Luce.Section6.samplePoint_le_label
+#print axioms Luce.Section6.samplePoint_le_label
+#print Luce.Section6.samplePoint_mem
+#print axioms Luce.Section6.samplePoint_mem
+#print Luce.Section6.samplePoint_power_relative_error
+#print axioms Luce.Section6.samplePoint_power_relative_error
+#print Luce.Section6.samplePoint_ratio_interval
+#print axioms Luce.Section6.samplePoint_ratio_interval
+#print Luce.Section6.samplePoint_relative_error
+#print axioms Luce.Section6.samplePoint_relative_error
+#print Luce.Section6.samplePoint_rev
+#print axioms Luce.Section6.samplePoint_rev
+#print Luce.Section6.samplePoint_scaled_cell
+#print axioms Luce.Section6.samplePoint_scaled_cell
+#print Luce.Section6.sampledWeights_sampled
+#print axioms Luce.Section6.sampledWeights_sampled
+#print Luce.Section6.sampled_power_ratio
+#print axioms Luce.Section6.sampled_power_ratio
+#print Luce.Section6.scaledPoissonMoment65_rec
+#print axioms Luce.Section6.scaledPoissonMoment65_rec
+#print Luce.Section6.scaledPoissonMoment65_tendsto
+#print axioms Luce.Section6.scaledPoissonMoment65_tendsto
+#print Luce.Section6.scaled_deletion_error
+#print axioms Luce.Section6.scaled_deletion_error
+#print Luce.Section6.scaled_fast_weighted_average_bound
+#print axioms Luce.Section6.scaled_fast_weighted_average_bound
+#print Luce.Section6.scaled_integral_weighted_power
+#print axioms Luce.Section6.scaled_integral_weighted_power
+#print Luce.Section6.scaled_power_density_factor
+#print axioms Luce.Section6.scaled_power_density_factor
+#print Luce.Section6.scaled_power_envelope_average_bound
+#print axioms Luce.Section6.scaled_power_envelope_average_bound
+#print Luce.Section6.scaled_power_kernel_row_bound
+#print axioms Luce.Section6.scaled_power_kernel_row_bound
+#print Luce.Section6.scaled_power_le_of_depth_le
+#print axioms Luce.Section6.scaled_power_le_of_depth_le
+#print Luce.Section6.scaled_weighted_prototype_power_error
+#print axioms Luce.Section6.scaled_weighted_prototype_power_error
+#print Luce.Section6.section65
+#print axioms Luce.Section6.section65
+#print Luce.Section6.section65_interior_contractCheck
+#print axioms Luce.Section6.section65_interior_contractCheck
+#print Luce.Section6.section65_midpoint_contractCheck
+#print axioms Luce.Section6.section65_midpoint_contractCheck
+#print Luce.Section6.selectedRootCycleCount_eq_sum65
+#print axioms Luce.Section6.selectedRootCycleCount_eq_sum65
+#print Luce.Section6.selectedRootCycleCount_expectation_sum65
+#print axioms Luce.Section6.selectedRootCycleCount_expectation_sum65
+#print Luce.Section6.selectedRootCycleCount_harmonic65
+#print axioms Luce.Section6.selectedRootCycleCount_harmonic65
+#print Luce.Section6.selected_coordinate_integral
+#print axioms Luce.Section6.selected_coordinate_integral
+#print Luce.Section6.selected_fill_selected
+#print axioms Luce.Section6.selected_fill_selected
+#print Luce.Section6.selected_gap_factor_error
+#print axioms Luce.Section6.selected_gap_factor_error
+#print Luce.Section6.selected_gap_integral
+#print axioms Luce.Section6.selected_gap_integral
+#print Luce.Section6.selected_gap_relative_error
+#print axioms Luce.Section6.selected_gap_relative_error
+#print Luce.Section6.selected_gaps_product_integral
+#print axioms Luce.Section6.selected_gaps_product_integral
+#print Luce.Section6.selected_insertion_product_skeleton
+#print axioms Luce.Section6.selected_insertion_product_skeleton
+#print Luce.Section6.selected_root_count_le_vertices
+#print axioms Luce.Section6.selected_root_count_le_vertices
+#print Luce.Section6.selected_root_expectation_of_rates
+#print axioms Luce.Section6.selected_root_expectation_of_rates
+#print Luce.Section6.selected_root_singleton67
+#print axioms Luce.Section6.selected_root_singleton67
+#print Luce.Section6.selected_survival_product
+#print axioms Luce.Section6.selected_survival_product
+#print Luce.Section6.selected_survival_sum_swap
+#print axioms Luce.Section6.selected_survival_sum_swap
+#print Luce.Section6.selected_weighted_starts
+#print axioms Luce.Section6.selected_weighted_starts
+#print Luce.Section6.separated_cylinder_eq_gap_product
+#print axioms Luce.Section6.separated_cylinder_eq_gap_product
+#print Luce.Section6.separated_cylinder_order_sum
+#print axioms Luce.Section6.separated_cylinder_order_sum
+#print Luce.Section6.separated_cylinder_skeleton_formula
+#print axioms Luce.Section6.separated_cylinder_skeleton_formula
+#print Luce.Section6.setIntegral_le_second_moment
+#print axioms Luce.Section6.setIntegral_le_second_moment
+#print Luce.Section6.shifted_exponential_kernel_bound
+#print axioms Luce.Section6.shifted_exponential_kernel_bound
+#print Luce.Section6.shifted_interior_gap_bounds
+#print axioms Luce.Section6.shifted_interior_gap_bounds
+#print Luce.Section6.shifted_left_gap_bounds
+#print axioms Luce.Section6.shifted_left_gap_bounds
+#print Luce.Section6.shifted_left_nonterminal
+#print axioms Luce.Section6.shifted_left_nonterminal
+#print Luce.Section6.shifted_right_survivor_bounds
+#print axioms Luce.Section6.shifted_right_survivor_bounds
+#print Luce.Section6.single_coordinate_sum_bound
+#print axioms Luce.Section6.single_coordinate_sum_bound
+#print Luce.Section6.single_replacement_cycle_count_le
+#print axioms Luce.Section6.single_replacement_cycle_count_le
+#print Luce.Section6.skeleton_displacement_bound
+#print axioms Luce.Section6.skeleton_displacement_bound
+#print Luce.Section6.skeleton_start_congr_unselected
+#print axioms Luce.Section6.skeleton_start_congr_unselected
+#print Luce.Section6.skeleton_start_eq_actual_start_sub_selected
+#print axioms Luce.Section6.skeleton_start_eq_actual_start_sub_selected
+#print Luce.Section6.skeleton_start_fill
+#print axioms Luce.Section6.skeleton_start_fill
+#print Luce.Section6.skeleton_start_nonneg
+#print axioms Luce.Section6.skeleton_start_nonneg
+#print Luce.Section6.slow_prototype_population_error
+#print axioms Luce.Section6.slow_prototype_population_error
+#print Luce.Section6.slow_survival_antitone
+#print axioms Luce.Section6.slow_survival_antitone
+#print Luce.Section6.slow_survival_average_le
+#print axioms Luce.Section6.slow_survival_average_le
+#print Luce.Section6.slow_survival_quadrature
+#print axioms Luce.Section6.slow_survival_quadrature
+#print Luce.Section6.slow_survival_tail_bound
+#print axioms Luce.Section6.slow_survival_tail_bound
+#print Luce.Section6.small_ratio_absorption67
+#print axioms Luce.Section6.small_ratio_absorption67
+#print Luce.Section6.small_rpow_nonneg
+#print axioms Luce.Section6.small_rpow_nonneg
+#print Luce.Section6.sortedMarkedGapIndex_monotone
+#print axioms Luce.Section6.sortedMarkedGapIndex_monotone
+#print Luce.Section6.sorted_demanded_gap_shift
+#print axioms Luce.Section6.sorted_demanded_gap_shift
+#print Luce.Section6.sorted_gap_injective_of_separated
+#print axioms Luce.Section6.sorted_gap_injective_of_separated
+#print Luce.Section6.sorted_gap_left_displacement
+#print axioms Luce.Section6.sorted_gap_left_displacement
+#print Luce.Section6.sorted_gap_nonfinal_of_terminal_buffer
+#print axioms Luce.Section6.sorted_gap_nonfinal_of_terminal_buffer
+#print Luce.Section6.sorted_gap_right_displacement
+#print axioms Luce.Section6.sorted_gap_right_displacement
+#print Luce.Section6.spatial65
+#print axioms Luce.Section6.spatial65
+#print Luce.Section6.spatial65_contractCheck
+#print axioms Luce.Section6.spatial65_contractCheck
+#print Luce.Section6.spatialCategories_disjoint65
+#print axioms Luce.Section6.spatialCategories_disjoint65
+#print Luce.Section6.spatialCore_count_le65
+#print axioms Luce.Section6.spatialCore_count_le65
+#print Luce.Section6.spatialCore_error_bound65
+#print axioms Luce.Section6.spatialCore_error_bound65
+#print Luce.Section6.spatialCount_approx65
+#print axioms Luce.Section6.spatialCount_approx65
+#print Luce.Section6.spatialCount_meanApprox65
+#print axioms Luce.Section6.spatialCount_meanApprox65
+#print Luce.Section6.spatialCycleCount_symm65
+#print axioms Luce.Section6.spatialCycleCount_symm65
+#print Luce.Section6.spatial_core_target_moments65
+#print axioms Luce.Section6.spatial_core_target_moments65
+#print Luce.Section6.spatial_race_clt65
+#print axioms Luce.Section6.spatial_race_clt65
+#print Luce.Section6.spatial_windowCount65
+#print axioms Luce.Section6.spatial_windowCount65
+#print Luce.Section6.sqrt_sum_le_sum_sqrt
+#print axioms Luce.Section6.sqrt_sum_le_sum_sqrt
+#print Luce.Section6.standardGapLaw_nonneg_ae
+#print axioms Luce.Section6.standardGapLaw_nonneg_ae
+#print Luce.Section6.standardNormalVector_characteristic65
+#print axioms Luce.Section6.standardNormalVector_characteristic65
+#print Luce.Section6.standardNormalVector_linear_exp65
+#print axioms Luce.Section6.standardNormalVector_linear_exp65
+#print Luce.Section6.standardNormalVector_linear_expabs65
+#print axioms Luce.Section6.standardNormalVector_linear_expabs65
+#print Luce.Section6.standardNormalVector_linear_memLp65
+#print axioms Luce.Section6.standardNormalVector_linear_memLp65
+#print Luce.Section6.standardNormalVector_linear_moment65
+#print axioms Luce.Section6.standardNormalVector_linear_moment65
+#print Luce.Section6.standardNormalVector_mixed_integrable65
+#print axioms Luce.Section6.standardNormalVector_mixed_integrable65
+#print Luce.Section6.standardNormalVector_mixed_moment65
+#print axioms Luce.Section6.standardNormalVector_mixed_moment65
+#print Luce.Section6.stretched_exp_le_inverse_depth
+#print axioms Luce.Section6.stretched_exp_le_inverse_depth
+#print Luce.Section6.stretched_tail_mono
+#print axioms Luce.Section6.stretched_tail_mono
+#print Luce.Section6.sublinear_power_cutoff
+#print axioms Luce.Section6.sublinear_power_cutoff
+#print Luce.Section6.sum_activeCorners65
+#print axioms Luce.Section6.sum_activeCorners65
+#print Luce.Section6.sum_active_coefficients65
+#print axioms Luce.Section6.sum_active_coefficients65
+#print Luce.Section6.sum_category_block_indicator
+#print axioms Luce.Section6.sum_category_block_indicator
+#print Luce.Section6.sum_cycle_expectations67
+#print axioms Luce.Section6.sum_cycle_expectations67
+#print Luce.Section6.sum_endpoint_difference
+#print axioms Luce.Section6.sum_endpoint_difference
+#print Luce.Section6.sum_exp_neg_le_twice_min
+#print axioms Luce.Section6.sum_exp_neg_le_twice_min
+#print Luce.Section6.sum_logCellCube68_integrals
+#print axioms Luce.Section6.sum_logCellCube68_integrals
+#print Luce.Section6.sum_previous_gaps
+#print axioms Luce.Section6.sum_previous_gaps
+#print Luce.Section6.sum_tuple_restrict68
+#print axioms Luce.Section6.sum_tuple_restrict68
+#print Luce.Section6.summable_weighted_stretched_exp
+#print axioms Luce.Section6.summable_weighted_stretched_exp
+#print Luce.Section6.survivalKernel_hasDerivAt_time
+#print axioms Luce.Section6.survivalKernel_hasDerivAt_time
+#print Luce.Section6.survivalKernel_sub_bound_with_decay
+#print axioms Luce.Section6.survivalKernel_sub_bound_with_decay
+#print Luce.Section6.survival_indicator_memLp_two
+#print axioms Luce.Section6.survival_indicator_memLp_two
+#print Luce.Section6.survival_indicator_variance_le_mean
+#print axioms Luce.Section6.survival_indicator_variance_le_mean
+#print Luce.Section6.survival_integral_split
+#print axioms Luce.Section6.survival_integral_split
+#print Luce.Section6.survivorQuantile_le_iff
+#print axioms Luce.Section6.survivorQuantile_le_iff
+#print Luce.Section6.survivorQuantile_nonneg
+#print axioms Luce.Section6.survivorQuantile_nonneg
+#print Luce.Section6.survivorQuantile_populationH
+#print axioms Luce.Section6.survivorQuantile_populationH
+#print Luce.Section6.survivorQuantile_pos
+#print axioms Luce.Section6.survivorQuantile_pos
+#print Luce.Section6.swapped_rankCylinder_iff_ordered_insertion
+#print axioms Luce.Section6.swapped_rankCylinder_iff_ordered_insertion
+#print Luce.Section6.terminal_logarithmic_insertion_Lp
+#print axioms Luce.Section6.terminal_logarithmic_insertion_Lp
+#print Luce.Section6.terminal_power_kernel_factor
+#print axioms Luce.Section6.terminal_power_kernel_factor
+#print Luce.Section6.terminal_power_sum_half_bound
+#print axioms Luce.Section6.terminal_power_sum_half_bound
+#print Luce.Section6.terminal_power_sum_upper
+#print axioms Luce.Section6.terminal_power_sum_upper
+#print Luce.Section6.terminal_window_reference_gap
+#print axioms Luce.Section6.terminal_window_reference_gap
+#print Luce.Section6.time_mul_fast_weighted_power
+#print axioms Luce.Section6.time_mul_fast_weighted_power
+#print Luce.Section6.time_mul_weighted_power
+#print axioms Luce.Section6.time_mul_weighted_power
+#print Luce.Section6.toProcess_cltCount
+#print axioms Luce.Section6.toProcess_cltCount
+#print Luce.Section6.toProcess_cltMass
+#print axioms Luce.Section6.toProcess_cltMass
+#print Luce.Section6.toProcess_cltSquares
+#print axioms Luce.Section6.toProcess_cltSquares
+#print Luce.Section6.totalCoreCount_error65
+#print axioms Luce.Section6.totalCoreCount_error65
+#print Luce.Section6.totalCoreCount_le65
+#print axioms Luce.Section6.totalCoreCount_le65
+#print Luce.Section6.totalCore_error_bound65
+#print axioms Luce.Section6.totalCore_error_bound65
+#print Luce.Section6.totalCore_meanApprox65
+#print axioms Luce.Section6.totalCore_meanApprox65
+#print Luce.Section6.totalCore_normalized_projection65
+#print axioms Luce.Section6.totalCore_normalized_projection65
+#print Luce.Section6.totalCount_approx65
+#print axioms Luce.Section6.totalCount_approx65
+#print Luce.Section6.traceConvolution68_incrementDensity
+#print axioms Luce.Section6.traceConvolution68_incrementDensity
+#print Luce.Section6.traceConvolution68_reflect
+#print axioms Luce.Section6.traceConvolution68_reflect
+#print Luce.Section6.trace_subtraction_error68
+#print axioms Luce.Section6.trace_subtraction_error68
+#print Luce.Section6.translated_box_Ioc_iff68
+#print axioms Luce.Section6.translated_box_Ioc_iff68
+#print Luce.Section6.translated_box_iff
+#print axioms Luce.Section6.translated_box_iff
+#print Luce.Section6.translated_trace_integrable68
+#print axioms Luce.Section6.translated_trace_integrable68
+#print Luce.Section6.tsum_le_scaled_of_nonneg
+#print axioms Luce.Section6.tsum_le_scaled_of_nonneg
+#print Luce.Section6.two_power_small_time
+#print axioms Luce.Section6.two_power_small_time
+#print Luce.Section6.uniform_moment_decay
+#print axioms Luce.Section6.uniform_moment_decay
+#print Luce.Section6.unimodal_sample_average_error
+#print axioms Luce.Section6.unimodal_sample_average_error
+#print Luce.Section6.unit_exponential_laplace
+#print axioms Luce.Section6.unit_exponential_laplace
+#print Luce.Section6.unit_exponential_nonneg_ae
+#print axioms Luce.Section6.unit_exponential_nonneg_ae
+#print Luce.Section6.unit_exponential_weighted_density
+#print axioms Luce.Section6.unit_exponential_weighted_density
+#print Luce.Section6.varying_cycle_family_collision_bound
+#print axioms Luce.Section6.varying_cycle_family_collision_bound
+#print Luce.Section6.varying_cycle_family_nonneg
+#print axioms Luce.Section6.varying_cycle_family_nonneg
+#print Luce.Section6.varying_cycle_family_sum_bound
+#print axioms Luce.Section6.varying_cycle_family_sum_bound
+#print Luce.Section6.weighted_forward_density_identity
+#print axioms Luce.Section6.weighted_forward_density_identity
+#print Luce.Section6.weighted_inverse_density_identity
+#print axioms Luce.Section6.weighted_inverse_density_identity
+#print Luce.Section6.weighted_normalization65
+#print axioms Luce.Section6.weighted_normalization65
+#print Luce.Section6.weighted_power_kernel_identity
+#print axioms Luce.Section6.weighted_power_kernel_identity
+#print Luce.Section6.weighted_power_quadrature
+#print axioms Luce.Section6.weighted_power_quadrature
+#print Luce.Section6.weighted_power_tail_bound
+#print axioms Luce.Section6.weighted_power_tail_bound
+#print Luce.Section6.weighted_rate_kernel_comparison
+#print axioms Luce.Section6.weighted_rate_kernel_comparison
+#print Luce.Section6.weighted_stretched_exp_tail
+#print axioms Luce.Section6.weighted_stretched_exp_tail
+#print Luce.Section6.windowCount_sub_coreCount_le_discarded65
+#print axioms Luce.Section6.windowCount_sub_coreCount_le_discarded65

@@ -1,0 +1,1 @@
+PASS: no prohibited proof tokens in the four local dependency modules.

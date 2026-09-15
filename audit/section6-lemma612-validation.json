@@ -1,0 +1,97 @@
+{
+  "proof_passed": true,
+  "build": {
+    "command": "lake build",
+    "exit_code": 0,
+    "jobs": 4567,
+    "log": "audit/section6-lemma612-build.log"
+  },
+  "type_and_axiom_audit": {
+    "command": "lake env lean audit/Section6Lemma612.lean",
+    "exit_code": 0,
+    "log": "audit/section6-lemma612-axioms.log",
+    "theorem_count": 4,
+    "reports": {
+      "Luce.Section6.lemma612": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "Luce.Section6.lemma612_contractCheck": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "Luce.Section6.section6": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ],
+      "Luce.Section6.section6_contractCheck": [
+        "propext",
+        "Classical.choice",
+        "Quot.sound"
+      ]
+    }
+  },
+  "new_source_sha256": {
+    "Luce/Section6Lemma612Contract.lean": "e689fe656c3695a1c256ddb74f62578827e12738463e94426a381a0448770a5f",
+    "Luce/Section6Lemma612.lean": "55c5aeb97eda6f1b93b0b07ebe0d29ef8af199a4e217f791befa266061939190",
+    "Luce/Section6Lemma612Audit.lean": "4a5e52e9eb92f91e9f2638f2d0e67a0fa6feb20a2c8170234e240a9e556bad24"
+  },
+  "source_placeholder_check_passed": true,
+  "original_lean_inputs_and_toolchain_unchanged": true,
+  "snapshot_results": {
+    "fixed_points_sampled_profile.tex": {
+      "expected": "f1c6926ee742560d49dfc958f99da86ead8f11f30d79ea438d55eedf3d118eb7",
+      "actual": "9e1422f037b54b2a026b93a0bcbc6619310f17f0dc8302ce31d5d7479369bd83",
+      "matched": false
+    },
+    "Luce/Section6Contract.lean": {
+      "expected": "f2abfc9bb3ad530c9ca10afb43dec46b207c7f4274038bae7d995ea0bc26e107",
+      "actual": "f2abfc9bb3ad530c9ca10afb43dec46b207c7f4274038bae7d995ea0bc26e107",
+      "matched": true
+    },
+    "Luce/Section6ContractDefinitions.lean": {
+      "expected": "c6de18fa959e884ce3d996160d4b72cd1161ed58ea5bee0ad55af1ad395a25eb",
+      "actual": "c6de18fa959e884ce3d996160d4b72cd1161ed58ea5bee0ad55af1ad395a25eb",
+      "matched": true
+    },
+    "Luce/Section6ProfileDefinitions.lean": {
+      "expected": "597283b5e3c43f58e4643939a43f18e065e831719798242bb02a48228da647c2",
+      "actual": "597283b5e3c43f58e4643939a43f18e065e831719798242bb02a48228da647c2",
+      "matched": true
+    },
+    "Luce/Section65PowerContract.lean": {
+      "expected": "5fa6586e428a1744db1931cc64b0702bc01c06191615d01a4dc642a5fc5e9980",
+      "actual": "5fa6586e428a1744db1931cc64b0702bc01c06191615d01a4dc642a5fc5e9980",
+      "matched": true
+    },
+    "Luce/Section65SpatialContract.lean": {
+      "expected": "1547c6c181bf33bedb44d598032f54c986af55765802561f1d2a884f82500c0c",
+      "actual": "1547c6c181bf33bedb44d598032f54c986af55765802561f1d2a884f82500c0c",
+      "matched": true
+    },
+    "Luce/Section6Critical.lean": {
+      "expected": "f890f5d5f11b95fd5a92d38d06c51359c019ba71b8c8ea0a6d822b5e441ee3cc",
+      "actual": "f890f5d5f11b95fd5a92d38d06c51359c019ba71b8c8ea0a6d822b5e441ee3cc",
+      "matched": true
+    },
+    "lakefile.toml": {
+      "expected": "1c9f9e502cc67bf49b6cdedc4e5419354fa372c1a671106279ca210a5cb2d8ae",
+      "actual": "1c9f9e502cc67bf49b6cdedc4e5419354fa372c1a671106279ca210a5cb2d8ae",
+      "matched": true
+    },
+    "lake-manifest.json": {
+      "expected": "aba42d206ebae84d5c2531fd10c5e0494459fc9c21ccc059c6c7f25e87cae604",
+      "actual": "aba42d206ebae84d5c2531fd10c5e0494459fc9c21ccc059c6c7f25e87cae604",
+      "matched": true
+    },
+    "lean-toolchain": {
+      "expected": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71",
+      "actual": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71",
+      "matched": true
+    }
+  },
+  "manuscript_note": "The TeX file was edited separately during this task. Its current Lemma 6.12 statement was re-read and is unchanged. This task made no TeX edits and did not reset the baseline."
+}

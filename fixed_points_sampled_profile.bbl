@@ -1,0 +1,86 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{HKM{\etalchar{+}}13}
+
+\bibitem[ABT03]{arratia2003logarithmic}
+R.~Arratia, A.~D. Barbour, and S.~Tavar{\'e}.
+\newblock {\em Logarithmic Combinatorial Structures: A Probabilistic Approach}.
+\newblock EMS Monographs in Mathematics. European Mathematical Society,
+  Z{\"u}rich, 2003.
+
+\bibitem[BCD25]{borga2025permutonlocallimitsluce}
+J.~Borga, S.~Chatterjee, and P.~Diaconis.
+\newblock Permuton and local limits for the {Luce} model.
+\newblock {\em arXiv preprint arXiv:2509.07729}, 2025.
+
+\bibitem[BT52]{bradley1952rank}
+R.~A. Bradley and M.~E. Terry.
+\newblock Rank analysis of incomplete block designs: {I}. the method of paired
+  comparisons.
+\newblock {\em Biometrika}, 39(3--4):324--345, 1952.
+
+\bibitem[CDK24]{chatterjee2024enumerative}
+S.~Chatterjee, P.~Diaconis, and G.~B. Kim.
+\newblock Enumerative theory for the {Tsetlin} library.
+\newblock {\em Journal of Algebra}, 655:139--162, 2024.
+
+\bibitem[GP18]{gladkich2018cycle}
+A.~Gladkich and R.~Peled.
+\newblock On the cycle structure of {Mallows} permutations.
+\newblock {\em The Annals of Probability}, 46(2):1114--1169, 2018.
+
+\bibitem[HH80]{hall1980martingale}
+P.~Hall and C.~C. Heyde.
+\newblock {\em Martingale Limit Theory and Its Application}.
+\newblock Academic Press, New York, 1980.
+
+\bibitem[HKM{\etalchar{+}}13]{hoppen2013limits}
+C.~Hoppen, Y.~Kohayakawa, C.~G. Moreira, B.~R{\'a}th, and R.~M. Sampaio.
+\newblock Limits of permutation sequences.
+\newblock {\em Journal of Combinatorial Theory, Series B}, 103(1):93--113,
+  2013.
+
+\bibitem[HMV23]{he2023cycles}
+J.~He, T.~M{\"u}ller, and T.~W. Verstraaten.
+\newblock Cycles in {Mallows} random permutations.
+\newblock {\em Random Structures \& Algorithms}, 63(4):1054--1099, 2023.
+
+\bibitem[Luc59]{luce1959individual}
+R.~D. Luce.
+\newblock {\em Individual Choice Behavior: A Theoretical Analysis}.
+\newblock Wiley, New York, 1959.
+
+\bibitem[Muk16]{mukherjee2016fixed}
+S.~Mukherjee.
+\newblock Fixed points and cycle structure of random permutations.
+\newblock {\em Electronic Journal of Probability}, 21(40):1--18, 2016.
+
+\bibitem[Pla75]{plackett1975analysis}
+R.~L. Plackett.
+\newblock The analysis of permutations.
+\newblock {\em Journal of the Royal Statistical Society: Series C (Applied
+  Statistics)}, 24(2):193--202, 1975.
+
+\bibitem[PT15]{pitmantran2015sizebiased}
+J.~Pitman and N.~M. Tran.
+\newblock Size-biased permutation of a finite sequence with independent and
+  identically distributed terms.
+\newblock {\em Bernoulli}, 21(4):2484--2512, 2015.
+
+\bibitem[Ste90]{stern1990models}
+H.~Stern.
+\newblock Models for distributions on permutations.
+\newblock {\em Journal of the American Statistical Association},
+  85(410):558--564, 1990.
+
+\bibitem[Tav21]{tavare2021magical}
+S.~Tavar{\'e}.
+\newblock The magical {Ewens} sampling formula.
+\newblock {\em Bulletin of the London Mathematical Society}, 53(6):1563--1582,
+  2021.
+
+\bibitem[Thu27]{thurstone1927law}
+L.~L. Thurstone.
+\newblock A law of comparative judgment.
+\newblock {\em Psychological Review}, 34(4):273--286, 1927.
+
+\end{thebibliography}

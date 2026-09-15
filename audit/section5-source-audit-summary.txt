@@ -1,0 +1,4 @@
+Local closure: 51 files
+Section5 proof/entry files: 21
+Every Section5 proof/entry file is imported.
+No prohibited mechanism matches in local closure.

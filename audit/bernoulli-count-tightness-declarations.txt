@@ -1,0 +1,29 @@
+@Luce.BernoulliProcess.count_tail_le_of_sum_probability_le : ∀ {Ω : Type u_1} [inst : MeasurableSpace Ω]
+  {P : MeasureTheory.Measure Ω} [MeasureTheory.IsProbabilityMeasure P] (X : Luce.BernoulliProcess P) (N : ℕ) {K R : ℝ},
+  0 < R →
+    (∀ (ω : Ω), ∑ k ∈ Finset.range N, X.probability k ω ≤ K) →
+      P.real {ω | R < ∑ k ∈ Finset.range N, X.observation k ω} ≤ K / R
+@Luce.BernoulliProcess.row_bad_event_tendsto_zero : ∀ {Ω : ℕ → Type u_1} [inst : (n : ℕ) → MeasurableSpace (Ω n)]
+  (P : (n : ℕ) → MeasureTheory.Measure (Ω n)) [∀ (n : ℕ), MeasureTheory.IsProbabilityMeasure (P n)]
+  (X : (n : ℕ) → Luce.BernoulliProcess (P n)) (N : ℕ → ℕ) {c δ K : ℝ},
+  0 < δ →
+    c < K →
+      Luce.ConvergesInProbability P (fun n ω => ∑ k ∈ Finset.range (N n), (X n).probability k ω) c →
+        Luce.ConvergesInProbability P (fun n => (X n).rowMaximum (N n)) 0 →
+          Filter.Tendsto
+            (fun n =>
+              (P n).real
+                ({ω | δ < (X n).rowMaximum (N n) ω} ∪ {ω | K < ∑ k ∈ Finset.range (N n), (X n).probability k ω}))
+            Filter.atTop (nhds 0)
+@Luce.BernoulliProcess.count_tightness_rows : ∀ {Ω : ℕ → Type u_1} [inst : (n : ℕ) → MeasurableSpace (Ω n)]
+  (P : (n : ℕ) → MeasureTheory.Measure (Ω n)) [∀ (n : ℕ), MeasureTheory.IsProbabilityMeasure (P n)]
+  (X : (n : ℕ) → Luce.BernoulliProcess (P n)) (N : ℕ → ℕ) {c : ℝ},
+  0 ≤ c →
+    Luce.ConvergesInProbability P (fun n ω => ∑ k ∈ Finset.range (N n), (X n).probability k ω) c →
+      Luce.ConvergesInProbability P (fun n => (X n).rowMaximum (N n)) 0 →
+        ∀ (ε : ℝ),
+          0 < ε →
+            ∃ M, ∀ᶠ (n : ℕ) in Filter.atTop, (P n).real {ω | ↑M < ∑ k ∈ Finset.range (N n), (X n).observation k ω} < ε
+'Luce.BernoulliProcess.count_tail_le_of_sum_probability_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.BernoulliProcess.row_bad_event_tendsto_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.BernoulliProcess.count_tightness_rows' depends on axioms: [propext, Classical.choice, Quot.sound]

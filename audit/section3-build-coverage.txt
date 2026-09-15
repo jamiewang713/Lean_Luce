@@ -1,0 +1,3 @@
+Section3 source files: 26
+Local modules in import closure: 75
+Section3 files outside checked import closure: 0

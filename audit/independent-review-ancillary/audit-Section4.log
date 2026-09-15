@@ -1,0 +1,2092 @@
+Luce.section4_main_poisson : ∀ (w : Luce.WeightArray) (f : Real → Real) (hnorm : Luce.NormalizedWeights w)
+  (hf : Luce.ProfileLimit w f) (hend : Luce.EndpointAssumption w),
+  And
+    (@MeasureTheory.Integrable Real
+      (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+      (@SeminormedAddGroup.toContinuousENorm Real
+        (@SeminormedAddCommGroup.toSeminormedAddGroup Real
+          (@NonUnitalSeminormedRing.toSeminormedAddCommGroup Real
+            (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing Real
+              (@SeminormedCommRing.toNonUnitalSeminormedCommRing Real
+                (@NormedCommRing.toSeminormedCommRing Real Real.normedCommRing))))))
+      Real (@MeasureTheory.MeasureSpace.toMeasurableSpace Real Real.measureSpace) (Luce.profileDiagonal f)
+      (@MeasureTheory.Measure.restrict Real (@MeasureTheory.MeasureSpace.toMeasurableSpace Real Real.measureSpace)
+        (@MeasureTheory.volume Real Real.measureSpace)
+        (@Set.Ioo Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))))
+    (And
+      (∀
+        (F :
+          @BoundedContinuousFunction
+            (@Luce.FinitePointMeasure
+              (@Set.Elem Real
+                (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                  (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+              (@Subtype.instMeasurableSpace Real
+                (fun x =>
+                  @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                    x)
+                Real.measurableSpace))
+            Real
+            (@Luce.FinitePointMeasure.instTopologicalSpace
+              (@Set.Elem Real
+                (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                  (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+              (@Subtype.instMeasurableSpace Real
+                (fun x =>
+                  @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                    x)
+                Real.measurableSpace)
+              (@instTopologicalSpaceSubtype Real
+                (fun x =>
+                  @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                    x)
+                (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+              ⋯)
+            Real.pseudoMetricSpace),
+        @Filter.Tendsto Nat Real
+          (fun n =>
+            @MeasureTheory.integral (Fin n → Real) Real Real.normedAddCommGroup
+              (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+                (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+                (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+              (@MeasurableSpace.pi (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+              (@Luce.exponentialRace n (w n)) fun e =>
+              @DFunLike.coe
+                (@BoundedContinuousFunction
+                  (@Luce.FinitePointMeasure
+                    (@Set.Elem Real
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                    (@Subtype.instMeasurableSpace Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      Real.measurableSpace))
+                  Real
+                  (@Luce.FinitePointMeasure.instTopologicalSpace
+                    (@Set.Elem Real
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                    (@Subtype.instMeasurableSpace Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      Real.measurableSpace)
+                    (@instTopologicalSpaceSubtype Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      (@UniformSpace.toTopologicalSpace Real
+                        (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                    ⋯)
+                  Real.pseudoMetricSpace)
+                (@Luce.FinitePointMeasure
+                  (@Set.Elem Real
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                  (@Subtype.instMeasurableSpace Real
+                    (fun x =>
+                      @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                        (@Set.Icc Real Real.instPreorder
+                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                        x)
+                    Real.measurableSpace))
+                (fun x => Real)
+                (@BoundedContinuousFunction.instFunLike
+                  (@Luce.FinitePointMeasure
+                    (@Set.Elem Real
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                    (@Subtype.instMeasurableSpace Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      Real.measurableSpace))
+                  Real
+                  (@Luce.FinitePointMeasure.instTopologicalSpace
+                    (@Set.Elem Real
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                    (@Subtype.instMeasurableSpace Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      Real.measurableSpace)
+                    (@instTopologicalSpaceSubtype Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      (@UniformSpace.toTopologicalSpace Real
+                        (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                    ⋯)
+                  Real.pseudoMetricSpace)
+                F (@Luce.fixedPoints n (@Luce.raceDraw n e)))
+          (@Filter.atTop Nat Nat.instPreorder)
+          (@nhds Real
+            (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+            (@MeasureTheory.integral
+              (@Luce.FinitePointMeasure
+                (@Set.Elem Real
+                  (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                    (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                (@Subtype.instMeasurableSpace Real
+                  (fun x =>
+                    @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                      x)
+                  Real.measurableSpace))
+              Real Real.normedAddCommGroup
+              (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+                (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+                (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+              (@Luce.FinitePointMeasure.instMeasurableSpace
+                (@Set.Elem Real
+                  (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                    (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                (@Subtype.instMeasurableSpace Real
+                  (fun x =>
+                    @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                      x)
+                  Real.measurableSpace))
+              (@Luce.finitePoissonLaw
+                (@Set.Elem Real
+                  (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                    (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                (@Subtype.instMeasurableSpace Real
+                  (fun x =>
+                    @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                      x)
+                  Real.measurableSpace)
+                (Luce.fullIntensity w f hnorm hf hend))
+              fun ξ =>
+              @DFunLike.coe
+                (@BoundedContinuousFunction
+                  (@Luce.FinitePointMeasure
+                    (@Set.Elem Real
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                    (@Subtype.instMeasurableSpace Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      Real.measurableSpace))
+                  Real
+                  (@Luce.FinitePointMeasure.instTopologicalSpace
+                    (@Set.Elem Real
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                    (@Subtype.instMeasurableSpace Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      Real.measurableSpace)
+                    (@instTopologicalSpaceSubtype Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      (@UniformSpace.toTopologicalSpace Real
+                        (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                    ⋯)
+                  Real.pseudoMetricSpace)
+                (@Luce.FinitePointMeasure
+                  (@Set.Elem Real
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                  (@Subtype.instMeasurableSpace Real
+                    (fun x =>
+                      @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                        (@Set.Icc Real Real.instPreorder
+                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                        x)
+                    Real.measurableSpace))
+                (fun x => Real)
+                (@BoundedContinuousFunction.instFunLike
+                  (@Luce.FinitePointMeasure
+                    (@Set.Elem Real
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                    (@Subtype.instMeasurableSpace Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      Real.measurableSpace))
+                  Real
+                  (@Luce.FinitePointMeasure.instTopologicalSpace
+                    (@Set.Elem Real
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                    (@Subtype.instMeasurableSpace Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      Real.measurableSpace)
+                    (@instTopologicalSpaceSubtype Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      (@UniformSpace.toTopologicalSpace Real
+                        (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                    ⋯)
+                  Real.pseudoMetricSpace)
+                F ξ)))
+      (@Filter.Tendsto Nat Real
+        (fun n =>
+          Luce.probabilityTotalVariation (@Luce.raceFixedPointCountLaw n (w n))
+            (Luce.poissonProbabilityMeasure
+              (@MeasureTheory.integral Real Real Real.normedAddCommGroup
+                  (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+                    (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+                    (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+                  (@MeasureTheory.MeasureSpace.toMeasurableSpace Real Real.measureSpace)
+                  (@MeasureTheory.Measure.restrict Real
+                    (@MeasureTheory.MeasureSpace.toMeasurableSpace Real Real.measureSpace)
+                    (@MeasureTheory.volume Real Real.measureSpace)
+                    (@Set.Ioo Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                  fun x => Luce.profileDiagonal f x).toNNReal))
+        (@Filter.atTop Nat Nat.instPreorder)
+        (@nhds Real
+          (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)))))
+Luce.section4_main_poisson_general : ∀ (Ω : Nat → Type u_1) [mΩ : (n : Nat) → MeasurableSpace (Ω n)]
+  (P : (n : Nat) → @MeasureTheory.Measure (Ω n) (mΩ n))
+  [inst : ∀ (n : Nat), @MeasureTheory.IsProbabilityMeasure (Ω n) (mΩ n) (P n)] (w : Luce.WeightArray) (f : Real → Real)
+  (hnorm : Luce.NormalizedWeights w) (hf : Luce.ProfileLimit w f) (hend : Luce.EndpointAssumption w)
+  (π : (n : Nat) → Ω n → Equiv.Perm (Fin n))
+  (hπ :
+    ∀ (n : Nat),
+      @Measurable (Ω n) (Equiv.Perm (Fin n)) (mΩ n)
+        (@Top.top (MeasurableSpace (Equiv.Perm (Fin n)))
+          (@OrderTop.toTop (MeasurableSpace (Equiv.Perm (Fin n)))
+            (@Preorder.toLE (MeasurableSpace (Equiv.Perm (Fin n)))
+              (@PartialOrder.toPreorder (MeasurableSpace (Equiv.Perm (Fin n)))
+                (@SemilatticeSup.toPartialOrder (MeasurableSpace (Equiv.Perm (Fin n)))
+                  (@Lattice.toSemilatticeSup (MeasurableSpace (Equiv.Perm (Fin n)))
+                    (@CompleteLattice.toLattice (MeasurableSpace (Equiv.Perm (Fin n)))
+                      (@MeasurableSpace.instCompleteLattice (Equiv.Perm (Fin n))))))))
+            (@BoundedOrder.toOrderTop (MeasurableSpace (Equiv.Perm (Fin n)))
+              (@Preorder.toLE (MeasurableSpace (Equiv.Perm (Fin n)))
+                (@PartialOrder.toPreorder (MeasurableSpace (Equiv.Perm (Fin n)))
+                  (@SemilatticeSup.toPartialOrder (MeasurableSpace (Equiv.Perm (Fin n)))
+                    (@Lattice.toSemilatticeSup (MeasurableSpace (Equiv.Perm (Fin n)))
+                      (@CompleteLattice.toLattice (MeasurableSpace (Equiv.Perm (Fin n)))
+                        (@MeasurableSpace.instCompleteLattice (Equiv.Perm (Fin n))))))))
+              (@CompleteLattice.toBoundedOrder (MeasurableSpace (Equiv.Perm (Fin n)))
+                (@MeasurableSpace.instCompleteLattice (Equiv.Perm (Fin n)))))))
+        (π n)),
+  (∀ (n : Nat) (σ : Equiv.Perm (Fin n)),
+      @Eq Real
+        (@MeasureTheory.Measure.real (Ω n) (mΩ n) (P n) (@Set.ofPred (Ω n) fun ω => @Eq (Equiv.Perm (Fin n)) (π n ω) σ))
+        (@Luce.Weights.mass n (w n) σ)) →
+    And
+      (@MeasureTheory.Integrable Real
+        (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+        (@SeminormedAddGroup.toContinuousENorm Real
+          (@SeminormedAddCommGroup.toSeminormedAddGroup Real
+            (@NonUnitalSeminormedRing.toSeminormedAddCommGroup Real
+              (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing Real
+                (@SeminormedCommRing.toNonUnitalSeminormedCommRing Real
+                  (@NormedCommRing.toSeminormedCommRing Real Real.normedCommRing))))))
+        Real (@MeasureTheory.MeasureSpace.toMeasurableSpace Real Real.measureSpace) (Luce.profileDiagonal f)
+        (@MeasureTheory.Measure.restrict Real (@MeasureTheory.MeasureSpace.toMeasurableSpace Real Real.measureSpace)
+          (@MeasureTheory.volume Real Real.measureSpace)
+          (@Set.Ioo Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))))
+      (And
+        (∀
+          (F :
+            @BoundedContinuousFunction
+              (@Luce.FinitePointMeasure
+                (@Set.Elem Real
+                  (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                    (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                (@Subtype.instMeasurableSpace Real
+                  (fun x =>
+                    @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                      x)
+                  Real.measurableSpace))
+              Real
+              (@Luce.FinitePointMeasure.instTopologicalSpace
+                (@Set.Elem Real
+                  (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                    (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                (@Subtype.instMeasurableSpace Real
+                  (fun x =>
+                    @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                      x)
+                  Real.measurableSpace)
+                (@instTopologicalSpaceSubtype Real
+                  (fun x =>
+                    @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                      x)
+                  (@UniformSpace.toTopologicalSpace Real
+                    (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                ⋯)
+              Real.pseudoMetricSpace),
+          @Filter.Tendsto Nat Real
+            (fun n =>
+              @MeasureTheory.integral (Ω n) Real Real.normedAddCommGroup
+                (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+                  (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+                  (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+                (mΩ n) (P n) fun ω =>
+                @DFunLike.coe
+                  (@BoundedContinuousFunction
+                    (@Luce.FinitePointMeasure
+                      (@Set.Elem Real
+                        (@Set.Icc Real Real.instPreorder
+                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                      (@Subtype.instMeasurableSpace Real
+                        (fun x =>
+                          @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                            (@Set.Icc Real Real.instPreorder
+                              (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                            x)
+                        Real.measurableSpace))
+                    Real
+                    (@Luce.FinitePointMeasure.instTopologicalSpace
+                      (@Set.Elem Real
+                        (@Set.Icc Real Real.instPreorder
+                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                      (@Subtype.instMeasurableSpace Real
+                        (fun x =>
+                          @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                            (@Set.Icc Real Real.instPreorder
+                              (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                            x)
+                        Real.measurableSpace)
+                      (@instTopologicalSpaceSubtype Real
+                        (fun x =>
+                          @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                            (@Set.Icc Real Real.instPreorder
+                              (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                            x)
+                        (@UniformSpace.toTopologicalSpace Real
+                          (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                      ⋯)
+                    Real.pseudoMetricSpace)
+                  (@Luce.FinitePointMeasure
+                    (@Set.Elem Real
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                    (@Subtype.instMeasurableSpace Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      Real.measurableSpace))
+                  (fun x => Real)
+                  (@BoundedContinuousFunction.instFunLike
+                    (@Luce.FinitePointMeasure
+                      (@Set.Elem Real
+                        (@Set.Icc Real Real.instPreorder
+                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                      (@Subtype.instMeasurableSpace Real
+                        (fun x =>
+                          @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                            (@Set.Icc Real Real.instPreorder
+                              (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                            x)
+                        Real.measurableSpace))
+                    Real
+                    (@Luce.FinitePointMeasure.instTopologicalSpace
+                      (@Set.Elem Real
+                        (@Set.Icc Real Real.instPreorder
+                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                      (@Subtype.instMeasurableSpace Real
+                        (fun x =>
+                          @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                            (@Set.Icc Real Real.instPreorder
+                              (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                            x)
+                        Real.measurableSpace)
+                      (@instTopologicalSpaceSubtype Real
+                        (fun x =>
+                          @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                            (@Set.Icc Real Real.instPreorder
+                              (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                            x)
+                        (@UniformSpace.toTopologicalSpace Real
+                          (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                      ⋯)
+                    Real.pseudoMetricSpace)
+                  F (@Luce.fixedPoints n (π n ω)))
+            (@Filter.atTop Nat Nat.instPreorder)
+            (@nhds Real
+              (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+              (@MeasureTheory.integral
+                (@Luce.FinitePointMeasure
+                  (@Set.Elem Real
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                  (@Subtype.instMeasurableSpace Real
+                    (fun x =>
+                      @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                        (@Set.Icc Real Real.instPreorder
+                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                        x)
+                    Real.measurableSpace))
+                Real Real.normedAddCommGroup
+                (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+                  (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+                  (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+                (@Luce.FinitePointMeasure.instMeasurableSpace
+                  (@Set.Elem Real
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                  (@Subtype.instMeasurableSpace Real
+                    (fun x =>
+                      @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                        (@Set.Icc Real Real.instPreorder
+                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                        x)
+                    Real.measurableSpace))
+                (@Luce.finitePoissonLaw
+                  (@Set.Elem Real
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                  (@Subtype.instMeasurableSpace Real
+                    (fun x =>
+                      @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                        (@Set.Icc Real Real.instPreorder
+                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                        x)
+                    Real.measurableSpace)
+                  (Luce.fullIntensity w f hnorm hf hend))
+                fun ξ =>
+                @DFunLike.coe
+                  (@BoundedContinuousFunction
+                    (@Luce.FinitePointMeasure
+                      (@Set.Elem Real
+                        (@Set.Icc Real Real.instPreorder
+                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                      (@Subtype.instMeasurableSpace Real
+                        (fun x =>
+                          @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                            (@Set.Icc Real Real.instPreorder
+                              (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                            x)
+                        Real.measurableSpace))
+                    Real
+                    (@Luce.FinitePointMeasure.instTopologicalSpace
+                      (@Set.Elem Real
+                        (@Set.Icc Real Real.instPreorder
+                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                      (@Subtype.instMeasurableSpace Real
+                        (fun x =>
+                          @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                            (@Set.Icc Real Real.instPreorder
+                              (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                            x)
+                        Real.measurableSpace)
+                      (@instTopologicalSpaceSubtype Real
+                        (fun x =>
+                          @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                            (@Set.Icc Real Real.instPreorder
+                              (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                            x)
+                        (@UniformSpace.toTopologicalSpace Real
+                          (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                      ⋯)
+                    Real.pseudoMetricSpace)
+                  (@Luce.FinitePointMeasure
+                    (@Set.Elem Real
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                    (@Subtype.instMeasurableSpace Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      Real.measurableSpace))
+                  (fun x => Real)
+                  (@BoundedContinuousFunction.instFunLike
+                    (@Luce.FinitePointMeasure
+                      (@Set.Elem Real
+                        (@Set.Icc Real Real.instPreorder
+                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                      (@Subtype.instMeasurableSpace Real
+                        (fun x =>
+                          @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                            (@Set.Icc Real Real.instPreorder
+                              (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                            x)
+                        Real.measurableSpace))
+                    Real
+                    (@Luce.FinitePointMeasure.instTopologicalSpace
+                      (@Set.Elem Real
+                        (@Set.Icc Real Real.instPreorder
+                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                      (@Subtype.instMeasurableSpace Real
+                        (fun x =>
+                          @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                            (@Set.Icc Real Real.instPreorder
+                              (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                            x)
+                        Real.measurableSpace)
+                      (@instTopologicalSpaceSubtype Real
+                        (fun x =>
+                          @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                            (@Set.Icc Real Real.instPreorder
+                              (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                            x)
+                        (@UniformSpace.toTopologicalSpace Real
+                          (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                      ⋯)
+                    Real.pseudoMetricSpace)
+                  F ξ)))
+        (@Filter.Tendsto Nat Real
+          (fun n =>
+            Luce.probabilityTotalVariation (@Luce.fixedPointCountLaw n (Ω n) (mΩ n) (P n) ⋯ (π n) ⋯)
+              (Luce.poissonProbabilityMeasure
+                (@MeasureTheory.integral Real Real Real.normedAddCommGroup
+                    (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+                      (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+                      (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+                    (@MeasureTheory.MeasureSpace.toMeasurableSpace Real Real.measureSpace)
+                    (@MeasureTheory.Measure.restrict Real
+                      (@MeasureTheory.MeasureSpace.toMeasurableSpace Real Real.measureSpace)
+                      (@MeasureTheory.volume Real Real.measureSpace)
+                      (@Set.Ioo Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                    fun x => Luce.profileDiagonal f x).toNNReal))
+          (@Filter.atTop Nat Nat.instPreorder)
+          (@nhds Real
+            (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)))))
+Luce.section4_full_poisson : ∀ (w : Luce.WeightArray) (f : Real → Real) (hnorm : Luce.NormalizedWeights w)
+  (hf : Luce.ProfileLimit w f) (hend : Luce.EndpointAssumption w)
+  (F :
+    @BoundedContinuousFunction
+      (@Luce.FinitePointMeasure
+        (@Set.Elem Real
+          (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+        (@Subtype.instMeasurableSpace Real
+          (fun x =>
+            @Membership.mem Real (Set Real) (@Set.instMembership Real)
+              (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+              x)
+          Real.measurableSpace))
+      Real
+      (@Luce.FinitePointMeasure.instTopologicalSpace
+        (@Set.Elem Real
+          (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+        (@Subtype.instMeasurableSpace Real
+          (fun x =>
+            @Membership.mem Real (Set Real) (@Set.instMembership Real)
+              (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+              x)
+          Real.measurableSpace)
+        (@instTopologicalSpaceSubtype Real
+          (fun x =>
+            @Membership.mem Real (Set Real) (@Set.instMembership Real)
+              (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+              x)
+          (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+        ⋯)
+      Real.pseudoMetricSpace),
+  @Filter.Tendsto Nat Real
+    (fun n =>
+      @MeasureTheory.integral (Fin n → Real) Real Real.normedAddCommGroup
+        (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+          (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+          (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+        (@MeasurableSpace.pi (Fin n) (fun a => Real) fun a => Real.measurableSpace) (@Luce.exponentialRace n (w n))
+        fun e =>
+        @DFunLike.coe
+          (@BoundedContinuousFunction
+            (@Luce.FinitePointMeasure
+              (@Set.Elem Real
+                (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                  (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+              (@Subtype.instMeasurableSpace Real
+                (fun x =>
+                  @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                    x)
+                Real.measurableSpace))
+            Real
+            (@Luce.FinitePointMeasure.instTopologicalSpace
+              (@Set.Elem Real
+                (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                  (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+              (@Subtype.instMeasurableSpace Real
+                (fun x =>
+                  @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                    x)
+                Real.measurableSpace)
+              (@instTopologicalSpaceSubtype Real
+                (fun x =>
+                  @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                    x)
+                (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+              ⋯)
+            Real.pseudoMetricSpace)
+          (@Luce.FinitePointMeasure
+            (@Set.Elem Real
+              (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+            (@Subtype.instMeasurableSpace Real
+              (fun x =>
+                @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                  (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                    (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                  x)
+              Real.measurableSpace))
+          (fun x => Real)
+          (@BoundedContinuousFunction.instFunLike
+            (@Luce.FinitePointMeasure
+              (@Set.Elem Real
+                (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                  (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+              (@Subtype.instMeasurableSpace Real
+                (fun x =>
+                  @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                    x)
+                Real.measurableSpace))
+            Real
+            (@Luce.FinitePointMeasure.instTopologicalSpace
+              (@Set.Elem Real
+                (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                  (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+              (@Subtype.instMeasurableSpace Real
+                (fun x =>
+                  @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                    x)
+                Real.measurableSpace)
+              (@instTopologicalSpaceSubtype Real
+                (fun x =>
+                  @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                    x)
+                (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+              ⋯)
+            Real.pseudoMetricSpace)
+          F (@Luce.fixedPoints n (@Luce.raceDraw n e)))
+    (@Filter.atTop Nat Nat.instPreorder)
+    (@nhds Real (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+      (@MeasureTheory.integral
+        (@Luce.FinitePointMeasure
+          (@Set.Elem Real
+            (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+          (@Subtype.instMeasurableSpace Real
+            (fun x =>
+              @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                  (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                x)
+            Real.measurableSpace))
+        Real Real.normedAddCommGroup
+        (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+          (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+          (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+        (@Luce.FinitePointMeasure.instMeasurableSpace
+          (@Set.Elem Real
+            (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+          (@Subtype.instMeasurableSpace Real
+            (fun x =>
+              @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                  (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                x)
+            Real.measurableSpace))
+        (@Luce.finitePoissonLaw
+          (@Set.Elem Real
+            (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+          (@Subtype.instMeasurableSpace Real
+            (fun x =>
+              @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                  (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                x)
+            Real.measurableSpace)
+          (Luce.fullIntensity w f hnorm hf hend))
+        fun ξ =>
+        @DFunLike.coe
+          (@BoundedContinuousFunction
+            (@Luce.FinitePointMeasure
+              (@Set.Elem Real
+                (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                  (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+              (@Subtype.instMeasurableSpace Real
+                (fun x =>
+                  @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                    x)
+                Real.measurableSpace))
+            Real
+            (@Luce.FinitePointMeasure.instTopologicalSpace
+              (@Set.Elem Real
+                (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                  (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+              (@Subtype.instMeasurableSpace Real
+                (fun x =>
+                  @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                    x)
+                Real.measurableSpace)
+              (@instTopologicalSpaceSubtype Real
+                (fun x =>
+                  @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                    x)
+                (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+              ⋯)
+            Real.pseudoMetricSpace)
+          (@Luce.FinitePointMeasure
+            (@Set.Elem Real
+              (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+            (@Subtype.instMeasurableSpace Real
+              (fun x =>
+                @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                  (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                    (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                  x)
+              Real.measurableSpace))
+          (fun x => Real)
+          (@BoundedContinuousFunction.instFunLike
+            (@Luce.FinitePointMeasure
+              (@Set.Elem Real
+                (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                  (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+              (@Subtype.instMeasurableSpace Real
+                (fun x =>
+                  @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                    x)
+                Real.measurableSpace))
+            Real
+            (@Luce.FinitePointMeasure.instTopologicalSpace
+              (@Set.Elem Real
+                (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                  (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+              (@Subtype.instMeasurableSpace Real
+                (fun x =>
+                  @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                    x)
+                Real.measurableSpace)
+              (@instTopologicalSpaceSubtype Real
+                (fun x =>
+                  @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                    x)
+                (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+              ⋯)
+            Real.pseudoMetricSpace)
+          F ξ))
+Luce.section4_full_poisson_general : ∀ (Ω : Nat → Type u_1) [mΩ : (n : Nat) → MeasurableSpace (Ω n)]
+  (P : (n : Nat) → @MeasureTheory.Measure (Ω n) (mΩ n))
+  [∀ (n : Nat), @MeasureTheory.IsProbabilityMeasure (Ω n) (mΩ n) (P n)] (w : Luce.WeightArray) (f : Real → Real)
+  (hnorm : Luce.NormalizedWeights w) (hf : Luce.ProfileLimit w f) (hend : Luce.EndpointAssumption w)
+  (π : (n : Nat) → Ω n → Equiv.Perm (Fin n)),
+  (∀ (n : Nat),
+      @Measurable (Ω n) (Equiv.Perm (Fin n)) (mΩ n)
+        (@Top.top (MeasurableSpace (Equiv.Perm (Fin n)))
+          (@OrderTop.toTop (MeasurableSpace (Equiv.Perm (Fin n)))
+            (@Preorder.toLE (MeasurableSpace (Equiv.Perm (Fin n)))
+              (@PartialOrder.toPreorder (MeasurableSpace (Equiv.Perm (Fin n)))
+                (@SemilatticeSup.toPartialOrder (MeasurableSpace (Equiv.Perm (Fin n)))
+                  (@Lattice.toSemilatticeSup (MeasurableSpace (Equiv.Perm (Fin n)))
+                    (@CompleteLattice.toLattice (MeasurableSpace (Equiv.Perm (Fin n)))
+                      (@MeasurableSpace.instCompleteLattice (Equiv.Perm (Fin n))))))))
+            (@BoundedOrder.toOrderTop (MeasurableSpace (Equiv.Perm (Fin n)))
+              (@Preorder.toLE (MeasurableSpace (Equiv.Perm (Fin n)))
+                (@PartialOrder.toPreorder (MeasurableSpace (Equiv.Perm (Fin n)))
+                  (@SemilatticeSup.toPartialOrder (MeasurableSpace (Equiv.Perm (Fin n)))
+                    (@Lattice.toSemilatticeSup (MeasurableSpace (Equiv.Perm (Fin n)))
+                      (@CompleteLattice.toLattice (MeasurableSpace (Equiv.Perm (Fin n)))
+                        (@MeasurableSpace.instCompleteLattice (Equiv.Perm (Fin n))))))))
+              (@CompleteLattice.toBoundedOrder (MeasurableSpace (Equiv.Perm (Fin n)))
+                (@MeasurableSpace.instCompleteLattice (Equiv.Perm (Fin n)))))))
+        (π n)) →
+    (∀ (n : Nat) (σ : Equiv.Perm (Fin n)),
+        @Eq Real
+          (@MeasureTheory.Measure.real (Ω n) (mΩ n) (P n)
+            (@Set.ofPred (Ω n) fun ω => @Eq (Equiv.Perm (Fin n)) (π n ω) σ))
+          (@Luce.Weights.mass n (w n) σ)) →
+      ∀
+        (F :
+          @BoundedContinuousFunction
+            (@Luce.FinitePointMeasure
+              (@Set.Elem Real
+                (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                  (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+              (@Subtype.instMeasurableSpace Real
+                (fun x =>
+                  @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                    x)
+                Real.measurableSpace))
+            Real
+            (@Luce.FinitePointMeasure.instTopologicalSpace
+              (@Set.Elem Real
+                (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                  (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+              (@Subtype.instMeasurableSpace Real
+                (fun x =>
+                  @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                    x)
+                Real.measurableSpace)
+              (@instTopologicalSpaceSubtype Real
+                (fun x =>
+                  @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                    x)
+                (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+              ⋯)
+            Real.pseudoMetricSpace),
+        @Filter.Tendsto Nat Real
+          (fun n =>
+            @MeasureTheory.integral (Ω n) Real Real.normedAddCommGroup
+              (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+                (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+                (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+              (mΩ n) (P n) fun ω =>
+              @DFunLike.coe
+                (@BoundedContinuousFunction
+                  (@Luce.FinitePointMeasure
+                    (@Set.Elem Real
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                    (@Subtype.instMeasurableSpace Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      Real.measurableSpace))
+                  Real
+                  (@Luce.FinitePointMeasure.instTopologicalSpace
+                    (@Set.Elem Real
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                    (@Subtype.instMeasurableSpace Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      Real.measurableSpace)
+                    (@instTopologicalSpaceSubtype Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      (@UniformSpace.toTopologicalSpace Real
+                        (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                    ⋯)
+                  Real.pseudoMetricSpace)
+                (@Luce.FinitePointMeasure
+                  (@Set.Elem Real
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                  (@Subtype.instMeasurableSpace Real
+                    (fun x =>
+                      @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                        (@Set.Icc Real Real.instPreorder
+                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                        x)
+                    Real.measurableSpace))
+                (fun x => Real)
+                (@BoundedContinuousFunction.instFunLike
+                  (@Luce.FinitePointMeasure
+                    (@Set.Elem Real
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                    (@Subtype.instMeasurableSpace Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      Real.measurableSpace))
+                  Real
+                  (@Luce.FinitePointMeasure.instTopologicalSpace
+                    (@Set.Elem Real
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                    (@Subtype.instMeasurableSpace Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      Real.measurableSpace)
+                    (@instTopologicalSpaceSubtype Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      (@UniformSpace.toTopologicalSpace Real
+                        (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                    ⋯)
+                  Real.pseudoMetricSpace)
+                F (@Luce.fixedPoints n (π n ω)))
+          (@Filter.atTop Nat Nat.instPreorder)
+          (@nhds Real
+            (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+            (@MeasureTheory.integral
+              (@Luce.FinitePointMeasure
+                (@Set.Elem Real
+                  (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                    (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                (@Subtype.instMeasurableSpace Real
+                  (fun x =>
+                    @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                      x)
+                  Real.measurableSpace))
+              Real Real.normedAddCommGroup
+              (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+                (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+                (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+              (@Luce.FinitePointMeasure.instMeasurableSpace
+                (@Set.Elem Real
+                  (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                    (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                (@Subtype.instMeasurableSpace Real
+                  (fun x =>
+                    @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                      x)
+                  Real.measurableSpace))
+              (@Luce.finitePoissonLaw
+                (@Set.Elem Real
+                  (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                    (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                (@Subtype.instMeasurableSpace Real
+                  (fun x =>
+                    @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                      x)
+                  Real.measurableSpace)
+                (Luce.fullIntensity w f hnorm hf hend))
+              fun ξ =>
+              @DFunLike.coe
+                (@BoundedContinuousFunction
+                  (@Luce.FinitePointMeasure
+                    (@Set.Elem Real
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                    (@Subtype.instMeasurableSpace Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      Real.measurableSpace))
+                  Real
+                  (@Luce.FinitePointMeasure.instTopologicalSpace
+                    (@Set.Elem Real
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                    (@Subtype.instMeasurableSpace Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      Real.measurableSpace)
+                    (@instTopologicalSpaceSubtype Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      (@UniformSpace.toTopologicalSpace Real
+                        (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                    ⋯)
+                  Real.pseudoMetricSpace)
+                (@Luce.FinitePointMeasure
+                  (@Set.Elem Real
+                    (@Set.Icc Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                  (@Subtype.instMeasurableSpace Real
+                    (fun x =>
+                      @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                        (@Set.Icc Real Real.instPreorder
+                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                        x)
+                    Real.measurableSpace))
+                (fun x => Real)
+                (@BoundedContinuousFunction.instFunLike
+                  (@Luce.FinitePointMeasure
+                    (@Set.Elem Real
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                    (@Subtype.instMeasurableSpace Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      Real.measurableSpace))
+                  Real
+                  (@Luce.FinitePointMeasure.instTopologicalSpace
+                    (@Set.Elem Real
+                      (@Set.Icc Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                    (@Subtype.instMeasurableSpace Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      Real.measurableSpace)
+                    (@instTopologicalSpaceSubtype Real
+                      (fun x =>
+                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                          x)
+                      (@UniformSpace.toTopologicalSpace Real
+                        (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                    ⋯)
+                  Real.pseudoMetricSpace)
+                F ξ))
+Luce.section4_count_poisson : ∀ (w : Luce.WeightArray) (f : Real → Real),
+  Luce.NormalizedWeights w →
+    Luce.ProfileLimit w f →
+      Luce.EndpointAssumption w →
+        @Filter.Tendsto Nat Real
+          (fun n =>
+            Luce.probabilityTotalVariation (@Luce.raceFixedPointCountLaw n (w n))
+              (Luce.poissonProbabilityMeasure
+                (@MeasureTheory.integral Real Real Real.normedAddCommGroup
+                    (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+                      (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+                      (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+                    (@MeasureTheory.MeasureSpace.toMeasurableSpace Real Real.measureSpace)
+                    (@MeasureTheory.Measure.restrict Real
+                      (@MeasureTheory.MeasureSpace.toMeasurableSpace Real Real.measureSpace)
+                      (@MeasureTheory.volume Real Real.measureSpace)
+                      (@Set.Ioo Real Real.instPreorder
+                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                    fun x => Luce.profileDiagonal f x).toNNReal))
+          (@Filter.atTop Nat Nat.instPreorder)
+          (@nhds Real
+            (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)))
+Luce.section4_count_poisson_general : ∀ (Ω : Nat → Type u_1) [mΩ : (n : Nat) → MeasurableSpace (Ω n)]
+  (P : (n : Nat) → @MeasureTheory.Measure (Ω n) (mΩ n))
+  [inst : ∀ (n : Nat), @MeasureTheory.IsProbabilityMeasure (Ω n) (mΩ n) (P n)] (w : Luce.WeightArray) (f : Real → Real),
+  Luce.NormalizedWeights w →
+    Luce.ProfileLimit w f →
+      Luce.EndpointAssumption w →
+        ∀ (π : (n : Nat) → Ω n → Equiv.Perm (Fin n))
+          (hπ :
+            ∀ (n : Nat),
+              @Measurable (Ω n) (Equiv.Perm (Fin n)) (mΩ n)
+                (@Top.top (MeasurableSpace (Equiv.Perm (Fin n)))
+                  (@OrderTop.toTop (MeasurableSpace (Equiv.Perm (Fin n)))
+                    (@Preorder.toLE (MeasurableSpace (Equiv.Perm (Fin n)))
+                      (@PartialOrder.toPreorder (MeasurableSpace (Equiv.Perm (Fin n)))
+                        (@SemilatticeSup.toPartialOrder (MeasurableSpace (Equiv.Perm (Fin n)))
+                          (@Lattice.toSemilatticeSup (MeasurableSpace (Equiv.Perm (Fin n)))
+                            (@CompleteLattice.toLattice (MeasurableSpace (Equiv.Perm (Fin n)))
+                              (@MeasurableSpace.instCompleteLattice (Equiv.Perm (Fin n))))))))
+                    (@BoundedOrder.toOrderTop (MeasurableSpace (Equiv.Perm (Fin n)))
+                      (@Preorder.toLE (MeasurableSpace (Equiv.Perm (Fin n)))
+                        (@PartialOrder.toPreorder (MeasurableSpace (Equiv.Perm (Fin n)))
+                          (@SemilatticeSup.toPartialOrder (MeasurableSpace (Equiv.Perm (Fin n)))
+                            (@Lattice.toSemilatticeSup (MeasurableSpace (Equiv.Perm (Fin n)))
+                              (@CompleteLattice.toLattice (MeasurableSpace (Equiv.Perm (Fin n)))
+                                (@MeasurableSpace.instCompleteLattice (Equiv.Perm (Fin n))))))))
+                      (@CompleteLattice.toBoundedOrder (MeasurableSpace (Equiv.Perm (Fin n)))
+                        (@MeasurableSpace.instCompleteLattice (Equiv.Perm (Fin n)))))))
+                (π n)),
+          (∀ (n : Nat) (σ : Equiv.Perm (Fin n)),
+              @Eq Real
+                (@MeasureTheory.Measure.real (Ω n) (mΩ n) (P n)
+                  (@Set.ofPred (Ω n) fun ω => @Eq (Equiv.Perm (Fin n)) (π n ω) σ))
+                (@Luce.Weights.mass n (w n) σ)) →
+            @Filter.Tendsto Nat Real
+              (fun n =>
+                Luce.probabilityTotalVariation (@Luce.fixedPointCountLaw n (Ω n) (mΩ n) (P n) ⋯ (π n) ⋯)
+                  (Luce.poissonProbabilityMeasure
+                    (@MeasureTheory.integral Real Real Real.normedAddCommGroup
+                        (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+                          (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+                          (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+                        (@MeasureTheory.MeasureSpace.toMeasurableSpace Real Real.measureSpace)
+                        (@MeasureTheory.Measure.restrict Real
+                          (@MeasureTheory.MeasureSpace.toMeasurableSpace Real Real.measureSpace)
+                          (@MeasureTheory.volume Real Real.measureSpace)
+                          (@Set.Ioo Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                        fun x => Luce.profileDiagonal f x).toNNReal))
+              (@Filter.atTop Nat Nat.instPreorder)
+              (@nhds Real
+                (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+                (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)))
+Luce.section4_tail_expectation_bound_of_endpoint_witness : ∀ (Ω : Nat → Type u_1)
+  [inst : (n : Nat) → MeasurableSpace (Ω n)] (P : (n : Nat) → @MeasureTheory.Measure (Ω n) (inst n))
+  [∀ (n : Nat), @MeasureTheory.IsProbabilityMeasure (Ω n) (inst n) (P n)] (w : Luce.WeightArray),
+  Luce.NormalizedWeights w →
+    ∀ (γ ε₀ : Real) (n₀ : Nat),
+      @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) γ →
+        @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) ε₀ →
+          (∀ (n : Nat),
+              @LE.le Nat instLENat n₀ n →
+                ∀ (k : Fin n),
+                  @LE.le Real Real.instLE
+                      (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                        (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) ε₀)
+                        (@Nat.cast Real Real.instNatCast n))
+                      (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                        (@Nat.cast Real Real.instNatCast (@Fin.val n k))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))) →
+                    @LE.le Real Real.instLE γ (@Luce.Weights.rate n (w n) k)) →
+            ∀ (E : (n : Nat) → Fin n → Ω n → Real),
+              (∀ (n : Nat) (i : Fin n),
+                  @ProbabilityTheory.HasLaw (Ω n) Real (inst n) Real.measurableSpace (E n i)
+                    (ProbabilityTheory.expMeasure (@Luce.Weights.rate n (w n) i)) (P n)) →
+                (∀ (n : Nat),
+                    @ProbabilityTheory.iIndepFun (Ω n) (Fin n) (inst n) (fun x => Real) (fun x => Real.measurableSpace)
+                      (E n) (P n)) →
+                  ∃ δ,
+                    And (@LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) δ)
+                      (∀ (ε : Real),
+                        @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) ε →
+                          @LT.lt Real Real.instLT ε δ →
+                            @LE.le Real Real.instLE
+                              (@Filter.limsup Real Nat
+                                (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice Real
+                                  Real.instConditionallyCompleteLinearOrder)
+                                (fun n =>
+                                  @MeasureTheory.integral (Ω n) Real Real.normedAddCommGroup
+                                    (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+                                      (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+                                      (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+                                    (inst n) (P n) fun ω =>
+                                    @Nat.cast Real Real.instNatCast
+                                      (@Luce.tailFixedPointCount n (fun i => E n i ω)
+                                        (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) ε)))
+                                (@Filter.atTop Nat Nat.instPreorder))
+                              (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow)
+                                  (@OfNat.ofNat Real (nat_lit 2)
+                                    (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))
+                                  (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                                    (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))
+                                    (@HDiv.hDiv Real Real Real
+                                      (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) γ
+                                      (@OfNat.ofNat Real (nat_lit 2)
+                                        (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯)))))
+                                (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow) ε
+                                  (@HDiv.hDiv Real Real Real
+                                    (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) γ
+                                    (@OfNat.ofNat Real (nat_lit 4)
+                                      (@instOfNatAtLeastTwo Real (nat_lit 4) Real.instNatCast ⋯))))))
+Luce.section4_main_poisson : ∀ (w : Luce.WeightArray) (f : ℝ → ℝ) (hnorm : Luce.NormalizedWeights w)
+  (hf : Luce.ProfileLimit w f) (hend : Luce.EndpointAssumption w),
+  MeasureTheory.Integrable (Luce.profileDiagonal f) (MeasureTheory.volume.restrict (Set.Ioo 0 1)) ∧
+    (∀ (F : BoundedContinuousFunction (Luce.FinitePointMeasure ↑(Set.Icc 0 1)) ℝ),
+        Filter.Tendsto (fun n => ∫ (e : Fin n → ℝ), F (Luce.fixedPoints (Luce.raceDraw e)) ∂Luce.exponentialRace (w n))
+          Filter.atTop
+          (nhds
+            (∫ (ξ : Luce.FinitePointMeasure ↑(Set.Icc 0 1)),
+              F ξ ∂Luce.finitePoissonLaw (Luce.fullIntensity w f hnorm hf hend)))) ∧
+      Filter.Tendsto
+        (fun n =>
+          Luce.probabilityTotalVariation (Luce.raceFixedPointCountLaw (w n))
+            (Luce.poissonProbabilityMeasure (∫ (x : ℝ) in Set.Ioo 0 1, Luce.profileDiagonal f x).toNNReal))
+        Filter.atTop (nhds 0)
+Luce.section4_main_poisson_general : ∀ (Ω : ℕ → Type u_1) [mΩ : (n : ℕ) → MeasurableSpace (Ω n)]
+  (P : (n : ℕ) → MeasureTheory.Measure (Ω n)) [inst : ∀ (n : ℕ), MeasureTheory.IsProbabilityMeasure (P n)]
+  (w : Luce.WeightArray) (f : ℝ → ℝ) (hnorm : Luce.NormalizedWeights w) (hf : Luce.ProfileLimit w f)
+  (hend : Luce.EndpointAssumption w) (π : (n : ℕ) → Ω n → Equiv.Perm (Fin n)) (hπ : ∀ (n : ℕ), Measurable (π n)),
+  (∀ (n : ℕ) (σ : Equiv.Perm (Fin n)), (P n).real {ω | π n ω = σ} = (w n).mass σ) →
+    MeasureTheory.Integrable (Luce.profileDiagonal f) (MeasureTheory.volume.restrict (Set.Ioo 0 1)) ∧
+      (∀ (F : BoundedContinuousFunction (Luce.FinitePointMeasure ↑(Set.Icc 0 1)) ℝ),
+          Filter.Tendsto (fun n => ∫ (ω : Ω n), F (Luce.fixedPoints (π n ω)) ∂P n) Filter.atTop
+            (nhds
+              (∫ (ξ : Luce.FinitePointMeasure ↑(Set.Icc 0 1)),
+                F ξ ∂Luce.finitePoissonLaw (Luce.fullIntensity w f hnorm hf hend)))) ∧
+        Filter.Tendsto
+          (fun n =>
+            Luce.probabilityTotalVariation (Luce.fixedPointCountLaw (P n) (π n) ⋯)
+              (Luce.poissonProbabilityMeasure (∫ (x : ℝ) in Set.Ioo 0 1, Luce.profileDiagonal f x).toNNReal))
+          Filter.atTop (nhds 0)
+Luce.section4_tail_expectation_bound_of_endpoint_witness : ∀ (Ω : ℕ → Type u_1) [inst : (n : ℕ) → MeasurableSpace (Ω n)]
+  (P : (n : ℕ) → MeasureTheory.Measure (Ω n)) [∀ (n : ℕ), MeasureTheory.IsProbabilityMeasure (P n)]
+  (w : Luce.WeightArray),
+  Luce.NormalizedWeights w →
+    ∀ (γ ε₀ : ℝ) (n₀ : ℕ),
+      0 < γ →
+        0 < ε₀ →
+          (∀ (n : ℕ), n₀ ≤ n → ∀ (k : Fin n), (1 - ε₀) * ↑n ≤ ↑↑k + 1 → γ ≤ (w n).rate k) →
+            ∀ (E : (n : ℕ) → Fin n → Ω n → ℝ),
+              (∀ (n : ℕ) (i : Fin n),
+                  ProbabilityTheory.HasLaw (E n i) (ProbabilityTheory.expMeasure ((w n).rate i)) (P n)) →
+                (∀ (n : ℕ), ProbabilityTheory.iIndepFun (E n) (P n)) →
+                  ∃ δ,
+                    0 < δ ∧
+                      ∀ (ε : ℝ),
+                        0 < ε →
+                          ε < δ →
+                            Filter.limsup
+                                (fun n => ∫ (ω : Ω n), ↑(Luce.tailFixedPointCount (fun i => E n i ω) (1 - ε)) ∂P n)
+                                Filter.atTop ≤
+                              2 ^ (1 + γ / 2) * ε ^ (γ / 4)
+@Luce.section4_endpoint_bound : ∀ {n M : Nat}
+  (w :
+    Luce.Weights
+      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))),
+  @Eq Real
+      (∑ i,
+        @Luce.Weights.rate
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+          w i)
+      (@Nat.cast Real Real.instNatCast
+        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n
+          (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))) →
+    @LE.le Nat instLENat (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) M →
+      @LE.le Nat instLENat M
+          (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n
+            (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+        ∀ {γ s : Real},
+          @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) γ →
+            (∀ (m : Nat),
+                @Membership.mem Nat (Finset Nat) (@SetLike.instMembership (Finset Nat) Nat (@Finset.instSetLike Nat))
+                    (@Finset.Icc Nat Nat.instPreorder Nat.instLocallyFiniteOrder
+                      (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) M)
+                    m →
+                  @LE.le Real Real.instLE γ
+                    (@Luce.Weights.rate
+                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n
+                        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      w (Luce.terminalCandidate n m))) →
+              @Eq Real
+                  (@Luce.meanSurvivors
+                    (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n
+                      (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                    (@Luce.Weights.rate
+                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n
+                        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                      w)
+                    s)
+                  (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                      (@Nat.cast Real Real.instNatCast
+                        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n
+                          (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                      (@Nat.cast Real Real.instNatCast M)).sqrt →
+                @LE.le Real Real.instLE (@Nat.cast Real Real.instNatCast M)
+                    (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                      (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                        (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                            (@Nat.cast Real Real.instNatCast
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (@Nat.cast Real Real.instNatCast M)).sqrt
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                      (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))) →
+                  @LE.le Real Real.instLE
+                      (@HDiv.hDiv Real Real Real (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) γ)
+                      s →
+                    And
+                      (@LE.le Real Real.instLE
+                        (@MeasureTheory.integral
+                          (Fin
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+                            Real)
+                          Real Real.normedAddCommGroup
+                          (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+                            (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+                            (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+                          (@MeasurableSpace.pi
+                            (Fin
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (fun a => Real) fun a => Real.measurableSpace)
+                          (@Luce.exponentialRace
+                            (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n
+                              (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                            w)
+                          fun e =>
+                          @Nat.cast Real Real.instNatCast
+                            (@Luce.terminalFixedPointCount
+                              (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n
+                                (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+                              (Luce.terminalCandidate n) M e))
+                        (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (@Nat.cast Real Real.instNatCast M)
+                            (Real.exp
+                              (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                (@Neg.neg Real Real.instNeg
+                                  (@HDiv.hDiv Real Real Real
+                                    (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                                    Luce.bernoulliLowerTailConstant
+                                    (@OfNat.ofNat Real (nat_lit 2)
+                                      (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))))
+                                (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                    (@Nat.cast Real Real.instNatCast
+                                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n
+                                        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                    (@Nat.cast Real Real.instNatCast M)).sqrt)))
+                          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                            (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))
+                            (Real.exp
+                              (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (@Neg.neg Real Real.instNeg γ)
+                                s)))))
+                      (@LE.le Real Real.instLE
+                        (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (@Nat.cast Real Real.instNatCast M)
+                            (Real.exp
+                              (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                (@Neg.neg Real Real.instNeg
+                                  (@HDiv.hDiv Real Real Real
+                                    (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                                    Luce.bernoulliLowerTailConstant
+                                    (@OfNat.ofNat Real (nat_lit 2)
+                                      (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))))
+                                (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                    (@Nat.cast Real Real.instNatCast
+                                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n
+                                        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                    (@Nat.cast Real Real.instNatCast M)).sqrt)))
+                          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                            (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))
+                            (Real.exp
+                              (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (@Neg.neg Real Real.instNeg γ)
+                                s))))
+                        (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul) (@Nat.cast Real Real.instNatCast M)
+                            (Real.exp
+                              (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                (@Neg.neg Real Real.instNeg
+                                  (@HDiv.hDiv Real Real Real
+                                    (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                                    Luce.bernoulliLowerTailConstant
+                                    (@OfNat.ofNat Real (nat_lit 2)
+                                      (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))))
+                                (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                    (@Nat.cast Real Real.instNatCast
+                                      (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n
+                                        (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                    (@Nat.cast Real Real.instNatCast M)).sqrt)))
+                          (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                            (@OfNat.ofNat Real (nat_lit 2) (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))
+                            (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow)
+                              (@HDiv.hDiv Real Real Real
+                                (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid))
+                                (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                  (@OfNat.ofNat Real (nat_lit 2)
+                                    (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))
+                                  (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                      (@Nat.cast Real Real.instNatCast
+                                        (@HAdd.hAdd Nat Nat Nat (@instHAdd Nat instAddNat) n
+                                          (@OfNat.ofNat Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                      (@Nat.cast Real Real.instNatCast M)).sqrt)
+                                (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                                  (@Nat.cast Real Real.instNatCast n)
+                                  (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                              (@HDiv.hDiv Real Real Real
+                                (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) γ
+                                (@OfNat.ofNat Real (nat_lit 2)
+                                  (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯)))))))
+Luce.section4_tail_expectation_bound : ∀ (Ω : Nat → Type u_1) [inst : (n : Nat) → MeasurableSpace (Ω n)]
+  (P : (n : Nat) → @MeasureTheory.Measure (Ω n) (inst n))
+  [∀ (n : Nat), @MeasureTheory.IsProbabilityMeasure (Ω n) (inst n) (P n)] (w : Luce.WeightArray),
+  Luce.NormalizedWeights w →
+    Luce.EndpointAssumption w →
+      ∀ (E : (n : Nat) → Fin n → Ω n → Real),
+        (∀ (n : Nat) (i : Fin n),
+            @ProbabilityTheory.HasLaw (Ω n) Real (inst n) Real.measurableSpace (E n i)
+              (ProbabilityTheory.expMeasure (@Luce.Weights.rate n (w n) i)) (P n)) →
+          (∀ (n : Nat),
+              @ProbabilityTheory.iIndepFun (Ω n) (Fin n) (inst n) (fun x => Real) (fun x => Real.measurableSpace) (E n)
+                (P n)) →
+            ∃ γ,
+              And (@LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) γ)
+                (∃ δ,
+                  And (@LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) δ)
+                    (∀ (ε : Real),
+                      @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) ε →
+                        @LT.lt Real Real.instLT ε δ →
+                          @LE.le Real Real.instLE
+                            (@Filter.limsup Real Nat
+                              (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice Real
+                                Real.instConditionallyCompleteLinearOrder)
+                              (fun n =>
+                                @MeasureTheory.integral (Ω n) Real Real.normedAddCommGroup
+                                  (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+                                    (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+                                    (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+                                  (inst n) (P n) fun ω =>
+                                  @Nat.cast Real Real.instNatCast
+                                    (@Luce.tailFixedPointCount n (fun i => E n i ω)
+                                      (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) ε)))
+                              (@Filter.atTop Nat Nat.instPreorder))
+                            (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                              (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow)
+                                (@OfNat.ofNat Real (nat_lit 2)
+                                  (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))
+                                (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                                  (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))
+                                  (@HDiv.hDiv Real Real Real
+                                    (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) γ
+                                    (@OfNat.ofNat Real (nat_lit 2)
+                                      (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯)))))
+                              (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow) ε
+                                (@HDiv.hDiv Real Real Real
+                                  (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) γ
+                                  (@OfNat.ofNat Real (nat_lit 4)
+                                    (@instOfNatAtLeastTwo Real (nat_lit 4) Real.instNatCast ⋯)))))))
+Luce.section4_point_measure_tail_tightness : ∀ (w : Luce.WeightArray),
+  Luce.NormalizedWeights w →
+    Luce.EndpointAssumption w →
+      @Filter.Tendsto Real Real
+        (fun α =>
+          @Filter.limsup Real Nat
+            (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice Real
+              Real.instConditionallyCompleteLinearOrder)
+            (fun n =>
+              @MeasureTheory.Measure.real (Fin n → Real)
+                (@MeasurableSpace.pi (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                (@Luce.exponentialRace n (w n))
+                (@Set.ofPred (Fin n → Real) fun e =>
+                  @LT.lt Nat instLTNat (@OfNat.ofNat Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+                    (@Luce.FinitePointMeasure.count
+                      (@Set.Elem Real
+                        (@Set.Icc Real Real.instPreorder
+                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                      (@Subtype.instMeasurableSpace Real
+                        (fun x =>
+                          @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                            (@Set.Icc Real Real.instPreorder
+                              (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                            x)
+                        Real.measurableSpace)
+                      (@Luce.fixedPoints n (@Luce.raceDraw n e))
+                      (@Set.ofPred
+                        (@Set.Elem Real
+                          (@Set.Icc Real Real.instPreorder
+                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                        fun x =>
+                        @LT.lt Real Real.instLT α
+                          (@Subtype.val Real
+                            (fun x =>
+                              @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                                (@Set.Icc Real Real.instPreorder
+                                  (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                  (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                                x)
+                            x)))))
+            (@Filter.atTop Nat Nat.instPreorder))
+        (@nhdsWithin Real
+          (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))
+          (@Set.Iio Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+        (@nhds Real
+          (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)))
+Luce.section4_intensity_test_bound : ∀ (w : Luce.WeightArray) (f : Real → Real),
+  Luce.NormalizedWeights w →
+    ∀ (hf : Luce.ProfileLimit w f),
+      Luce.EndpointAssumption w →
+        ∃ γ,
+          And (@LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) γ)
+            (∃ δ,
+              And (@LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) δ)
+                (∀ (ε : Real),
+                  @LT.lt Real Real.instLT (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)) ε →
+                    @LT.lt Real Real.instLT ε δ →
+                      ∀ (β : Real)
+                        (hβ :
+                          @LT.lt Real Real.instLT β (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                        (g :
+                          @BoundedContinuousFunction
+                            (@Set.Elem Real
+                              (@Set.Icc Real Real.instPreorder
+                                (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                            Real
+                            (@instTopologicalSpaceSubtype Real
+                              (fun x =>
+                                @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                                  (@Set.Icc Real Real.instPreorder
+                                    (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                    (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                                  x)
+                              (@UniformSpace.toTopologicalSpace Real
+                                (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                            Real.pseudoMetricSpace),
+                        (∀
+                            (x :
+                              @Set.Elem Real
+                                (@Set.Icc Real Real.instPreorder
+                                  (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                  (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))),
+                            And
+                              (@LE.le Real Real.instLE
+                                (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                (@DFunLike.coe
+                                  (@BoundedContinuousFunction
+                                    (@Set.Elem Real
+                                      (@Set.Icc Real Real.instPreorder
+                                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                                    Real
+                                    (@instTopologicalSpaceSubtype Real
+                                      (fun x =>
+                                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                                          (@Set.Icc Real Real.instPreorder
+                                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                                          x)
+                                      (@UniformSpace.toTopologicalSpace Real
+                                        (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                                    Real.pseudoMetricSpace)
+                                  (@Set.Elem Real
+                                    (@Set.Icc Real Real.instPreorder
+                                      (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                                  (fun x => Real)
+                                  (@BoundedContinuousFunction.instFunLike
+                                    (@Set.Elem Real
+                                      (@Set.Icc Real Real.instPreorder
+                                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                                    Real
+                                    (@instTopologicalSpaceSubtype Real
+                                      (fun x =>
+                                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                                          (@Set.Icc Real Real.instPreorder
+                                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                                          x)
+                                      (@UniformSpace.toTopologicalSpace Real
+                                        (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                                    Real.pseudoMetricSpace)
+                                  g x))
+                              (@LE.le Real Real.instLE
+                                (@DFunLike.coe
+                                  (@BoundedContinuousFunction
+                                    (@Set.Elem Real
+                                      (@Set.Icc Real Real.instPreorder
+                                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                                    Real
+                                    (@instTopologicalSpaceSubtype Real
+                                      (fun x =>
+                                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                                          (@Set.Icc Real Real.instPreorder
+                                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                                          x)
+                                      (@UniformSpace.toTopologicalSpace Real
+                                        (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                                    Real.pseudoMetricSpace)
+                                  (@Set.Elem Real
+                                    (@Set.Icc Real Real.instPreorder
+                                      (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                                  (fun x => Real)
+                                  (@BoundedContinuousFunction.instFunLike
+                                    (@Set.Elem Real
+                                      (@Set.Icc Real Real.instPreorder
+                                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                                    Real
+                                    (@instTopologicalSpaceSubtype Real
+                                      (fun x =>
+                                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                                          (@Set.Icc Real Real.instPreorder
+                                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                                          x)
+                                      (@UniformSpace.toTopologicalSpace Real
+                                        (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                                    Real.pseudoMetricSpace)
+                                  g x)
+                                (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))) →
+                          (∀
+                              (x :
+                                @Set.Elem Real
+                                  (@Set.Icc Real Real.instPreorder
+                                    (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                    (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))),
+                              @LE.le Real Real.instLE
+                                  (@Subtype.val Real
+                                    (fun x =>
+                                      @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                                        (@Set.Icc Real Real.instPreorder
+                                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                                        x)
+                                    x)
+                                  (@HSub.hSub Real Real Real (@instHSub Real Real.instSub)
+                                    (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)) ε) →
+                                @Eq Real
+                                  (@DFunLike.coe
+                                    (@BoundedContinuousFunction
+                                      (@Set.Elem Real
+                                        (@Set.Icc Real Real.instPreorder
+                                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                                      Real
+                                      (@instTopologicalSpaceSubtype Real
+                                        (fun x =>
+                                          @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                                            (@Set.Icc Real Real.instPreorder
+                                              (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                                            x)
+                                        (@UniformSpace.toTopologicalSpace Real
+                                          (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                                      Real.pseudoMetricSpace)
+                                    (@Set.Elem Real
+                                      (@Set.Icc Real Real.instPreorder
+                                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                                    (fun x => Real)
+                                    (@BoundedContinuousFunction.instFunLike
+                                      (@Set.Elem Real
+                                        (@Set.Icc Real Real.instPreorder
+                                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                                      Real
+                                      (@instTopologicalSpaceSubtype Real
+                                        (fun x =>
+                                          @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                                            (@Set.Icc Real Real.instPreorder
+                                              (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                                            x)
+                                        (@UniformSpace.toTopologicalSpace Real
+                                          (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                                      Real.pseudoMetricSpace)
+                                    g x)
+                                  (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))) →
+                            @LE.le Real Real.instLE
+                              (@MeasureTheory.integral
+                                (@Set.Elem Real
+                                  (@Set.Icc Real Real.instPreorder
+                                    (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                    (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                                Real Real.normedAddCommGroup
+                                (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+                                  (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+                                  (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+                                (@Subtype.instMeasurableSpace Real
+                                  (fun x =>
+                                    @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                                      (@Set.Icc Real Real.instPreorder
+                                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                                      x)
+                                  Real.measurableSpace)
+                                (@MeasureTheory.FiniteMeasure.toMeasure
+                                  (@Set.Elem Real
+                                    (@Set.Icc Real Real.instPreorder
+                                      (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                                  (@Subtype.instMeasurableSpace Real
+                                    (fun x =>
+                                      @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                                        (@Set.Icc Real Real.instPreorder
+                                          (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                          (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                                        x)
+                                    Real.measurableSpace)
+                                  (Luce.interiorIntensity w f hf β hβ))
+                                fun y =>
+                                @DFunLike.coe
+                                  (@BoundedContinuousFunction
+                                    (@Set.Elem Real
+                                      (@Set.Icc Real Real.instPreorder
+                                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                                    Real
+                                    (@instTopologicalSpaceSubtype Real
+                                      (fun x =>
+                                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                                          (@Set.Icc Real Real.instPreorder
+                                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                                          x)
+                                      (@UniformSpace.toTopologicalSpace Real
+                                        (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                                    Real.pseudoMetricSpace)
+                                  (@Set.Elem Real
+                                    (@Set.Icc Real Real.instPreorder
+                                      (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                      (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                                  (fun x => Real)
+                                  (@BoundedContinuousFunction.instFunLike
+                                    (@Set.Elem Real
+                                      (@Set.Icc Real Real.instPreorder
+                                        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                        (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+                                    Real
+                                    (@instTopologicalSpaceSubtype Real
+                                      (fun x =>
+                                        @Membership.mem Real (Set Real) (@Set.instMembership Real)
+                                          (@Set.Icc Real Real.instPreorder
+                                            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+                                            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+                                          x)
+                                      (@UniformSpace.toTopologicalSpace Real
+                                        (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace)))
+                                    Real.pseudoMetricSpace)
+                                  g y)
+                              (@HMul.hMul Real Real Real (@instHMul Real Real.instMul)
+                                (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow)
+                                  (@OfNat.ofNat Real (nat_lit 2)
+                                    (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯))
+                                  (@HAdd.hAdd Real Real Real (@instHAdd Real Real.instAdd)
+                                    (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))
+                                    (@HDiv.hDiv Real Real Real
+                                      (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) γ
+                                      (@OfNat.ofNat Real (nat_lit 2)
+                                        (@instOfNatAtLeastTwo Real (nat_lit 2) Real.instNatCast ⋯)))))
+                                (@HPow.hPow Real Real Real (@instHPow Real Real Real.instPow) ε
+                                  (@HDiv.hDiv Real Real Real
+                                    (@instHDiv Real (@DivInvMonoid.toDiv Real Real.instDivInvMonoid)) γ
+                                    (@OfNat.ofNat Real (nat_lit 4)
+                                      (@instOfNatAtLeastTwo Real (nat_lit 4) Real.instNatCast ⋯)))))))
+Luce.section4_full_intensity_finite : ∀ (w : Luce.WeightArray) (f : Real → Real),
+  Luce.NormalizedWeights w →
+    Luce.ProfileLimit w f →
+      Luce.EndpointAssumption w →
+        @MeasureTheory.IsFiniteMeasure Real Real.measurableSpace
+          (Luce.interiorDensityMeasure f (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne)))
+Luce.section4_profileDiagonal_integrable : ∀ (w : Luce.WeightArray) (f : Real → Real),
+  Luce.NormalizedWeights w →
+    Luce.ProfileLimit w f →
+      Luce.EndpointAssumption w →
+        @MeasureTheory.Integrable Real
+          (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+          (@SeminormedAddGroup.toContinuousENorm Real
+            (@SeminormedAddCommGroup.toSeminormedAddGroup Real
+              (@NonUnitalSeminormedRing.toSeminormedAddCommGroup Real
+                (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing Real
+                  (@SeminormedCommRing.toNonUnitalSeminormedCommRing Real
+                    (@NormedCommRing.toSeminormedCommRing Real Real.normedCommRing))))))
+          Real (@MeasureTheory.MeasureSpace.toMeasurableSpace Real Real.measureSpace) (Luce.profileDiagonal f)
+          (@MeasureTheory.Measure.restrict Real (@MeasureTheory.MeasureSpace.toMeasurableSpace Real Real.measureSpace)
+            (@MeasureTheory.volume Real Real.measureSpace)
+            (@Set.Ioo Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero))
+              (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+Luce.section4_intensity_tail_tendsto : ∀ (w : Luce.WeightArray) (f : Real → Real),
+  Luce.NormalizedWeights w →
+    Luce.ProfileLimit w f →
+      Luce.EndpointAssumption w →
+        @Filter.Tendsto Real Real
+          (fun α =>
+            @MeasureTheory.integral Real Real Real.normedAddCommGroup
+              (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+                (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+                (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+              (@MeasureTheory.MeasureSpace.toMeasurableSpace Real Real.measureSpace)
+              (@MeasureTheory.Measure.restrict Real
+                (@MeasureTheory.MeasureSpace.toMeasurableSpace Real Real.measureSpace)
+                (@MeasureTheory.volume Real Real.measureSpace)
+                (@Set.Ioo Real Real.instPreorder α (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+              fun x => Luce.profileDiagonal f x)
+          (@nhdsWithin Real
+            (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+            (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))
+            (@Set.Iio Real Real.instPreorder (@OfNat.ofNat Real (nat_lit 1) (@One.toOfNat1 Real Real.instOne))))
+          (@nhds Real
+            (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+            (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)))
+def Luce.NormalizedWeights : Luce.WeightArray → Prop :=
+fun w => ∀ (n : ℕ), 0 < n → 1 / ↑n * ∑ i, (w n).rate i = 1
+def Luce.ProfileLimit : Luce.WeightArray → (ℝ → ℝ) → Prop :=
+fun w f =>
+  MeasureTheory.NullMeasurable f Luce.profileMeasure ∧ (∀ x ∈ Set.Ioo 0 1, 0 < f x) ∧ Luce.ProfileL1Convergence w f
+def Luce.EndpointAssumption : Luce.WeightArray → Prop :=
+fun w => ∃ γ ε₀ n₀, 0 < γ ∧ 0 < ε₀ ∧ ∀ (n : ℕ), n₀ ≤ n → ∀ (k : Fin n), (1 - ε₀) * ↑n ≤ ↑↑k + 1 → γ ≤ (w n).rate k
+structure Luce.Weights (n : ℕ) : Type
+number of parameters: 1
+fields:
+  Luce.Weights.rate : Fin n → ℝ
+  Luce.Weights.positive : ∀ (i : Fin n), 0 < self.rate i
+constructor:
+  Luce.Weights.mk {n : ℕ} (rate : Fin n → ℝ) (positive : ∀ (i : Fin n), 0 < rate i) : Luce.Weights n
+def Luce.profileDiagonal : (ℝ → ℝ) → ℝ → ℝ :=
+fun f x =>
+  Luce.rateKernel (Luce.profileQuantile Luce.profileMeasure f x) (f x) /
+    Luce.profileD Luce.profileMeasure f (Luce.profileQuantile Luce.profileMeasure f x)
+def Luce.interiorDensityMeasure : (ℝ → ℝ) → ℝ → MeasureTheory.Measure ℝ :=
+fun f α => (MeasureTheory.volume.restrict (Set.Ioc 0 α)).withDensity fun x => ENNReal.ofReal (Luce.profileDiagonal f x)
+def Luce.interiorFixedPoints : {n : ℕ} → ℝ → Equiv.Perm (Fin n) → Luce.FinitePointMeasure ↑(Set.Icc 0 1) :=
+fun {n} α π =>
+  Luce.observedPointMeasure (Luce.section3Location n) fun k => decide ((↑↑k + 1) / ↑n ≤ α ∧ (Equiv.symm π) k = k)
+def Luce.tailFixedPointCount : {n : ℕ} → (Fin n → ℝ) → ℝ → ℕ :=
+fun {n} e α => {k | α * ↑n < ↑↑k + 1 ∧ Luce.rankOf e k = ↑k + 1}.card
+@[reducible] def Luce.WeightArray : Type :=
+(n : ℕ) → Luce.Weights n
+def Luce.Weights.mass : {n : ℕ} → Luce.Weights n → Equiv.Perm (Fin n) → ℝ :=
+fun {n} w π => ∏ r, w.rate (π r) / ∑ j with r ≤ j, w.rate (π j)
+def Luce.stepProfile : Luce.WeightArray → ℕ → ℝ → ℝ :=
+fun w n x => ∑ i, if ↑↑i / ↑n < x ∧ x ≤ (↑↑i + 1) / ↑n then (w n).rate i else 0
+def Luce.ProfileL1Convergence : Luce.WeightArray → (ℝ → ℝ) → Prop :=
+fun w f =>
+  Filter.Tendsto (fun n => MeasureTheory.eLpNorm (fun x => Luce.stepProfile w n x - f x) 1 Luce.profileMeasure)
+    Filter.atTop (nhds 0)
+def Luce.profileMeasure : MeasureTheory.Measure ℝ :=
+MeasureTheory.volume.restrict (Set.Ioo 0 1)
+def Luce.profileQuantile.{u_1} : {Ω : Type u_1} →
+  [inst : MeasurableSpace Ω] → MeasureTheory.Measure Ω → (Ω → ℝ) → ℝ → ℝ :=
+fun {Ω} [MeasurableSpace Ω] μ f x => Function.invFunOn (Luce.profileF μ f) (Set.Ici 0) x
+def Luce.profileF.{u_1} : {Ω : Type u_1} → [inst : MeasurableSpace Ω] → MeasureTheory.Measure Ω → (Ω → ℝ) → ℝ → ℝ :=
+fun {Ω} [MeasurableSpace Ω] μ f t => 1 - Luce.profileH μ f t
+def Luce.profileH.{u_1} : {Ω : Type u_1} → [inst : MeasurableSpace Ω] → MeasureTheory.Measure Ω → (Ω → ℝ) → ℝ → ℝ :=
+fun {Ω} [MeasurableSpace Ω] μ f t => ∫ (x : Ω), Luce.survivalKernel t (f x) ∂μ
+def Luce.profileD.{u_1} : {Ω : Type u_1} → [inst : MeasurableSpace Ω] → MeasureTheory.Measure Ω → (Ω → ℝ) → ℝ → ℝ :=
+fun {Ω} [MeasurableSpace Ω] μ f t => ∫ (x : Ω), Luce.rateKernel t (f x) ∂μ
+def Luce.rateKernel : ℝ → ℝ → ℝ :=
+fun t a => a * Luce.survivalKernel t a
+def Luce.survivalKernel : ℝ → ℝ → ℝ :=
+fun t a => Real.exp (-t * a)
+def Luce.FinitePointMeasure.{u_2} : (X : Type u_2) → [MeasurableSpace X] → Type (max 0 u_2) :=
+fun X [MeasurableSpace X] => { μ // ∃ m x, Luce.pointMeasureOfFin x = μ }
+def Luce.fullIntensity : (w : Luce.WeightArray) →
+  (f : ℝ → ℝ) →
+    Luce.NormalizedWeights w →
+      Luce.ProfileLimit w f → Luce.EndpointAssumption w → MeasureTheory.FiniteMeasure ↑(Set.Icc 0 1) :=
+fun w f hnorm hf hend =>
+  MeasureTheory.FiniteMeasure.map ⟨Luce.interiorDensityMeasure f 1, ⋯⟩ (Set.projIcc 0 1 Luce.fullIntensity._proof_1)
+@[reducible] def Luce.fixedPoints : {n : ℕ} → Equiv.Perm (Fin n) → Luce.FinitePointMeasure ↑(Set.Icc 0 1) :=
+fun {n} π => Luce.interiorFixedPoints 1 π
+def Luce.fixedPointCount : {n : ℕ} → Equiv.Perm (Fin n) → ℕ :=
+fun {n} π => (Luce.fixedPoints π).count Set.univ
+def Luce.fixedPointCountLaw.{u_1} : {n : ℕ} →
+  {Ω : Type u_1} →
+    [mΩ : MeasurableSpace Ω] →
+      (P : MeasureTheory.Measure Ω) →
+        [MeasureTheory.IsProbabilityMeasure P] →
+          (π : Ω → Equiv.Perm (Fin n)) → Measurable π → MeasureTheory.ProbabilityMeasure ℕ :=
+fun {n} {Ω} [MeasurableSpace Ω] P [MeasureTheory.IsProbabilityMeasure P] π hπ =>
+  ⟨MeasureTheory.Measure.map (fun ω => Luce.fixedPointCount (π ω)) P, ⋯⟩
+def Luce.probabilityTotalVariation : MeasureTheory.ProbabilityMeasure ℕ → MeasureTheory.ProbabilityMeasure ℕ → ℝ :=
+fun μ ν => sSup (Set.range fun A => |(↑μ).real A - (↑ν).real A|)
+def Luce.poissonProbabilityMeasure : NNReal → MeasureTheory.ProbabilityMeasure ℕ :=
+fun r => ⟨ProbabilityTheory.poissonMeasure r, ⋯⟩
+def Luce.finitePoissonLaw.{u_1} : {X : Type u_1} →
+  [inst : MeasurableSpace X] → MeasureTheory.FiniteMeasure X → MeasureTheory.Measure (Luce.FinitePointMeasure X) :=
+fun {X} [MeasurableSpace X] ν =>
+  if hν : ν = 0 then MeasureTheory.Measure.dirac 0 else Luce.poissonMixture ν.mass (Luce.iidPointLaw ν.normalize)
+Luce.fullIntensity_projection_recovery : ∀ (w : Luce.WeightArray) (f : ℝ → ℝ) (hnorm : Luce.NormalizedWeights w)
+  (hf : Luce.ProfileLimit w f) (hend : Luce.EndpointAssumption w),
+  MeasureTheory.Measure.map Subtype.val ↑(Luce.fullIntensity w f hnorm hf hend) = Luce.interiorDensityMeasure f 1
+@Luce.fixedPoints_realMeasure : ∀ {n : ℕ} (π : Equiv.Perm (Fin n)),
+  MeasureTheory.Measure.map Subtype.val ↑(Luce.fixedPoints π).toFiniteMeasure =
+    ∑ k, if (Equiv.symm π) k = k then MeasureTheory.Measure.dirac ((↑↑k + 1) / ↑n) else 0
+@Luce.fixedPointCount_eq_card : ∀ {n : ℕ} (π : Equiv.Perm (Fin n)), Luce.fixedPointCount π = {k | π k = k}.card
+'Luce.rank_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.two_candidate_sum_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.integral_sum_clockSurvivalIndicator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.tailFixedPointCount_expectation_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.section4_endpoint_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.section4_tail_expectation_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.ConvergesInProbability.le_limsup_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.fixedPoints_tail_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.section4_point_measure_tail_tightness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.FiniteAdaptedBernoulli.integral_predictable_eq_observed' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Luce.section4_interior_test_expectation_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.section4_intensity_test_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.section4_interior_intensity_bounded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.section4_full_intensity_finite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.section4_profileDiagonal_integrable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.section4_intensity_tail_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.section3_interior_poisson' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.finitePoissonLaw_count_joint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.endpoint_window_le_row_of_size_condition' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.section4_tail_expectation_bound_of_endpoint_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.fullIntensity_projection_recovery' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.fullIntensity_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.tendsto_laplace_finitePoissonLaw_interior_full' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.section4_laplace_cutoff_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.pointMeasure_tightness_of_laplace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.section4_full_laplace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.section4_full_poisson' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.section4_full_poisson_general' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.finitePoissonLaw_count_univ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.pointMeasure_random_count_singleton_poisson_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.tendsto_probabilityTotalVariation_of_singletons' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.tendsto_probabilityTotalVariation_of_integrals' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.fixedPointCount_eq_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.fullIntensity_mass_eq_toNNReal_integral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.section4_count_poisson' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.section4_count_poisson_general' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.fixedPoints_realMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.section4_lambda_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.section4_main_poisson' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.section4_main_poisson_general' depends on axioms: [propext, Classical.choice, Quot.sound]

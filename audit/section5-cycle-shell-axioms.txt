@@ -1,0 +1,13 @@
+'Luce.deep_roots_le_retained_add_excluded' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.excluded_short_vertices_le_high_add_interior_low' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.integrable_race_permutation_statistic' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.tail_cycle_expectation_le_retained_and_truncations' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.EndpointShellAssumption.cycle_tail_small_succ' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.singleton_cycle_tail_le_fixed' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.EndpointShellAssumption.short_cycle_tail_small' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.EndpointShellAssumption.cycle_shell_tightness' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'cycleShell_contractCheck' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]

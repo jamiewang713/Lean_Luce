@@ -1,0 +1,74 @@
+{
+  "verified_at_utc": "2026-09-14T20:59:33.2948202Z",
+  "theorem": "Luce.Section6.lemma67",
+  "contract": "Luce.Section6.Lemma67Contract.lemma67",
+  "full_build_exit_code": 0,
+  "full_build_jobs": 4305,
+  "dedicated_audit_exit_code": 0,
+  "audited_new_theorems": 26,
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "added_model_assumptions": [],
+  "forbidden_proof_constructs": [],
+  "original_manuscript_and_assumptions_preserved": true,
+  "statement_contract_preserved_through_verification": true,
+  "preserved_sources": {
+    "fixed_points_sampled_profile.tex": "37E165492FAB7B8364C8D4A6D8F4CF960871D90E610AEB872FC77EB683CB76CF",
+    "Luce/Section6ProfileDefinitions.lean": "597283B5E3C43F58E4643939A43F18E065E831719798242BB02A48228DA647C2",
+    "Luce/Section6ContractDefinitions.lean": "C6DE18FA959E884CE3D996160D4B72CD1161ED58EA5BEE0AD55AF1AD395A25EB",
+    "Luce/Section6Lemma67Contract.lean": "8DF1D04342CA33CE8D8DE69F4AD6A397D27AEC6F6019E379907C0D4815284CF5"
+  },
+  "source_hashes": [
+    {
+      "Path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6UniformCycleConstants.lean",
+      "Hash": "36326FC57C65C30C73295BCCB0734B59A2F5A17B29671578933E6A0122BA707E"
+    },
+    {
+      "Path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RegularCycleBounds.lean",
+      "Hash": "072A67F677D5EDA43D82B8B895E16DF76453EA9221189C7A445E9747874D773C"
+    },
+    {
+      "Path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LogExcursionProbability.lean",
+      "Hash": "99AA3AF9406CEB02E4C904B6892B54D6CB516015FA7F1D27128A77DC278CFE24"
+    },
+    {
+      "Path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LogExcursionExpectation.lean",
+      "Hash": "E58A15965C60D3A37296F8F46882FB93890127B4A5A08A1B5A842B370164C6B7"
+    },
+    {
+      "Path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LogExcursionAlgebra.lean",
+      "Hash": "FDECB153F272F3CDC7882C920E080B4BF06A81320493520885455BCB6DB32CE6"
+    },
+    {
+      "Path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma67Totals.lean",
+      "Hash": "4CA971E3EB38BC27B9D2202746DC85FD961ADFF1D21F7F622E5FCB0557F7274C"
+    },
+    {
+      "Path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma67Definitions.lean",
+      "Hash": "8645B1C2EDA884C4301946927520F39B874AD16141C42247DC77D00C4EF114D8"
+    },
+    {
+      "Path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma67Contract.lean",
+      "Hash": "8DF1D04342CA33CE8D8DE69F4AD6A397D27AEC6F6019E379907C0D4815284CF5"
+    },
+    {
+      "Path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma67.lean",
+      "Hash": "76583B573E3FE1C946AC428DAEFA70A6EE2CE45CC522E369B294C6B64A61AEB3"
+    },
+    {
+      "Path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6.lean",
+      "Hash": "666A8D522411BE603BBFF4E2634945F98BBFA98B7BF457828EE31E238087CAFC"
+    },
+    {
+      "Path": "D:\\princeton\\Research\\Lean\\Lean_luce\\audit\\Section6Lemma67.lean",
+      "Hash": "C5F8ADE3042287C69906669653FCA08D1D4A68E91E739F2F02AB5A8D581C899A"
+    },
+    {
+      "Path": "D:\\princeton\\Research\\Lean\\Lean_luce\\docs\\section6-lemma67.md",
+      "Hash": "0AF4E1DBBFC3EE9F609D7A0FC0688993D678171A64CD8450E6E5A21601407C3C"
+    }
+  ]
+}

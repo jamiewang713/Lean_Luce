@@ -1,0 +1,18 @@
+{
+  "axiom_reports": 18,
+  "freeze": {
+    "shell-contract-freeze.json": {
+      "count": 162,
+      "changed": []
+    },
+    "section5-contract-freeze.json": {
+      "count": 193,
+      "changed": []
+    },
+    "section5-cycle-shell-contract-freeze.json": {
+      "count": 1,
+      "changed": []
+    }
+  },
+  "contract_checks_in_build": true
+}

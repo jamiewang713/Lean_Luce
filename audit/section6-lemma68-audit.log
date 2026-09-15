@@ -1,0 +1,465 @@
+def Luce.Section6.Lemma68Contract.total : Prop :=
+∀ (f : Real → Real) (left right : Luce.Section6.EndpointBehavior),
+  Luce.Section6.PowerProfile f left right →
+    ∀ (side : Luce.Section6.Corner),
+      (Luce.Section6.cornerBehavior left right side).active →
+        ∀ (k : Nat),
+          ∃ C₀ C₁,
+            And
+              (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                C₀)
+              (And
+                (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                  C₁)
+                (∃ M,
+                  And (@LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) M)
+                    (∀ (A B : Nat),
+                      @LE.le.{0} Nat instLENat M A →
+                        @LE.le.{0} Nat instLENat A B →
+                          @LE.le.{0} Real Real.instLE
+                            (@abs.{0} Real Real.lattice Real.instAddGroup
+                              (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                (Luce.Section6.idealTrace side (Luce.Section6.cornerBehavior left right side) k A B)
+                                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                  (Luce.Section6.cornerCoefficient side (Luce.Section6.cornerBehavior left right side)
+                                    k)
+                                  (Real.log
+                                    (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                      (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                      (@Nat.cast.{0} Real Real.instNatCast B)
+                                      (@Nat.cast.{0} Real Real.instNatCast A))))))
+                            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd) C₀
+                              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) C₁
+                                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                  (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                    (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                                    (Real.log
+                                      (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                        (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                        (@Nat.cast.{0} Real Real.instNatCast B)
+                                        (@Nat.cast.{0} Real Real.instNatCast A))))
+                                  (@Nat.cast.{0} Real Real.instNatCast A)))))))
+def Luce.Section6.Lemma68Contract.spatial : Prop :=
+∀ (f : Real → Real) (left right : Luce.Section6.EndpointBehavior),
+  Luce.Section6.PowerProfile f left right →
+    ∀ (side : Luce.Section6.Corner),
+      (Luce.Section6.cornerBehavior left right side).active →
+        ∀ (k : Nat) (a b : Real),
+          @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) a →
+            @LT.lt.{0} Real Real.instLT a b →
+              @LT.lt.{0} Real Real.instLT b (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+                ∃ C kappa,
+                  And
+                    (@LT.lt.{0} Real Real.instLT
+                      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) C)
+                    (And
+                      (@LT.lt.{0} Real Real.instLT
+                        (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) kappa)
+                      (∃ K N,
+                        And (@LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) N)
+                          (∀ (n : Nat),
+                            @LE.le.{0} Nat instLENat N n →
+                              @LE.le.{0} Real Real.instLE
+                                (@abs.{0} Real Real.lattice Real.instAddGroup
+                                  (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                    (Luce.Section6.idealSpatialTrace side (Luce.Section6.cornerBehavior left right side)
+                                      k n a b)
+                                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                        (Luce.Section6.cornerCoefficient side
+                                          (Luce.Section6.cornerBehavior left right side) k)
+                                        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub) b a))
+                                      (Real.log (@Nat.cast.{0} Real Real.instNatCast n)))))
+                                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) C
+                                    (@HPow.hPow.{0, 0, 0} Real Nat Real
+                                      (@instHPow.{0, 0} Real Nat
+                                        (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                                      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                                        (Real.log (@Nat.cast.{0} Real Real.instNatCast n)))
+                                      K))
+                                  (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+                                    (@Nat.cast.{0} Real Real.instNatCast (Luce.Section6.idealCoreLower n))
+                                    (@Neg.neg.{0} Real Real.instNeg kappa))))))
+def Luce.Section6.idealTrace : Luce.Section6.Corner → Luce.Section6.EndpointBehavior → Nat → Nat → Nat → Real :=
+fun side behavior k A B =>
+  @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+    (∑ a with
+      @Function.Injective.{1, 1}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        Nat fun j =>
+        @Subtype.val.{1} Nat
+          (fun x =>
+            @Membership.mem.{0, 0} Nat (Finset.{0} Nat)
+              (@SetLike.instMembership.{0, 0} (Finset.{0} Nat) Nat (@Finset.instSetLike.{0} Nat))
+              (@Finset.Icc.{0} Nat Nat.instPreorder Nat.instLocallyFiniteOrder A B) x)
+          (a j),
+      Luce.Section6.idealCycleWeight side behavior k fun j =>
+        @Subtype.val.{1} Nat
+          (fun x =>
+            @Membership.mem.{0, 0} Nat (Finset.{0} Nat)
+              (@SetLike.instMembership.{0, 0} (Finset.{0} Nat) Nat (@Finset.instSetLike.{0} Nat))
+              (@Finset.Icc.{0} Nat Nat.instPreorder Nat.instLocallyFiniteOrder A B) x)
+          (a j))
+    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd) (@Nat.cast.{0} Real Real.instNatCast k)
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+def Luce.Section6.idealRootTrace : Luce.Section6.Corner →
+  Luce.Section6.EndpointBehavior → Nat → Nat → Nat → Real → Real → Real :=
+fun side behavior k A B lo hi =>
+  @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+    (∑ a with
+      And
+        (@Function.Injective.{1, 1}
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          Nat fun j =>
+          @Subtype.val.{1} Nat
+            (fun x =>
+              @Membership.mem.{0, 0} Nat (Finset.{0} Nat)
+                (@SetLike.instMembership.{0, 0} (Finset.{0} Nat) Nat (@Finset.instSetLike.{0} Nat))
+                (@Finset.Icc.{0} Nat Nat.instPreorder Nat.instLocallyFiniteOrder A B) x)
+            (a j))
+        (And
+          (@LT.lt.{0} Real Real.instLT lo
+            (@Nat.cast.{0} Real Real.instNatCast
+              (Luce.Section6.idealTupleRoot side k fun j =>
+                @Subtype.val.{1} Nat
+                  (fun x =>
+                    @Membership.mem.{0, 0} Nat (Finset.{0} Nat)
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} Nat) Nat (@Finset.instSetLike.{0} Nat))
+                      (@Finset.Icc.{0} Nat Nat.instPreorder Nat.instLocallyFiniteOrder A B) x)
+                  (a j))))
+          (@LE.le.{0} Real Real.instLE
+            (@Nat.cast.{0} Real Real.instNatCast
+              (Luce.Section6.idealTupleRoot side k fun j =>
+                @Subtype.val.{1} Nat
+                  (fun x =>
+                    @Membership.mem.{0, 0} Nat (Finset.{0} Nat)
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} Nat) Nat (@Finset.instSetLike.{0} Nat))
+                      (@Finset.Icc.{0} Nat Nat.instPreorder Nat.instLocallyFiniteOrder A B) x)
+                  (a j)))
+            hi)),
+      Luce.Section6.idealCycleWeight side behavior k fun j =>
+        @Subtype.val.{1} Nat
+          (fun x =>
+            @Membership.mem.{0, 0} Nat (Finset.{0} Nat)
+              (@SetLike.instMembership.{0, 0} (Finset.{0} Nat) Nat (@Finset.instSetLike.{0} Nat))
+              (@Finset.Icc.{0} Nat Nat.instPreorder Nat.instLocallyFiniteOrder A B) x)
+          (a j))
+    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd) (@Nat.cast.{0} Real Real.instNatCast k)
+      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+def Luce.Section6.idealTupleRoot : Luce.Section6.Corner →
+  (k : Nat) →
+    (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+        Nat) →
+      Nat :=
+fun side k a =>
+  Luce.Section6.idealTupleRoot.match_1.{1} (fun side => Nat) side
+    (fun _ =>
+      @Finset.inf'.{0, 0} Nat
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (@Lattice.toSemilatticeInf.{0} Nat Nat.instLattice)
+        (@Finset.univ.{0}
+          (Fin
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (Fin.fintype
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+        ⋯ a)
+    fun _ =>
+    @Finset.sup'.{0, 0} Nat
+      (Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+      (@Lattice.toSemilatticeSup.{0} Nat Nat.instLattice)
+      (@Finset.univ.{0}
+        (Fin
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (Fin.fintype
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+      ⋯ a
+def Luce.Section6.idealCoreLower : Nat → Nat :=
+fun n =>
+  @Nat.ceil.{0} Real Real.semiring Real.partialOrder
+    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+    (Real.exp
+      (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+        (Real.log (@Nat.cast.{0} Real Real.instNatCast n))
+        (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+          (@OfNat.ofNat.{0} Real (nat_lit 4)
+            (@instOfNatAtLeastTwo.{0} Real (nat_lit 4) Real.instNatCast Luce.Section6.idealCoreLower._proof_1)))))
+def Luce.Section6.idealCoreUpper : Nat → Nat :=
+fun n =>
+  @Nat.floor.{0} Real Real.semiring Real.partialOrder
+    (@FloorRing.toFloorSemiring.{0} Real Real.instRing Real.linearOrder Real.instFloorRing)
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@Nat.cast.{0} Real Real.instNatCast n) (@Nat.cast.{0} Real Real.instNatCast (Luce.Section6.idealCoreLower n)))
+def Luce.Section6.idealSpatialTrace : Luce.Section6.Corner →
+  Luce.Section6.EndpointBehavior → Nat → Nat → Real → Real → Real :=
+fun side behavior k n a b =>
+  Luce.Section6.idealRootTrace side behavior k (Luce.Section6.idealCoreLower n) (Luce.Section6.idealCoreUpper n)
+    (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+      (@Nat.cast.{0} Real Real.instNatCast n) a)
+    (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+      (@Nat.cast.{0} Real Real.instNatCast n) b)
+def Luce.Section6.localIdealKernel : Luce.Section6.Corner → Luce.Section6.EndpointBehavior → Nat → Nat → Real :=
+fun side behavior a h =>
+  @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (Luce.Section6.localCornerExponent behavior) (Luce.Section6.localCornerQ side behavior))
+        (Luce.Section6.localCornerRatio side behavior a h))
+      (@Nat.cast.{0} Real Real.instNatCast h))
+    (Real.exp
+      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+        (@Neg.neg.{0} Real Real.instNeg (Luce.Section6.localCornerQ side behavior))
+        (Luce.Section6.localCornerRatio side behavior a h)))
+def Luce.Section6.cornerCoefficient : Luce.Section6.Corner → Luce.Section6.EndpointBehavior → Nat → Real :=
+fun side behavior k =>
+  Luce.Section6.cornerCoefficient.match_3.{1} (fun behavior => Real) behavior
+    (fun c => @OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) fun c gamma eta =>
+    have q :=
+      Luce.Section6.cornerCoefficient.match_1.{1} (fun side => Real) side
+        (fun _ =>
+          @HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+            (Real.Gamma
+              (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                  (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) gamma)))
+            gamma)
+        fun _ =>
+        @HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+          (Real.Gamma
+            (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+              (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) gamma)))
+          (@Neg.neg.{0} Real Real.instNeg gamma);
+    @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (Luce.Section6.convolutionDensity gamma q k
+        (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd) (@Nat.cast.{0} Real Real.instNatCast k)
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+theorem Luce.Section6.logDistinctTrace68_refined : ∀ {p : Real → Real},
+  Luce.Section6.TraceDensity68 p →
+    @Differentiable.{0, 0, 0} Real (@DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField) Real
+        Real.instAddCommGroup
+        (@Semiring.toModule.{0} Real
+          (@DivisionSemiring.toSemiring.{0} Real
+            (@Semifield.toDivisionSemiring.{0} Real
+              (@Field.toSemifield.{0} Real
+                (@NormedField.toField.{0} Real
+                  (@NontriviallyNormedField.toNormedField.{0} Real
+                    (@DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField)))))))
+        (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+        Real Real.instAddCommGroup
+        (@Semiring.toModule.{0} Real
+          (@DivisionSemiring.toSemiring.{0} Real
+            (@Semifield.toDivisionSemiring.{0} Real
+              (@Field.toSemifield.{0} Real
+                (@NormedField.toField.{0} Real
+                  (@NontriviallyNormedField.toNormedField.{0} Real
+                    (@DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField)))))))
+        (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+        p →
+      ∀ {C g : Real},
+        @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) C →
+          @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) g →
+            (∀ (x : Real),
+                @LE.le.{0} Real Real.instLE
+                  (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd) (p x)
+                    (@Norm.norm.{0} Real Real.norm
+                      (@deriv.{0, 0} Real
+                        (@DenselyNormedField.toNontriviallyNormedField.{0} Real Real.denselyNormedField) Real
+                        Real.instAddCommGroup
+                        (@Semiring.toModule.{0} Real
+                          (@DivisionSemiring.toSemiring.{0} Real
+                            (@Semifield.toDivisionSemiring.{0} Real
+                              (@Field.toSemifield.{0} Real
+                                (@NormedField.toField.{0} Real
+                                  (@NontriviallyNormedField.toNormedField.{0} Real
+                                    (@DenselyNormedField.toNontriviallyNormedField.{0} Real
+                                      Real.denselyNormedField)))))))
+                        (@UniformSpace.toTopologicalSpace.{0} Real
+                          (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                        p x)))
+                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) C
+                    (Real.exp
+                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                        (@Neg.neg.{0} Real Real.instNeg g) (@abs.{0} Real Real.lattice Real.instAddGroup x))))) →
+              ∀ (k : Nat),
+                ∃ E D c,
+                  And
+                    (@LT.lt.{0} Real Real.instLT
+                      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) E)
+                    (And
+                      (@LT.lt.{0} Real Real.instLT
+                        (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) D)
+                      (And
+                        (@LT.lt.{0} Real Real.instLT
+                          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) c)
+                        (∀ (A B : Nat),
+                          @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) A →
+                            @LE.le.{0} Nat instLENat A B →
+                              @LE.le.{0} Real Real.instLE
+                                (@abs.{0} Real Real.lattice Real.instAddGroup
+                                  (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                    (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                      (Luce.Section6.logDistinctTrace68 p k A B)
+                                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                        (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                          (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                          (Luce.Section6.traceConvolution68 p k
+                                            (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+                                          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                            (@Nat.cast.{0} Real Real.instNatCast k)
+                                            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))))
+                                        (Real.log
+                                          (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                            (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                            (@Nat.cast.{0} Real Real.instNatCast B)
+                                            (@Nat.cast.{0} Real Real.instNatCast A)))))
+                                    (Luce.Section6.cycleRangeMass68 p k)))
+                                (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) E
+                                    (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                      (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                      (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                                        (Real.log
+                                          (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                            (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                            (@Nat.cast.{0} Real Real.instNatCast B)
+                                            (@Nat.cast.{0} Real Real.instNatCast A))))
+                                      (@Nat.cast.{0} Real Real.instNatCast A)))
+                                  (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) D
+                                    (Real.exp
+                                      (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                        (@Neg.neg.{0} Real Real.instNeg c)
+                                        (Real.log
+                                          (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                            (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                            (@Nat.cast.{0} Real Real.instNatCast B)
+                                            (@Nat.cast.{0} Real Real.instNatCast A)))))))))) :=
+⋯
+theorem Luce.Section6.idealTrace_refined68 : ∀ (side : Luce.Section6.Corner)
+  (behavior : Luce.Section6.EndpointBehavior),
+  behavior.active →
+    @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+        (Luce.Section6.localCornerExponent behavior) →
+      @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+          (Luce.Section6.localCornerQ side behavior) →
+        ∀ (k : Nat),
+          ∃ E D c d,
+            And
+              (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                E)
+              (And
+                (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                  D)
+                (And
+                  (@LT.lt.{0} Real Real.instLT
+                    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) c)
+                  (∀ (A B : Nat),
+                    @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) A →
+                      @LE.le.{0} Nat instLENat A B →
+                        @LE.le.{0} Real Real.instLE
+                          (@abs.{0} Real Real.lattice Real.instAddGroup
+                            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                              (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+                                (Luce.Section6.idealTrace side behavior k A B)
+                                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                  (Luce.Section6.cornerCoefficient side behavior k)
+                                  (Real.log
+                                    (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                      (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                      (@Nat.cast.{0} Real Real.instNatCast B)
+                                      (@Nat.cast.{0} Real Real.instNatCast A)))))
+                              d))
+                          (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) E
+                              (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+                                  (Real.log
+                                    (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                      (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                      (@Nat.cast.{0} Real Real.instNatCast B) (@Nat.cast.{0} Real Real.instNatCast A))))
+                                (@Nat.cast.{0} Real Real.instNatCast A)))
+                            (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) D
+                              (Real.exp
+                                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                                  (@Neg.neg.{0} Real Real.instNeg c)
+                                  (Real.log
+                                    (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                      (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                      (@Nat.cast.{0} Real Real.instNatCast B)
+                                      (@Nat.cast.{0} Real Real.instNatCast A)))))))))) :=
+⋯
+theorem Luce.Section6.idealRootTrace_left_sub68 : ∀ (behavior : Luce.Section6.EndpointBehavior) (k : Nat)
+  {A B P Q : Nat},
+  @LE.le.{0} Nat instLENat P Q →
+    @LE.le.{0} Nat instLENat Q B →
+      @Eq.{1} Real
+        (Luce.Section6.idealRootTrace Luce.Section6.Corner.left behavior k A B (@Nat.cast.{0} Real Real.instNatCast P)
+          (@Nat.cast.{0} Real Real.instNatCast Q))
+        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+          (Luce.Section6.idealTrace Luce.Section6.Corner.left behavior k A Q)
+          (Luce.Section6.idealTrace Luce.Section6.Corner.left behavior k A P)) :=
+⋯
+theorem Luce.Section6.idealRootTrace_right_sub68 : ∀ (behavior : Luce.Section6.EndpointBehavior) (k : Nat)
+  {A B P Q : Nat},
+  @LE.le.{0} Nat instLENat A
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) P
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+    @LE.le.{0} Nat instLENat P Q →
+      @Eq.{1} Real
+        (Luce.Section6.idealRootTrace Luce.Section6.Corner.right behavior k A B (@Nat.cast.{0} Real Real.instNatCast P)
+          (@Nat.cast.{0} Real Real.instNatCast Q))
+        (@HSub.hSub.{0, 0, 0} Real Real Real (@instHSub.{0} Real Real.instSub)
+          (Luce.Section6.idealTrace Luce.Section6.Corner.right behavior k
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) P
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            B)
+          (Luce.Section6.idealTrace Luce.Section6.Corner.right behavior k
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) Q
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+            B)) :=
+⋯
+theorem Luce.Section6.lemma68_total : Luce.Section6.Lemma68Contract.total :=
+⋯
+theorem Luce.Section6.lemma68_spatial : Luce.Section6.Lemma68Contract.spatial :=
+⋯
+theorem Luce.Section6.lemma68 : Luce.Section6.Lemma68Contract.lemma68 :=
+⋯
+theorem Luce.Section6.lemma68_contractCheck : Luce.Section6.Lemma68Contract.lemma68 :=
+Luce.Section6.lemma68
+Luce.Section6.lemma68_total: [propext, Classical.choice, Quot.sound]
+Luce.Section6.lemma68_spatial: [propext, Classical.choice, Quot.sound]
+Luce.Section6.lemma68: [propext, Classical.choice, Quot.sound]
+Luce.Section6.lemma68_contractCheck: [propext, Classical.choice, Quot.sound]
+Luce.Section6.logDistinctTrace68_refined: [propext, Classical.choice, Quot.sound]
+Luce.Section6.relativeIdealTrace68_remainder: [propext, Classical.choice, Quot.sound]
+Luce.Section6.logGridTrace68_comparison: [propext, Classical.choice, Quot.sound]
+Luce.Section6.logDistinctTrace68_comparison: [propext, Classical.choice, Quot.sound]
+Luce.Section6.idealSpatialWindow68_eventually: [propext, Classical.choice, Quot.sound]
+Luce.Section6.TraceDensity68.continuous_root_trace: [propext, Classical.choice, Quot.sound]
+LEMMA68_AXIOM_AUDIT_PASSED: only propext, Classical.choice and Quot.sound

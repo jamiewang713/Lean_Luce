@@ -1,0 +1,35 @@
+@[reducible] def Luce.WeightArray : Type :=
+(n : ℕ) → Luce.Weights n
+def Luce.NormalizedWeights : Luce.WeightArray → Prop :=
+fun w => ∀ (n : ℕ), 0 < n → 1 / ↑n * ∑ i, (w n).rate i = 1
+def Luce.stepProfile : Luce.WeightArray → ℕ → ℝ → ℝ :=
+fun w n x => ∑ i, if ↑↑i / ↑n < x ∧ x ≤ (↑↑i + 1) / ↑n then (w n).rate i else 0
+def Luce.profileMeasure : MeasureTheory.Measure ℝ :=
+MeasureTheory.volume.restrict (Set.Ioo 0 1)
+def Luce.ProfileL1Convergence : Luce.WeightArray → (ℝ → ℝ) → Prop :=
+fun w f =>
+  Filter.Tendsto (fun n => MeasureTheory.eLpNorm (fun x => Luce.stepProfile w n x - f x) 1 Luce.profileMeasure)
+    Filter.atTop (nhds 0)
+def Luce.ProfileLimit : Luce.WeightArray → (ℝ → ℝ) → Prop :=
+fun w f =>
+  MeasureTheory.NullMeasurable f Luce.profileMeasure ∧ (∀ x ∈ Set.Ioo 0 1, 0 < f x) ∧ Luce.ProfileL1Convergence w f
+def Luce.ProfileAssumption : Luce.WeightArray → Prop :=
+fun w => ∃ f, Luce.ProfileLimit w f
+def Luce.EndpointAssumption : Luce.WeightArray → Prop :=
+fun w => ∃ γ ε₀ n₀, 0 < γ ∧ 0 < ε₀ ∧ ∀ (n : ℕ), n₀ ≤ n → ∀ (k : Fin n), (1 - ε₀) * ↑n ≤ ↑↑k + 1 → γ ≤ (w n).rate k
+'Luce.WeightArray' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.NormalizedWeights' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.stepProfile' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.profileMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.ProfileL1Convergence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.ProfileLimit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.ProfileAssumption' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.EndpointAssumption' depends on axioms: [propext, Classical.choice, Quot.sound]
+MeasureTheory.eLpNorm_one_eq_lintegral_enorm.{u_1, u_2} {α : Type u_1} {ε : Type u_2} {m0 : MeasurableSpace α} [ENorm ε]
+  {μ : MeasureTheory.Measure α} {f : α → ε} : MeasureTheory.eLpNorm f 1 μ = ∫⁻ (x : α), ‖f x‖ₑ ∂μ
+def MeasureTheory.NullMeasurable.{u_2, u_3} : {α : Type u_2} →
+  {β : Type u_3} →
+    [m : MeasurableSpace α] →
+      [MeasurableSpace β] → (α → β) → autoParam (MeasureTheory.Measure α) MeasureTheory.NullMeasurable._auto_1 → Prop :=
+fun {α} {β} [MeasurableSpace α] [MeasurableSpace β] f μ =>
+  ∀ ⦃s : Set β⦄, MeasurableSet s → MeasureTheory.NullMeasurableSet (f ⁻¹' s) μ

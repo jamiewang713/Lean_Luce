@@ -1,0 +1,10 @@
+'Luce.bulk_cycle_intensity_mono' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.bulk_expectation_sub_le_tail' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.EndpointShellAssumption.bulk_intensity_tail_small' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.EndpointShellAssumption.bulk_intensity_bounded' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.cycle_trace_nonneg_ae' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.EndpointShellAssumption.cycle_trace_integrable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.cycle_intensity_nonneg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.EndpointShellAssumption.bulk_intensity_tendsto' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]

@@ -1,0 +1,8 @@
+⚠ [3006/3006] Built Luce.Section6SelectedGapFactor (15s)
+warning: Luce/Section6SelectedGapFactor.lean:42:8: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Luce/Section6SelectedGapFactor.lean:42:8: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+Build completed successfully (3006 jobs).

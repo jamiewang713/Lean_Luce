@@ -1,0 +1,16 @@
+{
+  "fixed_points_sampled_profile.tex": "b665b199bf513f537ad21a0f217a60c5bb889bea5812ffa17ab6e6437c36900e",
+  "lake-manifest.json": "aba42d206ebae84d5c2531fd10c5e0494459fc9c21ccc059c6c7f25e87cae604",
+  "lakefile.toml": "1c9f9e502cc67bf49b6cdedc4e5419354fa372c1a671106279ca210a5cb2d8ae",
+  "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71",
+  "Luce/Assumptions.lean": "d57ff3f436ecab0a36b84f47e65a5fed6b69030bdf97fe9770457a68ac3b3cac",
+  "Luce/Model.lean": "36319eec3ef7d96b6800401ee097c311fed8aea39c3d874710f08ba070bee6ef",
+  "Luce/Section5CycleAssignments.lean": "9b3b217a5da2444c48dd5279141c3726d67922e909c8dcc357655842e2a3136d",
+  "Luce/Section5CycleCutoff.lean": "c6b767accfb1c2ab0f54d821591c26a99bbf605f78d5119625ba03c8e9a1ec05",
+  "Luce/Section5Cycles.lean": "19da60005a511338521a5e088871ba9a3b50b2323792d7cb64a5d847d9429f7b",
+  "Luce/Section5MaximumRoot.lean": "d1fab235e22401dcfe4abf4315a439cad8657453c800ad0d1658cf35d6b5201d",
+  "Luce/Section6CollisionDefinitions.lean": "b0e33c2076561c3f8c36784de6d11d70a98e17bb1d99a27ca78aa5d4dca523f8",
+  "Luce/Section6ContractDefinitions.lean": "c6de18fa959e884ce3d996160d4b72cd1161ed58ea5bee0ad55af1ad395a25eb",
+  "Luce/Section6Lemma69Contract.lean": "6573f4f895601bb435554764e97247cc256ea35575c3728fb9b9b7f47d3149d5",
+  "Luce/Section6ProfileDefinitions.lean": "597283b5e3c43f58e4643939a43f18e065e831719798242bb02a48228da647c2"
+}

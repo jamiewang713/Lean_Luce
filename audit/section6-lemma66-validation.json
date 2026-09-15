@@ -1,0 +1,35 @@
+{
+  "theorem": "Luce.Section6.lemma66",
+  "constant": "3^ell",
+  "full_build": "passed (4296 jobs)",
+  "closed_statement_check": "passed",
+  "audited_theorems": 16,
+  "allowed_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "proof_placeholders": 0,
+  "source_sha256": [
+    {
+      "path": "Luce/Section6SingleReplacement.lean",
+      "sha256": "9759301F0789D73518C0585A6ECB917E7FAB4793795DF53C58F6B957385B3D45"
+    },
+    {
+      "path": "Luce/Section6CoordinateIntegration.lean",
+      "sha256": "EE2DEE5CAB9F99D496A31634DBF63AF99807670B7FF6901ABA0990EA1ED537E8"
+    },
+    {
+      "path": "Luce/Section6DensityEnvelope.lean",
+      "sha256": "F18874A2C5F78F3936D9C8C630CB4D98A9D5218D7AA0945862B169A4A6885776"
+    },
+    {
+      "path": "Luce/Section6Lemma66Contract.lean",
+      "sha256": "80014E4B682D081D2083B913CA5C252A464861621389920612322BBC1914C98E"
+    },
+    {
+      "path": "Luce/Section6Lemma66.lean",
+      "sha256": "AFF72007DBDF5A45EF2D25D79876888BB1AD8C1747FF90E315F73D6A18D8F6A4"
+    }
+  ]
+}

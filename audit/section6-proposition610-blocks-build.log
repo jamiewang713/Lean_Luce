@@ -1,0 +1,15 @@
+⚠ [937/1029] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [1222/1222] Built Luce.Section6CategoryCycleBlocks (9.7s)
+warning: Luce/Section6CategoryCycleBlocks.lean:17:0: automatically included section variable(s) unused in theorem `Luce.Section6.category_assignment_orbit_set`:
+  [Fintype α]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype α] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+Build completed successfully (1222 jobs).

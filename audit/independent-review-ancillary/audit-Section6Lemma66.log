@@ -1,0 +1,55 @@
+Luce.Section6.lemma66 : Luce.Section6.Lemma66Contract.lemma66
+def Luce.Section6.Lemma66Contract.lemma66.{u} : Prop :=
+∀ (ell : ℕ),
+  1 ≤ ell →
+    ∃ K,
+      0 < K ∧
+        ∀ (Ω : Type u) [inst : MeasurableSpace Ω] (P : MeasureTheory.Measure Ω) [MeasureTheory.IsProbabilityMeasure P]
+          (n : ℕ) (E : Fin n → Ω → ℝ) (g : Fin n → ℝ → ENNReal),
+          (∀ (i : Fin n), ProbabilityTheory.HasLaw (E i) (MeasureTheory.volume.withDensity (g i)) P) →
+            ProbabilityTheory.iIndepFun E P →
+              ∀ (S : Finset (Fin n)) (h : ℝ → ℝ),
+                (∀ (t : ℝ), 0 ≤ h t) →
+                  MeasureTheory.Integrable h MeasureTheory.volume →
+                    (∀ i ∈ S, ∀ (t : ℝ), g i t ≤ ENNReal.ofReal (h t)) →
+                      MeasureTheory.Integrable
+                          (fun ω =>
+                            ↑{i ∈ S | Function.minimalPeriod (⇑(Luce.raceRankPermutation fun j => E j ω)) i = ell}.card)
+                          P ∧
+                        ∫ (ω : Ω),
+                            ↑{i ∈ S |
+                                  Function.minimalPeriod (⇑(Luce.raceRankPermutation fun j => E j ω)) i = ell}.card ∂P ≤
+                          K * ∫ (t : ℝ), h t
+@Luce.Section6.integrable_density_envelope : ∀ {Ω : Type u_1} [inst : MeasurableSpace Ω] (P : MeasureTheory.Measure Ω)
+  [MeasureTheory.IsProbabilityMeasure P] {n : ℕ} (E : Fin n → Ω → ℝ) (g : Fin n → ℝ → ENNReal),
+  (∀ (i : Fin n), ProbabilityTheory.HasLaw (E i) (MeasureTheory.volume.withDensity (g i)) P) →
+    ProbabilityTheory.iIndepFun E P →
+      ∀ (S : Finset (Fin n)) (ell : ℕ),
+        1 ≤ ell →
+          ∀ (h : ℝ → ℝ),
+            (∀ᵐ (t : ℝ), 0 ≤ h t) →
+              MeasureTheory.Integrable h MeasureTheory.volume →
+                (∀ i ∈ S, ∀ᵐ (t : ℝ), g i t ≤ ENNReal.ofReal (h t)) →
+                  MeasureTheory.Integrable
+                      (fun ω => ↑(Luce.Section6.exactCycleVertexCount (Luce.raceRankPermutation fun i => E i ω) ell S))
+                      P ∧
+                    ∫ (ω : Ω),
+                        ↑(Luce.Section6.exactCycleVertexCount (Luce.raceRankPermutation fun i => E i ω) ell S) ∂P ≤
+                      3 ^ ell * ∫ (t : ℝ), h t
+Luce.Section6.lemma66 : Luce.Section6.Lemma66Contract.lemma66
+'Luce.Section6.replacementPath_dist' depends on axioms: [propext]
+'Luce.Section6.replacementPathCode_injective' depends on axioms: [propext, Quot.sound]
+'Luce.Section6.replacementPath_count_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section6.injective_update_clock' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section6.replacement_cycle_has_path' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section6.single_replacement_cycle_count_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section6.lintegral_single_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section6.single_coordinate_sum_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section6.independent_real_coordinates_injective_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section6.independent_real_coordinates_avoid_ae' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section6.measurable_exactCycleVertexCount' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section6.exactCycleVertexCount_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section6.cycle_vertex_envelope_lintegral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section6.density_envelope_product' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section6.integrable_density_envelope' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section6.lemma66' depends on axioms: [propext, Classical.choice, Quot.sound]

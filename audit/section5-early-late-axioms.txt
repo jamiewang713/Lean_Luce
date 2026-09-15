@@ -1,0 +1,16 @@
+'Luce.shell_early_envelope_offset' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.early_ghost_window_implies_survivor_event' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.early_ghost_shell_probability' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.ghostEntry_eq_early_add_late' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.earlyGhostKernel_ae_eq_count' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.integrable_early_return_product' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.early_ghost_return_expectation' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.earlyCycleShellTail_limit' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.predecessor_shell_buffer_le' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.EndpointShellAssumption.eventually_buffered_floor_gt_one' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.late_marked_edge_integral' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.late_source_shell_marked_integral' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.Shell.section4_main_poisson_general' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'section4_contractCheck' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]

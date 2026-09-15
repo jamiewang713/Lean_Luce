@@ -1,0 +1,3471 @@
+Luce/Section6SkeletonFubini.lean:24:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Luce/Section6SkeletonFubini.lean:56:2: error: Type mismatch
+  @Eq.trans.{1} Real
+    (@MeasureTheory.integral.{0, 0}
+      ((i :
+          @Subtype.{1} (Fin n) fun (x : Fin n) =>
+            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x) →
+        Real)
+      Real Real.normedAddCommGroup
+      (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+        (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+      (@MeasurableSpace.pi.{0, 0}
+        (@Subtype.{1} (Fin n) fun (x : Fin n) =>
+          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+        (fun
+            (x :
+              @Subtype.{1} (Fin n) fun (x : Fin n) =>
+                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                  x) =>
+          Real)
+        fun
+          (i :
+            @Subtype.{1} (Fin n) fun (x : Fin n) =>
+              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x) =>
+        Real.measurableSpace)
+      (@MeasureTheory.Measure.pi.{0, 0}
+        (@Subtype.{1} (Fin n) fun (x : Fin n) =>
+          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+        (fun
+            (x :
+              @Subtype.{1} (Fin n) fun (x : Fin n) =>
+                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                  x) =>
+          Real)
+        (@Finset.Subtype.fintype.{0} (Fin n) S)
+        (fun
+            (i :
+              @Subtype.{1} (Fin n) fun (x : Fin n) =>
+                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                  x) =>
+          Real.measurableSpace)
+        fun
+          (x :
+            @Subtype.{1} (Fin n) fun (x : Fin n) =>
+              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x) =>
+        ProbabilityTheory.expMeasure (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+      fun
+        (fresh :
+          (i :
+              @Subtype.{1} (Fin n) fun (x : Fin n) =>
+                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x) →
+            Real) =>
+      H
+        (@DFunLike.coe.{1, 1, 1}
+          (@MeasurableEquiv.{0, 0}
+            (Prod.{0, 0}
+              ((i :
+                  @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      e) →
+                Real)
+              ((i :
+                  @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                    Not
+                      (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S i)) →
+                Real))
+            ((i : Fin n) → Real)
+            (@Prod.instMeasurableSpace.{0, 0}
+              ((i :
+                  @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      e) →
+                Real)
+              ((i :
+                  @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                    Not
+                      (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S i)) →
+                Real)
+              (@MeasurableSpace.pi.{0, 0}
+                (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S e)
+                (fun
+                    (i :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) =>
+                  Real)
+                fun
+                  (a :
+                    @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S e) =>
+                Real.measurableSpace)
+              (@MeasurableSpace.pi.{0, 0}
+                (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                  Not
+                    (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      i))
+                (fun
+                    (i :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) =>
+                  Real)
+                fun
+                  (a :
+                    @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                      Not
+                        (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S i)) =>
+                Real.measurableSpace))
+            (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) => Real.measurableSpace))
+          (Prod.{0, 0}
+            ((i :
+                @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                    e) →
+              Real)
+            ((i :
+                @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                  Not
+                    (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      i)) →
+              Real))
+          (fun
+              (x :
+                Prod.{0, 0}
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) →
+                    Real)
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) →
+                    Real)) =>
+            (i : Fin n) → Real)
+          (@EquivLike.toFunLike.{1, 1, 1}
+            (@MeasurableEquiv.{0, 0}
+              (Prod.{0, 0}
+                ((i :
+                    @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S e) →
+                  Real)
+                ((i :
+                    @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                      Not
+                        (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S i)) →
+                  Real))
+              ((i : Fin n) → Real)
+              (@Prod.instMeasurableSpace.{0, 0}
+                ((i :
+                    @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S e) →
+                  Real)
+                ((i :
+                    @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                      Not
+                        (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S i)) →
+                  Real)
+                (@MeasurableSpace.pi.{0, 0}
+                  (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      e)
+                  (fun
+                      (i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) =>
+                    Real)
+                  fun
+                    (a :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) =>
+                  Real.measurableSpace)
+                (@MeasurableSpace.pi.{0, 0}
+                  (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                    Not
+                      (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S i))
+                  (fun
+                      (i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) =>
+                    Real)
+                  fun
+                    (a :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) =>
+                  Real.measurableSpace))
+              (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) => Real.measurableSpace))
+            (Prod.{0, 0}
+              ((i :
+                  @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      e) →
+                Real)
+              ((i :
+                  @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                    Not
+                      (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S i)) →
+                Real))
+            ((i : Fin n) → Real)
+            (@MeasurableEquiv.instEquivLike.{0, 0}
+              (Prod.{0, 0}
+                ((i :
+                    @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S e) →
+                  Real)
+                ((i :
+                    @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                      Not
+                        (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S i)) →
+                  Real))
+              ((i : Fin n) → Real)
+              (@Prod.instMeasurableSpace.{0, 0}
+                ((i :
+                    @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S e) →
+                  Real)
+                ((i :
+                    @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                      Not
+                        (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S i)) →
+                  Real)
+                (@MeasurableSpace.pi.{0, 0}
+                  (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      e)
+                  (fun
+                      (i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) =>
+                    Real)
+                  fun
+                    (a :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) =>
+                  Real.measurableSpace)
+                (@MeasurableSpace.pi.{0, 0}
+                  (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                    Not
+                      (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S i))
+                  (fun
+                      (i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) =>
+                    Real)
+                  fun
+                    (a :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) =>
+                  Real.measurableSpace))
+              (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) => Real.measurableSpace)))
+          (@MeasurableEquiv.symm.{0, 0} ((i : Fin n) → Real)
+            (Prod.{0, 0}
+              ((i :
+                  @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      e) →
+                Real)
+              ((i :
+                  @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                    Not
+                      (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S i)) →
+                Real))
+            (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) => Real.measurableSpace)
+            (@Prod.instMeasurableSpace.{0, 0}
+              ((i :
+                  @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      e) →
+                Real)
+              ((i :
+                  @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                    Not
+                      (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S i)) →
+                Real)
+              (@MeasurableSpace.pi.{0, 0}
+                (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S e)
+                (fun
+                    (i :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) =>
+                  Real)
+                fun
+                  (a :
+                    @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S e) =>
+                Real.measurableSpace)
+              (@MeasurableSpace.pi.{0, 0}
+                (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                  Not
+                    (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      i))
+                (fun
+                    (i :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) =>
+                  Real)
+                fun
+                  (a :
+                    @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                      Not
+                        (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S i)) =>
+                Real.measurableSpace))
+            split)
+          (@Prod.mk.{0, 0}
+            ((i :
+                @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                    e) →
+              Real)
+            ((i :
+                @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                  Not
+                    (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      i)) →
+              Real)
+            fresh z)))
+    (@MeasureTheory.integral.{0, 0}
+      ((i :
+          @Subtype.{1} (Fin n) fun (x : Fin n) =>
+            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x) →
+        Real)
+      Real Real.normedAddCommGroup
+      (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+        (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+      (@MeasurableSpace.pi.{0, 0}
+        (@Subtype.{1} (Fin n) fun (x : Fin n) =>
+          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+        (fun
+            (x :
+              @Subtype.{1} (Fin n) fun (x : Fin n) =>
+                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                  x) =>
+          Real)
+        fun
+          (i :
+            @Subtype.{1} (Fin n) fun (x : Fin n) =>
+              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x) =>
+        Real.measurableSpace)
+      (@MeasureTheory.Measure.pi.{0, 0}
+        (@Subtype.{1} (Fin n) fun (x : Fin n) =>
+          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+        (fun
+            (x :
+              @Subtype.{1} (Fin n) fun (x : Fin n) =>
+                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                  x) =>
+          Real)
+        (@Finset.Subtype.fintype.{0} (Fin n) S)
+        (fun
+            (i :
+              @Subtype.{1} (Fin n) fun (x : Fin n) =>
+                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                  x) =>
+          Real.measurableSpace)
+        fun
+          (x :
+            @Subtype.{1} (Fin n) fun (x : Fin n) =>
+              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x) =>
+        ProbabilityTheory.expMeasure (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+      fun
+        (fresh :
+          (i :
+              @Subtype.{1} (Fin n) fun (x : Fin n) =>
+                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x) →
+            Real) =>
+      @Finset.prod.{0, 0}
+        (@Subtype.{1} (Fin n) fun (x : Fin n) =>
+          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+        Real Real.instCommMonoid
+        (@Finset.univ.{0}
+          (@Subtype.{1} (Fin n) fun (x : Fin n) =>
+            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+          (@Finset.Subtype.fintype.{0} (Fin n) S))
+        fun
+          (e :
+            @Subtype.{1} (Fin n) fun (x : Fin n) =>
+              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x) =>
+        Luce.exponentialGapMass
+          (theta
+            (@Subtype.val.{1} (Fin n)
+              (fun (x : Fin n) =>
+                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+              e))
+          (@Luce.Section6.gapStartFromNormalized n w sigma
+            (@Subtype.val.{1} (Fin n)
+              (fun (x : Fin n) =>
+                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+              e)
+            (@Luce.Section6.selectedFill n S
+              (@DFunLike.coe.{1, 1, 1}
+                (@MeasurableEquiv.{0, 0}
+                  (Prod.{0, 0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) →
+                      Real))
+                  ((i : Fin n) → Real)
+                  (@Prod.instMeasurableSpace.{0, 0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) →
+                      Real)
+                    (@MeasurableSpace.pi.{0, 0}
+                      (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e)
+                      (fun
+                          (i :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) =>
+                        Real)
+                      fun
+                        (a :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) =>
+                      Real.measurableSpace)
+                    (@MeasurableSpace.pi.{0, 0}
+                      (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i))
+                      (fun
+                          (i :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) =>
+                        Real)
+                      fun
+                        (a :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) =>
+                      Real.measurableSpace))
+                  (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) =>
+                    Real.measurableSpace))
+                (Prod.{0, 0}
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) →
+                    Real)
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) →
+                    Real))
+                (fun
+                    (x :
+                      Prod.{0, 0}
+                        ((i :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) →
+                          Real)
+                        ((i :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) →
+                          Real)) =>
+                  (i : Fin n) → Real)
+                (@EquivLike.toFunLike.{1, 1, 1}
+                  (@MeasurableEquiv.{0, 0}
+                    (Prod.{0, 0}
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) →
+                        Real)
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) →
+                        Real))
+                    ((i : Fin n) → Real)
+                    (@Prod.instMeasurableSpace.{0, 0}
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) →
+                        Real)
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) →
+                        Real)
+                      (@MeasurableSpace.pi.{0, 0}
+                        (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e)
+                        (fun
+                            (i :
+                              @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S e) =>
+                          Real)
+                        fun
+                          (a :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) =>
+                        Real.measurableSpace)
+                      (@MeasurableSpace.pi.{0, 0}
+                        (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i))
+                        (fun
+                            (i :
+                              @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                                Not
+                                  (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                      (@Finset.instSetLike.{0} (Fin n)))
+                                    S i)) =>
+                          Real)
+                        fun
+                          (a :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) =>
+                        Real.measurableSpace))
+                    (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) =>
+                      Real.measurableSpace))
+                  (Prod.{0, 0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) →
+                      Real))
+                  ((i : Fin n) → Real)
+                  (@MeasurableEquiv.instEquivLike.{0, 0}
+                    (Prod.{0, 0}
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) →
+                        Real)
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) →
+                        Real))
+                    ((i : Fin n) → Real)
+                    (@Prod.instMeasurableSpace.{0, 0}
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) →
+                        Real)
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) →
+                        Real)
+                      (@MeasurableSpace.pi.{0, 0}
+                        (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e)
+                        (fun
+                            (i :
+                              @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S e) =>
+                          Real)
+                        fun
+                          (a :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) =>
+                        Real.measurableSpace)
+                      (@MeasurableSpace.pi.{0, 0}
+                        (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i))
+                        (fun
+                            (i :
+                              @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                                Not
+                                  (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                      (@Finset.instSetLike.{0} (Fin n)))
+                                    S i)) =>
+                          Real)
+                        fun
+                          (a :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) =>
+                        Real.measurableSpace))
+                    (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) =>
+                      Real.measurableSpace)))
+                (@MeasurableEquiv.symm.{0, 0} ((i : Fin n) → Real)
+                  (Prod.{0, 0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) →
+                      Real))
+                  (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) => Real.measurableSpace)
+                  (@Prod.instMeasurableSpace.{0, 0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) →
+                      Real)
+                    (@MeasurableSpace.pi.{0, 0}
+                      (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e)
+                      (fun
+                          (i :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) =>
+                        Real)
+                      fun
+                        (a :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) =>
+                      Real.measurableSpace)
+                    (@MeasurableSpace.pi.{0, 0}
+                      (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i))
+                      (fun
+                          (i :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) =>
+                        Real)
+                      fun
+                        (a :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) =>
+                      Real.measurableSpace))
+                  split)
+                (@Prod.mk.{0, 0}
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) →
+                    Real)
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) →
+                    Real)
+                  (@OfNat.ofNat.{0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    (nat_lit 0)
+                    (@Zero.toOfNat0.{0}
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) →
+                        Real)
+                      (@Pi.instZero.{0, 0}
+                        (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e)
+                        (fun
+                            (i :
+                              @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S e) =>
+                          Real)
+                        fun
+                          (i :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) =>
+                        Real.instZero)))
+                  z))
+              fresh))
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (fresh e)
+            (@Luce.orderedRemainingRate n w sigma
+              (@Subtype.val.{1} (Fin n)
+                (fun (x : Fin n) =>
+                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+                e))))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@Finset.prod.{0, 0}
+        (@Subtype.{1} (Fin n) fun (x : Fin n) =>
+          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+        Real Real.instCommMonoid
+        (@Finset.univ.{0}
+          (@Subtype.{1} (Fin n) fun (x : Fin n) =>
+            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+          (@Finset.Subtype.fintype.{0} (Fin n) S))
+        fun
+          (e :
+            @Subtype.{1} (Fin n) fun (x : Fin n) =>
+              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x) =>
+        Real.exp
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@Neg.neg.{0} Real Real.instNeg
+              (theta
+                (@Subtype.val.{1} (Fin n)
+                  (fun (x : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      x)
+                  e)))
+            (@Luce.Section6.skeletonStart n w sigma S
+              (@Subtype.val.{1} (Fin n)
+                (fun (x : Fin n) =>
+                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+                e)
+              (@DFunLike.coe.{1, 1, 1}
+                (@MeasurableEquiv.{0, 0}
+                  (Prod.{0, 0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) →
+                      Real))
+                  ((i : Fin n) → Real)
+                  (@Prod.instMeasurableSpace.{0, 0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) →
+                      Real)
+                    (@MeasurableSpace.pi.{0, 0}
+                      (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e)
+                      (fun
+                          (i :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) =>
+                        Real)
+                      fun
+                        (a :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) =>
+                      Real.measurableSpace)
+                    (@MeasurableSpace.pi.{0, 0}
+                      (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i))
+                      (fun
+                          (i :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) =>
+                        Real)
+                      fun
+                        (a :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) =>
+                      Real.measurableSpace))
+                  (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) =>
+                    Real.measurableSpace))
+                (Prod.{0, 0}
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) →
+                    Real)
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) →
+                    Real))
+                (fun
+                    (x :
+                      Prod.{0, 0}
+                        ((i :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) →
+                          Real)
+                        ((i :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) →
+                          Real)) =>
+                  (i : Fin n) → Real)
+                (@EquivLike.toFunLike.{1, 1, 1}
+                  (@MeasurableEquiv.{0, 0}
+                    (Prod.{0, 0}
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) →
+                        Real)
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) →
+                        Real))
+                    ((i : Fin n) → Real)
+                    (@Prod.instMeasurableSpace.{0, 0}
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) →
+                        Real)
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) →
+                        Real)
+                      (@MeasurableSpace.pi.{0, 0}
+                        (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e)
+                        (fun
+                            (i :
+                              @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S e) =>
+                          Real)
+                        fun
+                          (a :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) =>
+                        Real.measurableSpace)
+                      (@MeasurableSpace.pi.{0, 0}
+                        (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i))
+                        (fun
+                            (i :
+                              @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                                Not
+                                  (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                      (@Finset.instSetLike.{0} (Fin n)))
+                                    S i)) =>
+                          Real)
+                        fun
+                          (a :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) =>
+                        Real.measurableSpace))
+                    (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) =>
+                      Real.measurableSpace))
+                  (Prod.{0, 0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) →
+                      Real))
+                  ((i : Fin n) → Real)
+                  (@MeasurableEquiv.instEquivLike.{0, 0}
+                    (Prod.{0, 0}
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) →
+                        Real)
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) →
+                        Real))
+                    ((i : Fin n) → Real)
+                    (@Prod.instMeasurableSpace.{0, 0}
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) →
+                        Real)
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) →
+                        Real)
+                      (@MeasurableSpace.pi.{0, 0}
+                        (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e)
+                        (fun
+                            (i :
+                              @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S e) =>
+                          Real)
+                        fun
+                          (a :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) =>
+                        Real.measurableSpace)
+                      (@MeasurableSpace.pi.{0, 0}
+                        (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i))
+                        (fun
+                            (i :
+                              @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                                Not
+                                  (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                      (@Finset.instSetLike.{0} (Fin n)))
+                                    S i)) =>
+                          Real)
+                        fun
+                          (a :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) =>
+                        Real.measurableSpace))
+                    (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) =>
+                      Real.measurableSpace)))
+                (@MeasurableEquiv.symm.{0, 0} ((i : Fin n) → Real)
+                  (Prod.{0, 0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) →
+                      Real))
+                  (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) => Real.measurableSpace)
+                  (@Prod.instMeasurableSpace.{0, 0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) →
+                      Real)
+                    (@MeasurableSpace.pi.{0, 0}
+                      (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e)
+                      (fun
+                          (i :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) =>
+                        Real)
+                      fun
+                        (a :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) =>
+                      Real.measurableSpace)
+                    (@MeasurableSpace.pi.{0, 0}
+                      (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i))
+                      (fun
+                          (i :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) =>
+                        Real)
+                      fun
+                        (a :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) =>
+                      Real.measurableSpace))
+                  split)
+                (@Prod.mk.{0, 0}
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) →
+                    Real)
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) →
+                    Real)
+                  (@OfNat.ofNat.{0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    (nat_lit 0)
+                    (@Zero.toOfNat0.{0}
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) →
+                        Real)
+                      (@Pi.instZero.{0, 0}
+                        (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e)
+                        (fun
+                            (i :
+                              @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S e) =>
+                          Real)
+                        fun
+                          (i :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) =>
+                        Real.instZero)))
+                  z)))))
+      (@Finset.prod.{0, 0} (@Subtype.{1} (Fin n) ⋯) ⋯ ⋯ ⋯ ⋯))
+    ⋯ ⋯
+has type
+  @Eq.{1} Real
+    (@MeasureTheory.integral.{0, 0}
+      ((i :
+          @Subtype.{1} (Fin n) fun (x : Fin n) =>
+            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x) →
+        Real)
+      Real Real.normedAddCommGroup
+      (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+        (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+      (@MeasurableSpace.pi.{0, 0}
+        (@Subtype.{1} (Fin n) fun (x : Fin n) =>
+          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+        (fun
+            (x :
+              @Subtype.{1} (Fin n) fun (x : Fin n) =>
+                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                  x) =>
+          Real)
+        fun
+          (i :
+            @Subtype.{1} (Fin n) fun (x : Fin n) =>
+              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x) =>
+        Real.measurableSpace)
+      (@MeasureTheory.Measure.pi.{0, 0}
+        (@Subtype.{1} (Fin n) fun (x : Fin n) =>
+          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+        (fun
+            (x :
+              @Subtype.{1} (Fin n) fun (x : Fin n) =>
+                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                  x) =>
+          Real)
+        (@Finset.Subtype.fintype.{0} (Fin n) S)
+        (fun
+            (i :
+              @Subtype.{1} (Fin n) fun (x : Fin n) =>
+                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                  x) =>
+          Real.measurableSpace)
+        fun
+          (x :
+            @Subtype.{1} (Fin n) fun (x : Fin n) =>
+              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x) =>
+        ProbabilityTheory.expMeasure (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+      fun
+        (fresh :
+          (i :
+              @Subtype.{1} (Fin n) fun (x : Fin n) =>
+                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x) →
+            Real) =>
+      H
+        (@DFunLike.coe.{1, 1, 1}
+          (@MeasurableEquiv.{0, 0}
+            (Prod.{0, 0}
+              ((i :
+                  @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      e) →
+                Real)
+              ((i :
+                  @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                    Not
+                      (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S i)) →
+                Real))
+            ((i : Fin n) → Real)
+            (@Prod.instMeasurableSpace.{0, 0}
+              ((i :
+                  @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      e) →
+                Real)
+              ((i :
+                  @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                    Not
+                      (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S i)) →
+                Real)
+              (@MeasurableSpace.pi.{0, 0}
+                (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S e)
+                (fun
+                    (i :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) =>
+                  Real)
+                fun
+                  (a :
+                    @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S e) =>
+                Real.measurableSpace)
+              (@MeasurableSpace.pi.{0, 0}
+                (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                  Not
+                    (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      i))
+                (fun
+                    (i :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) =>
+                  Real)
+                fun
+                  (a :
+                    @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                      Not
+                        (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S i)) =>
+                Real.measurableSpace))
+            (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) => Real.measurableSpace))
+          (Prod.{0, 0}
+            ((i :
+                @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                    e) →
+              Real)
+            ((i :
+                @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                  Not
+                    (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      i)) →
+              Real))
+          (fun
+              (x :
+                Prod.{0, 0}
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) →
+                    Real)
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) →
+                    Real)) =>
+            (i : Fin n) → Real)
+          (@EquivLike.toFunLike.{1, 1, 1}
+            (@MeasurableEquiv.{0, 0}
+              (Prod.{0, 0}
+                ((i :
+                    @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S e) →
+                  Real)
+                ((i :
+                    @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                      Not
+                        (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S i)) →
+                  Real))
+              ((i : Fin n) → Real)
+              (@Prod.instMeasurableSpace.{0, 0}
+                ((i :
+                    @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S e) →
+                  Real)
+                ((i :
+                    @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                      Not
+                        (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S i)) →
+                  Real)
+                (@MeasurableSpace.pi.{0, 0}
+                  (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      e)
+                  (fun
+                      (i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) =>
+                    Real)
+                  fun
+                    (a :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) =>
+                  Real.measurableSpace)
+                (@MeasurableSpace.pi.{0, 0}
+                  (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                    Not
+                      (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S i))
+                  (fun
+                      (i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) =>
+                    Real)
+                  fun
+                    (a :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) =>
+                  Real.measurableSpace))
+              (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) => Real.measurableSpace))
+            (Prod.{0, 0}
+              ((i :
+                  @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      e) →
+                Real)
+              ((i :
+                  @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                    Not
+                      (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S i)) →
+                Real))
+            ((i : Fin n) → Real)
+            (@MeasurableEquiv.instEquivLike.{0, 0}
+              (Prod.{0, 0}
+                ((i :
+                    @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S e) →
+                  Real)
+                ((i :
+                    @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                      Not
+                        (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S i)) →
+                  Real))
+              ((i : Fin n) → Real)
+              (@Prod.instMeasurableSpace.{0, 0}
+                ((i :
+                    @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S e) →
+                  Real)
+                ((i :
+                    @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                      Not
+                        (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S i)) →
+                  Real)
+                (@MeasurableSpace.pi.{0, 0}
+                  (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      e)
+                  (fun
+                      (i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) =>
+                    Real)
+                  fun
+                    (a :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) =>
+                  Real.measurableSpace)
+                (@MeasurableSpace.pi.{0, 0}
+                  (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                    Not
+                      (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S i))
+                  (fun
+                      (i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) =>
+                    Real)
+                  fun
+                    (a :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) =>
+                  Real.measurableSpace))
+              (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) => Real.measurableSpace)))
+          (@MeasurableEquiv.symm.{0, 0} ((i : Fin n) → Real)
+            (Prod.{0, 0}
+              ((i :
+                  @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      e) →
+                Real)
+              ((i :
+                  @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                    Not
+                      (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S i)) →
+                Real))
+            (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) => Real.measurableSpace)
+            (@Prod.instMeasurableSpace.{0, 0}
+              ((i :
+                  @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      e) →
+                Real)
+              ((i :
+                  @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                    Not
+                      (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S i)) →
+                Real)
+              (@MeasurableSpace.pi.{0, 0}
+                (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S e)
+                (fun
+                    (i :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) =>
+                  Real)
+                fun
+                  (a :
+                    @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S e) =>
+                Real.measurableSpace)
+              (@MeasurableSpace.pi.{0, 0}
+                (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                  Not
+                    (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      i))
+                (fun
+                    (i :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) =>
+                  Real)
+                fun
+                  (a :
+                    @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                      Not
+                        (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S i)) =>
+                Real.measurableSpace))
+            split)
+          (@Prod.mk.{0, 0}
+            ((i :
+                @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                    e) →
+              Real)
+            ((i :
+                @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                  Not
+                    (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      i)) →
+              Real)
+            fresh z)))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@Finset.prod.{0, 0}
+        (@Subtype.{1} (Fin n) fun (x : Fin n) =>
+          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+        Real Real.instCommMonoid
+        (@Finset.univ.{0}
+          (@Subtype.{1} (Fin n) fun (x : Fin n) =>
+            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+          (@Finset.Subtype.fintype.{0} (Fin n) S))
+        fun
+          (e :
+            @Subtype.{1} (Fin n) fun (x : Fin n) =>
+              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x) =>
+        Real.exp
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@Neg.neg.{0} Real Real.instNeg
+              (theta
+                (@Subtype.val.{1} (Fin n)
+                  (fun (x : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      x)
+                  e)))
+            (@Luce.Section6.skeletonStart n w sigma S
+              (@Subtype.val.{1} (Fin n)
+                (fun (x : Fin n) =>
+                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+                e)
+              (@DFunLike.coe.{1, 1, 1}
+                (@MeasurableEquiv.{0, 0}
+                  (Prod.{0, 0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) →
+                      Real))
+                  ((i : Fin n) → Real)
+                  (@Prod.instMeasurableSpace.{0, 0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) →
+                      Real)
+                    (@MeasurableSpace.pi.{0, 0}
+                      (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e)
+                      (fun
+                          (i :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) =>
+                        Real)
+                      fun
+                        (a :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) =>
+                      Real.measurableSpace)
+                    (@MeasurableSpace.pi.{0, 0}
+                      (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i))
+                      (fun
+                          (i :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) =>
+                        Real)
+                      fun
+                        (a :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) =>
+                      Real.measurableSpace))
+                  (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) =>
+                    Real.measurableSpace))
+                (Prod.{0, 0}
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) →
+                    Real)
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) →
+                    Real))
+                (fun
+                    (x :
+                      Prod.{0, 0}
+                        ((i :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) →
+                          Real)
+                        ((i :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) →
+                          Real)) =>
+                  (i : Fin n) → Real)
+                (@EquivLike.toFunLike.{1, 1, 1}
+                  (@MeasurableEquiv.{0, 0}
+                    (Prod.{0, 0}
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) →
+                        Real)
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) →
+                        Real))
+                    ((i : Fin n) → Real)
+                    (@Prod.instMeasurableSpace.{0, 0}
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) →
+                        Real)
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) →
+                        Real)
+                      (@MeasurableSpace.pi.{0, 0}
+                        (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e)
+                        (fun
+                            (i :
+                              @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S e) =>
+                          Real)
+                        fun
+                          (a :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) =>
+                        Real.measurableSpace)
+                      (@MeasurableSpace.pi.{0, 0}
+                        (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i))
+                        (fun
+                            (i :
+                              @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                                Not
+                                  (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                      (@Finset.instSetLike.{0} (Fin n)))
+                                    S i)) =>
+                          Real)
+                        fun
+                          (a :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) =>
+                        Real.measurableSpace))
+                    (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) =>
+                      Real.measurableSpace))
+                  (Prod.{0, 0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) →
+                      Real))
+                  ((i : Fin n) → Real)
+                  (@MeasurableEquiv.instEquivLike.{0, 0}
+                    (Prod.{0, 0}
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) →
+                        Real)
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) →
+                        Real))
+                    ((i : Fin n) → Real)
+                    (@Prod.instMeasurableSpace.{0, 0}
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) →
+                        Real)
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) →
+                        Real)
+                      (@MeasurableSpace.pi.{0, 0}
+                        (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e)
+                        (fun
+                            (i :
+                              @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S e) =>
+                          Real)
+                        fun
+                          (a :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) =>
+                        Real.measurableSpace)
+                      (@MeasurableSpace.pi.{0, 0}
+                        (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i))
+                        (fun
+                            (i :
+                              @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                                Not
+                                  (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                      (@Finset.instSetLike.{0} (Fin n)))
+                                    S i)) =>
+                          Real)
+                        fun
+                          (a :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) =>
+                        Real.measurableSpace))
+                    (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) =>
+                      Real.measurableSpace)))
+                (@MeasurableEquiv.symm.{0, 0} ((i : Fin n) → Real)
+                  (Prod.{0, 0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) →
+                      Real))
+                  (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) => Real.measurableSpace)
+                  (@Prod.instMeasurableSpace.{0, 0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) →
+                      Real)
+                    (@MeasurableSpace.pi.{0, 0}
+                      (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e)
+                      (fun
+                          (i :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) =>
+                        Real)
+                      fun
+                        (a :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) =>
+                      Real.measurableSpace)
+                    (@MeasurableSpace.pi.{0, 0}
+                      (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i))
+                      (fun
+                          (i :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) =>
+                        Real)
+                      fun
+                        (a :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) =>
+                      Real.measurableSpace))
+                  split)
+                (@Prod.mk.{0, 0}
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) →
+                    Real)
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) →
+                    Real)
+                  (@OfNat.ofNat.{0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    (nat_lit 0)
+                    (@Zero.toOfNat0.{0}
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) →
+                        Real)
+                      (@Pi.instZero.{0, 0}
+                        (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e)
+                        (fun
+                            (i :
+                              @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S e) =>
+                          Real)
+                        fun
+                          (i :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) =>
+                        Real.instZero)))
+                  z)))))
+      (@Finset.prod.{0, 0}
+        (@Subtype.{1} (Fin n) fun (x : Fin n) =>
+          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+        Real Real.instCommMonoid
+        (@Finset.univ.{0}
+          (@Subtype.{1} (Fin n) fun (x : Fin n) =>
+            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+          (@Finset.Subtype.fintype.{0} (Fin n) S))
+        fun
+          (g :
+            @Subtype.{1} (Fin n) fun (x : Fin n) =>
+              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x) =>
+        @HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@Luce.orderedRemainingRate n w sigma
+              (@Subtype.val.{1} (Fin n)
+                (fun (x : Fin n) =>
+                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+                g))
+            (theta
+              (@Subtype.val.{1} (Fin n)
+                (fun (x : Fin n) =>
+                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+                g)))
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+              (@Luce.orderedRemainingRate n w sigma
+                (@Subtype.val.{1} (Fin n)
+                  (fun (x : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      x)
+                  g))
+              (@Luce.Section6.laterSelectedRate n S theta
+                (@Subtype.val.{1} (Fin n)
+                  (fun (x : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      x)
+                  g)))
+            (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+              (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                (@Luce.orderedRemainingRate n w sigma
+                  (@Subtype.val.{1} (Fin n)
+                    (fun (x : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S x)
+                    g))
+                (@Luce.Section6.laterSelectedRate n S theta
+                  (@Subtype.val.{1} (Fin n)
+                    (fun (x : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S x)
+                    g)))
+              (theta
+                (@Subtype.val.{1} (Fin n)
+                  (fun (x : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      x)
+                  g))))))
+but is expected to have type
+  @Eq.{1} Real
+    ((fun
+          (a :
+            (i :
+                @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                  Not
+                    (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      i)) →
+              Real) =>
+        @MeasureTheory.integral.{0, 0}
+          ((i :
+              @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S e) →
+            Real)
+          Real Real.normedAddCommGroup
+          (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+            (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+            (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+          (@MeasurableSpace.pi.{0, 0}
+            (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S e)
+            (fun
+                (i :
+                  @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      e) =>
+              Real)
+            fun
+              (i :
+                @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                    e) =>
+            Real.measurableSpace)
+          (@MeasureTheory.Measure.pi.{0, 0}
+            (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S e)
+            (fun
+                (i :
+                  @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      e) =>
+              Real)
+            (@Subtype.fintype.{0} (Fin n)
+              (fun (e : Fin n) =>
+                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S e)
+              (fun (a : Fin n) => @Finset.decidableMem.{0} (Fin n) (instDecidableEqFin n) a S) (Fin.fintype n))
+            (fun
+                (i :
+                  @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      e) =>
+              Real.measurableSpace)
+            fun
+              (i :
+                @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                    e) =>
+            ProbabilityTheory.expMeasure (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+          fun
+            (x :
+              (i :
+                  @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      e) →
+                Real) =>
+          H
+            (@DFunLike.coe.{1, 1, 1}
+              (@MeasurableEquiv.{0, 0}
+                (Prod.{0, 0}
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) →
+                    Real)
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) →
+                    Real))
+                ((i : Fin n) → Real)
+                (@Prod.instMeasurableSpace.{0, 0}
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) →
+                    Real)
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) →
+                    Real)
+                  (@MeasurableSpace.pi.{0, 0}
+                    (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S e)
+                    (fun
+                        (i :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) =>
+                      Real)
+                    fun
+                      (a :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) =>
+                    Real.measurableSpace)
+                  (@MeasurableSpace.pi.{0, 0}
+                    (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                      Not
+                        (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S i))
+                    (fun
+                        (i :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) =>
+                      Real)
+                    fun
+                      (a :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) =>
+                    Real.measurableSpace))
+                (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) => Real.measurableSpace))
+              (Prod.{0, 0}
+                ((i :
+                    @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S e) →
+                  Real)
+                ((i :
+                    @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                      Not
+                        (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S i)) →
+                  Real))
+              (fun
+                  (x :
+                    Prod.{0, 0}
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) →
+                        Real)
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) →
+                        Real)) =>
+                (i : Fin n) → Real)
+              (@EquivLike.toFunLike.{1, 1, 1}
+                (@MeasurableEquiv.{0, 0}
+                  (Prod.{0, 0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) →
+                      Real))
+                  ((i : Fin n) → Real)
+                  (@Prod.instMeasurableSpace.{0, 0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) →
+                      Real)
+                    (@MeasurableSpace.pi.{0, 0}
+                      (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e)
+                      (fun
+                          (i :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) =>
+                        Real)
+                      fun
+                        (a :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) =>
+                      Real.measurableSpace)
+                    (@MeasurableSpace.pi.{0, 0}
+                      (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i))
+                      (fun
+                          (i :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) =>
+                        Real)
+                      fun
+                        (a :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) =>
+                      Real.measurableSpace))
+                  (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) =>
+                    Real.measurableSpace))
+                (Prod.{0, 0}
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) →
+                    Real)
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) →
+                    Real))
+                ((i : Fin n) → Real)
+                (@MeasurableEquiv.instEquivLike.{0, 0}
+                  (Prod.{0, 0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) →
+                      Real))
+                  ((i : Fin n) → Real)
+                  (@Prod.instMeasurableSpace.{0, 0}
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) →
+                      Real)
+                    ((i :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) →
+                      Real)
+                    (@MeasurableSpace.pi.{0, 0}
+                      (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e)
+                      (fun
+                          (i :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) =>
+                        Real)
+                      fun
+                        (a :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) =>
+                      Real.measurableSpace)
+                    (@MeasurableSpace.pi.{0, 0}
+                      (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i))
+                      (fun
+                          (i :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) =>
+                        Real)
+                      fun
+                        (a :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) =>
+                      Real.measurableSpace))
+                  (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) =>
+                    Real.measurableSpace)))
+              (@MeasurableEquiv.symm.{0, 0} ((i : Fin n) → Real)
+                (Prod.{0, 0}
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) →
+                    Real)
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) →
+                    Real))
+                (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) => Real.measurableSpace)
+                (@Prod.instMeasurableSpace.{0, 0}
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S e) →
+                    Real)
+                  ((i :
+                      @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                        Not
+                          (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S i)) →
+                    Real)
+                  (@MeasurableSpace.pi.{0, 0}
+                    (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S e)
+                    (fun
+                        (i :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) =>
+                      Real)
+                    fun
+                      (a :
+                        @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e) =>
+                    Real.measurableSpace)
+                  (@MeasurableSpace.pi.{0, 0}
+                    (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                      Not
+                        (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S i))
+                    (fun
+                        (i :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) =>
+                      Real)
+                    fun
+                      (a :
+                        @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                          Not
+                            (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S i)) =>
+                    Real.measurableSpace))
+                split)
+              (@Prod.mk.{0, 0}
+                ((i :
+                    @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S e) →
+                  Real)
+                ((i :
+                    @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                      Not
+                        (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S i)) →
+                  Real)
+                x a)))
+      z)
+    ((fun
+          (a :
+            (i :
+                @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                  Not
+                    (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                      i)) →
+              Real) =>
+        @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@Finset.prod.{0, 0}
+            (@Subtype.{1} (Fin n) fun (x : Fin n) =>
+              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+            Real Real.instCommMonoid
+            (@Finset.univ.{0}
+              (@Subtype.{1} (Fin n) fun (x : Fin n) =>
+                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+              (@Finset.Subtype.fintype.{0} (Fin n) S))
+            fun
+              (e :
+                @Subtype.{1} (Fin n) fun (x : Fin n) =>
+                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                    x) =>
+            Real.exp
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@Neg.neg.{0} Real Real.instNeg
+                  (theta
+                    (@Subtype.val.{1} (Fin n)
+                      (fun (x : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S x)
+                      e)))
+                (@Luce.Section6.skeletonStart n w sigma S
+                  (@Subtype.val.{1} (Fin n)
+                    (fun (x : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S x)
+                    e)
+                  (@DFunLike.coe.{1, 1, 1}
+                    (@MeasurableEquiv.{0, 0}
+                      (Prod.{0, 0}
+                        ((i :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) →
+                          Real)
+                        ((i :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) →
+                          Real))
+                      ((i : Fin n) → Real)
+                      (@Prod.instMeasurableSpace.{0, 0}
+                        ((i :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) →
+                          Real)
+                        ((i :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) →
+                          Real)
+                        (@MeasurableSpace.pi.{0, 0}
+                          (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e)
+                          (fun
+                              (i :
+                                @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                      (@Finset.instSetLike.{0} (Fin n)))
+                                    S e) =>
+                            Real)
+                          fun
+                            (a :
+                              @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S e) =>
+                          Real.measurableSpace)
+                        (@MeasurableSpace.pi.{0, 0}
+                          (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i))
+                          (fun
+                              (i :
+                                @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                                  Not
+                                    (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                        (@Finset.instSetLike.{0} (Fin n)))
+                                      S i)) =>
+                            Real)
+                          fun
+                            (a :
+                              @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                                Not
+                                  (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                      (@Finset.instSetLike.{0} (Fin n)))
+                                    S i)) =>
+                          Real.measurableSpace))
+                      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) =>
+                        Real.measurableSpace))
+                    (Prod.{0, 0}
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) →
+                        Real)
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) →
+                        Real))
+                    (fun
+                        (x :
+                          Prod.{0, 0}
+                            ((i :
+                                @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                      (@Finset.instSetLike.{0} (Fin n)))
+                                    S e) →
+                              Real)
+                            ((i :
+                                @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                                  Not
+                                    (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                        (@Finset.instSetLike.{0} (Fin n)))
+                                      S i)) →
+                              Real)) =>
+                      (i : Fin n) → Real)
+                    (@EquivLike.toFunLike.{1, 1, 1}
+                      (@MeasurableEquiv.{0, 0}
+                        (Prod.{0, 0}
+                          ((i :
+                              @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S e) →
+                            Real)
+                          ((i :
+                              @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                                Not
+                                  (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                      (@Finset.instSetLike.{0} (Fin n)))
+                                    S i)) →
+                            Real))
+                        ((i : Fin n) → Real)
+                        (@Prod.instMeasurableSpace.{0, 0}
+                          ((i :
+                              @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S e) →
+                            Real)
+                          ((i :
+                              @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                                Not
+                                  (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                      (@Finset.instSetLike.{0} (Fin n)))
+                                    S i)) →
+                            Real)
+                          (@MeasurableSpace.pi.{0, 0}
+                            (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e)
+                            (fun
+                                (i :
+                                  @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                        (@Finset.instSetLike.{0} (Fin n)))
+                                      S e) =>
+                              Real)
+                            fun
+                              (a :
+                                @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                      (@Finset.instSetLike.{0} (Fin n)))
+                                    S e) =>
+                            Real.measurableSpace)
+                          (@MeasurableSpace.pi.{0, 0}
+                            (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i))
+                            (fun
+                                (i :
+                                  @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                                    Not
+                                      (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                          (@Finset.instSetLike.{0} (Fin n)))
+                                        S i)) =>
+                              Real)
+                            fun
+                              (a :
+                                @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                                  Not
+                                    (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                        (@Finset.instSetLike.{0} (Fin n)))
+                                      S i)) =>
+                            Real.measurableSpace))
+                        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) =>
+                          Real.measurableSpace))
+                      (Prod.{0, 0}
+                        ((i :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) →
+                          Real)
+                        ((i :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) →
+                          Real))
+                      ((i : Fin n) → Real)
+                      (@MeasurableEquiv.instEquivLike.{0, 0}
+                        (Prod.{0, 0}
+                          ((i :
+                              @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S e) →
+                            Real)
+                          ((i :
+                              @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                                Not
+                                  (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                      (@Finset.instSetLike.{0} (Fin n)))
+                                    S i)) →
+                            Real))
+                        ((i : Fin n) → Real)
+                        (@Prod.instMeasurableSpace.{0, 0}
+                          ((i :
+                              @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S e) →
+                            Real)
+                          ((i :
+                              @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                                Not
+                                  (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                      (@Finset.instSetLike.{0} (Fin n)))
+                                    S i)) →
+                            Real)
+                          (@MeasurableSpace.pi.{0, 0}
+                            (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e)
+                            (fun
+                                (i :
+                                  @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                        (@Finset.instSetLike.{0} (Fin n)))
+                                      S e) =>
+                              Real)
+                            fun
+                              (a :
+                                @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                      (@Finset.instSetLike.{0} (Fin n)))
+                                    S e) =>
+                            Real.measurableSpace)
+                          (@MeasurableSpace.pi.{0, 0}
+                            (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i))
+                            (fun
+                                (i :
+                                  @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                                    Not
+                                      (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                          (@Finset.instSetLike.{0} (Fin n)))
+                                        S i)) =>
+                              Real)
+                            fun
+                              (a :
+                                @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                                  Not
+                                    (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                        (@Finset.instSetLike.{0} (Fin n)))
+                                      S i)) =>
+                            Real.measurableSpace))
+                        (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) =>
+                          Real.measurableSpace)))
+                    (@MeasurableEquiv.symm.{0, 0} ((i : Fin n) → Real)
+                      (Prod.{0, 0}
+                        ((i :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) →
+                          Real)
+                        ((i :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) →
+                          Real))
+                      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun (x : Fin n) => Real) fun (x : Fin n) =>
+                        Real.measurableSpace)
+                      (@Prod.instMeasurableSpace.{0, 0}
+                        ((i :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) →
+                          Real)
+                        ((i :
+                            @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                              Not
+                                (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S i)) →
+                          Real)
+                        (@MeasurableSpace.pi.{0, 0}
+                          (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e)
+                          (fun
+                              (i :
+                                @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                      (@Finset.instSetLike.{0} (Fin n)))
+                                    S e) =>
+                            Real)
+                          fun
+                            (a :
+                              @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S e) =>
+                          Real.measurableSpace)
+                        (@MeasurableSpace.pi.{0, 0}
+                          (@Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i))
+                          (fun
+                              (i :
+                                @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                                  Not
+                                    (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                        (@Finset.instSetLike.{0} (Fin n)))
+                                      S i)) =>
+                            Real)
+                          fun
+                            (a :
+                              @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                                Not
+                                  (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                      (@Finset.instSetLike.{0} (Fin n)))
+                                    S i)) =>
+                          Real.measurableSpace))
+                      (@MeasurableEquiv.piEquivPiSubtypeProd.{0, 0} (Fin n) (fun (x : Fin n) => Real)
+                        (fun (x : Fin n) => Real.measurableSpace)
+                        (fun (e : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S e)
+                        fun (a : Fin n) => @Finset.decidableMem.{0} (Fin n) (instDecidableEqFin n) a S))
+                    (@Prod.mk.{0, 0}
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                            @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                              (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                (@Finset.instSetLike.{0} (Fin n)))
+                              S e) →
+                        Real)
+                      ((i :
+                          @Subtype.{1} (Fin n) fun (i : Fin n) =>
+                            Not
+                              (@Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S i)) →
+                        Real)
+                      (@OfNat.ofNat.{0}
+                        ((i :
+                            @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e) →
+                          Real)
+                        (nat_lit 0)
+                        (@Zero.toOfNat0.{0}
+                          ((i :
+                              @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                    (@Finset.instSetLike.{0} (Fin n)))
+                                  S e) →
+                            Real)
+                          (@Pi.instZero.{0, 0}
+                            (@Subtype.{1} (Fin n) fun (e : Fin n) =>
+                              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                  (@Finset.instSetLike.{0} (Fin n)))
+                                S e)
+                            (fun
+                                (i :
+                                  @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                    @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                      (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                        (@Finset.instSetLike.{0} (Fin n)))
+                                      S e) =>
+                              Real)
+                            fun
+                              (i :
+                                @Subtype.{1} (Fin n) fun (e : Fin n) =>
+                                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                                      (@Finset.instSetLike.{0} (Fin n)))
+                                    S e) =>
+                            Real.instZero)))
+                      a)))))
+          (@Finset.prod.{0, 0}
+            (@Subtype.{1} (Fin n) fun (x : Fin n) =>
+              @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+            Real Real.instCommMonoid
+            (@Finset.univ.{0}
+              (@Subtype.{1} (Fin n) fun (x : Fin n) =>
+                @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                  (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S x)
+              (@Finset.Subtype.fintype.{0} (Fin n) S))
+            fun
+              (g :
+                @Subtype.{1} (Fin n) fun (x : Fin n) =>
+                  @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                    (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S
+                    x) =>
+            @HDiv.hDiv.{0, 0, 0} Real Real Real
+              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@Luce.orderedRemainingRate n w sigma
+                  (@Subtype.val.{1} (Fin n)
+                    (fun (x : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S x)
+                    g))
+                (theta
+                  (@Subtype.val.{1} (Fin n)
+                    (fun (x : Fin n) =>
+                      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                        (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n)))
+                        S x)
+                    g)))
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                  (@Luce.orderedRemainingRate n w sigma
+                    (@Subtype.val.{1} (Fin n)
+                      (fun (x : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S x)
+                      g))
+                  (@Luce.Section6.laterSelectedRate n S theta
+                    (@Subtype.val.{1} (Fin n)
+                      (fun (x : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S x)
+                      g)))
+                (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                  (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                    (@Luce.orderedRemainingRate n w sigma
+                      (@Subtype.val.{1} (Fin n)
+                        (fun (x : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S x)
+                        g))
+                    (@Luce.Section6.laterSelectedRate n S theta
+                      (@Subtype.val.{1} (Fin n)
+                        (fun (x : Fin n) =>
+                          @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                            (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                              (@Finset.instSetLike.{0} (Fin n)))
+                            S x)
+                        g)))
+                  (theta
+                    (@Subtype.val.{1} (Fin n)
+                      (fun (x : Fin n) =>
+                        @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+                          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n)
+                            (@Finset.instSetLike.{0} (Fin n)))
+                          S x)
+                      g))))))
+      z)

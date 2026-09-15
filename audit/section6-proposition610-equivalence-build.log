@@ -1,0 +1,36 @@
+⚠ [937/981] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [1222/1223] Replayed Luce.Section6CategoryCycleBlocks
+warning: Luce/Section6CategoryCycleBlocks.lean:17:0: automatically included section variable(s) unused in theorem `Luce.Section6.category_assignment_orbit_set`:
+  [Fintype α]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [Fintype α] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+✖ [1223/1223] Building Luce.Section6CategoryCycleEquivalence (10s)
+trace: .> LEAN_PATH=D:\princeton\Research\Lean\Lean_luce\.lake\packages\Cli\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\batteries\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\Qq\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\aesop\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\importGraph\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\plausible\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\mathlib\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean c:\Users\JiaminWang\.elan\toolchains\leanprover--lean4---v4.33.1\bin\lean.exe D:\princeton\Research\Lean\Lean_luce\Luce\Section6CategoryCycleEquivalence.lean -o D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6CategoryCycleEquivalence.olean -i D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6CategoryCycleEquivalence.ilean -c D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6CategoryCycleEquivalence.c --setup D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6CategoryCycleEquivalence.setup.json --json
+error: Luce/Section6CategoryCycleEquivalence.lean:22:75: unsolved goals
+α : Type u_1
+ι : Type u_2
+inst✝¹ : Fintype α
+inst✝ : DecidableEq α
+R : Equiv.Perm α
+k r : ι → ℕ
+P : ι → Finset α → Prop
+hd : Pairwise fun i j => Disjoint (categoryCycleSet R k P i) (categoryCycleSet R k P j)
+C : RootedCategoryCollection R k r P
+e : CategoryCycleVertex k r ↪ α := { toFun := fun x => ↑(categoryCollectionBlock C x.fst) x.snd, inj' := ?refine_1 }
+b : CategoryCycleSlot r
+y : α
+he : periodicOrbit ⇑R ↑(C.snd b.fst b.snd) = ↑((C.fst b.fst) b.snd)
+⊢ (∃ a, { toFun := fun x => ↑(categoryCollectionBlock C x.fst) x.snd, inj' := ?refine_1 } ⟨b, a⟩ = y) ↔
+    ∃ a, ↑(categoryCollectionBlock C b) a = y
+error: Lean exited with code 1
+Some required targets logged failures:
+- Luce.Section6CategoryCycleEquivalence
+error: build failed

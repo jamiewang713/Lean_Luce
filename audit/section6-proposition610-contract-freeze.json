@@ -1,0 +1,19 @@
+{
+  "fixed_points_sampled_profile.tex": "b665b199bf513f537ad21a0f217a60c5bb889bea5812ffa17ab6e6437c36900e",
+  "lake-manifest.json": "aba42d206ebae84d5c2531fd10c5e0494459fc9c21ccc059c6c7f25e87cae604",
+  "lakefile.toml": "1c9f9e502cc67bf49b6cdedc4e5419354fa372c1a671106279ca210a5cb2d8ae",
+  "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71",
+  "Luce/Assumptions.lean": "d57ff3f436ecab0a36b84f47e65a5fed6b69030bdf97fe9770457a68ac3b3cac",
+  "Luce/Model.lean": "36319eec3ef7d96b6800401ee097c311fed8aea39c3d874710f08ba070bee6ef",
+  "Luce/Section6ProfileDefinitions.lean": "597283b5e3c43f58e4643939a43f18e065e831719798242bb02a48228da647c2",
+  "Luce/Section6ContractDefinitions.lean": "c6de18fa959e884ce3d996160d4b72cd1161ed58ea5bee0ad55af1ad395a25eb",
+  "Luce/Section6Sampling.lean": "ca21a08adf50bc0b79ca1fb1b655640ff19f3447e3235be9a159cca29b025025",
+  "Luce/Section6IdealTraceDefinitions.lean": "9d97149d53a3a44da422a64ade7cc8989b169d94b32b0166a75f1b38c560b2fa",
+  "Luce/Section6CoreCategoryDefinitions.lean": "f6d1570eb57d6ac36361c30c08ab740435f6401f0f5a5f3a2c5da638345f54da",
+  "Luce/Section6Proposition610Contract.lean": "6651e6406ad19c3971ec9bb5bb802e3b4a0218a17c66f1e531277b391666e1ca",
+  "Luce/Section6CategoryCycleDefinitions.lean": "42956a3b0703112a93283f1f13b62b032fea5668739e3946a4fa906ac5c62976",
+  "Luce/Section6Proposition65Contract.lean": "4df878609af129317c66f8d6cf3e663fc40efdd2b69cf3e81393b7779b7a4331",
+  "Luce/Section6Lemma69Contract.lean": "6573f4f895601bb435554764e97247cc256ea35575c3728fb9b9b7f47d3149d5",
+  "Luce/Section6CollisionDefinitions.lean": "b0e33c2076561c3f8c36784de6d11d70a98e17bb1d99a27ca78aa5d4dca523f8",
+  "Luce/Section5Cycles.lean": "19da60005a511338521a5e088871ba9a3b50b2323792d7cb64a5d847d9429f7b"
+}

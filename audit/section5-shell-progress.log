@@ -1,0 +1,78 @@
+@Luce.ProfileLimit.interior_low_rate_cycles_vanish : ∀ {w : Luce.WeightArray} {f : Real → Real}
+  (hf : Luce.ProfileLimit w f) (hnorm : Luce.NormalizedWeights w) (L : Nat) (α : Real)
+  (hα : @LT.lt.{0} Real Real.instLT α (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))),
+  @Filter.Tendsto.{0, 0} Real Real
+    (fun (δ : Real) =>
+      @Filter.limsup.{0, 0} Real Nat
+        (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice.{0} Real
+          Real.instConditionallyCompleteLinearOrder)
+        (fun (n : Nat) => Luce.interiorLowCycleExpectation w L n α δ) (@Filter.atTop.{0} Nat Nat.instPreorder))
+    (@nhdsWithin.{0} Real
+      (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+      (@Set.Ioi.{0} Real Real.instPreorder (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))))
+    (@nhds.{0} Real
+      (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+def Luce.interiorLowCycleExpectation : Luce.WeightArray → ℕ → ℕ → ℝ → ℝ → ℝ :=
+fun w L n α δ =>
+  ∫ (clocks : Fin n → ℝ),
+    ↑(Luce.shortCycleVertexCount (Luce.raceRankPermutation clocks) L
+        {v | (w n).rate v < δ ∧ ↑↑v + 1 ≤ α * ↑n}) ∂Luce.exponentialRace (w n)
+def Luce.shortCycleVertexCount : {n : ℕ} → Equiv.Perm (Fin n) → ℕ → Finset (Fin n) → ℕ :=
+fun {n} R L S => {v ∈ S | ∃ k, Function.minimalPeriod (⇑R) v = ↑k + 1}.card
+def Luce.lowRateDensity : Luce.WeightArray → ℕ → ℝ → ℝ :=
+fun w n δ => ↑{i | (w n).rate i < δ}.card / ↑n
+def Luce.highCycleExpectation : Luce.WeightArray → ℕ → ℕ → ℝ → ℝ :=
+fun w L n M =>
+  ∫ (clocks : Fin n → ℝ),
+    ↑(Luce.shortCycleVertexCount (Luce.raceRankPermutation clocks) L {v | M < (w n).rate v}) ∂Luce.exponentialRace (w n)
+'Luce.ProfileLimit.high_rate_cycles_vanish' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.ProfileLimit.interiorLowCycleExpectation_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.ProfileLimit.interiorLowCycleExpectation_small' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.ProfileLimit.interior_low_rate_cycles_vanish' depends on axioms: [propext, Classical.choice, Quot.sound]
+def Luce.markedReturnWeight.{u_1} : {α : Type u_1} → [Fintype α] → (α → α → ℝ) → ℕ → α → α → ℝ :=
+fun {α} [Fintype α] p k v u => ∑ t, Luce.forwardPathWeight p v (Fin.snoc t u)
+@Luce.ghost_marked_edge_bound : ∀ {n : Nat} (w : Luce.Weights n) (ell k : Nat) (old : Fin n → Real)
+  (hinj : @Function.Injective.{1, 1} (Fin n) Real old)
+  (hnonneg :
+    ∀ (i : Fin n),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (old i))
+  (S : Finset.{0} (Fin n)) (t d : Real)
+  (hd : @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) d)
+  (henvelope :
+    ∀ (u : Fin n),
+      @Membership.mem.{0, 0} (Fin n) (Finset.{0} (Fin n))
+          (@SetLike.instMembership.{0, 0} (Finset.{0} (Fin n)) (Fin n) (@Finset.instSetLike.{0} (Fin n))) S u →
+        @LE.le.{0} Real Real.instLE
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Luce.Weights.rate n w u)
+            (Real.exp
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@Neg.neg.{0} Real Real.instNeg (@Luce.Weights.rate n w u)) t)))
+          d),
+  @LE.le.{0} Real Real.instLE
+    (@Finset.sum.{0, 0} (Fin n) Real Real.instAddCommMonoid
+      (@Finset.filter.{0} (Fin n) (fun (v : Fin n) => @Luce.GhostWindowByOrder n old hinj ell v t)
+        (fun (a : Fin n) => Classical.propDecidable (@Luce.GhostWindowByOrder n old hinj ell a t))
+        (@Finset.univ.{0} (Fin n) (Fin.fintype n)))
+      fun (v : Fin n) =>
+      @Finset.sum.{0, 0} (Fin n) Real Real.instAddCommMonoid S fun (u : Fin n) =>
+        @HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) (@Luce.Weights.rate n w u)
+            (Real.exp
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                (@Neg.neg.{0} Real Real.instNeg (@Luce.Weights.rate n w u)) t)))
+          (@Luce.markedReturnWeight.{0} (Fin n) (Fin.fintype n) (@Luce.ghostEntry n w ell old) k v u))
+    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+      (@HPow.hPow.{0, 0, 0} Real Nat Real
+        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+        (@Nat.cast.{0} Real Real.instNatCast
+          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+            (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+              (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2))) ell)
+            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+          (@OfNat.ofNat.{0} Nat (nat_lit 2) (instOfNatNat (nat_lit 2)))))
+      d)
+'Luce.markedReturnWeight_sum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.ghost_marked_edge_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

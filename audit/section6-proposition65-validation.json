@@ -1,0 +1,161 @@
+{
+  "proposition65_complete": true,
+  "closed_targets": {
+    "Luce.Section6.proposition65_localLaw": "Luce.Section6.Proposition65Contract.localLaw",
+    "Luce.Section6.proposition65": "Luce.Section6.Proposition65Contract.proposition65",
+    "Luce.Section6.proposition65_contractCheck": "Luce.Section6.Proposition65Contract.proposition65"
+  },
+  "new_modules": 23,
+  "new_theorems": 63,
+  "full_build": {
+    "passed": true,
+    "jobs": 4331
+  },
+  "dedicated_audit": {
+    "expected_theorems": 63,
+    "axiom_reports": 63,
+    "missing": [],
+    "extra": [],
+    "unexpected_axioms": {},
+    "lean_errors": [],
+    "passed": true
+  },
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "forbidden_source_constructs": {},
+  "section6_audit_snapshot": {
+    "expected_theorems": 847,
+    "axiom_reports": 825,
+    "missing": [
+      "Luce.Section6.closedLogCycleWeight_translate",
+      "Luce.Section6.continuous_root_first_coordinate",
+      "Luce.Section6.continuous_trace_first_coordinate",
+      "Luce.Section6.convolutionDensity_bound",
+      "Luce.Section6.convolutionDensity_integrable",
+      "Luce.Section6.convolutionDensity_integral",
+      "Luce.Section6.convolutionDensity_nonneg",
+      "Luce.Section6.incrementDensity_bound",
+      "Luce.Section6.incrementDensity_continuous",
+      "Luce.Section6.incrementDensity_deriv_bound",
+      "Luce.Section6.incrementDensity_deriv_continuous",
+      "Luce.Section6.incrementDensity_exponential_envelope",
+      "Luce.Section6.incrementDensity_exponential_moment",
+      "Luce.Section6.incrementDensity_hasDerivAt",
+      "Luce.Section6.incrementDensity_integrable",
+      "Luce.Section6.incrementDensity_integral",
+      "Luce.Section6.incrementDensity_pos",
+      "Luce.Section6.integrable_exp_neg_abs68",
+      "Luce.Section6.integral_exp_substitution68",
+      "Luce.Section6.logTupleRange_nonneg",
+      "Luce.Section6.logTupleRoot_translate",
+      "Luce.Section6.translated_box_iff"
+    ],
+    "extra": [],
+    "unexpected_axioms": {},
+    "lean_errors": [
+      "audit/Section6Current.lean:613:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.closedLogCycleWeight_translate`",
+      "audit/Section6Current.lean:614:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.closedLogCycleWeight_translate`",
+      "audit/Section6Current.lean:623:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.continuous_root_first_coordinate`",
+      "audit/Section6Current.lean:624:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.continuous_root_first_coordinate`",
+      "audit/Section6Current.lean:627:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.continuous_trace_first_coordinate`",
+      "audit/Section6Current.lean:628:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.continuous_trace_first_coordinate`",
+      "audit/Section6Current.lean:629:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolutionDensity_bound`",
+      "audit/Section6Current.lean:630:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolutionDensity_bound`",
+      "audit/Section6Current.lean:631:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolutionDensity_integrable`",
+      "audit/Section6Current.lean:632:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolutionDensity_integrable`",
+      "audit/Section6Current.lean:633:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolutionDensity_integral`",
+      "audit/Section6Current.lean:634:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolutionDensity_integral`",
+      "audit/Section6Current.lean:635:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolutionDensity_nonneg`",
+      "audit/Section6Current.lean:636:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolutionDensity_nonneg`",
+      "audit/Section6Current.lean:961:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.incrementDensity_bound`",
+      "audit/Section6Current.lean:962:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.incrementDensity_bound`",
+      "audit/Section6Current.lean:963:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.incrementDensity_continuous`",
+      "audit/Section6Current.lean:964:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.incrementDensity_continuous`",
+      "audit/Section6Current.lean:965:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.incrementDensity_deriv_bound`",
+      "audit/Section6Current.lean:966:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.incrementDensity_deriv_bound`",
+      "audit/Section6Current.lean:967:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.incrementDensity_deriv_continuous`",
+      "audit/Section6Current.lean:968:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.incrementDensity_deriv_continuous`",
+      "audit/Section6Current.lean:969:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.incrementDensity_exponential_envelope`",
+      "audit/Section6Current.lean:970:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.incrementDensity_exponential_envelope`",
+      "audit/Section6Current.lean:971:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.incrementDensity_exponential_moment`",
+      "audit/Section6Current.lean:972:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.incrementDensity_exponential_moment`",
+      "audit/Section6Current.lean:973:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.incrementDensity_hasDerivAt`",
+      "audit/Section6Current.lean:974:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.incrementDensity_hasDerivAt`",
+      "audit/Section6Current.lean:975:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.incrementDensity_integrable`",
+      "audit/Section6Current.lean:976:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.incrementDensity_integrable`",
+      "audit/Section6Current.lean:977:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.incrementDensity_integral`",
+      "audit/Section6Current.lean:978:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.incrementDensity_integral`",
+      "audit/Section6Current.lean:979:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.incrementDensity_pos`",
+      "audit/Section6Current.lean:980:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.incrementDensity_pos`",
+      "audit/Section6Current.lean:1019:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.integrable_exp_neg_abs68`",
+      "audit/Section6Current.lean:1020:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.integrable_exp_neg_abs68`",
+      "audit/Section6Current.lean:1029:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.integral_exp_substitution68`",
+      "audit/Section6Current.lean:1030:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.integral_exp_substitution68`",
+      "audit/Section6Current.lean:1163:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.logTupleRange_nonneg`",
+      "audit/Section6Current.lean:1164:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.logTupleRange_nonneg`",
+      "audit/Section6Current.lean:1165:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.logTupleRoot_translate`",
+      "audit/Section6Current.lean:1166:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.logTupleRoot_translate`",
+      "audit/Section6Current.lean:1705:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.translated_box_iff`",
+      "audit/Section6Current.lean:1706:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.translated_box_iff`"
+    ],
+    "passed": false
+  },
+  "proposition65_freeze": {
+    "files": 47,
+    "matching": 46,
+    "changed": [
+      "fixed_points_sampled_profile.tex"
+    ],
+    "preexisting_at_start": [
+      "fixed_points_sampled_profile.tex"
+    ],
+    "baseline_reset": false,
+    "manuscript_edited_by_this_task": false
+  },
+  "historical_freeze": {
+    "files": 13,
+    "changed": [
+      "fixed_points_sampled_profile.tex"
+    ],
+    "baseline_reset": false
+  },
+  "historical_validator": {
+    "passed": false,
+    "failure": "Source declaration set differs from aggregate imports; see section6-proposition65-historical-validator.log."
+  },
+  "unrelated_audit_issue": "Concurrent increment-density/envelope, convolution-density, and continuous-trace source declarations are absent from the Section6 aggregate imports. An attempted import was removed after a concurrent edit introduced an unrelated proof error; those sources were not modified by this task.",
+  "sha256": {
+    "Luce/Section6NormalizedGapTaylor.lean": "342f0025a1892fd80193aed1d38605d2a076e03ed12585bdc75b598a53ecfe3b",
+    "Luce/Section6NormalizedGapMoments.lean": "3e315e964d5e6e9af759f6eb10c2073957b60494d193f4b136fe4d264e1ffdf6",
+    "Luce/Section6LocalCoefficientComparison.lean": "31063d02cce558da4257ca58f6655dff6e43aad7e0d7237d2756e9d4939eb608",
+    "Luce/Section6EventIntegral.lean": "55dfbf34154d2aaba7e186ee968c51bee50d30591c7e86c470ef2576300dc93c",
+    "Luce/Section6NormalizedProductError.lean": "74f735b87605a7db658026bc577c6089b764a96b4f2e6e1bb0331b67efa706d9",
+    "Luce/Section6InsertionSecondMoment.lean": "c84194e7916900506298478cba0f11fb1a49ab5ea8b154c3b461149eea655885",
+    "Luce/Section6CrossDepthAlgebra.lean": "c55e6bc3a53ecd7537dc3617a379b031b5941fbb454d13f384d724e748eb1096",
+    "Luce/Section6CrossDepthUniform.lean": "08ee026c5ac2ca8688fa6cb57db20d3930f064fdfe97814d211f4873c068e20b",
+    "Luce/Section6CrossDepthProfile.lean": "74684dfc1de71bc11d7aea02e1462dbf051823ac22bf9657de5fd2a82357c664",
+    "Luce/Section6QuantileMeanLower.lean": "4dc2cf95f4783e5f4750b843326b4a2e4028c0f37d347a778973f99d45ca06ac",
+    "Luce/Section6JointWindowProbability.lean": "a8d265ff3880249fa373ebd1bf79ebc3f970029ef3f8f31a93d65f7b0acd6407",
+    "Luce/Section6ProfileJointWindow.lean": "7ba73cc661ba38542e2d3c7df6d41f1b570ab4810de9d617a7cf5303d8ec959b",
+    "Luce/Section6NormalizedLocalPointwise.lean": "d0f7188a7561bdbd9ab8d3c8b680a07496eeea6c80b5251284aadd30026c9382",
+    "Luce/Section6QuarterWindow.lean": "be2bdeb307b76927cde90ec719713182aa69f288f72f7b0e16902b3228f910f2",
+    "Luce/Section6LocalCornerData.lean": "4ee60915725bf49a9bbb04dd3087c90f1df2fef8d92491b8b1fc52a467210a34",
+    "Luce/Section6CornerPointwiseWindow.lean": "c6911c407140253f9a4c77cc6858add1ee0fa7ff79c2aa3fba27a280063aa117",
+    "Luce/Section6CornerInsertionMoment.lean": "c0bc9c7c50547c2e36542947d42c1f674074f1cc9586ca74c0efaf44a1b9c8be",
+    "Luce/Section6LocalErrorPowers.lean": "9c04e7c52d3fb3c0ca681225a045e0fcbbe439102019b6b1ca3f52521ed1eb2c",
+    "Luce/Section6JointNormalizedEstimate.lean": "271b6032b8f4f8d87ef2fc0fca75f0bbc11f50e3c364529c5d294fd444b3daa4",
+    "Luce/Section6FiniteCommonConstants.lean": "0dfbe30ce1c8228349ce808cd584fe70cb42887c901dcfcfd37f7e89e5cba0ae",
+    "Luce/Section6Proposition65Sum.lean": "93c8587ed08ad907c1cd93ecacbe88a8f89c02070df423aa5ff86e5cab4b3737",
+    "Luce/Section6Proposition65.lean": "c461d993f4bb7fcc6efd31538f0df235a13a9251e7b6cdb47554deaa79436497",
+    "Luce/Section6Proposition65Audit.lean": "c6af8926e1b19313255f668180597e3014e1e55c6ecd3ce31be82e15672e78be",
+    "Luce/Section6.lean": "8c41467468507f98f71456bc00d9756822f0531a567a0ec87e3459ea3c4878fb",
+    "Luce/Section6Proposition65Contract.lean": "4df878609af129317c66f8d6cf3e663fc40efdd2b69cf3e81393b7779b7a4331",
+    "fixed_points_sampled_profile.tex": "60fd51d8db372756ebb4db19b74358e42a93b1472974d92a660847ed9a94f969",
+    "audit/Section6Proposition65.lean": "93585c3d772ab80bc9d3016af64c09d3488461c84af00a9df0a30a35123489fd",
+    "audit/section6-proposition65-contract-freeze.json": "afbd240f45bf036683a70af7a1578919f230b67f3a0640c32c27c02f600d9411",
+    "audit/section6-contract-freeze.json": "40ecff6c2133b7ab740eb625daa5fae9bc78826a3f8d046e110b232dad493fdf"
+  }
+}

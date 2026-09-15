@@ -1,0 +1,18 @@
+Luce/Section5LowRates.lean:33:10: error: typeclass instance problem is stuck
+  OpensMeasurableSpace ?m.88
+
+Note: Lean will not try to resolve this typeclass instance problem because the first, second, and third type arguments to `OpensMeasurableSpace` are metavariables. These arguments must be fully determined before Lean will try to resolve the typeclass.
+
+Hint: Adding type annotations and supplying implicit arguments to functions can give Lean more information for typeclass resolution. For example, if you have a variable `x` that you intend to be a `Nat`, but Lean reports it as having an unresolved type like `?m`, replacing `x` with `(x : Nat)` can get typeclass resolution un-stuck.
+Luce/Section5LowRates.lean:37:4: error: Tactic `apply` failed: could not unify the conclusion of the term
+  ?s ∈ ?f
+with the goal
+  AEStronglyMeasurable (fun x => if 0 < stepProfile w n x ∧ stepProfile w n x < δ then 1 else 0) profileMeasure
+
+Note: The full type of the term is
+  ∀ {α : Type ?u.36} {f : Filter α} {s : Set α}, (∀ (a : α), a ∈ s) → s ∈ f
+
+w : WeightArray
+n : ℕ
+δ : ℝ
+⊢ AEStronglyMeasurable (fun x => if 0 < stepProfile w n x ∧ stepProfile w n x < δ then 1 else 0) profileMeasure

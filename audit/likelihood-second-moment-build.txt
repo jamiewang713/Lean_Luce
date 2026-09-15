@@ -1,0 +1,88 @@
+⚠ [3489/3492] Replayed Luce.Predictable
+warning: Luce/Predictable.lean:110:31: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3491/3492] Replayed Luce.BernoulliProcess
+warning: Luce/BernoulliProcess.lean:36:0: automatically included section variable(s) unused in theorem `Luce.BernoulliProcess.observation_nonneg`:
+  [IsProbabilityMeasure μ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsProbabilityMeasure μ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Luce/BernoulliProcess.lean:37:46: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Luce/BernoulliProcess.lean:39:0: automatically included section variable(s) unused in theorem `Luce.BernoulliProcess.observation_le_one`:
+  [IsProbabilityMeasure μ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsProbabilityMeasure μ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Luce/BernoulliProcess.lean:40:46: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Luce/BernoulliProcess.lean:56:6: `MeasureTheory.integral_finset_sum` has been deprecated: Use `MeasureTheory.integral_finsetSum` instead
+warning: Luce/BernoulliProcess.lean:57:4: `MeasureTheory.integral_finset_sum` has been deprecated: Use `MeasureTheory.integral_finsetSum` instead
+warning: Luce/BernoulliProcess.lean:88:30: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+warning: Luce/BernoulliProcess.lean:106:0: automatically included section variable(s) unused in theorem `Luce.BernoulliProcess.laplaceFactor_stronglyMeasurable`:
+  [IsProbabilityMeasure μ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsProbabilityMeasure μ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Luce/BernoulliProcess.lean:186:0: automatically included section variable(s) unused in theorem `Luce.BernoulliProcess.likelihood_eq_laplace_div`:
+  [IsProbabilityMeasure μ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsProbabilityMeasure μ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+warning: Luce/BernoulliProcess.lean:192:0: automatically included section variable(s) unused in theorem `Luce.BernoulliProcess.laplaceProduct_bounds`:
+  [IsProbabilityMeasure μ]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [IsProbabilityMeasure μ] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+ℹ [3492/3492] Built Luce.LikelihoodSecondMoment (15s)
+info: Luce/LikelihoodSecondMoment.lean:83:0: theorem Luce.BernoulliProcess.integral_likelihood_sq_le.{u_1} : ∀ {Ω : Type u_1} {mΩ : MeasurableSpace Ω}
+  {μ : Measure Ω} [IsProbabilityMeasure μ] (X : Luce.BernoulliProcess μ) {δ K : ℝ},
+  δ < 1 →
+    ∀ (g : ℕ → ℝ),
+      (∀ (k : ℕ), 0 ≤ g k) →
+        (∀ (k : ℕ) (ω : Ω), X.probability k ω ≤ δ) →
+          ∀ (N : ℕ),
+            (∀ (ω : Ω), ∑ k ∈ Finset.range N, X.probability k ω ≤ K) →
+              ∀ {m : ℕ}, m ≤ N → ∫ (ω : Ω), X.likelihood g m ω ^ 2 ∂μ ≤ Real.exp (K / (1 - δ)) :=
+fun {Ω} {mΩ} {μ} [IsProbabilityMeasure μ] X {δ K} hδ g hg hpδ N hK {m} hm =>
+  have hL := Luce.BernoulliProcess.likelihood_integrable X hδ g hg hpδ m;
+  Trans.trans
+    (integral_mono (Luce.BernoulliProcess.integrable_likelihood_sq X hδ g hg hpδ N hK hm)
+      (Integrable.const_mul hL (Real.exp (K / (1 - δ)))) fun ω =>
+      have hb := Luce.BernoulliProcess.likelihood_bounds_of_terminal_cap X hδ g hg hpδ N hK hm ω;
+      Eq.mpr
+        (id (congrFun' (congrArg LE.le (pow_two (X.likelihood g m ω))) (Real.exp (K / (1 - δ)) * X.likelihood g m ω)))
+        (mul_le_mul_of_nonneg_right hb.right hb.left))
+    (Eq.mpr
+      (id
+        (congrArg (fun _a => _a = Real.exp (K / (1 - δ)))
+          (integral_const_mul (Real.exp (K / (1 - δ))) (X.likelihood g m))))
+      (Eq.mpr
+        (id
+          (congrArg (fun _a => Real.exp (K / (1 - δ)) * _a = Real.exp (K / (1 - δ)))
+            (Luce.BernoulliProcess.integral_likelihood X hδ g hg hpδ m)))
+        (Eq.mpr (id (congrArg (fun _a => _a = Real.exp (K / (1 - δ))) (mul_one (Real.exp (K / (1 - δ))))))
+          (Eq.refl (Real.exp (K / (1 - δ)))))))
+info: Luce/LikelihoodSecondMoment.lean:84:0: theorem Luce.BernoulliProcess.stopped_integral_likelihood_sq_le.{u_1} : ∀ {Ω : Type u_1} {mΩ : MeasurableSpace Ω}
+  {μ : Measure Ω} [inst : IsProbabilityMeasure μ] (X : Luce.BernoulliProcess μ) {δ K : ℝ},
+  0 ≤ δ →
+    δ < 1 →
+      0 ≤ K →
+        ∀ (g : ℕ → ℝ),
+          (∀ (k : ℕ), 0 ≤ g k) → ∀ (m : ℕ), ∫ (ω : Ω), (X.stop δ K).likelihood g m ω ^ 2 ∂μ ≤ Real.exp (K / (1 - δ)) :=
+fun {Ω} {mΩ} {μ} [IsProbabilityMeasure μ] X {δ K} hδ0 hδ hK g hg m =>
+  Luce.BernoulliProcess.integral_likelihood_sq_le (X.stop δ K) hδ g hg
+    (fun k ω => Luce.BernoulliProcess.stop_probability_le_cap X hδ0 k ω) m
+    (fun ω => Luce.BernoulliProcess.stop_sum_probability_le_cap X hK m ω) le_rfl
+info: Luce/LikelihoodSecondMoment.lean:85:0: 'Luce.BernoulliProcess.integrable_likelihood_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/LikelihoodSecondMoment.lean:86:0: 'Luce.BernoulliProcess.integral_likelihood_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Luce/LikelihoodSecondMoment.lean:87:0: 'Luce.BernoulliProcess.stopped_integral_likelihood_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (3492 jobs).

@@ -1,0 +1,3334 @@
+[
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\ApprovedRankIntegral.lean",
+    "sha256": "19D798F3E30E3EE17D8D9E2256B21A37D103ED1E0E31E3CE3406A5282DFA0CB0"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Assumptions.lean",
+    "sha256": "D57FF3F436ECAB0A36B84F47E65A5FED6B69030BDF97FE9770457A68AC3B3CAC"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Basic.lean",
+    "sha256": "90AE504B4F71FFC526D3CD82A82330CE2FFECB80024904000543E5C7E1DD1214"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\BernoulliCharacteristic.lean",
+    "sha256": "3E71F8EAACE50E2ECF6BE2A81ABDACC8AA461565392348323FE4109A6A478AD2"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\BernoulliCharacteristicDrift.lean",
+    "sha256": "52024D3C4A08BB1A2A15755B0FC23B186734CAA75BF413F15E8123F9B8FFBD44"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\BernoulliCharacteristicEstimates.lean",
+    "sha256": "1198150D09C96202B457D85973A069D2F69D4D83D9014440313DA096766FDD6B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\BernoulliCLT.lean",
+    "sha256": "565AF7B461FE7F7DA416111A8EC6884F6A42F321C094869AFEEDA90DA9BC3460"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\BernoulliCLTCapped.lean",
+    "sha256": "C83C0F51FE1ABACFE73557C4AC596B7C23B48058E192E3734787DC7F854F1A99"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\BernoulliCLTStopping.lean",
+    "sha256": "F4ABE3383F9852A080D44EE9A1840A7EB9D7F579B47E6E0AF2A026FF5993BE18"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\BernoulliCountTightness.lean",
+    "sha256": "51B4B9411DD14FBAF0F79198FD4824DF39D3970A59AA1EB83DA395953D0F184E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\BernoulliGaussianScale.lean",
+    "sha256": "084487F2574F1845FF8ACDF3288333F194600CB1AA8C2E66B2FB8B62CFA5CDA1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\BernoulliPointMeasure.lean",
+    "sha256": "F586DDE7FA130D6433F2692A666FB0FEFB2F72046684D663F9ED42E5326DB9C7"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\BernoulliProcess.lean",
+    "sha256": "9451856DA02D8C139BAF2EA800BDB3818AD335A011657C7EC249CB08D10C7A4C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\BernoulliReferenceApproximation.lean",
+    "sha256": "825DD2077DCAC5B27270E6EDE9A882CE9AAC2B45C11F9FE2CB6BF4AB0DB1A300"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\BernoulliReferenceMean.lean",
+    "sha256": "F45A3A9EADE251279E5F8B5F0B317805C2BDF25420641FF9EA5AF497919BC7A6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\CappedPoisson.lean",
+    "sha256": "46BA7418DD26AD92CFC51325BBA7E785545B9329FD5B72B1E5E972ECB18C1B0E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\CompactLaplaceApproximation.lean",
+    "sha256": "E611798510669C53B4D26A7CECC0ECCD773F43A74D188D60D81C88708C14DBAA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\CompactLawConvergence.lean",
+    "sha256": "269C36332C27623C29E3F4E45D4FCF3553DEFDA73B872FBC8D02B5B506B888A4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\ComplexProbabilityConvergence.lean",
+    "sha256": "9CE20C7B6B9B1F3208DEEEE848D3AF06173CCFDC7F25A6CD6D47FFE2C38DD0DA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\ConditionalProbabilityBasics.lean",
+    "sha256": "00E6693B487BC6615C69DBF66596982773E8792F6ED7E90BAC73A93B5E676023"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\ConvergenceInProbability.lean",
+    "sha256": "23A267643E3B94C558E427204E70821009123DBF8293474BE67044909F611FDA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\CountableLawConvergence.lean",
+    "sha256": "2425F3E2EFF030208A95124BB2F50639D70DD3CECEFB61CEA0582A545A1E97D7"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\CountableTotalVariation.lean",
+    "sha256": "AD2905997B47E816A42E9530B94D0C93287578FB9E0AA25504EACD2C7488436D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\DiscreteTotalVariation.lean",
+    "sha256": "1C6E712F0C890256C0CA73BB3AF7D9B6F8E96A0E75AD590A63221B08617B4F6F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\DrawHistory.lean",
+    "sha256": "162E29701F639D717C86E323D6F3B846187D67A0E883CED129CE14615A8CEEC3"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\DrawHistoryPermutation.lean",
+    "sha256": "64C1A4A3230AD691B6A219A32904252AC658BFCC97F9F102324942C807D2621A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EmpiricalRace.lean",
+    "sha256": "38C1B5007FBDD6E968BF9F723E155ADCC5AB300B94DDD39F4C8FD696153C2A08"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Endpoint.lean",
+    "sha256": "7630C2A840D06C2CFCE30CC0C6B544F4658DE112D8D1553C15C1E204B3127E3D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointAsymptotic.lean",
+    "sha256": "DDB276165A76712A65D903914B967F3479B416892AB3CE28A833CFA16E02880A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointBlockCapacity.lean",
+    "sha256": "1C5D85EB3A8F58B8746D9F8ACC71CDB63D03D254471BFCDF99050D8C796B367A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointBlockExpectation.lean",
+    "sha256": "0335A39A8F77573717F5B5155EFD0FE84BA94198BF3AAAB8D8DB31876BE1A202"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointBlockIntegral.lean",
+    "sha256": "F9B4955316CF19C4B71D83B2F63F621A92215F78FB4DB42728145F58ECAD13AA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointCapacityAnalytic.lean",
+    "sha256": "287125791C79994AC738F9BBD22619B92E8A8AEE1FEF242E731B7935D3DD0869"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointCapacityChernoff.lean",
+    "sha256": "E9D22D6D0C77DCB169764856135709AADD4F894DEBB5FAE4294310F7595D188A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointCapacityProbability.lean",
+    "sha256": "1404B80063A4E45BD5B04A6888C07E8DC5CF2F0D8904EC427A722196FBCA611A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointCutoff.lean",
+    "sha256": "64FF9F0A6130C190141501782D36F5F2F8CDE964CCDD5FA29BEE26A97210CAD7"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointIntegrals.lean",
+    "sha256": "987C1EFED395C801B9161951D4AC7E6A554D8FAF3379F19C9B5A9F9E89BED66F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointJensen.lean",
+    "sha256": "5707DDE539A9B7D2829DFB8A3B647DA372C8994A20B93073F1E4432E97A13BD2"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointProbability.lean",
+    "sha256": "0F07458D0ABF8F1AF6FE84E83E5ECEC38155145A5A93F701123AB12ED7B7E521"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointRace.lean",
+    "sha256": "3A42E75BF7EADA97B89790BE367F9C616BDE11B489AF8A107FA460E0C4CAEC07"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointShellBuffer.lean",
+    "sha256": "4C4BB86C55326F7128290A16D65EDB2C7D7ED7944106BA9B97BDCFC96624558C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointShellBufferLimit.lean",
+    "sha256": "E9917443330A7DA20BD0F804D5365135492B1D84DF4770CD6277BD11A1342B0A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointShellCompatibility.lean",
+    "sha256": "906EE084CEF760F19CD279543EB5415EEF1F18DC63F9E57D72077619E05BF50F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointShellCover.lean",
+    "sha256": "A791E8601C62B60FF5EAB564547CE19A7C30DD6629308D13BED292DF69CB12CC"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointShellDefinitions.lean",
+    "sha256": "EFC150993A24DBCAEF5FF5D7EC186CFFF7721A467D6F05981676908C82554CAE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointShellEarly.lean",
+    "sha256": "93A461627A9D232B00CB6BE37A402A0D74FB74997C69C904D049A2C38FA28A13"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointShellEstimate.lean",
+    "sha256": "B52F59EAF9C8D02CA432768678DBE26039FC9355862C4CCC97A1B408871B1DEA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointShellExpectationLimit.lean",
+    "sha256": "BB347FFDB8DE94C7819C667F7C28DE08C8839211E03A00EFF2A7CCC735B64604"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointShellGeometry.lean",
+    "sha256": "E6D7B8C635BCC403258CE63C00C1F006F1C92A6A9DE46196E42347F38A7E9CC2"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointShells.lean",
+    "sha256": "CDBCE54C4DAB210C9D4F024F482F5CFBD3E88F6BEF1F54FD1BF1A9636B265120"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointShellTailBridge.lean",
+    "sha256": "3BF9ED987D5F8D49C013FE985B9C81EF973B62EF1FD0E8F74B79C7D5E221E143"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointShellTightness.lean",
+    "sha256": "F108EDF7B1D5F95CFCBA1E0178B44763D5C337EF6A94254E18B51E969B86021F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\EndpointTheorem.lean",
+    "sha256": "58F9602D4A89E5423412C1FAF03622EF30CE6E8C0A38D6FE222D19112D10C496"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\ExponentialFacts.lean",
+    "sha256": "1B35F0E029CCD21A7983CCA278775B7AD641CE6D49EF4CF3EDB38A05DFC5D9EE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\ExponentialMemoryless.lean",
+    "sha256": "0288D0783F63B04A915888B722DFEC531B300F7F0C6FFD9BF52CF719D2B3593C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\ExponentialRace.lean",
+    "sha256": "0C27E957672601C21420BF9ACFA88C461F21D8E3DA11A1AE796C61F0A258D1AA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\FiniteAdaptedBernoulli.lean",
+    "sha256": "B7C159A3AB7801D73FEA7751A53D0A7BEF436C76A3CFD6A14D34DFDA23EFFFAA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\FiniteBernoulliRow.lean",
+    "sha256": "2CA917DEE51B06FB69F69A3F20C89525103D0D03302FD0496B1797CA745F27DB"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\FiniteBernoulliSpatial.lean",
+    "sha256": "3EF94870D4754A4D7B25F3D8575070B7D7CEAF0283865C60F8E13DF6B9BE8605"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\FiniteHistoryConditional.lean",
+    "sha256": "BB55BCA7D7B114592E6AC81307A5D6D3CEF91F50A1EC000DA7276C1A0E16901B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\FinitePointMeasure.lean",
+    "sha256": "F4788791F0F5FA83CE7E4B8EBA51A94492EAAC8863E24D13FE14EB85FB9AB072"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\FinitePoissonLaw.lean",
+    "sha256": "E9450644A616592751EC5493FF15EB2BB48F30F4B5A91E166AACD2DA8EC66281"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\FirstChoice.lean",
+    "sha256": "47FCC5F16DA78F061AC3BED2648139783DD3BC131510A8746B8452A816371771"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\HistoryAtoms.lean",
+    "sha256": "25E3D461B625263A3F53828DF71E5354B6BAB26493193825B4ABE5E06D7696DA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\HistoryPredictability.lean",
+    "sha256": "59938C5D0D8B01E57DA3673AAA078F0359B5678FD5E05C76900216285636E6D8"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Interior.lean",
+    "sha256": "F30950A442481F43F1E59D824E4A72F761E5ADE9162732D0EF5444A13AA6A9BA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\LaplaceCountTightness.lean",
+    "sha256": "48C99A61243BE3ACF12E2421DAD56D97B89CA261609FAFB4C25F39B0B6909DD8"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\LikelihoodSecondMoment.lean",
+    "sha256": "421A41590AFD7540D59E17B087E4C69778372049C65A921BF4B2964F1249027D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\LuceMassRecursion.lean",
+    "sha256": "BEBA8E069E8975BEFE84A787CE664D44595907DF92A6F25172F08AEECA14D459"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\LuceNextDraw.lean",
+    "sha256": "B69BBD003A34D301BD286E02C032474DEC64A4F761A1398BE4FCB056D873BCAB"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\LucePrefixMass.lean",
+    "sha256": "6495922F9BB4EAB0698365D7EC75C11ACD45F64DA636C4918FC31C220627155E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\LucePrefixRecursion.lean",
+    "sha256": "ED11BAA9D29C8AE597DCFB96D5281FBBAD7B262F56997B9A718BA4FD77870887"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\LucePrefixTransition.lean",
+    "sha256": "88C1F916942723613B882F58186E782C09C552D1B8EB7A2E41740DD29648C707"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Model.lean",
+    "sha256": "36319EEC3EF7D96B6800401EE097C311FED8AEA39C3D874710F08BA070BEE6EF"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\PointMeasureLaplace.lean",
+    "sha256": "830E3983DB6B98D9F631DAF359FFD838D4D6A2DB2006C50FDD8297EA609368ED"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\PointMeasureLawConvergence.lean",
+    "sha256": "C3CB3DA71F0D37ECE0A094D209551C98E287A250E7E6EE3B9A64163C762AF31D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\PoissonCriterion.lean",
+    "sha256": "AE7BFCF7E7BBFB2C4469BA73AEF87071808CF038C1649DE1A47472AC151C4E7B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\PoissonMixture.lean",
+    "sha256": "8C62CE6944FDBBF5089B2B1A7A6368EBB76CC7377E69207863490EC976895E6C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Predictable.lean",
+    "sha256": "59C715D9492B3009AB4227E93509EB86C5CC5B53A22CFB2466F0F0E6DB745B58"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\PredictablePoisson.lean",
+    "sha256": "14EA0D2AC24C91A25FF84B98E7FFDE1E9117F3DB4925670F22FBFA13F202179B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\PredictableProbability.lean",
+    "sha256": "159FB08BDB2C7510EF782E179BFCA57510683CF074F58A32BCBA941021F98F03"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\ProbabilityConvergence.lean",
+    "sha256": "ABE56947D8215C2D7A179EE63510319F6836C9B4E1F269875BE7D95CC10AFD62"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Profile.lean",
+    "sha256": "09438CFB8A7A5333A64471DFE060401AACAB1E6A5EBB59DD16F87E38D6839CC7"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\ProfileRegularity.lean",
+    "sha256": "804F6749E2DF0796ED1C37CBAD0B01F7BBB46820D850256132A25D6D785A54A4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\RaceConvergence.lean",
+    "sha256": "FB165B52D91D19C53E3371621D45C585569C1D86363D20DBED6EE0B643B61A47"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\RaceOrder.lean",
+    "sha256": "15B3A90443D0C4D68CC4896BDECDC078DCB01734A0E06DC74FA617E0234FF522"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\RankIntegral.lean",
+    "sha256": "9BF3DF9F1CC09C2BF77A8979AAB38F933AD4BFCBC29FF17E5223B3E7C49D9F1F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\RankIntegralDependencyAudit.lean",
+    "sha256": "7D4DAA0050F88B2609F6475568E10EC3F937E26817B82E4A8AA1D2EC284C6372"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\RankProbability.lean",
+    "sha256": "B82D314D065095F4BE3068DE7E5918B98A61B70F61F5483BC785E1B94CAE2D8E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3.lean",
+    "sha256": "E7603CFF4EDEC63673EF6F4158693A03900A28DDD955FA7A28C462FE0AC1B1DF"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3Bernoulli.lean",
+    "sha256": "24569FCB9A3C0444C6565FB41619B7C239DFC862D640037982E77770409957AD"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3Compensator.lean",
+    "sha256": "6887676796EC82A969BED184C55C8B9459D663C8FAE494291FA53DD87BE3CA95"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3CompensatorLimit.lean",
+    "sha256": "5F1E1594F65B5D0C77E1F5D7201D5FB2893E69C3FE67323DF62D27ACAA051A1D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3Convergence.lean",
+    "sha256": "6234E05B14991B6DE2DA1CBF18C5904A24343309CB9E018F3FA1D57FCDE41F40"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3DenominatorReplacement.lean",
+    "sha256": "5572C4C1819C14DFBF2ECB2F677DFA5EF7B31B4DC65F2A475B182C47CED457A8"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3Expectation.lean",
+    "sha256": "C0A1AF97FDDC9B0C7A0D64DC194B47AFAB0D6A58F26C0BDBE3CB0D9C0EDA9653"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3InitialBlock.lean",
+    "sha256": "917CA0E036B0B77D62194AED38606884B9C642612565506D27DE87FBE6B616B1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3Intensity.lean",
+    "sha256": "C71E65742AA3931F2341022601BA72E749D8F1D9C288B39DFAC9B219491443E9"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3LuceCompensator.lean",
+    "sha256": "B125D1887FF3B6A363A53B79A218D2117F567954CA7FDDF02ABCD7CDD55C9D28"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3LuceLaw.lean",
+    "sha256": "F2A39812F79FAF88B0D9528751E715286D147B92E806BD9BB38F57238D0022F1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3Mean.lean",
+    "sha256": "5655FEF434ECC7F227A37CF0C0D8822137D0B0C3D0955F65D71A2126E7F0DB66"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3OrderStats.lean",
+    "sha256": "D41506B22046D95346489E8CF797012003A3DA4D771436788F59BE7FB46C1A71"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3Poisson.lean",
+    "sha256": "B702A12A394D7E51ED35DED0788540DD901084196B9AC8F794FA13491AEFE65E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3PoissonCriterion.lean",
+    "sha256": "AD41CA843475A1F50AB45641571376995ACCF66280BDE74FC5D15D08E95E8921"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3PoissonLaw.lean",
+    "sha256": "CF4DAB361F5F1EA3DD6DFCF2B718578FEBE51B05431C274A4E233D790AED5D2C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3Probability.lean",
+    "sha256": "543E2D42EBE9138A4DE6928D2626DC3786B9CA8636A3B5474BC5B34D6B135005"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3Profile.lean",
+    "sha256": "429E6C8458F5EA174F64C9E2C14CAC8E90B77120D6E7076530D56D923A6F78BC"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3Quantile.lean",
+    "sha256": "4864B929FB1AF51328EE6F67286BD068B62C85C53867C4CF1263C97A2B77B0DE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3Race.lean",
+    "sha256": "A8F8A1F30D59A7BC1E04CAC62693D57EBF35EE335AEF40F7D5A5B762B463B185"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3RaceDrawLaw.lean",
+    "sha256": "3AC2FEEA8A3E2A06D0BFE78DF6363FADAB02718ABE5FF25FCD61CE641B7BF43B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3RaceLaw.lean",
+    "sha256": "B3B55A74E0550774580F4CB496EE642590C2E82276122937E2C2B8D0AB44ED91"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3RemainingWeight.lean",
+    "sha256": "E4E2B7B0FFF9DAF45E5D9D69D2B6BD36D5C7F04A09653209BFEA1B9C97E87DFF"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3Replacement.lean",
+    "sha256": "3E05F3DA4FE559817AFC40B3177050DEB2013D1DAFF2E1F84ED3526C55EE33BA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3Representations.lean",
+    "sha256": "D8BE1C073F2B36A43FF2B2EE7CC0A77A1A6E33161B21C5AC36A4D8A4DAC3D6E3"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section3Survival.lean",
+    "sha256": "6DCF625018F0DEF885DFB5C42D0F22BDEDB49D59E054E105ED6FAEC7FC0C6E9B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section4.lean",
+    "sha256": "E29C724306142FE626CB6207840B435EDBFA52D52532368D8D4716FD6E9E0822"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section4Approximation.lean",
+    "sha256": "5284D242C7B50C5FD1FE608DE1BA5C0A0773BD06F34AB38C7E4D19D693F87DD5"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section4Compensator.lean",
+    "sha256": "FBD965EF495DA055631F2020C6C15688619FACF60AD052F134E7E146CA0A78CF"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section4Count.lean",
+    "sha256": "842032260F10B19CBC0612A37966345AEB6BD46DB6412B16A45A6560F6ABB2A5"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section4CountLaw.lean",
+    "sha256": "8D341795992411C3BDCAF27861B297182D0D6D2467ED6C866E4A0CB020D2F654"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section4Endpoint.lean",
+    "sha256": "1439F5468CAFC2E91FE64D04E8D8C19E45D2BF5CD60B233A06C7AD7C39D6C960"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section4EndpointWitness.lean",
+    "sha256": "6F4A5DAB8355A58A2687DB9337C6C407D4D0CD1178664C0C620A0D757009220D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section4Fatou.lean",
+    "sha256": "D9CE06ED866D4580BCCF8AD02553037F1B97CDF7E97C6EA6F641F347C67C6B6D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section4FullIntensity.lean",
+    "sha256": "4F3750CF899B8F514B9419EE6C78D7FA7EDFB31A4F2061F51D3B5C9F98B408DD"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section4Intensity.lean",
+    "sha256": "227AA518DEAE6C7200FBDC0662DD2FC2EFAED292EF10FA538B67451C0D15F23E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section4IntensityEstimate.lean",
+    "sha256": "BDBC43D5006B684FEBBB7E9D05E0BDBE352AF0EEDD359028C28F2460FE667AA9"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section4Poisson.lean",
+    "sha256": "76C45743A171B5F2A1808F3BEFFFFE47F41CF93A2FEC8D2EB3ECB0AA44FC4609"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section4ShellFullIntensity.lean",
+    "sha256": "A71A345BFE82036CE6B3EA565E6B6C8043AF9DA6A11BEF369724AFD658FC453E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section4ShellIntensity.lean",
+    "sha256": "F832125828E1AB723E6313417340E3AE014FFF22911D6E8277FD7CC9579509D4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section4ShellIntensityBound.lean",
+    "sha256": "805203D9DA95CBAA0F4FC3B6369A5B6D4CA92CC3013086BC96CF9B01AC849165"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section4ShellPoisson.lean",
+    "sha256": "DCAC17E1A6FD8653620B47935665DB20982581CB0B612718DF5069AE646200EC"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section4ShellTheorem.lean",
+    "sha256": "24E81C6F3EAA75A06D63494EB613FF199AA67B99861D617BC06FC0C3D9AE8DDB"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section4ShellTotalVariation.lean",
+    "sha256": "BF2FE673075958BD74EDC456AEDFB4B95641601BA12A34DCAB53C382621709DE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section4Theorem.lean",
+    "sha256": "1D7B1E08C02B793AC3BEE65BBCB865D4B9C4DF17ED8F7A1BA6881D67111070D5"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section4TotalVariation.lean",
+    "sha256": "34EAA5E23B974B962919D4C9546E782BD47377094B5E46D075790931E3CBDC40"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5.lean",
+    "sha256": "52A4DF00C65896672BDEB2886BD8377B127DAB76AF2C1D39A6555EDF30357F62"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5BlockIntegral.lean",
+    "sha256": "65D26C61D288DF0B2161EC619D891BF534EA2BD97A76A1B87A94F51F4969B506"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5BlockProductMeasure.lean",
+    "sha256": "B9E4CF6626BEFDE1991A160824137808496EE3A9925DB9850CD5F85F4732D88E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5BulkCylinder.lean",
+    "sha256": "39920CD0BBA2459572C11F78402BE9CB8B85C032B7E5148B451969DD1418C9CE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5BulkCylinderAll.lean",
+    "sha256": "70A600A01EE6398447634F91732BA89B71C8430C115B9FF3DE33805457DD052C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5BulkPointMass.lean",
+    "sha256": "5FDDFC1D0303231C92639536BD76D7062C27EB053F8470EA99C8AA76778E08C6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5BulkPointProbability.lean",
+    "sha256": "014B12CA1427C591FD789DA8DD692DD7D23363F0F5C4BF5646405099550DE5BC"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5ContractDefinitions.lean",
+    "sha256": "09A6BA2A620AE8260475DF44D3022F793865E74ABA2C347E1E9115F525A806E3"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5ContractRepresentation.lean",
+    "sha256": "0394CB4ADB1F9908F091B9623BFF7C23A38FAD36298F8565592CBE155278F1F0"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5CycleAssignments.lean",
+    "sha256": "9B3B217A5DA2444C48DD5279141C3726D67922E909C8DCC357655842E2A3136D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5CycleCutoff.lean",
+    "sha256": "C6B767ACCFB1C2AB0F54D821591C26A99BBF605F78D5119625BA03C8E9A1EC05"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5CycleProbability.lean",
+    "sha256": "E74B44F01B82285971FF17DB0A8FBAAF5A486CAE0D8EFD72A9C915B44740DC64"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5Cycles.lean",
+    "sha256": "19DA60005A511338521A5E088871BA9A3B50B2323792D7CB64A5D847D9429F7B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5CycleShellContract.lean",
+    "sha256": "606D770A12A9332E937F805676416DE2F7B3514F5A8D96F314D07F38727D79AD"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5CycleShellContractCheck.lean",
+    "sha256": "DFDA919BD6FCE87FED102A0F242388DCBAEB2A5BB32FE90B8A10423AAB62F74F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5CycleShellTightness.lean",
+    "sha256": "3F0860D6D3CB7A39061AEB88A8A5F6BB01E767D8BBBA2628C2BD8BD0DBD436A6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5CycleTailLimit.lean",
+    "sha256": "17CDC6F3A786776761408AC1ED1ECF3C84450E551C486B589C1976A94D68A36F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5CycleTailSmall.lean",
+    "sha256": "9C9DECC657DC9EE9098E3B997C599374632F0E8EFD754A221D4356CEC7C2A6A5"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5CyclicAnalytic.lean",
+    "sha256": "9F87E17A242CC0748F8A78E0E25A37AC6968DF785A6C57CA997703CA6950A209"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5CyclicReduction.lean",
+    "sha256": "E1742CED6626E017D780CEDD0240348650E1C4B88951317DB13DF8FE0FDF2A2F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5DeletedGaps.lean",
+    "sha256": "5C978642DC178FE28EE318707CF52EBFC9ABF8DD16EBC6C9827E2E7C79F624AC"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5DeletedRace.lean",
+    "sha256": "5CE37FC31EABDBB3832B7A5102AF3DE7E4092EBB87087DBBCACEFFD9643D1CA1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5DiscardedCycles.lean",
+    "sha256": "DC8924D61423E670448C83C768C8AEF755BF1F0DBD6979422B8F577B58F66603"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5DiscardedLabels.lean",
+    "sha256": "4D1074776C87E44CD03685FD4142B30FEE46E76A651B912C31627FCFE0B361A0"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5EarlyDeepSum.lean",
+    "sha256": "0A08A1523D0AF55F2D279B84BF224237622B700C14B61203859DB934A8EE843D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5EarlyExponent.lean",
+    "sha256": "4A63671824F3F09F9B4670B1AF354B5968B476042248FBC83A58E0E91C615B18"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5EarlyKernel.lean",
+    "sha256": "93D50F1C84EB51585D6989DBF55EE7435A7EEA5840686C2A3DF2B145DAC6E343"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5EarlyReturn.lean",
+    "sha256": "83D6E8DA4E6FC5FD9DF8F3E3D80411BBD9E7A898F36268630747AB519EB72FB8"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5EarlyTail.lean",
+    "sha256": "4D2C9601EA5C02730532AB5587F1DD6EEB2F415156FD226F35B24897C237B21B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5EarlyWindowEvent.lean",
+    "sha256": "6742D020A4AAE4250438C6E5CCDA5E95822923806F268EA67C0A7C4C40CE1907"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5EarlyWindowProbability.lean",
+    "sha256": "33CA3F478AABC039492D1D559B33A5F8FFB1498053E149B943D7AB235B8802BE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5ExceptionalHigh.lean",
+    "sha256": "9CF0CF6354218BCFEA6D0CA01E66616D628B89C1F520260022090D44988B8193"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5ExceptionalInteraction.lean",
+    "sha256": "FC2397631998FB3CB712F1BA9025C3C8673E750D17EEDAC031F221F812DA8D93"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5ExceptionalLow.lean",
+    "sha256": "10A0DAC8C70FD91F099415BE025B87A965A5EE755817348575D905B10063CCC1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5FactorialExpectation.lean",
+    "sha256": "27CF6DF4602156274DFEE9477CCFDA78E2B923F209E83D0CDFF885D5A984446F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5FactorialLocal.lean",
+    "sha256": "DA3056AF914C556707D1945063DA4345A7396B60AF6062FD2321310FEC70889C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5FactorialMoments.lean",
+    "sha256": "74A3E273CF32E45BBF0D77766E07B3C6CEECEDC12C810F40DE1BBE5A60B93869"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5FactorialPolynomials.lean",
+    "sha256": "197BA87ACD45BEEC278B5EFB687BD774CAC5297DCB7D2C2F4550E930814DCA48"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5FactorialSieve.lean",
+    "sha256": "BBB9A73240896DF5E924620BB0446D81F4FA0E60F0B960E43C5F7B54592646E0"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5FiniteCover.lean",
+    "sha256": "C5A095F3B4D3DC08ADDC6D09378501882ED29AC178D13CE9B11DDA07DC21A778"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5FiniteInsertion.lean",
+    "sha256": "C35B39842400693F11C148D258F12C7277B2FC5ADB16B5A7D1AFF6EA52F99CFE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5FiniteShellCosts.lean",
+    "sha256": "2B35C20D76863310DF4B20FF825D2E7A0DD4DD3D7D6A4DC27F6808F65BF2ABF2"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5FiniteStatistic.lean",
+    "sha256": "203EAB08323CA7F81282F96E4C855E3420ED79C790061D88488A620AAF69509A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5FiniteTaylor.lean",
+    "sha256": "2161CC166644AA14638CFA70063104A348E8B46BF46F3682ED8DB5BC48570464"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5FullPointProbability.lean",
+    "sha256": "2859EC5DD19B798D2F4FCB400BC50D16A97073440FEBC6B543E8FD5DE632FEF4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5GapCoefficient.lean",
+    "sha256": "C8521BDD452F321AE4C44289F28FAC702D59C9F4381776354D6659EA7FD72EE9"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5GapCoefficientLimit.lean",
+    "sha256": "C58E0ED9F72EFA1077278764E55F3682108710DD88D07EE315E0CD2B9010484F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5GapExpectation.lean",
+    "sha256": "9602103DE70C7D302455B46F9B5261D7DBC3DE99762515BE6A6CC6C1155A0894"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5GapLaw.lean",
+    "sha256": "B6C11D8DA78126FC3DC21F3F1718B0314097C3D99EDF6CC6EB86CB56A040487C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5GapMoments.lean",
+    "sha256": "6F0D969D0044F81D9ED1D2CCE47D73D25ABC3D2A8D667FDA28E15D673047A758"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5GapMomentTransfer.lean",
+    "sha256": "8837899EB607D9043E0AE69FEB359E5DFD974D2D27CBBB830E5B711A889F18B3"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5GapProductExpectation.lean",
+    "sha256": "4B1A921E080D2840229C018C5024B0E2D31A6C9B8EC0421FBD6AB69211C13760"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5GapReservoir.lean",
+    "sha256": "549E9043EF1FFBA2C7660AEC5AB91CF305B0D247C0745C2D8168B37BC9711B09"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5GapTaylor.lean",
+    "sha256": "37676105CE3805C47F8C015A766DED4E2B4DD141436C5995A3FA4899D7CC6194"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5GhostCylinder.lean",
+    "sha256": "C5CC047E60BC5754959AFEC70D919741C0A23327CDCFBA8384F8C16914C6EF33"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5GhostTimeSplit.lean",
+    "sha256": "B20593AAF9EE65CDCBD7FFAB72B3E606F56AA8DAB7A94B72AC5774A7E8EE0A3E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5HighRates.lean",
+    "sha256": "405076031532468C540B1B774C6D9DBA04CBC7E438476DF41CCCD2FF439CD11A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5Insertion.lean",
+    "sha256": "582DC7979F8DC9607C401181088772888B872CE23FFD4211DD903E4BECB3A6B1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5IntensityBounds.lean",
+    "sha256": "E30D19EEE3C3CE5AF8229BBE2117DD4D958BD07FD73D81C7BD7ACB69687F4BE6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5IntensityFinite.lean",
+    "sha256": "E5A41F7B9AF90F2C912CB650A0F9412E3F5FECFEB4B9FCDDDFAA5941C793C2EA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5InteriorLowRates.lean",
+    "sha256": "0F24A4FF1EA82EE309FD866EAEC56B7D34D7D0A295A089DCDB1DA72085DEB027"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5InteriorWindows.lean",
+    "sha256": "7D420D7105516E4CF52FEE48A9D81F91624A6FEE50874DA502A3599C8FF9EA11"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5LateCombined.lean",
+    "sha256": "733D247061FFAE990B1751F4FA4DCA030B8C3AB57A0A0E234CFAAC0E82AEF269"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5LateCutoffLimits.lean",
+    "sha256": "C787E4E4CD5FBB494D057A6DEB30FE4090AB5003A51FF94022C1200ADCE3BE13"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5LateDensity.lean",
+    "sha256": "CA4FA8B120E94EFEB9038EC0E2337CB17C31EF69CDE411EA387418C21FD22C76"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5LateKernel.lean",
+    "sha256": "9AD15483B953AF106C73F745D43CD7AC4D25F3458D69AD998C7CCBAC36633DF4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5LateMarkedIntegral.lean",
+    "sha256": "43FFF5C4D4AE24D0299A83F85376BD26AC725DE743532D1447A98EEC1AE9D80E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5LatePairBound.lean",
+    "sha256": "AE11526E78FBB0C4A729BEA619CEEB507D39A1EF16055120E1DB0B48EFE47E82"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5LateReturnSum.lean",
+    "sha256": "E29AAE1DE0B0C4E638A19F1BE6D63C1D9EA08D1F322214E14CAD0B35B87B6755"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5LateShellGeometry.lean",
+    "sha256": "614FA55449E73AC5ADE043FB3D40EE81048F24EC861E40AF37D84EAAF180F15E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5LateSourceBounds.lean",
+    "sha256": "839A8F943CA5D23DB17A85453119138E9E73866031231319C8D8F52840696E2A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5Lemma52.lean",
+    "sha256": "4504D4050CFDD6F7C7734C59D5428AB263065B47012F87F128F0A52EE288C59B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5LowCycleProbability.lean",
+    "sha256": "44C537BE796A7B78C1A0887F70D374F6E51181E1506A4EFDF8AD56C27A789DA7"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5LowCycleRows.lean",
+    "sha256": "44998499BF6D5D22C1F0121BB97383DA984CDC1D183CCA9E75A9AD5648CAFC57"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5LowRates.lean",
+    "sha256": "44C7B7504B1F63A351F3D059F1C4641E5F12BD6C4C588810D3F7BCA3B36973CA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5LuceTransfer.lean",
+    "sha256": "7732ADA7E1F4E759CE113CE6B6AE8FCA63B5A34837159DDAE6F6716A9F297731"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5MarkedCoefficientLimit.lean",
+    "sha256": "B545ED243104B0D22848C9682D73F7B4A038102276452ED0F98100180C5A1CF4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5MarkedExpectation.lean",
+    "sha256": "F7F76CD6D4429FFA58DF77B7074ECE59CBA734857FAAA31FA788ED0024431CCE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5MarkedGapBridge.lean",
+    "sha256": "7BD735805F682B8A12081FA1AA03E9F4B06A3AE9A11B082C676FAA8848B437F7"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5MarkedGaps.lean",
+    "sha256": "4053EDDE3B9FBFD9A26037E859F164ED334474EFDAD7C888AE6443580DDD8CD3"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5MarkedSort.lean",
+    "sha256": "CF7A7D03645D089A03737A6131A70CCF15C1C08151F4894C81D14A43B05FCB1B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5MaximumCylinder.lean",
+    "sha256": "F3EFD7929F3ACABBA97AABFFF29359AE2428F2B76365AC5FED00FECFC92CE27A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5MaximumExpectation.lean",
+    "sha256": "65DCE46C0DC4EFA97896FB99DC0AFF4D2345D581864150C84C6DEB5CFE733EB2"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5MaximumReturn.lean",
+    "sha256": "D54DC8847EA49C339C5386F3E11C725F98CEE295B779FB0078B1C31E305B268B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5MaximumReturnExpectation.lean",
+    "sha256": "83F4683504F66A5A1C035D727FB1E99E5F35E30CC17CB04D82C822C938D4C630"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5MaximumRoot.lean",
+    "sha256": "D1FAB235E22401DCFE4ABF4315A439CAD8657453C800AD0D1658CF35D6B5201D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5MaximumTimeSplit.lean",
+    "sha256": "5D38E8D6C7E519A64937A8BDEECA0C51A3D69BC984B6173B683B9150FFEC8060"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5Microscopic.lean",
+    "sha256": "7A5571BC62DF9C161440D9B43134542D075FDFA9EDE0A8E8137DDB4BF12F294B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5MicroscopicSort.lean",
+    "sha256": "525D9D0A87560B5345D551E23C8A462164C00849C6185E7A6346283C6E2FD168"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5Occupation.lean",
+    "sha256": "325BE6F46340A3BB9726A707DA913DD244BDF6421F874ACF5807A38F17D0E08D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5PointCutoff.lean",
+    "sha256": "EAC0D4AF982424282C178BBF92916AC80EF021F74A7BA8125016B499413FC566"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5Predecessor.lean",
+    "sha256": "D38B0A24F6847173C6DE693B0D2C65934DA5639918A877C6334AD406BD10F080"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5RaceConclusion.lean",
+    "sha256": "B8E553E8E4F04FD4B43579F04688A487990624911371784D6A973333E00581BE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5Resampling.lean",
+    "sha256": "1E0ACE0683FE951A4F91887E34487A59D96E7A4B9A96B7936E2CB621E90DE098"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5Reservoir.lean",
+    "sha256": "A0A4957D8FF6C266C24F0B1B95CCEE3ECF07DF94E31AFCECC07FE9C2BFF730FF"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5RetainedExpectation.lean",
+    "sha256": "9C33FCA80D7977D54C14F3EDF8506755B63740BF3A94F5AF3DDF1993E3062BAC"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5RetainedLabels.lean",
+    "sha256": "6801921387CB6D2BF0D9B353378301F97BA2B1210DDA62B4F3A3146E2A4C6F67"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5RetainedProbabilityBound.lean",
+    "sha256": "0C60E36BC91E2D5A5C4D781256E25174D1C00B812AA616FA1896DCBF1444762B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5RetainedTightness.lean",
+    "sha256": "262A9117960273D0A734424F22F31566C9D3DC71734553A00A70A3ECD9A18DB4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5ShellContract.lean",
+    "sha256": "CCEA85718CFE30AD4585B1A5B9983171168DD82D3BF65823D467A143FAF1448E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5ShellContractCheck.lean",
+    "sha256": "ACB46637C71CD60FDC90772DF150DF7A92813CC85EE1DFE26571C360A9867B3E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5ShellCutoff.lean",
+    "sha256": "56976D9838DE5CE51B688E8FBD893D3C8810E3167A057186F51F6CA06B5A6687"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5ShellMain.lean",
+    "sha256": "8F87CBF47CD37F1C4425244E807658EB26143DF3E0499187C3AC3E9EA7956B3B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5ShellMarkedEdge.lean",
+    "sha256": "609F19330A2A08C3669CBDB9DDD9C5CAAFCB13811995EC43DAD105A855A77D5F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5SieveRemainder.lean",
+    "sha256": "9F5684E327A5F62EA50ACCA23764C7AF2B67A9E47E17AB35EC40CF21CD1FF735"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5SieveSeries.lean",
+    "sha256": "063B97CFE0ADAAF74A45E335497075D63925212B6D70E74B2569ABEF6EF1A56A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5SingletonTail.lean",
+    "sha256": "67C11EDA87189AA8E90F7CB69CEB86DD4003D5BCB590F68346F413CBBC7F49B4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5TailExpectationBound.lean",
+    "sha256": "0BBBF69A1560723708B5CB9B39BCBC8D1479A6F2F4C8CD1369C227DEA8F1F380"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5VectorTotalVariation.lean",
+    "sha256": "1DD286E485FDAFB213CD81123882CA30E5FC8DF0A1A4827A7FD85402CB23FEDB"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5VertexCount.lean",
+    "sha256": "EBF74002D21346196C8567AE06302B9B32949777BDA0F164B9FE474A81BE2F33"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5WindowLength.lean",
+    "sha256": "FB60A2D8A997A695BC5C1F78C0EE4FB891A08D24BCE9AB155A91B6A3B887026B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section5WindowProbability.lean",
+    "sha256": "F1BFC749F11B0180B69C182230CEAA6A7189CEDFDF139DCB2B70FE7F6A73C652"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6.lean",
+    "sha256": "398606FEA100B71D12EBB72E2D80132BC7ADD24A49AD4E446F1C732DF4128010"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65.lean",
+    "sha256": "FC1B8023801E65F3AF1557F71D96CCE310E57F4065D4587FD9F19B41386832BE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65ActiveCorners.lean",
+    "sha256": "FBB63E9661EA4F02D48F9449AFE7A4B57F42BE808080014DAC51EC11054A8CEE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65AffineMoments.lean",
+    "sha256": "FB32588F26CA94094E210D616B56F12A77ED07443B350B362BB90FC7B4FB278B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65Audit.lean",
+    "sha256": "8496B7DF4EAF07A2989CF276195A183C4D1B2B6C8AC12B4B3CBF47CA8369B777"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65CenteredPoisson.lean",
+    "sha256": "9FFF06F10298FBEA0C0728C3E08A778294D60AA033ECDE3BCDCD6C20AAA68E23"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65CenteringExpansion.lean",
+    "sha256": "8037F7C95212A1A21BD9D7105C7899BD300F871BE72EF8D8D5665C343BF77C25"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65CharacteristicPerturbation.lean",
+    "sha256": "A596E2CFBCF7E5844F392C7D817A4DE8156524DD8EC741345B08EE71C460C4F3"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65CoefficientPositivity.lean",
+    "sha256": "EB9A0B85D7A7DBF42E20F94668246A9C4D3A67EC0DA9BAA799DAF4C208EE5F82"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65CoreCenteredMoments.lean",
+    "sha256": "3A0153B0A970EC2711BD4276D4917E01DF9E38C8407205E74AB00107B43142E7"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65CoreCountComparison.lean",
+    "sha256": "8D458126F377398B9766F49F135E9DEBADAE23614D6646677BF496BED28759AD"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65CoreDecay.lean",
+    "sha256": "42645B242341E00716B2CB87900DF8338D5E4CE75631FE3F7D6CFB2E5486E8F9"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65CoreNormalizedMoments.lean",
+    "sha256": "4041F8C0A4EF4579F3636C4BD241B339D9022389CC7F66E05B6246816E558C83"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65CorePolynomial.lean",
+    "sha256": "FBC0801C5E59072ED41FBFB925947822EF7B9C4CB06E46045C76FBDBFAD6770C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65CoreScale.lean",
+    "sha256": "E4523E5BDFE293BAB7AAEC71BE57A8F928402808CD8815A222FEA14012EFC47E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65CoreTargetMoments.lean",
+    "sha256": "19299A88328B9331B14BAED36FFDED6CFFC5798959825DE8989CD3960DFF5E8C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65CountApproximation.lean",
+    "sha256": "065EC01688BF7A7080EF2EF902404D129AE2FE6FAF8ADD04FA6F6AE07D60D73F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65FiniteCategories.lean",
+    "sha256": "B4234F25B994E93E25EC4C314A6343F5CD3539BBCB92B1E7D1D3AB2CA8311D66"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65FiniteCountCover.lean",
+    "sha256": "057672077CE733295AE07FFBAE33BAC6B33B7147DD3C69D9B1246AADC839BBDB"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65GaussianMoments.lean",
+    "sha256": "77723D71F1761D78A74317BBE1BBDA7F1086749DDBDFC0F8D8ED1883D20FA0A3"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65GaussianProjection.lean",
+    "sha256": "8F4C6A6302810DA9C544CE17AE1A8002F4F1315AE88FA60FA1DF804DFC83EEC9"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65GaussianVector.lean",
+    "sha256": "D3C8E70A1A2D602A6FA3327D7008BD0CAA7FDF7060AC798E6B5E2C2B1070D662"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65IdealMean.lean",
+    "sha256": "EAD9E89DEA2A6C643FC357FC7D6F2B883201B56DF6B11E88B8B34D5917B9A59A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65InverseCycleStatistics.lean",
+    "sha256": "8B6423806E44670A877FA53CE7EA859B49CAE03391AB3D130529DFD22C989534"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65LinearMomentExpansion.lean",
+    "sha256": "2C682DAC1870FB250DE5D0133F0B14E6DC670F6D9DC874F171361F6ED2F8A0A6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65Localization.lean",
+    "sha256": "49337C9A7DD116C9AC2440B012F74F718DD865B88712E8C14FDB8B706A0F88A0"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65LogWindows.lean",
+    "sha256": "A980B429CD8E94B60220B4A5575BA3442A6062C32A07425AD6313386901BD0F2"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65LuceTransfer.lean",
+    "sha256": "72BC0F58D455DAFC22E5DC6B1CC9048DB443D0C1101FE00193C59B209DBDFFB6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65MeanAsymptotic.lean",
+    "sha256": "AED4B5CED9A9CB5E6FE496379719BAB1BD709A2382E9DB9A81D9E05B13C38444"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65MeanNormalization.lean",
+    "sha256": "5A458A88768F3FEDD396F457584FC6F15055A3BC2426D5D1B11510FA38659F4C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65MomentCharacteristic.lean",
+    "sha256": "63C37B43F48496E5B0127ACD2332B2D25048CF1D64BDB724F686123A757E1841"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65MomentRemainder.lean",
+    "sha256": "D60C55958BC08622EC331B76C7AF507E4FB72629D6618DB3E744AEFF600E4F49"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65PoissonFunctional.lean",
+    "sha256": "E37727A98E116F98D3C043CBC1B3D398282F995698690D4EFDBDC5D7D3804E45"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65PoissonMomentLimit.lean",
+    "sha256": "0B8BCF4A7418F91DB2DB361CE42B3AFB5F85C3764B10FCFA50B906321072DE96"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65PolynomialExpansion.lean",
+    "sha256": "71D60886246FEC2D6507646D292E0B0D493C6FEFBBC44B58AF39E100CC0B71A2"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65PowerCategories.lean",
+    "sha256": "CED25C2D88D89730A8D9E8E46DD81883AEE3FDEE69E33F1F736A16EA7256F617"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65PowerContract.lean",
+    "sha256": "5FA6586E428A1744DB1931CC64B0702BC01C06191615D01A4DC642A5FC5E9980"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65PowerLimit.lean",
+    "sha256": "4ECE2D2B99A3A47FEC857B0DC259AC259F5662FEDBB554862A79826A54954CFA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65PowerMean.lean",
+    "sha256": "406E910954F356EA854C633EAE17D17D38D55C2C8119AA9D881E9A1A19194F9F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65PowerProjection.lean",
+    "sha256": "A473F474C211B215CE38052FEC8BBA75EC262D282A30E359FADBEBDC0C0A467B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65RaceMomentCharacteristic.lean",
+    "sha256": "E4827B88BF14AE28D7B27988A031C0095420320AFC6E91C20ED54B165ABAF335"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65RaceMomentCLT.lean",
+    "sha256": "4923240459433664C7C0B4DA73316B3BB7DB3030E8E5C89AFE039F9494112F35"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65RapidError.lean",
+    "sha256": "CD1A1DCF307E7A37F00AD8533AE1833922DE95183FB05EA676AD3CF67FDAE2FF"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65RootSums.lean",
+    "sha256": "6A507A82D3626C48C9C2AB3ABE2321798CBEAC490795A4B781DC883A15C2AF1B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65SpatialCategories.lean",
+    "sha256": "89188C55C821FF0F2235B5CBA26532840B3A8F67EC3C447E3750D33CF3FF4095"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65SpatialContract.lean",
+    "sha256": "1547C6C181BF33BEDB44D598032F54C986AF55765802561F1D2A884F82500C0C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65SpatialCoreComparison.lean",
+    "sha256": "6D6BCB66462A3033FE70F8BB4D5756923282ACDC335A807DB686FCCA73AC1EE6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65SpatialLimit.lean",
+    "sha256": "AA2D6D24521301C98A648DA68394CEBA7728A06442454CB9E5A98A201B730BC2"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65TaylorBound.lean",
+    "sha256": "51841D91D5001B498218444490CDF7C26C2D0B4C3099F16FF85680CFD9990DA3"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65TotalCoreComparison.lean",
+    "sha256": "867615C9B0F053A87150484031F935F2306B5AB4352E03C41917CA06CB653FD4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65TotalCoreCutoffs.lean",
+    "sha256": "E3C72E7506CE338C2B308FD9052FEF15B91E88A60C1AB658BE0B98FAA797E03D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section65TotalCoreExpectation.lean",
+    "sha256": "A975571CDFAC14530108254E82DCBF86C4866DA4B0F05FBAE94F472D8B493B32"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ActiveCycleBounds.lean",
+    "sha256": "414AEF05F0E81C29FBED85BB5388A4A7E60038E109934C19C4DE708EDF53A247"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ActiveEnvelopes.lean",
+    "sha256": "3A2ABB5A9E7F02FC71B604F4532171DA3106843781B5D356FED302983123C1A3"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ActiveMatrixTargets.lean",
+    "sha256": "FFD8577903E05AF6C885CCF595C1D6FF374A978067CE3382267A4C8AE63D5543"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ActiveOrdinaryColumns.lean",
+    "sha256": "49D519DAF14CFD07C671FC491D9F4D8E5ABDB808FCA75846FADAEC4174F41135"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ActiveOrdinaryRows.lean",
+    "sha256": "E914F056F43C9D726219FE5886E02CDB908C5A7627D41D8DDE15E7E2B731098D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6AntitoneQuantileControl.lean",
+    "sha256": "8D19C7CBFEDACDDC1B1455518969C6F5BC9100DEF809A71329551DC1028DBEE8"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6AntitoneQuantileError.lean",
+    "sha256": "47180BA4A2DF609438AB0A12B952C43A47BA964644E350F9CCC7D8B27527A770"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ArrivalConcentration.lean",
+    "sha256": "E6F5F5B33D0E612FD61CA7B6DC544285C760DF66EF2F77AD9E040AFC9E572840"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6BernoulliRelativeTail.lean",
+    "sha256": "4CAA0354EFD1D7ED5E00D24F2BDD3B33C7FD9CF49983CA92C1D97E5E56E920CB"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6BernoulliUpperTail.lean",
+    "sha256": "BF045ACDA191C6B7A74FCD2BC2F6C1B2A9B2F2F10179A66A8E2F979B51DDCAA8"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6BoundedScaleEnvelope.lean",
+    "sha256": "757784C2CF0A4CE3A1EF336E1C18308535C42096198790655EB396437AA8C955"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6BoundedTerminalKernel.lean",
+    "sha256": "A087CF9CBED2ECFF08987AC3606E1E84657E63567D77C9D734CCB2FAB462FD95"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CategoryCoreActualSum.lean",
+    "sha256": "1097BA00C685018085A4532FACD8E3123F34E03BAC95A23B4D6928E2625411AA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CategoryCoreEnumeration.lean",
+    "sha256": "DF4E239949F0CE08E9212C56C607FA196102D5C3513FC36049CE19EE273DE4A7"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CategoryCoreIdealSum.lean",
+    "sha256": "7414E96D998397FB0B4D6CCA3A0440928FCEAF977EDFEBFAFB69551FF3C00DDA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CategoryCycleBlocks.lean",
+    "sha256": "887F8F12ABD3B9DDA55A8CBF2A84E796F0F0876676ED2B5A4C5EAD0B1F7630A1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CategoryCycleCounting.lean",
+    "sha256": "DEBB4263B23B75B42E613FC7FBEDCD24FAE31DF33C09D34367503D7E83AE316D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CategoryCycleDefinitions.lean",
+    "sha256": "42956A3B0703112A93283F1F13B62B032FEA5668739E3946A4FA906AC5C62976"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CategoryCycleEquivalence.lean",
+    "sha256": "7503FD4424CB9707AE6C579E11CCEC7C66F6F4CDA7B1F1F314E04A52FD0101D4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CategoryFactorialExpectation.lean",
+    "sha256": "C188C5AD3CF94EE3C72C1509347CE4AFE9230DFFF3B210490C7BB4F59C58C660"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ClosedPathIntegral.lean",
+    "sha256": "C72D21AC96F54976835DFD08D788956B98DD1BC9450F13406F4E65B7EBBAFEEB"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CollisionCoreTests.lean",
+    "sha256": "310193322787DCD7A861C2DA411D64E2647817C2641E70BBEAB35BCAFDE2FC65"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CollisionCycleTests.lean",
+    "sha256": "5DE800D5AA1DF4D0BAF0F5ADAC6C9361C7FD724E467F6E72DF67FCAFF0BB9A04"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CollisionDefinitions.lean",
+    "sha256": "B0E33C2076561C3F8C36784DE6D11D70A98E17BB1D99A27CA78AA5D4DCA523F8"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CollisionDepthSums.lean",
+    "sha256": "682B8FED24F69885D756EF63F653461181DDB2A1E977E6006D109A98BB274D1A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CollisionFamilyBound.lean",
+    "sha256": "A031D900F7842CD0DEB3FDEE28633BEF3B2391B4A833FC637D5D120EC8C350A0"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CollisionPaths.lean",
+    "sha256": "865954BC649C90135F8393E9E0AAD5FFBC8A7FBC7CD15C7C5AD92B8A99923F7A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CollisionProductSums.lean",
+    "sha256": "01BC90A303C499D34CA603F05728A7904204923D6CE9AE13EF974766616E7230"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CollisionUnion.lean",
+    "sha256": "84D877706BBDAAD420745C1E86D7DE804F40CA46ECC25ADCC173CC8CF0ECD05D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CollisionVaryingMatrices.lean",
+    "sha256": "77A7E72A4EC924C5ED443963C07E27454C3BA6464E9F7721B7830C11AA39AB6D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CommonDecay.lean",
+    "sha256": "A92A4225FBC8B7D3D11EE6A4606B2F8D46587519B924A6CAD6F14C2639A5A7D4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CommonWeightedRows.lean",
+    "sha256": "9F09EBCC9E258CF7D53E4CA6B44D35AF3CDC468C5859B8DB8BA7FBD493C23903"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ComparableDepthPowers.lean",
+    "sha256": "98078EC8388C083030D552C26EEBC3BDC3ED2DEB6C826EE700DF19C969568252"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ContinuousBoxTrace.lean",
+    "sha256": "66751B4A147EEBB9E3D6EC46F6FE3C1CF080DB6A72CF136BDE540093D9D2A615"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ContinuousTraceBounds.lean",
+    "sha256": "934B1D1310A1138C57CC293E9F9083077FDABA8967AC2D6B408952998043E8F0"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ContinuousTraceGeometry.lean",
+    "sha256": "143F239B478ADF9B8684737A4A1A103774E1B2B384D9043D3D635A02AF2183F5"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ContinuousTraceRemainder.lean",
+    "sha256": "F660881CE2CA7CB07126238DE81E70928AD17117BC3FDE83A9B4B054CC7F886D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Contract.lean",
+    "sha256": "F2ABFC9BB3AD530C9CA10AFB43DEC46B207C7F4274038BAE7D995EA0BC26E107"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ContractDefinitions.lean",
+    "sha256": "C6DE18FA959E884CE3D996160D4B72CD1161ED58EA5BEE0AD55AF1AD395A25EB"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ConvolutionDensity.lean",
+    "sha256": "89263A25BF7700268F0DF1E07B63751BC5D11AF517A83B92391AE67F7BA8B52B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CoordinateIntegration.lean",
+    "sha256": "EE2DEE5CAB9F99D496A31634DBF63AF99807670B7FF6901ABA0990EA1ED537E8"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CoreCategoryDefinitions.lean",
+    "sha256": "F6D1570EB57D6AC36361C30C08AB740435F6401F0F5A5F3A2C5DA638345F54DA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CoreCategoryDisjoint.lean",
+    "sha256": "E5CAD1871CA077223A9CEAC86C3280BC715609197B0F50757E29F148A2B449D2"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CoreDepthEquivalence.lean",
+    "sha256": "1522390E08D5C862491FA9E970DAF9448BE1821018EE3B93CC0FD5B807A4E22C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CoreFamilyBadSet.lean",
+    "sha256": "49059BF3AD78D218B5101B1ED2F19FFBC5B6172D35C2797FF5C5BCB4026194C1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CoreFamilyComparison.lean",
+    "sha256": "3C2A00A12CCBA6C687523B5A707AF45CA3E4E31E69ADFD71739A50F984E927FF"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CoreFamilyDefinitions.lean",
+    "sha256": "A98E7599BA6297CE6A99CD3E65753D11662920E9BEFEDC2590D980FEC2599805"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CoreFamilyDomination.lean",
+    "sha256": "F3858B319892E602225B31807A3574EBA9F22BD0CED0B349A4A7C96D9787C105"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CoreFamilyIdealBounds.lean",
+    "sha256": "83A7D3EBBA54723BF3CDA1AF7BE28746D0A36023B73BAB5EB17CAB9120BE9AEC"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CoreFamilyLocalLaw.lean",
+    "sha256": "4B8AD641C101520B1BF0E1D39B31EA89995D53CE2007C1B6E7CDABB0391209C3"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CoreFamilyQuantitative.lean",
+    "sha256": "CD1BD61D41D49F17A77BD6A65443D47460104E6E983F659EB6DBE6922A99BDAA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CoreIdealCategorySum.lean",
+    "sha256": "1F1CCBEC95F64C5BBBDF0E5E0B2D64B15948532DC20807CAC5F7045A50DC8FA2"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CornerEnvelopeColumns.lean",
+    "sha256": "89875D2E9FC09725861D720D7557EEA11B954E468B170AAD78A955E257194C55"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CornerInsertionMoment.lean",
+    "sha256": "C0BC9C7C50547C2E36542947D42C1F674074F1CC9586CA74C0EFAF44A1B9C8BE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CornerInsertionTarget.lean",
+    "sha256": "9D2128D31E2775AB93C37A9B735434056467E90D03DB973C721534B9567A2B46"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CornerPointwiseWindow.lean",
+    "sha256": "C6911C407140253F9A4C77CC6858ADD1EE0FA7FF79C2AA3FBA27A280063AA117"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CornerPotential.lean",
+    "sha256": "4E6458894E0983888AD9D98ADBF2E04DA7F34DB7FD55731E5F890A68A8331D6E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Critical.lean",
+    "sha256": "F890F5D5F11B95FD5A92D38D06C51359C019BA71B8C8EA0A6D822B5E441EE3CC"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalAudit.lean",
+    "sha256": "D8F8A880F454D13E9EF9584C78B4A06638A6054A7139C967BAAF0AF65D583670"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalBernoulliBridge.lean",
+    "sha256": "662FA4A2A249305F1D0115CBC714121F9945C8532446DD5408AE757431C4616D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalBlockErrors.lean",
+    "sha256": "82A89CBBE24A436DCD6F093E7974FCA53F9E58F1E55D4F65C29BAA53F37F6C2A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalBlocks.lean",
+    "sha256": "542FDF8DC725AB7F9623A4A7082AC5C1C482C0AE5AAFB4A0B17266B72E04E627"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalCutoffs.lean",
+    "sha256": "2B9FA03DA6099DE7136BB445920C0965BE25C5E8720AB9760BE3F3EE9D1D28C9"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalCycleDrop.lean",
+    "sha256": "A9E37DD0E46B003884A1B2C5BE9D3F8CF94DE6D50B9D1DCA37C24AF0B1D5AEA1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalCycleExponential.lean",
+    "sha256": "9922C6670C3CB9024470924204A94875731616C22592E79D10E69722F7217114"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalCycleKernel.lean",
+    "sha256": "A35DAB5E62A1B1F330893B7A067EBD98798F37793161503FE202EA95B90BF9A2"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalCyclePartition.lean",
+    "sha256": "C9AF0CA99BC0E1730615606E54D62F570305C8182DF127F935748EF64BFFEF53"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalCycleProbability.lean",
+    "sha256": "5413FB58FBB59C72A330C1CEC86C86049CCA542F79004D9E0F9546F8AF77E872"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalDeletedFloor.lean",
+    "sha256": "65EC27E54EE68E74F66AF77B4958A3FEB3C08901DE00440E1B89B06DA713B422"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalDeletionFloor.lean",
+    "sha256": "387EEB3B15AA514069ECFDDD85E6ABEF8F817AA55653AA12A04C5D0A714B9922"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalErrorSums.lean",
+    "sha256": "169ED916BB758E3DA245F951A185B58E15A04A9D29E80E6522DB89261799A02B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalFixedPoints.lean",
+    "sha256": "EFE70CCAF94170CC1E43242A906698248A94A05F6B2AC934A3793799460C8C08"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalGapSurvival.lean",
+    "sha256": "D1C9A00E32B17BB61E8ADE4D17D366F41E5878CF6C84C2F2DFD57B1A0E9D0A38"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalHazardApproximation.lean",
+    "sha256": "813F11868C6A90A98AAC8D95E39B4FBC6E5FEDD4DA051658C1F018F63314DA38"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalInsertionLp.lean",
+    "sha256": "218B581D03B1648F8A9ED00A149E7FE12C0BE7669F857CA9835A12B95EC51F50"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalLateVertices.lean",
+    "sha256": "EA79825A8797C683E53F7770A993AAFDDD5077A4B72E56B98AD568BDCCC16A26"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalLogSums.lean",
+    "sha256": "425E6599340DC7EAAD3D2BDC46285506724E8DAAC290C8D1499C6252FC5A0AB1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalLongerCycles.lean",
+    "sha256": "E458997726902216E6EA9B00FD92E17C45072C95BE85563A4D692364B1CB23C4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalMainMissing.lean",
+    "sha256": "47B853BCF97645332936A98A5B6B7336274783DCA939E96416547F9719ACCDCC"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalMainProbability.lean",
+    "sha256": "8DC266BF01A3594D4843A2455D1EB273C9A01654AF9E58BC71356896A1278026"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalMainWeight.lean",
+    "sha256": "2473F905850D5F75E5A3E2DE215F740409027B73590F64B951D8BED06BC71216"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalMissingLabel.lean",
+    "sha256": "627A2C2A64D6038345674CB4563E838FE8B7E7F82CD150710DFF0DC13E2C80DA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalPoleIntegrals.lean",
+    "sha256": "4F54C30C7088A4F4826176F891DF76F484A4C8B764213D70A176C6E626073F67"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalPopulationComparison.lean",
+    "sha256": "5FDD8705DE7CBAF828F9641CCA318DD1CD78C82E6E6124D91D28B5D769C3FDF7"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalPopulationEstimates.lean",
+    "sha256": "0F1CABE59D39D9AFACEEBC13500C3C48059BA514420CA2CB090824D76C2EE016"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalPredictableEnvelope.lean",
+    "sha256": "0DE3D13E4238A51C97A7A0147BFD9B93024018DD2383FCB77C0628EA3151DDF4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalProbabilitySplit.lean",
+    "sha256": "27DAD2F0BF69D46DA065CC505FE31CA0E7A3365DAD20C2190B2325262C995BFA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalProbeBrackets.lean",
+    "sha256": "C5C2DEF4B0408E6E62188F74713C72993239BD958F1F69C3EE68C499101F9200"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalProbeTimes.lean",
+    "sha256": "3C68CA514616CAEE0238EE213069040AE6405A8D6517DA76DBB6F7DBBCFA8EB0"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalProfileBounds.lean",
+    "sha256": "AB37899AF75C5E95C24D3E7A057B87EB75FE5EC5D1095DE27265E7AB6FE4ADF6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalProfilePerturbation.lean",
+    "sha256": "F0D4A8E51000617CEEA7C71AD596850231B92B993F7429A47D9878CAECF1D891"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalRangeDecay.lean",
+    "sha256": "AFE83A491658DF45C7C5224ABE53D588C293190049DAC4644C9239994F543DDA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalReciprocalError.lean",
+    "sha256": "A57B249892805D40903CD9733B1FC33910FE23868520251B80266A0E5B38DD05"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalReferenceBounds.lean",
+    "sha256": "81A13447AC6763EEEC42083C438B67C9E39507C296CED7F6BCFE8DF082B22B99"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalReferenceMass.lean",
+    "sha256": "5577C5D67CDB958E696B583833ECCA9F89B4A71958DC9B09A250D3BE3DF09547"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalReferenceRow.lean",
+    "sha256": "B978A5A0BEAA67BC7A7ACC14E99E571665DD5A23E835C7683D8B5EF1ADA875FC"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalReferenceSum.lean",
+    "sha256": "8EDA9BED469DEFFDF341E1D3AC6DCCA29874DA20EA232F3B4EB0F289FE4605DD"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalRemainingExpectation.lean",
+    "sha256": "9E9BA22A24ED50AF92E4621A7A13F86B420019E0E42C12FDA63AA8BCC7365042"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalRetainedBound.lean",
+    "sha256": "1730A3540186528B0A238BC4F70C0C420680488A708B01AC00499673808195B9"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalRootProbability.lean",
+    "sha256": "ED23EFE65DCD80E76105191E207B08DF651103DEA4143B72FB47E75AFF5F3C95"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CriticalShiftLog.lean",
+    "sha256": "0E8E196E52BE5713633822B82A822EABEE4F94202456C70210962A1E2473894B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CrossDepthAlgebra.lean",
+    "sha256": "C55E6BC3A53ECD7537DC3617A379B031B5941FBB454D13F384D724E748EB1096"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CrossDepthProfile.lean",
+    "sha256": "74684DFC1DE71BC11D7AEA02E1462DBF051823AC22BF9657DE5FD2A82357C664"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CrossDepthUniform.lean",
+    "sha256": "08EE026C5AC2CA8688FA6CB57DB20D3930F064FDFE97814D211F4873C068E20B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CycleExponentialMoment.lean",
+    "sha256": "8DEFF3F4C638B3D0F497B3298067C4D2DC55CB4977C30041604C9FAA5DF04506"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CyclePerturbation.lean",
+    "sha256": "BA8CD0F049BD47C915690EFAE706678CFBC9AA6FCC16F8D903DBEFBB5873C537"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CycleVertexBound.lean",
+    "sha256": "B5C04D5E577F9653DCB8252B9F5FBD6D5A5254014803DE7714263314F17887FD"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6CylinderSkeleton.lean",
+    "sha256": "6B9B632E6C6C24C245552FBEA78731F0ECCF33797E5CB274C06514D68F5CC332"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DecayCompatibility.lean",
+    "sha256": "F69A6118DB76B07CE1EF8E1E111D4DE889B7EA9623AEE71D56CA9E7080608265"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DeletedCountRelativeTail.lean",
+    "sha256": "A0A023978AA72F51B59368A8A18A8536CC72B3BCE81CD57657EC203E27E0F6A7"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DeletedOrderMoment.lean",
+    "sha256": "153A7CDE33BC55AD270CD82860A4EA6369586478284B0CC9529286896ED046AE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DeletedProductTransfer.lean",
+    "sha256": "93F8CDAA29F1F3792C0B7E75A4ABA1366EF1EDB853CB1AF19CFB5A8BC04C18F6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DeletedQuantileSeparation.lean",
+    "sha256": "D793D8EFF27BC3EC3B2232C4BD6852AD3554172F28F3BF52672F707C1BD5FC0A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DeletedSurvival.lean",
+    "sha256": "42EFAEC43AC05A486B389BE6A5CAF0141EBD7E525B0E865D78E37DCBF4096A9C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DeletedWeightDrift.lean",
+    "sha256": "764747C8FBDE870C11BD34781ED30F982DBD5605D98E8B631D22ED3C13993BA3"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DensityEnvelope.lean",
+    "sha256": "F18874A2C5F78F3936D9C8C630CB4D98A9D5218D7AA0945862B169A4A6885776"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DensityPerturbation.lean",
+    "sha256": "6EC1A702AD21E9459B429F545B31FE3C09F6F6954BF4E8593E34D85205FD573F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DepthComparison.lean",
+    "sha256": "E22D2EAE2768DAC2D98E20B60CAF790B98FC00E1D2269F75DCCE58FFB006AE4A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DiscardedCountDefinitions.lean",
+    "sha256": "B818E3940200F15DEE5F29DB80E75C70C56DAAE90DD04AF26B834ECE1B580202"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DiscardedCountRounding.lean",
+    "sha256": "C39544CAE77C8547FBADF64296CE0582A5BDAB187F68D48DDF7296778F82830C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DiscardedExpectation.lean",
+    "sha256": "6285ECE28BA98B325558CB403351A5C448DE143FBC8D0023FF5450504DD62800"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DisjointClockEvents.lean",
+    "sha256": "808E78F2676F70C1B4117A37CA6AC97455DCF54B301EC9728DEDECF32F619680"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DominationMatrix.lean",
+    "sha256": "B3D44205F4340E143BF17C4E4AC7ADB6109D0F793AEF5176DE7AD408B2C2F9B5"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DominationMatrixAllWeighted.lean",
+    "sha256": "AFCE8468168D4FF4687DEB963B1B85CB4C484C2AAA0670548CF0747A55412E94"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DominationMatrixCornerColumns.lean",
+    "sha256": "E65C3C47D80A8B9078902855BAA4B33B380CBB60D19DAFAB93170627CDF77E14"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DominationMatrixCornerEnvelope.lean",
+    "sha256": "924C1091BE63032C419DED2558AFAD43FB394FC29B6848E1511325A41411B8D4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DominationMatrixCylinder.lean",
+    "sha256": "ACE22C72DD3AEE8DDD0CEA4F9FB763FBDAE925751EFAF6F5CFDBC117C30FACD0"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DominationMatrixFixedLeft.lean",
+    "sha256": "628D3F76B553F45C18AD8B727B49CD11C654BB60F9E95D3B52E26E3AF35D97B0"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DominationMatrixFixedLeftRate.lean",
+    "sha256": "FC11FC43FC23A1348F26AFE54B114B9F6361C08C08AA0A74A7985AC1CBE49DA4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DominationMatrixFixedRight.lean",
+    "sha256": "92B4EDC321BB3C2699CFF24FAECA6671E16B00E6BE48A75E6185097EC2D59296"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DominationMatrixInterior.lean",
+    "sha256": "C1E65858B62FC1B49892FD57D55204966EEFDB98A7FCE26C4AA003C6D00F69B4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DominationMatrixInteriorAll.lean",
+    "sha256": "5EB9EEA37EE4398E97C7948ED0ABACDB4E1E0064953C5CC2D6F329517F611B25"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DominationMatrixLeftTarget.lean",
+    "sha256": "FBBF58EB1818D55EB84F145F19A094889DDB2DAA84AAB46A4DAE5B82838DA613"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DominationMatrixOutsideLeft.lean",
+    "sha256": "40D1CB74D1C83DB0055900F4D4D4918787032D3F8CA2B8B4C1F4095D711DA234"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DominationMatrixOutsideRight.lean",
+    "sha256": "6BB44D7F9460C968E69007768B69B6D72520FDD7FF8F9CF074DB41496FEB849D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DominationMatrixRightTarget.lean",
+    "sha256": "8A245B498C1E8528652EF04043FFD1332FCF0DAE352E55819AF8ACCFD3075594"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DominationMatrixRows.lean",
+    "sha256": "4C152647AAD7E28B225A60F9321F213089FDB84B2E550B2F3EF47B13C3498510"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6DominationMatrixSmallRows.lean",
+    "sha256": "CB81688DB10CA79DCBD7868FF7B27289F935AC0131F25A4E7591A350886C1B5E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6EarlyLeftLp.lean",
+    "sha256": "9E7D3F847D5548E6D9497BF85DCB6AC04E32D2ECFD46AB37502415980923A367"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6EarlyLeftWeightedRow.lean",
+    "sha256": "74630C090BC0715F237D733837038967029B7B83266C61782CF12F9C5A7BD07D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6EarlyRateFloor.lean",
+    "sha256": "AAFC9DCF63820444F16E8923A5BCFE7A176B14ACB97D2DDE05AD85876C6B7F9E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6EarlyRateLp.lean",
+    "sha256": "44524405229E473D961063321DC5ECA34C8A7F4C62ECBDF0F53D67A9CB2B3A7E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6EarlyRateRow.lean",
+    "sha256": "E6D75CD7D0220AC96F0A44841CB263DE8F476EAA5C30040FAD7A0A3867041E22"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6EarlyRightWeightedRow.lean",
+    "sha256": "ED6079FFF7DAFFD71BFB64B5AF47FB976B91BB58776467AFCEA980DD1CC505C1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6EarlyShiftedRateLp.lean",
+    "sha256": "31A9447B8935439A5DDF86170FF478913B66881C276836B79D08F788FDA33472"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6EndpointBounds.lean",
+    "sha256": "D1F5F043F60BCE7A8C3E40D9A9490F16DD99E83EACE89E52EDA4F1F00DF9AF59"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6EndpointCycleProbability.lean",
+    "sha256": "8B52C329232C52C46B014EBCD4A53B2ABCF433A4B7A717C41EC3564328EFBDDA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6EndpointEnvelopeTarget.lean",
+    "sha256": "DDA5600DE9836B6BBF145D1A78BA2E88351E3EB83554ADA0ECD6D258880A300E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6EndpointExcursionProbability.lean",
+    "sha256": "2A1C9656AAE442089A56EC71E570742E26A0BFD3E8C80AEF4F508FDE5AD0E2D1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6EndpointUniformRows.lean",
+    "sha256": "15EB8E58EC2F154012351131EC20239385AE39726FAE3734802BC4CB93A25A30"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6EnvelopeAbsorption.lean",
+    "sha256": "C8AAD1E5581E64AF00E6D2282CEA04F2518214EF4AA7537B44DEA0877F340118"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6EnvelopeMonotonicity.lean",
+    "sha256": "F55CA378D8F501E5109C12C25BAD14B7F33533153C714374DDDF86618A2787F9"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6EnvelopeSums.lean",
+    "sha256": "A35257C104FDFAA675E1BD92308F810D868909AC6F9870DFE77F2B3593240757"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6EscapingCycleCylinder.lean",
+    "sha256": "363CC80954D31E832A2BCB31C8FBD7AC222CED94BEE4488B7516FDAB2E79C4BD"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6EventIntegral.lean",
+    "sha256": "55DFBF34154D2AABA7E186EE968C51BEE50D30591C7E86C470EF2576300DC93C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ExceptionalRestrictedSums.lean",
+    "sha256": "5FAFBCF45DDC2C2DFEDC281DEBAF401DD2F44F93C9FB0D4219D78D4859AAEB50"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ExceptionalSummability.lean",
+    "sha256": "41F3C77C85494A331851EA20F05885149171B71F477DEE69A7F8B5174ADEBFD3"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ExceptionalSums.lean",
+    "sha256": "174E41479B372E485F871FF437D6BC2AC9FEA5FBE68851A55B0FC7D3643CBB97"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ExceptionalWeightedRows.lean",
+    "sha256": "5331A7771F5401BF2406C581478CD28BD90DD31D05F536A3DF66927877DCC248"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ExcursionDepthSums.lean",
+    "sha256": "AEAD5810434C8EC1AA4344AFB4EFCD1E6187A06E4AF3FE6F8E29EAFBBB5C589C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ExponentialProductDensity.lean",
+    "sha256": "E88CF984F435CE8395001A0CB0A540A0E770599AB310C59F9A776BB889365D63"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ExtremeMomentAbsorption.lean",
+    "sha256": "3B248CB17B74F11815912911CE1F8774F920D7CA6E946095DAC688A0FD80B149"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ExtremeRatios.lean",
+    "sha256": "7E9F6CC1F0BD3D1DB06E300FCCFAA0C90FE8E823278C78F347D4E7024024C6EF"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ExtremeScale.lean",
+    "sha256": "59D785B999F1BF5C9046CF46CE19A272B90F4A2E7C6128D9C2C3E6E477D89122"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FactorialCommonConstants.lean",
+    "sha256": "0E20050FEAE01F9CA2FB0E86820B57D2C91157F68DB6A7EB467D70D5BF0DB67D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FactorialCoreCutoffs.lean",
+    "sha256": "A35F43F2A9D8A19710ED19E7391C0C6AF4A418B767DC2BF2FF4FDD4F5DDEF00E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FactorialDominationData.lean",
+    "sha256": "611F27A07BB118E92D0011C3A3487704DD482F707316CE40E4CB55569B5C0E64"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FactorialErrorAlgebra.lean",
+    "sha256": "A0435C819C244E098C0850184072258FE25F5FCD91BCB891E1220AD97CF1E571"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FactorialFamilyBounds.lean",
+    "sha256": "FF32EA992426A1563D3A009D1ECB6E31BDB403010C30A53993E64A37479A16F8"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FactorialIdealRows.lean",
+    "sha256": "E3446D5977ACBCFEBCAD57772BA65DCFADAB34480A283F783B65D2DF59A54C82"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FactorialKernelRows.lean",
+    "sha256": "0007489D490C4DDEFB8E30EC35815D6C7E68741D2D6E3127B54A2DC32B1DC723"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FastArrivalBounds.lean",
+    "sha256": "A5225E7F12A2482F5BF2DE4C4DCF92692C55C712394D95C71480F158316BDA27"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FastArrivalIntegral.lean",
+    "sha256": "5FA4B6B50ABF5BEA8E6B99B903EA456EBF295894C57856E1ABA555F763F1A3A9"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FastArrivalPrototype.lean",
+    "sha256": "348AB5DE1D4CC312C6FA051E322E0804547025774FF4326563554A8B7DBF8022"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FastEnvelopeSums.lean",
+    "sha256": "7040DFDD12BFF3AAE9419A7C9E2286024A898D9CA3CA85E926432134F3CDB996"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FastErrorExponent.lean",
+    "sha256": "3BB11BCC75FE5CA97F454C9F685D2135CE8D50F6095C1C2C3E166C48FC93E5F3"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FastPopulationComparison.lean",
+    "sha256": "E9473E61869FA40B0EC1E6BC08F5C7952960A6D5EA4940CF935BD42CA09A5A5A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FastProfileComparison.lean",
+    "sha256": "47360F485A145DD2805B7799173E87602AFD52AB7ABD508C53892F92777227DD"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FastWeightedComparison.lean",
+    "sha256": "9F6F530E3CF2FDE86037C423CB18D877B9A9A2BCF9A8328D02D9BF2F1545DEEF"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FastWeightedIntegral.lean",
+    "sha256": "83779C00D78BC4F6EB42E6C6C5AA3D98230683A5EF487BB95A02313178F7DC73"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FastWeightedPopulationComparison.lean",
+    "sha256": "FEA212FAD230DFB8584F88950EFD32332A8D82AC7DF9419A79AF6ABB7EFC347F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FastWeightedPrototype.lean",
+    "sha256": "5E094869DB5644D4CAC16293D5133EFD9E1578CD06D9BC2BE09ABCB57F4CA4B3"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FilteredCycleCount.lean",
+    "sha256": "F088400B40EBEB90FAC693A61A992F3AA9B0B278FDDFF34A7FE8AD8D96763F78"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FiniteBadSetSum.lean",
+    "sha256": "8B95FF195D5F1005293BCC86D2F68AF498F46B8ECF1B3AE41D5C14192DFC9B34"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FiniteCommonConstants.lean",
+    "sha256": "0DFBE30CE1C8228349CE808CD584FE70CB42887C901DCFCFD37F7E89E5CBA0AE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FiniteKernelBounds.lean",
+    "sha256": "1A2246487D1EF7E1E9B4E0F30A8783B8902FE5842D0E5521F0F0F97F16932E32"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FinitePopulationOrder.lean",
+    "sha256": "71CB8D32940EB74944CDD350201FBE6193D4292F8C24ACC4D7495D09B832B3E7"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FiniteProductIntegral.lean",
+    "sha256": "B400B07A060C51F421A539EA64DE754DC887DABE26FA6984129A7D669DFEA769"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FiniteQuantiles.lean",
+    "sha256": "DE65FD198CC0E36CF373AF0BA6556D3274EC6C85CB9EA72A57625C3E3E19CCD4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FiniteRankReindex.lean",
+    "sha256": "DB9D53813B1C1816C73919A36BF028C6AA6E4D1CA6CE3D48114281C57EE8EA91"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FiniteSampledRatios.lean",
+    "sha256": "0D8D77D08DB3487F01837D71CC50B44DA0222495BDE5A6F7A20AD76015183037"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6FixedRightSurvival.lean",
+    "sha256": "87955261C201FE1DAD6C03AE1FF05326722BAAD58C3D7A26EE6505F49C347CE0"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6GapCoordinates.lean",
+    "sha256": "A2F64F07128EB9BAAA6A63E50A11AB89477C13CF83975E151585A8C821F2D65D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6GapOffsets.lean",
+    "sha256": "D8405A4ED106184EA2AE1DF70076C80E7AED52A5C5DBD049D6568079264A3413"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6GapOrderPartition.lean",
+    "sha256": "D3AB80A2E463390970AC6453C3FCE87E9A99ACDF025AFADE38549759A360A96A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6GapProbabilityProduct.lean",
+    "sha256": "0F04D351ADAC45082A7DF587DAA1DA0A12B323B129FD862706DA4273FBE1412A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6GapStart.lean",
+    "sha256": "72AC7E0BDEBE801459E092AC82E5931EF734DBD4A79FD071B78AB6AEBFA3DF75"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6GapStartIndependence.lean",
+    "sha256": "0644F76E62446FA2F9E14C632487192B3290B4B19F33D317713124A9CD47C7BF"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6GapStartTail.lean",
+    "sha256": "118CD0701096EFFD663D045C474B9F262BA31FED761B1C8CA8B26E8B9686B917"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6GapTimeRelativeTail.lean",
+    "sha256": "3AC001A1B0F2E8582DAB63F79A7E91A0AAB0D7B9C3196A3CB362AA0FD5A5E25D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6GlobalRateUpper.lean",
+    "sha256": "AA369EE6D4B68C436735C58F1A4A74009BFDC7E1568F4F8D5B3525245726863F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6GlobalUniformRow.lean",
+    "sha256": "6AA3E43389CF301B12CE006E68FD6A125B4AED033EB7B573FE29904E294A2041"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6GlobalWeightedRows.lean",
+    "sha256": "377B58884E7D0ECA21B39A446CC1EB300B7EE9625A36D790E0AE833D4A98BDC4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6IdealCollisions.lean",
+    "sha256": "947D693105C8ED4613CFF6B05459CD613BACE96783BB93FE091C8C0738209BB0"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6IdealCoreGrowth.lean",
+    "sha256": "0F777815093AAD61ACF701155F4FE57846736D75E66DC9D385B8140D2AA7C385"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6IdealLogKernel.lean",
+    "sha256": "2038E807F42F5858986B4D35ABF2DDEEE85B9763AA50EF78608D7D9E59BA2369"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6IdealSpatialEstimate.lean",
+    "sha256": "BDD7A7FAE3ED776056515230A1A28964BBFC6447DFA85A95B3FB56737FB65DCE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6IdealSpatialWindow.lean",
+    "sha256": "F07A837C913518E8E58731B004F9DE309DE83C0D462221DC459A96AF20A50126"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6IdealTraceAsymptotic.lean",
+    "sha256": "D715BEA1FE19609213BB154FF6000EFC1A65A332A6A0FC1F053AC6C286993E59"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6IdealTraceDefinitions.lean",
+    "sha256": "9D97149D53A3A44DA422A64ADE7CC8989B169D94B32B0166A75F1B38C560B2FA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6IdealTraceRestriction.lean",
+    "sha256": "DE3231D9FCB2EEBCEEEC4BEFD078E4E6CB88025CF8FBED375A6F1BD9C2440335"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6IdealTraceTotal.lean",
+    "sha256": "9C7F58FBF08FC91C7EC47309F252F533DFEC12EBC99F30A9922642B4A703067F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InactiveBounds.lean",
+    "sha256": "D8868007B3E77CAE93A5B058E2D5449111BFAE8C1A0500A231DF72BB41E12818"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InactiveInsertionRow.lean",
+    "sha256": "86CD621CCA544256750C337EBFF8CF0225970F6059ED50A7F53536144FF80FA3"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InactiveKernelRow.lean",
+    "sha256": "E8759BBB0876FA5B30B640470D97583987771121D894643557DA4DA0EC9F7744"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InactiveKernelSubset.lean",
+    "sha256": "CF9EAB5488A95737A808DC4D96AEA3E29562FF70190853A09B33E78FF042A320"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InactiveLeftLp.lean",
+    "sha256": "A8AC2F30CD8D6A1452688D395BD0CE122856DF477A734F64ABE9A2F3B2B2474A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InactiveOrdinaryRow.lean",
+    "sha256": "A89DC1A16A052B451E2B46EEAD396DCE95A83137ECDED06C087EFEE79FE3D2DB"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InactiveRightAllGaps.lean",
+    "sha256": "9241765B7D590BC5DF1A1333E84628A3F2655A82FEF400D8F469D45191194B98"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InactiveRightEnvelope.lean",
+    "sha256": "BAD3C165280B7492FDC406B2BEBBB840AA5406A0F2B93236F6986A008AF93EBE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InactiveRightLp.lean",
+    "sha256": "EC6070B4381FDC9B5A09AD58D36C214D09877C01A3992ACF29E91B9B3A6BCF03"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InactiveRightMoment.lean",
+    "sha256": "9A23F908BC4A6291470DB512A485D50C164A90CF78214D23623F2460C2EBEA6C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6IncrementDensity.lean",
+    "sha256": "AC7AC1B1DEEFD67F69C67EAB74E0F857C8C726C2D3ED0EE4749309ECFE6A4963"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6IncrementEnvelope.lean",
+    "sha256": "1C60AE0EC9F5397333C71CDD4C17B8D9E04CD91FB1FBA5E3AE661F86705B8421"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InitialBlockSurvivors.lean",
+    "sha256": "B2DFED903EE8A47C702908F7BF7585D1A8137269A6508044AF80CFF340FBBD57"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InsertionExponentialMoment.lean",
+    "sha256": "ECB53F8EAEAABA32B963F852580C1C3F43FC133BC04221720E14A2B69487CBF1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InsertionHolder.lean",
+    "sha256": "A4BD083FB8DEFD492A835336523C08BE0811E3AE65A10D32DCB8FC85D03B77FE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InsertionLpEnvelope.lean",
+    "sha256": "A7CF238B7C4BAD463AC721D6EE9D192B48653A3E35B5A7187D15C0BA8EDD7CF8"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InsertionMoments.lean",
+    "sha256": "79B293540FA6D6C9ADB7612973857195B5C34787523D761D354AF2A1C5A53019"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InsertionProductBound.lean",
+    "sha256": "7C81AD7C27017F4C7A6524D8A6603CC15DEDE0669904F381B6B4B1EDE78FB5E8"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InsertionRatio.lean",
+    "sha256": "FC5FC650E48620EE59D5F3FCC87FBE9A1924EC212DB2DFBA6C1EA60930C4EDB6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InsertionSecondMoment.lean",
+    "sha256": "C84194E7916900506298478CBA0F11FB1A49AB5EA8B154C3B461149EEA655885"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InteriorCycleProbability.lean",
+    "sha256": "D36E46C3773E419EAAA9DACBE8AEDE32E841683C7C3A0AE60B4E2AA7406CF556"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InteriorCylinder.lean",
+    "sha256": "A8B8827FE476F4595DF3334D16F107DF93845D834E00728DFBF253E0A1A02E0A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InteriorDeletedD.lean",
+    "sha256": "1CACBDAC7677BC18C4D951B19522B1DB8FACE6DB8083ABB0B540E9E19B688310"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InteriorEnvelope.lean",
+    "sha256": "90E8C5762E980717FED8F173DF827E7A033B2434C54B0F2C40FA9C6EB16D4226"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InteriorGapBounds.lean",
+    "sha256": "30193B0119FF2799838B1457434DECC21D034BE56F24133B7DE931A2646004A9"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InteriorGapTail.lean",
+    "sha256": "5539EE06752CE1572D875416C6078FCAB0B427EAA146FF89EA75849CD627AA73"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InteriorInsertionLp.lean",
+    "sha256": "ECB731ADBFBC2825BFFF69F88288D505F085A6882E11AE6FF03C8EFB2642AA5A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InteriorInsertionMoment.lean",
+    "sha256": "BE7ECD9352FD05FE1007ADA59A97EF01C913AD87C40AA301E3157CFD329DFDF1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InteriorPopulationD.lean",
+    "sha256": "F2325CA39DB290CBFF522C4586A0739CD434AA7D43F870EC6D9698F8EDAB30DD"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InteriorRateRow.lean",
+    "sha256": "C8637170119BAF9359725A575264A228E62D533F0E44BCAA3366C6A1F7C901EB"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InteriorRemainder.lean",
+    "sha256": "646998EBB4F97B2FB02B82CB7ECE70731F99BABA33F5C46088E077C7FFAA18D3"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InteriorRemainingRate.lean",
+    "sha256": "7141912D31D4B2B2F2003D90D4974E12CB0537B562330073D782024FB1185115"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InteriorShiftedMoment.lean",
+    "sha256": "D19E49B738F6B5ADBB399F18EBE335E33A7452DBE1CAB38BCEAC9FABD7A8AE80"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InteriorTargetBound.lean",
+    "sha256": "C082D32AA98E39B41B53D2092058A98D1CF1475866EE000A0FBB00D1BE9B79A5"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6InteriorUniformRow.lean",
+    "sha256": "37BD8F1B8A3806821727495F9C6A89398FDCAA986AA454B782973C26A76884A8"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6JointErrorCutoffs.lean",
+    "sha256": "C379BA9E61A4189953BA1025F0407FA192EE7620D07F8CD6A5B3B3F3CBAB51FD"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6JointGapMoment.lean",
+    "sha256": "4D72143A6EA322BB43EC4914A41039087D04EC060F1E510FFE23C562B3C5E563"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6JointNormalizedEstimate.lean",
+    "sha256": "271B6032B8F4F8D87EF2FC0FCA75F0BBC11F50E3C364529C5D294FD444B3DAA4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6JointWindowProbability.lean",
+    "sha256": "A8D265FF3880249FA373EBD1BF79EBC3F970029EF3F8F31A93D65F7B0ACD6407"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6KernelLp.lean",
+    "sha256": "577E950954EDC84D9B82782B9D65EAD7431CDAA4E8C6861AE2B0EE3C419E1C0E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6KernelLpOne.lean",
+    "sha256": "A510E29115F8FEF5B40845296BD5AA67B369D9722EE60071BBB65827EA6E4C29"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6KernelPerturbation.lean",
+    "sha256": "6DCA3058522FEB184F7078B4BBE69E3B0AB7AD55BF08738DE889F1F1A5A9FD3A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LaplaceEnvelope.lean",
+    "sha256": "F84606C649963FA361F3CF4701EA8382EED19D62808972DEB66BEE74670367CA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LargeTimePopulation.lean",
+    "sha256": "E9E0D4791073DD9AF394110DB9DD6220BE82C0F60FFD8083A24A081C4BA3A06A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftArrivalAsymptotic.lean",
+    "sha256": "C4733E4AAC1189AD935341B4ED8FCACFBF6379FE4B77D49755111C8A90A56DEA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftArrivalDeletion.lean",
+    "sha256": "107E8E816D8F8168A9D541523C98D9B7EB97C63FF48EB83B04C99990277A1377"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftCommonPopulationError.lean",
+    "sha256": "9D55B76BFAF7414FEA9EB05A6BFB8212D6068FAAC5CEF546F23AAA5507587475"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftCornerAllTargets.lean",
+    "sha256": "654C59B0A61ECD31954171378C22882B42045D282EAA2F35F6EAA5D3066A8D04"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftCornerWeightedRow.lean",
+    "sha256": "C31D0972A2863E6881E9AD635BA97B8B3A5309B6F32A32F5F57D7B9D1E56C94D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftDiscardedExpectation.lean",
+    "sha256": "2C32E2A2E5A0C7F8B500377B19D868C40925EA967EC06E586E69A69B53B1DDAD"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftEndpointWeightedRow.lean",
+    "sha256": "E69FC4371E491DB72A31771A807EBB1A9253F58D780B8E04F56A96F653BEBD20"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftEnvelopeAssembly.lean",
+    "sha256": "7216238D4BD4BA8530656E329283D0CCCB2D51BB91488E6B0D9222F9EC8D7A22"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftEnvelopeWeightedSum.lean",
+    "sha256": "F8DAE651830625DF1C4D3ABBCCC83F2D3AC6195857178CC0A24B2B622F83AD36"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftEscapingPaths.lean",
+    "sha256": "6270961030F947BDD72E37DB4F715918C186DFC3F2413D51603FD4F71F06197F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftExtremeLp.lean",
+    "sha256": "7B6DAC11F589A157251AFCE62B559E2925E52E1AD96851803895D9D1479F1C62"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftGapTail.lean",
+    "sha256": "897FD3B3F27DA630A1BDDD1E8F0223D9D72008A14742FE42CFC06021F1C896B4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftHazard.lean",
+    "sha256": "8F4257796FE68116C03B4DFE7EB0779866A42513C383650534669A49B432EDB0"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftInsertionMoment.lean",
+    "sha256": "C8B83E9861E84B7AD9CFCF832A3D41C5E14FEA41BCC74E78B31A1BB9EA984F8B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftInsertionReduction.lean",
+    "sha256": "4EBF25AC725F027019A5F89FFF886A0B56025BB8BA7B5FF138A7667DE368BA62"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftMeanEnvelope.lean",
+    "sha256": "0C316DE012612412AAF0DE7FF71743DBFA0EC45FDFD7009750F38346D8E389A2"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftOrdinaryWeightedRow.lean",
+    "sha256": "F5C9D02C84E31EC92F9766D5538E57BB8544A5A76CC0FC882A719E46FAF4C2C2"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftOutsideLp.lean",
+    "sha256": "A1A21B7811B739DF17CDF1E71DFAC39E08E12333E59F11689E25D3E14B36ED19"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftOutsideScale.lean",
+    "sha256": "9BD21B775E54BE132DFE2BC238E805A5371CDDF76D50EDD0ACD2F29227B85BF7"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftOutsideShiftedLp.lean",
+    "sha256": "9CD860E2BE5E59869660ECB463A672190DD4E55D9A2E9032FF50A3568499B2CC"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftOutsideTarget.lean",
+    "sha256": "EB74736220B7F599E0EBFB18CA9451C7CF27DEF7B6C83196461B5CA7D01CC790"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftPopulationWindow.lean",
+    "sha256": "D4D992D4BDEF36496160E49F8EDD8135FADB4F4EA4E17FD3ADDEAD173E67CB0B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftQuantileAsymptotic.lean",
+    "sha256": "7A97910270E499C5C62C2BB6B095ADAE1CA1BAF8A375E8BB6BDE173EF16C6913"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftQuantileWeighted.lean",
+    "sha256": "AFA93F34E4A55CD21122C3BC05A4539B09F29770FB4033907316BD9A74FB44CB"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftRateFloor.lean",
+    "sha256": "42B4D41FBF627CF21C45669F5E85AD893D2F62046A98BE4E68BB49A11F1A1AD9"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftRateTime.lean",
+    "sha256": "584A49DDCCD269B9C3203CE52AC3E794AA9BB1348EC814ABB3B2FE2EFE9B1C74"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftRemainingRate.lean",
+    "sha256": "DF83F08130E26E4437468B78867CB1A81DA397BFA879EE668247032EBAEF365A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftSampledWeightedRow.lean",
+    "sha256": "78F6AC4AD3CCA4DF749FE3418E9F3DA7743D80F70F00C77C7EBA4BCCCB6417A8"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftTailMean.lean",
+    "sha256": "417099D27C5D3337572FDDB78BC7D9DE5A071C39650ABCEBAD880288BE989BCE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftUnrestrictedLp.lean",
+    "sha256": "D45125ABB4CDD48BC849DA427F35F84E78762BC2348BFB177B8CFAB86E382618"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftWeightedAsymptotic.lean",
+    "sha256": "1BBAD53CDE0AA68CF78EC53E8863CA4A52B74608A8D19B07E08670AE783C151B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftWeightedDeletion.lean",
+    "sha256": "D4964809926090ACC2B944F8F3B2C2CBDEBA5C13FD4F0721FD3DE5FEB2C50916"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LeftWeightedRate.lean",
+    "sha256": "BFA8B8BA7F69B95CCC1844F9AC7B7B1FF4A544F2753F9133D8D71CA530A375E0"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma612.lean",
+    "sha256": "55C5AEB97EDA6F1B93B0B07EBE0D29EF8AF199A4E217F791BEFA266061939190"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma612Audit.lean",
+    "sha256": "4A5E52E9EB92F91E9F2638F2D0E67A0FA6FEB20A2C8170234E240A9E556BAD24"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma612Contract.lean",
+    "sha256": "E689FE656C3695A1C256DDB74F62578827E12738463E94426A381A0448770A5F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma64.lean",
+    "sha256": "DE30F7E6620B05ACAA68906B08AAF38246F14729FF546B77AE6D515E6A83F6AC"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma64Audit.lean",
+    "sha256": "BD850712FA41DEC0EDC813BA91073E9E7F9ECBEA0A97409CE3E441F9EA4A4A2C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma64Contract.lean",
+    "sha256": "36DC7408F41DB5FE9FD06CA9E033FA8BD1A7FD16E7CD66F5BAB0450312883A90"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma64Cycles.lean",
+    "sha256": "0B85A6A92BE8F48E60D27FC254F26E0F5E8FB6086E95A6C80DC54920F1A71115"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma64CyclesAudit.lean",
+    "sha256": "9941A01B6D44DB68030E7B37EA30D2D52AFAFD4771A25D832CF89DFE1A3934E7"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma64Matrix.lean",
+    "sha256": "A71395CA1EE38EB3CE505719F85C8873D81A6D9B8D0E8DAE5309C1D0729AFAD5"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma66.lean",
+    "sha256": "AFF72007DBDF5A45EF2D25D79876888BB1AD8C1747FF90E315F73D6A18D8F6A4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma66Contract.lean",
+    "sha256": "80014E4B682D081D2083B913CA5C252A464861621389920612322BBC1914C98E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma67.lean",
+    "sha256": "76583B573E3FE1C946AC428DAEFA70A6EE2CE45CC522E369B294C6B64A61AEB3"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma67Contract.lean",
+    "sha256": "8DF1D04342CA33CE8D8DE69F4AD6A397D27AEC6F6019E379907C0D4815284CF5"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma67Definitions.lean",
+    "sha256": "8645B1C2EDA884C4301946927520F39B874AD16141C42247DC77D00C4EF114D8"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma67Totals.lean",
+    "sha256": "4CA971E3EB38BC27B9D2202746DC85FD961ADFF1D21F7F622E5FCB0557F7274C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma68.lean",
+    "sha256": "0C3F7C4DA689D38C7CBE5776EACD35E4B3F4C605A0F68FA30B3B3202F9C65B4C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma68Audit.lean",
+    "sha256": "69BA0F58B12E934AD96E8CBE219C0DFEAAB1FEA628A8EC477EB16AF828B72701"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma68Contract.lean",
+    "sha256": "CD53042D031DA18B6E1956E66FA3F7E6F49D4A93FD3A889F63C2CA56E7B2D3AA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma69.lean",
+    "sha256": "E54E8CEC1803155CF72A6CF66618D95AF323409C84E0CBFE12008591211B5569"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma69Audit.lean",
+    "sha256": "FEA2674A6A8D64D68CD7CDCF11AE6DE203C8E099556FE11B517BA6EB92694535"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Lemma69Contract.lean",
+    "sha256": "6573F4F895601BB435554764E97247CC256EA35575C3728FB9B9B7F47D3149D5"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LocalCoefficientComparison.lean",
+    "sha256": "31063D02CCE558DA4257CA58F6655DFF6E43AAD7E0D7237D2756E9D4939EB608"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LocalCornerData.lean",
+    "sha256": "4EE60915725BF49A9BBB04DD3087C90F1DF2FEF8D92491B8B1FC52A467210A34"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LocalErrorPowers.lean",
+    "sha256": "9C04E7C52D3FB3C0CA681225A045E0FCBBE439102019B6B1CA3F52521ED1EB2C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LocalKernelDefinitions.lean",
+    "sha256": "ABF9A23160F8FA2B989A477E8A74578F3F7F145EE8565531503A6A65BE7F9452"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LogarithmicGapTail.lean",
+    "sha256": "4F4CF1530EE7F74616FA7A286FC82609BAB30AEA0438C9AC43EC430EF0FB33BA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LogarithmicKernelIdentity.lean",
+    "sha256": "17ABA68232F825E3B7072D94CCFC3AF35805768A7AF84177010728FDF8974EF2"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LogarithmicRemainder.lean",
+    "sha256": "BDC4F65648EEB21A3C2920BCCE0E26A5481FB93258956FD6A2C392646F0631E3"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LogarithmicReservoir.lean",
+    "sha256": "CA9944418AE461F17B261F908A7BE8E9B7E3F6DE71F1478C07B3A1FEC8E686F7"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LogarithmicSurvival.lean",
+    "sha256": "04774D229DC5AF91CAEFFAD1531984B8861C269C94464040143C39B74502035B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LogCellQuadrature.lean",
+    "sha256": "2E2C4350EC8F5C82B1A7248679B21795029226B6F27B75C79A3D34EC593038CE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LogCells.lean",
+    "sha256": "806E9D5ACA41734D25A5AECFB2B819350C7D99F39940142EC29E3AB8D82A069A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LogExcursionAlgebra.lean",
+    "sha256": "FDECB153F272F3CDC7882C920E080B4BF06A81320493520885455BCB6DB32CE6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LogExcursionExpectation.lean",
+    "sha256": "E58A15965C60D3A37296F8F46882FB93890127B4A5A08A1B5A842B370164C6B7"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LogExcursionProbability.lean",
+    "sha256": "99AA3AF9406CEB02E4C904B6892B54D6CB516015FA7F1D27128A77DC278CFE24"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LogGridComparison.lean",
+    "sha256": "09A1BDCE7C6A5AE2BC95ACD271B6D47D0D9414A399682CDCFB5BC499E99757FB"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6LogKernelRows.lean",
+    "sha256": "4E785FCA9F839E4F057057ADB3EFB4BC1F54F7DC284E8A7B5CA2C4F003F14A7D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6MarkedGapDisplacement.lean",
+    "sha256": "B1BEBB5194D8BBB3AAE37952331BC5A50C99B861E5B668717BD30B682BA5219C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6MaximumRootExcursion.lean",
+    "sha256": "0BBE6573CE85FAD45094BCDD7AD1F14B94F0F3FC0CA015027381C92E7196FC12"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6MaximumRootExpectation.lean",
+    "sha256": "883B12A7FACFBC41BFF343648A47497FB9C50889055A2C11580986CE0451C839"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ModerateDecay.lean",
+    "sha256": "AA4E2EF61AFBC396C6047DABDB1284A8EEC1F118E55A53C97A2801D113A9BC38"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ModerateInsertionLp.lean",
+    "sha256": "C8B7AC63030E708103F10400266E5F6F8D9ECC93ED937C9200CFB87AC5BEC05F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ModerateInsertionMoment.lean",
+    "sha256": "70AEE7C1010158B6E07EA0D6A5EB60283EFB052E828E7CD71DEC6EFBB03E5499"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6MonotoneQuadrature.lean",
+    "sha256": "5700C0B69878F3C44D72C8FDC7A600F98C75607327FCDAA4E9889F6DF652DEC5"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6MonotoneQuantileControl.lean",
+    "sha256": "9D4E069621354FD1C4F8B1EF83E09C15F4C073519706A66CFB5C959D00DACA10"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6MonotoneQuantileError.lean",
+    "sha256": "87DAC5747D11E41B08486EAE6B410CF646D7CC336D1FAF4FA28405A7DB0E8E54"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6NegativePowerComparison.lean",
+    "sha256": "A0A2335347502CC5B4CD438C4E5C464DC4285B95C1D1900A3814406E7E0DE4F6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6NegativePowerInversion.lean",
+    "sha256": "B7C77931E50F71F9CF5DBCE16E13273AD663BB0499CCBA21CC78A7E7BCBB8726"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6NonmoderateCycles.lean",
+    "sha256": "E983A7FCC617A2B1D4DF35910738813778F955F7A24AADAA764C08FFEC646924"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6NonmoderateFamilies.lean",
+    "sha256": "B8C0E75A9F479CA803343EF1ACFDABBB2DD75B8CDBF0AB536CA192CB9DADB0A4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6NormalizedGapMoments.lean",
+    "sha256": "3E315E964D5E6E9AF759F6EB10C2073957B60494D193F4B136FE4D264E1FFDF6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6NormalizedGapTaylor.lean",
+    "sha256": "342F0025A1892FD80193AED1D38605D2A076E03ED12585BDC75B598A53ECFE3B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6NormalizedLocalPointwise.lean",
+    "sha256": "D0F7188A7561BDBD9AB8D3C8B680A07496EEEA6C80B5251284AADD30026C9382"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6NormalizedProductError.lean",
+    "sha256": "74F735B87605A7DB658026BC577C6089B764A96B4F2E6E1BB0331B67EFA706D9"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6NormalizedProductIntegrability.lean",
+    "sha256": "FA7011BCDAA54E0FEE19B8E825F29BD8E2048E1D0579C4FFCBF118F7DCF15605"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6OneGapMoment.lean",
+    "sha256": "3E29F3A823B972D71FAEF3D18E106C47DEF36BA86B0C62617B8122D527BD4308"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6OpenGaps.lean",
+    "sha256": "F28537F3A157038CF944D741DE1EB1C5081B771E2EFA5E2080A1C8CED0412E52"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6OpenSimplex.lean",
+    "sha256": "46A5A6D2EE41517DCF5F3C6E0473EA805F79EBD186BD2E5EFDA6EE88A4AEE004"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6OpenSimplexCylinder.lean",
+    "sha256": "DC5729B952D6CB8718ED240AA97458A7DB1F7ED531FE2D573FC2D8005040BFEC"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6OrderedGapTransfer.lean",
+    "sha256": "60317706144E3251D7352647A5B693EF8827E95F582D3CB4EFB44543C196D7A1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6OrderedInsertion.lean",
+    "sha256": "B53257128F24D78B3753C4F2206B3BAC65E3AB87638AB7321E89DFEF9D3B08F6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6OrderedInsertionExpectation.lean",
+    "sha256": "9EF9ED5CB38B61CEB07719CBF1F79C8FF37352025DBDBBF33F1513BE3ACCFEB7"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6OrderPartition.lean",
+    "sha256": "D0287BE1F7EA6905DC6D601ED7C5FF0BC648383C785EAA38CA2BE22706DDBB8D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6OutsideLeftAllWeightedRow.lean",
+    "sha256": "D2B363561D34DA77E7E17D078D20A29F1293741270D9CE4D19F28CD3C72EC33C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6OutsideLeftWeightedRow.lean",
+    "sha256": "3429E1572D47C24F97B1A73A1CCF94CDD72A1C0454CDD0A899A1CE3AAD1E6C20"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6OutsideLeftWeightedSubset.lean",
+    "sha256": "B7928256E8219162E832635F75F7DFB82E489E37D0F911EF39705FED3EBF623C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6OutsideLeftWeightedSum.lean",
+    "sha256": "4FB6A041FFCCDC8B4311E6DDD02F1289EC46B1DB008429FD7B5988A2E84F8CC5"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6OutsideRightInverseRow.lean",
+    "sha256": "4434B3461AFD67E0247F8DE7090926DF7C6A1A29C69E5A0C137EB568B44186A6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6OutsideRightWeightedRow.lean",
+    "sha256": "43DD143BC9D525F3895A80F93971CEB9315A229F92607A988D1E32CE0597CC64"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6OutsideSourceRates.lean",
+    "sha256": "041355FD9C5F6D436496533F914E58568A48A96CB1D611FADFBEA5DD8046D00D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6OutsideTerminalRateRow.lean",
+    "sha256": "00B9DE9A053BF8D01184275F97B830BE1B1DD4509C908B4110BACBB5B84825F1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PathIntegral.lean",
+    "sha256": "96EBA6D49CA41C184F1ACAAA6D896CE50236FE988E5D67DC900EEB01B71D1DBB"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PathVariation.lean",
+    "sha256": "AA60EBAD7ED438A4840F08CF4AAD7C841C53E6E6DA1A9CD4CC99DAB22871BE89"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PopulationDerivatives.lean",
+    "sha256": "8934698BB23B3528F8FA77AEB3883EE695EA7BCC166F70F10C126BE240FBAE62"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PopulationEstimates.lean",
+    "sha256": "D5A84882627A3607A01E3D8488C48C5AA1A2D9A1F54E450479C650D36EE4EF05"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PopulationFinite.lean",
+    "sha256": "54BF0768FCC5F368A5EA49F56AB5018AC3E92D1070AFB6CFB78A81E05BCB4D4E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PopulationMomentBounds.lean",
+    "sha256": "CF20DE5459B465217A0CAEBEE0090ADA2269370C9723CD9EEDEB85A4DC4833BF"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PopulationPowerBounds.lean",
+    "sha256": "B31349F04B752512E9C21B8DA22746A85D17F37AE9DB5D3D3030A854AB04B9CC"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PopulationSeparation.lean",
+    "sha256": "CFF50B4FE50BF18182519DA48A4DB10563EB99A3650F99A6CC37DDD797EB5D75"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PositiveDepthSums.lean",
+    "sha256": "0987AB324F9D283F863039854E6FD0472ECAF6FADC3FF8B29A6D50DBDDE8F515"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PositivePowerComparison.lean",
+    "sha256": "FF4E64280881757FDBD266298082709073D0126F8DFBC20931624369755B96A8"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PositivePowerInversion.lean",
+    "sha256": "C00CB72FDBEABF8DED2BC1B4DDD69DB7F9983B1A8D1CA492D3D980A1A06E4DDD"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PositivePowerSumUpper.lean",
+    "sha256": "8BA19697F3AA24D085E6D173728EC412109546B06BC57D13E16259E94B4FCBD1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PowerDensityCell.lean",
+    "sha256": "789CA164B77C50A95CFB0DECDCCBF676D5230DEEA41AFC126F58770DB64798EA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PowerDensityIntegral.lean",
+    "sha256": "BB9339F62E346D63F58AA1A3A901475B322AE43EFE96A5A16FE2E58BF0D817C8"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PowerDensitySum.lean",
+    "sha256": "CACACA155A00FABD6A2E4C98AB2CE8766368B1D88B0FBEEE36F433F6579E8A96"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PowerIntegrals.lean",
+    "sha256": "0895DCD9E2AB2F9633926309C90B1E71883CA947D7974C3A5F1C4DAF57C6C6A9"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PowerInverseBounds.lean",
+    "sha256": "16403C97706582D2FACD8E939F76A498BC0E013EDBAC3B21A05D3DCD14024994"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PowerWeightedCell.lean",
+    "sha256": "0111C142821A05B92D4A1D7AD1CB1354EAC03113EFC18E2B951375A5DCE8F429"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PowerWeightedIntegral.lean",
+    "sha256": "D3270FBD4B5EBED1FBC15B9157618E9E3D40CC11BF7A0E349352967731472A94"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PowerWeightedSum.lean",
+    "sha256": "7BE1F49BA5B31F4905E4E6905607D3FA593438BEF8681CF9EC6A1DC120C5C7BE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PowerWindowComparison.lean",
+    "sha256": "843631B0B3E386750DCB71EAAA7A58AEE85AB01749DCB2A6E0D82BF959A25E54"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6PowerWindowRegions.lean",
+    "sha256": "96168EEBB83266DE578F3B158C6F1B0E0C11B260C72C128D94B327298247B569"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ProfileBounds.lean",
+    "sha256": "ECA201EB3F531017D6086C116511AC56AE918020CAE16D9B810DED79D3770A6A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ProfileDefinitions.lean",
+    "sha256": "597283B5E3C43F58E4643939A43F18E065E831719798242BB02A48228DA647C2"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ProfileGapQuantileTail.lean",
+    "sha256": "79A659F56DECA73A3260C0CE47156AD78F3E8DE37A72CAA8484950B25E41C3EC"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ProfileJointWindow.lean",
+    "sha256": "7BA73CC661BA38542E2D3C7DF6D41F1B570AB4810DE9D617A7CF5303D8EC959B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Proposition610.lean",
+    "sha256": "D37AB63FB7C0AB502D36C326AE11B85D91586F44418BE17C62AA798272A9670A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Proposition610Audit.lean",
+    "sha256": "A284859681996B9291F2301C3A36AEC39D1F8AB20883EE548D3EF66D5FE35E44"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Proposition610Contract.lean",
+    "sha256": "6651E6406AD19C3971EC9BB5BB802E3B4A0218A17C66F1E531277B391666E1CA"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Proposition611.lean",
+    "sha256": "8E39B089B04A84133D972F133673599750326F02B572C4BFDB161F9C49BAB598"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Proposition611Audit.lean",
+    "sha256": "D7C767AC925EC95BB9DF9453CCB4D041EA812BB847E866EA929F5859187BD4C1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Proposition611Contract.lean",
+    "sha256": "23BB19C0D7FAFB6D43577EFF3B1A96AD8B18A79B8B27988A7225D15004B8E713"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Proposition65.lean",
+    "sha256": "C461D993F4BB7FCC6EFD31538F0DF235A13A9251E7B6CDB47554DEAA79436497"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Proposition65Audit.lean",
+    "sha256": "C6AF8926E1B19313255F668180597E3014E1E55C6ECD3CE31BE82E15672E78BE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Proposition65Contract.lean",
+    "sha256": "4DF878609AF129317C66F8D6CF3E663FC40EFDD2B69CF3E81393B7779B7A4331"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Proposition65Sum.lean",
+    "sha256": "93C8587ED08AD907C1CD93ECACBE88A8F89C02070DF423AA5FF86E5CAB4B3737"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6QuantileComparability.lean",
+    "sha256": "3B94F63CEAB6DE5B34C3155691F9CFE7C79A90C686A0C55C6879DD67E92420ED"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6QuantileMeanLower.lean",
+    "sha256": "4DC2CF95F4783E5F4750B843326B4A2E4028C0F37D347A778973F99D45CA06AC"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6QuantileMeanSeparation.lean",
+    "sha256": "E19A39512939DA985FFAB4E4050E02188CD737F44C4C55C18A79927272761926"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6QuantileMoments.lean",
+    "sha256": "B1CC4D1FCA0EACF0EF8033784619A3E99ED3B50EF6A469619109D1D34EF22C53"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6QuantileWeightStability.lean",
+    "sha256": "DA16E7DC80010F08FC240305F966F4719F92100C5225B0E538988C6104461F26"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6QuarterWindow.lean",
+    "sha256": "BE2BDEB307B76927CDE90EC719713182AA69F288F72F7B0E16902B3228F910F2"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RandomWeightBridge.lean",
+    "sha256": "1367DF3CF0AC5F6E072A00CC1B7BDDF4BF3A217FD406454B583BDF2EE3BBEEE6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RandomWeightConcentration.lean",
+    "sha256": "AF150ADBA1F31DCEEB7283C02138561A51665230B8CF33C4E8A73BCB828B7054"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RandomWeightProbability.lean",
+    "sha256": "7C1DC64F4BD7A5CA97AD8A00615323D239F8BFF06B21FAE7B3F288FD17D4041E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RateFloorLp.lean",
+    "sha256": "93A8CF347B73E63B9C331C10527CD9DA215F9C1C45598B33CB2C7559D6BCF983"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RateTimeConstants.lean",
+    "sha256": "31C09A609D237C28469009C917E69B5EAAD7287C16F4360A466EAF707C7174F3"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RateTimeLower.lean",
+    "sha256": "C21B318EBEBB686B010E5F77F4632B7C776F00D35C4BA9D7D7461EFB0C9E3F9E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RegularCycleBounds.lean",
+    "sha256": "072A67F677D5EDA43D82B8B895E16DF76453EA9221189C7A445E9747874D773C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RelativeMeanSeparation.lean",
+    "sha256": "7FB60DEFDB5CFCC77C7555174A06FC1CE5AC4DE91AA0764D854A2BCB139F7AA6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RelativeProductError.lean",
+    "sha256": "1FAEE10FFCA2BE5CE12B768DC77100DAE5B4D8D3B6ED88BA2C3B1F9CC32F23A5"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RemainingWeightVariance.lean",
+    "sha256": "9108BA5E49C4613D3B05511E8AD4FE0538A817C1970D831D9265D1917B4A89A6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RestrictedAssignmentSums.lean",
+    "sha256": "52F5DD2D07AA05A211AAFF8315197AC9703B1E6D85851BC08B3A13A2D45CA265"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RestrictedSumDomination.lean",
+    "sha256": "CE050B8809F90E0E714F22C119FC56D1FFC5F3A591D9FECF016D820A98584EE1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightComparisonDepth.lean",
+    "sha256": "9A9FA10AFBE1A149F4DE1858923E76BDC72AB444F25BC2FBD88398B00C1DF1F9"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightComparisonRate.lean",
+    "sha256": "E46F0138A09D66059E22D886CC4E014359ECCDB078941800FCBE12EA3ABD2B0A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightCornerAllTargets.lean",
+    "sha256": "49948F855CC9A5FDD7ACB6BBFE78088BE54FAE36224C63CCACD379C4685D6DC6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightCornerWeightedRow.lean",
+    "sha256": "74928FCEA90D897E0806D59CA7D8A691099B9C1F0876E64067989C9F99D7AC5A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightDiscardedExpectation.lean",
+    "sha256": "C9BAA99F5A47FD1988537C9E8D3957450A02124D7B86BCD88C7157CBD870C96D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightEndpointWeightedRow.lean",
+    "sha256": "3E4057A3E6A2A34CE4DFB153CE1D95773A4E63D115F8C0EB02C7BD2A70A3352E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightEnvelopeAssembly.lean",
+    "sha256": "2D5EE83C12F02B185F84AA043DECB035A996B77E35B0D4B666FF10EA6C429672"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightEnvelopeWeightedSum.lean",
+    "sha256": "0EAF32CF37C447888B07BFC3082841BDA1DA947D6A8D8516E6ED3B3058BAC697"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightEscapingPaths.lean",
+    "sha256": "F293C14EBB21382E188F33D99D6DE3F1104D9F8EC80A0EA12041972AAF9BDBFB"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightExtremeLp.lean",
+    "sha256": "7693AF0B39418EF01BE28628C46322129D2D50E32BFA10531A6179BE89F9E0DE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightExtremeSurvival.lean",
+    "sha256": "76197BA70247DD1FD1AAD059C68806AFCF38BA2BD592F5B6C8D485D31D67109F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightFixedWeightedRow.lean",
+    "sha256": "91F0BE16B8333A56C2FB39058CD32DEADCCB17A6E28926B235FA250EBC093C14"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightGapTail.lean",
+    "sha256": "A0514AAF65DA31A1B2ED8130F4B10C7702F4865FBD160187BF6A63EA0B34E1A1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightHazard.lean",
+    "sha256": "33EE87A59550062354ADCB08F2913730C56425C9C457E17C553F34307ED721BB"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightInsertionMoment.lean",
+    "sha256": "0BECCDBB6802194887DB2CC0237ADACF1CD9B461750674DF6A9740449BC98B3D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightInsertionReduction.lean",
+    "sha256": "8B333B00779E4FE73D29B7BE60752D5F929FF0D318E940F91EB314965446A75E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightOrdinaryWeightedRow.lean",
+    "sha256": "F8B8D2277AB23CA32C276CF8A100269FF37E80BFD76F292FD725765732C930F1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightOutsideEnvelope.lean",
+    "sha256": "3C85885B45A923A10DFC3C12C5D760EF4C274EF9A17EF36EF7D68BB7BD43A52E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightOutsideInverseTarget.lean",
+    "sha256": "78C12DD99581701DC569A36835780FDA5581AD4CA6BBCC5ECAFF89CC8EC004D9"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightOutsideKernelSum.lean",
+    "sha256": "A3F5299285E26009E3CC313911D991612CB63B2903F45EBE365E59523FDA4B79"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightOutsideLp.lean",
+    "sha256": "543ACA077CE3CB5F5D1A8E8E552E055841A2F49323CBA19A83B994FD13AA3B7B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightOutsideSurvival.lean",
+    "sha256": "25B52DEFE398BDFE2016329EDBA4F93112452C79C6D681FD5A711DF22FCA1765"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightOutsideTarget.lean",
+    "sha256": "1BDD072D1B327AA452AB76279EC579389001F144CF01838F56B9038993BD4744"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightOutsideTargetsWeightedRow.lean",
+    "sha256": "FF6C73D4FE334C363E4003572A1EAF35AD9A11CF203789A30FE854B64B0F552B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightPopulationAsymptotic.lean",
+    "sha256": "52A82FFE836D4AFFB85D7E50FB1BAB9A6C7A7686D796BD5F0A489D0DEC5F964F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightPopulationComparison.lean",
+    "sha256": "1C881F918A6F9D6206C4E98D9CA92403BF71BB0D12297CFEC28AA67F108F257C"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightPopulationError.lean",
+    "sha256": "8E1453F241F40268A1EF0499DED882CABFBE22365A1FE59769BE94AE2585F9AB"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightPopulationWindow.lean",
+    "sha256": "B648C528EA6167D7A29D5425BA105B6D577E29D77BAACD926BEF3922D99501AF"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightQuantileAsymptotic.lean",
+    "sha256": "63C830AE6840A14CAC1D823F86B0FA5E6C8432BA8752B7ED5EAEB8AC0001E61F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightQuantileWeighted.lean",
+    "sha256": "8135FFE5B2ADC4B763E39053998C90472DC5ADDD557CEEA6CB8D3C3E0A1F07FF"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightRateFloor.lean",
+    "sha256": "C7B888A7431BFFCB8C8DCADBE66BDCB46BCC36D5C28078CDEB53067573F60AA6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightRateTime.lean",
+    "sha256": "99B1C6956AE8887A199E11275EB63632F530A05868528084956E02121C30B2C0"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightRealDepthMean.lean",
+    "sha256": "6BEC7AB50EA5242A0EC4E922EF7D2112D8337FB9D3A4BDBAFEE898D353A7A24D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightRemainder.lean",
+    "sha256": "AF16C9807DCB0FDB50525D5B453E8D6041B8F84AFAFC267BB6CB281C53D416EF"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightRemainingRate.lean",
+    "sha256": "DDB9965087AB17E736014353832F698E1D5E32C9AAACF556F86DC2BE9EA3C039"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightSampledWeightedRow.lean",
+    "sha256": "AAD7106E2A73BE0EE4D015E92190EFC3EDAC884892B6804CCD57D5F23652C3F7"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightSourceFullWeightedRow.lean",
+    "sha256": "AF29FAA53CA681CE9CAEB096261DC265C215ADDCA97BD94E335BDE2372F1691B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightSurvivorDeletion.lean",
+    "sha256": "843CB76D6320AAC54374189CC5B2FE46B83420C1B7C27B4B0A283CC6CBAB8D14"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightSurvivorRegion.lean",
+    "sha256": "E333A4EE9B44A6153B0716EEC3963B27D7109AC11C789DF0B96EB10580E51110"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightSurvivorRelative.lean",
+    "sha256": "825BE9186D9D61C4B1E4A9C5ACCD257B740848B3D5928F84875EE15673B972C1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightTailMean.lean",
+    "sha256": "43691AA279F87A1CB7307D6C209EADA7F2245FFA68D5AF8AC2312C691ABDC93A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightUnrestrictedMoment.lean",
+    "sha256": "2538C8501ACB9FF464EC9DA2C15BA8B435B2B9BCCBE8010A9EC5EE856083E854"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightWeightedAsymptotic.lean",
+    "sha256": "89548D1734A5D93EFD15104A459A8900960202BA8BC4058FC4E2A58B0791F53A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6RightWeightedDeletion.lean",
+    "sha256": "9CC8DADFC7DFC3571C8F148F4859417B58D8B7992F6FA8FC5B98AA543710037D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SampledPowerExpansion.lean",
+    "sha256": "D28F2B05617015A04C8D0C93DDBEFE905DAB995A339B50C64C3E1AFE8C2D77F8"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SampledRateAsymptotics.lean",
+    "sha256": "CB84AF0A23DA5B2DCE5DA79AC0A0429AB0D82F85E59C9B3BCB1F71FCCD087B10"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SampledRateUpper.lean",
+    "sha256": "DDD21683B8B72469B62F241710A1EA53D54F5A425CE20FEF2436080FD2E556A7"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SampledWeightedSubsets.lean",
+    "sha256": "92BD6CFEB421B0CE774C983CFF7C85A9E4DC7EF7FD39CA42A407208AC97323C9"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6Sampling.lean",
+    "sha256": "CA21A08ADF50BC0B79CA1FB1B655640FF19F3447E3235BE9A159CCA29B025025"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SamplingRelativeError.lean",
+    "sha256": "0804340E5C3815BCC306C429BD28E398CF56F02709D5001527E45B452845B71F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ScaledEnvelopeSums.lean",
+    "sha256": "3CD237D2BAA65D5466DEE1BFF72C4A32C84F2DD8676B5E547624B3B9A134538B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SelectedCoordinateIntegral.lean",
+    "sha256": "C9F9D9A5F2428FDFB9B5DA275650C8B15C154BF3B0BF4244079056F91F64CE8F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SelectedGapFactor.lean",
+    "sha256": "37BE65AA9AB9921512A5832700707CEAAE5F01A23D2099DA537F95D24BFB5D10"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SelectedGapIntegral.lean",
+    "sha256": "E6DCEEED27673AC41F5736E06135CEE8A1D0DC29A0BB56EA585A52B65825EECE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SelectedGapReindex.lean",
+    "sha256": "A6D7009703FE103C97873A61543E3CF0C05ACD534FE1231042F8287276A2C1CD"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SeparatedInsertion.lean",
+    "sha256": "7F9EF53FCB6B13F9D0F403EB3B215C7692D57EBF144B6B5A0C7A0DDAD8CE65C1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SeparatedOrderSum.lean",
+    "sha256": "B8CF95F4B1F947FC3F6D75DAB504AFDD513EA1AFDB8B2144CBCE69CF1DA1C0F8"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ShiftedInsertionMoment.lean",
+    "sha256": "ABE2FB8D2953BA8243AF10E0C11557F35BC51E79AE163B06F6351CA77194F11A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6ShiftedKernelComparison.lean",
+    "sha256": "E1A3ED7C9047D3792052A0E99EA817FC46D61A976EA4173ACC04B930785BEEF4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SimplexDensityIntegral.lean",
+    "sha256": "17E74B3FA75EB923DCD94B727EE492A5E0632F54C263D5F470F526903446C186"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SingleReplacement.lean",
+    "sha256": "9759301F0789D73518C0585A6ECB917E7FAB4793795DF53C58F6B957385B3D45"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SkeletonDisplacement.lean",
+    "sha256": "970ADE08FE4BC59BB032EA3C6BC0A949DB40A0ED8068FEF2EA2509BC39A9D98A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SkeletonFubini.lean",
+    "sha256": "5003A7D69DE3373694BE7C6F1643A010FD116A263F11143F6E7071F46B9AEF13"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SkeletonProduct.lean",
+    "sha256": "A6897938D29A1F1A72E1856E5D999506134DF9A2EFB7C6F8AE8F7923808F7C20"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SkeletonStart.lean",
+    "sha256": "D4BD716FC00E3296868BDB39D991E1CEF4EFC2EBDEDED5727F2359D8D674B933"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SlowPrototype.lean",
+    "sha256": "937BCA1A041C5F62494E722348181CF2069888F24B17B57D3A3E68F31D60895D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SmallTimePopulation.lean",
+    "sha256": "517128497B6C4CCDDF1F2C31855B2DB2DB0F0360A9D9718AF671624D3A0EC6D6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6StretchedExponentialSums.lean",
+    "sha256": "619511FDA65D32084D98A3807B72685A4F559E9F735FC5D2218343A5908DC972"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SublinearCutoff.lean",
+    "sha256": "54D1679AC5C8BFFD3623235486B2B37C71295793184947FF8AE04250CF3146B2"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SurvivalEnvelope.lean",
+    "sha256": "AEA3FBB063A9839DE04C7595DA4750D1DFA9FA1629817D6D2128E454254CD227"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SurvivalSplit.lean",
+    "sha256": "FF6385E3B2740368F58D792327F88B4730D8B8CD19383A7CE10DBD06646D6A91"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SurvivorConcentration.lean",
+    "sha256": "6AFBB0B464002DA02FB8EB225A67482D277B9DA4D547883E1BDF812B4B375DE4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SurvivorMeanTail.lean",
+    "sha256": "E5270AC4BED381ED57AD7A3F3819A8EFC677FAB116C697131D086530C75E887B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6SurvivorReservoir.lean",
+    "sha256": "E6802B949CCB3A58C468AC34727E93C195A4E0796E06391FAAE59A7A716095F8"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6TailSlack.lean",
+    "sha256": "EDFDAF9FE5A4CE1EB8F6196F7602CE8253118B470220B11383F2FB8EA601CC74"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6TerminalGapSurvival.lean",
+    "sha256": "3150C84107C5B8726974F3D1D81D3AB8E18B4BC465EC5E968E3CF65A612C1D87"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6TerminalInactiveRight.lean",
+    "sha256": "B7F048D91CE87215D35880C51CDCC055A6EFEAC6391A0936997DC038719BD6CC"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6TerminalLogarithmicLp.lean",
+    "sha256": "14A7BE76375500ED118BE3BD08C99744DF6EDADDD9D9DAE876D367837027A916"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6TerminalOutsideLp.lean",
+    "sha256": "6D7B3D84E197B7532DCD7168A6FEF4830B73A7FE050A6AB97E3146A46654ADCB"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6TerminalPowerSum.lean",
+    "sha256": "3349376EDBC11515C6E702685B25C212816741853F82BE367B75118EC4219A49"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6TerminalReference.lean",
+    "sha256": "37F6691D4592AF6285306805C23C74E62EC5A383738AB20BD6FA65C08806DF28"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6TerminalRightLp.lean",
+    "sha256": "FAC4A623D16E6FD6FB7802964101B8F49B80DC9BC7E5793DE9B2999FCEC65583"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6TraceDensity.lean",
+    "sha256": "E779476EF34A85D29B9726F12335B44D58376497E22E9EC7BE1B9214E9807951"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6TwoExponentialBounds.lean",
+    "sha256": "8B42CCD8254DF12F452B7084E952513369F15FD0273C0CA8328823E5A102048A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6TypicalExtremeEnvelope.lean",
+    "sha256": "3171357D0E11F0A24ADFE16E7F6888F2D1F475EC64A3414555218EC159D2A58F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6TypicalRestrictedSums.lean",
+    "sha256": "6AC5B370FE906BB43C0D3D7A2811CC1CAD0DC6B948AA4E9492F2363D8093EBC6"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6UniformCycleConstants.lean",
+    "sha256": "36326FC57C65C30C73295BCCB0734B59A2F5A17B29671578933E6A0122BA707E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6UniformMomentDecay.lean",
+    "sha256": "B85BA920ABD50B8ABD33D3B9AD4CF22FF1260C225E9BA9992DA06107841E0003"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6UnimodalQuadrature.lean",
+    "sha256": "1406A86CD71E88ED7486B67E7BB00E509F3C8901EBB77E3891CE17C9463D4658"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6WeightedCycleEdges.lean",
+    "sha256": "E150E1F74FFD2EF80DA3A35B5C941812DA7F33086E3F07E1C097612285213D4E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6WeightedIntegrals.lean",
+    "sha256": "326D78A5E3AF480BCDA9812AE073F6B5E05E59428D02BEA680D7D0E01173AB64"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6WeightedKernelComparison.lean",
+    "sha256": "27C0542FE7D8570D23CFED9FAF646B512040D2EDCD2B7DE1280B511D312BE2BD"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6WeightedPaths.lean",
+    "sha256": "5B73C8E09C3C2C4905122B1B96DE905ADFFF14B8EB27966CF02C6DDD79146682"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6WeightedPopulationComparison.lean",
+    "sha256": "0A5DACBF8D278CD81751C888CF5DFA7332F80DA745800FD19C04087F9DE6CE48"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6WeightedPopulationRegions.lean",
+    "sha256": "49303B0BBBC2A6AD7A9225851C68A88848B62F17052614F331D0435EBF37E627"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6WeightedProfileComparison.lean",
+    "sha256": "E6ECCD1B6A847E2BC6C9D05C70A1CCB904D2E91B1BF27371708FCE2E6C565CDB"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6WeightedPrototype.lean",
+    "sha256": "383A92267FD4CD48FB1796856E7844943D49C59C7B36D5A9AF5EB33ABD0C19E4"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6WeightedQuadrature.lean",
+    "sha256": "55A0C8C07AEECF181B4A5B25F6CF7F74789189573FEC14B5C54004A3AA0AA4C9"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6WeightScaleConcentration.lean",
+    "sha256": "91D716DB5961768754C66AB70898CF2401647B4E7BA53632858CC61CCE29515E"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Section6WindowMoments.lean",
+    "sha256": "2B283473E790C93BED733C17DDE3D3594DB809C98D7435D7A2EDEB67098FB57D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\ShellContractCheck.lean",
+    "sha256": "C53BC35DEB62D9F2116BB2EDBD0848F8B703C7B256A524F20164C111BC1A82A0"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\ShellContractRepresentation.lean",
+    "sha256": "001FFA30CFD3D33F215EEB9DCEDDF0733459AD8A65239106DC9D173B4A798A82"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\ShellMigrationContract.lean",
+    "sha256": "00B80BDA11C2AAB3434C5B227A0EE2998684453310B614D70DA595B5262E9634"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\ShellMigrationFoundations.lean",
+    "sha256": "12D484BA0A03A2A26FA38D633B85C941AB628D672EE6589CD99A10F62ACFC397"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\SpatialPoissonLaplace.lean",
+    "sha256": "68FB3D468D665107A16512D8DA5D04370D8A0F822A048CA09D787CC09B56A67D"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\Stopping.lean",
+    "sha256": "A0C382720FC8288F7B4608E524D6E22530D529E1C329341D3A79B41DD95A3CE1"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\TailAssumptions.lean",
+    "sha256": "0822E6417949F0AD2231E470BBCAA5B91098D1D27EBB6F80DEDC463CD19F6B48"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\TailCount.lean",
+    "sha256": "A7D58B1A947699E663D5FD5E9FA2553A243EEEC1CA68FCE4E9B760286768386F"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\TailCountIndex.lean",
+    "sha256": "75F14B5E27627CA7BEE58BE8A965C9360BDC12BEEF16031689473702FD3266ED"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\TailLimit.lean",
+    "sha256": "D95C0DFD41CB19187778D34A9BAAFC1773691E33C787449568A6118F833AEECE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\TailProbability.lean",
+    "sha256": "30C57F5E3ED8A73C8882840D344A50351F5AE7EC3A3F0722FE1A81E86D944B6B"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\TailTightness.lean",
+    "sha256": "686E08485F5106312BEFD5C80CB1A724717D9C9E3730357597793B5FDB33E7AF"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\TwoCandidate.lean",
+    "sha256": "0553CD49240D25E3E1FBEB91CE7E4D6AEE84CD0140E037E972755FF265C3D4B7"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\UncappedPoisson.lean",
+    "sha256": "339DCC5133F17BA3AB51C05481A1431ED3E72EA9D35CF3EA203C93B55AD4C79A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce\\WeakMeasureProbability.lean",
+    "sha256": "109B21B186E0B41B1DCD7C58E5B798AE003693B31BC93E74A2F75F936FCE5A3A"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\Luce.lean",
+    "sha256": "3E1F4AE6D02966A52139C82088A949CD2C7112072FA423EE008F83D940054B12"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\fixed_points_sampled_profile.tex",
+    "sha256": "9E1422F037B54B2A026B93A0BCBC6619310F17F0DC8302CE31D5D7479369BD83"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\lean-toolchain",
+    "sha256": "3AAC669C7A910EC2389F4E4F921B605ADF6EBF2D1E0C9B9CD0BE4D33F3F5DB71"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\lakefile.toml",
+    "sha256": "1C9F9E502CC67BF49B6CDEDC4E5419354FA372C1A671106279CA210A5CB2D8AE"
+  },
+  {
+    "path": "D:\\princeton\\Research\\Lean\\Lean_luce\\lake-manifest.json",
+    "sha256": "ABA42D206EBAE84D5C2531FD10C5E0494459FC9C21CCC059C6C7F25E87CAE604"
+  }
+]

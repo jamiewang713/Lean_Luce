@@ -1,0 +1,63 @@
+audit/HistoryPredictability.lean:13:0: warning: Definition `Luce.Section2LockedAudit.drawHistory` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+@[defeq] theorem Luce.Section2LockedAudit.approved_history.{u} : ∀ {Ω : Type u} {n : ℕ} (π : Ω → Equiv.Perm (Fin n))
+  (m : ℕ), drawHistory π m = Luce.drawHistory π m :=
+fun {Ω} {n} π m => rfl
+theorem Luce.Section2LockedAudit.approved_statement.{u} : PredictabilityStatement :=
+fun {Ω} {n} => history_predictability
+'Luce.Section2LockedAudit.approved_history' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section2LockedAudit.approved_statement' depends on axioms: [propext, Classical.choice, Quot.sound]
+def Luce.drawHistory.{u} : {Ω : Type u} → {n : ℕ} → (Ω → Equiv.Perm (Fin n)) → ℕ → MeasurableSpace Ω :=
+fun {Ω} {n} π m => ⨆ j, ⨆ (_ : ↑j < m), MeasurableSpace.comap (fun ω => (π ω) j) ⊤
+theorem Luce.inverse_ge_iff_no_earlier_draw : ∀ {n : ℕ} (π : Equiv.Perm (Fin n)) (k i : Fin n),
+  k ≤ (Equiv.symm π) i ↔ ∀ j < k, π j ≠ i :=
+fun {n} π k i =>
+  {
+    mp := fun h j hj hji =>
+      have heq :=
+        Eq.mp (congrFun' (congrArg Eq (Equiv.symm_apply_apply π j)) ((Equiv.symm π) i))
+          (congrArg (⇑(Equiv.symm π)) hji);
+      not_lt_of_ge h (heq ▸ hj),
+    mpr := fun h => le_of_not_gt fun hlt => h ((Equiv.symm π) i) hlt (Equiv.apply_symm_apply π i) }
+theorem Luce.measurable_draw_of_lt.{u} : ∀ {Ω : Type u} {n : ℕ} (π : Ω → Equiv.Perm (Fin n)) {m : ℕ} (j : Fin n),
+  ↑j < m → Measurable fun ω => (π ω) j :=
+fun {Ω} {n} π {m} j hj => Measurable.of_comap_le (le_iSup_of_le j (le_iSup_of_le hj le_rfl))
+theorem Luce.measurableSet_label_available.{u} : ∀ {Ω : Type u} {n : ℕ} (π : Ω → Equiv.Perm (Fin n)) (k i : Fin n),
+  MeasurableSet {ω | k ≤ (Equiv.symm (π ω)) i} :=
+fun {Ω} {n} π k i =>
+  let this := Luce.drawHistory π ↑k;
+  have heq :=
+    Set.ext fun ω =>
+      Eq.mpr
+        (id
+          (congrArg (Iff (k ≤ (Equiv.symm (π ω)) i))
+            (Eq.trans Luce.measurableSet_label_available._simp_1_1
+              (forall_congr fun i_1 => Luce.measurableSet_label_available._simp_1_1))))
+        (Luce.inverse_ge_iff_no_earlier_draw (π ω) k i);
+  Eq.mpr (id (congrArg (fun _a => MeasurableSet _a) heq))
+    (MeasurableSet.iInter fun j =>
+      MeasurableSet.iInter fun hj =>
+        Luce.measurable_draw_of_lt π j hj
+          (have this := trivial;
+          this))
+theorem Luce.measurable_availability_indicator.{u} : ∀ {Ω : Type u} {n : ℕ} (π : Ω → Equiv.Perm (Fin n)) (k : Fin n),
+  Measurable fun ω => if k ≤ (Equiv.symm (π ω)) k then 1 else 0 :=
+fun {Ω} {n} π k => Measurable.ite (Luce.measurableSet_label_available π k k) measurable_const measurable_const
+theorem Luce.measurable_remaining_weight.{u} : ∀ {Ω : Type u} {n : ℕ} (w : Luce.Weights n) (π : Ω → Equiv.Perm (Fin n))
+  (k : Fin n), Measurable fun ω => w.total (Luce.remaining (π ω) k) :=
+fun {Ω} {n} w π k =>
+  Eq.mpr (id (congrArg Measurable (funext fun ω => Finset.sum_filter (fun a => k ≤ (Equiv.symm (π ω)) a) w.rate)))
+    (Finset.measurable_sum Finset.univ fun i a =>
+      Measurable.ite (Luce.measurableSet_label_available π k i) measurable_const measurable_const)
+theorem Luce.history_predictability.{u} : ∀ {Ω : Type u} {n : ℕ} (w : Luce.Weights n) (π : Ω → Equiv.Perm (Fin n))
+  (k : Fin n),
+  (Measurable fun ω => if k ≤ (Equiv.symm (π ω)) k then 1 else 0) ∧
+    Measurable fun ω => w.total (Luce.remaining (π ω) k) :=
+fun {Ω} {n} w π k => ⟨Luce.measurable_availability_indicator π k, Luce.measurable_remaining_weight w π k⟩
+'Luce.drawHistory' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.inverse_ge_iff_no_earlier_draw' depends on axioms: [propext, Quot.sound]
+'Luce.measurable_draw_of_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.measurableSet_label_available' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.measurable_availability_indicator' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.measurable_remaining_weight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.history_predictability' depends on axioms: [propext, Classical.choice, Quot.sound]

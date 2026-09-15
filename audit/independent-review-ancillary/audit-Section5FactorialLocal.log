@@ -1,0 +1,834 @@
+structure Luce.Weights (n : Nat) : Type
+number of parameters: 1
+fields:
+  Luce.Weights.rate : Fin n → Real
+  Luce.Weights.positive : ∀ (i : Fin n),
+      @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+        (@Luce.Weights.rate n self i)
+constructor:
+  Luce.Weights.mk {n : Nat} (rate : Fin n → Real)
+    (positive :
+      ∀ (i : Fin n),
+        @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+          (rate i)) :
+    Luce.Weights n
+@[reducible] def Luce.WeightArray : Type :=
+(n : Nat) → Luce.Weights n
+def Luce.NormalizedWeights : Luce.WeightArray → Prop :=
+fun w =>
+  ∀ (n : Nat),
+    @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n →
+      @Eq.{1} Real
+        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+          (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+            (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+            (@Nat.cast.{0} Real Real.instNatCast n))
+          (∑ i, @Luce.Weights.rate n (w n) i))
+        (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+def Luce.ProfileLimit : Luce.WeightArray → (Real → Real) → Prop :=
+fun w f =>
+  And (@MeasureTheory.NullMeasurable.{0, 0} Real Real Real.measurableSpace Real.measurableSpace f Luce.profileMeasure)
+    (And
+      (∀ (x : Real),
+        @Membership.mem.{0, 0} Real (Set.{0} Real) (@Set.instMembership.{0} Real)
+            (@Set.Ioo.{0} Real Real.instPreorder
+              (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+              (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+            x →
+          @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) (f x))
+      (Luce.ProfileL1Convergence w f))
+@[reducible] def Luce.Section5.CycleSlot : (L : Nat) → (Fin L → Nat) → Type :=
+fun L m => @Sigma.{0, 0} (Fin L) fun ell => Fin (m ell)
+@[reducible] def Luce.Section5.CycleVertex : (L : Nat) → (Fin L → Nat) → Type :=
+fun L m =>
+  @Sigma.{0, 0} (Luce.Section5.CycleSlot L m) fun b =>
+    Fin
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+def Luce.Section5.cycleBlockPermutation : (L : Nat) →
+  (m : Fin L → Nat) → Equiv.Perm.{1} (Luce.Section5.CycleVertex L m) :=
+fun L m =>
+  @Equiv.sigmaCongrRight.{0, 0, 0} (Luce.Section5.CycleSlot L m)
+    (fun b =>
+      Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+    (fun b =>
+      Fin
+        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+          (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+    fun b =>
+    finRotate
+      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+        (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))
+def Luce.factorialBlockPermutation : (L : Nat) →
+  (m : Fin L → Nat) →
+    Equiv.Perm.{1}
+      (Fin
+        (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+          (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+            (fun b =>
+              Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (fun i =>
+              Fin.fintype
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell)) (fun i => Fin.fintype (m i))
+              (Fin.fintype L))))) :=
+fun L m =>
+  @Equiv.trans.{1, 1, 1}
+    (Fin
+      (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+        (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+          (fun b =>
+            Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (fun i =>
+            Fin.fintype
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell)) (fun i => Fin.fintype (m i)) (Fin.fintype L)))))
+    (Luce.Section5.CycleVertex L m)
+    (Fin
+      (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+        (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+          (fun b =>
+            Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (fun i =>
+            Fin.fintype
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell)) (fun i => Fin.fintype (m i)) (Fin.fintype L)))))
+    (@Equiv.symm.{1, 1} (Luce.Section5.CycleVertex L m)
+      (Fin
+        (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+          (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+            (fun b =>
+              Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (fun i =>
+              Fin.fintype
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell)) (fun i => Fin.fintype (m i)) (Fin.fintype L)))))
+      (@Fintype.equivFin.{0} (Luce.Section5.CycleVertex L m)
+        (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+          (fun b =>
+            Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (fun i =>
+            Fin.fintype
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell)) (fun i => Fin.fintype (m i)) (Fin.fintype L)))))
+    (@Equiv.trans.{1, 1, 1} (Luce.Section5.CycleVertex L m) (Luce.Section5.CycleVertex L m)
+      (Fin
+        (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+          (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+            (fun b =>
+              Fin
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (fun i =>
+              Fin.fintype
+                (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                  (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                  (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+            (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell)) (fun i => Fin.fintype (m i)) (Fin.fintype L)))))
+      (Luce.Section5.cycleBlockPermutation L m)
+      (@Fintype.equivFin.{0} (Luce.Section5.CycleVertex L m)
+        (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+          (fun b =>
+            Fin
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (fun i =>
+            Fin.fintype
+              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell)) (fun i => Fin.fintype (m i)) (Fin.fintype L)))))
+theorem Luce.bulk_factorial_expectation_eq_rank_sum : ∀ {n : Nat} (w : Luce.Weights n) (L : Nat) (m : Fin L → Nat)
+  (α : Real),
+  @Eq.{1} Real
+    (@MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+      (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+        (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace) (@Luce.exponentialRace n w)
+      fun e =>
+      ∏ ell,
+        @Nat.cast.{0} Real Real.instNatCast
+          ((@Luce.Section5.bulkCycleCount n (@Luce.raceRankPermutation n e) α (@Fin.val L ell)).descFactorial (m ell)))
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (∑ t,
+        @ite.{1} Real
+          (∀ (x : Luce.Section5.CycleVertex L m),
+            @LE.le.{0} Real Real.instLE
+              (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                (@Nat.cast.{0} Real Real.instNatCast
+                  (@Fin.val n
+                    (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Luce.Section5.CycleVertex L m) (Fin n))
+                      (Luce.Section5.CycleVertex L m) (fun x => Fin n)
+                      (@Function.instFunLikeEmbedding.{1, 1} (Luce.Section5.CycleVertex L m) (Fin n)) t x)))
+                (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+              (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) α
+                (@Nat.cast.{0} Real Real.instNatCast n)))
+          (@Fintype.decidableForallFintype.{0} (Luce.Section5.CycleVertex L m)
+            (fun x =>
+              @LE.le.{0} Real Real.instLE
+                (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                  (@Nat.cast.{0} Real Real.instNatCast
+                    (@Fin.val n
+                      (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Luce.Section5.CycleVertex L m) (Fin n))
+                        (Luce.Section5.CycleVertex L m) (fun x => Fin n)
+                        (@Function.instFunLikeEmbedding.{1, 1} (Luce.Section5.CycleVertex L m) (Fin n)) t x)))
+                  (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) α
+                  (@Nat.cast.{0} Real Real.instNatCast n)))
+            (fun a =>
+              (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                    (@Nat.cast.{0} Real Real.instNatCast
+                      (@Fin.val n
+                        (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Luce.Section5.CycleVertex L m) (Fin n))
+                          (Luce.Section5.CycleVertex L m) (fun x => Fin n)
+                          (@Function.instFunLikeEmbedding.{1, 1} (Luce.Section5.CycleVertex L m) (Fin n)) t a)))
+                    (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))).decidableLE
+                (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) α
+                  (@Nat.cast.{0} Real Real.instNatCast n)))
+            (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+              (fun b =>
+                Fin
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                    (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (fun i =>
+                Fin.fintype
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                    (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+              (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell)) (fun i => Fin.fintype (m i))
+                (Fin.fintype L))))
+          (@MeasureTheory.Measure.real.{0} (Fin n → Real)
+            (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+            (@Luce.exponentialRace n w)
+            (@Set.ofPred.{0} (Fin n → Real) fun e =>
+              ∀ (x : Luce.Section5.CycleVertex L m),
+                @Eq.{1} Nat
+                  (@Luce.raceRank n e
+                    (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Luce.Section5.CycleVertex L m) (Fin n))
+                      (Luce.Section5.CycleVertex L m) (fun x => Fin n)
+                      (@Function.instFunLikeEmbedding.{1, 1} (Luce.Section5.CycleVertex L m) (Fin n)) t x))
+                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                    (@Fin.val n
+                      (@DFunLike.coe.{1, 1, 1} (Function.Embedding.{1, 1} (Luce.Section5.CycleVertex L m) (Fin n))
+                        (Luce.Section5.CycleVertex L m) (fun x => Fin n)
+                        (@Function.instFunLikeEmbedding.{1, 1} (Luce.Section5.CycleVertex L m) (Fin n)) t
+                        (@DFunLike.coe.{1, 1, 1} (Equiv.Perm.{1} (Luce.Section5.CycleVertex L m))
+                          (Luce.Section5.CycleVertex L m) (fun x => Luce.Section5.CycleVertex L m)
+                          (@EquivLike.toFunLike.{1, 1, 1} (Equiv.Perm.{1} (Luce.Section5.CycleVertex L m))
+                            (Luce.Section5.CycleVertex L m) (Luce.Section5.CycleVertex L m)
+                            (@Equiv.instEquivLike.{1, 1} (Luce.Section5.CycleVertex L m)
+                              (Luce.Section5.CycleVertex L m)))
+                          (Luce.Section5.cycleBlockPermutation L m) x)))
+                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+      (∏ ell,
+        @HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+          (@Nat.cast.{0} Real Real.instNatCast
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (@Fin.val L ell)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (m ell))) :=
+⋯
+theorem Luce.bulk_factorial_expectation_eq_cyclicRaceSum : ∀ {n r : Nat} (w : Luce.Weights n) (L : Nat)
+  (m : Fin L → Nat) (α : Real) (e : Equiv.{1, 1} (Luce.Section5.CycleVertex L m) (Fin r)),
+  @Eq.{1} Real
+    (@MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+      (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+        (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace) (@Luce.exponentialRace n w)
+      fun z =>
+      ∏ ell,
+        @Nat.cast.{0} Real Real.instNatCast
+          ((@Luce.Section5.bulkCycleCount n (@Luce.raceRankPermutation n z) α (@Fin.val L ell)).descFactorial (m ell)))
+    (@HDiv.hDiv.{0, 0, 0} Real Real Real (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+      (@Luce.cyclicRaceSum n r w α
+        (@Equiv.trans.{1, 1, 1} (Fin r) (Luce.Section5.CycleVertex L m) (Fin r)
+          (@Equiv.symm.{1, 1} (Luce.Section5.CycleVertex L m) (Fin r) e)
+          (@Equiv.trans.{1, 1, 1} (Luce.Section5.CycleVertex L m) (Luce.Section5.CycleVertex L m) (Fin r)
+            (Luce.Section5.cycleBlockPermutation L m) e))
+        fun x => @OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne))
+      (∏ ell,
+        @HPow.hPow.{0, 0, 0} Real Nat Real
+          (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+          (@Nat.cast.{0} Real Real.instNatCast
+            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (@Fin.val L ell)
+              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+          (m ell))) :=
+⋯
+theorem Luce.bulk_factorial_tendsto_canonical_block_integral : ∀ (w : Luce.WeightArray) (f : Real → Real),
+  Luce.NormalizedWeights w →
+    Luce.ProfileLimit w f →
+      ∀ (L : Nat) (m : Fin L → Nat),
+        @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))
+            (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+              (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                (fun b =>
+                  Fin
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                      (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (fun i =>
+                  Fin.fintype
+                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                      (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell)) (fun i => Fin.fintype (m i))
+                  (Fin.fintype L)))) →
+          ∀ (α : Real),
+            @LT.lt.{0} Real Real.instLT α (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) →
+              @Filter.Tendsto.{0, 0} Nat Real
+                (fun n =>
+                  @MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+                    (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                      (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                      (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                    (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace)
+                    (@Luce.exponentialRace n (w n)) fun z =>
+                    ∏ ell,
+                      @Nat.cast.{0} Real Real.instNatCast
+                        ((@Luce.Section5.bulkCycleCount n (@Luce.raceRankPermutation n z) α
+                              (@Fin.val L ell)).descFactorial
+                          (m ell)))
+                (@Filter.atTop.{0} Nat Nat.instPreorder)
+                (@nhds.{0} Real
+                  (@UniformSpace.toTopologicalSpace.{0} Real
+                    (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                  (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                    (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                    (@MeasureTheory.integral.{0, 0}
+                      (Fin
+                          (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+                            (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                              (fun b =>
+                                Fin
+                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                    (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                              (fun i =>
+                                Fin.fintype
+                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                    (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                              (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell)) (fun i => Fin.fintype (m i))
+                                (Fin.fintype L)))) →
+                        Real)
+                      Real Real.normedAddCommGroup
+                      (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                        (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                      (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0}
+                        (Fin
+                            (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+                              (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                                (fun b =>
+                                  Fin
+                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                      (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                (fun i =>
+                                  Fin.fintype
+                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                      (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell)) (fun i => Fin.fintype (m i))
+                                  (Fin.fintype L)))) →
+                          Real)
+                        (@MeasureTheory.MeasureSpace.pi.{0, 0}
+                          (Fin
+                            (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+                              (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                                (fun b =>
+                                  Fin
+                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                      (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                (fun i =>
+                                  Fin.fintype
+                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                      (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell)) (fun i => Fin.fintype (m i))
+                                  (Fin.fintype L)))))
+                          (Fin.fintype
+                            (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+                              (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                                (fun b =>
+                                  Fin
+                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                      (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                (fun i =>
+                                  Fin.fintype
+                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                      (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell)) (fun i => Fin.fintype (m i))
+                                  (Fin.fintype L)))))
+                          (fun a => Real) fun i => Real.measureSpace))
+                      (@MeasureTheory.Measure.restrict.{0}
+                        (Fin
+                            (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+                              (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                                (fun b =>
+                                  Fin
+                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                      (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                (fun i =>
+                                  Fin.fintype
+                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                      (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell)) (fun i => Fin.fintype (m i))
+                                  (Fin.fintype L)))) →
+                          Real)
+                        (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0}
+                          (Fin
+                              (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+                                (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                                  (fun b =>
+                                    Fin
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                        (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                  (fun i =>
+                                    Fin.fintype
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                        (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                  (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell))
+                                    (fun i => Fin.fintype (m i)) (Fin.fintype L)))) →
+                            Real)
+                          (@MeasureTheory.MeasureSpace.pi.{0, 0}
+                            (Fin
+                              (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+                                (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                                  (fun b =>
+                                    Fin
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                        (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                  (fun i =>
+                                    Fin.fintype
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                        (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                  (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell))
+                                    (fun i => Fin.fintype (m i)) (Fin.fintype L)))))
+                            (Fin.fintype
+                              (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+                                (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                                  (fun b =>
+                                    Fin
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                        (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                  (fun i =>
+                                    Fin.fintype
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                        (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                  (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell))
+                                    (fun i => Fin.fintype (m i)) (Fin.fintype L)))))
+                            (fun a => Real) fun i => Real.measureSpace))
+                        (@MeasureTheory.MeasureSpace.volume.{0}
+                          (Fin
+                              (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+                                (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                                  (fun b =>
+                                    Fin
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                        (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                  (fun i =>
+                                    Fin.fintype
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                        (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                  (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell))
+                                    (fun i => Fin.fintype (m i)) (Fin.fintype L)))) →
+                            Real)
+                          (@MeasureTheory.MeasureSpace.pi.{0, 0}
+                            (Fin
+                              (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+                                (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                                  (fun b =>
+                                    Fin
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                        (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                  (fun i =>
+                                    Fin.fintype
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                        (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                  (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell))
+                                    (fun i => Fin.fintype (m i)) (Fin.fintype L)))))
+                            (Fin.fintype
+                              (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+                                (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                                  (fun b =>
+                                    Fin
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                        (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                  (fun i =>
+                                    Fin.fintype
+                                      (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                        (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                  (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell))
+                                    (fun i => Fin.fintype (m i)) (Fin.fintype L)))))
+                            (fun a => Real) fun i => Real.measureSpace))
+                        (Luce.cyclicBulkCube
+                          (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+                            (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                              (fun b =>
+                                Fin
+                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                    (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                              (fun i =>
+                                Fin.fintype
+                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                    (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                                    (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                              (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell)) (fun i => Fin.fintype (m i))
+                                (Fin.fintype L))))
+                          α))
+                      fun x =>
+                      ∏ a,
+                        Luce.cyclicProfileDensity f (x a)
+                          (x
+                            (@DFunLike.coe.{1, 1, 1}
+                              (Equiv.Perm.{1}
+                                (Fin
+                                  (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+                                    (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                                      (fun b =>
+                                        Fin
+                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                            (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                      (fun i =>
+                                        Fin.fintype
+                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                            (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                      (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell))
+                                        (fun i => Fin.fintype (m i)) (Fin.fintype L))))))
+                              (Fin
+                                (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+                                  (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                                    (fun b =>
+                                      Fin
+                                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                          (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                    (fun i =>
+                                      Fin.fintype
+                                        (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                          (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                                          (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                    (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell))
+                                      (fun i => Fin.fintype (m i)) (Fin.fintype L)))))
+                              (fun x =>
+                                Fin
+                                  (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+                                    (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                                      (fun b =>
+                                        Fin
+                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                            (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                      (fun i =>
+                                        Fin.fintype
+                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                            (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                      (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell))
+                                        (fun i => Fin.fintype (m i)) (Fin.fintype L)))))
+                              (@EquivLike.toFunLike.{1, 1, 1}
+                                (Equiv.Perm.{1}
+                                  (Fin
+                                    (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+                                      (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                                        (fun b =>
+                                          Fin
+                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                              (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                        (fun i =>
+                                          Fin.fintype
+                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                              (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                        (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell))
+                                          (fun i => Fin.fintype (m i)) (Fin.fintype L))))))
+                                (Fin
+                                  (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+                                    (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                                      (fun b =>
+                                        Fin
+                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                            (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                      (fun i =>
+                                        Fin.fintype
+                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                            (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                      (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell))
+                                        (fun i => Fin.fintype (m i)) (Fin.fintype L)))))
+                                (Fin
+                                  (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+                                    (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                                      (fun b =>
+                                        Fin
+                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                            (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                      (fun i =>
+                                        Fin.fintype
+                                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                            (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                      (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell))
+                                        (fun i => Fin.fintype (m i)) (Fin.fintype L)))))
+                                (@Equiv.instEquivLike.{1, 1}
+                                  (Fin
+                                    (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+                                      (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                                        (fun b =>
+                                          Fin
+                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                              (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                        (fun i =>
+                                          Fin.fintype
+                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                              (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                        (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell))
+                                          (fun i => Fin.fintype (m i)) (Fin.fintype L)))))
+                                  (Fin
+                                    (@Fintype.card.{0} (Luce.Section5.CycleVertex L m)
+                                      (@Sigma.instFintype.{0, 0} (Luce.Section5.CycleSlot L m)
+                                        (fun b =>
+                                          Fin
+                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                              (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) b))
+                                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                        (fun i =>
+                                          Fin.fintype
+                                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                              (@Fin.val L (@Sigma.fst.{0, 0} (Fin L) (fun ell => Fin (m ell)) i))
+                                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                        (@Sigma.instFintype.{0, 0} (Fin L) (fun ell => Fin (m ell))
+                                          (fun i => Fin.fintype (m i)) (Fin.fintype L)))))))
+                              (Luce.factorialBlockPermutation L m) a)))
+                    (∏ ell,
+                      @HPow.hPow.{0, 0, 0} Real Nat Real
+                        (@instHPow.{0, 0} Real Nat (@NPow.toPow.{0} Real (@Monoid.toNPow.{0} Real Real.instMonoid)))
+                        (@Nat.cast.{0} Real Real.instNatCast
+                          (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) (@Fin.val L ell)
+                            (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                        (m ell)))) :=
+⋯
+theorem Luce.bulk_factorial_expectation_zero : ∀ {n : Nat} (w : Luce.Weights n) (L : Nat) (α : Real),
+  @Eq.{1} Real
+    (@MeasureTheory.integral.{0, 0} (Fin n → Real) Real Real.normedAddCommGroup
+      (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+        (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+        (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+      (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a => Real.measurableSpace) (@Luce.exponentialRace n w)
+      fun z =>
+      ∏ ell,
+        @Nat.cast.{0} Real Real.instNatCast
+          ((@Luce.Section5.bulkCycleCount n (@Luce.raceRankPermutation n z) α (@Fin.val L ell)).descFactorial
+            (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0)))))
+    (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)) :=
+⋯
+def ShellMigrationContract.section5.{u} : Prop :=
+∀ (Ω : Nat → Type u) (mΩ : (n : Nat) → MeasurableSpace.{u} (Ω n))
+  (P : (n : Nat) → @MeasureTheory.Measure.{u} (Ω n) (mΩ n)),
+  (∀ (n : Nat), @MeasureTheory.IsProbabilityMeasure.{u} (Ω n) (mΩ n) (P n)) →
+    ∀ (w : Luce.WeightArray) (f : Real → Real),
+      Luce.NormalizedWeights w →
+        Luce.ProfileLimit w f →
+          @Filter.Tendsto.{0, 0} Nat ENNReal
+              (fun J =>
+                @Filter.limsup.{0, 0} ENNReal Nat
+                  (@ConditionallyCompleteLinearOrder.toConditionallyCompleteLattice.{0} ENNReal
+                    (@ConditionallyCompleteLinearOrderBot.toConditionallyCompleteLinearOrder.{0} ENNReal
+                      (@CompleteLinearOrder.toConditionallyCompleteLinearOrderBot.{0} ENNReal
+                        ENNReal.instCompleteLinearOrder)))
+                  (fun n =>
+                    @tsum.{0, 0} ENNReal Nat ENNReal.instAddCommMonoid ENNReal.instTopologicalSpace
+                      (fun j =>
+                        @ite.{1} ENNReal (@LE.le.{0} Nat instLENat J j) (J.decLe j) (Luce.shellCost w n j)
+                          (@OfNat.ofNat.{0} ENNReal (nat_lit 0) (@Zero.toOfNat0.{0} ENNReal ENNReal.instZero)))
+                      (SummationFilter.unconditional.{0} Nat))
+                  (@Filter.atTop.{0} Nat Nat.instPreorder))
+              (@Filter.atTop.{0} Nat Nat.instPreorder)
+              (@nhds.{0} ENNReal ENNReal.instTopologicalSpace
+                (@OfNat.ofNat.{0} ENNReal (nat_lit 0) (@Zero.toOfNat0.{0} ENNReal ENNReal.instZero))) →
+            ∀ (π : (n : Nat) → Ω n → Equiv.Perm.{1} (Fin n)),
+              (∀ (n : Nat),
+                  @Measurable.{u, 0} (Ω n) (Equiv.Perm.{1} (Fin n)) (mΩ n)
+                    (@Top.top.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                      (@OrderTop.toTop.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                        (@Preorder.toLE.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                          (@PartialOrder.toPreorder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                            (@SemilatticeSup.toPartialOrder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                              (@Lattice.toSemilatticeSup.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                (@CompleteLattice.toLattice.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                  (@MeasurableSpace.instCompleteLattice.{0} (Equiv.Perm.{1} (Fin n))))))))
+                        (@BoundedOrder.toOrderTop.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                          (@Preorder.toLE.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                            (@PartialOrder.toPreorder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                              (@SemilatticeSup.toPartialOrder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                (@Lattice.toSemilatticeSup.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                  (@CompleteLattice.toLattice.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                                    (@MeasurableSpace.instCompleteLattice.{0} (Equiv.Perm.{1} (Fin n))))))))
+                          (@CompleteLattice.toBoundedOrder.{0} (MeasurableSpace.{0} (Equiv.Perm.{1} (Fin n)))
+                            (@MeasurableSpace.instCompleteLattice.{0} (Equiv.Perm.{1} (Fin n)))))))
+                    (π n)) →
+                (∀ (n : Nat) (σ : Equiv.Perm.{1} (Fin n)),
+                    @Eq.{1} Real
+                      (@MeasureTheory.Measure.real.{u} (Ω n) (mΩ n) (P n)
+                        (@Set.ofPred.{u} (Ω n) fun ω => @Eq.{1} (Equiv.Perm.{1} (Fin n)) (π n ω) σ))
+                      (@Luce.Weights.mass n (w n) σ)) →
+                  And
+                    (∀ (k : Nat),
+                      And
+                        (@MeasureTheory.Integrable.{0, 0} Real
+                          (@UniformSpace.toTopologicalSpace.{0} Real
+                            (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                          (@SeminormedAddGroup.toContinuousENorm.{0} Real
+                            (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+                              (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+                                (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                                  (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                                    (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+                          (Fin
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+                            Real)
+                          (@MeasurableSpace.pi.{0, 0}
+                            (Fin
+                              (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                            (fun a => Real) fun a => Real.measurableSpace)
+                          (Luce.cycleTraceIntegrand f k)
+                          (Luce.cyclicProfileMeasure
+                            (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) k
+                              (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))))))
+                        (@LE.le.{0} Real Real.instLE
+                          (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                          (Luce.cycleTraceIntensity f k)))
+                    (∀ (L : Nat),
+                      And
+                        (∀
+                          (F :
+                            @BoundedContinuousFunction.{0, 0} (Fin L → Nat) Real
+                              (@Pi.topologicalSpace.{0, 0} (Fin L) (fun a => Nat) fun i => instTopologicalSpaceNat)
+                              Real.pseudoMetricSpace),
+                          @Filter.Tendsto.{0, 0} Nat Real
+                            (fun n =>
+                              @MeasureTheory.integral.{u, 0} (Ω n) Real Real.normedAddCommGroup
+                                (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                                  (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                                  (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                                (mΩ n) (P n) fun ω =>
+                                @DFunLike.coe.{1, 1, 1}
+                                  (@BoundedContinuousFunction.{0, 0} (Fin L → Nat) Real
+                                    (@Pi.topologicalSpace.{0, 0} (Fin L) (fun a => Nat) fun i =>
+                                      instTopologicalSpaceNat)
+                                    Real.pseudoMetricSpace)
+                                  (Fin L → Nat) (fun x => Real)
+                                  (@BoundedContinuousFunction.instFunLike.{0, 0} (Fin L → Nat) Real
+                                    (@Pi.topologicalSpace.{0, 0} (Fin L) (fun a => Nat) fun i =>
+                                      instTopologicalSpaceNat)
+                                    Real.pseudoMetricSpace)
+                                  F (@Luce.cycleCountVector n L (π n ω)))
+                            (@Filter.atTop.{0} Nat Nat.instPreorder)
+                            (@nhds.{0} Real
+                              (@UniformSpace.toTopologicalSpace.{0} Real
+                                (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                              (@MeasureTheory.integral.{0, 0} (Fin L → Nat) Real Real.normedAddCommGroup
+                                (@InnerProductSpace.toNormedSpace.{0, 0} Real Real Real.instRCLike
+                                  (@NormedAddCommGroup.toSeminormedAddCommGroup.{0} Real Real.normedAddCommGroup)
+                                  (@RCLike.toInnerProductSpaceReal.{0} Real Real.instRCLike))
+                                (@MeasurableSpace.pi.{0, 0} (Fin L) (fun a => Nat) fun a => Nat.instMeasurableSpace)
+                                (Luce.cycleVectorPoissonLaw f L) fun z =>
+                                @DFunLike.coe.{1, 1, 1}
+                                  (@BoundedContinuousFunction.{0, 0} (Fin L → Nat) Real
+                                    (@Pi.topologicalSpace.{0, 0} (Fin L) (fun a => Nat) fun i =>
+                                      instTopologicalSpaceNat)
+                                    Real.pseudoMetricSpace)
+                                  (Fin L → Nat) (fun x => Real)
+                                  (@BoundedContinuousFunction.instFunLike.{0, 0} (Fin L → Nat) Real
+                                    (@Pi.topologicalSpace.{0, 0} (Fin L) (fun a => Nat) fun i =>
+                                      instTopologicalSpaceNat)
+                                    Real.pseudoMetricSpace)
+                                  F z)))
+                        (@Filter.Tendsto.{0, 0} Nat Real
+                          (fun n =>
+                            @Luce.cycleVectorTotalVariation L
+                              (@MeasureTheory.Measure.map.{u, 0} (Ω n) (Fin L → Nat) (mΩ n)
+                                (@MeasurableSpace.pi.{0, 0} (Fin L) (fun a => Nat) fun a => Nat.instMeasurableSpace)
+                                (fun ω => @Luce.cycleCountVector n L (π n ω)) (P n))
+                              (Luce.cycleVectorPoissonLaw f L))
+                          (@Filter.atTop.{0} Nat Nat.instPreorder)
+                          (@nhds.{0} Real
+                            (@UniformSpace.toTopologicalSpace.{0} Real
+                              (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                            (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))))
+'Luce.raceRankPermutation_apply_eq_iff' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.integral_cycleBlockIndicator_eq_rank_probability' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.bulk_factorial_expectation_eq_rank_sum' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.bulk_factorial_expectation_eq_cyclicRaceSum' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.bulk_factorial_tendsto_block_integral' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+'Luce.bulk_factorial_tendsto_canonical_block_integral' depends on axioms: [propext,
+ Classical.choice.{u},
+ Quot.sound.{u}]
+'Luce.bulk_factorial_expectation_zero' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]

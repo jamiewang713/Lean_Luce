@@ -1,0 +1,43 @@
+⚠ [937/967] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3656/3671] Replayed Luce.Section6IncrementDensity
+warning: Luce/Section6IncrementDensity.lean:61:63: Variable name `hq` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hq
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3670/3671] Replayed Luce.Section6LogCells
+warning: Luce/Section6LogCells.lean:81:42: Variable name `hA` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hA
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✖ [3671/3671] Building Luce.Section6IdealCoreGrowth (20s)
+trace: .> LEAN_PATH=D:\princeton\Research\Lean\Lean_luce\.lake\packages\Cli\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\batteries\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\Qq\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\aesop\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\importGraph\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\plausible\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\mathlib\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean c:\Users\JiaminWang\.elan\toolchains\leanprover--lean4---v4.33.1\bin\lean.exe D:\princeton\Research\Lean\Lean_luce\Luce\Section6IdealCoreGrowth.lean -o D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6IdealCoreGrowth.olean -i D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6IdealCoreGrowth.ilean -c D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6IdealCoreGrowth.c --setup D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6IdealCoreGrowth.setup.json --json
+error: Luce/Section6IdealCoreGrowth.lean:27:29: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  t ^ ?y * t ^ ?z
+in the target expression
+  (t ^ 1) ^ (1 / 4) = (t ^ 1) ^ (-(3 / 4)) * t ^ 1
+
+e : ℝ
+he : 0 < e
+hlog : Tendsto (fun n => Real.log ↑n) atTop atTop
+hpow : Tendsto ((fun x => x ^ (-(3 / 4))) ∘ fun n => Real.log ↑n) atTop (𝓝 0)
+n : ℕ
+hp : ((fun x => x ^ (-(3 / 4))) ∘ fun n => Real.log ↑n) n < e / 2
+hn : 2 * Real.log 2 / e ≤ Real.log ↑n
+hn0 : 0 < Real.log ↑n
+t : ℝ := Real.log ↑n
+ht : 0 < t
+⊢ (t ^ 1) ^ (1 / 4) = (t ^ 1) ^ (-(3 / 4)) * t ^ 1
+error: Lean exited with code 1
+Some required targets logged failures:
+- Luce.Section6IdealCoreGrowth
+error: build failed

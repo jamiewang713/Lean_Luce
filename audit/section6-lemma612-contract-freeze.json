@@ -1,0 +1,12 @@
+{
+  "fixed_points_sampled_profile.tex": "f1c6926ee742560d49dfc958f99da86ead8f11f30d79ea438d55eedf3d118eb7",
+  "Luce/Section6Contract.lean": "f2abfc9bb3ad530c9ca10afb43dec46b207c7f4274038bae7d995ea0bc26e107",
+  "Luce/Section6ContractDefinitions.lean": "c6de18fa959e884ce3d996160d4b72cd1161ed58ea5bee0ad55af1ad395a25eb",
+  "Luce/Section6ProfileDefinitions.lean": "597283b5e3c43f58e4643939a43f18e065e831719798242bb02a48228da647c2",
+  "Luce/Section65PowerContract.lean": "5fa6586e428a1744db1931cc64b0702bc01c06191615d01a4dc642a5fc5e9980",
+  "Luce/Section65SpatialContract.lean": "1547c6c181bf33bedb44d598032f54c986af55765802561f1d2a884f82500c0c",
+  "Luce/Section6Critical.lean": "f890f5d5f11b95fd5a92d38d06c51359c019ba71b8c8ea0a6d822b5e441ee3cc",
+  "lakefile.toml": "1c9f9e502cc67bf49b6cdedc4e5419354fa372c1a671106279ca210a5cb2d8ae",
+  "lake-manifest.json": "aba42d206ebae84d5c2531fd10c5e0494459fc9c21ccc059c6c7f25e87cae604",
+  "lean-toolchain": "3aac669c7a910ec2389f4e4f921b605adf6ebf2d1e0c9b9cd0be4d33f3f5db71"
+}

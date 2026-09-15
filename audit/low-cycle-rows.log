@@ -1,0 +1,19 @@
+Luce/Section5LowCycleRows.lean:77:4: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+Luce/Section5LowCycleRows.lean:91:2: error: unsolved goals
+case neg
+n : ℕ
+w : Weights n
+ell : ℕ
+old : Fin n → ℝ
+hnonneg : ∀ (i : Fin n), 0 ≤ old i
+i j : Fin n
+hj : ↑j + ell < n
+hi : ¬Injective old
+⊢ 0 ≤ w.rate i * ghostWindowLength ell old j

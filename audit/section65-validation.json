@@ -1,0 +1,218 @@
+{
+  "section65_complete": true,
+  "new_modules": 51,
+  "new_theorems": 161,
+  "new_declarations": 192,
+  "full_build": {
+    "passed": true,
+    "jobs": 4564
+  },
+  "dedicated_audit": {
+    "expected_declarations": 192,
+    "axiom_reports": 192,
+    "missing_reports": [],
+    "unexpected_axioms": {},
+    "lean_errors": [],
+    "passed": true
+  },
+  "section6_audit": {
+    "expected_declarations": 1337,
+    "axiom_reports": 1328,
+    "missing_reports": [
+      "Luce.Section6.convolution_bound",
+      "Luce.Section6.convolution_continuous",
+      "Luce.Section6.convolution_integrable",
+      "Luce.Section6.convolution_nonneg",
+      "Luce.Section6.integral_observation_sum_eq_probability_sum",
+      "Luce.Section6.reflect",
+      "Luce.Section6.toProcess_cltCount",
+      "Luce.Section6.toProcess_cltMass",
+      "Luce.Section6.toProcess_cltSquares"
+    ],
+    "unexpected_axioms": {},
+    "lean_errors": [
+      "audit/Section6Current.lean:899:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_bound`",
+      "audit/Section6Current.lean:900:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_bound`",
+      "audit/Section6Current.lean:901:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_continuous`",
+      "audit/Section6Current.lean:902:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_continuous`",
+      "audit/Section6Current.lean:903:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_integrable`",
+      "audit/Section6Current.lean:904:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_integrable`",
+      "audit/Section6Current.lean:905:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_nonneg`",
+      "audit/Section6Current.lean:906:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.convolution_nonneg`",
+      "audit/Section6Current.lean:1683:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.integral_observation_sum_eq_probability_sum`",
+      "audit/Section6Current.lean:1684:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.integral_observation_sum_eq_probability_sum`",
+      "audit/Section6Current.lean:2327:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.reflect`",
+      "audit/Section6Current.lean:2328:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.reflect`",
+      "audit/Section6Current.lean:2647:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.toProcess_cltCount`",
+      "audit/Section6Current.lean:2648:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.toProcess_cltCount`",
+      "audit/Section6Current.lean:2649:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.toProcess_cltMass`",
+      "audit/Section6Current.lean:2650:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.toProcess_cltMass`",
+      "audit/Section6Current.lean:2651:7: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.toProcess_cltSquares`",
+      "audit/Section6Current.lean:2652:14: error(lean.unknownIdentifier): Unknown constant `Luce.Section6.toProcess_cltSquares`"
+    ],
+    "passed": false,
+    "new_missing_reports": [],
+    "outside_scope_missing_reports": [
+      "Luce.Section6.convolution_bound",
+      "Luce.Section6.convolution_continuous",
+      "Luce.Section6.convolution_integrable",
+      "Luce.Section6.convolution_nonneg",
+      "Luce.Section6.integral_observation_sum_eq_probability_sum",
+      "Luce.Section6.reflect",
+      "Luce.Section6.toProcess_cltCount",
+      "Luce.Section6.toProcess_cltMass",
+      "Luce.Section6.toProcess_cltSquares"
+    ],
+    "outside_scope_missing_sources": {
+      "Luce.Section6.convolution_bound": [
+        "Luce/Section6TraceDensity.lean"
+      ],
+      "Luce.Section6.convolution_continuous": [
+        "Luce/Section6TraceDensity.lean"
+      ],
+      "Luce.Section6.convolution_integrable": [
+        "Luce/Section6TraceDensity.lean"
+      ],
+      "Luce.Section6.convolution_nonneg": [
+        "Luce/Section6TraceDensity.lean"
+      ],
+      "Luce.Section6.integral_observation_sum_eq_probability_sum": [
+        "Luce/Section6Proposition611.lean"
+      ],
+      "Luce.Section6.reflect": [
+        "Luce/Section6TraceDensity.lean"
+      ],
+      "Luce.Section6.toProcess_cltCount": [
+        "Luce/Section6Proposition611.lean"
+      ],
+      "Luce.Section6.toProcess_cltMass": [
+        "Luce/Section6Proposition611.lean"
+      ],
+      "Luce.Section6.toProcess_cltSquares": [
+        "Luce/Section6Proposition611.lean"
+      ]
+    },
+    "outside_scope_sources_absent_from_initial_snapshot": [
+      "Luce/Section6Proposition611.lean"
+    ]
+  },
+  "historical_namespace_supplement": {
+    "expected_declarations": 9,
+    "axiom_reports": 9,
+    "missing_reports": [],
+    "unexpected_axioms": {},
+    "lean_errors": [],
+    "passed": true
+  },
+  "allowed_axioms": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "forbidden_source_constructs": {},
+  "snapshots": {
+    "section65-contract-freeze.json": {
+      "files": 720,
+      "changed": {},
+      "baseline_reset": false
+    },
+    "section6-proposition610-contract-freeze.json": {
+      "files": 17,
+      "changed": {
+        "fixed_points_sampled_profile.tex": {
+          "expected": "b665b199bf513f537ad21a0f217a60c5bb889bea5812ffa17ab6e6437c36900e",
+          "actual": "f1c6926ee742560d49dfc958f99da86ead8f11f30d79ea438d55eedf3d118eb7"
+        }
+      },
+      "baseline_reset": false
+    },
+    "section6-lemma69-contract-freeze.json": {
+      "files": 14,
+      "changed": {
+        "fixed_points_sampled_profile.tex": {
+          "expected": "b665b199bf513f537ad21a0f217a60c5bb889bea5812ffa17ab6e6437c36900e",
+          "actual": "f1c6926ee742560d49dfc958f99da86ead8f11f30d79ea438d55eedf3d118eb7"
+        }
+      },
+      "baseline_reset": false
+    },
+    "section6-proposition65-contract-freeze.json": {
+      "files": 47,
+      "changed": {
+        "fixed_points_sampled_profile.tex": {
+          "expected": "11c3ded58dbf633ae4a5529c2a0e0f3264178270c1fabb480e657ba537702f94",
+          "actual": "f1c6926ee742560d49dfc958f99da86ead8f11f30d79ea438d55eedf3d118eb7"
+        }
+      },
+      "baseline_reset": false
+    },
+    "section6-contract-freeze.json": {
+      "files": 13,
+      "changed": {
+        "fixed_points_sampled_profile.tex": {
+          "expected": "bfd3f7314663cd246b1dd2859d104b1181e8d71ca9fd80ba933bf31ca58628d8",
+          "actual": "f1c6926ee742560d49dfc958f99da86ead8f11f30d79ea438d55eedf3d118eb7"
+        }
+      },
+      "baseline_reset": false
+    }
+  },
+  "scope": [
+    "SampledProfileContract.powerLaw: both grids",
+    "SampledProfileContract.spatial: both grids, including localization"
+  ],
+  "critical_subsection_included": false,
+  "sha256": {
+    "Luce/Section65.lean": "fc1b8023801e65f3af1557f71d96cce310e57f4065d4587fd9f19b41386832be",
+    "Luce/Section65ActiveCorners.lean": "fbb63e9661ea4f02d48f9449afe7a4b57f42be808080014dac51ec11054a8cee",
+    "Luce/Section65AffineMoments.lean": "fb32588f26ca94094e210d616b56f12a77ed07443b350b362bb90fc7b4fb278b",
+    "Luce/Section65Audit.lean": "8496b7df4eaf07a2989cf276195a183c4d1b2b6c8ac12b4b3cbf47ca8369b777",
+    "Luce/Section65CenteredPoisson.lean": "9fff06f10298fbea0c0728c3e08a778294d60aa033ecde3bcdcd6c20aaa68e23",
+    "Luce/Section65CenteringExpansion.lean": "8037f7c95212a1a21bd9d7105c7899bd300f871be72ef8d8d5665c343bf77c25",
+    "Luce/Section65CharacteristicPerturbation.lean": "a596e2cfbcf7e5844f392c7d817a4de8156524dd8ec741345b08ee71c460c4f3",
+    "Luce/Section65CoefficientPositivity.lean": "eb9a0b85d7a7dbf42e20f94668246a9c4d3a67ec0da9baa799daf4c208ee5f82",
+    "Luce/Section65CoreCenteredMoments.lean": "3a0153b0a970ec2711bd4276d4917e01df9e38c8407205e74ab00107b43142e7",
+    "Luce/Section65CoreCountComparison.lean": "8d458126f377398b9766f49f135e9debadae23614d6646677bf496bed28759ad",
+    "Luce/Section65CoreDecay.lean": "42645b242341e00716b2cb87900df8338d5e4ce75631fe3f7d6cfb2e5486e8f9",
+    "Luce/Section65CoreNormalizedMoments.lean": "4041f8c0a4ef4579f3636c4bd241b339d9022389cc7f66e05b6246816e558c83",
+    "Luce/Section65CorePolynomial.lean": "fbc0801c5e59072ed41fbfb925947822ef7b9c4cb06e46045c76fbdbfad6770c",
+    "Luce/Section65CoreScale.lean": "e4523e5bdfe293bab7aaec71be57a8f928402808cd8815a222fea14012efc47e",
+    "Luce/Section65CoreTargetMoments.lean": "19299a88328b9331b14baed36ffded6cffc5798959825de8989cd3960dff5e8c",
+    "Luce/Section65CountApproximation.lean": "065ec01688bf7a7080ef2ef902404d129ae2fe6faf8add04fa6f6ae07d60d73f",
+    "Luce/Section65FiniteCategories.lean": "b4234f25b994e93e25ec4c314a6343f5cd3539bbcb92b1e7d1d3ab2ca8311d66",
+    "Luce/Section65FiniteCountCover.lean": "057672077ce733295ae07ffbae33bac6b33b7147dd3c69d9b1246aadc839bbdb",
+    "Luce/Section65GaussianMoments.lean": "77723d71f1761d78a74317bbe1bbda7f1086749ddbdfc0f8d8ed1883d20fa0a3",
+    "Luce/Section65GaussianProjection.lean": "8f4c6a6302810da9c544ce17ae1a8002f4f1315ae88fa60fa1df804dfc83eec9",
+    "Luce/Section65GaussianVector.lean": "d3c8e70a1a2d602a6fa3327d7008bd0caa7fdf7060ac798e6b5e2c2b1070d662",
+    "Luce/Section65IdealMean.lean": "ead9e89dea2a6c643fc357fc7d6f2b883201b56df6b11e88b8b34d5917b9a59a",
+    "Luce/Section65InverseCycleStatistics.lean": "8b6423806e44670a877fa53ce7ea859b49cae03391ab3d130529dfd22c989534",
+    "Luce/Section65LinearMomentExpansion.lean": "2c682dac1870fb250de5d0133f0b14e6dc670f6d9dc874f171361f6ed2f8a0a6",
+    "Luce/Section65Localization.lean": "49337c9a7dd116c9ac2440b012f74f718dd865b88712e8c14fdb8b706a0f88a0",
+    "Luce/Section65LogWindows.lean": "a980b429cd8e94b60220b4a5575ba3442a6062c32a07425ad6313386901bd0f2",
+    "Luce/Section65LuceTransfer.lean": "72bc0f58d455dafc22e5dc6b1cc9048db443d0c1101fe00193c59b209dbdffb6",
+    "Luce/Section65MeanAsymptotic.lean": "aed4b5ced9a9cb5e6fe496379719bab1bd709a2382e9db9a81d9e05b13c38444",
+    "Luce/Section65MeanNormalization.lean": "5a458a88768f3fedd396f457584fc6f15055a3bc2426d5d1b11510fa38659f4c",
+    "Luce/Section65MomentCharacteristic.lean": "63c37b43f48496e5b0127acd2332b2d25048cf1d64bdb724f686123a757e1841",
+    "Luce/Section65MomentRemainder.lean": "d60c55958bc08622ec331b76c7af507e4fb72629d6618db3e744aeff600e4f49",
+    "Luce/Section65PoissonFunctional.lean": "e37727a98e116f98d3c043cbc1b3d398282f995698690d4efdbdc5d7d3804e45",
+    "Luce/Section65PoissonMomentLimit.lean": "0b8bcf4a7418f91db2db361ce42b3afb5f85c3764b10fcfa50b906321072de96",
+    "Luce/Section65PolynomialExpansion.lean": "71d60886246fec2d6507646d292e0b0d493c6fefbbc44b58af39e100cc0b71a2",
+    "Luce/Section65PowerCategories.lean": "ced25c2d88d89730a8d9e8e46dd81883aee3fdee69e33f1f736a16ea7256f617",
+    "Luce/Section65PowerContract.lean": "5fa6586e428a1744db1931cc64b0702bc01c06191615d01a4dc642a5fc5e9980",
+    "Luce/Section65PowerLimit.lean": "4ece2d2b99a3a47fec857b0dc259ac259f5662fedbb554862a79826a54954cfa",
+    "Luce/Section65PowerMean.lean": "406e910954f356ea854c633eae17d17d38d55c2c8119aa9d881e9a1a19194f9f",
+    "Luce/Section65PowerProjection.lean": "a473f474c211b215ce38052fec8bba75ec262d282a30e359fadbebdc0c0a467b",
+    "Luce/Section65RaceMomentCharacteristic.lean": "e4827b88bf14ae28d7b27988a031c0095420320afc6e91c20ed54b165abaf335",
+    "Luce/Section65RaceMomentCLT.lean": "4923240459433664c7c0b4da73316b3bb7db3030e8e5c89afe039f9494112f35",
+    "Luce/Section65RapidError.lean": "cd1a1dcf307e7a37f00ad8533ae1833922de95183fb05ea676ad3cf67fdae2ff",
+    "Luce/Section65RootSums.lean": "6a507a82d3626c48c9c2ab3abe2321798cbeac490795a4b781dc883a15c2af1b",
+    "Luce/Section65SpatialCategories.lean": "89188c55c821ff0f2235b5cba26532840b3a8f67ec3c447e3750d33cf3ff4095",
+    "Luce/Section65SpatialContract.lean": "1547c6c181bf33bedb44d598032f54c986af55765802561f1d2a884f82500c0c",
+    "Luce/Section65SpatialCoreComparison.lean": "6d6bcb66462a3033fe70f8bb4d5756923282acdc335a807db686fcca73ac1ee6",
+    "Luce/Section65SpatialLimit.lean": "aa2d6d24521301c98a648da68394ceba7728a06442454cb9e5a98a201b730bc2",
+    "Luce/Section65TaylorBound.lean": "51841d91d5001b498218444490cdf7c26c2d0b4c3099f16ff85680cfd9990da3",
+    "Luce/Section65TotalCoreComparison.lean": "867615c9b0f053a87150484031f935f2306b5ab4352e03c41917ca06cb653fd4",
+    "Luce/Section65TotalCoreCutoffs.lean": "e3c72e7506ce338c2b308fd9052fef15b91e88a60c1ab658be0b98faa797e03d",
+    "Luce/Section65TotalCoreExpectation.lean": "a975571cdfac14530108254e82dcbf86c4866da4b0f05fbae94f472d8b493b32"
+  }
+}

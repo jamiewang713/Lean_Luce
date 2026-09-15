@@ -1,0 +1,49 @@
+⚠ [937/1124] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [3404/3431] Replayed Luce.Section6ExcursionDepthSums
+info: Luce/Section6ExcursionDepthSums.lean:48:50: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+✖ [3648/3648] Building Luce.Section6LogExcursionAlgebra (15s)
+trace: .> LEAN_PATH=D:\princeton\Research\Lean\Lean_luce\.lake\packages\Cli\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\batteries\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\Qq\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\aesop\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\importGraph\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\plausible\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\mathlib\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean c:\Users\JiaminWang\.elan\toolchains\leanprover--lean4---v4.33.1\bin\lean.exe D:\princeton\Research\Lean\Lean_luce\Luce\Section6LogExcursionAlgebra.lean -o D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6LogExcursionAlgebra.olean -i D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6LogExcursionAlgebra.ilean -c D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6LogExcursionAlgebra.c --setup D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6LogExcursionAlgebra.setup.json --json
+error: Luce/Section6LogExcursionAlgebra.lean:42:60: mod_cast has type
+  1 ≤ A
+but is expected to have type
+  ?m.133 ≤ ↑A
+error: Luce/Section6LogExcursionAlgebra.lean:73:4: Tactic `apply` failed: could not unify the conclusion of `@add_le_add_left`
+  ?b + ?a ≤ ?c + ?a
+with the goal
+  1 + Real.log (↑⌊B⌋₊ / ↑⌈A⌉₊) ≤ 1 + Real.log (B / A)
+
+Note: The full type of `@add_le_add_left` is
+  ∀ {α : Type ?u.122} [inst : Add α] [inst_1 : LE α] [i : AddRightMono α] {b c : α}, b ≤ c → ∀ (a : α), b + a ≤ c + a
+
+case pos
+S : Finset ℕ
+A B : ℝ
+hA : 1 ≤ A
+hAB : A ≤ B
+hS : ∀ m ∈ S, A ≤ ↑m ∧ ↑m ≤ B
+ha : 0 < A
+hb : 0 < B
+hlog : 0 ≤ Real.log (B / A)
+m : ℕ
+hm : m ∈ S
+hceil : ⌈A⌉₊ ≤ m
+hfloor : m ≤ ⌊B⌋₊
+hc : 1 ≤ ⌈A⌉₊
+hcf : ⌈A⌉₊ ≤ ⌊B⌋₊
+hs : ∑ m ∈ S, 1 / ↑m ≤ ∑ m ∈ Finset.Icc ⌈A⌉₊ ⌊B⌋₊, 1 / ↑m
+⊢ 1 + Real.log (↑⌊B⌋₊ / ↑⌈A⌉₊) ≤ 1 + Real.log (B / A)
+error: Lean exited with code 1
+Some required targets logged failures:
+- Luce.Section6LogExcursionAlgebra
+error: build failed

@@ -1,0 +1,18 @@
+@Luce.BernoulliProcess.uncapped_laplace_tendsto_rows : ∀ {Ω : ℕ → Type u_1} [inst : (n : ℕ) → MeasurableSpace (Ω n)]
+  (P : (n : ℕ) → MeasureTheory.Measure (Ω n)) [∀ (n : ℕ), MeasureTheory.IsProbabilityMeasure (P n)]
+  (X : (n : ℕ) → Luce.BernoulliProcess (P n)) (g : ℕ → ℕ → ℝ) (N : ℕ → ℕ) {c lam : ℝ},
+  0 ≤ c →
+    0 ≤ lam →
+      (∀ (n k : ℕ), 0 ≤ g n k) →
+        Luce.ConvergesInProbability P (fun n ω => ∑ k ∈ Finset.range (N n), (X n).probability k ω) c →
+          Luce.ConvergesInProbability P (fun n => (X n).rowMaximum (N n)) 0 →
+            Luce.ConvergesInProbability P (fun n => (X n).laplaceCompensator (g n) (N n)) lam →
+              Filter.Tendsto
+                (fun n => ∫ (ω : Ω n), Real.exp (-∑ k ∈ Finset.range (N n), g n k * (X n).observation k ω) ∂P n)
+                Filter.atTop (nhds (Real.exp (-lam)))
+def Luce.BernoulliProcess.rowMaximum.{u_1} : {Ω : Type u_1} →
+  {mΩ : MeasurableSpace Ω} → {μ : MeasureTheory.Measure Ω} → Luce.BernoulliProcess μ → ℕ → Ω → ℝ :=
+fun {Ω} {mΩ} {μ} Y x x_1 => Nat.brecOn (motive := fun x => Ω → ℝ) x (Luce.BernoulliProcess.rowMaximum._f Y) x_1
+'Luce.BernoulliProcess.truncateAt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.BernoulliProcess.truncatedStop_eq_on_good' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.BernoulliProcess.uncapped_laplace_tendsto_rows' depends on axioms: [propext, Classical.choice, Quot.sound]

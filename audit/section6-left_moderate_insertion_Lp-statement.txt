@@ -1,0 +1,184 @@
+theorem Luce.Section6.PowerProfile.left_moderate_insertion_Lp : ∀ {f : Real → Real}
+  {right : Luce.Section6.EndpointBehavior} {c alpha eta : Real},
+  Luce.Section6.PowerProfile f (Luce.Section6.EndpointBehavior.power c alpha eta) right →
+    ∀ (r p0 : Nat),
+      @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) p0 →
+        ∃ C d H delta,
+          And
+            (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) C)
+            (And
+              (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                d)
+              (And
+                (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                  H)
+                (And
+                  (@LT.lt.{0} Real Real.instLT
+                    (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) delta)
+                  (And
+                    (@LT.lt.{0} Real Real.instLT delta
+                      (@OfNat.ofNat.{0} Real (nat_lit 1) (@One.toOfNat1.{0} Real Real.instOne)))
+                    (∀ (grid : Luce.Section6.SamplingGrid) (w : Luce.WeightArray),
+                      Luce.Section6.SampledRates grid w f →
+                        ∀ (n h : Nat),
+                          @LT.lt.{0} Nat instLTNat (@OfNat.ofNat.{0} Nat (nat_lit 0) (instOfNatNat (nat_lit 0))) n →
+                            @LE.le.{0} Real Real.instLE H (@Nat.cast.{0} Real Real.instNatCast h) →
+                              @LE.le.{0} Nat instLENat
+                                  (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat)
+                                    (@HMul.hMul.{0, 0, 0} Nat Nat Nat (@instHMul.{0} Nat instMulNat)
+                                      (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8))) r)
+                                    (@OfNat.ofNat.{0} Nat (nat_lit 8) (instOfNatNat (nat_lit 8))))
+                                  h →
+                                @LT.lt.{0} Real Real.instLT
+                                    (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                      (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                      (@Nat.cast.{0} Real Real.instNatCast h) (@Nat.cast.{0} Real Real.instNatCast n))
+                                    delta →
+                                  ∀ (removed : Finset.{0} (Fin n)),
+                                    @LE.le.{0} Nat instLENat (@Finset.card.{0} (Fin n) removed) r →
+                                      ∀ (i : Fin n),
+                                        @LT.lt.{0} Real Real.instLT
+                                            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                              (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                                                (@Nat.cast.{0} Real Real.instNatCast (@Fin.val n i))
+                                                (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                  (@One.toOfNat1.{0} Real Real.instOne)))
+                                              (@Nat.cast.{0} Real Real.instNatCast n))
+                                            delta →
+                                          ∀
+                                            (q :
+                                              Fin
+                                                (@Finset.card.{0} (Fin n)
+                                                  (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                                    (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                                    (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed)))
+                                            (p : Nat),
+                                            @LE.le.{0} Nat instLENat
+                                                (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) p →
+                                              @LE.le.{0} Nat instLENat p p0 →
+                                                @LE.le.{0} Nat instLENat
+                                                    ((@Fin.val
+                                                          (@Finset.card.{0} (Fin n)
+                                                            (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                                              (@Finset.instSDiff.{0} (Fin n) (instDecidableEqFin n))
+                                                              (@Finset.univ.{0} (Fin n) (Fin.fintype n)) removed))
+                                                          q).dist
+                                                      (@HSub.hSub.{0, 0, 0} Nat Nat Nat (@instHSub.{0} Nat instSubNat) h
+                                                        (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))))
+                                                    (@HAdd.hAdd.{0, 0, 0} Nat Nat Nat (@instHAdd.{0} Nat instAddNat) r
+                                                      (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1)))) →
+                                                  ∀ (nu : Real),
+                                                    @LE.le.{0} Real Real.instLE nu
+                                                        (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                          (@One.toOfNat1.{0} Real Real.instOne)) →
+                                                      @LE.le.{0} Real Real.instLE
+                                                          (@HPow.hPow.{0, 0, 0} Real Real Real
+                                                            (@instHPow.{0, 0} Real Real Real.instPow)
+                                                            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                              (@instHDiv.{0} Real
+                                                                (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid))
+                                                              (@Nat.cast.{0} Real Real.instNatCast h)
+                                                              (@HAdd.hAdd.{0, 0, 0} Real Real Real
+                                                                (@instHAdd.{0} Real Real.instAdd)
+                                                                (@Nat.cast.{0} Real Real.instNatCast (@Fin.val n i))
+                                                                (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                                  (@One.toOfNat1.{0} Real Real.instOne))))
+                                                            alpha)
+                                                          (@HPow.hPow.{0, 0, 0} Real Real Real
+                                                            (@instHPow.{0, 0} Real Real Real.instPow)
+                                                            (@Min.min.{0} Real Real.instMin
+                                                              (@HAdd.hAdd.{0, 0, 0} Real Real Real
+                                                                (@instHAdd.{0} Real Real.instAdd)
+                                                                (@Nat.cast.{0} Real Real.instNatCast (@Fin.val n i))
+                                                                (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                                  (@One.toOfNat1.{0} Real Real.instOne)))
+                                                              (@Nat.cast.{0} Real Real.instNatCast h))
+                                                            nu) →
+                                                        @LE.le.{0} ENNReal ENNReal.instLE
+                                                          (@MeasureTheory.eLpNorm.{0, 0} (Fin n → Real) Real
+                                                            (@ContinuousENorm.toENorm.{0} Real
+                                                              (@UniformSpace.toTopologicalSpace.{0} Real
+                                                                (@PseudoMetricSpace.toUniformSpace.{0} Real
+                                                                  (@SeminormedAddGroup.toPseudoMetricSpace.{0} Real
+                                                                    (@SeminormedAddCommGroup.toSeminormedAddGroup.{0}
+                                                                      Real
+                                                                      (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0}
+                                                                        Real
+                                                                        (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0}
+                                                                          Real
+                                                                          (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0}
+                                                                            Real
+                                                                            (@NormedCommRing.toSeminormedCommRing.{0}
+                                                                              Real Real.normedCommRing))))))))
+                                                              (@SeminormedAddGroup.toContinuousENorm.{0} Real
+                                                                (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+                                                                  (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0}
+                                                                    Real
+                                                                    (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0}
+                                                                      Real
+                                                                      (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0}
+                                                                        Real
+                                                                        (@NormedCommRing.toSeminormedCommRing.{0} Real
+                                                                          Real.normedCommRing)))))))
+                                                            (@MeasurableSpace.pi.{0, 0} (Fin n) (fun a => Real) fun a =>
+                                                              Real.measurableSpace)
+                                                            (fun old =>
+                                                              (@Luce.deletedGapKernel n (w n) removed old i
+                                                                  (@Fin.val
+                                                                    (@Finset.card.{0} (Fin n)
+                                                                      (@SDiff.sdiff.{0} (Finset.{0} (Fin n))
+                                                                        (@Finset.instSDiff.{0} (Fin n)
+                                                                          (instDecidableEqFin n))
+                                                                        (@Finset.univ.{0} (Fin n) (Fin.fintype n))
+                                                                        removed))
+                                                                    q)).toReal)
+                                                            (@Nat.cast.{0} ENNReal
+                                                              (@AddMonoidWithOne.toNatCast.{0} ENNReal
+                                                                (@AddCommMonoidWithOne.toAddMonoidWithOne.{0} ENNReal
+                                                                  ENNReal.instAddCommMonoidWithOne))
+                                                              p)
+                                                            (@Luce.exponentialRace n (w n)))
+                                                          (ENNReal.ofReal
+                                                            (@HMul.hMul.{0, 0, 0} Real Real Real
+                                                              (@instHMul.{0} Real Real.instMul)
+                                                              (@HMul.hMul.{0, 0, 0} Real Real Real
+                                                                (@instHMul.{0} Real Real.instMul) C
+                                                                (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                                  (@instHDiv.{0} Real
+                                                                    (@DivInvMonoid.toDiv.{0} Real
+                                                                      Real.instDivInvMonoid))
+                                                                  (@HPow.hPow.{0, 0, 0} Real Real Real
+                                                                    (@instHPow.{0, 0} Real Real Real.instPow)
+                                                                    (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                                      (@instHDiv.{0} Real
+                                                                        (@DivInvMonoid.toDiv.{0} Real
+                                                                          Real.instDivInvMonoid))
+                                                                      (@Nat.cast.{0} Real Real.instNatCast h)
+                                                                      (@HAdd.hAdd.{0, 0, 0} Real Real Real
+                                                                        (@instHAdd.{0} Real Real.instAdd)
+                                                                        (@Nat.cast.{0} Real Real.instNatCast
+                                                                          (@Fin.val n i))
+                                                                        (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                                          (@One.toOfNat1.{0} Real Real.instOne))))
+                                                                    alpha)
+                                                                  (@Nat.cast.{0} Real Real.instNatCast h)))
+                                                              (Real.exp
+                                                                (@HMul.hMul.{0, 0, 0} Real Real Real
+                                                                  (@instHMul.{0} Real Real.instMul)
+                                                                  (@Neg.neg.{0} Real Real.instNeg d)
+                                                                  (@HPow.hPow.{0, 0, 0} Real Real Real
+                                                                    (@instHPow.{0, 0} Real Real Real.instPow)
+                                                                    (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                                                                      (@instHDiv.{0} Real
+                                                                        (@DivInvMonoid.toDiv.{0} Real
+                                                                          Real.instDivInvMonoid))
+                                                                      (@Nat.cast.{0} Real Real.instNatCast h)
+                                                                      (@HAdd.hAdd.{0, 0, 0} Real Real Real
+                                                                        (@instHAdd.{0} Real Real.instAdd)
+                                                                        (@Nat.cast.{0} Real Real.instNatCast
+                                                                          (@Fin.val n i))
+                                                                        (@OfNat.ofNat.{0} Real (nat_lit 1)
+                                                                          (@One.toOfNat1.{0} Real Real.instOne))))
+                                                                    alpha)))))))))) :=
+⋯

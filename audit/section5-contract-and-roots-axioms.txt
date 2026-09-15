@@ -1,0 +1,11 @@
+'Luce.cyclicProfileMeasure_eq_closed_cube' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.cycleTraceIntensity_eq_manuscript' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.cycleVectorPoissonLaw_probability' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section5.cycleMaximum_injective' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section5.maximumCycleRoots_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section5.bulkCycleCount_eq_maximum_roots' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section5.tailCycleCount_eq_maximum_roots' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section5.mem_maximumCycleRoots_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.Section5.tailCycleExpectation_eq_maximum_probability_sum' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

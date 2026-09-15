@@ -1,0 +1,8 @@
+⚠ [3637/3637] Built Luce.Section65PoissonMomentLimit (14s)
+warning: Luce/Section65PoissonMomentLimit.lean:30:6: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: Luce/Section65PoissonMomentLimit.lean:31:6: try 'simp' instead of 'simpa'
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+Build completed successfully (3637 jobs).

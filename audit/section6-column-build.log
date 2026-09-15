@@ -1,0 +1,9 @@
+⚠ [937/1051] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3425/3425] Built Luce.Section6ActiveOrdinaryColumns (17s)
+Build completed successfully (3425 jobs).

@@ -1,0 +1,25 @@
+Luce/LucePrefixRecursion.lean:50:29: error: Application type mismatch: The argument
+  Equiv.injective (Equiv.swap 0 p) (htail j hj)
+has type
+  (σ j).succ = (τ j).succ
+of sort `Prop` but is expected to have type
+  ℕ
+of sort `Type` in the application
+  Fin.succ_injective (Equiv.injective (Equiv.swap 0 p) (htail j hj))
+Luce/LucePrefixRecursion.lean:74:4: error: Tactic `rfl` failed: The left-hand side
+  w.rate ((Equiv.Perm.decomposeFin.symm (p, σ)) r.succ) / ∑ j with r ≤ j, (w.removeFirst p).rate (σ j)
+is not definitionally equal to the right-hand side
+  (w.removeFirst p).rate (σ r) / ∑ j with r ≤ j, (w.removeFirst p).rate (σ j)
+
+case pos
+n : ℕ
+w : Weights (n + 1)
+p : Fin (n + 1)
+σ : Equiv.Perm (Fin n)
+m : ℕ
+hzero : ∑ j with 0 ≤ j, w.rate ((Equiv.Perm.decomposeFin.symm (p, σ)) j) = w.total Finset.univ
+r : Fin n
+a✝ : r ∈ Finset.univ
+h✝ : ↑r < m
+⊢ w.rate ((Equiv.Perm.decomposeFin.symm (p, σ)) r.succ) / ∑ j with r ≤ j, (w.removeFirst p).rate (σ j) =
+    (w.removeFirst p).rate (σ r) / ∑ j with r ≤ j, (w.removeFirst p).rate (σ j)

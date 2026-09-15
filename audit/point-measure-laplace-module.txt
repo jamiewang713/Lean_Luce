@@ -1,0 +1,20 @@
+Luce/PointMeasureLaplace.lean:36:65: error: unsolved goals
+X : Type u_1
+inst✝ : TopologicalSpace X
+g h : X →ᵇ ℝ≥0
+u : PointMomentSpace X
+⊢ Real.exp (-↑(u h)) * Real.exp (-↑(u g)) = Real.exp (-↑(u g)) * Real.exp (-↑(u h))
+Luce/PointMeasureLaplace.lean:38:32: warning: This simp argument is unused:
+  neg_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [momentLaplace, map_add, Real.exp_add]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+Luce/PointMeasureLaplace.lean:63:35: error(lean.unknownIdentifier): Unknown constant `Real.exp_inj`
+Luce/PointMeasureLaplace.lean:63:2: error: Type mismatch: After simplification, term
+  hg
+ has type
+  u g ≠ v g
+but is expected to have type
+  Real.exp (-↑(u g)) ≠ Real.exp (-↑(v g))

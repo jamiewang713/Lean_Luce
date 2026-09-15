@@ -1,0 +1,50 @@
+theorem Luce.Section6.exceptionalEnvelope_restricted_sums : ∀ {b v d nu : Real},
+  @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) b →
+    @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) v →
+      @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) d →
+        @LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)) nu →
+          ∃ C,
+            And
+              (@LT.lt.{0} Real Real.instLT (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+                C)
+              (∀ (A : Nat),
+                @LE.le.{0} Nat instLENat (@OfNat.ofNat.{0} Nat (nat_lit 1) (instOfNatNat (nat_lit 1))) A →
+                  @LE.le.{0} Real Real.instLE
+                    (@HAdd.hAdd.{0, 0, 0} Real Real Real (@instHAdd.{0} Real Real.instAdd)
+                      (@SupSet.sSup.{0} Real Real.instSupSet
+                        (@Set.ofPred.{0} Real fun z =>
+                          ∃ a,
+                            And (@LE.le.{0} Nat instLENat A a)
+                              (@Eq.{1} Real z
+                                (@tsum.{0, 0} Real Nat Real.instAddCommMonoid
+                                  (@UniformSpace.toTopologicalSpace.{0} Real
+                                    (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                                  (fun h =>
+                                    @ite.{1} Real (@LE.le.{0} Nat instLENat A h) (A.decLe h)
+                                      (Luce.Section6.exceptionalEnvelope b v d nu a h)
+                                      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+                                  (SummationFilter.unconditional.{0} Nat)))))
+                      (@SupSet.sSup.{0} Real Real.instSupSet
+                        (@Set.ofPred.{0} Real fun z =>
+                          ∃ h,
+                            And (@LE.le.{0} Nat instLENat A h)
+                              (@Eq.{1} Real z
+                                (@tsum.{0, 0} Real Nat Real.instAddCommMonoid
+                                  (@UniformSpace.toTopologicalSpace.{0} Real
+                                    (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+                                  (fun a =>
+                                    @ite.{1} Real (@LE.le.{0} Nat instLENat A a) (A.decLe a)
+                                      (Luce.Section6.exceptionalEnvelope b v d nu a h)
+                                      (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero)))
+                                  (SummationFilter.unconditional.{0} Nat))))))
+                    (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul) C
+                      (Real.exp
+                        (@HMul.hMul.{0, 0, 0} Real Real Real (@instHMul.{0} Real Real.instMul)
+                          (@Neg.neg.{0} Real Real.instNeg
+                            (@HDiv.hDiv.{0, 0, 0} Real Real Real
+                              (@instHDiv.{0} Real (@DivInvMonoid.toDiv.{0} Real Real.instDivInvMonoid)) d
+                              (@OfNat.ofNat.{0} Real (nat_lit 2)
+                                (@instOfNatAtLeastTwo.{0} Real (nat_lit 2) Real.instNatCast ⋯))))
+                          (@HPow.hPow.{0, 0, 0} Real Real Real (@instHPow.{0, 0} Real Real Real.instPow)
+                            (@Nat.cast.{0} Real Real.instNatCast A) nu))))) :=
+⋯

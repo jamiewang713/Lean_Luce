@@ -1,0 +1,14 @@
+Luce.Section6.insertionDominationMatrix {n : ℕ} (w : Luce.Weights n) (r p : ℕ) (i j : Fin n) : ℝ
+Luce.Section6.markedRankCylinder_probability_le_Lp_product {n r : ℕ} (w : Luce.Weights n) (hr : 0 < r)
+  (u j : Fin r → Fin n) (hu : Function.Injective u) (hj : Function.Injective j) :
+  (Luce.exponentialRace w) {clocks | Luce.MarkedRankCylinder u j clocks} ≤
+    ∏ a,
+      MeasureTheory.eLpNorm
+        (fun old =>
+          (Luce.deletedGapKernel w (Finset.image (u ∘ ⇑(Tuple.sort j)) Finset.univ) old ((u ∘ ⇑(Tuple.sort j)) a)
+              (Luce.sortedMarkedGapIndex j a)).toReal)
+        (↑r) (Luce.exponentialRace w)
+MeasureTheory.eLpNorm_le_eLpNorm_of_exponent_le.{u_1, u_2} {α : Type u_1} {ε : Type u_2} {m : MeasurableSpace α}
+  {μ : MeasureTheory.Measure α} {f : α → ε} [TopologicalSpace ε] [ContinuousENorm ε] {p q : ENNReal} (hpq : p ≤ q)
+  [MeasureTheory.IsProbabilityMeasure μ] (hf : MeasureTheory.AEStronglyMeasurable f μ) :
+  MeasureTheory.eLpNorm f p μ ≤ MeasureTheory.eLpNorm f q μ

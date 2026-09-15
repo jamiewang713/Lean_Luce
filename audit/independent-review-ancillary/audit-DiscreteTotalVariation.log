@@ -1,0 +1,91 @@
+@Luce.tendsto_probabilityTotalVariation_of_singletons : ∀
+  {μ : Nat → @MeasureTheory.ProbabilityMeasure Nat Nat.instMeasurableSpace}
+  {ν : @MeasureTheory.ProbabilityMeasure Nat Nat.instMeasurableSpace},
+  (∀ (k : Nat),
+      @Filter.Tendsto Nat Real
+        (fun n =>
+          @MeasureTheory.Measure.real Nat Nat.instMeasurableSpace
+            (@MeasureTheory.ProbabilityMeasure.toMeasure Nat Nat.instMeasurableSpace (μ n))
+            (@singleton Nat (Set Nat) (@Set.instSingletonSet Nat) k))
+        (@Filter.atTop Nat Nat.instPreorder)
+        (@nhds Real
+          (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+          (@MeasureTheory.Measure.real Nat Nat.instMeasurableSpace
+            (@MeasureTheory.ProbabilityMeasure.toMeasure Nat Nat.instMeasurableSpace ν)
+            (@singleton Nat (Set Nat) (@Set.instSingletonSet Nat) k)))) →
+    @Filter.Tendsto Nat Real (fun n => Luce.probabilityTotalVariation (μ n) ν) (@Filter.atTop Nat Nat.instPreorder)
+      (@nhds Real
+        (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)))
+@Luce.tendsto_probability_singletons_of_weak : ∀
+  {μ : Nat → @MeasureTheory.ProbabilityMeasure Nat Nat.instMeasurableSpace}
+  {ν : @MeasureTheory.ProbabilityMeasure Nat Nat.instMeasurableSpace},
+  @Filter.Tendsto Nat (@MeasureTheory.ProbabilityMeasure Nat Nat.instMeasurableSpace) μ
+      (@Filter.atTop Nat Nat.instPreorder)
+      (@nhds (@MeasureTheory.ProbabilityMeasure Nat Nat.instMeasurableSpace)
+        (@MeasureTheory.ProbabilityMeasure.instTopologicalSpace Nat Nat.instMeasurableSpace instTopologicalSpaceNat ⋯)
+        ν) →
+    ∀ (k : Nat),
+      @Filter.Tendsto Nat Real
+        (fun n =>
+          @MeasureTheory.Measure.real Nat Nat.instMeasurableSpace
+            (@MeasureTheory.ProbabilityMeasure.toMeasure Nat Nat.instMeasurableSpace (μ n))
+            (@singleton Nat (Set Nat) (@Set.instSingletonSet Nat) k))
+        (@Filter.atTop Nat Nat.instPreorder)
+        (@nhds Real
+          (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+          (@MeasureTheory.Measure.real Nat Nat.instMeasurableSpace
+            (@MeasureTheory.ProbabilityMeasure.toMeasure Nat Nat.instMeasurableSpace ν)
+            (@singleton Nat (Set Nat) (@Set.instSingletonSet Nat) k)))
+@Luce.tendsto_probabilityTotalVariation_of_weak : ∀
+  {μ : Nat → @MeasureTheory.ProbabilityMeasure Nat Nat.instMeasurableSpace}
+  {ν : @MeasureTheory.ProbabilityMeasure Nat Nat.instMeasurableSpace},
+  @Filter.Tendsto Nat (@MeasureTheory.ProbabilityMeasure Nat Nat.instMeasurableSpace) μ
+      (@Filter.atTop Nat Nat.instPreorder)
+      (@nhds (@MeasureTheory.ProbabilityMeasure Nat Nat.instMeasurableSpace)
+        (@MeasureTheory.ProbabilityMeasure.instTopologicalSpace Nat Nat.instMeasurableSpace instTopologicalSpaceNat ⋯)
+        ν) →
+    @Filter.Tendsto Nat Real (fun n => Luce.probabilityTotalVariation (μ n) ν) (@Filter.atTop Nat Nat.instPreorder)
+      (@nhds Real
+        (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)))
+@Luce.tendsto_probabilityTotalVariation_of_integrals : ∀
+  {μ : Nat → @MeasureTheory.ProbabilityMeasure Nat Nat.instMeasurableSpace}
+  {ν : @MeasureTheory.ProbabilityMeasure Nat Nat.instMeasurableSpace},
+  (∀ (F : @BoundedContinuousFunction Nat Real instTopologicalSpaceNat Real.pseudoMetricSpace),
+      @Filter.Tendsto Nat Real
+        (fun n =>
+          @MeasureTheory.integral Nat Real Real.normedAddCommGroup
+            (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+              (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+              (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+            Nat.instMeasurableSpace (@MeasureTheory.ProbabilityMeasure.toMeasure Nat Nat.instMeasurableSpace (μ n))
+            fun k =>
+            @DFunLike.coe (@BoundedContinuousFunction Nat Real instTopologicalSpaceNat Real.pseudoMetricSpace) Nat
+              (fun x => Real)
+              (@BoundedContinuousFunction.instFunLike Nat Real instTopologicalSpaceNat Real.pseudoMetricSpace) F k)
+        (@Filter.atTop Nat Nat.instPreorder)
+        (@nhds Real
+          (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+          (@MeasureTheory.integral Nat Real Real.normedAddCommGroup
+            (@InnerProductSpace.toNormedSpace Real Real Real.instRCLike
+              (@NormedAddCommGroup.toSeminormedAddCommGroup Real Real.normedAddCommGroup)
+              (@RCLike.toInnerProductSpaceReal Real Real.instRCLike))
+            Nat.instMeasurableSpace (@MeasureTheory.ProbabilityMeasure.toMeasure Nat Nat.instMeasurableSpace ν) fun k =>
+            @DFunLike.coe (@BoundedContinuousFunction Nat Real instTopologicalSpaceNat Real.pseudoMetricSpace) Nat
+              (fun x => Real)
+              (@BoundedContinuousFunction.instFunLike Nat Real instTopologicalSpaceNat Real.pseudoMetricSpace) F k))) →
+    @Filter.Tendsto Nat Real (fun n => Luce.probabilityTotalVariation (μ n) ν) (@Filter.atTop Nat Nat.instPreorder)
+      (@nhds Real
+        (@UniformSpace.toTopologicalSpace Real (@PseudoMetricSpace.toUniformSpace Real Real.pseudoMetricSpace))
+        (@OfNat.ofNat Real (nat_lit 0) (@Zero.toOfNat0 Real Real.instZero)))
+def Luce.probabilityTotalVariation : MeasureTheory.ProbabilityMeasure ℕ → MeasureTheory.ProbabilityMeasure ℕ → ℝ :=
+fun μ ν => sSup (Set.range fun A => |(↑μ).real A - (↑ν).real A|)
+'Luce.probabilityTotalVariation_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.probabilityTotalVariation_le_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.probability_event_difference_le_totalVariation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.probabilityTotalVariation_le_finite_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.tendsto_probabilityTotalVariation_of_singletons' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.tendsto_probability_singletons_of_weak' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.tendsto_probabilityTotalVariation_of_weak' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.tendsto_probabilityTotalVariation_of_integrals' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,67 @@
+@Luce.continuous_weightedPointMeasure : ∀ {X : Type u_1} [inst : MeasurableSpace X] [inst_1 : TopologicalSpace X]
+  [inst_2 : OpensMeasurableSpace X] {n : ℕ} (x : Fin n → X), Continuous (Luce.weightedPointMeasure x)
+@Luce.FiniteAdaptedBernoulli.pointMeasure : {X : Type u_1} →
+  [inst : MeasurableSpace X] →
+    {Ω : Type u_2} →
+      {mΩ : MeasurableSpace Ω} →
+        {P : MeasureTheory.Measure Ω} →
+          {n : ℕ} → Luce.FiniteAdaptedBernoulli P n → (Fin n → X) → Ω → Luce.FinitePointMeasure X
+@Luce.FiniteAdaptedBernoulli.predictableMeasure : {X : Type u_1} →
+  [inst : MeasurableSpace X] →
+    {Ω : Type u_2} →
+      {mΩ : MeasurableSpace Ω} →
+        {P : MeasureTheory.Measure Ω} →
+          {n : ℕ} → Luce.FiniteAdaptedBernoulli P n → (Fin n → X) → Ω → MeasureTheory.FiniteMeasure X
+@Luce.FiniteAdaptedBernoulli.measurable_pointMeasure : ∀ {X : Type u_1} [inst : MeasurableSpace X] {Ω : Type u_2}
+  {mΩ : MeasurableSpace Ω} {P : MeasureTheory.Measure Ω} {n : ℕ} (B : Luce.FiniteAdaptedBernoulli P n) (x : Fin n → X),
+  Measurable (B.pointMeasure x)
+@Luce.FiniteAdaptedBernoulli.measurable_predictableMeasure : ∀ {X : Type u_1} [inst : MeasurableSpace X] {Ω : Type u_2}
+  {mΩ : MeasurableSpace Ω} {P : MeasureTheory.Measure Ω} {n : ℕ} (B : Luce.FiniteAdaptedBernoulli P n) (x : Fin n → X),
+  Measurable (B.predictableMeasure x)
+@Luce.FiniteAdaptedBernoulli.measurableSet_predictableMeasure_preimage : ∀ {X : Type u_1} [inst : MeasurableSpace X]
+  {Ω : Type u_2} {mΩ : MeasurableSpace Ω} {P : MeasureTheory.Measure Ω} {n : ℕ} (B : Luce.FiniteAdaptedBernoulli P n)
+  [inst_1 : TopologicalSpace X] [inst_2 : OpensMeasurableSpace X] (x : Fin n → X)
+  {U : Set (MeasureTheory.FiniteMeasure X)}, IsOpen U → MeasurableSet {ω | B.predictableMeasure x ω ∈ U}
+@Luce.FiniteAdaptedBernoulli.integral_predictableMeasure : ∀ {X : Type u_1} [inst : MeasurableSpace X] {Ω : Type u_2}
+  {mΩ : MeasurableSpace Ω} {P : MeasureTheory.Measure Ω} {n : ℕ} (B : Luce.FiniteAdaptedBernoulli P n) (x : Fin n → X)
+  (g : X → ℝ), Measurable g → ∀ (ω : Ω), ∫ (y : X), g y ∂↑(B.predictableMeasure x ω) = ∑ k, B.probability k ω * g (x k)
+@Luce.FiniteAdaptedBernoulli.spatialTest : {X : Type u_1} → {n : ℕ} → (Fin n → X) → (X → ℝ) → ℕ → ℝ
+@Luce.FiniteAdaptedBernoulli.spatialTest_nonneg : ∀ {X : Type u_1} {n : ℕ} (x : Fin n → X) (g : X → ℝ),
+  (∀ (y : X), 0 ≤ g y) → ∀ (k : ℕ), 0 ≤ Luce.FiniteAdaptedBernoulli.spatialTest x g k
+@Luce.FiniteAdaptedBernoulli.pointMeasure_mass : ∀ {X : Type u_1} [inst : MeasurableSpace X] {Ω : Type u_2}
+  {mΩ : MeasurableSpace Ω} {P : MeasureTheory.Measure Ω} {n : ℕ} (B : Luce.FiniteAdaptedBernoulli P n)
+  [inst_1 : MeasureTheory.IsProbabilityMeasure P] (x : Fin n → X) (ω : Ω),
+  ↑(B.pointMeasure x ω).toFiniteMeasure.mass = ∑ k ∈ Finset.range n, B.toProcess.observation k ω
+@Luce.FiniteAdaptedBernoulli.predictableMeasure_mass : ∀ {X : Type u_1} [inst : MeasurableSpace X] {Ω : Type u_2}
+  {mΩ : MeasurableSpace Ω} {P : MeasureTheory.Measure Ω} {n : ℕ} (B : Luce.FiniteAdaptedBernoulli P n)
+  [inst_1 : MeasureTheory.IsProbabilityMeasure P] (x : Fin n → X) (ω : Ω),
+  ↑(B.predictableMeasure x ω).mass = ∑ k ∈ Finset.range n, B.toProcess.probability k ω
+@Luce.FiniteAdaptedBernoulli.pointLaplace_pointMeasure : ∀ {X : Type u_1} [inst : MeasurableSpace X] {Ω : Type u_2}
+  {mΩ : MeasurableSpace Ω} {P : MeasureTheory.Measure Ω} {n : ℕ} (B : Luce.FiniteAdaptedBernoulli P n)
+  [inst_1 : MeasureTheory.IsProbabilityMeasure P] (x : Fin n → X) (g : X → ℝ),
+  Measurable g →
+    ∀ (ω : Ω),
+      Luce.pointLaplace g (B.pointMeasure x ω) =
+        Real.exp (-∑ k ∈ Finset.range n, Luce.FiniteAdaptedBernoulli.spatialTest x g k * B.toProcess.observation k ω)
+@Luce.FiniteAdaptedBernoulli.laplaceCompensator_eq_integral_predictableMeasure : ∀ {X : Type u_1}
+  [inst : MeasurableSpace X] {Ω : Type u_2} {mΩ : MeasurableSpace Ω} {P : MeasureTheory.Measure Ω} {n : ℕ}
+  (B : Luce.FiniteAdaptedBernoulli P n) [inst_1 : MeasureTheory.IsProbabilityMeasure P] (x : Fin n → X) (g : X → ℝ),
+  Measurable g →
+    ∀ (ω : Ω),
+      B.toProcess.laplaceCompensator (Luce.FiniteAdaptedBernoulli.spatialTest x g) n ω =
+        ∫ (y : X), 1 - Real.exp (-g y) ∂↑(B.predictableMeasure x ω)
+'Luce.continuous_weightedPointMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.FiniteAdaptedBernoulli.measurable_pointMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.FiniteAdaptedBernoulli.measurable_predictableMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.FiniteAdaptedBernoulli.measurableSet_predictableMeasure_preimage' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'Luce.FiniteAdaptedBernoulli.integral_predictableMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.FiniteAdaptedBernoulli.spatialTest_at_fin' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.FiniteAdaptedBernoulli.spatialTest_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.FiniteAdaptedBernoulli.pointMeasure_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.FiniteAdaptedBernoulli.predictableMeasure_mass' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.FiniteAdaptedBernoulli.pointLaplace_pointMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.FiniteAdaptedBernoulli.laplaceCompensator_eq_integral_predictableMeasure' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

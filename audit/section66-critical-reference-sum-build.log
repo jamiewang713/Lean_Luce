@@ -1,0 +1,82 @@
+⚠ [937/1136] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [3405/3407] Replayed Luce.Section6ExcursionDepthSums
+info: Luce/Section6ExcursionDepthSums.lean:48:50: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+⚠ [3406/3407] Replayed Luce.Section6CriticalLogSums
+warning: Luce/Section6CriticalLogSums.lean:16:101: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: Luce/Section6CriticalLogSums.lean:29:83: Unused tactic linter: `ring` does nothing
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: Luce/Section6CriticalLogSums.lean:29:83: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+✖ [3407/3407] Building Luce.Section6CriticalReferenceSum (16s)
+trace: .> LEAN_PATH=D:\princeton\Research\Lean\Lean_luce\.lake\packages\Cli\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\batteries\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\Qq\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\aesop\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\importGraph\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\plausible\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\mathlib\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean c:\Users\JiaminWang\.elan\toolchains\leanprover--lean4---v4.33.1\bin\lean.exe D:\princeton\Research\Lean\Lean_luce\Luce\Section6CriticalReferenceSum.lean -o D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6CriticalReferenceSum.olean -i D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6CriticalReferenceSum.ilean -c D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6CriticalReferenceSum.c --setup D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6CriticalReferenceSum.setup.json --json
+info: Luce/Section6CriticalReferenceSum.lean:21:39: Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+error: Luce/Section6CriticalReferenceSum.lean:20:66: unsolved goals
+n : ℝ
+A B : ℕ
+hA : 1 ≤ A
+hAB : A ≤ B
+hzB : 1 ≤ Real.log n - Real.log ↑B
+hA0 : 0 < ↑A
+hAr : 1 ≤ ↑A
+hABr : ↑A ≤ ↑B
+f : ℝ → ℝ := fun x => 1 / (x * (Real.log n - Real.log x))
+hx0 : ∀ {x : ℝ}, x ∈ Icc ↑A ↑B → 0 < x
+hz : ∀ {x : ℝ}, x ∈ Icc ↑A ↑B → 1 ≤ Real.log n - Real.log x
+x : ℝ
+⊢ (x * Real.log n - x * Real.log x)⁻¹ = (Real.log n - Real.log x)⁻¹ * x⁻¹
+error: Luce/Section6CriticalReferenceSum.lean:25:13: `simp` made no progress
+error: Luce/Section6CriticalReferenceSum.lean:28:13: `simp` made no progress
+error: Luce/Section6CriticalReferenceSum.lean:56:50: mod_cast has type
+  A ≤ m ∧ m ≤ B
+but is expected to have type
+  ?m.528 ∈ Icc ↑A ↑B
+error: Luce/Section6CriticalReferenceSum.lean:56:21: unsolved goals
+n : ℝ
+A B : ℕ
+hA : 1 ≤ A
+hAB : A ≤ B
+hzB : 1 ≤ Real.log n - Real.log ↑B
+hA0 : 0 < ↑A
+hAr : 1 ≤ ↑A
+hABr : ↑A ≤ ↑B
+f : ℝ → ℝ := fun x => 1 / (x * (Real.log n - Real.log x))
+hx0 : ∀ {x : ℝ}, x ∈ Icc ↑A ↑B → 0 < x
+hz : ∀ {x : ℝ}, x ∈ Icc ↑A ↑B → 1 ≤ Real.log n - Real.log x
+hf : ∀ (x : ℝ), f x = (Real.log n - Real.log x) ^ (-1) / x
+hderiv :
+  ∀ x ∈ Icc ↑A ↑B,
+    HasDerivAt (fun y => (Real.log n - Real.log y) ^ (-1) / y)
+      ((Real.log n - Real.log x) ^ (-1 - 1) * (1 - (Real.log n - Real.log x)) / x ^ 2) x
+hcont : ContinuousOn f (Icc ↑A ↑B)
+hanti : AntitoneOn f (Icc ↑A ↑B)
+hint : ∫ (x : ℝ) in ↑A..↑B, f x = Real.log (Real.log n - Real.log ↑A) - Real.log (Real.log n - Real.log ↑B)
+hup : ∑ m ∈ Finset.Icc A B, f ↑m ≤ f ↑A + ∫ (x : ℝ) in ↑A..↑B, f x
+hlo : ∫ (x : ℝ) in ↑A..↑B, f x ≤ ∑ x ∈ Finset.Ico A B, f ↑x
+m : ℕ
+hm : m ∈ Finset.Icc A B
+x✝ : m ∉ Finset.Ico A B
+⊢ 0 ≤ 1 / (↑m * (Real.log n - Real.log ↑m))
+error: Lean exited with code 1
+Some required targets logged failures:
+- Luce.Section6CriticalReferenceSum
+error: build failed

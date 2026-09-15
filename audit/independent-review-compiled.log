@@ -1,0 +1,34 @@
+REVIEW_EXECUTABLE_COMPANION: Luce.identityNormalizedGaps._unsafe_rec
+REVIEW_EXECUTABLE_COMPANION: Luce.Section6.convolutionDensity._unsafe_rec
+REVIEW_EXECUTABLE_COMPANION: Luce.Section6.openPathWeight68._unsafe_rec
+REVIEW_EXECUTABLE_COMPANION: Luce.Section6.pathVariation68._unsafe_rec
+REVIEW_EXECUTABLE_COMPANION: Luce.Section6.traceConvolution68._unsafe_rec
+STATEMENT section4_contractCheck : ShellMigrationContract.section4.{u_1}
+AXIOMS section4_contractCheck: [propext, Classical.choice, Quot.sound]
+STATEMENT section5_contractCheck : ShellMigrationContract.section5.{u_1}
+AXIOMS section5_contractCheck: [propext, Classical.choice, Quot.sound]
+STATEMENT Luce.Section6.powerLaw65 : ∀ (grid : Luce.Section6.SamplingGrid), SampledProfileContract.powerLaw.{u} grid
+AXIOMS Luce.Section6.powerLaw65: [propext, Classical.choice, Quot.sound]
+STATEMENT Luce.Section6.spatial65 : ∀ (grid : Luce.Section6.SamplingGrid), SampledProfileContract.spatial.{u} grid
+AXIOMS Luce.Section6.spatial65: [propext, Classical.choice, Quot.sound]
+STATEMENT Luce.Section6.critical : ∀ (grid : Luce.Section6.SamplingGrid), SampledProfileContract.critical.{u} grid
+AXIOMS Luce.Section6.critical: [propext, Classical.choice, Quot.sound]
+STATEMENT Luce.Section6.section6 : SampledProfileContract.section6.{u}
+AXIOMS Luce.Section6.section6: [propext, Classical.choice, Quot.sound]
+STATEMENT Luce.Section6.lemma612 : Luce.Section6.Lemma612Contract.lemma612.{u}
+AXIOMS Luce.Section6.lemma612: [propext, Classical.choice, Quot.sound]
+STATEMENT Luce.Section7.proposition71 : Luce.Section7.GeneralClockTailStatement.{u}
+AXIOMS Luce.Section7.proposition71: [propext, Classical.choice, Quot.sound]
+REVIEW_PRODUCTION_DECLARATIONS: 5902
+REVIEW_SAFE_PRODUCTION_ROOTS: 5897
+REVIEW_EXECUTABLE_COMPANION_COUNT: 5
+REVIEW_THEOREM_AXIOM_CONSTANTS: 5120
+REVIEW_TRANSITIVE_CHECKED_DECLARATIONS: 64089
+REVIEW_AXIOM_UNION: [propext, Classical.choice, Quot.sound]
+REVIEW_PASSED: every safe production definition and theorem has checked dependencies; no nonstandard axiom, unsafe dependency, or partial dependency
+REVIEW_PROGRESS: visited 10000 declarations
+REVIEW_PROGRESS: visited 20000 declarations
+REVIEW_PROGRESS: visited 30000 declarations
+REVIEW_PROGRESS: visited 40000 declarations
+REVIEW_PROGRESS: visited 50000 declarations
+REVIEW_PROGRESS: visited 60000 declarations

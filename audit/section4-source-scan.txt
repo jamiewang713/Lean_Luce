@@ -1,0 +1,1 @@
+No admissions, custom axioms, native_decide, unsafe declarations or proof-checking bypass patterns found in Luce/*.lean.

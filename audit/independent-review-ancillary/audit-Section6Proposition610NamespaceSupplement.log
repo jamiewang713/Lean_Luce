@@ -1,0 +1,42 @@
+theorem Luce.Section6.TraceDensity68.convolution_bound : ∀ {p : Real → Real},
+  Luce.Section6.TraceDensity68 p →
+    ∀ {M : Real},
+      (∀ (x : Real), @LE.le.{0} Real Real.instLE (p x) M) →
+        ∀ (k : Nat) (x : Real), @LE.le.{0} Real Real.instLE (Luce.Section6.traceConvolution68 p k x) M :=
+⋯
+'Luce.Section6.TraceDensity68.convolution_bound' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.TraceDensity68.convolution_continuous : ∀ {p : Real → Real},
+  Luce.Section6.TraceDensity68 p →
+    ∀ (k : Nat),
+      @Continuous.{0, 0} Real Real
+        (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+        (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+        (Luce.Section6.traceConvolution68 p k) :=
+⋯
+'Luce.Section6.TraceDensity68.convolution_continuous' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.TraceDensity68.convolution_integrable : ∀ {p : Real → Real},
+  Luce.Section6.TraceDensity68 p →
+    ∀ (k : Nat),
+      @MeasureTheory.Integrable.{0, 0} Real
+        (@UniformSpace.toTopologicalSpace.{0} Real (@PseudoMetricSpace.toUniformSpace.{0} Real Real.pseudoMetricSpace))
+        (@SeminormedAddGroup.toContinuousENorm.{0} Real
+          (@SeminormedAddCommGroup.toSeminormedAddGroup.{0} Real
+            (@NonUnitalSeminormedRing.toSeminormedAddCommGroup.{0} Real
+              (@NonUnitalSeminormedCommRing.toNonUnitalSeminormedRing.{0} Real
+                (@SeminormedCommRing.toNonUnitalSeminormedCommRing.{0} Real
+                  (@NormedCommRing.toSeminormedCommRing.{0} Real Real.normedCommRing))))))
+        Real (@MeasureTheory.MeasureSpace.toMeasurableSpace.{0} Real Real.measureSpace)
+        (Luce.Section6.traceConvolution68 p k) (@MeasureTheory.MeasureSpace.volume.{0} Real Real.measureSpace) :=
+⋯
+'Luce.Section6.TraceDensity68.convolution_integrable' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.TraceDensity68.convolution_nonneg : ∀ {p : Real → Real},
+  Luce.Section6.TraceDensity68 p →
+    ∀ (k : Nat) (x : Real),
+      @LE.le.{0} Real Real.instLE (@OfNat.ofNat.{0} Real (nat_lit 0) (@Zero.toOfNat0.{0} Real Real.instZero))
+        (Luce.Section6.traceConvolution68 p k x) :=
+⋯
+'Luce.Section6.TraceDensity68.convolution_nonneg' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]
+theorem Luce.Section6.TraceDensity68.reflect : ∀ {p : Real → Real},
+  Luce.Section6.TraceDensity68 p → Luce.Section6.TraceDensity68 fun x => p (@Neg.neg.{0} Real Real.instNeg x) :=
+⋯
+'Luce.Section6.TraceDensity68.reflect' depends on axioms: [propext, Classical.choice.{u}, Quot.sound.{u}]

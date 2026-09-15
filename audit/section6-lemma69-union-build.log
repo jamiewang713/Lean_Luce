@@ -1,0 +1,56 @@
+⚠ [937/1112] Replayed Luce.Model
+warning: Luce/Model.lean:191:59: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+✖ [3644/3644] Building Luce.Section6CollisionUnion (16s)
+trace: .> LEAN_PATH=D:\princeton\Research\Lean\Lean_luce\.lake\packages\Cli\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\batteries\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\Qq\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\aesop\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\proofwidgets\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\importGraph\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\LeanSearchClient\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\plausible\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\packages\mathlib\.lake\build\lib\lean;D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean c:\Users\JiaminWang\.elan\toolchains\leanprover--lean4---v4.33.1\bin\lean.exe D:\princeton\Research\Lean\Lean_luce\Luce\Section6CollisionUnion.lean -o D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6CollisionUnion.olean -i D:\princeton\Research\Lean\Lean_luce\.lake\build\lib\lean\Luce\Section6CollisionUnion.ilean -c D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6CollisionUnion.c --setup D:\princeton\Research\Lean\Lean_luce\.lake\build\ir\Luce\Section6CollisionUnion.setup.json --json
+error: Luce/Section6CollisionUnion.lean:48:10: Type mismatch: After simplification, term
+  h
+ has type
+  (if p ≠ q ∧ True then W x else 0) ≤ ∑ x_1, if p ≠ x_1 ∧ collisionNearby D p x_1 x then W x else 0
+but is expected to have type
+  W x ≤ ∑ q', if p ≠ q' ∧ collisionNearby D p q' x then W x else 0
+error: Luce/Section6CollisionUnion.lean:50:57: Tactic `split_ifs` failed: no if-then-else conditions to split
+
+s n A B : ℕ
+side : Fin s → Corner
+k : Fin s → ℕ
+W : CollisionAssignment n A B side k → ℝ
+hW : ∀ (x : CollisionAssignment n A B side k), 0 ≤ W x
+D : ℕ
+R : ℝ
+hR : 0 ≤ R
+hpair : ∀ (p q : CollisionSlot k), p ≠ q → collisionPairSum W D p q ≤ R
+x : CollisionAssignment n A B side k
+a✝ : x ∈ Finset.univ
+p q : CollisionSlot k
+hpq : p ≠ q
+hh : collisionNearby D p q x
+hinner : W x ≤ ∑ q', if p ≠ q' ∧ collisionNearby D p q' x then W x else 0
+p' : CollisionSlot k
+x✝¹ : p' ∈ Finset.univ
+q' : ?m.321 p'
+x✝ : q' ∈ ?m.322 p'
+⊢ 0 ≤ ?m.323 p' q'
+error: Luce/Section6CollisionUnion.lean:49:27: Application type mismatch: The argument
+  Finset.single_le_sum (fun p' x => Finset.sum_nonneg fun q' x_1 => ?m.327) (Finset.mem_univ p)
+has type
+  ∑ i ∈ ?m.322 p, ?m.323 p i ≤ ∑ x, ∑ i ∈ ?m.322 x, ?m.323 x i
+but is expected to have type
+  (∑ q', if p ≠ q' ∧ collisionNearby D p q' x then W x else 0) ≤
+    ∑ p, ∑ q, if p ≠ q ∧ collisionNearby D p q x then W x else 0
+in the application
+  LE.le.trans hinner (Finset.single_le_sum (fun p' x => Finset.sum_nonneg fun q' x_1 => ?m.327) (Finset.mem_univ p))
+error: Luce/Section6CollisionUnion.lean:63:8: Type mismatch: After simplification, term
+  hpair p q hpq
+ has type
+  (∑ a, if collisionNearby D p q a then W a else 0) ≤ R
+but is expected to have type
+  (∑ x, if p ≠ q ∧ collisionNearby D p q x then W x else 0) ≤ R
+error: Lean exited with code 1
+Some required targets logged failures:
+- Luce.Section6CollisionUnion
+error: build failed
