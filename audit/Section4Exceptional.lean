@@ -53,6 +53,7 @@ example (w : WeightArray) (E : ∀ n, Finset (Fin n))
 #print terminalDepthExpectation
 #check @individual_slow_label_charge
 #check @corollary47_endpoint
+#check @corollary47_epsilon
 #check @corollary47
 #check @corollary47_general
 #check @exceptionalFullIntensity_projection
@@ -65,6 +66,7 @@ example (w : WeightArray) (E : ∀ n, Finset (Fin n))
 #print axioms EndpointExceptionalAssumption.expectation_shells
 #print axioms EndpointExceptionalAssumption.terminal_depth_limit
 #print axioms corollary47_endpoint
+#print axioms corollary47_epsilon
 #print axioms corollary47
 #print axioms corollary47_general
 #print axioms exceptionalFullIntensity_projection

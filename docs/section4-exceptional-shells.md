@@ -10,6 +10,7 @@ and `cor:exceptional-shell-refinement`.
 | Lemma 4.3, arbitrary Luce realization | `Luce.individual_slow_label_charge` | `Luce/EndpointSlowLabel.lean` |
 | Lemma 4.3, exponential-clock ranks | `Luce.race_individual_slow_label_charge` | `Luce/EndpointSlowLabel.lean` |
 | Corollary 4.7, both endpoint expectation limits | `Luce.corollary47_endpoint` | `Luce/EndpointExceptionalTheorem.lean` |
+| Corollary 4.7, literal `ε ↓ 0` parameter | `Luce.corollary47_epsilon` | `Luce/EndpointExceptionalTheorem.lean` |
 | Corollary 4.7, full finite-mean Poisson conclusion | `Luce.corollary47` | `Luce/EndpointExceptionalTheorem.lean` |
 | Same Poisson conclusion on arbitrary row probability spaces | `Luce.corollary47_general` | `Luce/EndpointExceptionalTheorem.lean` |
 | Literal limiting intensity | `Luce.exceptionalFullIntensity_projection` | `Luce/EndpointExceptionalTheorem.lean` |
@@ -40,8 +41,8 @@ As in the existing shell formalization, raw nonnegative iterated limsups
 are taken in `ℝ≥0∞`. The endpoint theorem also proves the real-valued
 expectation limits. The conversion derives eventual row boundedness from
 the extended limit, so divergent sequences are not silently assigned a
-totalized real limsup. The spatial statement uses `α ↑ 1`, equivalently
-`ε = 1-α ↓ 0`.
+totalized real limsup. Both `α ↑ 1` and the literal `ε = 1-α ↓ 0`
+parameterizations are included.
 
 The endpoint conclusions require only normalization and the combined cost
 condition. The full Poisson conclusion additionally uses the existing
@@ -81,3 +82,16 @@ lake env lean audit/Section4Exceptional.lean
 The audit checks a statement with the combined assumption and terminal
 expectation expanded, prints the public types and defining objects, and
 prints transitive axiom dependencies of both results.
+
+Verified on 2026-09-14 with Lean 4.33.1 / mathlib v4.33.1:
+
+- `lake build` passed (4591 jobs), including the default library entry point.
+- `lake env lean audit/Section4Exceptional.lean` passed, including the
+  depth-one boundary case and the expanded raw-condition statement.
+- Every audited declaration depends only on `propext`, `Classical.choice`,
+  and `Quot.sound`. There is no `sorryAx` or additional axiom.
+- The eight added production modules contain no proof placeholders,
+  custom axioms, unsafe declarations, or native-evaluation proof shortcuts.
+
+Compiler records: [library build](../audit/section4-exceptional-full-build.log)
+and [statement/axiom audit](../audit/section4-exceptional-audit.log).

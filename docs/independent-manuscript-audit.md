@@ -2,6 +2,11 @@
 
 Reference: `fixed_points_sampled_profile.tex`, as requested by the user. Review date: 2026-09-14 (America/New_York).
 
+**Section 4 follow-up:** The Lemma 4.3 and Corollary 4.7 coverage gaps identified
+in this audit are now closed. See the [formalization and scoped verification
+record](section4-exceptional-shells.md). The original findings below describe
+the earlier snapshot.
+
 ## Verdict
 
 **The five main theorems—1.3, 1.4, 1.6, 1.7, and 1.8—have Lean proofs whose final hypotheses and conclusions match the sampled-profile manuscript. I found no extra model assumption at those theorem boundaries.** The interior-grid extension and the independent-clock tail proposition also have checked proofs.

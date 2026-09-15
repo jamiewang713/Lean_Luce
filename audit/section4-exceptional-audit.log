@@ -1,0 +1,79 @@
+@deletedSmallestRateSum_attained : ∀ {n : ℕ} (w : Weights n) (k : Fin n),
+  ∃ s ⊆ Finset.univ.erase k, s.card = n - ↑k - 1 ∧ deletedSmallestRateSum w k = w.total s
+@deletedSmallestRateSum_le : ∀ {n : ℕ} (w : Weights n) (k : Fin n),
+  ∀ s ⊆ Finset.univ.erase k, s.card = n - ↑k - 1 → deletedSmallestRateSum w k ≤ w.total s
+def Luce.deletedRateSubsets : {n : ℕ} → Fin n → Finset (Finset (Fin n)) :=
+fun {n} k => Finset.powersetCard (n - ↑k - 1) (Finset.univ.erase k)
+def Luce.deletedSmallestRateSum : {n : ℕ} → Weights n → Fin n → ℝ :=
+fun {n} w k => (Finset.image w.total (deletedRateSubsets k)).min' ⋯
+def Luce.slowLabelCharge : {n : ℕ} → Weights n → Fin n → ℝ :=
+fun {n} w k => w.rate k / (w.rate k + deletedSmallestRateSum w k)
+def Luce.EndpointExceptionalAssumption : WeightArray → ((n : ℕ) → Finset (Fin n)) → Prop :=
+fun w E =>
+  Tendsto (fun J => limsup (fun n => RegularShell.shellTailCost E w n J + exceptionalTailCharge w E n J) atTop) atTop
+    (𝓝 0)
+def Luce.exceptionalTailCharge : WeightArray → ((n : ℕ) → Finset (Fin n)) → ℕ → ℕ → ℝ≥0∞ :=
+fun w E n J => ∑ k ∈ terminalDepthBlock n J with k ∈ E n, ENNReal.ofReal (slowLabelCharge (w n) k)
+def Luce.terminalDepthExpectation : WeightArray → ℕ → ℕ → ℝ :=
+fun w n J => ∫ (e : Fin n → ℝ), ↑{k ∈ terminalDepthBlock n J | raceRank e k = ↑k + 1}.card ∂exponentialRace (w n)
+@individual_slow_label_charge : ∀ {Ω : Type u_1} [mΩ : MeasurableSpace Ω] {n : ℕ} (P : Measure Ω)
+  [IsProbabilityMeasure P] (w : Weights n) (π : Ω → Equiv.Perm (Fin n)),
+  Measurable π →
+    (∀ (σ : Equiv.Perm (Fin n)), P.real {ω | π ω = σ} = w.mass σ) →
+      ∀ (k : Fin n), P.real {ω | (Equiv.symm (π ω)) k = k} ≤ w.rate k / (w.rate k + deletedSmallestRateSum w k)
+corollary47_endpoint : ∀ (w : WeightArray) (E : (n : ℕ) → Finset (Fin n)),
+  NormalizedWeights w →
+    EndpointExceptionalAssumption w E →
+      Tendsto (fun J => limsup (fun n => terminalDepthExpectation w n J) atTop) atTop (𝓝 0) ∧
+        Tendsto (fun α => limsup (fun n => ∫ (e : Fin n → ℝ), ↑(tailFixedPointCount e α) ∂exponentialRace (w n)) atTop)
+          (𝓝[<] 1) (𝓝 0)
+corollary47_epsilon : ∀ (w : WeightArray) (E : (n : ℕ) → Finset (Fin n)),
+  NormalizedWeights w →
+    EndpointExceptionalAssumption w E →
+      Tendsto
+        (fun ε => limsup (fun n => ∫ (e : Fin n → ℝ), ↑(tailFixedPointCount e (1 - ε)) ∂exponentialRace (w n)) atTop)
+        (𝓝[>] 0) (𝓝 0)
+corollary47 : ∀ (w : WeightArray) (f : ℝ → ℝ) (hnorm : NormalizedWeights w) (hf : ProfileLimit w f)
+  (E : (n : ℕ) → Finset (Fin n)) (hend : EndpointExceptionalAssumption w E),
+  Integrable (profileDiagonal f) (volume.restrict (Ioo 0 1)) ∧
+    (∀ (F : FinitePointMeasure ↑(Icc 0 1) →ᵇ ℝ),
+        Tendsto (fun n => ∫ (e : Fin n → ℝ), F (fixedPoints (raceDraw e)) ∂exponentialRace (w n)) atTop
+          (𝓝
+            (∫ (ξ : FinitePointMeasure ↑(Icc 0 1)),
+              F ξ ∂finitePoissonLaw (exceptionalFullIntensity w f hnorm hf E hend)))) ∧
+      Tendsto
+        (fun n =>
+          probabilityTotalVariation (raceFixedPointCountLaw (w n))
+            (poissonProbabilityMeasure (∫ (x : ℝ) in Ioo 0 1, profileDiagonal f x).toNNReal))
+        atTop (𝓝 0)
+corollary47_general : ∀ (Ω : ℕ → Type u_1) [mΩ : (n : ℕ) → MeasurableSpace (Ω n)] (P : (n : ℕ) → Measure (Ω n))
+  [inst : ∀ (n : ℕ), IsProbabilityMeasure (P n)] (w : WeightArray) (f : ℝ → ℝ) (hnorm : NormalizedWeights w)
+  (hf : ProfileLimit w f) (E : (n : ℕ) → Finset (Fin n)) (hend : EndpointExceptionalAssumption w E)
+  (π : (n : ℕ) → Ω n → Equiv.Perm (Fin n)) (hπ : ∀ (n : ℕ), Measurable (π n)),
+  (∀ (n : ℕ) (σ : Equiv.Perm (Fin n)), (P n).real {ω | π n ω = σ} = (w n).mass σ) →
+    Integrable (profileDiagonal f) (volume.restrict (Ioo 0 1)) ∧
+      (∀ (F : FinitePointMeasure ↑(Icc 0 1) →ᵇ ℝ),
+          Tendsto (fun n => ∫ (ω : Ω n), F (fixedPoints (π n ω)) ∂P n) atTop
+            (𝓝
+              (∫ (ξ : FinitePointMeasure ↑(Icc 0 1)),
+                F ξ ∂finitePoissonLaw (exceptionalFullIntensity w f hnorm hf E hend)))) ∧
+        Tendsto
+          (fun n =>
+            probabilityTotalVariation (fixedPointCountLaw (P n) (π n) ⋯)
+              (poissonProbabilityMeasure (∫ (x : ℝ) in Ioo 0 1, profileDiagonal f x).toNNReal))
+          atTop (𝓝 0)
+exceptionalFullIntensity_projection : ∀ (w : WeightArray) (f : ℝ → ℝ) (hnorm : NormalizedWeights w)
+  (hf : ProfileLimit w f) (E : (n : ℕ) → Finset (Fin n)) (hend : EndpointExceptionalAssumption w E),
+  Measure.map Subtype.val ↑(exceptionalFullIntensity w f hnorm hf E hend) = interiorDensityMeasure f 1
+'Luce.deletedSmallestRateSum_attained' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.deletedSmallestRateSum_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.individual_slow_label_charge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.race_individual_slow_label_charge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.terminalDepthBlock_sum_eq_shells' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.EndpointExceptionalAssumption.expectation_shells' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.EndpointExceptionalAssumption.terminal_depth_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.corollary47_endpoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.corollary47_epsilon' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.corollary47' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.corollary47_general' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Luce.exceptionalFullIntensity_projection' depends on axioms: [propext, Classical.choice, Quot.sound]

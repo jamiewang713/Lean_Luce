@@ -34,7 +34,7 @@ theorem corollary47_epsilon (w : WeightArray) (E : ∀ n, Finset (Fin n))
   have hc : Tendsto (fun ε : ℝ => 1-ε) (𝓝[>] (0 : ℝ)) (𝓝[<] (1 : ℝ)) := by
     apply tendsto_nhdsWithin_iff.mpr
     constructor
-    · simpa only [sub_zero] using tendsto_const_nhds.sub
+    · simpa only [sub_zero, id_eq] using tendsto_const_nhds.sub
         (tendsto_id.mono_left nhdsWithin_le_nhds :
           Tendsto (fun ε : ℝ => ε) (𝓝[>] (0 : ℝ)) (𝓝 0))
     · filter_upwards [self_mem_nhdsWithin] with ε hε
