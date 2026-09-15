@@ -6,8 +6,8 @@ Executed successfully, each with exit code 0:
 
 ```powershell
 lake build > audit/proposition54-full-build.log 2>&1
-lake env lean audit/Proposition54Proof.lean > audit/proposition54-proof-audit.log 2>&1
-lake env lean audit/Proposition54.lean > audit/proposition54-statement-types.log 2>&1
+lake env lean audit/Section5Proposition54Proof.lean > audit/proposition54-proof-audit.log 2>&1
+lake env lean audit/Section5Proposition54.lean > audit/proposition54-statement-types.log 2>&1
 lake env lean audit/Section5.lean > audit/proposition54-section5-audit.log 2>&1
 ```
 

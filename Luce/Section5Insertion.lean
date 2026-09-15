@@ -1,4 +1,4 @@
-import Luce.RaceOrder
+import Luce.Section1RaceOrder
 import Mathlib.Data.Fin.Tuple.Basic
 import Mathlib.Data.Fintype.BigOperators
 import Mathlib.Data.Nat.Dist

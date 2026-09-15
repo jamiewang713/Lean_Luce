@@ -1,4 +1,4 @@
-import Luce
+import Luce.Sections1To7
 
 set_option pp.explicit true
 set_option pp.universes true

@@ -1,6 +1,6 @@
-import Luce.Assumptions
-import Luce.Profile
-import Luce.ProfileRegularity
+import Luce.Section1Assumptions
+import Luce.Section3ProfileKernels
+import Luce.Section3ProfileRegularity
 
 /-!
 # The actual step profiles in the interior race law

@@ -2,7 +2,7 @@
 
 Status: **COMPLETE for the recorded statement.**
 
-Target: `Luce.predictable_poisson`, `Luce/PoissonCriterion.lean:25`.
+Target: `Luce.predictable_poisson`, `Luce/Section2PoissonCriterion.lean:25`.
 Source: `fixed_points.tex:589-603`, `lem:predictable-poisson` and
 `eq:poisson-criterion`; proof at lines 606-659.
 
@@ -113,13 +113,13 @@ No Lean or mathlib version changed: both remain pinned to v4.33.1.
 Verified on 2026-09-10 with the pinned Lean/mathlib v4.33.1:
 
 ```powershell
-lake env lean Luce/PoissonCriterion.lean
+lake env lean Luce/Section2PoissonCriterion.lean
 lake build
-lake env lean audit/PoissonCriterion.lean
+lake env lean audit/Section2PoissonCriterion.lean
 ```
 
 The relevant module check passed. The default project build passed with
-3700 jobs, including `Luce.PoissonCriterion`, imported by `Luce.lean:31`.
+3700 jobs, including `Luce.Section2PoissonCriterion`, imported by `Luce/Sections1To7.lean:31`.
 There are no remaining errors. Nonblocking deprecation/linter warnings
 remain, including the deprecated set-membership simplification name in
 the final proof.
@@ -145,7 +145,7 @@ Evidence files:
 
 - `audit/poisson-criterion-module.txt`
 - `audit/poisson-criterion-build.txt`
-- `audit/PoissonCriterion.lean`
+- `audit/Section2PoissonCriterion.lean`
 - `audit/poisson-criterion-print.txt`
 - `audit/poisson-criterion-axiom-summary.txt`
 - `audit/poisson-criterion-dependency-files.txt`
@@ -175,8 +175,8 @@ Evidence files:
 
 ## BUILD AUDIT
 
-- Relevant module checked: `Luce/PoissonCriterion.lean` — PASS.
-- Module included in project build: YES, `Luce.lean:31`.
+- Relevant module checked: `Luce/Section2PoissonCriterion.lean` — PASS.
+- Module included in project build: YES, `Luce/Sections1To7.lean:31`.
 - `lake build` result: PASS, 3700 jobs.
 - Remaining errors: NONE.
 

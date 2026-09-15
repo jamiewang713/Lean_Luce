@@ -1,5 +1,5 @@
 import Luce.Section5ShellContractCheck
-import Luce.ShellContractCheck
+import Luce.Section4ShellContractCheck
 import Luce.Section5CycleShellContractCheck
 
 set_option pp.explicit true

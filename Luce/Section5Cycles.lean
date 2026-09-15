@@ -1,4 +1,4 @@
-import Luce.Model
+import Luce.Section1Model
 import Mathlib.Dynamics.PeriodicPts.Lemmas
 import Mathlib.GroupTheory.Perm.Cycle.Basic
 import Mathlib.Data.Fintype.BigOperators

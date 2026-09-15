@@ -28,15 +28,15 @@ That proposition is awaiting approval and has not been proved.
 
 | Source item | Existing evidence | Remaining obligation |
 | --- | --- | --- |
-| Draw history, line 569 | Approved `Luce.drawHistory` in `DrawHistory.lean` | Definition complete; relate to a filtration wrapper where needed later. |
-| `eq:remaining-weight`, line 571 | `remaining` and `Weights.total` in `Model.lean`; `measurable_remaining_weight` in `HistoryPredictability.lean` expands the exact indicator sum | Approved measurability complete; exact denominator used in the conditional-probability theorem. |
+| Draw history, line 569 | Approved `Luce.drawHistory` in `Section2DrawHistory.lean` | Definition complete; relate to a filtration wrapper where needed later. |
+| `eq:remaining-weight`, line 571 | `remaining` and `Weights.total` in `Section1Model.lean`; `measurable_remaining_weight` in `Section2HistoryPredictability.lean` expands the exact indicator sum | Approved measurability complete; exact denominator used in the conditional-probability theorem. |
 | `eq:predictable-p`, line 575 | Approved `Luce.predictable_fixed_point_probability`, derived from the full product law using proved prefix-mass identities | COMPLETE for the approved statement on an arbitrary probability space. |
 | Measurability assertion, line 579 | `Luce.history_predictability`, with an audited equality to the approved statement | COMPLETE for the approved statement. |
 | `eq:compensator-measure`, line 581 | Generic scalar Bernoulli compensator sums exist; exact finite-measure and tested-martingale statement proposed in `Section2Compensator.lean` | Deferred while the user prioritizes Lemma 2.1; proposal remains unapproved. |
-| `lem:predictable-poisson`, line 589; `eq:poisson-criterion`, line 594 | `Luce.predictable_poisson` in `PoissonCriterion.lean`; full weak-law conclusion on literal compact spaces | COMPLETE; combined build/trust result is recorded in `docs/predictable-poisson.md`. |
+| `lem:predictable-poisson`, line 589; `eq:poisson-criterion`, line 594 | `Luce.predictable_poisson` in `Section2PoissonCriterion.lean`; full weak-law conclusion on literal compact spaces | COMPLETE; combined build/trust result is recorded in `docs/predictable-poisson.md`. |
 | Recursive predictable deletion, lines 609-615 | `stoppedMass`, `keepTerm`, `stoppedProbability`, their bounds and measurability; `BernoulliProcess.stop` | Connected through `FiniteAdaptedBernoulli` and `UncappedPoisson`; conditional-mean version equality is proved. |
 | `eq:likelihood-martingale`, line 618 | `BernoulliProcess.likelihood_martingale`, `integral_likelihood` | Used in the capped likelihood comparison and full uncapping proof. |
-| Single-factor second moment, lines 630-633 | Algebraic second-moment formula and exponential bound in `Predictable.lean` | Package the conditional second-moment identity and the iterated estimate if certifying this displayed proof assertion. |
+| Single-factor second moment, lines 630-633 | Algebraic second-moment formula and exponential bound in `Section2Predictable.lean` | Package the conditional second-moment identity and the iterated estimate if certifying this displayed proof assertion. |
 | `eq:likelihood-L2`, line 636 | `integral_likelihood_sq_le`, `stopped_integral_likelihood_sq_le` | Uniform bound proved with C_(g,delta)=1/(1-delta); the main comparison uses the stronger pointwise bound. |
 | Product approximation, lines 642-646 | `product_poisson_error_of_atom_bound` and capped integral-error estimate | Applied in the uncapped proof after deriving the good-event probabilities. |
 | Deletion probability vanishes, lines 648-650 | `row_bad_event_tendsto_zero`, `uncapped_laplace_tendsto_rows` | Proved from the two convergence hypotheses. |
@@ -49,7 +49,7 @@ the now-assembled full `predictable_poisson` theorem. All its extra caps
 are derived by the new uncapping proof.
 
 `Luce.BernoulliProcess.capped_laplace_tendsto_rows` in
-`Luce/PredictablePoisson.lean:21` allows row-dependent probability spaces.
+`Luce/Section2PredictablePoisson.lean:21` allows row-dependent probability spaces.
 It assumes a fixed cap `δ < 1`, a deterministic total cap `K`, a measurable
 random upper bound `a_n` with `0 ≤ a_n ≤ δ` pointwise, and
 `p_nk ≤ a_n` for every index, including indices beyond the finite row length.
@@ -187,7 +187,7 @@ remaining obligations, not external assumptions.
 ## Historical verification before predictability approval
 
 The production change in this stage is the default import of the existing
-`Luce.PredictablePoisson` module. No mathematical definition, signature, or
+`Luce.Section2PredictablePoisson` module. No mathematical definition, signature, or
 proof body was altered. The proposal only defines a proposition and does not
 assert it. Verification logs are under `audit/section2-*`.
 
@@ -223,7 +223,7 @@ assert it. Verification logs are under `audit/section2-*`.
 - Default `lake build`: PASS, 3630 jobs.
 - Proposal type-check: PASS; one class-definition reducibility warning,
   unrelated to mathematical content. This is not a theorem proof.
-- `lake env lean Luce/PredictablePoisson.lean`: PASS, exit 0.
+- `lake env lean Luce/Section2PredictablePoisson.lean`: PASS, exit 0.
 - `lake env lean audit/Section2Existing.lean`: PASS, exit 0.
 - Remaining errors in checked files: none.
 - Section 2: NOT COMPLETE.

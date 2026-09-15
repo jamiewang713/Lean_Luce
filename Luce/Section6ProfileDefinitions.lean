@@ -1,4 +1,4 @@
-import Luce.Assumptions
+import Luce.Section1Assumptions
 import Mathlib.Analysis.Asymptotics.Defs
 import Mathlib.Analysis.SpecialFunctions.Pow.Real
 import Mathlib.Topology.Instances.Real.Lemmas

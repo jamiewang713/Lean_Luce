@@ -16,7 +16,7 @@ for required in ("Luce.Shell.section4_main_poisson_general", "section4_contractC
                  "Luce.EndpointShellAssumption.expectation_tightness"):
     assert any(line.startswith("'" + required + "' depends on axioms:") for line in lines), required
 (root / "audit/shell-axioms.txt").write_text("\n".join(lines) + "\n", encoding="utf-8")
-contract = (root / "Luce/ShellMigrationContract.lean").read_text(encoding="utf-8")
+contract = (root / "Luce/Section4ShellMigrationContract.lean").read_text(encoding="utf-8")
 report = root / "docs/shell-migration-report.md"
 text = report.read_text(encoding="utf-8")
 marker = "\n## Verbatim frozen contract source\n"

@@ -26,7 +26,7 @@ The fixed-point measure is defined at line 150,
 `eq:fixed-process`; the defining full Luce permutation law is at line 142,
 `eq:luce-law`. The explicit conditional probability is at line 575,
 `eq:predictable-p`, now proved as
-`Luce.predictable_fixed_point_probability` in `Luce/PredictableProbability.lean`.
+`Luce.predictable_fixed_point_probability` in `Luce/Section2PredictableProbability.lean`.
 
 ## Proposed definitions
 
@@ -219,25 +219,25 @@ spatial integrability, and sample integrability conclusions.
 Production inputs already available:
 
 - `Luce.predictable_fixed_point_probability`,
-  `Luce/PredictableProbability.lean`: the approved conditional expectation
+  `Luce/Section2PredictableProbability.lean`: the approved conditional expectation
   identity under precisely the model assumptions above.
 - `Luce.measurable_predictableChance_history`,
   `Luce.integrable_predictableChance`, and
   `Luce.integrable_fixed_point_indicator`,
-  `Luce/ConditionalProbabilityBasics.lean`.
+  `Luce/Section2ConditionalProbabilityBasics.lean`.
 - `Luce.drawHistory_le` in the same module and the exact definition
-  `Luce.drawHistory` in `Luce/DrawHistory.lean`.
+  `Luce.drawHistory` in `Luce/Section2DrawHistory.lean`.
 - The positivity, upper bounds, and algebraic formula for the explicit
-  probabilities in `Luce/Model.lean`.
+  probabilities in `Luce/Section1Model.lean`.
 
 Pinned mathlib declarations inspected in source:
 
 - `MeasureTheory.IsStronglyPredictable.iff_measurable_add_one`,
-  `Mathlib/Probability/Process/Predictable.lean:252`: exactly
+  `Mathlib/Probability/Process/Section2Predictable.lean:252`: exactly
   `IsStronglyPredictable F u ↔ StronglyMeasurable[F 0] (u 0) ∧
   ∀ m, StronglyMeasurable[F m] (u (m+1))`.
 - `MeasureTheory.martingale_nat`,
-  `Mathlib/Probability/Martingale/Basic.lean:479`: for a complete target
+  `Mathlib/Probability/Martingale/Section1Basic.lean:479`: for a complete target
   normed space and finite measure, strong adaptedness, integrability at
   every time, and `f m =ᵐ[P] P[f (m+1) | F m]` imply `Martingale f F P`.
 - `MeasureTheory.Martingale.integrable`, same module, at line 98:
@@ -261,7 +261,7 @@ Pinned mathlib declarations inspected in source:
   are measurable; the real line satisfies this condition.
 - `MeasureTheory.lintegral_smul_measure` and
   `MeasureTheory.lintegral_finsetSum_measure`,
-  `Mathlib/MeasureTheory/Integral/Lebesgue/Basic.lean`: scalar and finite
+  `Mathlib/MeasureTheory/Integral/Lebesgue/Section1Basic.lean`: scalar and finite
   measure sums distribute over the nonnegative integral.
 
 Remaining work, after approval: verify the atomic-measure conclusions

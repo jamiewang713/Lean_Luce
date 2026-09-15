@@ -18,7 +18,7 @@ def names():
 
 def generate():
     declarations = names()
-    lines = ["import Luce", "", "set_option pp.explicit true",
+    lines = ["import Luce.Sections1To7", "", "set_option pp.explicit true",
              "set_option pp.universes true", "set_option pp.fullNames true",
              "set_option pp.proofs false", ""]
     for name in declarations:
@@ -52,9 +52,9 @@ def validate():
     baseline = json.loads((AUDIT / "section7-input-hashes.json").read_text(encoding="utf-8-sig"))
     changed = [row["path"] for row in baseline
                if hashlib.sha256(Path(row["path"]).read_bytes()).hexdigest().upper() != row["sha256"]]
-    unexpected_changes = [path for path in changed if Path(path) != ROOT / "Luce.lean"]
-    original_entry = next(row["sha256"] for row in baseline if Path(row["path"]) == ROOT / "Luce.lean")
-    entry = (ROOT / "Luce.lean").read_bytes()
+    unexpected_changes = [path for path in changed if Path(path) != ROOT / "Luce/Sections1To7.lean"]
+    original_entry = next(row["sha256"] for row in baseline if Path(row["path"]) == ROOT / "Luce/Sections1To7.lean")
+    entry = (ROOT / "Luce/Sections1To7.lean").read_bytes()
     without_new_import = re.sub(rb"import Luce\.Section7\r?\n?", b"", entry)
     entry_only_adds_import = hashlib.sha256(without_new_import).hexdigest().upper() == original_entry
     build = (AUDIT / "section7-full-build.log").read_text(encoding="utf-8-sig")

@@ -5,8 +5,12 @@ import re
 root = Path(__file__).resolve().parents[1]
 names = []
 for path in sorted((root / 'Luce').glob('Section6*.lean')):
+    source = path.read_text(encoding='utf-8')
+    # Section 6 also uses general Bernoulli helpers in other namespaces.
+    if not re.search(r'^namespace Luce\.Section6\s*$', source, re.M):
+        continue
     names.extend('Luce.Section6.' + name for name in re.findall(
-        r'^theorem\s+([^\s{(]+)', path.read_text(encoding='utf-8'), re.M))
+        r'^theorem\s+([^\s{(]+)', source, re.M))
 lines = ['import Luce.Section6', '', 'set_option pp.explicit true',
          'set_option pp.universes true', 'set_option pp.fullNames true',
          'set_option pp.proofs false', '',

@@ -1,4 +1,4 @@
-import Luce.EmpiricalRace
+import Luce.Section3EmpiricalRace
 
 /-!
 # Quantitative survival replacement for Section 3

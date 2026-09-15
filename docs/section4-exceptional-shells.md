@@ -7,13 +7,13 @@ and `cor:exceptional-shell-refinement`.
 
 | Manuscript statement | Lean declaration | File |
 | --- | --- | --- |
-| Lemma 4.3, arbitrary Luce realization | `Luce.individual_slow_label_charge` | `Luce/EndpointSlowLabel.lean` |
-| Lemma 4.3, exponential-clock ranks | `Luce.race_individual_slow_label_charge` | `Luce/EndpointSlowLabel.lean` |
-| Corollary 4.7, both endpoint expectation limits | `Luce.corollary47_endpoint` | `Luce/EndpointExceptionalTheorem.lean` |
-| Corollary 4.7, literal `ε ↓ 0` parameter | `Luce.corollary47_epsilon` | `Luce/EndpointExceptionalTheorem.lean` |
-| Corollary 4.7, full finite-mean Poisson conclusion | `Luce.corollary47` | `Luce/EndpointExceptionalTheorem.lean` |
-| Same Poisson conclusion on arbitrary row probability spaces | `Luce.corollary47_general` | `Luce/EndpointExceptionalTheorem.lean` |
-| Literal limiting intensity | `Luce.exceptionalFullIntensity_projection` | `Luce/EndpointExceptionalTheorem.lean` |
+| Lemma 4.3, arbitrary Luce realization | `Luce.individual_slow_label_charge` | `Luce/Section4EndpointSlowLabel.lean` |
+| Lemma 4.3, exponential-clock ranks | `Luce.race_individual_slow_label_charge` | `Luce/Section4EndpointSlowLabel.lean` |
+| Corollary 4.7, both endpoint expectation limits | `Luce.corollary47_endpoint` | `Luce/Section4EndpointExceptionalTheorem.lean` |
+| Corollary 4.7, literal `ε ↓ 0` parameter | `Luce.corollary47_epsilon` | `Luce/Section4EndpointExceptionalTheorem.lean` |
+| Corollary 4.7, full finite-mean Poisson conclusion | `Luce.corollary47` | `Luce/Section4EndpointExceptionalTheorem.lean` |
+| Same Poisson conclusion on arbitrary row probability spaces | `Luce.corollary47_general` | `Luce/Section4EndpointExceptionalTheorem.lean` |
+| Literal limiting intensity | `Luce.exceptionalFullIntensity_projection` | `Luce/Section4EndpointExceptionalTheorem.lean` |
 
 The default `Luce` entry point imports these results.
 

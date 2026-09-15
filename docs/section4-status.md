@@ -10,7 +10,7 @@ The mathematical source was not edited.
 Final entry points are `Luce.section4_main_poisson` and
 `Luce.section4_main_poisson_general` in `Luce/Section4Theorem.lean`.
 All dependencies are proved and imported through `Luce/Section4.lean` and
-`Luce.lean`, the default build target. There are no remaining Section 4
+`Luce/Sections1To7.lean`, the default build target. There are no remaining Section 4
 obligations or conditional premises standing in for missing proofs.
 
 No applicable AGENTS.md was found in the repository or its parent chain.

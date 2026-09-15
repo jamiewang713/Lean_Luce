@@ -1,5 +1,5 @@
 import Luce.Section5FullPointProbability
-import Luce.CountableTotalVariation
+import Luce.Section4CountableTotalVariation
 
 noncomputable section
 open MeasureTheory Filter

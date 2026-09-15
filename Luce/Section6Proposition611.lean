@@ -1,4 +1,4 @@
-import Luce.BernoulliCLT
+import Luce.Section6BernoulliCLT
 import Luce.Section6Proposition611Contract
 
 /-! Proposition 6.11 (`prop:sp-fixed-martingale`) for actual finite adapted rows. -/

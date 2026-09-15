@@ -89,7 +89,7 @@ weighted `if` expression are mathematically equivalent implementations.
 
 Already available: `history_predictability`, `predictableChance_formula`,
 `remaining_nonempty`, `Weights.total_pos`, and the choice bounds in
-`Luce.Model`. The denominator is positive at every outcome, as a consequence
+`Luce.Section1Model`. The denominator is positive at every outcome, as a consequence
 of a nonempty remaining set and positive rates.
 
 The substantive step was to derive finite prefix-event probabilities from

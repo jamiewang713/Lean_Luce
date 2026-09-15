@@ -9,7 +9,7 @@ root = Path(__file__).resolve().parents[1]
 out = root/'audit/independent-review-ancillary'
 out.mkdir(exist_ok=True)
 files = sorted((root/'proposals').glob('*.lean')) + sorted(
-    p for p in (root/'audit').glob('*.lean') if not p.name.startswith('IndependentReview'))
+    p for p in (root/'audit').glob('*.lean') if not p.name.startswith('Sections1To7IndependentReview'))
 
 def check(path):
     start = time.monotonic()

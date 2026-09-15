@@ -1,5 +1,5 @@
 import Luce.Section5CycleTailLimit
-import Luce.EndpointShellTightness
+import Luce.Section4EndpointShellTightness
 
 noncomputable section
 open MeasureTheory Function Filter

@@ -152,7 +152,7 @@ statement must instantiate all objects and pass a separate statement audit.
    only `hf : ProfileLimit w f` and proves
    `Tendsto (fun n => rowMax (w (n+1))/(n+1)) atTop (𝓝 0)`.
 2. Lines 715–718: use existing globally Lipschitz rate-kernel estimates in
-   `Luce.Profile`, plus proved finite-cell identities, to establish convergence
+   `Luce.Section3ProfileKernels`, plus proved finite-cell identities, to establish convergence
    of the actual means. Do not assume mean convergence as a final hypothesis.
 3. Lines 718–726: existing `EmpiricalRace` gives genuine independent-clock
    variance bounds and `RaceConvergence` gives finite-grid interpolation.
@@ -241,7 +241,7 @@ as its proof.
 All three results in Section 3 are proved. There are no unresolved mathematical
 dependencies, admitted proofs, additional mathematical axioms, or unfinished
 theorem interfaces in the Section 3 formalization. The checked entry point is
-`Luce/Section3.lean`, imported by the default `Luce.lean` target.
+`Luce/Section3.lean`, imported by the default `Luce/Sections1To7.lean` target.
 
 | Source result | Main checked declarations | Conclusion |
 |---|---|---|
@@ -555,7 +555,7 @@ Tonelli conversion and expected insertion counts. `Section5FiniteInsertion`
 transfers these to the paper's open windows and real expectation, including
 the row-probability bound. `Section5Cycles` independently proves the exact
 root-count and falling-factorial factors. Every new module is imported by
-`Luce/Section5.lean`, itself imported by the default `Luce.lean` build.
+`Luce/Section5.lean`, itself imported by the default `Luce/Sections1To7.lean` build.
 
 Further checked progress in the resumed Section 5 work:
 
@@ -639,11 +639,11 @@ outside this completed lemma.
 
 Final verification of this focused continuation (2026-09-10): `lake build`
 exited 0 with **3790 jobs**, including all **43** Section 5 modules.
-`lake env lean audit/Lemma52.lean` and
+`lake env lean audit/Section5Lemma52.lean` and
 `lake env lean audit/Section5.lean` exited 0 with **16** and **69** axiom
 queries, respectively. The separate proof and statement audit commands
-`lake env lean audit/Lemma52Proof.lean` and
-`lake env lean audit/Lemma52StatementCheck.lean` also exited 0. The proof
+`lake env lean audit/Section5Lemma52Proof.lean` and
+`lake env lean audit/Section5Lemma52StatementCheck.lean` also exited 0. The proof
 audit checked **47,107** transitive declarations and found only `propext`,
 `Classical.choice`, and `Quot.sound`, with no unsafe/partial dependency.
 The independent statement audit confirmed the actual final all-row bound

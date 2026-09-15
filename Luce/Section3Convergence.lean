@@ -1,4 +1,4 @@
-import Luce.ConvergenceInProbability
+import Luce.Section2ConvergenceInProbability
 
 /-! # Elementary limit assembly for the Section 3 proof -/
 

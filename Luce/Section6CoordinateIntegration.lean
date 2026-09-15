@@ -1,4 +1,4 @@
-import Luce.ExponentialFacts
+import Luce.Section4ExponentialFacts
 import Mathlib.MeasureTheory.Integral.Marginal
 
 /-! Generic product-measure tools for the single-coordinate proof of Lemma 6.6.

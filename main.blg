@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: alphaabbr.bst
+Database file #1: fixed_points.bib
+You've used 14 entries,
+            2543 wiz_defined-function locations,
+            656 strings with 6539 characters,
+and the built_in function-call counts, 5529 in all, are:
+= -- 566
+> -- 240
+< -- 6
++ -- 82
+- -- 79
+* -- 429
+:= -- 928
+add.period$ -- 43
+call.type$ -- 14
+change.case$ -- 83
+chr.to.int$ -- 14
+cite$ -- 14
+duplicate$ -- 203
+empty$ -- 404
+format.name$ -- 98
+if$ -- 1096
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 16
+newline$ -- 74
+num.names$ -- 42
+pop$ -- 59
+preamble$ -- 1
+purify$ -- 99
+quote$ -- 0
+skip$ -- 159
+stack$ -- 0
+substring$ -- 388
+swap$ -- 14
+text.length$ -- 6
+text.prefix$ -- 6
+top$ -- 0
+type$ -- 104
+warning$ -- 0
+while$ -- 58
+width$ -- 18
+write$ -- 185

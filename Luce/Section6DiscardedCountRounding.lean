@@ -1,5 +1,5 @@
 import Luce.Section6DiscardedCountDefinitions
-import Luce.EndpointShells
+import Luce.Section4EndpointShells
 
 noncomputable section
 namespace Luce.Section6

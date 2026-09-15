@@ -1,5 +1,5 @@
-import Luce.Profile
-import Luce.ExponentialFacts
+import Luce.Section3ProfileKernels
+import Luce.Section4ExponentialFacts
 
 /-!
 # The exponential-gap Taylor estimate in Lemma 5.2

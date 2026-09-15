@@ -1,5 +1,5 @@
-import Luce.ApprovedRankIntegral
-import Luce.EndpointAsymptotic
+import Luce.Section4ApprovedRankIntegral
+import Luce.Section4EndpointAsymptotic
 
 /-!
 Audit of existing Section 4 results. This file adds no mathematical definitions,

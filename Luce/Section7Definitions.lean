@@ -1,5 +1,5 @@
-import Luce.ApprovedRankIntegral
-import Luce.EndpointRace
+import Luce.Section4ApprovedRankIntegral
+import Luce.Section4EndpointRace
 
 /-! # Section 7: independent clocks with densities
 

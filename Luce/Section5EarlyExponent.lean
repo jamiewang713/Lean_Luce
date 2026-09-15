@@ -1,4 +1,4 @@
-import Luce.EndpointShellEarly
+import Luce.Section4EndpointShellEarly
 
 noncomputable section
 namespace Luce

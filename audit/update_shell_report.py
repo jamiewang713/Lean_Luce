@@ -5,10 +5,10 @@ root = Path(__file__).resolve().parents[1]
 axioms = (root / "audit/shell-axioms.txt").read_text(encoding="utf-8")
 assert "'section4_contractCheck' depends on axioms: [propext, Classical.choice, Quot.sound]" in axioms
 assert "'Luce.Shell.section4_main_poisson_general' depends on axioms:" in axioms
-contract = (root / "Luce/ShellMigrationContract.lean").read_text(encoding="utf-8")
+contract = (root / "Luce/Section4ShellMigrationContract.lean").read_text(encoding="utf-8")
 main = (root / "Luce/Section4ShellTheorem.lean").read_text(encoding="utf-8")
 main = main[main.index("theorem section4_main_poisson_general"):].split(" :=", 1)[0]
-check = (root / "Luce/ShellContractCheck.lean").read_text(encoding="utf-8")
+check = (root / "Luce/Section4ShellContractCheck.lean").read_text(encoding="utf-8")
 check = check[check.index("theorem section4_contractCheck"):check.index("/-- The new constructor")].strip()
 report = """# Shell migration report: Section 4 milestone
 
@@ -35,7 +35,7 @@ The following is the implementation's complete source statement, in namespace `L
 report += "\n## Exact frozen closed contract\n\n```lean\n" + contract.strip() + "\n```\n"
 report += "\n## Separate closed contract-checking theorem\n\n```lean\n" + check + "\n```\n"
 report += """
-The declaration has no external explicit, implicit, or instance parameters. It is outside any section carrying assumptions. Its complete proof calls the concrete shell theorem and supplies the exact finite intensity as a conclusion. `Luce.lean` imports this audit module, so it is checked by the default build.
+The declaration has no external explicit, implicit, or instance parameters. It is outside any section carrying assumptions. Its complete proof calls the concrete shell theorem and supplies the exact finite intensity as a conclusion. `Luce/Sections1To7.lean` imports this audit module, so it is checked by the default build.
 
 ## Obligation discharge and proof change
 

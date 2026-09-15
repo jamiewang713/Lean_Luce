@@ -1,5 +1,5 @@
 import Luce.Section4Intensity
-import Luce.FinitePoissonLaw
+import Luce.Section2FinitePoissonLaw
 
 /-! # The full finite intensity and convergence of its interior restrictions
 

@@ -1,6 +1,6 @@
 import Luce.Section3Race
 import Luce.Section3Quantile
-import Luce.RaceOrder
+import Luce.Section1RaceOrder
 import Mathlib.Order.Interval.Finset.Fin
 
 /-!

@@ -1,5 +1,5 @@
-import Luce.PredictablePoisson
-import Luce.Model
+import Luce.Section2PredictablePoisson
+import Luce.Section1Model
 
 /-! Audit of existing ingredients only. This file neither asserts nor proves
 the manuscript's full uncapped Poisson random-measure criterion. -/

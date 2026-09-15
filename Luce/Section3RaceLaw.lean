@@ -1,6 +1,6 @@
-import Luce.ExponentialMemoryless
-import Luce.FirstChoice
-import Luce.LuceMassRecursion
+import Luce.Section3ExponentialMemoryless
+import Luce.Section1FirstChoice
+import Luce.Section2LuceMassRecursion
 import Mathlib.Order.Fin.Tuple
 
 /-!

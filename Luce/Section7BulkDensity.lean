@@ -1,5 +1,5 @@
 import Luce.Section7Definitions
-import Luce.Profile
+import Luce.Section3ProfileKernels
 
 /-! # The candidate bulk density in Section 7
 

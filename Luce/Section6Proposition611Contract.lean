@@ -1,5 +1,5 @@
-import Luce.FiniteAdaptedBernoulli
-import Luce.ConvergenceInProbability
+import Luce.Section2FiniteAdaptedBernoulli
+import Luce.Section2ConvergenceInProbability
 import Mathlib.Probability.Distributions.Gaussian.Real
 
 /-! Independent closed target for Proposition 6.11, `prop:sp-fixed-martingale`.

@@ -1,5 +1,5 @@
 import Luce.Section5Reservoir
-import Luce.LuceNextDraw
+import Luce.Section2LuceNextDraw
 import Luce.Section3RaceDrawLaw
 import Mathlib.Order.Interval.Finset.Fin
 

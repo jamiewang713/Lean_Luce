@@ -200,7 +200,7 @@ initial-row treatment, not an invalid negative-index order statistic.
 
 - `Weights n` has fields `rate : Fin n → ℝ`, `positive : ∀i,0<rate i`.
 - `WeightArray`, `NormalizedWeights`, `ProfileLimit`, `EndpointAssumption`
-  are the existing definitions in `Luce/Assumptions.lean`, lines 26–99.
+  are the existing definitions in `Luce/Section1Assumptions.lean`, lines 26–99.
   `ProfileLimit` expands to NullMeasurable f on restricted Lebesgue measure,
   pointwise positivity on (0,1), and ENNReal L1-error convergence.
 - Paper label i is Lean `Fin n` value i−1. `raceRank` is one-based;
@@ -208,7 +208,7 @@ initial-row treatment, not an invalid negative-index order statistic.
   `drawPermutation` is its inverse, not the same map.
 - `exponentialRace w = Measure.pi (fun i => expMeasure (w.rate i))`.
   Distinctness of clocks holds almost everywhere, already proved in
-  `Luce.ExponentialFacts`; deterministic tie extensions must preserve this law.
+  `Luce.Section4ExponentialFacts`; deterministic tie extensions must preserve this law.
 - `profileH`, `profileF`, `profileD`, `profileQuantile` are existing literal
   transforms/inverse definitions. Denominator positivity is a theorem.
 - A cyclic tuple is an injection from `Fin ell`, with last-to-first successor.
@@ -289,7 +289,7 @@ estimates, and substantive finite combinatorics.
 
 All names above without a namespace prefix are in `Luce`; cycle-combinatorics
 names are in `Luce.Section5`. `Luce/Section5.lean` is the entry point for all
-delivered Section 5 files and is imported by the default `Luce.lean` build.
+delivered Section 5 files and is imported by the default `Luce/Sections1To7.lean` build.
 There is no unfinished Lean proof file excluded to manufacture build success.
 
 ### Actual principal theorem types
@@ -904,10 +904,10 @@ All commands below were executed successfully on 2026-09-10 from
 
 ```powershell
 lake build > audit/lemma52-full-build.log 2>&1
-lake env lean audit/Lemma52.lean > audit/lemma52-audit.log 2>&1
+lake env lean audit/Section5Lemma52.lean > audit/lemma52-audit.log 2>&1
 lake env lean audit/Section5.lean > audit/lemma52-section5-audit.log 2>&1
-lake env lean audit/Lemma52Proof.lean *> audit/lemma52-proof-audit.log
-lake env lean audit/Lemma52StatementCheck.lean *> audit/lemma52-statement-types.log
+lake env lean audit/Section5Lemma52Proof.lean *> audit/lemma52-proof-audit.log
+lake env lean audit/Section5Lemma52StatementCheck.lean *> audit/lemma52-statement-types.log
 lake env lean --version
 git -C .lake/packages/mathlib rev-parse HEAD
 ```
@@ -934,7 +934,7 @@ theorems `Luce.section5_bounded_marked_asymptotic`,
 [propext, Classical.choice, Quot.sound]
 ```
 
-**Separate proof audit.** `audit/Lemma52Proof.lean` completed **23** axiom
+**Separate proof audit.** `audit/Section5Lemma52Proof.lean` completed **23** axiom
 queries and independently traversed the actual checked declaration types
 and bodies: **47,107** transitive declarations, including **707** local Luce
 declarations. It confirmed the final declarations are theorems, rejected
@@ -946,7 +946,7 @@ cyclic limit, and all-row bound. See
 [`audit/lemma52-proof-audit.md`](audit/lemma52-proof-audit.md).
 The read-only environment walker supplies no mathematical proof or oracle.
 
-**Separate statement audit.** `audit/Lemma52StatementCheck.lean` displayed
+**Separate statement audit.** `audit/Section5Lemma52StatementCheck.lean` displayed
 twelve actual elaborated theorem types and seven custom definitions.
 The independent comparison with the manuscript checked all mathematical
 binders, the closed-cube test representation, one-based ranks, actual
@@ -1071,8 +1071,8 @@ each exited **0**:
 
 ```powershell
 lake build > audit/proposition54-full-build.log 2>&1
-lake env lean audit/Proposition54.lean > audit/proposition54-statement-types.log 2>&1
-lake env lean audit/Proposition54Proof.lean > audit/proposition54-proof-audit.log 2>&1
+lake env lean audit/Section5Proposition54.lean > audit/proposition54-statement-types.log 2>&1
+lake env lean audit/Section5Proposition54Proof.lean > audit/proposition54-proof-audit.log 2>&1
 lake env lean audit/Section5.lean > audit/proposition54-section5-audit.log 2>&1
 lake env lean --version
 git -C .lake/packages/mathlib rev-parse HEAD

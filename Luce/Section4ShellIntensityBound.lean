@@ -1,4 +1,4 @@
-import Luce.EndpointShellTightness
+import Luce.Section4EndpointShellTightness
 import Luce.Section4Intensity
 
 noncomputable section

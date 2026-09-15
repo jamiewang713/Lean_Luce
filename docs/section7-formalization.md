@@ -2,7 +2,7 @@
 
 Source: `fixed_points_sampled_profile.tex`, Section 7, beginning at line 3227
 when read initially (line 3229 after an external manuscript edit).
-Library entry point: `Luce/Section7.lean`, imported by `Luce.lean`.
+Library entry point: `Luce/Section7.lean`, imported by `Luce/Sections1To7.lean`.
 
 ## Main result
 
@@ -99,7 +99,7 @@ Only `propext`, `Classical.choice`, and `Quot.sound` occur. There are no
 unproved placeholders or added axioms in the Section 7 sources.
 
 Both frozen contract hashes match. Every preexisting Lean module is unchanged,
-and `Luce.lean` has exactly the new Section 7 import. The toolchain and
+and `Luce/Sections1To7.lean` has exactly the new Section 7 import. The toolchain and
 dependency inputs also match their starting hashes.
 
 The combined preservation validator reports **failed** solely because
@@ -122,6 +122,6 @@ The validator reads saved output from `audit/section7-full-build.log` and
 transitive axioms of all named Section 7 definitions and theorems. It checks
 for unproved placeholders, forbidden axioms, changes to the frozen statement,
 and changes to all preexisting Lean sources, the manuscript, and toolchain
-inputs. `Luce.lean` is allowed only the additional Section 7 import.
+inputs. `Luce/Sections1To7.lean` is allowed only the additional Section 7 import.
 
 The machine-readable result is `audit/section7-validation.json`.

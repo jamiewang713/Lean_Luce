@@ -159,7 +159,7 @@ The project remains pinned to Lean/mathlib v4.33.1.
 ## Existing proof components and remaining work
 
 `Luce.BernoulliProcess.capped_laplace_tendsto_rows`,
-`Luce/PredictablePoisson.lean:21`, proves the scalar Laplace limit with fixed
+`Luce/Section2PredictablePoisson.lean:21`, proves the scalar Laplace limit with fixed
 caps on total compensator mass and individual probabilities, for varying
 row spaces. This is a reusable intermediate result, not the full lemma.
 

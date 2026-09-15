@@ -1,4 +1,4 @@
-import Luce.EndpointProbability
+import Luce.Section4EndpointProbability
 
 noncomputable section
 open MeasureTheory ProbabilityTheory

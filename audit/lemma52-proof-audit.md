@@ -14,7 +14,7 @@ the weighted cylinder bound for **every** row through
 From `D:\princeton\Research\Lean\Lean_luce`:
 
 ```powershell
-lake env lean audit/Lemma52Proof.lean *> audit/lemma52-proof-audit.log
+lake env lean audit/Section5Lemma52Proof.lean *> audit/lemma52-proof-audit.log
 lake env lean --version
 git -C .lake/packages/mathlib rev-parse HEAD
 ```

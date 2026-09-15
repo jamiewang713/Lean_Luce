@@ -1,5 +1,5 @@
 import Luce.Section6ArrivalConcentration
-import Luce.Interior
+import Luce.Section3Interior
 
 noncomputable section
 open MeasureTheory ProbabilityTheory

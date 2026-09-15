@@ -1,4 +1,4 @@
-import Luce.TailTightness
+import Luce.Section4TailTightness
 
 /-! # Section 4: exact endpoint expectation interfaces
 

@@ -1,8 +1,8 @@
 # Approved conditional fixed-point probability: complete
 
-`Luce.predictable_fixed_point_probability` in `Luce/PredictableProbability.lean`
+`Luce.predictable_fixed_point_probability` in `Luce/Section2PredictableProbability.lean`
 proves the exact user-approved statement of `eq:predictable-p`. It is imported
-by `Luce.lean` and included in the default library build. This certifies that
+by `Luce/Sections1To7.lean` and included in the default library build. This certifies that
 statement; Section 2 as a whole remains incomplete.
 
 ## Manuscript and statement lock
@@ -34,7 +34,7 @@ E_P[\mathbf1\{\pi^{-1}(k)=k\}\mid\mathcal F_{k-1}]
 The unchanged approved proposition is recorded in
 `proposals/Section2ConditionalProbability.lean`; the complete variable and
 line-by-line correspondence is in `docs/section2-conditional-proposal.md`.
-`audit/PredictableProbability.lean` repeats that proposition and proves it
+`audit/Section2PredictableProbability.lean` repeats that proposition and proves it
 directly with the production theorem, thereby checking the full signature.
 
 All quantified parameters and hypotheses are: an arbitrary sample type
@@ -118,8 +118,8 @@ Run from the project root with pinned Lean/mathlib v4.33.1:
 
 ```powershell
 lake build
-lake env lean Luce/PredictableProbability.lean
-lake env lean audit/PredictableProbability.lean
+lake env lean Luce/Section2PredictableProbability.lean
+lake env lean audit/Section2PredictableProbability.lean
 ```
 
 - Default `lake build`: PASS, 3642 jobs. Log:
@@ -168,7 +168,7 @@ unused-name warning. There are no compilation errors or trust warnings.
 
 ## BUILD AUDIT
 
-- Relevant module checked: `Luce/PredictableProbability.lean`, imported by
+- Relevant module checked: `Luce/Section2PredictableProbability.lean`, imported by
   the default `Luce` target.
 - `lake build` result: PASS, 3642 jobs.
 - Remaining errors: none in the completed target and checked dependency chain.

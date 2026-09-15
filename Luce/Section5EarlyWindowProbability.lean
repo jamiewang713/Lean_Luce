@@ -1,6 +1,6 @@
 import Luce.Section5EarlyWindowEvent
 import Luce.Section5EarlyExponent
-import Luce.EndpointCapacityChernoff
+import Luce.Section4EndpointCapacityChernoff
 
 noncomputable section
 open MeasureTheory

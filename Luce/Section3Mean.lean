@@ -1,5 +1,5 @@
-import Luce.Assumptions
-import Luce.EmpiricalRace
+import Luce.Section1Assumptions
+import Luce.Section3EmpiricalRace
 
 /-!
 # Exact deterministic means in Section 3

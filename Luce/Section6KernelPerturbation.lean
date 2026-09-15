@@ -1,5 +1,5 @@
 import Luce.Section6InactiveBounds
-import Luce.Profile
+import Luce.Section3ProfileKernels
 
 noncomputable section
 open Set Filter

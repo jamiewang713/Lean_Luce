@@ -8,8 +8,8 @@ import Luce.Section4EndpointWitness
 import Luce.Section4FullIntensity
 import Luce.Section4Approximation
 import Luce.Section4CountLaw
-import Luce.LaplaceCountTightness
-import Luce.DiscreteTotalVariation
+import Luce.Section4LaplaceCountTightness
+import Luce.Section4DiscreteTotalVariation
 import Luce.Section4Poisson
 import Luce.Section4TotalVariation
 import Luce.Section4Theorem

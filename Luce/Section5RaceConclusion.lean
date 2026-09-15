@@ -1,5 +1,5 @@
 import Luce.Section5VectorTotalVariation
-import Luce.CountableLawConvergence
+import Luce.Section4CountableLawConvergence
 
 noncomputable section
 open MeasureTheory Filter

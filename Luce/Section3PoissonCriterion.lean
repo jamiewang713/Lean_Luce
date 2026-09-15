@@ -1,4 +1,4 @@
-import Luce.PoissonCriterion
+import Luce.Section2PoissonCriterion
 
 /-!
 # The predictable Poisson criterion in its tested-integral form

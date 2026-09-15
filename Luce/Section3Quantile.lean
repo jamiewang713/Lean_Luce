@@ -1,4 +1,4 @@
-import Luce.ProfileRegularity
+import Luce.Section3ProfileRegularity
 import Mathlib.MeasureTheory.Integral.DominatedConvergence
 import Mathlib.Topology.Order.IntermediateValue
 import Mathlib.Topology.Order.MonotoneContinuity

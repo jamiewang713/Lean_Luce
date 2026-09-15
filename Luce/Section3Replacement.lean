@@ -1,5 +1,5 @@
 import Luce.Section3Compensator
-import Luce.ConvergenceInProbability
+import Luce.Section2ConvergenceInProbability
 
 /-!
 # Probability form of the interior survival replacement

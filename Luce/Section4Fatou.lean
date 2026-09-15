@@ -1,4 +1,4 @@
-import Luce.ConvergenceInProbability
+import Luce.Section2ConvergenceInProbability
 import Mathlib.Topology.Order.LiminfLimsup
 
 /-! # The expectation lower-semicontinuity step in Section 4

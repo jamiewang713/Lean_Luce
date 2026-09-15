@@ -57,7 +57,7 @@ The actual completed proof, in a separate module importing the implementation an
 {check}
 ```
 
-Its exact fully elaborated type is [section5-contract-check-elaborated.txt](../audit/section5-contract-check-elaborated.txt). The two local instance bindings come from the measurable-space and probability proofs universally quantified inside the contract. They are not external assumptions. `Luce.lean` imports this check, so the default build checks it.
+Its exact fully elaborated type is [section5-contract-check-elaborated.txt](../audit/section5-contract-check-elaborated.txt). The two local instance bindings come from the measurable-space and probability proofs universally quantified inside the contract. They are not external assumptions. `Luce/Sections1To7.lean` imports this check, so the default build checks it.
 
 ## 3. Assumption diff and recursive definition audit
 

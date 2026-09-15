@@ -1,7 +1,7 @@
 import Luce.Section6BernoulliUpperTail
 import Luce.Section6PopulationFinite
 import Luce.Section6DeletedOrderMoment
-import Luce.EndpointRace
+import Luce.Section4EndpointRace
 
 noncomputable section
 open MeasureTheory ProbabilityTheory Set

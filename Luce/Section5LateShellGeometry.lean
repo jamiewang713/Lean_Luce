@@ -1,5 +1,5 @@
-import Luce.EndpointShellBufferLimit
-import Luce.EndpointShellGeometry
+import Luce.Section4EndpointShellBufferLimit
+import Luce.Section4EndpointShellGeometry
 
 noncomputable section
 open Filter

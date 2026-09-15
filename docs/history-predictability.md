@@ -27,7 +27,7 @@ theorem are `Luce.drawHistory` and `Luce.history_predictability`.
 
 ## Exact statement preservation
 
-`audit/HistoryPredictability.lean` copies the approved history definition and
+`audit/Section2HistoryPredictability.lean` copies the approved history definition and
 proposition. `approved_history` checks equality of the history definitions
 by `rfl`; `approved_statement` proves the copied proposition directly using
 the production theorem. Only namespaces differ.
@@ -45,17 +45,17 @@ real codomain uses its standard Borel sigma algebra. The empty row has no
 
 ## Proof and dependencies
 
-- `DrawHistoryPermutation.lean`: a label remains precisely when none of the
+- `Section2DrawHistoryPermutation.lean`: a label remains precisely when none of the
   earlier draws selected it. This follows from permutation inversion and
   the order of the finite positions.
-- `DrawHistory.lean`: exactly the approved join of pullback sigma algebras
+- `Section2DrawHistory.lean`: exactly the approved join of pullback sigma algebras
   of the first observed coordinates, using the discrete finite label space.
-- `HistoryPredictability.lean`: observed coordinates are measurable for this
+- `Section2HistoryPredictability.lean`: observed coordinates are measurable for this
   join. Availability is a finite intersection of events excluding an
   observed label. Its real indicator is measurable. Expanding the existing
   remaining-weight definition produces a finite sum of measurable terms.
 
-The only local dependency outside these three modules is `Luce.Model`.
+The only local dependency outside these three modules is `Luce.Section1Model`.
 No probability theorem or unproved conditional-choice identity is used.
 
 Pinned mathlib declarations used include `Measurable.of_comap_le`
@@ -97,10 +97,10 @@ measurable sum). The intersection is finite in this application.
 
 ## BUILD AUDIT
 
-- `lake env lean Luce/HistoryPredictability.lean`: PASS, exit 0, no diagnostics.
-- Default build inclusion: `Luce.lean` imports `Luce.HistoryPredictability`.
+- `lake env lean Luce/Section2HistoryPredictability.lean`: PASS, exit 0, no diagnostics.
+- Default build inclusion: `Luce/Sections1To7.lean` imports `Luce.Section2HistoryPredictability`.
 - `lake build`: PASS, exit 0, 3633 jobs.
-- `lake env lean audit/HistoryPredictability.lean`: PASS, exit 0.
+- `lake env lean audit/Section2HistoryPredictability.lean`: PASS, exit 0.
 - The history definition has a class-definition reducibility warning; it is
   a sigma-algebra value rather than a typeclass instance. No mathematical or
   trust-changing option was added to suppress it.

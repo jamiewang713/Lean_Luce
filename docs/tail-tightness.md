@@ -2,7 +2,7 @@
 
 Source: `fixed_points.tex:930`, equation `eq:tail-tightness`.
 Production theorem: `Luce.tail_fixed_point_tightness` in
-`Luce/TailTightness.lean:40`. Imported by the default `Luce` target.
+`Luce/Section4TailTightness.lean:40`. Imported by the default `Luce` target.
 
 ## Mathematical statement
 
@@ -29,7 +29,7 @@ been formalized.
 ## Statement lock
 
 `proposals/Section4TailTightness.lean` retains the approved definition and
-complete proposition. `audit/TailTightness.lean` reproduces both and checks:
+complete proposition. `audit/Section4TailTightness.lean` reproduces both and checks:
 
 - Equality of the approved and production count definitions by `rfl`.
 - The approved full proposition is proved directly by the production theorem.
@@ -48,18 +48,18 @@ hypothesis is added. Row zero is empty and does not affect the limsup.
 
 ## Proof and dependencies
 
-1. `TailCountIndex.lean` proves exact equality between the spatial count and
+1. `Section4TailCountIndex.lean` proves exact equality between the spatial count and
    the terminal count with `ceil (ε*n)` labels, including integer boundaries.
-2. `TailProbability.lean` proves measurability, the count bound by `n`, and
+2. `Section4TailProbability.lean` proves measurability, the count bound by `n`, and
    integrability, then applies Markov at threshold 1. Joint-law transfer uses
    the marginal exponential laws and within-row independence.
-3. `TailAssumptions.lean` derives the normalization and terminal-rate
+3. `Section4TailAssumptions.lean` derives the normalization and terminal-rate
    hypotheses required by the existing endpoint estimates. It proves both
    eventual boundedness of expectations and the bound
    `2^(1+γ/2) * ε^(γ/4)` for sufficiently small positive ε.
-4. `TailTightness.lean` compares the probability and expectation limsups,
+4. `Section4TailTightness.lean` compares the probability and expectation limsups,
    explicitly discharging boundedness obligations, and removes the row shift.
-5. `TailLimit.lean` applies the power envelope as `α` approaches 1 from below.
+5. `Section4TailLimit.lean` applies the power envelope as `α` approaches 1 from below.
 
 Pinned mathlib declarations used:
 
@@ -106,10 +106,10 @@ Pinned mathlib declarations used:
 
 ## BUILD AUDIT
 
-- `lake env lean Luce/TailTightness.lean`: PASS, exit 0.
+- `lake env lean Luce/Section4TailTightness.lean`: PASS, exit 0.
 - Included in the default library build: YES.
 - `lake build`: PASS, exit 0, 3628 jobs.
-- `lake env lean audit/TailTightness.lean`: PASS, exit 0; two harmless unused
+- `lake env lean audit/Section4TailTightness.lean`: PASS, exit 0; two harmless unused
   instance-name warnings in the copied approved proposition.
 - Remaining errors: none in the checked theorem and audit.
 - Logs: `audit/tail-tightness-module.txt`, `audit/tail-tightness-build.txt`,

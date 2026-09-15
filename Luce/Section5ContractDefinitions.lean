@@ -1,7 +1,7 @@
 import Luce.Section5CyclicAnalytic
 import Luce.Section5Cycles
 import Luce.Section4CountLaw
-import Luce.EndpointShellDefinitions
+import Luce.Section4EndpointShellDefinitions
 
 /-! Literal objects in the revised manuscript's short-cycle theorem.
 These definitions supply no proof inputs or asymptotic restrictions. -/

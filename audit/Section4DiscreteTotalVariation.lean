@@ -1,0 +1,20 @@
+import Luce.Section4DiscreteTotalVariation
+
+set_option pp.explicit true in
+#check @Luce.tendsto_probabilityTotalVariation_of_singletons
+set_option pp.explicit true in
+#check @Luce.tendsto_probability_singletons_of_weak
+set_option pp.explicit true in
+#check @Luce.tendsto_probabilityTotalVariation_of_weak
+set_option pp.explicit true in
+#check @Luce.tendsto_probabilityTotalVariation_of_integrals
+
+#print Luce.probabilityTotalVariation
+#print axioms Luce.probabilityTotalVariation_nonneg
+#print axioms Luce.probabilityTotalVariation_le_one
+#print axioms Luce.probability_event_difference_le_totalVariation
+#print axioms Luce.probabilityTotalVariation_le_finite_sum
+#print axioms Luce.tendsto_probabilityTotalVariation_of_singletons
+#print axioms Luce.tendsto_probability_singletons_of_weak
+#print axioms Luce.tendsto_probabilityTotalVariation_of_weak
+#print axioms Luce.tendsto_probabilityTotalVariation_of_integrals

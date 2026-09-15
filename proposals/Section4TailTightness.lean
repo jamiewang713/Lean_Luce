@@ -1,5 +1,5 @@
-import Luce.Assumptions
-import Luce.ApprovedRankIntegral
+import Luce.Section1Assumptions
+import Luce.Section4ApprovedRankIntegral
 import Mathlib.Topology.Order.LiminfLimsup
 
 /-!
@@ -8,7 +8,7 @@ import Mathlib.Topology.Order.LiminfLimsup
 Source: `fixed_points.tex`, Section 4, equation `eq:tail-tightness`.
 The user approved this count and proposition. This historical statement
 record stays outside the library imports. The production proof is
-`Luce.tail_fixed_point_tightness`; `audit/TailTightness.lean` checks its type
+`Luce.tail_fixed_point_tightness`; `audit/Section4TailTightness.lean` checks its type
 against the statement below. This record itself only defines a proposition.
 
 The locked proposition uses the approved assumptions and rank definition.

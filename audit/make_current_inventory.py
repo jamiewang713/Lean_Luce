@@ -43,7 +43,7 @@ def signature_end(s, start, end):
         if depth == 0 and s.startswith(':=', i): return i
     return end
 
-files = [ROOT / 'Luce.lean'] + sorted((ROOT/'Luce').glob('*.lean')) + sorted((ROOT/'proposals').glob('*.lean')) + sorted(p for p in (ROOT/'audit').glob('*.lean') if p.name != 'CurrentInventory.lean')
+files = sorted((ROOT/'Luce').glob('*.lean')) + sorted((ROOT/'proposals').glob('*.lean')) + sorted(p for p in (ROOT/'audit').glob('*.lean') if p.name != 'Sections1To7CurrentInventory.lean')
 records = []
 for p in files:
     s = p.read_text(encoding='utf-8-sig')
@@ -78,14 +78,14 @@ out = ['# Current Lean statements and axioms', '', 'Snapshot: 2026-09-11. Projec
        'This catalog lists every source theorem and lemma (including private helpers), anonymous example, definition, structure, class, inductive type, and instance. Theorem proofs are omitted; their source signatures and documentation are retained. Definitions are shown so that an unasserted `Prop` is not mistaken for a proved theorem. Namespace and shared-variable context is listed per file; source links are authoritative for scope. Compiler-generated declarations are excluded from these source counts.', '',
        '## Counts', '', '| Area | Files | Theorems/lemmas | Definitions/abbreviations | Structures/classes | Instances | Examples | Axioms/opaque |', '|---|---:|---:|---:|---:|---:|---:|---:|']
 for area in ('Luce', 'proposals', 'audit'):
-    rows = [(p, c, it) for p,c,it in records if p.relative_to(ROOT).parts[0] == area or (area == 'Luce' and p.name == 'Luce.lean')]
+    rows = [(p, c, it) for p,c,it in records if p.relative_to(ROOT).parts[0] == area]
     c = Counter(k for _,_,it in rows for k,*_ in it)
     out.append(f'| {area} | {len(rows)} | {c["theorem"]+c["lemma"]} | {c["def"]+c["abbrev"]} | {c["structure"]+c["class"]} | {c["instance"]} | {c["example"]} | {c["axiom"]+c["opaque"]} |')
     print(area, len(rows), dict(c))
 out += ['', '## Axioms and proof status', '',
         'The [fresh compiler inventory](../audit/all-proved-statements.log) prints the elaborated types and transitive axioms of imported project theorem constants, including private and generated auxiliaries and all three closed contract checks. Its final INVENTORY_TOTAL and INVENTORY_AXIOM_UNION lines record the actual totals and axiom dependencies. Source signatures below retain local variable names; consult the compiler inventory for the complete implicit and instance parameters.', '',
-        'The [reproducible audit](../audit/AllProvedStatements.lean) imports the default Luce library. Mathematical hypotheses in theorem parameters and structure fields are distinct from global axioms. Source declarations in proposals and audit files below are explicitly separate from production results; a definition of Prop is not a proof.', '',
-        'The mathematical standing assumptions are defined in `Luce/Model.lean`, `Luce/Assumptions.lean`, and `Luce/EndpointShellDefinitions.lean`. ProfileAssumption, ProfileLimit, EndpointAssumption, and EndpointShellAssumption are predicates, not declarations asserting their truth. The final migration build passed with 3893 jobs; see [actual build output](../audit/section5-final-build.log).', '',
+        'The [reproducible audit](../audit/Sections1To7AllProvedStatements.lean) imports the default Luce library. Mathematical hypotheses in theorem parameters and structure fields are distinct from global axioms. Source declarations in proposals and audit files below are explicitly separate from production results; a definition of Prop is not a proof.', '',
+        'The mathematical standing assumptions are defined in `Luce/Section1Model.lean`, `Luce/Section1Assumptions.lean`, and `Luce/Section4EndpointShellDefinitions.lean`. ProfileAssumption, ProfileLimit, EndpointAssumption, and EndpointShellAssumption are predicates, not declarations asserting their truth. The final migration build passed with 3893 jobs; see [actual build output](../audit/section5-final-build.log).', '',
         'Both revised Section 4 and Section 5 main theorems and their independent closed contract checks are now proved. This includes the full joint factorial-moment argument, short-cycle Poisson limit, full intensity integrability, and joint total variation. Legacy uniform-endpoint estimates remain separate stronger-case theorems. See [final report](section5-final-report.md) and [completed obligation ledger](shell-obligation-ledger.md).', '', '## File index', '']
 for p,_,items in records:
     rel = p.relative_to(ROOT).as_posix()

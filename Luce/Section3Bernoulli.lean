@@ -1,6 +1,6 @@
 import Luce.Section3RaceDrawLaw
-import Luce.PredictableProbability
-import Luce.FiniteAdaptedBernoulli
+import Luce.Section2PredictableProbability
+import Luce.Section2FiniteAdaptedBernoulli
 
 /-!
 # The actual interior fixed points as an adapted Bernoulli row

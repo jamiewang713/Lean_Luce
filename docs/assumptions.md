@@ -1,7 +1,7 @@
 # Assumptions 1.1 and 1.2
 
 Source: `fixed_points.tex`, Section 1. Both numbered assumptions and the shared
-definitions are implemented in `Luce/Assumptions.lean`. The user approved the
+definitions are implemented in `Luce/Section1Assumptions.lean`. The user approved the
 Lebesgue interpretation of “measurable” in Assumption 1.1 on 2026-09-10.
 The definitions below record that approved formulation.
 
@@ -190,10 +190,10 @@ no axiom asserting that either predicate holds for an array.
 
 ## BUILD AUDIT
 
-- Relevant module checked: `lake env lean Luce/Assumptions.lean`, exit 0.
-- Included in the project build: YES, imported by `Luce.lean`.
+- Relevant module checked: `lake env lean Luce/Section1Assumptions.lean`, exit 0.
+- Included in the project build: YES, imported by `Luce/Sections1To7.lean`.
 - `lake build`: PASS, exit 0, 3621 jobs.
-- `lake env lean audit/Assumptions.lean`: PASS, exit 0; runs `#print` and
+- `lake env lean audit/Section1Assumptions.lean`: PASS, exit 0; runs `#print` and
   `#print axioms` on the implemented definitions.
 - Remaining errors: none in the checked module or build. Existing modules have
   linter warnings.

@@ -39,7 +39,7 @@ theorem section4_main_poisson_general
 ## Exact frozen closed contract
 
 ```lean
-import Luce.EndpointShellDefinitions
+import Luce.Section4EndpointShellDefinitions
 import Luce.Section4TotalVariation
 
 /-! Frozen Section 4 target, before implementing any generalized main proof.
@@ -96,7 +96,7 @@ theorem section4_contractCheck : ShellMigrationContract.section4 := by
   exact ⟨h.1, Luce.Shell.fullIntensity w f hnorm hf hend, rfl, h.2.1, h.2.2⟩
 ```
 
-The declaration has no external explicit, implicit, or instance parameters. It is outside any section carrying assumptions. Its complete proof calls the concrete shell theorem and supplies the exact finite intensity as a conclusion. `Luce.lean` imports this audit module, so it is checked by the default build.
+The declaration has no external explicit, implicit, or instance parameters. It is outside any section carrying assumptions. Its complete proof calls the concrete shell theorem and supplies the exact finite intensity as a conclusion. `Luce/Sections1To7.lean` imports this audit module, so it is checked by the default build.
 
 ## Obligation discharge and proof change
 

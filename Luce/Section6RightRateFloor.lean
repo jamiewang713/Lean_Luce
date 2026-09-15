@@ -1,5 +1,5 @@
 import Luce.Section6InactiveBounds
-import Luce.EndpointShells
+import Luce.Section4EndpointShells
 
 noncomputable section
 open Set Filter

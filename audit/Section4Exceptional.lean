@@ -1,4 +1,4 @@
-import Luce.EndpointExceptionalTheorem
+import Luce.Section4EndpointExceptionalTheorem
 
 /-! Closed statement and transitive axiom checks for Lemma 4.3 and
 Corollary 4.7 of `fixed_points_sampled_profile.tex`. -/

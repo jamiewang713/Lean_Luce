@@ -1,4 +1,4 @@
-import Luce.Model
+import Luce.Section1Model
 import Mathlib.MeasureTheory.Constructions.BorelSpace.Real
 import Mathlib.MeasureTheory.MeasurableSpace.Constructions
 
@@ -9,7 +9,7 @@ Source: `fixed_points.tex:569-579`, `eq:remaining-weight`,
 
 The user approved this definition and proposition. This record remains
 outside the production imports. `Luce.history_predictability` now proves it;
-`audit/HistoryPredictability.lean` checks the production definition and
+`audit/Section2HistoryPredictability.lean` checks the production definition and
 statement against this record by definitional equality.
 -/
 

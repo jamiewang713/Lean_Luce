@@ -1,5 +1,5 @@
 import Luce.Section5EarlyKernel
-import Luce.EndpointShellBufferLimit
+import Luce.Section4EndpointShellBufferLimit
 
 noncomputable section
 open MeasureTheory Filter

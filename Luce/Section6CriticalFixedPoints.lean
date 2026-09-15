@@ -1,5 +1,5 @@
 import Luce.Section6CriticalReferenceBounds
-import Luce.BernoulliReferenceMean
+import Luce.Section6BernoulliReferenceMean
 import Luce.Section3LuceLaw
 
 noncomputable section

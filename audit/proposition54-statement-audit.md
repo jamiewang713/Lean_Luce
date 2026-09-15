@@ -4,7 +4,7 @@ Result: PASS, 2026-09-11. This pass compares the actual elaborated types
 and expanded definitions with `fixed_points.tex:1162–1240`, rather than
 inferring correctness of the statement from its axiom report.
 
-`lake env lean audit/Proposition54.lean` exited 0. The output in
+`lake env lean audit/Section5Proposition54.lean` exited 0. The output in
 `proposition54-statement-types.log` exposes nine theorem types, seventeen
 definitions/structures, and twelve axiom reports. The declaration inspected
 is `Luce.section5_proposition54` in `Luce/Section5ExceptionalLow.lean`.

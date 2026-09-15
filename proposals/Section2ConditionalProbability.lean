@@ -1,4 +1,4 @@
-import Luce.DrawHistory
+import Luce.Section2DrawHistory
 import Mathlib.MeasureTheory.Function.ConditionalExpectation.Basic
 
 /-! # Approved statement record: conditional probability identity, Section 2
@@ -8,7 +8,7 @@ from `fixed_points.tex:142`, `eq:luce-law`.
 
 The user approved this statement. Its unchanged mathematical content is now
 proved by `Luce.predictable_fixed_point_probability`, and checked against a
-copy of this proposition in `audit/PredictableProbability.lean`. This record
+copy of this proposition in `audit/Section2PredictableProbability.lean`. This record
 remains outside the production imports. The full permutation masses specify
 the model; the conditional-choice rule is not assumed.
 -/

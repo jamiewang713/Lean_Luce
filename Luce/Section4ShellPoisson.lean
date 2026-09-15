@@ -1,6 +1,6 @@
 import Luce.Section4Approximation
 import Luce.Section4ShellFullIntensity
-import Luce.LaplaceCountTightness
+import Luce.Section4LaplaceCountTightness
 
 /-! # The full fixed-point process in Section 4
 

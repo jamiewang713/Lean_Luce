@@ -1,4 +1,4 @@
-import Luce.PredictableProbability
+import Luce.Section2PredictableProbability
 import Mathlib.MeasureTheory.Measure.GiryMonad
 import Mathlib.Probability.Martingale.Basic
 

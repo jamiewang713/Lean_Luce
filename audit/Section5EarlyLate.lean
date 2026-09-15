@@ -1,7 +1,7 @@
 import Luce.Section5EarlyTail
 import Luce.Section5LateMarkedIntegral
 import Luce.Section5ShellContract
-import Luce.ShellContractCheck
+import Luce.Section4ShellContractCheck
 
 set_option pp.explicit true
 set_option pp.universes true

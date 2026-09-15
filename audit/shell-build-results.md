@@ -5,7 +5,7 @@ Commands ran in `D:\princeton\Research\Lean\Lean_luce` on the existing Lean 4.33
 ## Section 4 milestone
 
 ```powershell
-& "$env:USERPROFILE/.elan/bin/lake.exe" build Luce.ShellContractCheck
+& "$env:USERPROFILE/.elan/bin/lake.exe" build Luce.Section4ShellContractCheck
 ```
 
 Exit code **0**. Actual final result: `Build completed successfully (3765 jobs).`.
@@ -18,12 +18,12 @@ Complete log: `audit/shell-section4-milestone-build.log`.
 ```
 
 Exit code **0**. Actual final result: `Build completed successfully (3828 jobs).`.
-Complete log: `audit/shell-lake-build.log`. `Luce.lean` includes the closed Section 4 contract-checking module and both new Section 5 progress modules. There are ordinary linter/deprecation warnings. The earlier foundation-only build also passed (3812 jobs), followed by the Section 4 default build (3826 jobs).
+Complete log: `audit/shell-lake-build.log`. `Luce/Sections1To7.lean` includes the closed Section 4 contract-checking module and both new Section 5 progress modules. There are ordinary linter/deprecation warnings. The earlier foundation-only build also passed (3812 jobs), followed by the Section 4 default build (3826 jobs).
 
 ## Statement and transitive axiom audits
 
 ```powershell
-& "$env:USERPROFILE/.elan/bin/lake.exe" env lean audit/ShellMigrationStatements.lean
+& "$env:USERPROFILE/.elan/bin/lake.exe" env lean audit/Section4ShellMigrationStatements.lean
 & "$env:USERPROFILE/.elan/bin/lake.exe" env lean audit/Section5ShellProgress.lean
 python audit/extract_shell_audit.py
 ```

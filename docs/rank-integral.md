@@ -30,7 +30,7 @@ R_{n,i}=1+\sum_{j\ne i}\mathbf 1\{E_{n,j}<E_{n,i}\}.
 ## Locked definitions and statement
 
 The definitions and theorem live in namespace `Luce` in
-`Luce/ApprovedRankIntegral.lean`. The following is the approved interface;
+`Luce/Section4ApprovedRankIntegral.lean`. The following is the approved interface;
 the theorem body is omitted here because this is a statement record.
 
 ```lean
@@ -164,7 +164,7 @@ Lean is `leanprover/lean4:v4.33.1`. Mathlib is `v4.33.1`, commit
 `0df444a360eaa60ab8c11dca51a86af692955474`. Neither pin was changed.
 
 All names below were checked against this local mathlib, and their relevant
-types are recorded by `audit/RankIntegral.lean`.
+types are recorded by `audit/Section4RankIntegral.lean`.
 
 | Exact declaration | Module | Relevant statement |
 | --- | --- | --- |
@@ -177,14 +177,14 @@ types are recorded by `audit/RankIntegral.lean`.
 
 ## Verification record
 
-`Luce.lean` imports `Luce.ApprovedRankIntegral`, and the default Lake target is
+`Luce/Sections1To7.lean` imports `Luce.Section4ApprovedRankIntegral`, and the default Lake target is
 the `Luce` library. Executed checks:
 
 ```powershell
-lake env lean Luce/ApprovedRankIntegral.lean
+lake env lean Luce/Section4ApprovedRankIntegral.lean
 lake build
-lake env lean Luce/RankIntegralDependencyAudit.lean
-lake env lean audit/RankIntegral.lean
+lake env lean Luce/Section4RankIntegralDependencyAudit.lean
+lake env lean audit/Section4RankIntegral.lean
 ```
 
 All exit codes are zero. The default build completed successfully with 3620
@@ -236,8 +236,8 @@ classical choice, and quotient soundness.
 
 | Field | Result |
 | --- | --- |
-| Relevant module checked | `Luce/ApprovedRankIntegral.lean`, exit 0 |
-| Included in project build | YES, imported by `Luce.lean` |
+| Relevant module checked | `Luce/Section4ApprovedRankIntegral.lean`, exit 0 |
+| Included in project build | YES, imported by `Luce/Sections1To7.lean` |
 | `lake build` result | PASS, exit 0, 3620 jobs |
 | Dependency and final print audits | PASS, exit 0 |
 | Remaining errors | None |

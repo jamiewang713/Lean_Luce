@@ -9,8 +9,12 @@ log = (root / 'audit/section6-current-audit.log').read_text(encoding='utf-8-sig'
 reports = dict(re.findall(r"'([^']+)' depends on axioms: \[([^\]]*)\]", log, re.S))
 expected = set()
 for path in (root / 'Luce').glob('Section6*.lean'):
+    source = path.read_text(encoding='utf-8')
+    # General Section 6 support modules retain their mathematical namespaces.
+    if not re.search(r'^namespace Luce\.Section6\s*$', source, re.M):
+        continue
     expected.update('Luce.Section6.' + n for n in re.findall(
-        r'^theorem\s+([^\s{(]+)', path.read_text(encoding='utf-8'), re.M))
+        r'^theorem\s+([^\s{(]+)', source, re.M))
 assert set(reports) == expected
 for name, deps in reports.items():
     actual = {re.sub(r'\.\{[^}]*\}', '', a.strip()) for a in deps.split(',') if a.strip()}

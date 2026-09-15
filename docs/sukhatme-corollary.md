@@ -2,9 +2,9 @@
 
 Source: `fixed_points_sampled_profile.tex`, `cor:sukhatme`.
 
-The theorem `Luce.Sukhatme.corollary19` in `Luce/Sukhatme.lean` proves the
+The theorem `Luce.Sukhatme.corollary19` in `Luce/Section1Sukhatme.lean` proves the
 independently stated `Luce.Sukhatme.Corollary19` from
-`Luce/SukhatmeContract.lean`. The default `Luce.lean` imports the proof.
+`Luce/Section1SukhatmeContract.lean`. The default `Luce/Sections1To7.lean` imports the proof.
 
 ## Coverage
 
@@ -33,7 +33,7 @@ labels. The reindexing proof removes the singleton active-corner coordinate.
 
 ## Proof
 
-`SukhatmeProfile.lean` verifies all power-profile hypotheses for f(x)=1-x,
+`Section1SukhatmeProfile.lean` verifies all power-profile hypotheses for f(x)=1-x,
 with an inactive finite left endpoint and right parameters c=beta=eta=1.
 It constructs the interior-grid rates by multiplying each row of the
 standard weights by 1/(n+1), proves these rates equal f((i+1)/(n+1)), and
@@ -46,7 +46,7 @@ coefficients explicitly. Projection of the one-coordinate vector gives
 the scalar fixed-point CLT. A measure-preserving reindexing gives the
 spatial Gaussian law indexed only by cycle length and interval.
 
-`SukhatmeConstants.lean` proves
+`Section1SukhatmeConstants.lean` proves
 
 \[
 b_2=\tfrac12\int_{\mathbb R}\exp(-e^w-e^{-w})\,dw
@@ -67,12 +67,12 @@ assertion, are included in the closed theorem.
 ## Verification
 
 ```powershell
-lake build Luce.Sukhatme
+lake build Luce.Section1Sukhatme
 lake build
-lake env lean audit/Sukhatme.lean
+lake env lean audit/Section1Sukhatme.lean
 ```
 
-`audit/Sukhatme.lean` checks the closed theorem, checks the natural-valued
+`audit/Section1Sukhatme.lean` checks the closed theorem, checks the natural-valued
 weight formula, prints the statement, and reports dependencies for the main
 theorem and its specialization and constant lemmas. Logs are saved as
 `audit/sukhatme-build.log`, `audit/sukhatme-library-build.log`, and

@@ -16,94 +16,94 @@ This catalog lists every source theorem and lemma (including private helpers), a
 
 The [fresh compiler inventory](../audit/all-proved-statements.log) prints the elaborated types and transitive axioms of imported project theorem constants, including private and generated auxiliaries and all three closed contract checks. Its final INVENTORY_TOTAL and INVENTORY_AXIOM_UNION lines record the actual totals and axiom dependencies. Source signatures below retain local variable names; consult the compiler inventory for the complete implicit and instance parameters.
 
-The [reproducible audit](../audit/AllProvedStatements.lean) imports the default Luce library. Mathematical hypotheses in theorem parameters and structure fields are distinct from global axioms. Source declarations in proposals and audit files below are explicitly separate from production results; a definition of Prop is not a proof.
+The [reproducible audit](../audit/Sections1To7AllProvedStatements.lean) imports the default Luce library. Mathematical hypotheses in theorem parameters and structure fields are distinct from global axioms. Source declarations in proposals and audit files below are explicitly separate from production results; a definition of Prop is not a proof.
 
-The mathematical standing assumptions are defined in `Luce/Model.lean`, `Luce/Assumptions.lean`, and `Luce/EndpointShellDefinitions.lean`. ProfileAssumption, ProfileLimit, EndpointAssumption, and EndpointShellAssumption are predicates, not declarations asserting their truth. The final migration build passed with 3893 jobs; see [actual build output](../audit/section5-final-build.log).
+The mathematical standing assumptions are defined in `Luce/Section1Model.lean`, `Luce/Section1Assumptions.lean`, and `Luce/Section4EndpointShellDefinitions.lean`. ProfileAssumption, ProfileLimit, EndpointAssumption, and EndpointShellAssumption are predicates, not declarations asserting their truth. The final migration build passed with 3893 jobs; see [actual build output](../audit/section5-final-build.log).
 
 Both revised Section 4 and Section 5 main theorems and their independent closed contract checks are now proved. This includes the full joint factorial-moment argument, short-cycle Poisson limit, full intensity integrability, and joint total variation. Legacy uniform-endpoint estimates remain separate stronger-case theorems. See [final report](section5-final-report.md) and [completed obligation ledger](shell-obligation-ledger.md).
 
 ## File index
 
-- [Luce.lean](#lucelean): 0 declarations
-- [Luce/ApprovedRankIntegral.lean](#luceapprovedrankintegrallean): 11 declarations
-- [Luce/Assumptions.lean](#luceassumptionslean): 8 declarations
-- [Luce/Basic.lean](#lucebasiclean): 1 declarations
-- [Luce/BernoulliCountTightness.lean](#lucebernoullicounttightnesslean): 3 declarations
-- [Luce/BernoulliPointMeasure.lean](#lucebernoullipointmeasurelean): 15 declarations
-- [Luce/BernoulliProcess.lean](#lucebernoulliprocesslean): 24 declarations
-- [Luce/CappedPoisson.lean](#lucecappedpoissonlean): 5 declarations
-- [Luce/CompactLaplaceApproximation.lean](#lucecompactlaplaceapproximationlean): 4 declarations
-- [Luce/CompactLawConvergence.lean](#lucecompactlawconvergencelean): 11 declarations
-- [Luce/ConditionalProbabilityBasics.lean](#luceconditionalprobabilitybasicslean): 4 declarations
-- [Luce/ConvergenceInProbability.lean](#luceconvergenceinprobabilitylean): 5 declarations
-- [Luce/CountableLawConvergence.lean](#lucecountablelawconvergencelean): 3 declarations
-- [Luce/CountableTotalVariation.lean](#lucecountabletotalvariationlean): 10 declarations
-- [Luce/DiscreteTotalVariation.lean](#lucediscretetotalvariationlean): 13 declarations
-- [Luce/DrawHistory.lean](#lucedrawhistorylean): 1 declarations
-- [Luce/DrawHistoryPermutation.lean](#lucedrawhistorypermutationlean): 1 declarations
-- [Luce/EmpiricalRace.lean](#luceempiricalracelean): 24 declarations
-- [Luce/Endpoint.lean](#luceendpointlean): 10 declarations
-- [Luce/EndpointAsymptotic.lean](#luceendpointasymptoticlean): 10 declarations
-- [Luce/EndpointBlockCapacity.lean](#luceendpointblockcapacitylean): 4 declarations
-- [Luce/EndpointBlockExpectation.lean](#luceendpointblockexpectationlean): 2 declarations
-- [Luce/EndpointBlockIntegral.lean](#luceendpointblockintegrallean): 1 declarations
-- [Luce/EndpointCapacityAnalytic.lean](#luceendpointcapacityanalyticlean): 11 declarations
-- [Luce/EndpointCapacityChernoff.lean](#luceendpointcapacitychernofflean): 1 declarations
-- [Luce/EndpointCapacityProbability.lean](#luceendpointcapacityprobabilitylean): 3 declarations
-- [Luce/EndpointCutoff.lean](#luceendpointcutofflean): 6 declarations
-- [Luce/EndpointIntegrals.lean](#luceendpointintegralslean): 4 declarations
-- [Luce/EndpointJensen.lean](#luceendpointjensenlean): 2 declarations
-- [Luce/EndpointProbability.lean](#luceendpointprobabilitylean): 7 declarations
-- [Luce/EndpointRace.lean](#luceendpointracelean): 16 declarations
-- [Luce/EndpointShellBuffer.lean](#luceendpointshellbufferlean): 5 declarations
-- [Luce/EndpointShellBufferLimit.lean](#luceendpointshellbufferlimitlean): 8 declarations
-- [Luce/EndpointShellCompatibility.lean](#luceendpointshellcompatibilitylean): 3 declarations
-- [Luce/EndpointShellCover.lean](#luceendpointshellcoverlean): 2 declarations
-- [Luce/EndpointShellDefinitions.lean](#luceendpointshelldefinitionslean): 7 declarations
-- [Luce/EndpointShellEarly.lean](#luceendpointshellearlylean): 2 declarations
-- [Luce/EndpointShellEstimate.lean](#luceendpointshellestimatelean): 2 declarations
-- [Luce/EndpointShellExpectationLimit.lean](#luceendpointshellexpectationlimitlean): 4 declarations
-- [Luce/EndpointShellGeometry.lean](#luceendpointshellgeometrylean): 6 declarations
-- [Luce/EndpointShells.lean](#luceendpointshellslean): 17 declarations
-- [Luce/EndpointShellTailBridge.lean](#luceendpointshelltailbridgelean): 2 declarations
-- [Luce/EndpointShellTightness.lean](#luceendpointshelltightnesslean): 4 declarations
-- [Luce/EndpointTheorem.lean](#luceendpointtheoremlean): 6 declarations
-- [Luce/ExponentialFacts.lean](#luceexponentialfactslean): 5 declarations
-- [Luce/ExponentialMemoryless.lean](#luceexponentialmemorylesslean): 1 declarations
-- [Luce/ExponentialRace.lean](#luceexponentialracelean): 12 declarations
-- [Luce/FiniteAdaptedBernoulli.lean](#lucefiniteadaptedbernoullilean): 20 declarations
-- [Luce/FiniteBernoulliRow.lean](#lucefinitebernoullirowlean): 14 declarations
-- [Luce/FiniteBernoulliSpatial.lean](#lucefinitebernoullispatiallean): 14 declarations
-- [Luce/FiniteHistoryConditional.lean](#lucefinitehistoryconditionallean): 4 declarations
-- [Luce/FinitePointMeasure.lean](#lucefinitepointmeasurelean): 22 declarations
-- [Luce/FinitePoissonLaw.lean](#lucefinitepoissonlawlean): 21 declarations
-- [Luce/FirstChoice.lean](#lucefirstchoicelean): 3 declarations
-- [Luce/HistoryAtoms.lean](#lucehistoryatomslean): 5 declarations
-- [Luce/HistoryPredictability.lean](#lucehistorypredictabilitylean): 5 declarations
-- [Luce/Interior.lean](#luceinteriorlean): 10 declarations
-- [Luce/LaplaceCountTightness.lean](#lucelaplacecounttightnesslean): 5 declarations
-- [Luce/LikelihoodSecondMoment.lean](#lucelikelihoodsecondmomentlean): 4 declarations
-- [Luce/LuceMassRecursion.lean](#lucelucemassrecursionlean): 5 declarations
-- [Luce/LuceNextDraw.lean](#lucelucenextdrawlean): 3 declarations
-- [Luce/LucePrefixMass.lean](#luceluceprefixmasslean): 1 declarations
-- [Luce/LucePrefixRecursion.lean](#luceluceprefixrecursionlean): 8 declarations
-- [Luce/LucePrefixTransition.lean](#luceluceprefixtransitionlean): 4 declarations
-- [Luce/Model.lean](#lucemodellean): 27 declarations
-- [Luce/PointMeasureLaplace.lean](#lucepointmeasurelaplacelean): 17 declarations
-- [Luce/PointMeasureLawConvergence.lean](#lucepointmeasurelawconvergencelean): 7 declarations
-- [Luce/PoissonCriterion.lean](#lucepoissoncriterionlean): 1 declarations
-- [Luce/PoissonMixture.lean](#lucepoissonmixturelean): 6 declarations
-- [Luce/Predictable.lean](#lucepredictablelean): 16 declarations
-- [Luce/PredictablePoisson.lean](#lucepredictablepoissonlean): 1 declarations
-- [Luce/PredictableProbability.lean](#lucepredictableprobabilitylean): 1 declarations
-- [Luce/ProbabilityConvergence.lean](#luceprobabilityconvergencelean): 4 declarations
-- [Luce/Profile.lean](#luceprofilelean): 24 declarations
-- [Luce/ProfileRegularity.lean](#luceprofileregularitylean): 5 declarations
-- [Luce/RaceConvergence.lean](#luceraceconvergencelean): 4 declarations
-- [Luce/RaceOrder.lean](#luceraceorderlean): 11 declarations
-- [Luce/RankIntegral.lean](#lucerankintegrallean): 5 declarations
-- [Luce/RankIntegralDependencyAudit.lean](#lucerankintegraldependencyauditlean): 0 declarations
-- [Luce/RankProbability.lean](#lucerankprobabilitylean): 4 declarations
+- [Luce/Sections1To7.lean](#lucesections1to7lean): 0 declarations
+- [Luce/Section4ApprovedRankIntegral.lean](#lucesection4approvedrankintegrallean): 11 declarations
+- [Luce/Section1Assumptions.lean](#lucesection1assumptionslean): 8 declarations
+- [Luce/Section1Basic.lean](#lucesection1basiclean): 1 declarations
+- [Luce/Section2BernoulliCountTightness.lean](#lucesection2bernoullicounttightnesslean): 3 declarations
+- [Luce/Section2BernoulliPointMeasure.lean](#lucesection2bernoullipointmeasurelean): 15 declarations
+- [Luce/Section2BernoulliProcess.lean](#lucesection2bernoulliprocesslean): 24 declarations
+- [Luce/Section2CappedPoisson.lean](#lucesection2cappedpoissonlean): 5 declarations
+- [Luce/Section2CompactLaplaceApproximation.lean](#lucesection2compactlaplaceapproximationlean): 4 declarations
+- [Luce/Section2CompactLawConvergence.lean](#lucesection2compactlawconvergencelean): 11 declarations
+- [Luce/Section2ConditionalProbabilityBasics.lean](#lucesection2conditionalprobabilitybasicslean): 4 declarations
+- [Luce/Section2ConvergenceInProbability.lean](#lucesection2convergenceinprobabilitylean): 5 declarations
+- [Luce/Section4CountableLawConvergence.lean](#lucesection4countablelawconvergencelean): 3 declarations
+- [Luce/Section4CountableTotalVariation.lean](#lucesection4countabletotalvariationlean): 10 declarations
+- [Luce/Section4DiscreteTotalVariation.lean](#lucesection4discretetotalvariationlean): 13 declarations
+- [Luce/Section2DrawHistory.lean](#lucesection2drawhistorylean): 1 declarations
+- [Luce/Section2DrawHistoryPermutation.lean](#lucesection2drawhistorypermutationlean): 1 declarations
+- [Luce/Section3EmpiricalRace.lean](#lucesection3empiricalracelean): 24 declarations
+- [Luce/Section4EndpointEstimates.lean](#lucesection4endpointestimateslean): 10 declarations
+- [Luce/Section4EndpointAsymptotic.lean](#lucesection4endpointasymptoticlean): 10 declarations
+- [Luce/Section4EndpointBlockCapacity.lean](#lucesection4endpointblockcapacitylean): 4 declarations
+- [Luce/Section4EndpointBlockExpectation.lean](#lucesection4endpointblockexpectationlean): 2 declarations
+- [Luce/Section4EndpointBlockIntegral.lean](#lucesection4endpointblockintegrallean): 1 declarations
+- [Luce/Section4EndpointCapacityAnalytic.lean](#lucesection4endpointcapacityanalyticlean): 11 declarations
+- [Luce/Section4EndpointCapacityChernoff.lean](#lucesection4endpointcapacitychernofflean): 1 declarations
+- [Luce/Section4EndpointCapacityProbability.lean](#lucesection4endpointcapacityprobabilitylean): 3 declarations
+- [Luce/Section4EndpointCutoff.lean](#lucesection4endpointcutofflean): 6 declarations
+- [Luce/Section4EndpointIntegrals.lean](#lucesection4endpointintegralslean): 4 declarations
+- [Luce/Section4EndpointJensen.lean](#lucesection4endpointjensenlean): 2 declarations
+- [Luce/Section4EndpointProbability.lean](#lucesection4endpointprobabilitylean): 7 declarations
+- [Luce/Section4EndpointRace.lean](#lucesection4endpointracelean): 16 declarations
+- [Luce/Section4EndpointShellBuffer.lean](#lucesection4endpointshellbufferlean): 5 declarations
+- [Luce/Section4EndpointShellBufferLimit.lean](#lucesection4endpointshellbufferlimitlean): 8 declarations
+- [Luce/Section4EndpointShellCompatibility.lean](#lucesection4endpointshellcompatibilitylean): 3 declarations
+- [Luce/Section4EndpointShellCover.lean](#lucesection4endpointshellcoverlean): 2 declarations
+- [Luce/Section4EndpointShellDefinitions.lean](#lucesection4endpointshelldefinitionslean): 7 declarations
+- [Luce/Section4EndpointShellEarly.lean](#lucesection4endpointshellearlylean): 2 declarations
+- [Luce/Section4EndpointShellEstimate.lean](#lucesection4endpointshellestimatelean): 2 declarations
+- [Luce/Section4EndpointShellExpectationLimit.lean](#lucesection4endpointshellexpectationlimitlean): 4 declarations
+- [Luce/Section4EndpointShellGeometry.lean](#lucesection4endpointshellgeometrylean): 6 declarations
+- [Luce/Section4EndpointShells.lean](#lucesection4endpointshellslean): 17 declarations
+- [Luce/Section4EndpointShellTailBridge.lean](#lucesection4endpointshelltailbridgelean): 2 declarations
+- [Luce/Section4EndpointShellTightness.lean](#lucesection4endpointshelltightnesslean): 4 declarations
+- [Luce/Section4EndpointTheorem.lean](#lucesection4endpointtheoremlean): 6 declarations
+- [Luce/Section4ExponentialFacts.lean](#lucesection4exponentialfactslean): 5 declarations
+- [Luce/Section3ExponentialMemoryless.lean](#lucesection3exponentialmemorylesslean): 1 declarations
+- [Luce/Section4ExponentialRace.lean](#lucesection4exponentialracelean): 12 declarations
+- [Luce/Section2FiniteAdaptedBernoulli.lean](#lucesection2finiteadaptedbernoullilean): 20 declarations
+- [Luce/Section2FiniteBernoulliRow.lean](#lucesection2finitebernoullirowlean): 14 declarations
+- [Luce/Section2FiniteBernoulliSpatial.lean](#lucesection2finitebernoullispatiallean): 14 declarations
+- [Luce/Section2FiniteHistoryConditional.lean](#lucesection2finitehistoryconditionallean): 4 declarations
+- [Luce/Section2FinitePointMeasure.lean](#lucesection2finitepointmeasurelean): 22 declarations
+- [Luce/Section2FinitePoissonLaw.lean](#lucesection2finitepoissonlawlean): 21 declarations
+- [Luce/Section1FirstChoice.lean](#lucesection1firstchoicelean): 3 declarations
+- [Luce/Section2HistoryAtoms.lean](#lucesection2historyatomslean): 5 declarations
+- [Luce/Section2HistoryPredictability.lean](#lucesection2historypredictabilitylean): 5 declarations
+- [Luce/Section3Interior.lean](#lucesection3interiorlean): 10 declarations
+- [Luce/Section4LaplaceCountTightness.lean](#lucesection4laplacecounttightnesslean): 5 declarations
+- [Luce/Section2LikelihoodSecondMoment.lean](#lucesection2likelihoodsecondmomentlean): 4 declarations
+- [Luce/Section2LuceMassRecursion.lean](#lucesection2lucemassrecursionlean): 5 declarations
+- [Luce/Section2LuceNextDraw.lean](#lucesection2lucenextdrawlean): 3 declarations
+- [Luce/Section2LucePrefixMass.lean](#lucesection2luceprefixmasslean): 1 declarations
+- [Luce/Section2LucePrefixRecursion.lean](#lucesection2luceprefixrecursionlean): 8 declarations
+- [Luce/Section2LucePrefixTransition.lean](#lucesection2luceprefixtransitionlean): 4 declarations
+- [Luce/Section1Model.lean](#lucesection1modellean): 27 declarations
+- [Luce/Section2PointMeasureLaplace.lean](#lucesection2pointmeasurelaplacelean): 17 declarations
+- [Luce/Section2PointMeasureLawConvergence.lean](#lucesection2pointmeasurelawconvergencelean): 7 declarations
+- [Luce/Section2PoissonCriterion.lean](#lucesection2poissoncriterionlean): 1 declarations
+- [Luce/Section2PoissonMixture.lean](#lucesection2poissonmixturelean): 6 declarations
+- [Luce/Section2Predictable.lean](#lucesection2predictablelean): 16 declarations
+- [Luce/Section2PredictablePoisson.lean](#lucesection2predictablepoissonlean): 1 declarations
+- [Luce/Section2PredictableProbability.lean](#lucesection2predictableprobabilitylean): 1 declarations
+- [Luce/Section2ProbabilityConvergence.lean](#lucesection2probabilityconvergencelean): 4 declarations
+- [Luce/Section3ProfileKernels.lean](#lucesection3profilekernelslean): 24 declarations
+- [Luce/Section3ProfileRegularity.lean](#lucesection3profileregularitylean): 5 declarations
+- [Luce/Section3RaceConvergence.lean](#lucesection3raceconvergencelean): 4 declarations
+- [Luce/Section1RaceOrder.lean](#lucesection1raceorderlean): 11 declarations
+- [Luce/Section4RankIntegral.lean](#lucesection4rankintegrallean): 5 declarations
+- [Luce/Section4RankIntegralDependencyAudit.lean](#lucesection4rankintegraldependencyauditlean): 0 declarations
+- [Luce/Section4RankProbability.lean](#lucesection4rankprobabilitylean): 4 declarations
 - [Luce/Section3.lean](#lucesection3lean): 0 declarations
 - [Luce/Section3Bernoulli.lean](#lucesection3bernoullilean): 4 declarations
 - [Luce/Section3Compensator.lean](#lucesection3compensatorlean): 20 declarations
@@ -262,37 +262,37 @@ Both revised Section 4 and Section 5 main theorems and their independent closed 
 - [Luce/Section5VertexCount.lean](#lucesection5vertexcountlean): 12 declarations
 - [Luce/Section5WindowLength.lean](#lucesection5windowlengthlean): 12 declarations
 - [Luce/Section5WindowProbability.lean](#lucesection5windowprobabilitylean): 17 declarations
-- [Luce/ShellContractCheck.lean](#luceshellcontractchecklean): 2 declarations
-- [Luce/ShellContractRepresentation.lean](#luceshellcontractrepresentationlean): 1 declarations
-- [Luce/ShellMigrationContract.lean](#luceshellmigrationcontractlean): 1 declarations
-- [Luce/ShellMigrationFoundations.lean](#luceshellmigrationfoundationslean): 0 declarations
-- [Luce/SpatialPoissonLaplace.lean](#lucespatialpoissonlaplacelean): 2 declarations
-- [Luce/Stopping.lean](#lucestoppinglean): 17 declarations
-- [Luce/TailAssumptions.lean](#lucetailassumptionslean): 4 declarations
-- [Luce/TailCount.lean](#lucetailcountlean): 1 declarations
-- [Luce/TailCountIndex.lean](#lucetailcountindexlean): 3 declarations
-- [Luce/TailLimit.lean](#lucetaillimitlean): 1 declarations
-- [Luce/TailProbability.lean](#lucetailprobabilitylean): 5 declarations
-- [Luce/TailTightness.lean](#lucetailtightnesslean): 2 declarations
-- [Luce/TwoCandidate.lean](#lucetwocandidatelean): 4 declarations
-- [Luce/UncappedPoisson.lean](#luceuncappedpoissonlean): 2 declarations
-- [Luce/WeakMeasureProbability.lean](#luceweakmeasureprobabilitylean): 2 declarations
+- [Luce/Section4ShellContractCheck.lean](#lucesection4shellcontractchecklean): 2 declarations
+- [Luce/Section4ShellContractRepresentation.lean](#lucesection4shellcontractrepresentationlean): 1 declarations
+- [Luce/Section4ShellMigrationContract.lean](#lucesection4shellmigrationcontractlean): 1 declarations
+- [Luce/Section4ShellMigrationFoundations.lean](#lucesection4shellmigrationfoundationslean): 0 declarations
+- [Luce/Section2SpatialPoissonLaplace.lean](#lucesection2spatialpoissonlaplacelean): 2 declarations
+- [Luce/Section2Stopping.lean](#lucesection2stoppinglean): 17 declarations
+- [Luce/Section4TailAssumptions.lean](#lucesection4tailassumptionslean): 4 declarations
+- [Luce/Section4TailCount.lean](#lucesection4tailcountlean): 1 declarations
+- [Luce/Section4TailCountIndex.lean](#lucesection4tailcountindexlean): 3 declarations
+- [Luce/Section4TailLimit.lean](#lucesection4taillimitlean): 1 declarations
+- [Luce/Section4TailProbability.lean](#lucesection4tailprobabilitylean): 5 declarations
+- [Luce/Section4TailTightness.lean](#lucesection4tailtightnesslean): 2 declarations
+- [Luce/Section4TwoCandidate.lean](#lucesection4twocandidatelean): 4 declarations
+- [Luce/Section2UncappedPoisson.lean](#lucesection2uncappedpoissonlean): 2 declarations
+- [Luce/Section2WeakMeasureProbability.lean](#lucesection2weakmeasureprobabilitylean): 2 declarations
 - [proposals/Section2Compensator.lean](#proposalssection2compensatorlean): 11 declarations
 - [proposals/Section2ConditionalProbability.lean](#proposalssection2conditionalprobabilitylean): 1 declarations
 - [proposals/Section2Predictability.lean](#proposalssection2predictabilitylean): 2 declarations
 - [proposals/Section4TailTightness.lean](#proposalssection4tailtightnesslean): 2 declarations
-- [audit/AllProvedStatements.lean](#auditallprovedstatementslean): 0 declarations
-- [audit/Assumptions.lean](#auditassumptionslean): 0 declarations
-- [audit/DiscreteTotalVariation.lean](#auditdiscretetotalvariationlean): 0 declarations
-- [audit/HistoryPredictability.lean](#audithistorypredictabilitylean): 4 declarations
-- [audit/Lemma52.lean](#auditlemma52lean): 0 declarations
-- [audit/Lemma52Proof.lean](#auditlemma52prooflean): 0 declarations
-- [audit/Lemma52StatementCheck.lean](#auditlemma52statementchecklean): 0 declarations
-- [audit/PoissonCriterion.lean](#auditpoissoncriterionlean): 0 declarations
-- [audit/PredictableProbability.lean](#auditpredictableprobabilitylean): 2 declarations
-- [audit/Proposition54.lean](#auditproposition54lean): 0 declarations
-- [audit/Proposition54Proof.lean](#auditproposition54prooflean): 0 declarations
-- [audit/RankIntegral.lean](#auditrankintegrallean): 0 declarations
+- [audit/Sections1To7AllProvedStatements.lean](#auditsections1to7allprovedstatementslean): 0 declarations
+- [audit/Section1Assumptions.lean](#auditsection1assumptionslean): 0 declarations
+- [audit/Section4DiscreteTotalVariation.lean](#auditsection4discretetotalvariationlean): 0 declarations
+- [audit/Section2HistoryPredictability.lean](#auditsection2historypredictabilitylean): 4 declarations
+- [audit/Section5Lemma52.lean](#auditsection5lemma52lean): 0 declarations
+- [audit/Section5Lemma52Proof.lean](#auditsection5lemma52prooflean): 0 declarations
+- [audit/Section5Lemma52StatementCheck.lean](#auditsection5lemma52statementchecklean): 0 declarations
+- [audit/Section2PoissonCriterion.lean](#auditsection2poissoncriterionlean): 0 declarations
+- [audit/Section2PredictableProbability.lean](#auditsection2predictableprobabilitylean): 2 declarations
+- [audit/Section5Proposition54.lean](#auditsection5proposition54lean): 0 declarations
+- [audit/Section5Proposition54Proof.lean](#auditsection5proposition54prooflean): 0 declarations
+- [audit/Section4RankIntegral.lean](#auditsection4rankintegrallean): 0 declarations
 - [audit/Section2Existing.lean](#auditsection2existinglean): 0 declarations
 - [audit/Section3.lean](#auditsection3lean): 0 declarations
 - [audit/Section4.lean](#auditsection4lean): 0 declarations
@@ -311,19 +311,19 @@ Both revised Section 4 and Section 5 main theorems and their independent closed 
 - [audit/Section5MaximumCylinder.lean](#auditsection5maximumcylinderlean): 0 declarations
 - [audit/Section5RetainedTightness.lean](#auditsection5retainedtightnesslean): 0 declarations
 - [audit/Section5ShellProgress.lean](#auditsection5shellprogresslean): 0 declarations
-- [audit/ShellMigrationStatements.lean](#auditshellmigrationstatementslean): 0 declarations
-- [audit/TailTightness.lean](#audittailtightnesslean): 4 declarations
+- [audit/Section4ShellMigrationStatements.lean](#auditsection4shellmigrationstatementslean): 0 declarations
+- [audit/Section4TailTightness.lean](#auditsection4tailtightnesslean): 4 declarations
 
-## Luce.lean
+## Luce/Sections1To7.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Sections1To7.lean)
 
 No declarations; imports or audit commands only.
 
 
-## Luce/ApprovedRankIntegral.lean
+## Luce/Section4ApprovedRankIntegral.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/ApprovedRankIntegral.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ApprovedRankIntegral.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -334,7 +334,7 @@ namespace Luce
 
 ### rankOf
 
-def; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/ApprovedRankIntegral.lean:22)
+def; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ApprovedRankIntegral.lean:22)
 
 Approved definition: one plus the number of other clocks ringing earlier.
 
@@ -349,7 +349,7 @@ noncomputable def rankOf {n : ℕ}
 
 ### otherSurvivors
 
-def; [source line 30](D:/princeton/Research/Lean/Lean_luce/Luce/ApprovedRankIntegral.lean:30)
+def; [source line 30](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ApprovedRankIntegral.lean:30)
 
 Approved definition: the number of other clocks surviving strictly past `t`.
 
@@ -363,7 +363,7 @@ noncomputable def otherSurvivors {n : ℕ}
 
 ### rankOf_eq_raceRank
 
-lemma; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/ApprovedRankIntegral.lean:36)
+lemma; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ApprovedRankIntegral.lean:36)
 
 ```lean
 private lemma rankOf_eq_raceRank {n : ℕ} (e : Fin n → ℝ) (k : Fin n) :
@@ -372,7 +372,7 @@ private lemma rankOf_eq_raceRank {n : ℕ} (e : Fin n → ℝ) (k : Fin n) :
 
 ### otherSurvivors_eq
 
-lemma; [source line 42](D:/princeton/Research/Lean/Lean_luce/Luce/ApprovedRankIntegral.lean:42)
+lemma; [source line 42](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ApprovedRankIntegral.lean:42)
 
 ```lean
 private lemma otherSurvivors_eq {n : ℕ} (e : Fin n → ℝ) (k : Fin n) (t : ℝ) :
@@ -381,7 +381,7 @@ private lemma otherSurvivors_eq {n : ℕ} (e : Fin n → ℝ) (k : Fin n) (t : �
 
 ### measurable_rankOf
 
-lemma; [source line 48](D:/princeton/Research/Lean/Lean_luce/Luce/ApprovedRankIntegral.lean:48)
+lemma; [source line 48](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ApprovedRankIntegral.lean:48)
 
 The rank event is measurable as a predicate on a finite clock vector.
 
@@ -392,7 +392,7 @@ lemma measurable_rankOf {n : ℕ} (k : Fin n) :
 
 ### measurable_otherSurvivors
 
-lemma; [source line 59](D:/princeton/Research/Lean/Lean_luce/Luce/ApprovedRankIntegral.lean:59)
+lemma; [source line 59](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ApprovedRankIntegral.lean:59)
 
 Joint measurability in the deterministic time and the finite clock vector.
 
@@ -403,7 +403,7 @@ lemma measurable_otherSurvivors {n : ℕ} (k : Fin n) :
 
 ### measurable_otherSurvivors_at
 
-lemma; [source line 69](D:/princeton/Research/Lean/Lean_luce/Luce/ApprovedRankIntegral.lean:69)
+lemma; [source line 69](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ApprovedRankIntegral.lean:69)
 
 ```lean
 private lemma measurable_otherSurvivors_at {n : ℕ} (k : Fin n) (t : ℝ) :
@@ -412,7 +412,7 @@ private lemma measurable_otherSurvivors_at {n : ℕ} (k : Fin n) (t : ℝ) :
 
 ### measurable_survivorProbability_product
 
-lemma; [source line 73](D:/princeton/Research/Lean/Lean_luce/Luce/ApprovedRankIntegral.lean:73)
+lemma; [source line 73](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ApprovedRankIntegral.lean:73)
 
 ```lean
 private lemma measurable_survivorProbability_product {n : ℕ}
@@ -423,7 +423,7 @@ private lemma measurable_survivorProbability_product {n : ℕ}
 
 ### measurable_survivorProbability
 
-lemma; [source line 84](D:/princeton/Research/Lean/Lean_luce/Luce/ApprovedRankIntegral.lean:84)
+lemma; [source line 84](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ApprovedRankIntegral.lean:84)
 
 The survivor-count probability is measurable in time, derived from the
 approved clock hypotheses rather than assumed in the rank integral.
@@ -442,7 +442,7 @@ lemma measurable_survivorProbability
 
 ### rank_integrand_integrable
 
-theorem; [source line 105](D:/princeton/Research/Lean/Lean_luce/Luce/ApprovedRankIntegral.lean:105)
+theorem; [source line 105](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ApprovedRankIntegral.lean:105)
 
 Integrability of the exact approved integrand. Its absolute value is
 bounded by the exponential density, whose integrability follows from `hθ`.
@@ -464,7 +464,7 @@ theorem rank_integrand_integrable
 
 ### rank_integral
 
-theorem; [source line 141](D:/princeton/Research/Lean/Lean_luce/Luce/ApprovedRankIntegral.lean:141)
+theorem; [source line 141](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ApprovedRankIntegral.lean:141)
 
 **Locked statement:** `fixed_points.tex`, Lemma `lem:rank-integral`,
 equation `eq:rank-integral`. Approved by the user before this proof was written.
@@ -494,9 +494,9 @@ theorem rank_integral
 ```
 
 
-## Luce/Assumptions.lean
+## Luce/Section1Assumptions.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Assumptions.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Assumptions.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -508,7 +508,7 @@ namespace Luce
 
 ### WeightArray
 
-abbrev; [source line 25](D:/princeton/Research/Lean/Lean_luce/Luce/Assumptions.lean:25)
+abbrev; [source line 25](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Assumptions.lean:25)
 
 A triangular array of the model's strictly positive weights.
 
@@ -518,7 +518,7 @@ abbrev WeightArray := (n : ℕ) → Weights n
 
 ### NormalizedWeights
 
-def; [source line 29](D:/princeton/Research/Lean/Lean_luce/Luce/Assumptions.lean:29)
+def; [source line 29](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Assumptions.lean:29)
 
 Mean-one normalization, `eq:normalization`. This is separate from both
 numbered assumptions, just as in the manuscript.
@@ -530,7 +530,7 @@ def NormalizedWeights (w : WeightArray) : Prop :=
 
 ### stepProfile
 
-def; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/Assumptions.lean:36)
+def; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Assumptions.lean:36)
 
 The exact step profile of `eq:step-profile`.
 The `Fin n` index `i` represents paper label `i.val + 1`, whose cell is
@@ -547,7 +547,7 @@ noncomputable def stepProfile (w : WeightArray) (n : ℕ) (x : ℝ) : ℝ := by
 
 ### profileMeasure
 
-def; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/Assumptions.lean:43)
+def; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Assumptions.lean:43)
 
 Lebesgue measure restricted to the profile's domain `(0, 1)`.
 
@@ -558,7 +558,7 @@ noncomputable def profileMeasure : Measure ℝ :=
 
 ### ProfileL1Convergence
 
-def; [source line 50](D:/princeton/Research/Lean/Lean_luce/Luce/Assumptions.lean:50)
+def; [source line 50](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Assumptions.lean:50)
 
 The convergence in `eq:L1-profile`, expressed using the extended
 nonnegative `L¹` seminorm. Infinite errors remain infinite, rather than taking
@@ -573,7 +573,7 @@ def ProfileL1Convergence (w : WeightArray) (f : ℝ → ℝ) : Prop :=
 
 ### ProfileLimit
 
-def; [source line 58](D:/princeton/Research/Lean/Lean_luce/Luce/Assumptions.lean:58)
+def; [source line 58](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Assumptions.lean:58)
 
 The limiting profile in Assumption 1.1. `NullMeasurable` expresses the
 approved Lebesgue measurability on `(0, 1)`, and positivity is pointwise there.
@@ -589,7 +589,7 @@ def ProfileLimit (w : WeightArray) (f : ℝ → ℝ) : Prop :=
 
 ### ProfileAssumption
 
-def; [source line 66](D:/princeton/Research/Lean/Lean_luce/Luce/Assumptions.lean:66)
+def; [source line 66](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Assumptions.lean:66)
 
 Assumption 1.1, `ass:profile`, equation `eq:L1-profile`.
 There exists a Lebesgue-measurable, pointwise positive limiting profile to
@@ -602,7 +602,7 @@ def ProfileAssumption (w : WeightArray) : Prop :=
 
 ### EndpointAssumption
 
-def; [source line 73](D:/princeton/Research/Lean/Lean_luce/Luce/Assumptions.lean:73)
+def; [source line 73](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Assumptions.lean:73)
 
 Assumption 1.2, `ass:endpoint`, equation `eq:endpoint-lower`.
 One pair of strictly positive constants and one threshold work for all
@@ -619,9 +619,9 @@ def EndpointAssumption (w : WeightArray) : Prop :=
 ```
 
 
-## Luce/Basic.lean
+## Luce/Section1Basic.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Basic.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Basic.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -631,16 +631,16 @@ namespace Luce
 
 ### example at line 12
 
-example; [source line 12](D:/princeton/Research/Lean/Lean_luce/Luce/Basic.lean:12)
+example; [source line 12](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Basic.lean:12)
 
 ```lean
 example (n : ℕ) : (Finset.range n).card = n
 ```
 
 
-## Luce/BernoulliCountTightness.lean
+## Luce/Section2BernoulliCountTightness.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliCountTightness.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliCountTightness.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -656,7 +656,7 @@ variable {Ω : ℕ → Type*} [∀ n, MeasurableSpace (Ω n)]
 
 ### count_tail_le_of_sum_probability_le
 
-theorem; [source line 25](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliCountTightness.lean:25)
+theorem; [source line 25](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliCountTightness.lean:25)
 
 Markov's inequality for the observed count, using the predictable
 compensator identity and a deterministic cap on that compensator.
@@ -669,7 +669,7 @@ theorem count_tail_le_of_sum_probability_le (N : ℕ) {K R : ℝ} (hR : 0 < R)
 
 ### row_bad_event_tendsto_zero
 
-theorem; [source line 59](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliCountTightness.lean:59)
+theorem; [source line 59](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliCountTightness.lean:59)
 
 Both fixed-cap failure events have asymptotically vanishing probability.
 
@@ -687,7 +687,7 @@ theorem row_bad_event_tendsto_zero (X : ∀ n, BernoulliProcess (P n)) (N : ℕ 
 
 ### count_tightness_rows
 
-theorem; [source line 76](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliCountTightness.lean:76)
+theorem; [source line 76](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliCountTightness.lean:76)
 
 The finite observation counts are eventually tight under convergence
 of the total predictable mass and vanishing maximum individual probability.
@@ -705,9 +705,9 @@ theorem count_tightness_rows (X : ∀ n, BernoulliProcess (P n)) (N : ℕ → �
 ```
 
 
-## Luce/BernoulliPointMeasure.lean
+## Luce/Section2BernoulliPointMeasure.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliPointMeasure.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliPointMeasure.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -720,7 +720,7 @@ variable {X : Type*} [MeasurableSpace X]
 
 ### observedPointMeasure
 
-def; [source line 23](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliPointMeasure.lean:23)
+def; [source line 23](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliPointMeasure.lean:23)
 
 Retain exactly the points with true Bernoulli observations. The finite
 enumeration certifies that the resulting measure is a finite point measure.
@@ -734,7 +734,7 @@ noncomputable def observedPointMeasure {n : ℕ} (x : Fin n → X)
 
 ### sum_selected_enumeration
 
-lemma; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliPointMeasure.lean:28)
+lemma; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliPointMeasure.lean:28)
 
 ```lean
 private lemma sum_selected_enumeration {n : ℕ} {A : Type*} [AddCommMonoid A]
@@ -745,7 +745,7 @@ private lemma sum_selected_enumeration {n : ℕ} {A : Type*} [AddCommMonoid A]
 
 ### observedPointMeasure_toFiniteMeasure
 
-theorem; [source line 39](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliPointMeasure.lean:39)
+theorem; [source line 39](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliPointMeasure.lean:39)
 
 The underlying measure is the literal sum of retained unit Dirac masses.
 
@@ -758,7 +758,7 @@ theorem observedPointMeasure_toFiniteMeasure {n : ℕ} (x : Fin n → X)
 
 ### mass_sum_for_bernoulli
 
-lemma; [source line 45](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliPointMeasure.lean:45)
+lemma; [source line 45](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliPointMeasure.lean:45)
 
 ```lean
 private lemma mass_sum_for_bernoulli {A : Type*} (s : Finset A) (μ : A → FiniteMeasure X) :
@@ -767,7 +767,7 @@ private lemma mass_sum_for_bernoulli {A : Type*} (s : Finset A) (μ : A → Fini
 
 ### observedPointMeasure_mass
 
-theorem; [source line 59](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliPointMeasure.lean:59)
+theorem; [source line 59](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliPointMeasure.lean:59)
 
 The total mass is the number of true observations, including when
 several observations occur at the same spatial point.
@@ -780,7 +780,7 @@ theorem observedPointMeasure_mass {n : ℕ} (x : Fin n → X) (b : Fin n → Boo
 
 ### integral_observedPointMeasure
 
-theorem; [source line 68](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliPointMeasure.lean:68)
+theorem; [source line 68](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliPointMeasure.lean:68)
 
 Spatial integration agrees with the literal Bernoulli-weighted sum.
 
@@ -793,7 +793,7 @@ theorem integral_observedPointMeasure {n : ℕ} (x : Fin n → X) (b : Fin n →
 
 ### pointLaplace_observedPointMeasure
 
-theorem; [source line 81](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliPointMeasure.lean:81)
+theorem; [source line 81](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliPointMeasure.lean:81)
 
 The point-measure Laplace test is exactly the exponential used in the
 finite-row likelihood argument.
@@ -807,7 +807,7 @@ theorem pointLaplace_observedPointMeasure {n : ℕ} (x : Fin n → X) (b : Fin n
 
 ### measurable_observedPointMeasure
 
-theorem; [source line 87](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliPointMeasure.lean:87)
+theorem; [source line 87](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliPointMeasure.lean:87)
 
 ```lean
 theorem measurable_observedPointMeasure {n : ℕ} (x : Fin n → X) :
@@ -816,7 +816,7 @@ theorem measurable_observedPointMeasure {n : ℕ} (x : Fin n → X) :
 
 ### measurable_observedPointMeasure_of_measurable
 
-theorem; [source line 92](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliPointMeasure.lean:92)
+theorem; [source line 92](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliPointMeasure.lean:92)
 
 Coordinate-measurable Bernoulli observations give an actual measurable
 random point measure, with no extra regularity imposed on the sample space.
@@ -830,7 +830,7 @@ theorem measurable_observedPointMeasure_of_measurable
 
 ### weightedPointMeasure
 
-def; [source line 99](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliPointMeasure.lean:99)
+def; [source line 99](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliPointMeasure.lean:99)
 
 The literal finite predictable measure with nonnegative coefficients.
 
@@ -842,7 +842,7 @@ noncomputable def weightedPointMeasure {n : ℕ} (x : Fin n → X)
 
 ### weightedPointMeasure_mass
 
-theorem; [source line 103](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliPointMeasure.lean:103)
+theorem; [source line 103](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliPointMeasure.lean:103)
 
 ```lean
 theorem weightedPointMeasure_mass {n : ℕ} (x : Fin n → X) (p : Fin n → ℝ≥0) :
@@ -851,7 +851,7 @@ theorem weightedPointMeasure_mass {n : ℕ} (x : Fin n → X) (p : Fin n → ℝ
 
 ### integrable_weightedPointMeasure
 
-theorem; [source line 110](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliPointMeasure.lean:110)
+theorem; [source line 110](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliPointMeasure.lean:110)
 
 ```lean
 theorem integrable_weightedPointMeasure {n : ℕ} (x : Fin n → X) (p : Fin n → ℝ≥0)
@@ -861,7 +861,7 @@ theorem integrable_weightedPointMeasure {n : ℕ} (x : Fin n → X) (p : Fin n �
 
 ### integral_weightedPointMeasure
 
-theorem; [source line 118](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliPointMeasure.lean:118)
+theorem; [source line 118](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliPointMeasure.lean:118)
 
 ```lean
 theorem integral_weightedPointMeasure {n : ℕ} (x : Fin n → X) (p : Fin n → ℝ≥0)
@@ -872,7 +872,7 @@ theorem integral_weightedPointMeasure {n : ℕ} (x : Fin n → X) (p : Fin n →
 
 ### measurable_weightedPointMeasure
 
-theorem; [source line 129](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliPointMeasure.lean:129)
+theorem; [source line 129](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliPointMeasure.lean:129)
 
 ```lean
 theorem measurable_weightedPointMeasure {n : ℕ} (x : Fin n → X) :
@@ -881,7 +881,7 @@ theorem measurable_weightedPointMeasure {n : ℕ} (x : Fin n → X) :
 
 ### measurable_weightedPointMeasure_of_measurable
 
-theorem; [source line 140](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliPointMeasure.lean:140)
+theorem; [source line 140](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliPointMeasure.lean:140)
 
 ```lean
 theorem measurable_weightedPointMeasure_of_measurable
@@ -891,9 +891,9 @@ theorem measurable_weightedPointMeasure_of_measurable
 ```
 
 
-## Luce/BernoulliProcess.lean
+## Luce/Section2BernoulliProcess.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -908,7 +908,7 @@ variable {μ} [IsProbabilityMeasure μ] (X : BernoulliProcess μ)
 
 ### BernoulliProcess
 
-structure; [source line 21](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:21)
+structure; [source line 21](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:21)
 
 An adapted Bernoulli sequence and its predictable compensator atoms.
 
@@ -927,7 +927,7 @@ structure BernoulliProcess where
 
 ### observation_nonneg
 
-lemma; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:36)
+lemma; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:36)
 
 ```lean
 lemma observation_nonneg (k : ℕ) (ω : Ω) : 0 ≤ X.observation k ω
@@ -935,7 +935,7 @@ lemma observation_nonneg (k : ℕ) (ω : Ω) : 0 ≤ X.observation k ω
 
 ### observation_le_one
 
-lemma; [source line 39](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:39)
+lemma; [source line 39](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:39)
 
 ```lean
 lemma observation_le_one (k : ℕ) (ω : Ω) : X.observation k ω ≤ 1
@@ -943,7 +943,7 @@ lemma observation_le_one (k : ℕ) (ω : Ω) : X.observation k ω ≤ 1
 
 ### integrable_observation
 
-lemma; [source line 42](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:42)
+lemma; [source line 42](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:42)
 
 ```lean
 lemma integrable_observation (k : ℕ) : Integrable (X.observation k) μ
@@ -951,7 +951,7 @@ lemma integrable_observation (k : ℕ) : Integrable (X.observation k) μ
 
 ### integrable_probability
 
-lemma; [source line 47](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:47)
+lemma; [source line 47](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:47)
 
 ```lean
 lemma integrable_probability (k : ℕ) : Integrable (X.probability k) μ
@@ -959,7 +959,7 @@ lemma integrable_probability (k : ℕ) : Integrable (X.probability k) μ
 
 ### integral_sum_observation
 
-theorem; [source line 53](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:53)
+theorem; [source line 53](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:53)
 
 Expected count equals expected compensator mass, without independence.
 
@@ -971,7 +971,7 @@ theorem integral_sum_observation (N : ℕ) :
 
 ### stop
 
-def; [source line 64](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:64)
+def; [source line 64](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:64)
 
 Predictable deletion according to the two caps from the manuscript.
 
@@ -1006,7 +1006,7 @@ noncomputable def stop (δ K : ℝ) : BernoulliProcess μ where
 
 ### stop_probability_le_cap
 
-lemma; [source line 91](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:91)
+lemma; [source line 91](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:91)
 
 ```lean
 lemma stop_probability_le_cap {δ K : ℝ} (hδ : 0 ≤ δ) (k : ℕ) (ω : Ω) :
@@ -1015,7 +1015,7 @@ lemma stop_probability_le_cap {δ K : ℝ} (hδ : 0 ≤ δ) (k : ℕ) (ω : Ω) 
 
 ### stop_sum_probability_le_cap
 
-lemma; [source line 94](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:94)
+lemma; [source line 94](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:94)
 
 ```lean
 lemma stop_sum_probability_le_cap {δ K : ℝ} (hK : 0 ≤ K) (N : ℕ) (ω : Ω) :
@@ -1024,7 +1024,7 @@ lemma stop_sum_probability_le_cap {δ K : ℝ} (hK : 0 ≤ K) (N : ℕ) (ω : Ω
 
 ### laplaceFactor
 
-def; [source line 102](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:102)
+def; [source line 102](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:102)
 
 A factor of the likelihood martingale for a nonnegative test function.
 
@@ -1036,7 +1036,7 @@ noncomputable def laplaceFactor (g : ℝ) (k : ℕ) (ω : Ω) : ℝ :=
 
 ### laplaceFactor_stronglyMeasurable
 
-lemma; [source line 106](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:106)
+lemma; [source line 106](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:106)
 
 ```lean
 lemma laplaceFactor_stronglyMeasurable (g : ℝ) (k : ℕ) :
@@ -1045,7 +1045,7 @@ lemma laplaceFactor_stronglyMeasurable (g : ℝ) (k : ℕ) :
 
 ### laplaceFactor_bounds
 
-lemma; [source line 112](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:112)
+lemma; [source line 112](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:112)
 
 ```lean
 lemma laplaceFactor_bounds {δ g : ℝ} (hδ : δ < 1) (hg : 0 ≤ g) (k : ℕ) (ω : Ω)
@@ -1055,7 +1055,7 @@ lemma laplaceFactor_bounds {δ g : ℝ} (hδ : δ < 1) (hg : 0 ≤ g) (k : ℕ) 
 
 ### laplaceFactor_integrable
 
-lemma; [source line 128](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:128)
+lemma; [source line 128](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:128)
 
 ```lean
 lemma laplaceFactor_integrable {δ g : ℝ} (hδ : δ < 1) (hg : 0 ≤ g) (k : ℕ)
@@ -1064,7 +1064,7 @@ lemma laplaceFactor_integrable {δ g : ℝ} (hδ : δ < 1) (hg : 0 ≤ g) (k : �
 
 ### laplaceFactor_conditional_mean
 
-lemma; [source line 135](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:135)
+lemma; [source line 135](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:135)
 
 ```lean
 lemma laplaceFactor_conditional_mean {δ g : ℝ} (hδ : δ < 1) (hg : 0 ≤ g) (k : ℕ)
@@ -1074,7 +1074,7 @@ lemma laplaceFactor_conditional_mean {δ g : ℝ} (hδ : δ < 1) (hg : 0 ≤ g) 
 
 ### likelihood
 
-def; [source line 145](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:145)
+def; [source line 145](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:145)
 
 Finite likelihood process.
 
@@ -1085,7 +1085,7 @@ noncomputable def likelihood (g : ℕ → ℝ) (N : ℕ) (ω : Ω) : ℝ :=
 
 ### likelihood_integrable
 
-lemma; [source line 148](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:148)
+lemma; [source line 148](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:148)
 
 ```lean
 lemma likelihood_integrable {δ : ℝ} (hδ : δ < 1) (g : ℕ → ℝ)
@@ -1095,7 +1095,7 @@ lemma likelihood_integrable {δ : ℝ} (hδ : δ < 1) (g : ℕ → ℝ)
 
 ### likelihood_martingale
 
-theorem; [source line 164](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:164)
+theorem; [source line 164](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:164)
 
 ```lean
 theorem likelihood_martingale {δ : ℝ} (hδ : δ < 1) (g : ℕ → ℝ)
@@ -1105,7 +1105,7 @@ theorem likelihood_martingale {δ : ℝ} (hδ : δ < 1) (g : ℕ → ℝ)
 
 ### integral_likelihood
 
-theorem; [source line 173](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:173)
+theorem; [source line 173](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:173)
 
 ```lean
 theorem integral_likelihood {δ : ℝ} (hδ : δ < 1) (g : ℕ → ℝ)
@@ -1115,7 +1115,7 @@ theorem integral_likelihood {δ : ℝ} (hδ : δ < 1) (g : ℕ → ℝ)
 
 ### laplaceProduct
 
-def; [source line 183](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:183)
+def; [source line 183](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:183)
 
 Product of conditional Laplace transforms.
 
@@ -1126,7 +1126,7 @@ noncomputable def laplaceProduct (g : ℕ → ℝ) (N : ℕ) (ω : Ω) : ℝ :=
 
 ### likelihood_eq_laplace_div
 
-lemma; [source line 186](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:186)
+lemma; [source line 186](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:186)
 
 ```lean
 lemma likelihood_eq_laplace_div (g : ℕ → ℝ) (N : ℕ) (ω : Ω) :
@@ -1136,7 +1136,7 @@ lemma likelihood_eq_laplace_div (g : ℕ → ℝ) (N : ℕ) (ω : Ω) :
 
 ### laplaceProduct_bounds
 
-lemma; [source line 192](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:192)
+lemma; [source line 192](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:192)
 
 ```lean
 lemma laplaceProduct_bounds {δ : ℝ} (hδ : δ < 1) (g : ℕ → ℝ) (hg : ∀ k, 0 ≤ g k)
@@ -1146,7 +1146,7 @@ lemma laplaceProduct_bounds {δ : ℝ} (hδ : δ < 1) (g : ℕ → ℝ) (hg : �
 
 ### laplaceProduct_integrable
 
-lemma; [source line 204](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:204)
+lemma; [source line 204](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:204)
 
 ```lean
 lemma laplaceProduct_integrable {δ : ℝ} (hδ : δ < 1) (g : ℕ → ℝ) (hg : ∀ k, 0 ≤ g k)
@@ -1155,7 +1155,7 @@ lemma laplaceProduct_integrable {δ : ℝ} (hδ : δ < 1) (g : ℕ → ℝ) (hg 
 
 ### likelihood_mul_laplaceProduct
 
-lemma; [source line 215](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:215)
+lemma; [source line 215](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:215)
 
 ```lean
 lemma likelihood_mul_laplaceProduct {δ : ℝ} (hδ : δ < 1) (g : ℕ → ℝ)
@@ -1166,7 +1166,7 @@ lemma likelihood_mul_laplaceProduct {δ : ℝ} (hδ : δ < 1) (g : ℕ → ℝ)
 
 ### likelihood_bounds_of_sum_le
 
-lemma; [source line 223](D:/princeton/Research/Lean/Lean_luce/Luce/BernoulliProcess.lean:223)
+lemma; [source line 223](D:/princeton/Research/Lean/Lean_luce/Luce/Section2BernoulliProcess.lean:223)
 
 Uniform bound for the stopped likelihood from its total compensator cap.
 
@@ -1178,9 +1178,9 @@ lemma likelihood_bounds_of_sum_le {δ K : ℝ} (hδ : δ < 1) (g : ℕ → ℝ)
 ```
 
 
-## Luce/CappedPoisson.lean
+## Luce/Section2CappedPoisson.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/CappedPoisson.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CappedPoisson.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -1194,7 +1194,7 @@ variable {Ω : Type*} {mΩ : MeasurableSpace Ω} {μ : Measure Ω} [IsProbabilit
 
 ### laplaceCompensator
 
-def; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/CappedPoisson.lean:22)
+def; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CappedPoisson.lean:22)
 
 Compensator tested against `1 - exp(-g)`.
 
@@ -1206,7 +1206,7 @@ noncomputable def laplaceCompensator (X : BernoulliProcess μ) (g : ℕ → ℝ)
 
 ### laplaceCompensator_integrable
 
-lemma; [source line 26](D:/princeton/Research/Lean/Lean_luce/Luce/CappedPoisson.lean:26)
+lemma; [source line 26](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CappedPoisson.lean:26)
 
 ```lean
 lemma laplaceCompensator_integrable (X : BernoulliProcess μ) (g : ℕ → ℝ) (N : ℕ) :
@@ -1215,7 +1215,7 @@ lemma laplaceCompensator_integrable (X : BernoulliProcess μ) (g : ℕ → ℝ) 
 
 ### laplaceCompensator_bounds
 
-lemma; [source line 30](D:/princeton/Research/Lean/Lean_luce/Luce/CappedPoisson.lean:30)
+lemma; [source line 30](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CappedPoisson.lean:30)
 
 ```lean
 lemma laplaceCompensator_bounds (X : BernoulliProcess μ) (g : ℕ → ℝ)
@@ -1226,7 +1226,7 @@ lemma laplaceCompensator_bounds (X : BernoulliProcess μ) (g : ℕ → ℝ)
 
 ### integral_laplace_error_of_atom_bound
 
-theorem; [source line 42](D:/princeton/Research/Lean/Lean_luce/Luce/CappedPoisson.lean:42)
+theorem; [source line 42](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CappedPoisson.lean:42)
 
 Quantitative Laplace error for an adapted Bernoulli array with capped mass.
 The factor `a` may depend on the entire outcome; it bounds the largest atom.
@@ -1246,7 +1246,7 @@ theorem integral_laplace_error_of_atom_bound (X : BernoulliProcess μ)
 
 ### capped_laplace_tendsto
 
-theorem; [source line 95](D:/princeton/Research/Lean/Lean_luce/Luce/CappedPoisson.lean:95)
+theorem; [source line 95](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CappedPoisson.lean:95)
 
 The capped predictable Poisson criterion for a single Laplace test.
 Applying this to each nonnegative continuous spatial test gives the Laplace
@@ -1268,9 +1268,9 @@ theorem capped_laplace_tendsto (X : ℕ → BernoulliProcess μ) (g : ℕ → �
 ```
 
 
-## Luce/CompactLaplaceApproximation.lean
+## Luce/Section2CompactLaplaceApproximation.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/CompactLaplaceApproximation.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CompactLaplaceApproximation.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -1283,7 +1283,7 @@ namespace Luce
 
 ### continuous_factorsThrough_of_isInducing
 
-lemma; [source line 23](D:/princeton/Research/Lean/Lean_luce/Luce/CompactLaplaceApproximation.lean:23)
+lemma; [source line 23](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CompactLaplaceApproximation.lean:23)
 
 A continuous real function is constant on the fibers of a map inducing
 the topology. The original space need not be Hausdorff or even `T₀`.
@@ -1297,7 +1297,7 @@ lemma continuous_factorsThrough_of_isInducing
 
 ### exists_algebra_approximation_of_isInducing
 
-theorem; [source line 33](D:/princeton/Research/Lean/Lean_luce/Luce/CompactLaplaceApproximation.lean:33)
+theorem; [source line 33](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CompactLaplaceApproximation.lean:33)
 
 Stone-Weierstrass after descending through a surjective moment map.
 The compactness of the image is derived from the source.
@@ -1313,7 +1313,7 @@ theorem exists_algebra_approximation_of_isInducing
 
 ### exists_algebra_approximation_on_compact_of_isInducing
 
-theorem; [source line 57](D:/princeton/Research/Lean/Lean_luce/Luce/CompactLaplaceApproximation.lean:57)
+theorem; [source line 57](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CompactLaplaceApproximation.lean:57)
 
 Approximate a bounded continuous state functional uniformly on a compact
 set by an algebra on its moment image. All algebra membership is retained
@@ -1330,7 +1330,7 @@ theorem exists_algebra_approximation_on_compact_of_isInducing
 
 ### measurable_boundedContinuousFunction_of_compact_exhaustion
 
-theorem; [source line 93](D:/princeton/Research/Lean/Lean_luce/Luce/CompactLaplaceApproximation.lean:93)
+theorem; [source line 93](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CompactLaplaceApproximation.lean:93)
 
 If the moment algebra is measurable and the state space is exhausted
 eventually by compact sets, every bounded continuous real state functional
@@ -1349,9 +1349,9 @@ theorem measurable_boundedContinuousFunction_of_compact_exhaustion
 ```
 
 
-## Luce/CompactLawConvergence.lean
+## Luce/Section2CompactLawConvergence.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/CompactLawConvergence.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CompactLawConvergence.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -1363,7 +1363,7 @@ namespace Luce
 
 ### integral_sub_abs_le_uniform
 
-lemma; [source line 15](D:/princeton/Research/Lean/Lean_luce/Luce/CompactLawConvergence.lean:15)
+lemma; [source line 15](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CompactLawConvergence.lean:15)
 
 ```lean
 lemma integral_sub_abs_le_uniform
@@ -1375,7 +1375,7 @@ lemma integral_sub_abs_le_uniform
 
 ### tendsto_integral_of_uniform_approximation
 
-theorem; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/CompactLawConvergence.lean:28)
+theorem; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CompactLawConvergence.lean:28)
 
 Convergence of integrals is preserved under global uniform approximation
 of a bounded measurable test, even when the source sigma algebra is unrelated
@@ -1394,7 +1394,7 @@ theorem tendsto_integral_of_uniform_approximation
 
 ### exists_algebra_uniform_approximation_comp
 
-theorem; [source line 75](D:/princeton/Research/Lean/Lean_luce/Luce/CompactLawConvergence.lean:75)
+theorem; [source line 75](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CompactLawConvergence.lean:75)
 
 Scalar continuous transformations of one bounded algebra element can be
 approximated globally by elements of the same algebra.
@@ -1410,7 +1410,7 @@ theorem exists_algebra_uniform_approximation_comp
 
 ### tendsto_integral_continuous_comp_of_subalgebra
 
-theorem; [source line 92](D:/princeton/Research/Lean/Lean_luce/Luce/CompactLawConvergence.lean:92)
+theorem; [source line 92](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CompactLawConvergence.lean:92)
 
 A continuous scalar transformation of a bounded algebra test inherits
 convergence of expectations from the algebra.
@@ -1433,7 +1433,7 @@ theorem tendsto_integral_continuous_comp_of_subalgebra
 
 ### symmetricClip
 
-def; [source line 113](D:/princeton/Research/Lean/Lean_luce/Luce/CompactLawConvergence.lean:113)
+def; [source line 113](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CompactLawConvergence.lean:113)
 
 Clipping a real number to a symmetric bounded interval.
 
@@ -1443,7 +1443,7 @@ def symmetricClip (B x : ℝ) : ℝ := max (-B) (min B x)
 
 ### continuous_symmetricClip
 
-lemma; [source line 115](D:/princeton/Research/Lean/Lean_luce/Luce/CompactLawConvergence.lean:115)
+lemma; [source line 115](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CompactLawConvergence.lean:115)
 
 ```lean
 lemma continuous_symmetricClip (B : ℝ) : Continuous (symmetricClip B)
@@ -1451,7 +1451,7 @@ lemma continuous_symmetricClip (B : ℝ) : Continuous (symmetricClip B)
 
 ### abs_symmetricClip_le
 
-lemma; [source line 118](D:/princeton/Research/Lean/Lean_luce/Luce/CompactLawConvergence.lean:118)
+lemma; [source line 118](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CompactLawConvergence.lean:118)
 
 ```lean
 lemma abs_symmetricClip_le {B : ℝ} (hB : 0 ≤ B) (x : ℝ) :
@@ -1460,7 +1460,7 @@ lemma abs_symmetricClip_le {B : ℝ} (hB : 0 ≤ B) (x : ℝ) :
 
 ### symmetricClip_eq_self
 
-lemma; [source line 123](D:/princeton/Research/Lean/Lean_luce/Luce/CompactLawConvergence.lean:123)
+lemma; [source line 123](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CompactLawConvergence.lean:123)
 
 ```lean
 lemma symmetricClip_eq_self {B x : ℝ} (hx : |x| ≤ B) : symmetricClip B x = x
@@ -1468,7 +1468,7 @@ lemma symmetricClip_eq_self {B x : ℝ} (hx : |x| ≤ B) : symmetricClip B x = x
 
 ### abs_symmetricClip_sub_le
 
-lemma; [source line 127](D:/princeton/Research/Lean/Lean_luce/Luce/CompactLawConvergence.lean:127)
+lemma; [source line 127](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CompactLawConvergence.lean:127)
 
 ```lean
 lemma abs_symmetricClip_sub_le {B x y : ℝ} (hy : |y| ≤ B) :
@@ -1477,7 +1477,7 @@ lemma abs_symmetricClip_sub_le {B x y : ℝ} (hy : |y| ≤ B) :
 
 ### integral_sub_abs_le_on_set
 
-lemma; [source line 141](D:/princeton/Research/Lean/Lean_luce/Luce/CompactLawConvergence.lean:141)
+lemma; [source line 141](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CompactLawConvergence.lean:141)
 
 A local uniform approximation controls expectations up to the mass
 outside the approximation set.
@@ -1493,7 +1493,7 @@ lemma integral_sub_abs_le_on_set
 
 ### tendsto_integral_boundedContinuousFunction_of_tight_algebra
 
-theorem; [source line 178](D:/princeton/Research/Lean/Lean_luce/Luce/CompactLawConvergence.lean:178)
+theorem; [source line 178](D:/princeton/Research/Lean/Lean_luce/Luce/Section2CompactLawConvergence.lean:178)
 
 Convergence on a bounded measurable moment algebra, together with
 tightness on compact sets, implies convergence for every bounded continuous
@@ -1520,9 +1520,9 @@ theorem tendsto_integral_boundedContinuousFunction_of_tight_algebra
 ```
 
 
-## Luce/ConditionalProbabilityBasics.lean
+## Luce/Section2ConditionalProbabilityBasics.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/ConditionalProbabilityBasics.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2ConditionalProbabilityBasics.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -1534,7 +1534,7 @@ namespace Luce
 
 ### drawHistory_le
 
-lemma; [source line 16](D:/princeton/Research/Lean/Lean_luce/Luce/ConditionalProbabilityBasics.lean:16)
+lemma; [source line 16](D:/princeton/Research/Lean/Lean_luce/Luce/Section2ConditionalProbabilityBasics.lean:16)
 
 ```lean
 lemma drawHistory_le {Ω : Type u} [mΩ : MeasurableSpace Ω] {n : ℕ}
@@ -1545,7 +1545,7 @@ lemma drawHistory_le {Ω : Type u} [mΩ : MeasurableSpace Ω] {n : ℕ}
 
 ### measurable_predictableChance_history
 
-lemma; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/ConditionalProbabilityBasics.lean:28)
+lemma; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/Section2ConditionalProbabilityBasics.lean:28)
 
 ```lean
 lemma measurable_predictableChance_history {Ω : Type u} {n : ℕ}
@@ -1555,7 +1555,7 @@ lemma measurable_predictableChance_history {Ω : Type u} {n : ℕ}
 
 ### integrable_predictableChance
 
-lemma; [source line 35](D:/princeton/Research/Lean/Lean_luce/Luce/ConditionalProbabilityBasics.lean:35)
+lemma; [source line 35](D:/princeton/Research/Lean/Lean_luce/Luce/Section2ConditionalProbabilityBasics.lean:35)
 
 ```lean
 lemma integrable_predictableChance {Ω : Type u} [mΩ : MeasurableSpace Ω]
@@ -1567,7 +1567,7 @@ lemma integrable_predictableChance {Ω : Type u} [mΩ : MeasurableSpace Ω]
 
 ### integrable_fixed_point_indicator
 
-lemma; [source line 45](D:/princeton/Research/Lean/Lean_luce/Luce/ConditionalProbabilityBasics.lean:45)
+lemma; [source line 45](D:/princeton/Research/Lean/Lean_luce/Luce/Section2ConditionalProbabilityBasics.lean:45)
 
 ```lean
 lemma integrable_fixed_point_indicator {Ω : Type u} [mΩ : MeasurableSpace Ω]
@@ -1578,9 +1578,9 @@ lemma integrable_fixed_point_indicator {Ω : Type u} [mΩ : MeasurableSpace Ω]
 ```
 
 
-## Luce/ConvergenceInProbability.lean
+## Luce/Section2ConvergenceInProbability.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/ConvergenceInProbability.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2ConvergenceInProbability.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -1595,7 +1595,7 @@ variable {μ : ∀ n, Measure (Ω n)} [∀ n, IsProbabilityMeasure (μ n)]
 
 ### ConvergesInProbability
 
-def; [source line 17](D:/princeton/Research/Lean/Lean_luce/Luce/ConvergenceInProbability.lean:17)
+def; [source line 17](D:/princeton/Research/Lean/Lean_luce/Luce/Section2ConvergenceInProbability.lean:17)
 
 Convergence in probability to a real constant, allowing varying spaces.
 
@@ -1606,7 +1606,7 @@ def ConvergesInProbability (μ : ∀ n, Measure (Ω n)) (X : ∀ n, Ω n → ℝ
 
 ### mono
 
-theorem; [source line 25](D:/princeton/Research/Lean/Lean_luce/Luce/ConvergenceInProbability.lean:25)
+theorem; [source line 25](D:/princeton/Research/Lean/Lean_luce/Luce/Section2ConvergenceInProbability.lean:25)
 
 ```lean
 theorem mono (hY : ConvergesInProbability μ Y d)
@@ -1615,7 +1615,7 @@ theorem mono (hY : ConvergesInProbability μ Y d)
 
 ### congr_off
 
-theorem; [source line 35](D:/princeton/Research/Lean/Lean_luce/Luce/ConvergenceInProbability.lean:35)
+theorem; [source line 35](D:/princeton/Research/Lean/Lean_luce/Luce/Section2ConvergenceInProbability.lean:35)
 
 Changing variables on events whose probabilities vanish preserves the limit.
 
@@ -1627,7 +1627,7 @@ theorem congr_off (hY : ConvergesInProbability μ Y c) (bad : ∀ n, Set (Ω n))
 
 ### upper_tail
 
-theorem; [source line 55](D:/princeton/Research/Lean/Lean_luce/Luce/ConvergenceInProbability.lean:55)
+theorem; [source line 55](D:/princeton/Research/Lean/Lean_luce/Luce/Section2ConvergenceInProbability.lean:55)
 
 ```lean
 theorem upper_tail (hX : ConvergesInProbability μ X c) {K : ℝ} (hK : c < K) :
@@ -1636,7 +1636,7 @@ theorem upper_tail (hX : ConvergesInProbability μ X c) {K : ℝ} (hK : c < K) :
 
 ### integral_abs_tendsto
 
-theorem; [source line 65](D:/princeton/Research/Lean/Lean_luce/Luce/ConvergenceInProbability.lean:65)
+theorem; [source line 65](D:/princeton/Research/Lean/Lean_luce/Luce/Section2ConvergenceInProbability.lean:65)
 
 Bounded convergence to the deterministic limit in `L¹`.
 
@@ -1648,9 +1648,9 @@ theorem integral_abs_tendsto (hX : ConvergesInProbability μ X c)
 ```
 
 
-## Luce/CountableLawConvergence.lean
+## Luce/Section4CountableLawConvergence.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/CountableLawConvergence.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4CountableLawConvergence.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -1664,7 +1664,7 @@ variable {E : Type*} [MeasurableSpace E] [MeasurableSingletonClass E] [Countable
 
 ### tendsto_event_probability_of_totalVariation
 
-theorem; [source line 9](D:/princeton/Research/Lean/Lean_luce/Luce/CountableLawConvergence.lean:9)
+theorem; [source line 9](D:/princeton/Research/Lean/Lean_luce/Luce/Section4CountableLawConvergence.lean:9)
 
 ```lean
 theorem tendsto_event_probability_of_totalVariation
@@ -1675,7 +1675,7 @@ theorem tendsto_event_probability_of_totalVariation
 
 ### tendsto_probabilityMeasure_of_totalVariation
 
-theorem; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/CountableLawConvergence.lean:19)
+theorem; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/Section4CountableLawConvergence.lean:19)
 
 ```lean
 theorem tendsto_probabilityMeasure_of_totalVariation
@@ -1687,7 +1687,7 @@ theorem tendsto_probabilityMeasure_of_totalVariation
 
 ### tendsto_bounded_integrals_of_totalVariation
 
-theorem; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/CountableLawConvergence.lean:28)
+theorem; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/Section4CountableLawConvergence.lean:28)
 
 ```lean
 theorem tendsto_bounded_integrals_of_totalVariation
@@ -1700,9 +1700,9 @@ theorem tendsto_bounded_integrals_of_totalVariation
 ```
 
 
-## Luce/CountableTotalVariation.lean
+## Luce/Section4CountableTotalVariation.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/CountableTotalVariation.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4CountableTotalVariation.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -1716,7 +1716,7 @@ variable {E : Type*} [MeasurableSpace E] [MeasurableSingletonClass E] [Countable
 
 ### probabilityTotalVariation
 
-def; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/CountableTotalVariation.lean:20)
+def; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/Section4CountableTotalVariation.lean:20)
 
 Probability total variation: the supremum over events, with no factor two.
 
@@ -1727,7 +1727,7 @@ def probabilityTotalVariation (μ ν : ProbabilityMeasure E) : ℝ :=
 
 ### probability_event_difference_le_one
 
-lemma; [source line 23](D:/princeton/Research/Lean/Lean_luce/Luce/CountableTotalVariation.lean:23)
+lemma; [source line 23](D:/princeton/Research/Lean/Lean_luce/Luce/Section4CountableTotalVariation.lean:23)
 
 ```lean
 private lemma probability_event_difference_le_one (μ ν : ProbabilityMeasure E)
@@ -1736,7 +1736,7 @@ private lemma probability_event_difference_le_one (μ ν : ProbabilityMeasure E)
 
 ### probabilityTotalVariation_nonneg
 
-lemma; [source line 35](D:/princeton/Research/Lean/Lean_luce/Luce/CountableTotalVariation.lean:35)
+lemma; [source line 35](D:/princeton/Research/Lean/Lean_luce/Luce/Section4CountableTotalVariation.lean:35)
 
 ```lean
 lemma probabilityTotalVariation_nonneg (μ ν : ProbabilityMeasure E) :
@@ -1745,7 +1745,7 @@ lemma probabilityTotalVariation_nonneg (μ ν : ProbabilityMeasure E) :
 
 ### probabilityTotalVariation_le_one
 
-lemma; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/CountableTotalVariation.lean:43)
+lemma; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/Section4CountableTotalVariation.lean:43)
 
 ```lean
 lemma probabilityTotalVariation_le_one (μ ν : ProbabilityMeasure E) :
@@ -1754,7 +1754,7 @@ lemma probabilityTotalVariation_le_one (μ ν : ProbabilityMeasure E) :
 
 ### probability_event_difference_le_totalVariation
 
-lemma; [source line 49](D:/princeton/Research/Lean/Lean_luce/Luce/CountableTotalVariation.lean:49)
+lemma; [source line 49](D:/princeton/Research/Lean/Lean_luce/Luce/Section4CountableTotalVariation.lean:49)
 
 ```lean
 lemma probability_event_difference_le_totalVariation (μ ν : ProbabilityMeasure E)
@@ -1764,7 +1764,7 @@ lemma probability_event_difference_le_totalVariation (μ ν : ProbabilityMeasure
 
 ### probability_finite_event_difference_le
 
-lemma; [source line 55](D:/princeton/Research/Lean/Lean_luce/Luce/CountableTotalVariation.lean:55)
+lemma; [source line 55](D:/princeton/Research/Lean/Lean_luce/Luce/Section4CountableTotalVariation.lean:55)
 
 ```lean
 private lemma probability_finite_event_difference_le (μ ν : ProbabilityMeasure E)
@@ -1776,7 +1776,7 @@ private lemma probability_finite_event_difference_le (μ ν : ProbabilityMeasure
 
 ### probability_event_le_finite_part_add_tail
 
-lemma; [source line 68](D:/princeton/Research/Lean/Lean_luce/Luce/CountableTotalVariation.lean:68)
+lemma; [source line 68](D:/princeton/Research/Lean/Lean_luce/Luce/Section4CountableTotalVariation.lean:68)
 
 ```lean
 private lemma probability_event_le_finite_part_add_tail (μ : ProbabilityMeasure E)
@@ -1787,7 +1787,7 @@ private lemma probability_event_le_finite_part_add_tail (μ : ProbabilityMeasure
 
 ### probabilityTotalVariation_le_finite_sum
 
-lemma; [source line 80](D:/princeton/Research/Lean/Lean_luce/Luce/CountableTotalVariation.lean:80)
+lemma; [source line 80](D:/princeton/Research/Lean/Lean_luce/Luce/Section4CountableTotalVariation.lean:80)
 
 The finite-core estimate underlying the discrete Scheffé argument.
 
@@ -1800,7 +1800,7 @@ lemma probabilityTotalVariation_le_finite_sum (μ ν : ProbabilityMeasure E) (s 
 
 ### probability_finite_tail_tendsto
 
-lemma; [source line 109](D:/princeton/Research/Lean/Lean_luce/Luce/CountableTotalVariation.lean:109)
+lemma; [source line 109](D:/princeton/Research/Lean/Lean_luce/Luce/Section4CountableTotalVariation.lean:109)
 
 ```lean
 lemma probability_finite_tail_tendsto (ν : ProbabilityMeasure E) :
@@ -1809,7 +1809,7 @@ lemma probability_finite_tail_tendsto (ν : ProbabilityMeasure E) :
 
 ### tendsto_probabilityTotalVariation_of_singletons
 
-theorem; [source line 127](D:/princeton/Research/Lean/Lean_luce/Luce/CountableTotalVariation.lean:127)
+theorem; [source line 127](D:/princeton/Research/Lean/Lean_luce/Luce/Section4CountableTotalVariation.lean:127)
 
 On a countable space, convergence of all point masses to a probability
 law is uniform over all events. No tightness hypothesis is assumed.
@@ -1823,9 +1823,9 @@ theorem tendsto_probabilityTotalVariation_of_singletons
 ```
 
 
-## Luce/DiscreteTotalVariation.lean
+## Luce/Section4DiscreteTotalVariation.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/DiscreteTotalVariation.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4DiscreteTotalVariation.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -1838,7 +1838,7 @@ namespace Luce
 
 ### probabilityTotalVariation
 
-def; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/DiscreteTotalVariation.lean:19)
+def; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/Section4DiscreteTotalVariation.lean:19)
 
 Probability total variation: the supremum over events, with no factor two.
 
@@ -1849,7 +1849,7 @@ def probabilityTotalVariation (μ ν : ProbabilityMeasure ℕ) : ℝ :=
 
 ### probability_event_difference_le_one
 
-lemma; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/DiscreteTotalVariation.lean:22)
+lemma; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/Section4DiscreteTotalVariation.lean:22)
 
 ```lean
 private lemma probability_event_difference_le_one (μ ν : ProbabilityMeasure ℕ)
@@ -1858,7 +1858,7 @@ private lemma probability_event_difference_le_one (μ ν : ProbabilityMeasure �
 
 ### probabilityTotalVariation_nonneg
 
-lemma; [source line 33](D:/princeton/Research/Lean/Lean_luce/Luce/DiscreteTotalVariation.lean:33)
+lemma; [source line 33](D:/princeton/Research/Lean/Lean_luce/Luce/Section4DiscreteTotalVariation.lean:33)
 
 ```lean
 lemma probabilityTotalVariation_nonneg (μ ν : ProbabilityMeasure ℕ) :
@@ -1867,7 +1867,7 @@ lemma probabilityTotalVariation_nonneg (μ ν : ProbabilityMeasure ℕ) :
 
 ### probabilityTotalVariation_le_one
 
-lemma; [source line 41](D:/princeton/Research/Lean/Lean_luce/Luce/DiscreteTotalVariation.lean:41)
+lemma; [source line 41](D:/princeton/Research/Lean/Lean_luce/Luce/Section4DiscreteTotalVariation.lean:41)
 
 ```lean
 lemma probabilityTotalVariation_le_one (μ ν : ProbabilityMeasure ℕ) :
@@ -1876,7 +1876,7 @@ lemma probabilityTotalVariation_le_one (μ ν : ProbabilityMeasure ℕ) :
 
 ### probability_event_difference_le_totalVariation
 
-lemma; [source line 47](D:/princeton/Research/Lean/Lean_luce/Luce/DiscreteTotalVariation.lean:47)
+lemma; [source line 47](D:/princeton/Research/Lean/Lean_luce/Luce/Section4DiscreteTotalVariation.lean:47)
 
 ```lean
 lemma probability_event_difference_le_totalVariation (μ ν : ProbabilityMeasure ℕ)
@@ -1886,7 +1886,7 @@ lemma probability_event_difference_le_totalVariation (μ ν : ProbabilityMeasure
 
 ### probability_finite_event_difference_le
 
-lemma; [source line 53](D:/princeton/Research/Lean/Lean_luce/Luce/DiscreteTotalVariation.lean:53)
+lemma; [source line 53](D:/princeton/Research/Lean/Lean_luce/Luce/Section4DiscreteTotalVariation.lean:53)
 
 ```lean
 private lemma probability_finite_event_difference_le (μ ν : ProbabilityMeasure ℕ)
@@ -1898,7 +1898,7 @@ private lemma probability_finite_event_difference_le (μ ν : ProbabilityMeasure
 
 ### probability_event_le_finite_part_add_tail
 
-lemma; [source line 66](D:/princeton/Research/Lean/Lean_luce/Luce/DiscreteTotalVariation.lean:66)
+lemma; [source line 66](D:/princeton/Research/Lean/Lean_luce/Luce/Section4DiscreteTotalVariation.lean:66)
 
 ```lean
 private lemma probability_event_le_finite_part_add_tail (μ : ProbabilityMeasure ℕ)
@@ -1909,7 +1909,7 @@ private lemma probability_event_le_finite_part_add_tail (μ : ProbabilityMeasure
 
 ### probabilityTotalVariation_le_finite_sum
 
-lemma; [source line 78](D:/princeton/Research/Lean/Lean_luce/Luce/DiscreteTotalVariation.lean:78)
+lemma; [source line 78](D:/princeton/Research/Lean/Lean_luce/Luce/Section4DiscreteTotalVariation.lean:78)
 
 The finite-core estimate underlying the discrete Scheffé argument.
 
@@ -1922,7 +1922,7 @@ lemma probabilityTotalVariation_le_finite_sum (μ ν : ProbabilityMeasure ℕ) (
 
 ### probability_nat_tail_tendsto
 
-lemma; [source line 107](D:/princeton/Research/Lean/Lean_luce/Luce/DiscreteTotalVariation.lean:107)
+lemma; [source line 107](D:/princeton/Research/Lean/Lean_luce/Luce/Section4DiscreteTotalVariation.lean:107)
 
 ```lean
 private lemma probability_nat_tail_tendsto (ν : ProbabilityMeasure ℕ) :
@@ -1931,7 +1931,7 @@ private lemma probability_nat_tail_tendsto (ν : ProbabilityMeasure ℕ) :
 
 ### tendsto_probabilityTotalVariation_of_singletons
 
-theorem; [source line 120](D:/princeton/Research/Lean/Lean_luce/Luce/DiscreteTotalVariation.lean:120)
+theorem; [source line 120](D:/princeton/Research/Lean/Lean_luce/Luce/Section4DiscreteTotalVariation.lean:120)
 
 Source: `fixed_points.tex:958–961`. Pointwise convergence of the masses to
 a probability law implies convergence in probability total variation.
@@ -1946,7 +1946,7 @@ theorem tendsto_probabilityTotalVariation_of_singletons
 
 ### tendsto_probability_singletons_of_weak
 
-theorem; [source line 142](D:/princeton/Research/Lean/Lean_luce/Luce/DiscreteTotalVariation.lean:142)
+theorem; [source line 142](D:/princeton/Research/Lean/Lean_luce/Luce/Section4DiscreteTotalVariation.lean:142)
 
 Source: `fixed_points.tex:958–961`. Weak convergence on the discrete count
 space implies the required singleton-probability convergence.
@@ -1961,7 +1961,7 @@ theorem tendsto_probability_singletons_of_weak
 
 ### tendsto_probabilityTotalVariation_of_weak
 
-theorem; [source line 153](D:/princeton/Research/Lean/Lean_luce/Luce/DiscreteTotalVariation.lean:153)
+theorem; [source line 153](D:/princeton/Research/Lean/Lean_luce/Luce/Section4DiscreteTotalVariation.lean:153)
 
 Weak convergence to a proper natural-number law upgrades to total variation.
 
@@ -1974,7 +1974,7 @@ theorem tendsto_probabilityTotalVariation_of_weak
 
 ### tendsto_probabilityTotalVariation_of_integrals
 
-theorem; [source line 161](D:/princeton/Research/Lean/Lean_luce/Luce/DiscreteTotalVariation.lean:161)
+theorem; [source line 161](D:/princeton/Research/Lean/Lean_luce/Luce/Section4DiscreteTotalVariation.lean:161)
 
 The same upgrade, directly in the bounded continuous test formulation of
 weak convergence used for the point-process limit.
@@ -1989,9 +1989,9 @@ theorem tendsto_probabilityTotalVariation_of_integrals
 ```
 
 
-## Luce/DrawHistory.lean
+## Luce/Section2DrawHistory.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/DrawHistory.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2DrawHistory.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -2003,7 +2003,7 @@ namespace Luce
 
 ### drawHistory
 
-def; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/DrawHistory.lean:19)
+def; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/Section2DrawHistory.lean:19)
 
 The sigma algebra generated by the first `m` draws, using the discrete
 sigma algebra on the finite label set.
@@ -2016,9 +2016,9 @@ def drawHistory {Ω : Type u} {n : ℕ}
 ```
 
 
-## Luce/DrawHistoryPermutation.lean
+## Luce/Section2DrawHistoryPermutation.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/DrawHistoryPermutation.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2DrawHistoryPermutation.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -2028,7 +2028,7 @@ namespace Luce
 
 ### inverse_ge_iff_no_earlier_draw
 
-theorem; [source line 12](D:/princeton/Research/Lean/Lean_luce/Luce/DrawHistoryPermutation.lean:12)
+theorem; [source line 12](D:/princeton/Research/Lean/Lean_luce/Luce/Section2DrawHistoryPermutation.lean:12)
 
 A label remains before position `k` exactly when no earlier draw selected it.
 
@@ -2039,9 +2039,9 @@ theorem inverse_ge_iff_no_earlier_draw {n : ℕ} (π : Equiv.Perm (Fin n))
 ```
 
 
-## Luce/EmpiricalRace.lean
+## Luce/Section3EmpiricalRace.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -2054,7 +2054,7 @@ namespace Luce
 
 ### arrivalAt
 
-def; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:20)
+def; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:20)
 
 ```lean
 def arrivalAt (t x : ℝ) : ℝ := if x ≤ t then 1 else 0
@@ -2062,7 +2062,7 @@ def arrivalAt (t x : ℝ) : ℝ := if x ≤ t then 1 else 0
 
 ### arrivalAt_mem_Icc
 
-lemma; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:22)
+lemma; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:22)
 
 ```lean
 lemma arrivalAt_mem_Icc (t x : ℝ) : arrivalAt t x ∈ Icc (0 : ℝ) 1
@@ -2070,7 +2070,7 @@ lemma arrivalAt_mem_Icc (t x : ℝ) : arrivalAt t x ∈ Icc (0 : ℝ) 1
 
 ### measurable_arrivalAt
 
-lemma; [source line 26](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:26)
+lemma; [source line 26](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:26)
 
 ```lean
 lemma measurable_arrivalAt (t : ℝ) : Measurable (arrivalAt t)
@@ -2078,7 +2078,7 @@ lemma measurable_arrivalAt (t : ℝ) : Measurable (arrivalAt t)
 
 ### arrivalAt_monotone
 
-lemma; [source line 29](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:29)
+lemma; [source line 29](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:29)
 
 ```lean
 lemma arrivalAt_monotone (x : ℝ) : Monotone (fun t => arrivalAt t x)
@@ -2086,7 +2086,7 @@ lemma arrivalAt_monotone (x : ℝ) : Monotone (fun t => arrivalAt t x)
 
 ### integral_arrivalAt
 
-lemma; [source line 34](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:34)
+lemma; [source line 34](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:34)
 
 ```lean
 lemma integral_arrivalAt {r t : ℝ} (hr : 0 < r) (ht : 0 ≤ t) :
@@ -2095,7 +2095,7 @@ lemma integral_arrivalAt {r t : ℝ} (hr : 0 < r) (ht : 0 ≤ t) :
 
 ### exponentialRace_integral_eval
 
-lemma; [source line 44](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:44)
+lemma; [source line 44](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:44)
 
 ```lean
 lemma exponentialRace_integral_eval {n : ℕ} (w : Weights n) (i : Fin n)
@@ -2105,7 +2105,7 @@ lemma exponentialRace_integral_eval {n : ℕ} (w : Weights n) (i : Fin n)
 
 ### empiricalArrival
 
-def; [source line 56](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:56)
+def; [source line 56](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:56)
 
 ```lean
 def empiricalArrival {n : ℕ} (clocks : Fin n → ℝ) (t : ℝ) : ℝ :=
@@ -2114,7 +2114,7 @@ def empiricalArrival {n : ℕ} (clocks : Fin n → ℝ) (t : ℝ) : ℝ :=
 
 ### empiricalRemaining
 
-def; [source line 59](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:59)
+def; [source line 59](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:59)
 
 ```lean
 def empiricalRemaining {n : ℕ} (w : Weights n) (clocks : Fin n → ℝ) (t : ℝ) : ℝ :=
@@ -2123,7 +2123,7 @@ def empiricalRemaining {n : ℕ} (w : Weights n) (clocks : Fin n → ℝ) (t : �
 
 ### meanArrival
 
-def; [source line 62](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:62)
+def; [source line 62](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:62)
 
 ```lean
 def meanArrival {n : ℕ} (w : Weights n) (t : ℝ) : ℝ :=
@@ -2132,7 +2132,7 @@ def meanArrival {n : ℕ} (w : Weights n) (t : ℝ) : ℝ :=
 
 ### meanRemaining
 
-def; [source line 65](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:65)
+def; [source line 65](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:65)
 
 ```lean
 def meanRemaining {n : ℕ} (w : Weights n) (t : ℝ) : ℝ :=
@@ -2141,7 +2141,7 @@ def meanRemaining {n : ℕ} (w : Weights n) (t : ℝ) : ℝ :=
 
 ### memLp_empiricalArrival
 
-lemma; [source line 68](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:68)
+lemma; [source line 68](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:68)
 
 ```lean
 lemma memLp_empiricalArrival {n : ℕ} (w : Weights n) (t : ℝ) :
@@ -2150,7 +2150,7 @@ lemma memLp_empiricalArrival {n : ℕ} (w : Weights n) (t : ℝ) :
 
 ### memLp_empiricalRemaining
 
-lemma; [source line 78](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:78)
+lemma; [source line 78](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:78)
 
 ```lean
 lemma memLp_empiricalRemaining {n : ℕ} (w : Weights n) (t : ℝ) :
@@ -2159,7 +2159,7 @@ lemma memLp_empiricalRemaining {n : ℕ} (w : Weights n) (t : ℝ) :
 
 ### integral_empiricalArrival
 
-lemma; [source line 90](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:90)
+lemma; [source line 90](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:90)
 
 ```lean
 lemma integral_empiricalArrival {n : ℕ} (w : Weights n) {t : ℝ} (ht : 0 ≤ t) :
@@ -2168,7 +2168,7 @@ lemma integral_empiricalArrival {n : ℕ} (w : Weights n) {t : ℝ} (ht : 0 ≤ 
 
 ### integral_empiricalRemaining
 
-lemma; [source line 106](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:106)
+lemma; [source line 106](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:106)
 
 ```lean
 lemma integral_empiricalRemaining {n : ℕ} (w : Weights n) {t : ℝ} (ht : 0 ≤ t) :
@@ -2177,7 +2177,7 @@ lemma integral_empiricalRemaining {n : ℕ} (w : Weights n) {t : ℝ} (ht : 0 �
 
 ### empiricalArrival_monotone
 
-lemma; [source line 129](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:129)
+lemma; [source line 129](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:129)
 
 ```lean
 lemma empiricalArrival_monotone {n : ℕ} (clocks : Fin n → ℝ) :
@@ -2186,7 +2186,7 @@ lemma empiricalArrival_monotone {n : ℕ} (clocks : Fin n → ℝ) :
 
 ### empiricalRemaining_antitone
 
-lemma; [source line 135](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:135)
+lemma; [source line 135](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:135)
 
 ```lean
 lemma empiricalRemaining_antitone {n : ℕ} (w : Weights n) (clocks : Fin n → ℝ) :
@@ -2195,7 +2195,7 @@ lemma empiricalRemaining_antitone {n : ℕ} (w : Weights n) (clocks : Fin n → 
 
 ### variance_empiricalArrival_le
 
-lemma; [source line 145](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:145)
+lemma; [source line 145](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:145)
 
 ```lean
 lemma variance_empiricalArrival_le {n : ℕ} (w : Weights (n + 1)) (t : ℝ) :
@@ -2205,7 +2205,7 @@ lemma variance_empiricalArrival_le {n : ℕ} (w : Weights (n + 1)) (t : ℝ) :
 
 ### variance_empiricalRemaining_le
 
-lemma; [source line 170](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:170)
+lemma; [source line 170](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:170)
 
 ```lean
 lemma variance_empiricalRemaining_le {n : ℕ} (w : Weights (n + 1)) (t : ℝ) {M : ℝ}
@@ -2216,7 +2216,7 @@ lemma variance_empiricalRemaining_le {n : ℕ} (w : Weights (n + 1)) (t : ℝ) {
 
 ### uniform_empiricalArrival
 
-theorem; [source line 203](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:203)
+theorem; [source line 203](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:203)
 
 The arrival half of the uniform race law, on the actual exponential
 product measures.
@@ -2231,7 +2231,7 @@ theorem uniform_empiricalArrival {w : ∀ n, Weights (n + 1)} {F : ℝ → ℝ} 
 
 ### uniform_empiricalRemaining
 
-theorem; [source line 218](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:218)
+theorem; [source line 218](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:218)
 
 The remaining-rate half of the uniform race law (strict survival).
 
@@ -2249,7 +2249,7 @@ theorem uniform_empiricalRemaining {w : ∀ n, Weights (n + 1)} {D : ℝ → ℝ
 
 ### empiricalRemainingGe
 
-def; [source line 236](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:236)
+def; [source line 236](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:236)
 
 The paper's weak-survival convention.
 
@@ -2260,7 +2260,7 @@ def empiricalRemainingGe {n : ℕ} (w : Weights n) (clocks : Fin n → ℝ) (t :
 
 ### empiricalRemainingGe_antitone
 
-lemma; [source line 239](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:239)
+lemma; [source line 239](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:239)
 
 ```lean
 lemma empiricalRemainingGe_antitone {n : ℕ} (w : Weights n) (clocks : Fin n → ℝ) :
@@ -2269,7 +2269,7 @@ lemma empiricalRemainingGe_antitone {n : ℕ} (w : Weights n) (clocks : Fin n �
 
 ### empiricalRemainingGe_ae_eq
 
-lemma; [source line 247](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:247)
+lemma; [source line 247](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:247)
 
 ```lean
 lemma empiricalRemainingGe_ae_eq {n : ℕ} (w : Weights n) (t : ℝ) :
@@ -2279,7 +2279,7 @@ lemma empiricalRemainingGe_ae_eq {n : ℕ} (w : Weights n) (t : ℝ) :
 
 ### uniform_empiricalRemainingGe
 
-theorem; [source line 271](D:/princeton/Research/Lean/Lean_luce/Luce/EmpiricalRace.lean:271)
+theorem; [source line 271](D:/princeton/Research/Lean/Lean_luce/Luce/Section3EmpiricalRace.lean:271)
 
 Uniform convergence for exactly the weak-survival process from
 equation `eq:uniform-race`.
@@ -2297,9 +2297,9 @@ theorem uniform_empiricalRemainingGe {w : ∀ n, Weights (n + 1)} {D : ℝ → �
 ```
 
 
-## Luce/Endpoint.lean
+## Luce/Section4EndpointEstimates.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Endpoint.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointEstimates.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -2312,7 +2312,7 @@ noncomputable section
 
 ### meanSurvivors
 
-def; [source line 24](D:/princeton/Research/Lean/Lean_luce/Luce/Endpoint.lean:24)
+def; [source line 24](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointEstimates.lean:24)
 
 Expected number of survivors of independent exponential clocks.
 
@@ -2323,7 +2323,7 @@ def meanSurvivors {n : ℕ} (θ : Fin n → ℝ) (t : ℝ) : ℝ :=
 
 ### meanSurvivors_pos
 
-theorem; [source line 27](D:/princeton/Research/Lean/Lean_luce/Luce/Endpoint.lean:27)
+theorem; [source line 27](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointEstimates.lean:27)
 
 ```lean
 theorem meanSurvivors_pos {n : ℕ} (hn : 0 < n) (θ : Fin n → ℝ) (t : ℝ) :
@@ -2332,7 +2332,7 @@ theorem meanSurvivors_pos {n : ℕ} (hn : 0 < n) (θ : Fin n → ℝ) (t : ℝ) 
 
 ### meanSurvivors_antitone
 
-theorem; [source line 34](D:/princeton/Research/Lean/Lean_luce/Luce/Endpoint.lean:34)
+theorem; [source line 34](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointEstimates.lean:34)
 
 ```lean
 theorem meanSurvivors_antitone {n : ℕ} (θ : Fin n → ℝ)
@@ -2341,7 +2341,7 @@ theorem meanSurvivors_antitone {n : ℕ} (θ : Fin n → ℝ)
 
 ### half_rates_le_two
 
-theorem; [source line 42](D:/princeton/Research/Lean/Lean_luce/Luce/Endpoint.lean:42)
+theorem; [source line 42](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointEstimates.lean:42)
 
 Mean-one normalization forces at least half the rates to be at most two.
 
@@ -2353,7 +2353,7 @@ theorem half_rates_le_two {n : ℕ} (θ : Fin n → ℝ) (hθ : ∀ i, 0 ≤ θ 
 
 ### meanSurvivors_lower_bound
 
-theorem; [source line 68](D:/princeton/Research/Lean/Lean_luce/Luce/Endpoint.lean:68)
+theorem; [source line 68](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointEstimates.lean:68)
 
 The normalization bound `S(t) ≥ (n/2) exp(-2t)` from Section 4.
 
@@ -2365,7 +2365,7 @@ theorem meanSurvivors_lower_bound {n : ℕ} (θ : Fin n → ℝ)
 
 ### exponential_density_le
 
-theorem; [source line 89](D:/princeton/Research/Lean/Lean_luce/Luce/Endpoint.lean:89)
+theorem; [source line 89](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointEstimates.lean:89)
 
 At sufficiently late times all rates above `γ` have density at most
 `γ exp(-γ t)`. This is the decreasing-density step of the endpoint proof.
@@ -2378,7 +2378,7 @@ theorem exponential_density_le {a γ t : ℝ} (hγ : 0 < γ) (ha : γ ≤ a)
 
 ### integral_exponential_density_Ioi
 
-theorem; [source line 108](D:/princeton/Research/Lean/Lean_luce/Luce/Endpoint.lean:108)
+theorem; [source line 108](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointEstimates.lean:108)
 
 Tail mass of an exponential density.
 
@@ -2389,7 +2389,7 @@ theorem integral_exponential_density_Ioi {a : ℝ} (ha : 0 < a) (s : ℝ) :
 
 ### integrableOn_exponential_density_Ioi
 
-theorem; [source line 113](D:/princeton/Research/Lean/Lean_luce/Luce/Endpoint.lean:113)
+theorem; [source line 113](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointEstimates.lean:113)
 
 ```lean
 theorem integrableOn_exponential_density_Ioi {a : ℝ} (ha : 0 < a) (s : ℝ) :
@@ -2398,7 +2398,7 @@ theorem integrableOn_exponential_density_Ioi {a : ℝ} (ha : 0 < a) (s : ℝ) :
 
 ### cutoff_exponential_le_rpow
 
-theorem; [source line 119](D:/princeton/Research/Lean/Lean_luce/Luce/Endpoint.lean:119)
+theorem; [source line 119](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointEstimates.lean:119)
 
 Converting the mean-survivor cutoff into the power appearing in the
 explicit endpoint estimate.
@@ -2412,7 +2412,7 @@ theorem cutoff_exponential_le_rpow {n : ℕ} (hn : 0 < n) (θ : Fin n → ℝ)
 
 ### two_candidate_density_bound
 
-theorem; [source line 139](D:/princeton/Research/Lean/Lean_luce/Luce/Endpoint.lean:139)
+theorem; [source line 139](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointEstimates.lean:139)
 
 The deterministic two-candidate inequality, now with exponential
 densities as weights.
@@ -2429,9 +2429,9 @@ theorem two_candidate_density_bound {α : Type*} [DecidableEq α]
 ```
 
 
-## Luce/EndpointAsymptotic.lean
+## Luce/Section4EndpointAsymptotic.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointAsymptotic.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointAsymptotic.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -2444,7 +2444,7 @@ noncomputable section
 
 ### terminalCandidate
 
-def; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointAsymptotic.lean:20)
+def; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointAsymptotic.lean:20)
 
 The `m`th label counted back from the last label.
 
@@ -2455,7 +2455,7 @@ def terminalCandidate (n m : ℕ) : Fin (n + 1) :=
 
 ### terminalCandidate_val_add
 
-lemma; [source line 23](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointAsymptotic.lean:23)
+lemma; [source line 23](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointAsymptotic.lean:23)
 
 ```lean
 lemma terminalCandidate_val_add {n m : ℕ} (hm : 1 ≤ m) (hmn : m ≤ n + 1) :
@@ -2464,7 +2464,7 @@ lemma terminalCandidate_val_add {n m : ℕ} (hm : 1 ≤ m) (hmn : m ≤ n + 1) :
 
 ### epsilonTailExpectation
 
-def; [source line 29](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointAsymptotic.lean:29)
+def; [source line 29](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointAsymptotic.lean:29)
 
 Expected fixed points in the last `ceil (ε(n+1))` positions.
 
@@ -2476,7 +2476,7 @@ def epsilonTailExpectation (w : (n : ℕ) → Weights (n + 1)) (ε : ℝ) (n : �
 
 ### epsilonTailExpectation_nonneg
 
-lemma; [source line 33](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointAsymptotic.lean:33)
+lemma; [source line 33](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointAsymptotic.lean:33)
 
 ```lean
 lemma epsilonTailExpectation_nonneg (w : (n : ℕ) → Weights (n + 1)) (ε : ℝ) (n : ℕ) :
@@ -2485,7 +2485,7 @@ lemma epsilonTailExpectation_nonneg (w : (n : ℕ) → Weights (n + 1)) (ε : �
 
 ### tendsto_nat_add_one
 
-lemma; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointAsymptotic.lean:36)
+lemma; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointAsymptotic.lean:36)
 
 ```lean
 lemma tendsto_nat_add_one : Tendsto (fun n : ℕ => (n : ℝ) + 1) atTop atTop
@@ -2493,7 +2493,7 @@ lemma tendsto_nat_add_one : Tendsto (fun n : ℕ => (n : ℝ) + 1) atTop atTop
 
 ### epsilonTailExpectation_eventually_le
 
-theorem; [source line 41](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointAsymptotic.lean:41)
+theorem; [source line 41](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointAsymptotic.lean:41)
 
 The expectation bound is eventually valid with a linear cutoff whenever
 `2 ε < β` and the cutoff stays beyond `1/γ`.
@@ -2513,7 +2513,7 @@ theorem epsilonTailExpectation_eventually_le
 
 ### tendsto_endpoint_early_envelope
 
-lemma; [source line 98](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointAsymptotic.lean:98)
+lemma; [source line 98](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointAsymptotic.lean:98)
 
 The rounded linear prefactor is dominated by exponential decay.
 
@@ -2525,7 +2525,7 @@ lemma tendsto_endpoint_early_envelope {ε β : ℝ} (hβ : 0 < β) :
 
 ### epsilonTailExpectation_limsup_le
 
-theorem; [source line 119](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointAsymptotic.lean:119)
+theorem; [source line 119](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointAsymptotic.lean:119)
 
 The endpoint limsup bound for any admissible linear cutoff fraction.
 
@@ -2542,7 +2542,7 @@ theorem epsilonTailExpectation_limsup_le
 
 ### epsilonTailExpectation_power_limsup
 
-theorem; [source line 141](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointAsymptotic.lean:141)
+theorem; [source line 141](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointAsymptotic.lean:141)
 
 The exact power and constant in equation `eq:tail-epsilon`.
 
@@ -2560,7 +2560,7 @@ theorem epsilonTailExpectation_power_limsup
 
 ### endpoint_epsilon_estimate
 
-theorem; [source line 167](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointAsymptotic.lean:167)
+theorem; [source line 167](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointAsymptotic.lean:167)
 
 A uniform rate lower bound on one fixed terminal neighborhood implies
 the paper's epsilon estimate for every sufficiently small positive epsilon.
@@ -2578,9 +2578,9 @@ theorem endpoint_epsilon_estimate
 ```
 
 
-## Luce/EndpointBlockCapacity.lean
+## Luce/Section4EndpointBlockCapacity.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointBlockCapacity.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointBlockCapacity.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -2593,7 +2593,7 @@ namespace Luce
 
 ### capacity_candidate_density_le
 
-theorem; [source line 13](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointBlockCapacity.lean:13)
+theorem; [source line 13](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointBlockCapacity.lean:13)
 
 ```lean
 theorem capacity_candidate_density_le {n : ℕ} (w : Weights n) (i : Fin n)
@@ -2604,7 +2604,7 @@ theorem capacity_candidate_density_le {n : ℕ} (w : Weights n) (i : Fin n)
 
 ### capacity_block_density_le
 
-theorem; [source line 34](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointBlockCapacity.lean:34)
+theorem; [source line 34](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointBlockCapacity.lean:34)
 
 ```lean
 theorem capacity_block_density_le {n : ℕ} (w : Weights (n + 1))
@@ -2616,7 +2616,7 @@ theorem capacity_block_density_le {n : ℕ} (w : Weights (n + 1))
 
 ### capacity_other_survivor_early
 
-theorem; [source line 55](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointBlockCapacity.lean:55)
+theorem; [source line 55](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointBlockCapacity.lean:55)
 
 ```lean
 theorem capacity_other_survivor_early {n : ℕ} (w : Weights n) (i : Fin n)
@@ -2629,7 +2629,7 @@ theorem capacity_other_survivor_early {n : ℕ} (w : Weights n) (i : Fin n)
 
 ### exponentialRace_block_capacity
 
-theorem; [source line 78](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointBlockCapacity.lean:78)
+theorem; [source line 78](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointBlockCapacity.lean:78)
 
 `eq:block-endpoint-capacity`, with arbitrary lower/upper bounds on the
 block rates and depths. Taking the finite minimum and maximum gives exactly
@@ -2648,9 +2648,9 @@ theorem exponentialRace_block_capacity {n : ℕ} (w : Weights (n + 1))
 ```
 
 
-## Luce/EndpointBlockExpectation.lean
+## Luce/Section4EndpointBlockExpectation.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointBlockExpectation.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointBlockExpectation.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -2663,7 +2663,7 @@ namespace Luce
 
 ### block_fixedPoint_expectation_eq
 
-theorem; [source line 12](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointBlockExpectation.lean:12)
+theorem; [source line 12](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointBlockExpectation.lean:12)
 
 The sum of fixed-point probabilities in a block is its actual expected
 number of fixed labels. No integrability input is necessary for a finite count.
@@ -2676,7 +2676,7 @@ theorem block_fixedPoint_expectation_eq {n : ℕ} (w : Weights n) (block : Finse
 
 ### block_endpoint_capacity
 
-theorem; [source line 37](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointBlockExpectation.lean:37)
+theorem; [source line 37](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointBlockExpectation.lean:37)
 
 Literal finite minimum and maximum specialization of block capacity.
 The extra local quantities in `exponentialRace_block_capacity` are constructed
@@ -2695,9 +2695,9 @@ theorem block_endpoint_capacity {n : ℕ} (w : Weights (n + 1))
 ```
 
 
-## Luce/EndpointBlockIntegral.lean
+## Luce/Section4EndpointBlockIntegral.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointBlockIntegral.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointBlockIntegral.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -2710,7 +2710,7 @@ namespace Luce
 
 ### capacity_integral_bound
 
-theorem; [source line 11](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointBlockIntegral.lean:11)
+theorem; [source line 11](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointBlockIntegral.lean:11)
 
 ```lean
 theorem capacity_integral_bound {ι : Type*} (indices : Finset ι)
@@ -2726,9 +2726,9 @@ theorem capacity_integral_bound {ι : Type*} (indices : Finset ι)
 ```
 
 
-## Luce/EndpointCapacityAnalytic.lean
+## Luce/Section4EndpointCapacityAnalytic.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCapacityAnalytic.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCapacityAnalytic.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -2741,7 +2741,7 @@ namespace Luce
 
 ### endpointQ
 
-def; [source line 13](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCapacityAnalytic.lean:13)
+def; [source line 13](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCapacityAnalytic.lean:13)
 
 ```lean
 def endpointQ (x : ℝ) : ℝ := -Real.log (1 - Real.exp (-x))
@@ -2749,7 +2749,7 @@ def endpointQ (x : ℝ) : ℝ := -Real.log (1 - Real.exp (-x))
 
 ### endpointQ_pos
 
-theorem; [source line 15](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCapacityAnalytic.lean:15)
+theorem; [source line 15](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCapacityAnalytic.lean:15)
 
 ```lean
 theorem endpointQ_pos {x : ℝ} (hx : 0 < x) : 0 < endpointQ x
@@ -2757,7 +2757,7 @@ theorem endpointQ_pos {x : ℝ} (hx : 0 < x) : 0 < endpointQ x
 
 ### endpointQ_antitone
 
-theorem; [source line 21](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCapacityAnalytic.lean:21)
+theorem; [source line 21](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCapacityAnalytic.lean:21)
 
 ```lean
 theorem endpointQ_antitone : AntitoneOn endpointQ (Ioi 0)
@@ -2765,7 +2765,7 @@ theorem endpointQ_antitone : AntitoneOn endpointQ (Ioi 0)
 
 ### exp_neg_le_endpointQ
 
-theorem; [source line 29](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCapacityAnalytic.lean:29)
+theorem; [source line 29](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCapacityAnalytic.lean:29)
 
 ```lean
 theorem exp_neg_le_endpointQ {x : ℝ} (hx : 0 < x) :
@@ -2774,7 +2774,7 @@ theorem exp_neg_le_endpointQ {x : ℝ} (hx : 0 < x) :
 
 ### endpointQ_le_two_exp
 
-theorem; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCapacityAnalytic.lean:36)
+theorem; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCapacityAnalytic.lean:36)
 
 ```lean
 theorem endpointQ_le_two_exp {x : ℝ} (hx : Real.exp (-x) ≤ 1 / 2) :
@@ -2783,7 +2783,7 @@ theorem endpointQ_le_two_exp {x : ℝ} (hx : Real.exp (-x) ≤ 1 / 2) :
 
 ### hasDerivAt_log_one_sub_exp
 
-theorem; [source line 48](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCapacityAnalytic.lean:48)
+theorem; [source line 48](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCapacityAnalytic.lean:48)
 
 ```lean
 theorem hasDerivAt_log_one_sub_exp {a t : ℝ} (ha : 0 < a) (ht : 0 < t) :
@@ -2793,7 +2793,7 @@ theorem hasDerivAt_log_one_sub_exp {a t : ℝ} (ha : 0 < a) (ht : 0 < t) :
 
 ### tendsto_log_one_sub_exp
 
-theorem; [source line 65](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCapacityAnalytic.lean:65)
+theorem; [source line 65](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCapacityAnalytic.lean:65)
 
 ```lean
 theorem tendsto_log_one_sub_exp (a : ℝ) (ha : 0 < a) :
@@ -2802,7 +2802,7 @@ theorem tendsto_log_one_sub_exp (a : ℝ) (ha : 0 < a) :
 
 ### integral_capacity_kernel
 
-theorem; [source line 75](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCapacityAnalytic.lean:75)
+theorem; [source line 75](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCapacityAnalytic.lean:75)
 
 Exact late-time kernel integral in the manuscript's block bound.
 
@@ -2813,7 +2813,7 @@ theorem integral_capacity_kernel {a s : ℝ} (ha : 0 < a) (hs : 0 < s) :
 
 ### integrable_capacity_kernel
 
-theorem; [source line 84](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCapacityAnalytic.lean:84)
+theorem; [source line 84](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCapacityAnalytic.lean:84)
 
 ```lean
 theorem integrable_capacity_kernel {a s : ℝ} (ha : 0 < a) (hs : 0 < s) :
@@ -2822,7 +2822,7 @@ theorem integrable_capacity_kernel {a s : ℝ} (ha : 0 < a) (hs : 0 < s) :
 
 ### capacity_kernel_antitone
 
-theorem; [source line 94](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCapacityAnalytic.lean:94)
+theorem; [source line 94](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCapacityAnalytic.lean:94)
 
 Monotonicity in the rate, valid at every positive time. This has no
 late-time threshold of the form `a*t ≥ 1`.
@@ -2834,7 +2834,7 @@ theorem capacity_kernel_antitone {t : ℝ} (ht : 0 < t) :
 
 ### exp_neg_le_quadratic
 
-theorem; [source line 117](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCapacityAnalytic.lean:117)
+theorem; [source line 117](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCapacityAnalytic.lean:117)
 
 The quadratic exponential estimate needed for the exact Chernoff
 exponent in the manuscript's block proposition.
@@ -2845,9 +2845,9 @@ theorem exp_neg_le_quadratic {x : ℝ} (hx : 0 ≤ x) :
 ```
 
 
-## Luce/EndpointCapacityChernoff.lean
+## Luce/Section4EndpointCapacityChernoff.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCapacityChernoff.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCapacityChernoff.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -2860,7 +2860,7 @@ namespace Luce
 
 ### bernoulli_block_lower_tail
 
-theorem; [source line 11](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCapacityChernoff.lean:11)
+theorem; [source line 11](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCapacityChernoff.lean:11)
 
 Exact lower-tail exponent with a lower bound B on the true mean.
 All premises are discharged by survivor means in the intended application.
@@ -2877,9 +2877,9 @@ theorem bernoulli_block_lower_tail {Ω ι : Type*} [MeasurableSpace Ω]
 ```
 
 
-## Luce/EndpointCapacityProbability.lean
+## Luce/Section4EndpointCapacityProbability.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCapacityProbability.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCapacityProbability.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -2892,7 +2892,7 @@ namespace Luce
 
 ### fullSurvivorProbability
 
-def; [source line 9](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCapacityProbability.lean:9)
+def; [source line 9](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCapacityProbability.lean:9)
 
 ```lean
 def fullSurvivorProbability {n : ℕ} (w : Weights n) (q : ℕ) (t : ℝ) : ℝ :=
@@ -2901,7 +2901,7 @@ def fullSurvivorProbability {n : ℕ} (w : Weights n) (q : ℕ) (t : ℝ) : ℝ 
 
 ### removed_survivor_probability_le
 
-theorem; [source line 14](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCapacityProbability.lean:14)
+theorem; [source line 14](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCapacityProbability.lean:14)
 
 Removing a candidate costs its probability of already having rung.
 Independence is proved from the canonical exponential product measure.
@@ -2915,7 +2915,7 @@ theorem removed_survivor_probability_le {n : ℕ} (w : Weights n) (i : Fin n)
 
 ### sum_fullSurvivorProbability_le_one
 
-theorem; [source line 62](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCapacityProbability.lean:62)
+theorem; [source line 62](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCapacityProbability.lean:62)
 
 ```lean
 theorem sum_fullSurvivorProbability_le_one {n : ℕ} (w : Weights (n + 1))
@@ -2924,9 +2924,9 @@ theorem sum_fullSurvivorProbability_le_one {n : ℕ} (w : Weights (n + 1))
 ```
 
 
-## Luce/EndpointCutoff.lean
+## Luce/Section4EndpointCutoff.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCutoff.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCutoff.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -2938,7 +2938,7 @@ namespace Luce
 
 ### continuous_meanSurvivors
 
-theorem; [source line 11](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCutoff.lean:11)
+theorem; [source line 11](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCutoff.lean:11)
 
 ```lean
 theorem continuous_meanSurvivors {n : ℕ} (θ : Fin n → ℝ) :
@@ -2947,7 +2947,7 @@ theorem continuous_meanSurvivors {n : ℕ} (θ : Fin n → ℝ) :
 
 ### meanSurvivors_zero
 
-theorem; [source line 17](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCutoff.lean:17)
+theorem; [source line 17](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCutoff.lean:17)
 
 ```lean
 theorem meanSurvivors_zero {n : ℕ} (θ : Fin n → ℝ) : meanSurvivors θ 0 = n
@@ -2955,7 +2955,7 @@ theorem meanSurvivors_zero {n : ℕ} (θ : Fin n → ℝ) : meanSurvivors θ 0 =
 
 ### meanSurvivors_strictAnti
 
-theorem; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCutoff.lean:20)
+theorem; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCutoff.lean:20)
 
 ```lean
 theorem meanSurvivors_strictAnti {n : ℕ} (hn : 0 < n) (θ : Fin n → ℝ)
@@ -2964,7 +2964,7 @@ theorem meanSurvivors_strictAnti {n : ℕ} (hn : 0 < n) (θ : Fin n → ℝ)
 
 ### tendsto_meanSurvivors_atTop
 
-theorem; [source line 29](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCutoff.lean:29)
+theorem; [source line 29](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCutoff.lean:29)
 
 ```lean
 theorem tendsto_meanSurvivors_atTop {n : ℕ} (θ : Fin n → ℝ)
@@ -2973,7 +2973,7 @@ theorem tendsto_meanSurvivors_atTop {n : ℕ} (θ : Fin n → ℝ)
 
 ### exists_unique_meanSurvivors_cutoff
 
-theorem; [source line 40](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCutoff.lean:40)
+theorem; [source line 40](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCutoff.lean:40)
 
 The cutoff used by the paper exists and is unique whenever `0 < B ≤ n`.
 
@@ -2985,7 +2985,7 @@ theorem exists_unique_meanSurvivors_cutoff {n : ℕ} (hn : 0 < n) (θ : Fin n �
 
 ### meanSurvivors_cutoff_log_lower
 
-theorem; [source line 56](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointCutoff.lean:56)
+theorem; [source line 56](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointCutoff.lean:56)
 
 The lower bound on the cutoff stated in the proof of the endpoint bound.
 
@@ -2997,9 +2997,9 @@ theorem meanSurvivors_cutoff_log_lower {n : ℕ} (hn : 0 < n) (θ : Fin n → �
 ```
 
 
-## Luce/EndpointIntegrals.lean
+## Luce/Section4EndpointIntegrals.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointIntegrals.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointIntegrals.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -3012,7 +3012,7 @@ noncomputable section
 
 ### probability_weighted_density_bound
 
-theorem; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointIntegrals.lean:19)
+theorem; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointIntegrals.lean:19)
 
 A sum of candidate densities is bounded by twice the slowest admissible
 density when the sum of the candidate probabilities is at most two.
@@ -3028,7 +3028,7 @@ theorem probability_weighted_density_bound {ι : Type*} (indices : Finset ι)
 
 ### probability_weighted_tail_bound
 
-theorem; [source line 37](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointIntegrals.lean:37)
+theorem; [source line 37](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointIntegrals.lean:37)
 
 Integrating the two-candidate envelope gives the exact terminal term
 `2 exp(-γ s)` in the paper.
@@ -3046,7 +3046,7 @@ theorem probability_weighted_tail_bound {ι : Type*} (indices : Finset ι)
 
 ### integrableOn_probability_weighted_density
 
-theorem; [source line 76](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointIntegrals.lean:76)
+theorem; [source line 76](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointIntegrals.lean:76)
 
 Integrability of a probability-weighted exponential density.
 
@@ -3059,7 +3059,7 @@ theorem integrableOn_probability_weighted_density {a s : ℝ} (ha : 0 < a)
 
 ### endpoint_integral_bound
 
-theorem; [source line 90](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointIntegrals.lean:90)
+theorem; [source line 90](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointIntegrals.lean:90)
 
 Splitting the candidate rank integrals at the survivor cutoff gives the
 two terms in the explicit endpoint bound.
@@ -3078,9 +3078,9 @@ theorem endpoint_integral_bound {ι : Type*} (indices : Finset ι)
 ```
 
 
-## Luce/EndpointJensen.lean
+## Luce/Section4EndpointJensen.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointJensen.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointJensen.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -3091,7 +3091,7 @@ namespace Luce
 
 ### meanSurvivors_jensen
 
-theorem; [source line 10](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointJensen.lean:10)
+theorem; [source line 10](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointJensen.lean:10)
 
 Jensen's bound with coefficient one in logarithmic time. The proof uses
 the supporting line `exp x ≥ 1+x`; it requires no bound on individual rates.
@@ -3104,7 +3104,7 @@ theorem meanSurvivors_jensen {n : ℕ} (θ : Fin n → ℝ)
 
 ### NormalizedWeights.meanSurvivors_jensen
 
-theorem; [source line 27](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointJensen.lean:27)
+theorem; [source line 27](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointJensen.lean:27)
 
 ```lean
 theorem NormalizedWeights.meanSurvivors_jensen {w : WeightArray}
@@ -3113,9 +3113,9 @@ theorem NormalizedWeights.meanSurvivors_jensen {w : WeightArray}
 ```
 
 
-## Luce/EndpointProbability.lean
+## Luce/Section4EndpointProbability.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointProbability.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointProbability.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -3128,7 +3128,7 @@ noncomputable section
 
 ### two_candidate_probability_bound
 
-theorem; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointProbability.lean:20)
+theorem; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointProbability.lean:20)
 
 The sum of the probabilities of all terminal candidate events is at
 most two, for any random survivor set.
@@ -3145,7 +3145,7 @@ theorem two_candidate_probability_bound {Ω α : Type*} [MeasurableSpace Ω]
 
 ### bernoulliLowerTailConstant
 
-def; [source line 55](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointProbability.lean:55)
+def; [source line 55](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointProbability.lean:55)
 
 The universal positive constant in the Bernoulli lower-tail estimate.
 
@@ -3155,7 +3155,7 @@ def bernoulliLowerTailConstant : ℝ := 1 / 2 - Real.exp (-1)
 
 ### bernoulliLowerTailConstant_pos
 
-theorem; [source line 57](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointProbability.lean:57)
+theorem; [source line 57](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointProbability.lean:57)
 
 ```lean
 theorem bernoulliLowerTailConstant_pos : 0 < bernoulliLowerTailConstant
@@ -3163,7 +3163,7 @@ theorem bernoulliLowerTailConstant_pos : 0 < bernoulliLowerTailConstant
 
 ### integrable_of_zero_one
 
-theorem; [source line 67](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointProbability.lean:67)
+theorem; [source line 67](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointProbability.lean:67)
 
 A zero-one random variable is integrable on a probability space.
 
@@ -3175,7 +3175,7 @@ theorem integrable_of_zero_one {Ω : Type*} [MeasurableSpace Ω]
 
 ### mgf_neg_one_of_zero_one
 
-theorem; [source line 75](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointProbability.lean:75)
+theorem; [source line 75](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointProbability.lean:75)
 
 The Laplace transform of a Bernoulli variable at parameter one.
 
@@ -3188,7 +3188,7 @@ theorem mgf_neg_one_of_zero_one {Ω : Type*} [MeasurableSpace Ω]
 
 ### bernoulli_sum_lower_tail
 
-theorem; [source line 89](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointProbability.lean:89)
+theorem; [source line 89](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointProbability.lean:89)
 
 The multiplicative Chernoff lower-tail estimate for a finite sum of
 independent Bernoulli variables. No identical-distribution hypothesis is used.
@@ -3204,7 +3204,7 @@ theorem bernoulli_sum_lower_tail {Ω ι : Type*} [MeasurableSpace Ω]
 
 ### bernoulli_sum_eq_le_cutoff
 
-theorem; [source line 139](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointProbability.lean:139)
+theorem; [source line 139](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointProbability.lean:139)
 
 A version of the lower-tail bound with the mean replaced by the paper's
 cutoff `B`. The hypotheses are exactly the numerical inequalities established
@@ -3222,9 +3222,9 @@ theorem bernoulli_sum_eq_le_cutoff {Ω ι : Type*} [MeasurableSpace Ω]
 ```
 
 
-## Luce/EndpointRace.lean
+## Luce/Section4EndpointRace.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointRace.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointRace.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -3237,7 +3237,7 @@ noncomputable section
 
 ### clockSurvivalIndicator
 
-def; [source line 18](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointRace.lean:18)
+def; [source line 18](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointRace.lean:18)
 
 ```lean
 def clockSurvivalIndicator {n : ℕ} (t : ℝ) (i : Fin n) (clocks : Fin n → ℝ) : ℝ :=
@@ -3246,7 +3246,7 @@ def clockSurvivalIndicator {n : ℕ} (t : ℝ) (i : Fin n) (clocks : Fin n → �
 
 ### measurable_clockSurvivalIndicator
 
-lemma; [source line 21](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointRace.lean:21)
+lemma; [source line 21](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointRace.lean:21)
 
 ```lean
 lemma measurable_clockSurvivalIndicator {n : ℕ} (t : ℝ) (i : Fin n) :
@@ -3255,7 +3255,7 @@ lemma measurable_clockSurvivalIndicator {n : ℕ} (t : ℝ) (i : Fin n) :
 
 ### clockSurvivalIndicator_zero_one
 
-lemma; [source line 26](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointRace.lean:26)
+lemma; [source line 26](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointRace.lean:26)
 
 ```lean
 lemma clockSurvivalIndicator_zero_one {n : ℕ} (t : ℝ) (i : Fin n)
@@ -3265,7 +3265,7 @@ lemma clockSurvivalIndicator_zero_one {n : ℕ} (t : ℝ) (i : Fin n)
 
 ### integral_clockSurvivalIndicator
 
-lemma; [source line 32](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointRace.lean:32)
+lemma; [source line 32](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointRace.lean:32)
 
 ```lean
 lemma integral_clockSurvivalIndicator {n : ℕ} (w : Weights n) (t : ℝ)
@@ -3276,7 +3276,7 @@ lemma integral_clockSurvivalIndicator {n : ℕ} (w : Weights n) (t : ℝ)
 
 ### clockSurvivalIndicator_independent
 
-lemma; [source line 45](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointRace.lean:45)
+lemma; [source line 45](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointRace.lean:45)
 
 ```lean
 lemma clockSurvivalIndicator_independent {n : ℕ} (w : Weights n) (t : ℝ) :
@@ -3285,7 +3285,7 @@ lemma clockSurvivalIndicator_independent {n : ℕ} (w : Weights n) (t : ℝ) :
 
 ### other_survivors_eq_sum
 
-lemma; [source line 52](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointRace.lean:52)
+lemma; [source line 52](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointRace.lean:52)
 
 ```lean
 lemma other_survivors_eq_sum {n : ℕ} (clocks : Fin n → ℝ) (t : ℝ) (i : Fin n) :
@@ -3295,7 +3295,7 @@ lemma other_survivors_eq_sum {n : ℕ} (clocks : Fin n → ℝ) (t : ℝ) (i : F
 
 ### measurable_other_survivors
 
-lemma; [source line 62](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointRace.lean:62)
+lemma; [source line 62](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointRace.lean:62)
 
 ```lean
 lemma measurable_other_survivors {n : ℕ} (i : Fin n) :
@@ -3304,7 +3304,7 @@ lemma measurable_other_survivors {n : ℕ} (i : Fin n) :
 
 ### otherSurvivorProbability
 
-def; [source line 72](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointRace.lean:72)
+def; [source line 72](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointRace.lean:72)
 
 Probability that exactly `m` other clocks survive at time `t`.
 
@@ -3315,7 +3315,7 @@ def otherSurvivorProbability {n : ℕ} (w : Weights n) (i : Fin n) (m : ℕ) (t 
 
 ### measurable_otherSurvivorProbability
 
-lemma; [source line 75](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointRace.lean:75)
+lemma; [source line 75](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointRace.lean:75)
 
 ```lean
 lemma measurable_otherSurvivorProbability {n : ℕ} (w : Weights n) (i : Fin n) (m : ℕ) :
@@ -3324,7 +3324,7 @@ lemma measurable_otherSurvivorProbability {n : ℕ} (w : Weights n) (i : Fin n) 
 
 ### otherSurvivorProbability_nonneg
 
-lemma; [source line 80](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointRace.lean:80)
+lemma; [source line 80](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointRace.lean:80)
 
 ```lean
 lemma otherSurvivorProbability_nonneg {n : ℕ} (w : Weights n) (i : Fin n) (m : ℕ) (t : ℝ) :
@@ -3333,7 +3333,7 @@ lemma otherSurvivorProbability_nonneg {n : ℕ} (w : Weights n) (i : Fin n) (m :
 
 ### otherSurvivorProbability_le_one
 
-lemma; [source line 83](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointRace.lean:83)
+lemma; [source line 83](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointRace.lean:83)
 
 ```lean
 lemma otherSurvivorProbability_le_one {n : ℕ} (w : Weights n) (i : Fin n) (m : ℕ) (t : ℝ) :
@@ -3342,7 +3342,7 @@ lemma otherSurvivorProbability_le_one {n : ℕ} (w : Weights n) (i : Fin n) (m :
 
 ### sum_otherSurvivorProbability_le_two
 
-lemma; [source line 87](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointRace.lean:87)
+lemma; [source line 87](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointRace.lean:87)
 
 ```lean
 lemma sum_otherSurvivorProbability_le_two {n : ℕ} (w : Weights n)
@@ -3352,7 +3352,7 @@ lemma sum_otherSurvivorProbability_le_two {n : ℕ} (w : Weights n)
 
 ### mean_other_survivors_lower
 
-lemma; [source line 96](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointRace.lean:96)
+lemma; [source line 96](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointRace.lean:96)
 
 The expected other-survivor count differs from `S(t)` by at most one.
 
@@ -3366,7 +3366,7 @@ lemma mean_other_survivors_lower {n : ℕ} (w : Weights n) (i : Fin n)
 
 ### otherSurvivorProbability_early
 
-theorem; [source line 112](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointRace.lean:112)
+theorem; [source line 112](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointRace.lean:112)
 
 Uniform early-time bound for every terminal candidate.
 
@@ -3381,7 +3381,7 @@ theorem otherSurvivorProbability_early {n : ℕ} (w : Weights n) (i : Fin n)
 
 ### exponentialRace_endpoint_integrals
 
-theorem; [source line 139](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointRace.lean:139)
+theorem; [source line 139](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointRace.lean:139)
 
 The endpoint estimate with the candidate probabilities and exponential
 clock law fully instantiated. The rank-integral identity converts the left
@@ -3403,7 +3403,7 @@ theorem exponentialRace_endpoint_integrals {n : ℕ} (w : Weights n)
 
 ### exponentialRace_endpoint_integrals_power
 
-theorem; [source line 163](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointRace.lean:163)
+theorem; [source line 163](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointRace.lean:163)
 
 Normalization gives the second, power-law form of the finite endpoint
 bound.
@@ -3423,9 +3423,9 @@ theorem exponentialRace_endpoint_integrals_power {n : ℕ} (hn : 0 < n) (w : Wei
 ```
 
 
-## Luce/EndpointShellBuffer.lean
+## Luce/Section4EndpointShellBuffer.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellBuffer.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellBuffer.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -3438,7 +3438,7 @@ namespace Luce
 
 ### buffer_exp_bound
 
-theorem; [source line 13](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellBuffer.lean:13)
+theorem; [source line 13](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellBuffer.lean:13)
 
 Pointwise splitting inequality, with `s = sqrt j`.
 
@@ -3450,7 +3450,7 @@ theorem buffer_exp_bound (b s : ℝ) (hs : 1 ≤ s) :
 
 ### summable_buffer_error
 
-theorem; [source line 27](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellBuffer.lean:27)
+theorem; [source line 27](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellBuffer.lean:27)
 
 The error sequence is genuinely summable, not an assumed envelope.
 
@@ -3460,7 +3460,7 @@ theorem summable_buffer_error : Summable (fun j : ℕ => Real.exp (1 - Real.sqrt
 
 ### bufferedShellExpCost
 
-def; [source line 52](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellBuffer.lean:52)
+def; [source line 52](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellBuffer.lean:52)
 
 Exponential buffered costs are used only for j≥2, where the cutoff
 is positive. Dropping finitely many indices has no effect on the tail limit.
@@ -3475,7 +3475,7 @@ def bufferedShellExpCost (w : WeightArray) (n j : ℕ) : ℝ≥0∞ :=
 
 ### bufferedShellQCost
 
-def; [source line 58](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellBuffer.lean:58)
+def; [source line 58](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellBuffer.lean:58)
 
 ```lean
 def bufferedShellQCost (w : WeightArray) (n j : ℕ) : ℝ≥0∞ :=
@@ -3487,7 +3487,7 @@ def bufferedShellQCost (w : WeightArray) (n j : ℕ) : ℝ≥0∞ :=
 
 ### bufferedShellExpCost_le
 
-theorem; [source line 64](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellBuffer.lean:64)
+theorem; [source line 64](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellBuffer.lean:64)
 
 ```lean
 theorem bufferedShellExpCost_le (w : WeightArray) (n j : ℕ) :
@@ -3496,9 +3496,9 @@ theorem bufferedShellExpCost_le (w : WeightArray) (n j : ℕ) :
 ```
 
 
-## Luce/EndpointShellBufferLimit.lean
+## Luce/Section4EndpointShellBufferLimit.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellBufferLimit.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellBufferLimit.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -3511,7 +3511,7 @@ namespace Luce
 
 ### nonnegativeTail
 
-def; [source line 8](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellBufferLimit.lean:8)
+def; [source line 8](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellBufferLimit.lean:8)
 
 ```lean
 def nonnegativeTail (p : ℕ → ℕ → ℝ≥0∞) (n J : ℕ) : ℝ≥0∞ :=
@@ -3520,7 +3520,7 @@ def nonnegativeTail (p : ℕ → ℕ → ℝ≥0∞) (n J : ℕ) : ℝ≥0∞ :=
 
 ### nonnegativeTail_antitone
 
-theorem; [source line 11](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellBufferLimit.lean:11)
+theorem; [source line 11](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellBufferLimit.lean:11)
 
 ```lean
 theorem nonnegativeTail_antitone (p : ℕ → ℕ → ℝ≥0∞) (n : ℕ) :
@@ -3529,7 +3529,7 @@ theorem nonnegativeTail_antitone (p : ℕ → ℕ → ℝ≥0∞) (n : ℕ) :
 
 ### nonnegativeTail_limit_iff
 
-theorem; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellBufferLimit.lean:19)
+theorem; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellBufferLimit.lean:19)
 
 Generic equivalence used only as an internal limit lemma.
 
@@ -3542,7 +3542,7 @@ theorem nonnegativeTail_limit_iff (p : ℕ → ℕ → ℝ≥0∞) :
 
 ### buffered_exp_tail_bound
 
-theorem; [source line 35](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellBufferLimit.lean:35)
+theorem; [source line 35](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellBufferLimit.lean:35)
 
 ```lean
 theorem buffered_exp_tail_bound (w : WeightArray) (n J : ℕ) :
@@ -3553,7 +3553,7 @@ theorem buffered_exp_tail_bound (w : WeightArray) (n J : ℕ) :
 
 ### EndpointShellAssumption.buffered_exp
 
-theorem; [source line 46](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellBufferLimit.lean:46)
+theorem; [source line 46](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellBufferLimit.lean:46)
 
 ```lean
 theorem EndpointShellAssumption.buffered_exp {w : WeightArray}
@@ -3564,7 +3564,7 @@ theorem EndpointShellAssumption.buffered_exp {w : WeightArray}
 
 ### bufferedShellQCost_le_of_small_tail
 
-theorem; [source line 69](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellBufferLimit.lean:69)
+theorem; [source line 69](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellBufferLimit.lean:69)
 
 ```lean
 theorem bufferedShellQCost_le_of_small_tail (w : WeightArray) (n J : ℕ)
@@ -3575,7 +3575,7 @@ theorem bufferedShellQCost_le_of_small_tail (w : WeightArray) (n J : ℕ)
 
 ### EndpointShellAssumption.buffered_Q
 
-theorem; [source line 98](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellBufferLimit.lean:98)
+theorem; [source line 98](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellBufferLimit.lean:98)
 
 The actual diagonal shell-buffer conclusion, derived from the raw
 assumption alone. The cutoff 2 only avoids undefined nonpositive Q arguments.
@@ -3589,7 +3589,7 @@ theorem EndpointShellAssumption.buffered_Q {w : WeightArray}
 
 ### EndpointShellAssumption.buffered_Q_raw
 
-theorem; [source line 120](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellBufferLimit.lean:120)
+theorem; [source line 120](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellBufferLimit.lean:120)
 
 Removing the harmless finite cutoff gives the literal manuscript buffer
 sum. Empty shells remain excluded, and the order of limits is unchanged.
@@ -3606,9 +3606,9 @@ theorem EndpointShellAssumption.buffered_Q_raw {w : WeightArray}
 ```
 
 
-## Luce/EndpointShellCompatibility.lean
+## Luce/Section4EndpointShellCompatibility.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellCompatibility.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellCompatibility.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -3621,7 +3621,7 @@ namespace Luce
 
 ### ennreal_tendsto_tail_sum
 
-theorem; [source line 9](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellCompatibility.lean:9)
+theorem; [source line 9](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellCompatibility.lean:9)
 
 ```lean
 theorem ennreal_tendsto_tail_sum {a : ℕ → ℝ≥0∞} (ha : ∑' j, a j ≠ ⊤) :
@@ -3630,7 +3630,7 @@ theorem ennreal_tendsto_tail_sum {a : ℕ → ℝ≥0∞} (ha : ∑' j, a j ≠ 
 
 ### shell_label_terminal
 
-theorem; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellCompatibility.lean:22)
+theorem; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellCompatibility.lean:22)
 
 Membership in a deep logarithmic shell places the label in the
 specified terminal fraction. No condition on the weights is used.
@@ -3643,7 +3643,7 @@ theorem shell_label_terminal {n j : ℕ} {k : Fin n} (hk : k ∈ terminalShell n
 
 ### UniformEndpointAssumption.shell
 
-theorem; [source line 47](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellCompatibility.lean:47)
+theorem; [source line 47](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellCompatibility.lean:47)
 
 Compatibility with the old theorem: uniform terminal positivity implies
 the exact shell condition. Normalization and profile convergence are not needed.
@@ -3654,9 +3654,9 @@ theorem UniformEndpointAssumption.shell {w : WeightArray}
 ```
 
 
-## Luce/EndpointShellCover.lean
+## Luce/Section4EndpointShellCover.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellCover.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellCover.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -3668,7 +3668,7 @@ namespace Luce
 
 ### terminalShell_cover
 
-theorem; [source line 8](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellCover.lean:8)
+theorem; [source line 8](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellCover.lean:8)
 
 ```lean
 theorem terminalShell_cover {n J : ℕ} (hJ : 1 ≤ J) (k : Fin n)
@@ -3678,7 +3678,7 @@ theorem terminalShell_cover {n J : ℕ} (hJ : 1 ≤ J) (k : Fin n)
 
 ### spatial_tail_log_lower
 
-theorem; [source line 17](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellCover.lean:17)
+theorem; [source line 17](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellCover.lean:17)
 
 ```lean
 theorem spatial_tail_log_lower {n J : ℕ} (k : Fin n)
@@ -3688,9 +3688,9 @@ theorem spatial_tail_log_lower {n J : ℕ} (k : Fin n)
 ```
 
 
-## Luce/EndpointShellDefinitions.lean
+## Luce/Section4EndpointShellDefinitions.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellDefinitions.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellDefinitions.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -3703,7 +3703,7 @@ namespace Luce
 
 ### UniformEndpointAssumption
 
-abbrev; [source line 17](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellDefinitions.lean:17)
+abbrev; [source line 17](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellDefinitions.lean:17)
 
 Historical uniform condition, retained without changing its meaning.
 
@@ -3713,7 +3713,7 @@ abbrev UniformEndpointAssumption := EndpointAssumption
 
 ### terminalDepth
 
-def; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellDefinitions.lean:20)
+def; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellDefinitions.lean:20)
 
 Depth one is the last label; `k.val + 1` is its manuscript label.
 
@@ -3723,7 +3723,7 @@ def terminalDepth {n : ℕ} (k : Fin n) : ℕ := n - k.val
 
 ### terminalShell
 
-def; [source line 23](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellDefinitions.lean:23)
+def; [source line 23](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellDefinitions.lean:23)
 
 Shell represented by its labels. The explicit `1 ≤ j` excludes shell zero.
 
@@ -3737,7 +3737,7 @@ def terminalShell (n j : ℕ) : Finset (Fin n) := by
 
 ### shellFloor
 
-def; [source line 30](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellDefinitions.lean:30)
+def; [source line 30](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellDefinitions.lean:30)
 
 The finite minimum exists only when the shell is nonempty.
 
@@ -3748,7 +3748,7 @@ def shellFloor (w : WeightArray) (n j : ℕ) (h : (terminalShell n j).Nonempty) 
 
 ### shellCost
 
-def; [source line 34](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellDefinitions.lean:34)
+def; [source line 34](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellDefinitions.lean:34)
 
 Empty shells contribute zero, not `exp 0`.
 
@@ -3760,7 +3760,7 @@ def shellCost (w : WeightArray) (n j : ℕ) : ℝ≥0∞ :=
 
 ### shellTailCost
 
-def; [source line 40](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellDefinitions.lean:40)
+def; [source line 40](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellDefinitions.lean:40)
 
 The literal sum over all nonempty shells of index at least `J`.
 Finite support is proved separately, not presumed in the definition.
@@ -3772,7 +3772,7 @@ def shellTailCost (w : WeightArray) (n J : ℕ) : ℝ≥0∞ :=
 
 ### EndpointShellAssumption
 
-def; [source line 45](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellDefinitions.lean:45)
+def; [source line 45](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellDefinitions.lean:45)
 
 The manuscript's iterated limit, with no uniform-in-row strengthening.
 Normalization is deliberately separate. Row zero is empty and irrelevant.
@@ -3784,9 +3784,9 @@ def EndpointShellAssumption (w : WeightArray) : Prop :=
 ```
 
 
-## Luce/EndpointShellEarly.lean
+## Luce/Section4EndpointShellEarly.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellEarly.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellEarly.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -3797,7 +3797,7 @@ namespace Luce
 
 ### capacity_exponent_lower
 
-theorem; [source line 7](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellEarly.lean:7)
+theorem; [source line 7](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellEarly.lean:7)
 
 ```lean
 theorem capacity_exponent_lower {r A B : ℝ} (hr : 1 ≤ r) (hA : 4 ≤ A)
@@ -3806,7 +3806,7 @@ theorem capacity_exponent_lower {r A B : ℝ} (hr : 1 ≤ r) (hA : 4 ≤ A)
 
 ### shell_early_envelope
 
-theorem; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellEarly.lean:19)
+theorem; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellEarly.lean:19)
 
 A summable envelope in the shell index itself avoids any extra
 summability assumption or a count of shell maxima.
@@ -3818,9 +3818,9 @@ theorem shell_early_envelope {r h B : ℝ} (hr : 1 ≤ r) (hh : 64 ≤ h)
 ```
 
 
-## Luce/EndpointShellEstimate.lean
+## Luce/Section4EndpointShellEstimate.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellEstimate.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellEstimate.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -3833,7 +3833,7 @@ namespace Luce
 
 ### shell_survivor_buffer
 
-theorem; [source line 11](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellEstimate.lean:11)
+theorem; [source line 11](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellEstimate.lean:11)
 
 ```lean
 theorem shell_survivor_buffer {w : WeightArray} (hnorm : NormalizedWeights w)
@@ -3844,7 +3844,7 @@ theorem shell_survivor_buffer {w : WeightArray} (hnorm : NormalizedWeights w)
 
 ### shell_block_expectation_le
 
-theorem; [source line 25](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellEstimate.lean:25)
+theorem; [source line 25](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellEstimate.lean:25)
 
 ```lean
 theorem shell_block_expectation_le {w : WeightArray} (hnorm : NormalizedWeights w)
@@ -3856,9 +3856,9 @@ theorem shell_block_expectation_le {w : WeightArray} (hnorm : NormalizedWeights 
 ```
 
 
-## Luce/EndpointShellExpectationLimit.lean
+## Luce/Section4EndpointShellExpectationLimit.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellExpectationLimit.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellExpectationLimit.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -3871,7 +3871,7 @@ namespace Luce
 
 ### shellExpectationCost
 
-def; [source line 9](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellExpectationLimit.lean:9)
+def; [source line 9](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellExpectationLimit.lean:9)
 
 ```lean
 def shellExpectationCost (w : WeightArray) (n j : ℕ) : ℝ≥0∞ :=
@@ -3881,7 +3881,7 @@ def shellExpectationCost (w : WeightArray) (n j : ℕ) : ℝ≥0∞ :=
 
 ### shellExpectationCost_le
 
-theorem; [source line 13](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellExpectationLimit.lean:13)
+theorem; [source line 13](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellExpectationLimit.lean:13)
 
 ```lean
 theorem shellExpectationCost_le {w : WeightArray} (hnorm : NormalizedWeights w)
@@ -3892,7 +3892,7 @@ theorem shellExpectationCost_le {w : WeightArray} (hnorm : NormalizedWeights w)
 
 ### shellExpectationTail_bound
 
-theorem; [source line 34](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellExpectationLimit.lean:34)
+theorem; [source line 34](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellExpectationLimit.lean:34)
 
 ```lean
 theorem shellExpectationTail_bound {w : WeightArray} (hnorm : NormalizedWeights w)
@@ -3904,7 +3904,7 @@ theorem shellExpectationTail_bound {w : WeightArray} (hnorm : NormalizedWeights 
 
 ### EndpointShellAssumption.expectation_shells
 
-theorem; [source line 48](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellExpectationLimit.lean:48)
+theorem; [source line 48](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellExpectationLimit.lean:48)
 
 Shell expectation tightness is derived from normalization and the raw
 shell condition, without any profile or uniform endpoint bound.
@@ -3917,9 +3917,9 @@ theorem EndpointShellAssumption.expectation_shells {w : WeightArray}
 ```
 
 
-## Luce/EndpointShellGeometry.lean
+## Luce/Section4EndpointShellGeometry.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellGeometry.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellGeometry.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -3931,7 +3931,7 @@ namespace Luce
 
 ### shellMax
 
-def; [source line 7](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellGeometry.lean:7)
+def; [source line 7](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellGeometry.lean:7)
 
 ```lean
 def shellMax (n j : ℕ) (h : (terminalShell n j).Nonempty) : ℕ :=
@@ -3940,7 +3940,7 @@ def shellMax (n j : ℕ) (h : (terminalShell n j).Nonempty) : ℕ :=
 
 ### shellMax_attained
 
-theorem; [source line 10](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellGeometry.lean:10)
+theorem; [source line 10](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellGeometry.lean:10)
 
 ```lean
 theorem shellMax_attained (n j : ℕ) (h : (terminalShell n j).Nonempty) :
@@ -3949,7 +3949,7 @@ theorem shellMax_attained (n j : ℕ) (h : (terminalShell n j).Nonempty) :
 
 ### shellMax_pos
 
-theorem; [source line 15](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellGeometry.lean:15)
+theorem; [source line 15](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellGeometry.lean:15)
 
 ```lean
 theorem shellMax_pos (n j : ℕ) (h : (terminalShell n j).Nonempty) :
@@ -3958,7 +3958,7 @@ theorem shellMax_pos (n j : ℕ) (h : (terminalShell n j).Nonempty) :
 
 ### shellMax_log
 
-theorem; [source line 21](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellGeometry.lean:21)
+theorem; [source line 21](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellGeometry.lean:21)
 
 ```lean
 theorem shellMax_log (n j : ℕ) (h : (terminalShell n j).Nonempty) :
@@ -3967,7 +3967,7 @@ theorem shellMax_log (n j : ℕ) (h : (terminalShell n j).Nonempty) :
 
 ### shell_card_le_max
 
-theorem; [source line 27](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellGeometry.lean:27)
+theorem; [source line 27](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellGeometry.lean:27)
 
 ```lean
 theorem shell_card_le_max (n j : ℕ) (h : (terminalShell n j).Nonempty) :
@@ -3976,7 +3976,7 @@ theorem shell_card_le_max (n j : ℕ) (h : (terminalShell n j).Nonempty) :
 
 ### shellMax_exp_le
 
-theorem; [source line 40](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellGeometry.lean:40)
+theorem; [source line 40](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellGeometry.lean:40)
 
 ```lean
 theorem shellMax_exp_le (n j : ℕ) (h : (terminalShell n j).Nonempty) :
@@ -3984,9 +3984,9 @@ theorem shellMax_exp_le (n j : ℕ) (h : (terminalShell n j).Nonempty) :
 ```
 
 
-## Luce/EndpointShells.lean
+## Luce/Section4EndpointShells.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShells.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShells.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -3999,7 +3999,7 @@ namespace Luce
 
 ### terminalDepth_pos
 
-theorem; [source line 10](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShells.lean:10)
+theorem; [source line 10](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShells.lean:10)
 
 ```lean
 theorem terminalDepth_pos {n : ℕ} (k : Fin n) : 0 < terminalDepth k
@@ -4007,7 +4007,7 @@ theorem terminalDepth_pos {n : ℕ} (k : Fin n) : 0 < terminalDepth k
 
 ### terminalDepth_le
 
-theorem; [source line 14](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShells.lean:14)
+theorem; [source line 14](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShells.lean:14)
 
 ```lean
 theorem terminalDepth_le {n : ℕ} (k : Fin n) : terminalDepth k ≤ n
@@ -4015,7 +4015,7 @@ theorem terminalDepth_le {n : ℕ} (k : Fin n) : terminalDepth k ≤ n
 
 ### terminalDepth_add_label
 
-theorem; [source line 16](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShells.lean:16)
+theorem; [source line 16](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShells.lean:16)
 
 ```lean
 theorem terminalDepth_add_label {n : ℕ} (k : Fin n) :
@@ -4024,7 +4024,7 @@ theorem terminalDepth_add_label {n : ℕ} (k : Fin n) :
 
 ### terminalDepth_labelOfDepth
 
-theorem; [source line 21](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShells.lean:21)
+theorem; [source line 21](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShells.lean:21)
 
 ```lean
 theorem terminalDepth_labelOfDepth {n m : ℕ} (hm : 1 ≤ m) (hmn : m ≤ n) :
@@ -4033,7 +4033,7 @@ theorem terminalDepth_labelOfDepth {n m : ℕ} (hm : 1 ≤ m) (hmn : m ≤ n) :
 
 ### terminalDepth_injective
 
-theorem; [source line 26](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShells.lean:26)
+theorem; [source line 26](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShells.lean:26)
 
 ```lean
 theorem terminalDepth_injective (n : ℕ) :
@@ -4042,7 +4042,7 @@ theorem terminalDepth_injective (n : ℕ) :
 
 ### mem_terminalShell
 
-theorem; [source line 33](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShells.lean:33)
+theorem; [source line 33](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShells.lean:33)
 
 ```lean
 theorem mem_terminalShell {n j : ℕ} {k : Fin n} :
@@ -4053,7 +4053,7 @@ theorem mem_terminalShell {n j : ℕ} {k : Fin n} :
 
 ### shellFloor_attained
 
-theorem; [source line 40](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShells.lean:40)
+theorem; [source line 40](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShells.lean:40)
 
 ```lean
 theorem shellFloor_attained (w : WeightArray) (n j : ℕ)
@@ -4063,7 +4063,7 @@ theorem shellFloor_attained (w : WeightArray) (n j : ℕ)
 
 ### shellFloor_pos
 
-theorem; [source line 48](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShells.lean:48)
+theorem; [source line 48](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShells.lean:48)
 
 ```lean
 theorem shellFloor_pos (w : WeightArray) (n j : ℕ)
@@ -4072,7 +4072,7 @@ theorem shellFloor_pos (w : WeightArray) (n j : ℕ)
 
 ### shellFloor_le_rate
 
-theorem; [source line 54](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShells.lean:54)
+theorem; [source line 54](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShells.lean:54)
 
 ```lean
 theorem shellFloor_le_rate (w : WeightArray) {n j : ℕ}
@@ -4082,7 +4082,7 @@ theorem shellFloor_le_rate (w : WeightArray) {n j : ℕ}
 
 ### le_shellFloor
 
-theorem; [source line 60](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShells.lean:60)
+theorem; [source line 60](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShells.lean:60)
 
 ```lean
 theorem le_shellFloor (w : WeightArray) {n j : ℕ}
@@ -4093,7 +4093,7 @@ theorem le_shellFloor (w : WeightArray) {n j : ℕ}
 
 ### shell_index_le_row
 
-theorem; [source line 69](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShells.lean:69)
+theorem; [source line 69](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShells.lean:69)
 
 A coarse finite bound suffices: no nonempty shell has index greater than n.
 
@@ -4103,7 +4103,7 @@ theorem shell_index_le_row {n j : ℕ} (h : (terminalShell n j).Nonempty) : j �
 
 ### shellCost_eq_zero_of_row_lt
 
-theorem; [source line 81](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShells.lean:81)
+theorem; [source line 81](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShells.lean:81)
 
 ```lean
 theorem shellCost_eq_zero_of_row_lt (w : WeightArray) {n j : ℕ} (h : n < j) :
@@ -4112,7 +4112,7 @@ theorem shellCost_eq_zero_of_row_lt (w : WeightArray) {n j : ℕ} (h : n < j) :
 
 ### shellCost_le_one
 
-theorem; [source line 86](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShells.lean:86)
+theorem; [source line 86](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShells.lean:86)
 
 ```lean
 theorem shellCost_le_one (w : WeightArray) (n j : ℕ) : shellCost w n j ≤ 1
@@ -4120,7 +4120,7 @@ theorem shellCost_le_one (w : WeightArray) (n j : ℕ) : shellCost w n j ≤ 1
 
 ### shellTailCost_eq_sum
 
-theorem; [source line 95](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShells.lean:95)
+theorem; [source line 95](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShells.lean:95)
 
 This identifies the raw infinite sum with an actual finite row sum.
 
@@ -4132,7 +4132,7 @@ theorem shellTailCost_eq_sum (w : WeightArray) (n J : ℕ) :
 
 ### shellTailCost_ne_top
 
-theorem; [source line 103](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShells.lean:103)
+theorem; [source line 103](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShells.lean:103)
 
 ```lean
 theorem shellTailCost_ne_top (w : WeightArray) (n J : ℕ) : shellTailCost w n J ≠ ⊤
@@ -4140,7 +4140,7 @@ theorem shellTailCost_ne_top (w : WeightArray) (n J : ℕ) : shellTailCost w n J
 
 ### shellTailCost_antitone
 
-theorem; [source line 112](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShells.lean:112)
+theorem; [source line 112](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShells.lean:112)
 
 ```lean
 theorem shellTailCost_antitone (w : WeightArray) (n : ℕ) : Antitone (shellTailCost w n)
@@ -4148,7 +4148,7 @@ theorem shellTailCost_antitone (w : WeightArray) (n : ℕ) : Antitone (shellTail
 
 ### endpointShellAssumption_iff_eventually
 
-theorem; [source line 120](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShells.lean:120)
+theorem; [source line 120](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShells.lean:120)
 
 Equivalence, not just a sufficient strengthening. The row threshold is
 chosen after the tail cutoff and the requested error.
@@ -4161,9 +4161,9 @@ theorem endpointShellAssumption_iff_eventually (w : WeightArray) :
 ```
 
 
-## Luce/EndpointShellTailBridge.lean
+## Luce/Section4EndpointShellTailBridge.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellTailBridge.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellTailBridge.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -4176,7 +4176,7 @@ namespace Luce
 
 ### sum_spatial_tail_le_shells
 
-theorem; [source line 9](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellTailBridge.lean:9)
+theorem; [source line 9](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellTailBridge.lean:9)
 
 ```lean
 theorem sum_spatial_tail_le_shells {n J : ℕ} (hJ : 1 ≤ J)
@@ -4188,7 +4188,7 @@ theorem sum_spatial_tail_le_shells {n J : ℕ} (hJ : 1 ≤ J)
 
 ### spatial_tail_expectation_le_shells
 
-theorem; [source line 37](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellTailBridge.lean:37)
+theorem; [source line 37](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellTailBridge.lean:37)
 
 ```lean
 theorem spatial_tail_expectation_le_shells (w : WeightArray) (n J : ℕ) (hJ : 1 ≤ J)
@@ -4198,9 +4198,9 @@ theorem spatial_tail_expectation_le_shells (w : WeightArray) (n J : ℕ) (hJ : 1
 ```
 
 
-## Luce/EndpointShellTightness.lean
+## Luce/Section4EndpointShellTightness.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellTightness.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellTightness.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -4213,7 +4213,7 @@ namespace Luce
 
 ### EndpointShellAssumption.expectation_tightness
 
-theorem; [source line 11](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellTightness.lean:11)
+theorem; [source line 11](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellTightness.lean:11)
 
 The actual spatial endpoint expectation estimate. All cutoff and
 eventual-row choices are conclusions derived from the raw shell condition.
@@ -4228,7 +4228,7 @@ theorem EndpointShellAssumption.expectation_tightness {w : WeightArray}
 
 ### tailFixedPointCount_antitone
 
-theorem; [source line 34](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellTightness.lean:34)
+theorem; [source line 34](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellTightness.lean:34)
 
 ```lean
 theorem tailFixedPointCount_antitone {n : ℕ} (e : Fin n → ℝ) :
@@ -4237,7 +4237,7 @@ theorem tailFixedPointCount_antitone {n : ℕ} (e : Fin n → ℝ) :
 
 ### tailExpectation_antitone
 
-theorem; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellTightness.lean:43)
+theorem; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellTightness.lean:43)
 
 ```lean
 theorem tailExpectation_antitone (w : WeightArray) (n : ℕ) :
@@ -4246,7 +4246,7 @@ theorem tailExpectation_antitone (w : WeightArray) (n : ℕ) :
 
 ### EndpointShellAssumption.probability_tightness
 
-theorem; [source line 53](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointShellTightness.lean:53)
+theorem; [source line 53](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointShellTightness.lean:53)
 
 Probability tightness follows from the proved expectation estimate.
 
@@ -4259,9 +4259,9 @@ theorem EndpointShellAssumption.probability_tightness {w : WeightArray}
 ```
 
 
-## Luce/EndpointTheorem.lean
+## Luce/Section4EndpointTheorem.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointTheorem.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointTheorem.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -4274,7 +4274,7 @@ noncomputable section
 
 ### measurable_raceRank
 
-lemma; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointTheorem.lean:20)
+lemma; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointTheorem.lean:20)
 
 ```lean
 lemma measurable_raceRank {n : ℕ} (i : Fin n) :
@@ -4283,7 +4283,7 @@ lemma measurable_raceRank {n : ℕ} (i : Fin n) :
 
 ### terminalFixedPointCount
 
-def; [source line 32](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointTheorem.lean:32)
+def; [source line 32](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointTheorem.lean:32)
 
 Count of fixed points among the selected terminal labels.
 
@@ -4295,7 +4295,7 @@ def terminalFixedPointCount {n : ℕ} (candidate : ℕ → Fin n) (M : ℕ)
 
 ### integral_terminalFixedPointCount
 
-lemma; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointTheorem.lean:36)
+lemma; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointTheorem.lean:36)
 
 ```lean
 lemma integral_terminalFixedPointCount {n : ℕ} (w : Weights n)
@@ -4307,7 +4307,7 @@ lemma integral_terminalFixedPointCount {n : ℕ} (w : Weights n)
 
 ### endpoint_fixedPoint_probability_bound
 
-theorem; [source line 65](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointTheorem.lean:65)
+theorem; [source line 65](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointTheorem.lean:65)
 
 The first explicit inequality in Proposition `prop:endpoint-bound`.
 All probabilities, independence and rank conditioning are discharged in the
@@ -4329,7 +4329,7 @@ theorem endpoint_fixedPoint_probability_bound {n : ℕ} (w : Weights (n + 1))
 
 ### endpoint_fixedPoint_expectation_bound
 
-theorem; [source line 90](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointTheorem.lean:90)
+theorem; [source line 90](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointTheorem.lean:90)
 
 Proposition `prop:endpoint-bound`, in expectation form.
 
@@ -4347,7 +4347,7 @@ theorem endpoint_fixedPoint_expectation_bound {n : ℕ} (w : Weights (n + 1))
 
 ### endpoint_fixedPoint_expectation_power_bound
 
-theorem; [source line 104](D:/princeton/Research/Lean/Lean_luce/Luce/EndpointTheorem.lean:104)
+theorem; [source line 104](D:/princeton/Research/Lean/Lean_luce/Luce/Section4EndpointTheorem.lean:104)
 
 The normalized power bound in the second inequality of
 `eq:tail-explicit`. Taking `B = sqrt ((n+1) * M)` gives the paper's expression.
@@ -4366,9 +4366,9 @@ theorem endpoint_fixedPoint_expectation_power_bound {n : ℕ} (w : Weights (n + 
 ```
 
 
-## Luce/ExponentialFacts.lean
+## Luce/Section4ExponentialFacts.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialFacts.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ExponentialFacts.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -4379,7 +4379,7 @@ namespace Luce
 
 ### instance at line 10
 
-instance; [source line 10](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialFacts.lean:10)
+instance; [source line 10](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ExponentialFacts.lean:10)
 
 ```lean
 instance expMeasure_nullSingleton (r : ℝ) : NullSingletonClass (expMeasure r) := by
@@ -4389,7 +4389,7 @@ instance expMeasure_nullSingleton (r : ℝ) : NullSingletonClass (expMeasure r) 
 
 ### expMeasure_Ici
 
-lemma; [source line 14](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialFacts.lean:14)
+lemma; [source line 14](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ExponentialFacts.lean:14)
 
 ```lean
 lemma expMeasure_Ici {r t : ℝ} (hr : 0 < r) (ht : 0 ≤ t) :
@@ -4398,7 +4398,7 @@ lemma expMeasure_Ici {r t : ℝ} (hr : 0 < r) (ht : 0 ≤ t) :
 
 ### exponentialRace_survival_ge
 
-lemma; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialFacts.lean:19)
+lemma; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ExponentialFacts.lean:19)
 
 ```lean
 lemma exponentialRace_survival_ge {n : ℕ} (w : Weights n) (i : Fin n)
@@ -4409,7 +4409,7 @@ lemma exponentialRace_survival_ge {n : ℕ} (w : Weights n) (i : Fin n)
 
 ### exponentialRace_collision_zero
 
-lemma; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialFacts.lean:28)
+lemma; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ExponentialFacts.lean:28)
 
 ```lean
 lemma exponentialRace_collision_zero {n : ℕ} (w : Weights n) {i j : Fin n} (hij : i ≠ j) :
@@ -4418,7 +4418,7 @@ lemma exponentialRace_collision_zero {n : ℕ} (w : Weights n) {i j : Fin n} (hi
 
 ### exponentialRace_injective_ae
 
-theorem; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialFacts.lean:43)
+theorem; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ExponentialFacts.lean:43)
 
 Independent exponential clocks are pairwise distinct almost surely.
 
@@ -4428,9 +4428,9 @@ theorem exponentialRace_injective_ae {n : ℕ} (w : Weights n) :
 ```
 
 
-## Luce/ExponentialMemoryless.lean
+## Luce/Section3ExponentialMemoryless.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialMemoryless.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ExponentialMemoryless.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -4441,7 +4441,7 @@ namespace Luce
 
 ### exponential_residual_measure
 
-theorem; [source line 15](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialMemoryless.lean:15)
+theorem; [source line 15](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ExponentialMemoryless.lean:15)
 
 After survival to a deterministic time `s`, subtracting `s` from an
 exponential clock leaves the original exponential law, multiplied by the
@@ -4455,9 +4455,9 @@ theorem exponential_residual_measure {r s : ℝ} (hr : 0 < r) (hs : 0 ≤ s) :
 ```
 
 
-## Luce/ExponentialRace.lean
+## Luce/Section4ExponentialRace.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialRace.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ExponentialRace.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -4469,7 +4469,7 @@ namespace Luce
 
 ### exponentialRace
 
-def; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialRace.lean:22)
+def; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ExponentialRace.lean:22)
 
 Joint law of the independent exponential clocks.
 
@@ -4480,7 +4480,7 @@ noncomputable def exponentialRace {n : ℕ} (w : Weights n) : Measure (Fin n →
 
 ### instance at line 25
 
-instance; [source line 25](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialRace.lean:25)
+instance; [source line 25](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ExponentialRace.lean:25)
 
 ```lean
 instance exponentialRace_isProbability {n : ℕ} (w : Weights n) :
@@ -4493,7 +4493,7 @@ instance exponentialRace_isProbability {n : ℕ} (w : Weights n) :
 
 ### expMeasure_Ioi
 
-lemma; [source line 33](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialRace.lean:33)
+lemma; [source line 33](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ExponentialRace.lean:33)
 
 The one-dimensional exponential survival function.
 
@@ -4504,7 +4504,7 @@ lemma expMeasure_Ioi {r t : ℝ} (hr : 0 < r) (ht : 0 ≤ t) :
 
 ### exponentialRace_eval
 
-lemma; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialRace.lean:43)
+lemma; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ExponentialRace.lean:43)
 
 Evaluation of one coordinate has the prescribed exponential law.
 
@@ -4515,7 +4515,7 @@ lemma exponentialRace_eval {n : ℕ} (w : Weights n) (i : Fin n) :
 
 ### exponentialRace_independent
 
-lemma; [source line 50](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialRace.lean:50)
+lemma; [source line 50](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ExponentialRace.lean:50)
 
 The coordinate clocks are mutually independent.
 
@@ -4526,7 +4526,7 @@ lemma exponentialRace_independent {n : ℕ} (w : Weights n) :
 
 ### exponentialRace_survival
 
-lemma; [source line 57](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialRace.lean:57)
+lemma; [source line 57](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ExponentialRace.lean:57)
 
 Exact survival probability of a coordinate.
 
@@ -4539,7 +4539,7 @@ lemma exponentialRace_survival {n : ℕ} (w : Weights n) (i : Fin n)
 
 ### backgroundRace
 
-def; [source line 66](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialRace.lean:66)
+def; [source line 66](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ExponentialRace.lean:66)
 
 The `n` other clocks, indexed by deleting the distinguished label.
 
@@ -4551,7 +4551,7 @@ noncomputable def backgroundRace {n : ℕ} (w : Weights (n + 1)) (i : Fin (n + 1
 
 ### instance at line 70
 
-instance; [source line 70](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialRace.lean:70)
+instance; [source line 70](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ExponentialRace.lean:70)
 
 ```lean
 instance backgroundRace_isProbability {n : ℕ} (w : Weights (n + 1))
@@ -4564,7 +4564,7 @@ instance backgroundRace_isProbability {n : ℕ} (w : Weights (n + 1))
 
 ### backgroundSurvivors
 
-def; [source line 78](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialRace.lean:78)
+def; [source line 78](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ExponentialRace.lean:78)
 
 Number of background clocks surviving at time `t`.
 
@@ -4575,7 +4575,7 @@ noncomputable def backgroundSurvivors {n : ℕ} (t : ℝ) (clocks : Fin n → �
 
 ### measurable_backgroundSurvivors
 
-lemma; [source line 81](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialRace.lean:81)
+lemma; [source line 81](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ExponentialRace.lean:81)
 
 ```lean
 lemma measurable_backgroundSurvivors {n : ℕ} :
@@ -4584,7 +4584,7 @@ lemma measurable_backgroundSurvivors {n : ℕ} :
 
 ### exponentialRace_disintegrate
 
-theorem; [source line 93](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialRace.lean:93)
+theorem; [source line 93](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ExponentialRace.lean:93)
 
 The exact conditioning identity for any nonnegative measurable statistic
 of one distinguished clock and its background.
@@ -4599,7 +4599,7 @@ theorem exponentialRace_disintegrate {n : ℕ} (w : Weights (n + 1))
 
 ### rank_integral_survivors
 
-theorem; [source line 113](D:/princeton/Research/Lean/Lean_luce/Luce/ExponentialRace.lean:113)
+theorem; [source line 113](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ExponentialRace.lean:113)
 
 Equation `eq:rank-integral`, expressed as a nonnegative Lebesgue integral.
 The event says exactly `m` other clocks ring after the candidate. For distinct
@@ -4615,9 +4615,9 @@ theorem rank_integral_survivors {n : ℕ} (w : Weights (n + 1))
 ```
 
 
-## Luce/FiniteAdaptedBernoulli.lean
+## Luce/Section2FiniteAdaptedBernoulli.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -4632,7 +4632,7 @@ variable [IsProbabilityMeasure P]
 
 ### FiniteAdaptedBernoulli
 
-structure; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean:22)
+structure; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean:22)
 
 A finite adapted zero-one row. The filtration index is shifted by one
 because `Fin n` starts at zero: observation `k` is available at time `k+1`.
@@ -4646,7 +4646,7 @@ structure FiniteAdaptedBernoulli (P : Measure Ω) (n : ℕ) where
 
 ### observationReal
 
-def; [source line 32](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean:32)
+def; [source line 32](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean:32)
 
 The real-valued zero-one observation represented by the Boolean datum.
 
@@ -4657,7 +4657,7 @@ def observationReal (k : Fin n) (ω : Ω) : ℝ :=
 
 ### observationReal_zero_one
 
-theorem; [source line 35](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean:35)
+theorem; [source line 35](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean:35)
 
 ```lean
 theorem observationReal_zero_one (k : Fin n) (ω : Ω) :
@@ -4666,7 +4666,7 @@ theorem observationReal_zero_one (k : Fin n) (ω : Ω) :
 
 ### observationReal_nonneg
 
-theorem; [source line 40](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean:40)
+theorem; [source line 40](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean:40)
 
 ```lean
 theorem observationReal_nonneg (k : Fin n) (ω : Ω) :
@@ -4675,7 +4675,7 @@ theorem observationReal_nonneg (k : Fin n) (ω : Ω) :
 
 ### observationReal_le_one
 
-theorem; [source line 44](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean:44)
+theorem; [source line 44](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean:44)
 
 ```lean
 theorem observationReal_le_one (k : Fin n) (ω : Ω) :
@@ -4684,7 +4684,7 @@ theorem observationReal_le_one (k : Fin n) (ω : Ω) :
 
 ### observationReal_adapted
 
-theorem; [source line 48](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean:48)
+theorem; [source line 48](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean:48)
 
 ```lean
 theorem observationReal_adapted (k : Fin n) :
@@ -4693,7 +4693,7 @@ theorem observationReal_adapted (k : Fin n) :
 
 ### probability
 
-def; [source line 56](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean:56)
+def; [source line 56](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean:56)
 
 A canonical everywhere-bounded version of the predictable conditional
 probability. It agrees almost everywhere with the conditional expectation.
@@ -4705,7 +4705,7 @@ noncomputable def probability (k : Fin n) (ω : Ω) : ℝ :=
 
 ### probability_nonneg
 
-theorem; [source line 59](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean:59)
+theorem; [source line 59](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean:59)
 
 ```lean
 theorem probability_nonneg (k : Fin n) (ω : Ω) :
@@ -4714,7 +4714,7 @@ theorem probability_nonneg (k : Fin n) (ω : Ω) :
 
 ### probability_le_one
 
-theorem; [source line 62](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean:62)
+theorem; [source line 62](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean:62)
 
 ```lean
 theorem probability_le_one (k : Fin n) (ω : Ω) :
@@ -4723,7 +4723,7 @@ theorem probability_le_one (k : Fin n) (ω : Ω) :
 
 ### probability_predictable
 
-theorem; [source line 65](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean:65)
+theorem; [source line 65](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean:65)
 
 ```lean
 theorem probability_predictable (k : Fin n) :
@@ -4732,7 +4732,7 @@ theorem probability_predictable (k : Fin n) :
 
 ### integrable_observationReal
 
-theorem; [source line 72](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean:72)
+theorem; [source line 72](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean:72)
 
 ```lean
 theorem integrable_observationReal (k : Fin n) : Integrable (B.observationReal k) P
@@ -4740,7 +4740,7 @@ theorem integrable_observationReal (k : Fin n) : Integrable (B.observationReal k
 
 ### integrable_probability
 
-theorem; [source line 77](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean:77)
+theorem; [source line 77](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean:77)
 
 ```lean
 theorem integrable_probability (k : Fin n) : Integrable (B.probability k) P
@@ -4748,7 +4748,7 @@ theorem integrable_probability (k : Fin n) : Integrable (B.probability k) P
 
 ### conditional_mean
 
-theorem; [source line 84](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean:84)
+theorem; [source line 84](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean:84)
 
 Clipping changes only a null exceptional set, since a conditional
 expectation of a zero-one observation lies in `[0,1]` almost everywhere.
@@ -4760,7 +4760,7 @@ theorem conditional_mean (k : Fin n) :
 
 ### probability_ae_eq_condExp
 
-theorem; [source line 94](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean:94)
+theorem; [source line 94](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean:94)
 
 ```lean
 theorem probability_ae_eq_condExp (k : Fin n) :
@@ -4769,7 +4769,7 @@ theorem probability_ae_eq_condExp (k : Fin n) :
 
 ### toProcess
 
-def; [source line 101](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean:101)
+def; [source line 101](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean:101)
 
 Extend the finite row by zero observations and zero probabilities.
 All analytic fields of `BernoulliProcess` follow from adaptation and the
@@ -4808,7 +4808,7 @@ noncomputable def toProcess : BernoulliProcess P where
 
 ### toProcess_filtration
 
-theorem; [source line 130](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean:130)
+theorem; [source line 130](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean:130)
 
 ```lean
 @[simp] theorem toProcess_filtration : B.toProcess.filtration = B.filtration
@@ -4816,7 +4816,7 @@ theorem; [source line 130](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdapt
 
 ### toProcess_observation
 
-theorem; [source line 132](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean:132)
+theorem; [source line 132](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean:132)
 
 ```lean
 @[simp] theorem toProcess_observation (k : Fin n) :
@@ -4825,7 +4825,7 @@ theorem; [source line 132](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdapt
 
 ### toProcess_probability
 
-theorem; [source line 136](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean:136)
+theorem; [source line 136](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean:136)
 
 ```lean
 @[simp] theorem toProcess_probability (k : Fin n) :
@@ -4834,7 +4834,7 @@ theorem; [source line 136](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdapt
 
 ### toProcess_observation_of_le
 
-theorem; [source line 140](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean:140)
+theorem; [source line 140](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean:140)
 
 ```lean
 theorem toProcess_observation_of_le {k : ℕ} (hk : n ≤ k) :
@@ -4843,7 +4843,7 @@ theorem toProcess_observation_of_le {k : ℕ} (hk : n ≤ k) :
 
 ### toProcess_probability_of_le
 
-theorem; [source line 144](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteAdaptedBernoulli.lean:144)
+theorem; [source line 144](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteAdaptedBernoulli.lean:144)
 
 ```lean
 theorem toProcess_probability_of_le {k : ℕ} (hk : n ≤ k) :
@@ -4851,9 +4851,9 @@ theorem toProcess_probability_of_le {k : ℕ} (hk : n ≤ k) :
 ```
 
 
-## Luce/FiniteBernoulliRow.lean
+## Luce/Section2FiniteBernoulliRow.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliRow.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliRow.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -4867,7 +4867,7 @@ variable [IsProbabilityMeasure μ]
 
 ### rowMaximum
 
-def; [source line 13](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliRow.lean:13)
+def; [source line 13](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliRow.lean:13)
 
 Maximum of the individual probabilities in a finite row, with empty
 maximum zero. Coincident spatial locations do not combine coefficients.
@@ -4880,7 +4880,7 @@ noncomputable def rowMaximum (Y : BernoulliProcess μ) : ℕ → Ω → ℝ
 
 ### rowMaximum_nonneg
 
-lemma; [source line 17](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliRow.lean:17)
+lemma; [source line 17](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliRow.lean:17)
 
 ```lean
 lemma rowMaximum_nonneg (N : ℕ) (ω : Ω) : 0 ≤ X.rowMaximum N ω
@@ -4888,7 +4888,7 @@ lemma rowMaximum_nonneg (N : ℕ) (ω : Ω) : 0 ≤ X.rowMaximum N ω
 
 ### measurable_rowMaximum
 
-lemma; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliRow.lean:22)
+lemma; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliRow.lean:22)
 
 ```lean
 lemma measurable_rowMaximum (N : ℕ) : Measurable (X.rowMaximum N)
@@ -4896,7 +4896,7 @@ lemma measurable_rowMaximum (N : ℕ) : Measurable (X.rowMaximum N)
 
 ### probability_le_rowMaximum
 
-lemma; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliRow.lean:28)
+lemma; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliRow.lean:28)
 
 ```lean
 lemma probability_le_rowMaximum {N k : ℕ} (hk : k < N) (ω : Ω) :
@@ -4905,7 +4905,7 @@ lemma probability_le_rowMaximum {N k : ℕ} (hk : k < N) (ω : Ω) :
 
 ### truncateAt
 
-def; [source line 39](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliRow.lean:39)
+def; [source line 39](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliRow.lean:39)
 
 Zero extension of a finite row. No hypothesis on the original process
 after `N` is needed, and its filtration is retained exactly.
@@ -4944,7 +4944,7 @@ noncomputable def truncateAt (N : ℕ) : BernoulliProcess μ where
 
 ### truncateAt_probability
 
-lemma; [source line 69](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliRow.lean:69)
+lemma; [source line 69](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliRow.lean:69)
 
 ```lean
 lemma truncateAt_probability {N k : ℕ} (hk : k < N) (ω : Ω) :
@@ -4953,7 +4953,7 @@ lemma truncateAt_probability {N k : ℕ} (hk : k < N) (ω : Ω) :
 
 ### truncateAt_observation
 
-lemma; [source line 73](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliRow.lean:73)
+lemma; [source line 73](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliRow.lean:73)
 
 ```lean
 lemma truncateAt_observation {N k : ℕ} (hk : k < N) (ω : Ω) :
@@ -4962,7 +4962,7 @@ lemma truncateAt_observation {N k : ℕ} (hk : k < N) (ω : Ω) :
 
 ### truncateAt_probability_le_rowMaximum
 
-lemma; [source line 77](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliRow.lean:77)
+lemma; [source line 77](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliRow.lean:77)
 
 ```lean
 lemma truncateAt_probability_le_rowMaximum (N k : ℕ) (ω : Ω) :
@@ -4971,7 +4971,7 @@ lemma truncateAt_probability_le_rowMaximum (N k : ℕ) (ω : Ω) :
 
 ### sum_truncateAt_probability
 
-lemma; [source line 84](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliRow.lean:84)
+lemma; [source line 84](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliRow.lean:84)
 
 ```lean
 lemma sum_truncateAt_probability (N : ℕ) (ω : Ω) :
@@ -4981,7 +4981,7 @@ lemma sum_truncateAt_probability (N : ℕ) (ω : Ω) :
 
 ### truncatedStop_eq_on_good
 
-lemma; [source line 95](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliRow.lean:95)
+lemma; [source line 95](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliRow.lean:95)
 
 On the original row's good event, zero extension and predictable
 deletion preserve every observation and probability in that row.
@@ -4996,7 +4996,7 @@ lemma truncatedStop_eq_on_good {N k : ℕ} {δ K : ℝ} (ω : Ω)
 
 ### laplaceRow
 
-def; [source line 118](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliRow.lean:118)
+def; [source line 118](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliRow.lean:118)
 
 The finite-row Laplace random variable.
 
@@ -5009,7 +5009,7 @@ omit [IsProbabilityMeasure μ] in
 
 ### measurable_laplaceRow
 
-lemma; [source line 122](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliRow.lean:122)
+lemma; [source line 122](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliRow.lean:122)
 
 ```lean
 lemma measurable_laplaceRow (g : ℕ → ℝ) (N : ℕ) : Measurable (X.laplaceRow g N)
@@ -5017,7 +5017,7 @@ lemma measurable_laplaceRow (g : ℕ → ℝ) (N : ℕ) : Measurable (X.laplaceR
 
 ### laplaceRow_bounds
 
-lemma; [source line 129](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliRow.lean:129)
+lemma; [source line 129](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliRow.lean:129)
 
 ```lean
 lemma laplaceRow_bounds (g : ℕ → ℝ) (hg : ∀ k, 0 ≤ g k) (N : ℕ) (ω : Ω) :
@@ -5026,7 +5026,7 @@ lemma laplaceRow_bounds (g : ℕ → ℝ) (hg : ∀ k, 0 ≤ g k) (N : ℕ) (ω 
 
 ### integrable_laplaceRow
 
-lemma; [source line 135](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliRow.lean:135)
+lemma; [source line 135](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliRow.lean:135)
 
 ```lean
 lemma integrable_laplaceRow (g : ℕ → ℝ) (hg : ∀ k, 0 ≤ g k) (N : ℕ) :
@@ -5034,9 +5034,9 @@ lemma integrable_laplaceRow (g : ℕ → ℝ) (hg : ∀ k, 0 ≤ g k) (N : ℕ) 
 ```
 
 
-## Luce/FiniteBernoulliSpatial.lean
+## Luce/Section2FiniteBernoulliSpatial.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliSpatial.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliSpatial.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -5053,7 +5053,7 @@ variable [IsProbabilityMeasure P]
 
 ### continuous_weightedPointMeasure
 
-theorem; [source line 23](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliSpatial.lean:23)
+theorem; [source line 23](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliSpatial.lean:23)
 
 Fixed finite locations give a continuous map from nonnegative weights
 to finite measures with their weak topology.
@@ -5065,7 +5065,7 @@ theorem continuous_weightedPointMeasure [TopologicalSpace X] [OpensMeasurableSpa
 
 ### pointMeasure
 
-def; [source line 34](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliSpatial.lean:34)
+def; [source line 34](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliSpatial.lean:34)
 
 The observed finite point measure for the finite row.
 
@@ -5076,7 +5076,7 @@ noncomputable def pointMeasure (x : Fin n → X) (ω : Ω) : FinitePointMeasure 
 
 ### predictableMeasure
 
-def; [source line 39](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliSpatial.lean:39)
+def; [source line 39](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliSpatial.lean:39)
 
 The predictable measure, using the canonical nonnegative version of
 the conditional probabilities already supplied by the row adapter.
@@ -5089,7 +5089,7 @@ noncomputable def predictableMeasure (x : Fin n → X) (ω : Ω) : FiniteMeasure
 
 ### measurable_pointMeasure
 
-theorem; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliSpatial.lean:43)
+theorem; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliSpatial.lean:43)
 
 ```lean
 theorem measurable_pointMeasure (x : Fin n → X) : Measurable (B.pointMeasure x)
@@ -5097,7 +5097,7 @@ theorem measurable_pointMeasure (x : Fin n → X) : Measurable (B.pointMeasure x
 
 ### measurable_predictableMeasure
 
-theorem; [source line 47](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliSpatial.lean:47)
+theorem; [source line 47](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliSpatial.lean:47)
 
 ```lean
 theorem measurable_predictableMeasure (x : Fin n → X) :
@@ -5106,7 +5106,7 @@ theorem measurable_predictableMeasure (x : Fin n → X) :
 
 ### measurableSet_predictableMeasure_preimage
 
-theorem; [source line 56](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliSpatial.lean:56)
+theorem; [source line 56](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliSpatial.lean:56)
 
 Weak-open preimages are measurable directly through the finite
 coefficient vector. No Borel compatibility for the space of finite
@@ -5120,7 +5120,7 @@ theorem measurableSet_predictableMeasure_preimage [TopologicalSpace X]
 
 ### integral_predictableMeasure
 
-theorem; [source line 65](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliSpatial.lean:65)
+theorem; [source line 65](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliSpatial.lean:65)
 
 ```lean
 theorem integral_predictableMeasure (x : Fin n → X) (g : X → ℝ)
@@ -5131,7 +5131,7 @@ theorem integral_predictableMeasure (x : Fin n → X) (g : X → ℝ)
 
 ### spatialTest
 
-def; [source line 72](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliSpatial.lean:72)
+def; [source line 72](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliSpatial.lean:72)
 
 Extend a spatial test by zero outside its finite row.
 
@@ -5144,7 +5144,7 @@ omit [MeasurableSpace X] in
 
 ### spatialTest_at_fin
 
-theorem; [source line 76](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliSpatial.lean:76)
+theorem; [source line 76](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliSpatial.lean:76)
 
 ```lean
 @[simp] theorem spatialTest_at_fin (x : Fin n → X) (g : X → ℝ) (k : Fin n) :
@@ -5153,7 +5153,7 @@ theorem; [source line 76](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernou
 
 ### spatialTest_nonneg
 
-theorem; [source line 81](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliSpatial.lean:81)
+theorem; [source line 81](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliSpatial.lean:81)
 
 ```lean
 theorem spatialTest_nonneg (x : Fin n → X) (g : X → ℝ)
@@ -5162,7 +5162,7 @@ theorem spatialTest_nonneg (x : Fin n → X) (g : X → ℝ)
 
 ### pointMeasure_mass
 
-theorem; [source line 90](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliSpatial.lean:90)
+theorem; [source line 90](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliSpatial.lean:90)
 
 ```lean
 theorem pointMeasure_mass (x : Fin n → X) (ω : Ω) :
@@ -5172,7 +5172,7 @@ theorem pointMeasure_mass (x : Fin n → X) (ω : Ω) :
 
 ### predictableMeasure_mass
 
-theorem; [source line 101](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliSpatial.lean:101)
+theorem; [source line 101](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliSpatial.lean:101)
 
 ```lean
 theorem predictableMeasure_mass (x : Fin n → X) (ω : Ω) :
@@ -5182,7 +5182,7 @@ theorem predictableMeasure_mass (x : Fin n → X) (ω : Ω) :
 
 ### pointLaplace_pointMeasure
 
-theorem; [source line 115](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliSpatial.lean:115)
+theorem; [source line 115](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliSpatial.lean:115)
 
 ```lean
 theorem pointLaplace_pointMeasure (x : Fin n → X) (g : X → ℝ)
@@ -5194,7 +5194,7 @@ theorem pointLaplace_pointMeasure (x : Fin n → X) (g : X → ℝ)
 
 ### laplaceCompensator_eq_integral_predictableMeasure
 
-theorem; [source line 128](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteBernoulliSpatial.lean:128)
+theorem; [source line 128](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteBernoulliSpatial.lean:128)
 
 ```lean
 theorem laplaceCompensator_eq_integral_predictableMeasure (x : Fin n → X)
@@ -5204,9 +5204,9 @@ theorem laplaceCompensator_eq_integral_predictableMeasure (x : Fin n → X)
 ```
 
 
-## Luce/FiniteHistoryConditional.lean
+## Luce/Section2FiniteHistoryConditional.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteHistoryConditional.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteHistoryConditional.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -5219,7 +5219,7 @@ variable {Ω S T : Type*} {mΩ : MeasurableSpace Ω}
 
 ### integrable_finite_state
 
-lemma; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteHistoryConditional.lean:20)
+lemma; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteHistoryConditional.lean:20)
 
 Any real function of a measurable finite state is integrable.
 
@@ -5231,7 +5231,7 @@ lemma integrable_finite_state (Z : Ω → S)
 
 ### integral_finite_state
 
-lemma; [source line 35](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteHistoryConditional.lean:35)
+lemma; [source line 35](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteHistoryConditional.lean:35)
 
 Integration against a measurable finite state is a weighted finite sum.
 
@@ -5243,7 +5243,7 @@ lemma integral_finite_state (Z : Ω → S)
 
 ### condExp_finite_history
 
-theorem; [source line 55](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteHistoryConditional.lean:55)
+theorem; [source line 55](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteHistoryConditional.lean:55)
 
 A finite-fiber integral identity characterizes conditioning on the
 history of a finite state. Both finite codomains use their discrete sigma
@@ -5265,7 +5265,7 @@ theorem condExp_finite_history [Fintype T] [DecidableEq T]
 
 ### condExp_finite_history_of_representatives
 
-theorem; [source line 125](D:/princeton/Research/Lean/Lean_luce/Luce/FiniteHistoryConditional.lean:125)
+theorem; [source line 125](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FiniteHistoryConditional.lean:125)
 
 A version of the finite-history criterion whose candidate is given on
 states, is constant on history fibers, and is checked only at represented
@@ -5287,9 +5287,9 @@ theorem condExp_finite_history_of_representatives [Fintype T] [DecidableEq T]
 ```
 
 
-## Luce/FinitePointMeasure.lean
+## Luce/Section2FinitePointMeasure.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -5305,7 +5305,7 @@ variable [TopologicalSpace X] [OpensMeasurableSpace X]
 
 ### pointMeasureOfFin
 
-def; [source line 21](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:21)
+def; [source line 21](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:21)
 
 The actual finite measure associated with a finite family of points.
 
@@ -5316,7 +5316,7 @@ noncomputable def pointMeasureOfFin {m : ℕ} (x : Fin m → X) : FiniteMeasure 
 
 ### finiteMeasure_mass_add
 
-theorem; [source line 24](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:24)
+theorem; [source line 24](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:24)
 
 ```lean
 private theorem finiteMeasure_mass_add (μ ν : FiniteMeasure X) :
@@ -5325,7 +5325,7 @@ private theorem finiteMeasure_mass_add (μ ν : FiniteMeasure X) :
 
 ### finiteMeasure_mass_sum
 
-theorem; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:28)
+theorem; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:28)
 
 ```lean
 private theorem finiteMeasure_mass_sum {ι : Type*} (s : Finset ι)
@@ -5335,7 +5335,7 @@ private theorem finiteMeasure_mass_sum {ι : Type*} (s : Finset ι)
 
 ### pointMeasureOfFin_mass
 
-theorem; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:36)
+theorem; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:36)
 
 ```lean
 @[simp] theorem pointMeasureOfFin_mass {m : ℕ} (x : Fin m → X) :
@@ -5344,7 +5344,7 @@ theorem; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointM
 
 ### FinitePointMeasure
 
-def; [source line 41](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:41)
+def; [source line 41](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:41)
 
 Finite point measures, represented as measures rather than labeled lists.
 
@@ -5355,7 +5355,7 @@ def FinitePointMeasure (X : Type*) [MeasurableSpace X] :=
 
 ### instance at line 46
 
-instance; [source line 46](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:46)
+instance; [source line 46](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:46)
 
 ```lean
 instance : MeasurableSpace (FinitePointMeasure X) :=
@@ -5365,7 +5365,7 @@ instance : MeasurableSpace (FinitePointMeasure X) :=
 
 ### toFiniteMeasure
 
-def; [source line 51](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:51)
+def; [source line 51](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:51)
 
 Forget only the proof of finite counting-measure representability.
 
@@ -5375,7 +5375,7 @@ def toFiniteMeasure (μ : FinitePointMeasure X) : FiniteMeasure X := μ.val
 
 ### instance at line 53
 
-instance; [source line 53](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:53)
+instance; [source line 53](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:53)
 
 ```lean
 instance : Coe (FinitePointMeasure X) (FiniteMeasure X) := ⟨toFiniteMeasure⟩
@@ -5383,7 +5383,7 @@ instance : Coe (FinitePointMeasure X) (FiniteMeasure X) := ⟨toFiniteMeasure⟩
 
 ### ofFin
 
-def; [source line 56](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:56)
+def; [source line 56](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:56)
 
 The measure represented by a finite family; repeated points are retained.
 
@@ -5394,7 +5394,7 @@ noncomputable def ofFin {m : ℕ} (x : Fin m → X) : FinitePointMeasure X :=
 
 ### instance at line 59
 
-instance; [source line 59](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:59)
+instance; [source line 59](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:59)
 
 ```lean
 instance : Zero (FinitePointMeasure X) :=
@@ -5403,7 +5403,7 @@ instance : Zero (FinitePointMeasure X) :=
 
 ### toFiniteMeasure_ofFin
 
-theorem; [source line 62](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:62)
+theorem; [source line 62](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:62)
 
 ```lean
 @[simp] theorem toFiniteMeasure_ofFin {m : ℕ} (x : Fin m → X) :
@@ -5412,7 +5412,7 @@ theorem; [source line 62](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointM
 
 ### toFiniteMeasure_zero
 
-theorem; [source line 65](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:65)
+theorem; [source line 65](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:65)
 
 ```lean
 @[simp] theorem toFiniteMeasure_zero :
@@ -5421,7 +5421,7 @@ theorem; [source line 65](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointM
 
 ### count
 
-def; [source line 70](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:70)
+def; [source line 70](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:70)
 
 Counts on a measurable set; the finite Dirac representation makes this
 an actual natural-number count.
@@ -5433,7 +5433,7 @@ noncomputable def count (μ : FinitePointMeasure X) (B : Set X) : ℕ :=
 
 ### ofFin_mass
 
-theorem; [source line 73](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:73)
+theorem; [source line 73](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:73)
 
 ```lean
 @[simp] theorem ofFin_mass {m : ℕ} (x : Fin m → X) :
@@ -5442,7 +5442,7 @@ theorem; [source line 73](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointM
 
 ### measurable_toFiniteMeasure
 
-theorem; [source line 76](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:76)
+theorem; [source line 76](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:76)
 
 ```lean
 theorem measurable_toFiniteMeasure :
@@ -5451,7 +5451,7 @@ theorem measurable_toFiniteMeasure :
 
 ### measurable_toMeasure
 
-theorem; [source line 80](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:80)
+theorem; [source line 80](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:80)
 
 ```lean
 theorem measurable_toMeasure :
@@ -5460,7 +5460,7 @@ theorem measurable_toMeasure :
 
 ### measurable_count
 
-theorem; [source line 84](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:84)
+theorem; [source line 84](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:84)
 
 ```lean
 theorem measurable_count {B : Set X} (hB : MeasurableSet B) :
@@ -5469,7 +5469,7 @@ theorem measurable_count {B : Set X} (hB : MeasurableSet B) :
 
 ### measurable_ofFin
 
-theorem; [source line 89](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:89)
+theorem; [source line 89](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:89)
 
 ```lean
 theorem measurable_ofFin {m : ℕ} :
@@ -5478,7 +5478,7 @@ theorem measurable_ofFin {m : ℕ} :
 
 ### instance at line 102
 
-instance; [source line 102](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:102)
+instance; [source line 102](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:102)
 
 ```lean
 instance : TopologicalSpace (FinitePointMeasure X) :=
@@ -5488,7 +5488,7 @@ instance : TopologicalSpace (FinitePointMeasure X) :=
 
 ### continuous_toFiniteMeasure
 
-theorem; [source line 106](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:106)
+theorem; [source line 106](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:106)
 
 ```lean
 theorem continuous_toFiniteMeasure :
@@ -5497,7 +5497,7 @@ theorem continuous_toFiniteMeasure :
 
 ### continuous_ofFin
 
-theorem; [source line 110](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:110)
+theorem; [source line 110](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:110)
 
 ```lean
 theorem continuous_ofFin {m : ℕ} :
@@ -5506,7 +5506,7 @@ theorem continuous_ofFin {m : ℕ} :
 
 ### isCompact_mass_le
 
-theorem; [source line 120](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePointMeasure.lean:120)
+theorem; [source line 120](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePointMeasure.lean:120)
 
 The finite count bound is compact for literal open-cover compactness;
 no Hausdorff condition on the original spatial space is needed.
@@ -5517,9 +5517,9 @@ theorem isCompact_mass_le [CompactSpace X] (N : ℕ) :
 ```
 
 
-## Luce/FinitePoissonLaw.lean
+## Luce/Section2FinitePoissonLaw.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -5532,7 +5532,7 @@ variable {X : Type*} [MeasurableSpace X]
 
 ### integral_pointMeasureOfFin
 
-theorem; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:20)
+theorem; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:20)
 
 ```lean
 theorem integral_pointMeasureOfFin {m : ℕ} (x : Fin m → X)
@@ -5542,7 +5542,7 @@ theorem integral_pointMeasureOfFin {m : ℕ} (x : Fin m → X)
 
 ### integrable_pointMeasure
 
-theorem; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:28)
+theorem; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:28)
 
 ```lean
 theorem integrable_pointMeasure (μ : FinitePointMeasure X)
@@ -5552,7 +5552,7 @@ theorem integrable_pointMeasure (μ : FinitePointMeasure X)
 
 ### pointLaplace
 
-def; [source line 40](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:40)
+def; [source line 40](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:40)
 
 The ordinary Laplace test on an actual finite point measure.
 
@@ -5563,7 +5563,7 @@ noncomputable def pointLaplace (g : X → ℝ) (μ : FinitePointMeasure X) : ℝ
 
 ### measurable_pointLaplace
 
-theorem; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:43)
+theorem; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:43)
 
 ```lean
 theorem measurable_pointLaplace (g : X → ℝ) (hg : Measurable g)
@@ -5572,7 +5572,7 @@ theorem measurable_pointLaplace (g : X → ℝ) (hg : Measurable g)
 
 ### pointLaplace_mem_Icc
 
-theorem; [source line 58](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:58)
+theorem; [source line 58](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:58)
 
 ```lean
 theorem pointLaplace_mem_Icc (g : X → ℝ) (hg0 : ∀ x, 0 ≤ g x)
@@ -5581,7 +5581,7 @@ theorem pointLaplace_mem_Icc (g : X → ℝ) (hg0 : ∀ x, 0 ≤ g x)
 
 ### pointLaplace_zero
 
-theorem; [source line 63](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:63)
+theorem; [source line 63](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:63)
 
 ```lean
 @[simp] theorem pointLaplace_zero (g : X → ℝ) :
@@ -5590,7 +5590,7 @@ theorem; [source line 63](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoisso
 
 ### pointLaplace_ofFin
 
-theorem; [source line 67](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:67)
+theorem; [source line 67](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:67)
 
 ```lean
 theorem pointLaplace_ofFin {m : ℕ} (x : Fin m → X)
@@ -5600,7 +5600,7 @@ theorem pointLaplace_ofFin {m : ℕ} (x : Fin m → X)
 
 ### iidPointLaw
 
-def; [source line 74](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:74)
+def; [source line 74](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:74)
 
 The point measure of `m` independent samples with common probability law `p`.
 
@@ -5612,7 +5612,7 @@ noncomputable def iidPointLaw (p : ProbabilityMeasure X) (m : ℕ) :
 
 ### instance at line 78
 
-instance; [source line 78](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:78)
+instance; [source line 78](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:78)
 
 ```lean
 instance iidPointLaw_isProbabilityMeasure (p : ProbabilityMeasure X) (m : ℕ) :
@@ -5622,7 +5622,7 @@ instance iidPointLaw_isProbabilityMeasure (p : ProbabilityMeasure X) (m : ℕ) :
 
 ### integral_pointLaplace_iidPointLaw
 
-theorem; [source line 82](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:82)
+theorem; [source line 82](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:82)
 
 ```lean
 theorem integral_pointLaplace_iidPointLaw (p : ProbabilityMeasure X) (m : ℕ)
@@ -5633,7 +5633,7 @@ theorem integral_pointLaplace_iidPointLaw (p : ProbabilityMeasure X) (m : ℕ)
 
 ### nonempty_of_finiteMeasure_ne_zero
 
-theorem; [source line 93](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:93)
+theorem; [source line 93](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:93)
 
 ```lean
 private theorem nonempty_of_finiteMeasure_ne_zero (ν : FiniteMeasure X) (hν : ν ≠ 0) :
@@ -5642,7 +5642,7 @@ private theorem nonempty_of_finiteMeasure_ne_zero (ν : FiniteMeasure X) (hν : 
 
 ### finitePoissonLaw
 
-def; [source line 102](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:102)
+def; [source line 102](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:102)
 
 A finite-intensity Poisson law, constructed by a Poisson count and iid
 locations. The zero law is defined even when the underlying space is empty.
@@ -5658,7 +5658,7 @@ noncomputable def finitePoissonLaw (ν : FiniteMeasure X) :
 
 ### finitePoissonLaw_zero
 
-theorem; [source line 109](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:109)
+theorem; [source line 109](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:109)
 
 ```lean
 @[simp] theorem finitePoissonLaw_zero :
@@ -5667,7 +5667,7 @@ theorem; [source line 109](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoiss
 
 ### finitePoissonLaw_of_ne_zero
 
-theorem; [source line 113](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:113)
+theorem; [source line 113](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:113)
 
 ```lean
 theorem finitePoissonLaw_of_ne_zero [Nonempty X] (ν : FiniteMeasure X) (hν : ν ≠ 0) :
@@ -5676,7 +5676,7 @@ theorem finitePoissonLaw_of_ne_zero [Nonempty X] (ν : FiniteMeasure X) (hν : �
 
 ### instance at line 117
 
-instance; [source line 117](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:117)
+instance; [source line 117](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:117)
 
 ```lean
 instance finitePoissonLaw_isProbabilityMeasure (ν : FiniteMeasure X) :
@@ -5693,7 +5693,7 @@ instance finitePoissonLaw_isProbabilityMeasure (ν : FiniteMeasure X) :
 
 ### integrable_exp_neg
 
-theorem; [source line 128](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:128)
+theorem; [source line 128](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:128)
 
 ```lean
 theorem integrable_exp_neg (μ : Measure X) [IsFiniteMeasure μ]
@@ -5703,7 +5703,7 @@ theorem integrable_exp_neg (μ : Measure X) [IsFiniteMeasure μ]
 
 ### integrable_one_sub_exp_neg
 
-theorem; [source line 136](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:136)
+theorem; [source line 136](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:136)
 
 ```lean
 theorem integrable_one_sub_exp_neg (μ : Measure X) [IsFiniteMeasure μ]
@@ -5713,7 +5713,7 @@ theorem integrable_one_sub_exp_neg (μ : Measure X) [IsFiniteMeasure μ]
 
 ### integral_exp_neg_mem_Icc
 
-theorem; [source line 141](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:141)
+theorem; [source line 141](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:141)
 
 ```lean
 theorem integral_exp_neg_mem_Icc (p : ProbabilityMeasure X)
@@ -5724,7 +5724,7 @@ theorem integral_exp_neg_mem_Icc (p : ProbabilityMeasure X)
 
 ### integral_one_sub_exp_neg_eq_mass_mul
 
-theorem; [source line 152](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:152)
+theorem; [source line 152](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:152)
 
 ```lean
 theorem integral_one_sub_exp_neg_eq_mass_mul [Nonempty X]
@@ -5735,7 +5735,7 @@ theorem integral_one_sub_exp_neg_eq_mass_mul [Nonempty X]
 
 ### integrable_pointLaplace_finitePoissonLaw
 
-theorem; [source line 170](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:170)
+theorem; [source line 170](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:170)
 
 ```lean
 theorem integrable_pointLaplace_finitePoissonLaw (ν : FiniteMeasure X)
@@ -5745,7 +5745,7 @@ theorem integrable_pointLaplace_finitePoissonLaw (ν : FiniteMeasure X)
 
 ### integral_pointLaplace_finitePoissonLaw
 
-theorem; [source line 183](D:/princeton/Research/Lean/Lean_luce/Luce/FinitePoissonLaw.lean:183)
+theorem; [source line 183](D:/princeton/Research/Lean/Lean_luce/Luce/Section2FinitePoissonLaw.lean:183)
 
 The Laplace functional of the finite-intensity Poisson iid construction.
 The intensity may vanish and the spatial measurable space may be empty.
@@ -5760,9 +5760,9 @@ theorem integral_pointLaplace_finitePoissonLaw (ν : FiniteMeasure X)
 ```
 
 
-## Luce/FirstChoice.lean
+## Luce/Section1FirstChoice.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/FirstChoice.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section1FirstChoice.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -5774,7 +5774,7 @@ namespace Luce
 
 ### backgroundSurvivors_eq_all
 
-lemma; [source line 12](D:/princeton/Research/Lean/Lean_luce/Luce/FirstChoice.lean:12)
+lemma; [source line 12](D:/princeton/Research/Lean/Lean_luce/Luce/Section1FirstChoice.lean:12)
 
 ```lean
 lemma backgroundSurvivors_eq_all {n : ℕ} (t : ℝ) (background : Fin n → ℝ) :
@@ -5783,7 +5783,7 @@ lemma backgroundSurvivors_eq_all {n : ℕ} (t : ℝ) (background : Fin n → ℝ
 
 ### background_all_probability
 
-lemma; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/FirstChoice.lean:22)
+lemma; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/Section1FirstChoice.lean:22)
 
 The probability that all background clocks survive is the product of
 their exponential survival functions.
@@ -5797,7 +5797,7 @@ lemma background_all_probability {n : ℕ} (w : Weights (n + 1))
 
 ### exponentialRace_first_choice
 
-theorem; [source line 42](D:/princeton/Research/Lean/Lean_luce/Luce/FirstChoice.lean:42)
+theorem; [source line 42](D:/princeton/Research/Lean/Lean_luce/Luce/Section1FirstChoice.lean:42)
 
 A label wins an independent exponential race with probability equal to
 its weight divided by the total weight, the Luce choice rule.
@@ -5810,9 +5810,9 @@ theorem exponentialRace_first_choice {n : ℕ} (w : Weights (n + 1))
 ```
 
 
-## Luce/HistoryAtoms.lean
+## Luce/Section2HistoryAtoms.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/HistoryAtoms.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2HistoryAtoms.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -5822,7 +5822,7 @@ namespace Luce
 
 ### prefixVector
 
-def; [source line 15](D:/princeton/Research/Lean/Lean_luce/Luce/HistoryAtoms.lean:15)
+def; [source line 15](D:/princeton/Research/Lean/Lean_luce/Luce/Section2HistoryAtoms.lean:15)
 
 The complete vector of the first `m` draws.
 
@@ -5833,7 +5833,7 @@ def prefixVector {n : ℕ} (σ : Equiv.Perm (Fin n)) (m : ℕ) :
 
 ### drawHistory_eq_comap_prefixVector
 
-theorem; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/HistoryAtoms.lean:20)
+theorem; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/Section2HistoryAtoms.lean:20)
 
 The approved sigma algebra is exactly that generated by the finite
 prefix vector, whose codomain carries the discrete sigma algebra.
@@ -5846,7 +5846,7 @@ theorem drawHistory_eq_comap_prefixVector {Ω : Type*} {n : ℕ}
 
 ### prefixVector_eq_iff
 
-theorem; [source line 33](D:/princeton/Research/Lean/Lean_luce/Luce/HistoryAtoms.lean:33)
+theorem; [source line 33](D:/princeton/Research/Lean/Lean_luce/Luce/Section2HistoryAtoms.lean:33)
 
 The finite prefix vectors are equal exactly when all corresponding
 preceding draws agree.
@@ -5859,7 +5859,7 @@ theorem prefixVector_eq_iff {n : ℕ} (σ τ : Equiv.Perm (Fin n)) (m : ℕ) :
 
 ### remaining_eq_of_prefix_agreement
 
-theorem; [source line 44](D:/princeton/Research/Lean/Lean_luce/Luce/HistoryAtoms.lean:44)
+theorem; [source line 44](D:/princeton/Research/Lean/Lean_luce/Luce/Section2HistoryAtoms.lean:44)
 
 Availability of every label is fixed by the preceding draw vector.
 
@@ -5871,7 +5871,7 @@ theorem remaining_eq_of_prefix_agreement {n : ℕ} (σ τ : Equiv.Perm (Fin n))
 
 ### predictableChance_eq_of_prefix_agreement
 
-theorem; [source line 56](D:/princeton/Research/Lean/Lean_luce/Luce/HistoryAtoms.lean:56)
+theorem; [source line 56](D:/princeton/Research/Lean/Lean_luce/Luce/Section2HistoryAtoms.lean:56)
 
 The proportional chance is constant on each atom of the preceding
 draw history.
@@ -5884,9 +5884,9 @@ theorem predictableChance_eq_of_prefix_agreement {n : ℕ} (w : Weights n)
 ```
 
 
-## Luce/HistoryPredictability.lean
+## Luce/Section2HistoryPredictability.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/HistoryPredictability.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2HistoryPredictability.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -5898,7 +5898,7 @@ namespace Luce
 
 ### measurable_draw_of_lt
 
-lemma; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/HistoryPredictability.lean:20)
+lemma; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/Section2HistoryPredictability.lean:20)
 
 Each already observed coordinate is measurable for the draw history.
 
@@ -5910,7 +5910,7 @@ lemma measurable_draw_of_lt {Ω : Type u} {n : ℕ}
 
 ### measurableSet_label_available
 
-lemma; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/HistoryPredictability.lean:28)
+lemma; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/Section2HistoryPredictability.lean:28)
 
 Any label remains precisely when no preceding draw has selected it.
 This supplies the measurable summands in the remaining-weight formula.
@@ -5923,7 +5923,7 @@ lemma measurableSet_label_available {Ω : Type u} {n : ℕ}
 
 ### measurable_availability_indicator
 
-lemma; [source line 46](D:/princeton/Research/Lean/Lean_luce/Luce/HistoryPredictability.lean:46)
+lemma; [source line 46](D:/princeton/Research/Lean/Lean_luce/Luce/Section2HistoryPredictability.lean:46)
 
 The availability indicator is measurable before draw `k.val + 1`.
 
@@ -5936,7 +5936,7 @@ lemma measurable_availability_indicator {Ω : Type u} {n : ℕ}
 
 ### measurable_remaining_weight
 
-lemma; [source line 53](D:/princeton/Research/Lean/Lean_luce/Luce/HistoryPredictability.lean:53)
+lemma; [source line 53](D:/princeton/Research/Lean/Lean_luce/Luce/Section2HistoryPredictability.lean:53)
 
 The remaining weight is measurable for exactly the same pre-draw history.
 
@@ -5949,7 +5949,7 @@ lemma measurable_remaining_weight {Ω : Type u} {n : ℕ}
 
 ### history_predictability
 
-theorem; [source line 64](D:/princeton/Research/Lean/Lean_luce/Luce/HistoryPredictability.lean:64)
+theorem; [source line 64](D:/princeton/Research/Lean/Lean_luce/Luce/Section2HistoryPredictability.lean:64)
 
 The exact approved Section 2 predictability statement.
 
@@ -5963,9 +5963,9 @@ theorem history_predictability {Ω : Type u} {n : ℕ} (w : Weights n)
 ```
 
 
-## Luce/Interior.lean
+## Luce/Section3Interior.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Interior.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section3Interior.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -5980,7 +5980,7 @@ variable {Ω ι : Type*} [MeasurableSpace Ω] {μ : Measure Ω}
 
 ### monotone_bracket_error
 
-theorem; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/Interior.lean:22)
+theorem; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/Section3Interior.lean:22)
 
 Monotonicity turns two grid-point bounds and two bounds on the limiting
 function's oscillation into a bound at every intervening point.
@@ -5995,7 +5995,7 @@ theorem monotone_bracket_error {f g : ℝ → ℝ} (hg : Monotone g)
 
 ### monotone_grid_error
 
-theorem; [source line 33](D:/princeton/Research/Lean/Lean_luce/Luce/Interior.lean:33)
+theorem; [source line 33](D:/princeton/Research/Lean/Lean_luce/Luce/Section3Interior.lean:33)
 
 The finite-grid upgrade used for the empirical arrival distribution.
 
@@ -6010,7 +6010,7 @@ theorem monotone_grid_error {f g : ℝ → ℝ} (hg : Monotone g)
 
 ### antitone_bracket_error
 
-theorem; [source line 44](D:/princeton/Research/Lean/Lean_luce/Luce/Interior.lean:44)
+theorem; [source line 44](D:/princeton/Research/Lean/Lean_luce/Luce/Section3Interior.lean:44)
 
 The same grid argument for decreasing remaining-rate functions.
 
@@ -6024,7 +6024,7 @@ theorem antitone_bracket_error {f g : ℝ → ℝ} (hg : Antitone g)
 
 ### sum_sq_le_max_mul_sum
 
-theorem; [source line 56](D:/princeton/Research/Lean/Lean_luce/Luce/Interior.lean:56)
+theorem; [source line 56](D:/princeton/Research/Lean/Lean_luce/Luce/Section3Interior.lean:56)
 
 The weight sum of squares is controlled by the largest weight times
 the total weight.
@@ -6037,7 +6037,7 @@ theorem sum_sq_le_max_mul_sum {ι : Type*} (s : Finset ι) (w : ι → ℝ) {M :
 
 ### normalized_sum_sq_le
 
-theorem; [source line 65](D:/princeton/Research/Lean/Lean_luce/Luce/Interior.lean:65)
+theorem; [source line 65](D:/princeton/Research/Lean/Lean_luce/Luce/Section3Interior.lean:65)
 
 The deterministic estimate behind the remaining-rate variance bound.
 
@@ -6050,7 +6050,7 @@ theorem normalized_sum_sq_le {ι : Type*} (s : Finset ι) (w : ι → ℝ) {M N 
 
 ### variance_normalized_sum_le
 
-theorem; [source line 80](D:/princeton/Research/Lean/Lean_luce/Luce/Interior.lean:80)
+theorem; [source line 80](D:/princeton/Research/Lean/Lean_luce/Luce/Section3Interior.lean:80)
 
 Independent variables with the weight-square variance bounds satisfy
 the precise normalized variance estimate used in the race law.
@@ -6068,7 +6068,7 @@ theorem variance_normalized_sum_le (s : Finset ι) (X : ι → Ω → ℝ)
 
 ### denominator_lower_bound
 
-theorem; [source line 105](D:/princeton/Research/Lean/Lean_luce/Luce/Interior.lean:105)
+theorem; [source line 105](D:/princeton/Research/Lean/Lean_luce/Luce/Section3Interior.lean:105)
 
 A positive deterministic denominator remains bounded away from zero
 when the empirical denominator is sufficiently close.
@@ -6080,7 +6080,7 @@ theorem denominator_lower_bound {D W d : ℝ} (hdD : d ≤ D)
 
 ### probability_le_of_denominator_close
 
-theorem; [source line 111](D:/princeton/Research/Lean/Lean_luce/Luce/Interior.lean:111)
+theorem; [source line 111](D:/princeton/Research/Lean/Lean_luce/Luce/Section3Interior.lean:111)
 
 The maximum predictable probability estimate on the good race event.
 
@@ -6092,7 +6092,7 @@ theorem probability_le_of_denominator_close {w D W d : ℝ}
 
 ### abs_div_sub_div_le
 
-theorem; [source line 120](D:/princeton/Research/Lean/Lean_luce/Luce/Interior.lean:120)
+theorem; [source line 120](D:/princeton/Research/Lean/Lean_luce/Luce/Section3Interior.lean:120)
 
 Quantitative denominator replacement in the interior compensator.
 
@@ -6104,7 +6104,7 @@ theorem abs_div_sub_div_le {w D W d ε : ℝ} (hw : 0 ≤ w) (hd : 0 < d)
 
 ### random_time_substitution_bound
 
-theorem; [source line 137](D:/princeton/Research/Lean/Lean_luce/Luce/Interior.lean:137)
+theorem; [source line 137](D:/princeton/Research/Lean/Lean_luce/Luce/Section3Interior.lean:137)
 
 Evaluation at perturbed times splits into the uniform race error and
 the deterministic continuity error.
@@ -6116,9 +6116,9 @@ theorem random_time_substitution_bound {D Dhat : ℝ → ℝ}
 ```
 
 
-## Luce/LaplaceCountTightness.lean
+## Luce/Section4LaplaceCountTightness.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/LaplaceCountTightness.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4LaplaceCountTightness.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -6133,7 +6133,7 @@ variable {X : Type*} [TopologicalSpace X] [MeasurableSpace X] [OpensMeasurableSp
 
 ### laplace_gap_tail_bound
 
-theorem; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/LaplaceCountTightness.lean:19)
+theorem; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/Section4LaplaceCountTightness.lean:19)
 
 Markov's inequality for the bounded Laplace gap, with no first-moment
 assumption on the nonnegative random variable.
@@ -6149,7 +6149,7 @@ theorem laplace_gap_tail_bound
 
 ### nonneg_laplace_tightness
 
-theorem; [source line 51](D:/princeton/Research/Lean/Lean_luce/Luce/LaplaceCountTightness.lean:51)
+theorem; [source line 51](D:/princeton/Research/Lean/Lean_luce/Luce/Section4LaplaceCountTightness.lean:51)
 
 Laplace convergence to a transform continuous at zero forces eventual
 tightness of any row of nonnegative random variables.
@@ -6169,7 +6169,7 @@ theorem nonneg_laplace_tightness
 
 ### nonneg_laplace_tendsto_zero
 
-theorem; [source line 83](D:/princeton/Research/Lean/Lean_luce/Luce/LaplaceCountTightness.lean:83)
+theorem; [source line 83](D:/princeton/Research/Lean/Lean_luce/Luce/Section4LaplaceCountTightness.lean:83)
 
 The Laplace transform of a proper law of finite nonnegative variables
 is right-continuous at zero, independently of its expectation.
@@ -6184,7 +6184,7 @@ theorem nonneg_laplace_tendsto_zero
 
 ### momentLaplace_const_pointMoment
 
-theorem; [source line 110](D:/princeton/Research/Lean/Lean_luce/Luce/LaplaceCountTightness.lean:110)
+theorem; [source line 110](D:/princeton/Research/Lean/Lean_luce/Luce/Section4LaplaceCountTightness.lean:110)
 
 The constant Laplace coordinate is the ordinary total-mass Laplace test.
 
@@ -6196,7 +6196,7 @@ theorem momentLaplace_const_pointMoment (t : ℝ≥0) (ξ : FinitePointMeasure X
 
 ### pointMeasure_tightness_of_laplace
 
-theorem; [source line 123](D:/princeton/Research/Lean/Lean_luce/Luce/LaplaceCountTightness.lean:123)
+theorem; [source line 123](D:/princeton/Research/Lean/Lean_luce/Luce/Section4LaplaceCountTightness.lean:123)
 
 Laplace convergence to any probability law on finite point measures
 already supplies the total-count tightness required by the law-convergence
@@ -6214,9 +6214,9 @@ theorem pointMeasure_tightness_of_laplace
 ```
 
 
-## Luce/LikelihoodSecondMoment.lean
+## Luce/Section2LikelihoodSecondMoment.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/LikelihoodSecondMoment.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LikelihoodSecondMoment.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -6229,7 +6229,7 @@ variable {Ω : Type*} {mΩ : MeasurableSpace Ω} {μ : Measure Ω}
 
 ### likelihood_bounds_of_terminal_cap
 
-lemma; [source line 23](D:/princeton/Research/Lean/Lean_luce/Luce/LikelihoodSecondMoment.lean:23)
+lemma; [source line 23](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LikelihoodSecondMoment.lean:23)
 
 ```lean
 private lemma likelihood_bounds_of_terminal_cap {δ K : ℝ} (hδ : δ < 1)
@@ -6243,7 +6243,7 @@ private lemma likelihood_bounds_of_terminal_cap {δ K : ℝ} (hδ : δ < 1)
 
 ### integrable_likelihood_sq
 
-theorem; [source line 35](D:/princeton/Research/Lean/Lean_luce/Luce/LikelihoodSecondMoment.lean:35)
+theorem; [source line 35](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LikelihoodSecondMoment.lean:35)
 
 The capped likelihood has an integrable square at every prefix.
 
@@ -6258,7 +6258,7 @@ theorem integrable_likelihood_sq {δ K : ℝ} (hδ : δ < 1)
 
 ### integral_likelihood_sq_le
 
-theorem; [source line 53](D:/princeton/Research/Lean/Lean_luce/Luce/LikelihoodSecondMoment.lean:53)
+theorem; [source line 53](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LikelihoodSecondMoment.lean:53)
 
 Uniform second-moment estimate in the manuscript's form
 `E[L_m²] ≤ exp(Cδ * K)`, with `Cδ = 1 / (1 - δ)`.
@@ -6276,7 +6276,7 @@ theorem integral_likelihood_sq_le {δ K : ℝ} (hδ : δ < 1)
 
 ### stopped_integral_likelihood_sq_le
 
-theorem; [source line 73](D:/princeton/Research/Lean/Lean_luce/Luce/LikelihoodSecondMoment.lean:73)
+theorem; [source line 73](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LikelihoodSecondMoment.lean:73)
 
 The manuscript's predictable deletion construction supplies the caps,
 so the second-moment bound is uniform over every time of a stopped row.
@@ -6289,9 +6289,9 @@ theorem stopped_integral_likelihood_sq_le {δ K : ℝ} (hδ0 : 0 ≤ δ)
 ```
 
 
-## Luce/LuceMassRecursion.lean
+## Luce/Section2LuceMassRecursion.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/LuceMassRecursion.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LuceMassRecursion.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -6302,7 +6302,7 @@ namespace Luce.Weights
 
 ### removeFirst
 
-def; [source line 9](D:/princeton/Research/Lean/Lean_luce/Luce/LuceMassRecursion.lean:9)
+def; [source line 9](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LuceMassRecursion.lean:9)
 
 Weights remaining after selecting `p`, relabelled by swapping `p` with zero.
 
@@ -6314,7 +6314,7 @@ def removeFirst {n : ℕ} (w : Weights (n + 1)) (p : Fin (n + 1)) : Weights n wh
 
 ### sum_rate_perm
 
-lemma; [source line 13](D:/princeton/Research/Lean/Lean_luce/Luce/LuceMassRecursion.lean:13)
+lemma; [source line 13](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LuceMassRecursion.lean:13)
 
 ```lean
 lemma sum_rate_perm {n : ℕ} (w : Weights n) (π : Equiv.Perm (Fin n)) :
@@ -6323,7 +6323,7 @@ lemma sum_rate_perm {n : ℕ} (w : Weights n) (π : Equiv.Perm (Fin n)) :
 
 ### decomposeFin_tail_sum
 
-lemma; [source line 17](D:/princeton/Research/Lean/Lean_luce/Luce/LuceMassRecursion.lean:17)
+lemma; [source line 17](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LuceMassRecursion.lean:17)
 
 ```lean
 lemma decomposeFin_tail_sum {n : ℕ} (w : Weights (n + 1))
@@ -6335,7 +6335,7 @@ lemma decomposeFin_tail_sum {n : ℕ} (w : Weights (n + 1))
 
 ### mass_decomposeFin
 
-theorem; [source line 27](D:/princeton/Research/Lean/Lean_luce/Luce/LuceMassRecursion.lean:27)
+theorem; [source line 27](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LuceMassRecursion.lean:27)
 
 Splitting a Luce permutation mass into its first draw and remaining mass.
 
@@ -6348,7 +6348,7 @@ theorem mass_decomposeFin {n : ℕ} (w : Weights (n + 1))
 
 ### sum_mass
 
-theorem; [source line 41](D:/princeton/Research/Lean/Lean_luce/Luce/LuceMassRecursion.lean:41)
+theorem; [source line 41](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LuceMassRecursion.lean:41)
 
 The defining Luce masses sum to one over all permutations.
 
@@ -6358,9 +6358,9 @@ theorem sum_mass {n : ℕ} (w : Weights n) :
 ```
 
 
-## Luce/LuceNextDraw.lean
+## Luce/Section2LuceNextDraw.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/LuceNextDraw.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LuceNextDraw.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -6372,7 +6372,7 @@ namespace Luce
 
 ### prefixAgrees_succ_iff
 
-lemma; [source line 16](D:/princeton/Research/Lean/Lean_luce/Luce/LuceNextDraw.lean:16)
+lemma; [source line 16](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LuceNextDraw.lean:16)
 
 ```lean
 lemma prefixAgrees_succ_iff {n : ℕ} (σ τ : Equiv.Perm (Fin n)) (k : Fin n) :
@@ -6382,7 +6382,7 @@ lemma prefixAgrees_succ_iff {n : ℕ} (σ τ : Equiv.Perm (Fin n)) (k : Fin n) :
 
 ### sum_mass_prefix_next
 
-theorem; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/LuceNextDraw.lean:28)
+theorem; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LuceNextDraw.lean:28)
 
 Total mass of all completions with a specified next draw.
 
@@ -6396,7 +6396,7 @@ theorem sum_mass_prefix_next {n : ℕ} (w : Weights n)
 
 ### fixed_point_mass_fiber_identity
 
-theorem; [source line 68](D:/princeton/Research/Lean/Lean_luce/Luce/LuceNextDraw.lean:68)
+theorem; [source line 68](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LuceNextDraw.lean:68)
 
 The finite history-fiber identity for the fixed-point indicator.
 
@@ -6413,9 +6413,9 @@ theorem fixed_point_mass_fiber_identity {n : ℕ} (w : Weights n)
 ```
 
 
-## Luce/LucePrefixMass.lean
+## Luce/Section2LucePrefixMass.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/LucePrefixMass.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LucePrefixMass.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -6427,7 +6427,7 @@ namespace Luce
 
 ### sum_mass_prefix
 
-theorem; [source line 10](D:/princeton/Research/Lean/Lean_luce/Luce/LucePrefixMass.lean:10)
+theorem; [source line 10](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LucePrefixMass.lean:10)
 
 Summing the defining permutation masses over all completions of a prefix
 gives exactly its truncated Luce product.
@@ -6440,9 +6440,9 @@ theorem sum_mass_prefix {n : ℕ} (w : Weights n)
 ```
 
 
-## Luce/LucePrefixRecursion.lean
+## Luce/Section2LucePrefixRecursion.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/LucePrefixRecursion.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LucePrefixRecursion.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -6453,7 +6453,7 @@ namespace Luce
 
 ### prefixAgrees
 
-def; [source line 14](D:/princeton/Research/Lean/Lean_luce/Luce/LucePrefixRecursion.lean:14)
+def; [source line 14](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LucePrefixRecursion.lean:14)
 
 Agreement on precisely the first `m` draw positions.
 
@@ -6464,7 +6464,7 @@ def prefixAgrees {n : ℕ} (σ τ : Equiv.Perm (Fin n)) (m : ℕ) : Prop :=
 
 ### prefixMass
 
-def; [source line 18](D:/princeton/Research/Lean/Lean_luce/Luce/LucePrefixRecursion.lean:18)
+def; [source line 18](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LucePrefixRecursion.lean:18)
 
 The product of the first `m` factors in the defining Luce mass.
 
@@ -6477,7 +6477,7 @@ noncomputable def prefixMass {n : ℕ} (w : Weights n)
 
 ### prefixAgrees_zero
 
-lemma; [source line 23](D:/princeton/Research/Lean/Lean_luce/Luce/LucePrefixRecursion.lean:23)
+lemma; [source line 23](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LucePrefixRecursion.lean:23)
 
 ```lean
 lemma prefixAgrees_zero {n : ℕ} (σ τ : Equiv.Perm (Fin n)) : prefixAgrees σ τ 0
@@ -6485,7 +6485,7 @@ lemma prefixAgrees_zero {n : ℕ} (σ τ : Equiv.Perm (Fin n)) : prefixAgrees σ
 
 ### prefixAgrees_self
 
-lemma; [source line 26](D:/princeton/Research/Lean/Lean_luce/Luce/LucePrefixRecursion.lean:26)
+lemma; [source line 26](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LucePrefixRecursion.lean:26)
 
 ```lean
 lemma prefixAgrees_self {n : ℕ} (σ : Equiv.Perm (Fin n)) (m : ℕ) :
@@ -6494,7 +6494,7 @@ lemma prefixAgrees_self {n : ℕ} (σ : Equiv.Perm (Fin n)) (m : ℕ) :
 
 ### prefixMass_zero
 
-lemma; [source line 29](D:/princeton/Research/Lean/Lean_luce/Luce/LucePrefixRecursion.lean:29)
+lemma; [source line 29](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LucePrefixRecursion.lean:29)
 
 ```lean
 lemma prefixMass_zero {n : ℕ} (w : Weights n) (σ : Equiv.Perm (Fin n)) :
@@ -6503,7 +6503,7 @@ lemma prefixMass_zero {n : ℕ} (w : Weights n) (σ : Equiv.Perm (Fin n)) :
 
 ### prefixMass_full
 
-lemma; [source line 32](D:/princeton/Research/Lean/Lean_luce/Luce/LucePrefixRecursion.lean:32)
+lemma; [source line 32](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LucePrefixRecursion.lean:32)
 
 ```lean
 lemma prefixMass_full {n : ℕ} (w : Weights n) (σ : Equiv.Perm (Fin n)) :
@@ -6512,7 +6512,7 @@ lemma prefixMass_full {n : ℕ} (w : Weights n) (σ : Equiv.Perm (Fin n)) :
 
 ### prefixAgrees_decomposeFin
 
-lemma; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/LucePrefixRecursion.lean:36)
+lemma; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LucePrefixRecursion.lean:36)
 
 Removing the first draw leaves the same agreement condition on the tail.
 
@@ -6526,7 +6526,7 @@ lemma prefixAgrees_decomposeFin {n : ℕ} (p q : Fin (n + 1))
 
 ### prefixMass_decomposeFin
 
-lemma; [source line 56](D:/princeton/Research/Lean/Lean_luce/Luce/LucePrefixRecursion.lean:56)
+lemma; [source line 56](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LucePrefixRecursion.lean:56)
 
 The first partial-product factor splits off with the same reduced weights
 as the full Luce mass.
@@ -6539,9 +6539,9 @@ lemma prefixMass_decomposeFin {n : ℕ} (w : Weights (n + 1))
 ```
 
 
-## Luce/LucePrefixTransition.lean
+## Luce/Section2LucePrefixTransition.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/LucePrefixTransition.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LucePrefixTransition.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -6552,7 +6552,7 @@ namespace Luce
 
 ### remaining_total_eq_tail_sum
 
-theorem; [source line 15](D:/princeton/Research/Lean/Lean_luce/Luce/LucePrefixTransition.lean:15)
+theorem; [source line 15](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LucePrefixTransition.lean:15)
 
 ```lean
 theorem remaining_total_eq_tail_sum {n : ℕ} (w : Weights n)
@@ -6563,7 +6563,7 @@ theorem remaining_total_eq_tail_sum {n : ℕ} (w : Weights n)
 
 ### prefixMass_succ
 
-theorem; [source line 24](D:/princeton/Research/Lean/Lean_luce/Luce/LucePrefixTransition.lean:24)
+theorem; [source line 24](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LucePrefixTransition.lean:24)
 
 ```lean
 theorem prefixMass_succ {n : ℕ} (w : Weights n)
@@ -6574,7 +6574,7 @@ theorem prefixMass_succ {n : ℕ} (w : Weights n)
 
 ### prefixMass_eq_of_prefix_agreement
 
-theorem; [source line 42](D:/princeton/Research/Lean/Lean_luce/Luce/LucePrefixTransition.lean:42)
+theorem; [source line 42](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LucePrefixTransition.lean:42)
 
 Agreement on the prefix fixes every factor in its partial Luce mass.
 The identity holds even when `m ≥ n`, since both prefixes then include all
@@ -6588,7 +6588,7 @@ theorem prefixMass_eq_of_prefix_agreement {n : ℕ} (w : Weights n)
 
 ### exists_prefixAgrees_next_eq
 
-theorem; [source line 57](D:/princeton/Research/Lean/Lean_luce/Luce/LucePrefixTransition.lean:57)
+theorem; [source line 57](D:/princeton/Research/Lean/Lean_luce/Luce/Section2LucePrefixTransition.lean:57)
 
 Any available label can be chosen next while preserving all preceding
 draws. The representative is obtained by swapping that label with the
@@ -6601,9 +6601,9 @@ theorem exists_prefixAgrees_next_eq {n : ℕ} (σ : Equiv.Perm (Fin n))
 ```
 
 
-## Luce/Model.lean
+## Luce/Section1Model.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -6616,7 +6616,7 @@ variable {n : ℕ} (w : Weights n)
 
 ### Weights
 
-structure; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:22)
+structure; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:22)
 
 A finite family of strictly positive Luce weights.
 
@@ -6628,7 +6628,7 @@ structure Weights (n : ℕ) where
 
 ### scale
 
-def; [source line 31](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:31)
+def; [source line 31](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:31)
 
 Multiplying every rate by the same positive constant.
 
@@ -6640,7 +6640,7 @@ def scale (c : ℝ) (hc : 0 < c) : Weights n where
 
 ### total
 
-def; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:36)
+def; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:36)
 
 Total weight of a set of remaining labels.
 
@@ -6650,7 +6650,7 @@ noncomputable def total (s : Finset (Fin n)) : ℝ := ∑ i ∈ s, w.rate i
 
 ### total_nonneg
 
-lemma; [source line 38](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:38)
+lemma; [source line 38](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:38)
 
 ```lean
 lemma total_nonneg (s : Finset (Fin n)) : 0 ≤ w.total s
@@ -6658,7 +6658,7 @@ lemma total_nonneg (s : Finset (Fin n)) : 0 ≤ w.total s
 
 ### total_pos
 
-lemma; [source line 41](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:41)
+lemma; [source line 41](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:41)
 
 ```lean
 lemma total_pos {s : Finset (Fin n)} (hs : s.Nonempty) : 0 < w.total s
@@ -6666,7 +6666,7 @@ lemma total_pos {s : Finset (Fin n)} (hs : s.Nonempty) : 0 < w.total s
 
 ### rate_le_total
 
-lemma; [source line 44](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:44)
+lemma; [source line 44](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:44)
 
 ```lean
 lemma rate_le_total {s : Finset (Fin n)} {i : Fin n} (hi : i ∈ s) :
@@ -6675,7 +6675,7 @@ lemma rate_le_total {s : Finset (Fin n)} {i : Fin n} (hi : i ∈ s) :
 
 ### choice
 
-def; [source line 49](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:49)
+def; [source line 49](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:49)
 
 Proportional choice from a finite set; a removed label has chance zero.
 
@@ -6686,7 +6686,7 @@ noncomputable def choice (s : Finset (Fin n)) (i : Fin n) : ℝ :=
 
 ### choice_nonneg
 
-lemma; [source line 52](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:52)
+lemma; [source line 52](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:52)
 
 ```lean
 lemma choice_nonneg (s : Finset (Fin n)) (i : Fin n) : 0 ≤ w.choice s i
@@ -6694,7 +6694,7 @@ lemma choice_nonneg (s : Finset (Fin n)) (i : Fin n) : 0 ≤ w.choice s i
 
 ### choice_le_one
 
-lemma; [source line 58](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:58)
+lemma; [source line 58](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:58)
 
 ```lean
 lemma choice_le_one (s : Finset (Fin n)) (i : Fin n) : w.choice s i ≤ 1
@@ -6702,7 +6702,7 @@ lemma choice_le_one (s : Finset (Fin n)) (i : Fin n) : w.choice s i ≤ 1
 
 ### sum_choice
 
-lemma; [source line 64](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:64)
+lemma; [source line 64](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:64)
 
 ```lean
 lemma sum_choice {s : Finset (Fin n)} (hs : s.Nonempty) :
@@ -6711,7 +6711,7 @@ lemma sum_choice {s : Finset (Fin n)} (hs : s.Nonempty) :
 
 ### total_scale
 
-lemma; [source line 72](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:72)
+lemma; [source line 72](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:72)
 
 ```lean
 lemma total_scale (c : ℝ) (hc : 0 < c) (s : Finset (Fin n)) :
@@ -6720,7 +6720,7 @@ lemma total_scale (c : ℝ) (hc : 0 < c) (s : Finset (Fin n)) :
 
 ### choice_scale
 
-lemma; [source line 76](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:76)
+lemma; [source line 76](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:76)
 
 ```lean
 lemma choice_scale (c : ℝ) (hc : 0 < c) (s : Finset (Fin n)) (i : Fin n) :
@@ -6729,7 +6729,7 @@ lemma choice_scale (c : ℝ) (hc : 0 < c) (s : Finset (Fin n)) (i : Fin n) :
 
 ### mass
 
-def; [source line 86](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:86)
+def; [source line 86](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:86)
 
 Equation `eq:luce-law`, with zero-based labels and positions.
 
@@ -6740,7 +6740,7 @@ noncomputable def mass (π : Equiv.Perm (Fin n)) : ℝ :=
 
 ### mass_pos
 
-lemma; [source line 89](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:89)
+lemma; [source line 89](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:89)
 
 ```lean
 lemma mass_pos (π : Equiv.Perm (Fin n)) : 0 < w.mass π
@@ -6748,7 +6748,7 @@ lemma mass_pos (π : Equiv.Perm (Fin n)) : 0 < w.mass π
 
 ### mass_scale
 
-lemma; [source line 97](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:97)
+lemma; [source line 97](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:97)
 
 ```lean
 lemma mass_scale (c : ℝ) (hc : 0 < c) (π : Equiv.Perm (Fin n)) :
@@ -6757,7 +6757,7 @@ lemma mass_scale (c : ℝ) (hc : 0 < c) (π : Equiv.Perm (Fin n)) :
 
 ### remaining
 
-def; [source line 108](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:108)
+def; [source line 108](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:108)
 
 Labels that have not been drawn immediately before position `k`.
 
@@ -6768,7 +6768,7 @@ def remaining {n : ℕ} (π : Equiv.Perm (Fin n)) (k : Fin n) : Finset (Fin n) :
 
 ### inverse_fixed_iff
 
-lemma; [source line 112](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:112)
+lemma; [source line 112](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:112)
 
 The draw order and its inverse have exactly the same fixed labels.
 
@@ -6779,7 +6779,7 @@ lemma inverse_fixed_iff {n : ℕ} (π : Equiv.Perm (Fin n)) (i : Fin n) :
 
 ### fixedCount
 
-def; [source line 123](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:123)
+def; [source line 123](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:123)
 
 Equation `eq:fixed-process`: total number of fixed labels.
 
@@ -6790,7 +6790,7 @@ def fixedCount {n : ℕ} (π : Equiv.Perm (Fin n)) : ℕ :=
 
 ### fixedCount_inverse
 
-lemma; [source line 126](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:126)
+lemma; [source line 126](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:126)
 
 ```lean
 lemma fixedCount_inverse {n : ℕ} (π : Equiv.Perm (Fin n)) :
@@ -6799,7 +6799,7 @@ lemma fixedCount_inverse {n : ℕ} (π : Equiv.Perm (Fin n)) :
 
 ### remaining_nonempty
 
-lemma; [source line 130](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:130)
+lemma; [source line 130](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:130)
 
 ```lean
 lemma remaining_nonempty {n : ℕ} (π : Equiv.Perm (Fin n)) (k : Fin n) :
@@ -6808,7 +6808,7 @@ lemma remaining_nonempty {n : ℕ} (π : Equiv.Perm (Fin n)) (k : Fin n) :
 
 ### predictableChance
 
-def; [source line 134](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:134)
+def; [source line 134](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:134)
 
 The explicit predictable probability in `eq:predictable-p`.
 
@@ -6820,7 +6820,7 @@ noncomputable def predictableChance {n : ℕ} (w : Weights n)
 
 ### predictableChance_formula
 
-lemma; [source line 138](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:138)
+lemma; [source line 138](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:138)
 
 ```lean
 lemma predictableChance_formula {n : ℕ} (w : Weights n)
@@ -6831,7 +6831,7 @@ lemma predictableChance_formula {n : ℕ} (w : Weights n)
 
 ### predictableChance_le_rate_div
 
-lemma; [source line 144](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:144)
+lemma; [source line 144](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:144)
 
 ```lean
 lemma predictableChance_le_rate_div {n : ℕ} (w : Weights n)
@@ -6841,7 +6841,7 @@ lemma predictableChance_le_rate_div {n : ℕ} (w : Weights n)
 
 ### survivorSet
 
-def; [source line 153](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:153)
+def; [source line 153](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:153)
 
 The clocks that survive strictly beyond time `t`.
 
@@ -6852,7 +6852,7 @@ noncomputable def survivorSet {n : ℕ} (times : Fin n → ℝ) (t : ℝ) :
 
 ### raceRank
 
-def; [source line 157](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:157)
+def; [source line 157](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:157)
 
 The one-based rank representation in `eq:rank-representation`.
 
@@ -6863,7 +6863,7 @@ noncomputable def raceRank {n : ℕ} (times : Fin n → ℝ) (i : Fin n) : ℕ :
 
 ### raceRank_add_survivors
 
-lemma; [source line 162](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:162)
+lemma; [source line 162](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:162)
 
 For distinct clocks, arrivals before `i`, survivors after `i`, and `i`
 partition the labels.
@@ -6876,7 +6876,7 @@ lemma raceRank_add_survivors {n : ℕ} (times : Fin n → ℝ)
 
 ### raceRank_eq_iff_survivors
 
-lemma; [source line 190](D:/princeton/Research/Lean/Lean_luce/Luce/Model.lean:190)
+lemma; [source line 190](D:/princeton/Research/Lean/Lean_luce/Luce/Section1Model.lean:190)
 
 ```lean
 lemma raceRank_eq_iff_survivors {n : ℕ} (times : Fin n → ℝ)
@@ -6885,9 +6885,9 @@ lemma raceRank_eq_iff_survivors {n : ℕ} (times : Fin n → ℝ)
 ```
 
 
-## Luce/PointMeasureLaplace.lean
+## Luce/Section2PointMeasureLaplace.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLaplace.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLaplace.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -6902,7 +6902,7 @@ variable [MeasurableSpace X] [OpensMeasurableSpace X]
 
 ### PointMomentSpace
 
-abbrev; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLaplace.lean:19)
+abbrev; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLaplace.lean:19)
 
 ```lean
 abbrev PointMomentSpace (X : Type*) [TopologicalSpace X] :=
@@ -6911,7 +6911,7 @@ abbrev PointMomentSpace (X : Type*) [TopologicalSpace X] :=
 
 ### momentLaplace
 
-def; [source line 24](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLaplace.lean:24)
+def; [source line 24](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLaplace.lean:24)
 
 A bounded nonnegative spatial test gives a continuous Laplace coordinate
 on the moment space.
@@ -6925,7 +6925,7 @@ noncomputable def momentLaplace (g : X →ᵇ ℝ≥0) : C(PointMomentSpace X, �
 
 ### momentLaplace_apply
 
-theorem; [source line 29](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLaplace.lean:29)
+theorem; [source line 29](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLaplace.lean:29)
 
 ```lean
 @[simp] theorem momentLaplace_apply (g : X →ᵇ ℝ≥0) (u : PointMomentSpace X) :
@@ -6934,7 +6934,7 @@ theorem; [source line 29](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasure
 
 ### momentLaplace_zero
 
-theorem; [source line 32](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLaplace.lean:32)
+theorem; [source line 32](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLaplace.lean:32)
 
 ```lean
 @[simp] theorem momentLaplace_zero : momentLaplace (0 : X →ᵇ ℝ≥0) = 1
@@ -6942,7 +6942,7 @@ theorem; [source line 32](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasure
 
 ### momentLaplace_add
 
-theorem; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLaplace.lean:36)
+theorem; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLaplace.lean:36)
 
 ```lean
 theorem momentLaplace_add (g h : X →ᵇ ℝ≥0) :
@@ -6951,7 +6951,7 @@ theorem momentLaplace_add (g h : X →ᵇ ℝ≥0) :
 
 ### momentLaplaceMonoid
 
-def; [source line 42](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLaplace.lean:42)
+def; [source line 42](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLaplace.lean:42)
 
 Products of Laplace coordinates are again Laplace coordinates.
 
@@ -6966,7 +6966,7 @@ noncomputable def momentLaplaceMonoid : Submonoid C(PointMomentSpace X, ℝ) whe
 
 ### momentLaplaceAlgebra
 
-def; [source line 50](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLaplace.lean:50)
+def; [source line 50](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLaplace.lean:50)
 
 The algebra generated by the Laplace coordinates.
 
@@ -6977,7 +6977,7 @@ noncomputable def momentLaplaceAlgebra : Subalgebra ℝ C(PointMomentSpace X, �
 
 ### momentLaplaceAlgebra_eq_span
 
-theorem; [source line 53](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLaplace.lean:53)
+theorem; [source line 53](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLaplace.lean:53)
 
 ```lean
 theorem momentLaplaceAlgebra_eq_span :
@@ -6987,7 +6987,7 @@ theorem momentLaplaceAlgebra_eq_span :
 
 ### momentLaplaceAlgebra_separatesPoints
 
-theorem; [source line 59](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLaplace.lean:59)
+theorem; [source line 59](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLaplace.lean:59)
 
 ```lean
 theorem momentLaplaceAlgebra_separatesPoints :
@@ -6996,7 +6996,7 @@ theorem momentLaplaceAlgebra_separatesPoints :
 
 ### norm_momentLaplace_le_one
 
-theorem; [source line 68](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLaplace.lean:68)
+theorem; [source line 68](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLaplace.lean:68)
 
 ```lean
 theorem norm_momentLaplace_le_one (g : X →ᵇ ℝ≥0) (u : PointMomentSpace X) :
@@ -7005,7 +7005,7 @@ theorem norm_momentLaplace_le_one (g : X →ᵇ ℝ≥0) (u : PointMomentSpace X
 
 ### momentLaplaceAlgebra_bounded
 
-theorem; [source line 75](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLaplace.lean:75)
+theorem; [source line 75](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLaplace.lean:75)
 
 Every Laplace polynomial is globally bounded, before restricting to
 any compact set of point measures.
@@ -7018,7 +7018,7 @@ theorem momentLaplaceAlgebra_bounded (a : C(PointMomentSpace X, ℝ))
 
 ### pointMoment
 
-def; [source line 102](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLaplace.lean:102)
+def; [source line 102](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLaplace.lean:102)
 
 The weak moment map on actual finite point measures.
 
@@ -7029,7 +7029,7 @@ noncomputable def pointMoment (μ : FinitePointMeasure X) : PointMomentSpace X :
 
 ### continuous_pointMoment
 
-theorem; [source line 105](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLaplace.lean:105)
+theorem; [source line 105](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLaplace.lean:105)
 
 ```lean
 theorem continuous_pointMoment : Continuous (pointMoment (X := X))
@@ -7037,7 +7037,7 @@ theorem continuous_pointMoment : Continuous (pointMoment (X := X))
 
 ### isInducing_pointMoment
 
-theorem; [source line 109](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLaplace.lean:109)
+theorem; [source line 109](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLaplace.lean:109)
 
 ```lean
 theorem isInducing_pointMoment : IsInducing (pointMoment (X := X))
@@ -7045,7 +7045,7 @@ theorem isInducing_pointMoment : IsInducing (pointMoment (X := X))
 
 ### measurable_momentLaplace_pointMoment
 
-theorem; [source line 115](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLaplace.lean:115)
+theorem; [source line 115](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLaplace.lean:115)
 
 ```lean
 theorem measurable_momentLaplace_pointMoment (g : X →ᵇ ℝ≥0) :
@@ -7054,7 +7054,7 @@ theorem measurable_momentLaplace_pointMoment (g : X →ᵇ ℝ≥0) :
 
 ### measurable_momentLaplaceAlgebra_pointMoment
 
-theorem; [source line 123](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLaplace.lean:123)
+theorem; [source line 123](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLaplace.lean:123)
 
 ```lean
 theorem measurable_momentLaplaceAlgebra_pointMoment (a : C(PointMomentSpace X, ℝ))
@@ -7064,7 +7064,7 @@ theorem measurable_momentLaplaceAlgebra_pointMoment (a : C(PointMomentSpace X, �
 
 ### momentLaplace_pointMoment_eq_pointLaplace
 
-theorem; [source line 138](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLaplace.lean:138)
+theorem; [source line 138](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLaplace.lean:138)
 
 ```lean
 theorem momentLaplace_pointMoment_eq_pointLaplace (g : X →ᵇ ℝ≥0)
@@ -7073,9 +7073,9 @@ theorem momentLaplace_pointMoment_eq_pointLaplace (g : X →ᵇ ℝ≥0)
 ```
 
 
-## Luce/PointMeasureLawConvergence.lean
+## Luce/Section2PointMeasureLawConvergence.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLawConvergence.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLawConvergence.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -7088,7 +7088,7 @@ variable {X : Type*} [TopologicalSpace X] [MeasurableSpace X] [OpensMeasurableSp
 
 ### measurable_pointMeasure_mass
 
-theorem; [source line 21](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLawConvergence.lean:21)
+theorem; [source line 21](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLawConvergence.lean:21)
 
 ```lean
 theorem measurable_pointMeasure_mass :
@@ -7097,7 +7097,7 @@ theorem measurable_pointMeasure_mass :
 
 ### pointMeasure_eventually_mass_le
 
-theorem; [source line 27](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLawConvergence.lean:27)
+theorem; [source line 27](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLawConvergence.lean:27)
 
 ```lean
 theorem pointMeasure_eventually_mass_le (s : FinitePointMeasure X) :
@@ -7106,7 +7106,7 @@ theorem pointMeasure_eventually_mass_le (s : FinitePointMeasure X) :
 
 ### measurable_boundedContinuous_pointMeasure
 
-theorem; [source line 40](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLawConvergence.lean:40)
+theorem; [source line 40](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLawConvergence.lean:40)
 
 Every bounded weak-continuous real test is evaluation measurable on the
 space of finite point measures, including for arbitrary compact spaces.
@@ -7118,7 +7118,7 @@ theorem measurable_boundedContinuous_pointMeasure [CompactSpace X]
 
 ### pointMeasure_mass_tail_tendsto_zero
 
-theorem; [source line 51](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLawConvergence.lean:51)
+theorem; [source line 51](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLawConvergence.lean:51)
 
 The total-mass tails of any finite law on finite point measures tend to
 zero. No expected-mass or regularity hypothesis on the law is needed.
@@ -7132,7 +7132,7 @@ theorem pointMeasure_mass_tail_tendsto_zero
 
 ### integrable_momentLaplaceAlgebra_pointMoment
 
-theorem; [source line 73](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLawConvergence.lean:73)
+theorem; [source line 73](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLawConvergence.lean:73)
 
 ```lean
 theorem integrable_momentLaplaceAlgebra_pointMoment
@@ -7143,7 +7143,7 @@ theorem integrable_momentLaplaceAlgebra_pointMoment
 
 ### tendsto_integral_momentLaplaceAlgebra
 
-theorem; [source line 84](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLawConvergence.lean:84)
+theorem; [source line 84](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLawConvergence.lean:84)
 
 Products of Laplace coordinates are again coordinates, so convergence
 extends to their entire algebra by linearity of the integral.
@@ -7162,7 +7162,7 @@ theorem tendsto_integral_momentLaplaceAlgebra
 
 ### pointMeasure_law_convergence_of_laplace
 
-theorem; [source line 120](D:/princeton/Research/Lean/Lean_luce/Luce/PointMeasureLawConvergence.lean:120)
+theorem; [source line 120](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PointMeasureLawConvergence.lean:120)
 
 Laplace convergence plus eventual tightness of total counts yields the
 full bounded-continuous-test conclusion for laws of finite point measures.
@@ -7181,9 +7181,9 @@ theorem pointMeasure_law_convergence_of_laplace [CompactSpace X]
 ```
 
 
-## Luce/PoissonCriterion.lean
+## Luce/Section2PoissonCriterion.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/PoissonCriterion.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PoissonCriterion.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -7195,7 +7195,7 @@ namespace Luce
 
 ### predictable_poisson
 
-theorem; [source line 25](D:/princeton/Research/Lean/Lean_luce/Luce/PoissonCriterion.lean:25)
+theorem; [source line 25](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PoissonCriterion.lean:25)
 
 The full finite-row predictable Poisson random-measure criterion.
 No independence between observations, deterministic probability caps,
@@ -7219,9 +7219,9 @@ theorem predictable_poisson
 ```
 
 
-## Luce/PoissonMixture.lean
+## Luce/Section2PoissonMixture.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/PoissonMixture.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PoissonMixture.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -7233,7 +7233,7 @@ namespace Luce
 
 ### poissonMixture
 
-def; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/PoissonMixture.lean:20)
+def; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PoissonMixture.lean:20)
 
 A probability mixture whose component index has the scalar Poisson law.
 
@@ -7245,7 +7245,7 @@ noncomputable def poissonMixture {E : Type*} [MeasurableSpace E]
 
 ### instance at line 24
 
-instance; [source line 24](D:/princeton/Research/Lean/Lean_luce/Luce/PoissonMixture.lean:24)
+instance; [source line 24](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PoissonMixture.lean:24)
 
 ```lean
 instance poissonMixture_isProbabilityMeasure {E : Type*} [MeasurableSpace E]
@@ -7257,7 +7257,7 @@ instance poissonMixture_isProbabilityMeasure {E : Type*} [MeasurableSpace E]
 
 ### integrable_of_zero_le_le_one
 
-lemma; [source line 30](D:/princeton/Research/Lean/Lean_luce/Luce/PoissonMixture.lean:30)
+lemma; [source line 30](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PoissonMixture.lean:30)
 
 ```lean
 private lemma integrable_of_zero_le_le_one {E : Type*} [MeasurableSpace E]
@@ -7268,7 +7268,7 @@ private lemma integrable_of_zero_le_le_one {E : Type*} [MeasurableSpace E]
 
 ### integral_pow_poissonMeasure
 
-theorem; [source line 41](D:/princeton/Research/Lean/Lean_luce/Luce/PoissonMixture.lean:41)
+theorem; [source line 41](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PoissonMixture.lean:41)
 
 The scalar Poisson probability-generating function on `[0,1]`, including
 zero rate and zero argument. Integrability is established before using the
@@ -7281,7 +7281,7 @@ theorem integral_pow_poissonMeasure (r : ℝ≥0) {a : ℝ} (ha : 0 ≤ a) (ha1 
 
 ### integrable_poissonMixture
 
-theorem; [source line 64](D:/princeton/Research/Lean/Lean_luce/Luce/PoissonMixture.lean:64)
+theorem; [source line 64](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PoissonMixture.lean:64)
 
 A bounded measurable test is integrable under the Poisson mixture.
 
@@ -7294,7 +7294,7 @@ theorem integrable_poissonMixture {E : Type*} [MeasurableSpace E]
 
 ### integral_poissonMixture_of_power
 
-theorem; [source line 73](D:/princeton/Research/Lean/Lean_luce/Luce/PoissonMixture.lean:73)
+theorem; [source line 73](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PoissonMixture.lean:73)
 
 If the test integral in the component with `m` points is `a ^ m`,
 mixing those components with a Poisson count gives the required exponential
@@ -7310,9 +7310,9 @@ theorem integral_poissonMixture_of_power {E : Type*} [MeasurableSpace E]
 ```
 
 
-## Luce/Predictable.lean
+## Luce/Section2Predictable.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Predictable.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Predictable.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -7326,7 +7326,7 @@ variable {Ω : Type*} {mΩ : MeasurableSpace Ω} {μ : Measure Ω}
 
 ### exp_neg_mul_of_zero_one
 
-theorem; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/Predictable.lean:19)
+theorem; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Predictable.lean:19)
 
 The Laplace transform of a zero-one variable is affine in that variable.
 
@@ -7337,7 +7337,7 @@ theorem exp_neg_mul_of_zero_one {b g : ℝ} (hb : b = 0 ∨ b = 1) :
 
 ### bernoulli_likelihood_mean
 
-theorem; [source line 24](D:/princeton/Research/Lean/Lean_luce/Luce/Predictable.lean:24)
+theorem; [source line 24](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Predictable.lean:24)
 
 The normalized Bernoulli likelihood has mean one.
 
@@ -7348,7 +7348,7 @@ theorem bernoulli_likelihood_mean {p q : ℝ} (hd : 1 - p * q ≠ 0) :
 
 ### bernoulli_likelihood_second_moment
 
-theorem; [source line 30](D:/princeton/Research/Lean/Lean_luce/Luce/Predictable.lean:30)
+theorem; [source line 30](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Predictable.lean:30)
 
 The exact second moment used in the stopped likelihood estimate.
 
@@ -7360,7 +7360,7 @@ theorem bernoulli_likelihood_second_moment {p q : ℝ} (hd : 1 - p * q ≠ 0) :
 
 ### likelihood_denominator_pos
 
-theorem; [source line 37](D:/princeton/Research/Lean/Lean_luce/Luce/Predictable.lean:37)
+theorem; [source line 37](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Predictable.lean:37)
 
 Stopping at `p ≤ δ < 1` keeps every likelihood denominator positive.
 
@@ -7371,7 +7371,7 @@ theorem likelihood_denominator_pos {p q δ : ℝ} (hp : 0 ≤ p) (hpδ : p ≤ �
 
 ### bernoulli_likelihood_second_moment_le
 
-theorem; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/Predictable.lean:43)
+theorem; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Predictable.lean:43)
 
 A uniform exponential bound for the second moment of a stopped factor.
 
@@ -7384,7 +7384,7 @@ theorem bernoulli_likelihood_second_moment_le {p q δ : ℝ}
 
 ### condExp_bernoulli_laplace
 
-theorem; [source line 72](D:/princeton/Research/Lean/Lean_luce/Luce/Predictable.lean:72)
+theorem; [source line 72](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Predictable.lean:72)
 
 Conditional Laplace transform identity for an adapted Bernoulli variable.
 
@@ -7398,7 +7398,7 @@ theorem condExp_bernoulli_laplace (hm : m ≤ mΩ) {I p : Ω → ℝ}
 
 ### condExp_normalized_bernoulli
 
-theorem; [source line 90](D:/princeton/Research/Lean/Lean_luce/Luce/Predictable.lean:90)
+theorem; [source line 90](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Predictable.lean:90)
 
 Dividing the conditional Laplace transform by its predictable mean
 produces a conditionally mean-one factor.
@@ -7416,7 +7416,7 @@ theorem condExp_normalized_bernoulli (hm : m ≤ mΩ) {I p : Ω → ℝ}
 
 ### likelihood_product_martingale
 
-theorem; [source line 115](D:/princeton/Research/Lean/Lean_luce/Luce/Predictable.lean:115)
+theorem; [source line 115](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Predictable.lean:115)
 
 Products of adapted, conditionally mean-one factors form a martingale.
 Integrability is explicit; in the stopped construction it follows from the
@@ -7433,7 +7433,7 @@ theorem likelihood_product_martingale (ℱ : Filtration ℕ mΩ) (Y : ℕ → Ω
 
 ### likelihood_product_integral
 
-theorem; [source line 139](D:/princeton/Research/Lean/Lean_luce/Luce/Predictable.lean:139)
+theorem; [source line 139](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Predictable.lean:139)
 
 Every finite likelihood product has expectation one.
 
@@ -7448,7 +7448,7 @@ theorem likelihood_product_integral (ℱ : Filtration ℕ mΩ) (Y : ℕ → Ω �
 
 ### likelihood_integral_error
 
-theorem; [source line 153](D:/princeton/Research/Lean/Lean_luce/Luce/Predictable.lean:153)
+theorem; [source line 153](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Predictable.lean:153)
 
 A bounded mean-one likelihood transfers an `L¹` approximation to its
 weighted expectation. This justifies the expectation passage in Section 2.
@@ -7463,7 +7463,7 @@ theorem likelihood_integral_error {L A : Ω → ℝ} {C c : ℝ}
 
 ### log_one_sub_remainder
 
-theorem; [source line 182](D:/princeton/Research/Lean/Lean_luce/Luce/Predictable.lean:182)
+theorem; [source line 182](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Predictable.lean:182)
 
 Explicit quadratic remainder in the logarithm expansion.
 
@@ -7474,7 +7474,7 @@ theorem log_one_sub_remainder {x δ : ℝ} (hx : 0 ≤ x) (hxδ : x ≤ δ)
 
 ### log_product_remainder
 
-theorem; [source line 194](D:/princeton/Research/Lean/Lean_luce/Luce/Predictable.lean:194)
+theorem; [source line 194](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Predictable.lean:194)
 
 The logarithmic product error is controlled by the largest atom times
 the total compensator. This is the deterministic expansion in Section 2.
@@ -7488,7 +7488,7 @@ theorem log_product_remainder {ι : Type*} (s : Finset ι) (x : ι → ℝ) {δ 
 
 ### exp_sub_le_sub_of_nonpos
 
-theorem; [source line 214](D:/princeton/Research/Lean/Lean_luce/Luce/Predictable.lean:214)
+theorem; [source line 214](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Predictable.lean:214)
 
 Exponentiation on the negative half-line is one-Lipschitz.
 
@@ -7499,7 +7499,7 @@ theorem exp_sub_le_sub_of_nonpos {a b : ℝ} (ha : a ≤ 0) (hb : b ≤ 0) :
 
 ### product_poisson_error
 
-theorem; [source line 232](D:/princeton/Research/Lean/Lean_luce/Luce/Predictable.lean:232)
+theorem; [source line 232](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Predictable.lean:232)
 
 Quantitative Poisson-product approximation for a finite array.
 
@@ -7513,7 +7513,7 @@ theorem product_poisson_error {ι : Type*} (s : Finset ι) (x : ι → ℝ) {δ 
 
 ### inverse_product_le_exp
 
-theorem; [source line 260](D:/princeton/Research/Lean/Lean_luce/Luce/Predictable.lean:260)
+theorem; [source line 260](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Predictable.lean:260)
 
 A deterministic bound for the stopped likelihood, avoiding any independence
 assumption and giving uniform integrability directly.
@@ -7527,7 +7527,7 @@ theorem inverse_product_le_exp {ι : Type*} (s : Finset ι) (x : ι → ℝ) {δ
 
 ### product_poisson_error_of_atom_bound
 
-theorem; [source line 278](D:/princeton/Research/Lean/Lean_luce/Luce/Predictable.lean:278)
+theorem; [source line 278](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Predictable.lean:278)
 
 A form of the product error separating a fixed denominator cap from a
 possibly random upper bound on the largest atom.
@@ -7542,9 +7542,9 @@ theorem product_poisson_error_of_atom_bound {ι : Type*} (s : Finset ι) (x : ι
 ```
 
 
-## Luce/PredictablePoisson.lean
+## Luce/Section2PredictablePoisson.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/PredictablePoisson.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PredictablePoisson.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -7558,7 +7558,7 @@ variable {Ω : ℕ → Type*} [∀ n, MeasurableSpace (Ω n)]
 
 ### capped_laplace_tendsto_rows
 
-theorem; [source line 21](D:/princeton/Research/Lean/Lean_luce/Luce/PredictablePoisson.lean:21)
+theorem; [source line 21](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PredictablePoisson.lean:21)
 
 The capped Laplace criterion on the natural varying row spaces.
 
@@ -7578,9 +7578,9 @@ theorem capped_laplace_tendsto_rows (X : ∀ n, BernoulliProcess (μ n))
 ```
 
 
-## Luce/PredictableProbability.lean
+## Luce/Section2PredictableProbability.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/PredictableProbability.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PredictableProbability.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -7593,7 +7593,7 @@ namespace Luce
 
 ### predictable_fixed_point_probability
 
-theorem; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/PredictableProbability.lean:20)
+theorem; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/Section2PredictableProbability.lean:20)
 
 The exact approved arbitrary-space conditional expectation identity.
 
@@ -7613,9 +7613,9 @@ theorem predictable_fixed_point_probability
 ```
 
 
-## Luce/ProbabilityConvergence.lean
+## Luce/Section2ProbabilityConvergence.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/ProbabilityConvergence.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2ProbabilityConvergence.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -7628,7 +7628,7 @@ variable {Ω : Type*} [MeasurableSpace Ω] {μ : Measure Ω} [IsProbabilityMeasu
 
 ### tendsto_integral_abs_of_bounded_inMeasure
 
-theorem; [source line 21](D:/princeton/Research/Lean/Lean_luce/Luce/ProbabilityConvergence.lean:21)
+theorem; [source line 21](D:/princeton/Research/Lean/Lean_luce/Luce/Section2ProbabilityConvergence.lean:21)
 
 Uniformly bounded random variables converging in probability to a constant
 converge in `L¹` to that constant.
@@ -7643,7 +7643,7 @@ theorem tendsto_integral_abs_of_bounded_inMeasure {A : ℕ → Ω → ℝ} {c B 
 
 ### tendsto_likelihood_integral
 
-theorem; [source line 45](D:/princeton/Research/Lean/Lean_luce/Luce/ProbabilityConvergence.lean:45)
+theorem; [source line 45](D:/princeton/Research/Lean/Lean_luce/Luce/Section2ProbabilityConvergence.lean:45)
 
 A sequence of bounded mean-one likelihoods may multiply the preceding
 convergence even when each likelihood depends on the random variable.
@@ -7661,7 +7661,7 @@ theorem tendsto_likelihood_integral {L A : ℕ → Ω → ℝ} {c B C : ℝ}
 
 ### integral_abs_le_threshold_add_probability
 
-theorem; [source line 71](D:/princeton/Research/Lean/Lean_luce/Luce/ProbabilityConvergence.lean:71)
+theorem; [source line 71](D:/princeton/Research/Lean/Lean_luce/Luce/Section2ProbabilityConvergence.lean:71)
 
 The elementary bounded-convergence estimate, also valid when the
 probability space changes from one row to the next.
@@ -7674,7 +7674,7 @@ theorem integral_abs_le_threshold_add_probability {A : Ω → ℝ} {c B ε : ℝ
 
 ### tendsto_integral_abs_of_bounded_probability
 
-theorem; [source line 100](D:/princeton/Research/Lean/Lean_luce/Luce/ProbabilityConvergence.lean:100)
+theorem; [source line 100](D:/princeton/Research/Lean/Lean_luce/Luce/Section2ProbabilityConvergence.lean:100)
 
 Bounded convergence in probability for triangular arrays on different
 probability spaces, in the real-valued tail-probability formulation.
@@ -7690,9 +7690,9 @@ theorem tendsto_integral_abs_of_bounded_probability
 ```
 
 
-## Luce/Profile.lean
+## Luce/Section3ProfileKernels.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -7707,7 +7707,7 @@ variable {Ω : Type*} [MeasurableSpace Ω] {μ : Measure Ω}
 
 ### survivalKernel
 
-def; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:22)
+def; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:22)
 
 ```lean
 def survivalKernel (t a : ℝ) : ℝ := Real.exp (-t * a)
@@ -7715,7 +7715,7 @@ def survivalKernel (t a : ℝ) : ℝ := Real.exp (-t * a)
 
 ### rateKernel
 
-def; [source line 24](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:24)
+def; [source line 24](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:24)
 
 ```lean
 def rateKernel (t a : ℝ) : ℝ := a * survivalKernel t a
@@ -7723,7 +7723,7 @@ def rateKernel (t a : ℝ) : ℝ := a * survivalKernel t a
 
 ### survivalKernel_pos
 
-lemma; [source line 26](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:26)
+lemma; [source line 26](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:26)
 
 ```lean
 lemma survivalKernel_pos (t a : ℝ) : 0 < survivalKernel t a
@@ -7731,7 +7731,7 @@ lemma survivalKernel_pos (t a : ℝ) : 0 < survivalKernel t a
 
 ### survivalKernel_le_one
 
-lemma; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:28)
+lemma; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:28)
 
 ```lean
 lemma survivalKernel_le_one {t a : ℝ} (ht : 0 ≤ t) (ha : 0 ≤ a) :
@@ -7740,7 +7740,7 @@ lemma survivalKernel_le_one {t a : ℝ} (ht : 0 ≤ t) (ha : 0 ≤ a) :
 
 ### rateKernel_nonneg
 
-lemma; [source line 33](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:33)
+lemma; [source line 33](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:33)
 
 ```lean
 lemma rateKernel_nonneg {t a : ℝ} (ha : 0 ≤ a) : 0 ≤ rateKernel t a
@@ -7748,7 +7748,7 @@ lemma rateKernel_nonneg {t a : ℝ} (ha : 0 ≤ a) : 0 ≤ rateKernel t a
 
 ### rateKernel_le
 
-lemma; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:36)
+lemma; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:36)
 
 ```lean
 lemma rateKernel_le {t a : ℝ} (ht : 0 ≤ t) (ha : 0 ≤ a) : rateKernel t a ≤ a
@@ -7756,7 +7756,7 @@ lemma rateKernel_le {t a : ℝ} (ht : 0 ≤ t) (ha : 0 ≤ a) : rateKernel t a �
 
 ### survivalKernel_antitone_time
 
-lemma; [source line 39](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:39)
+lemma; [source line 39](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:39)
 
 ```lean
 lemma survivalKernel_antitone_time {a : ℝ} (ha : 0 ≤ a) :
@@ -7765,7 +7765,7 @@ lemma survivalKernel_antitone_time {a : ℝ} (ha : 0 ≤ a) :
 
 ### rateKernel_antitone_time
 
-lemma; [source line 45](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:45)
+lemma; [source line 45](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:45)
 
 ```lean
 lemma rateKernel_antitone_time {a : ℝ} (ha : 0 ≤ a) :
@@ -7774,7 +7774,7 @@ lemma rateKernel_antitone_time {a : ℝ} (ha : 0 ≤ a) :
 
 ### hasDerivAt_survivalKernel
 
-lemma; [source line 50](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:50)
+lemma; [source line 50](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:50)
 
 ```lean
 lemma hasDerivAt_survivalKernel (t a : ℝ) :
@@ -7783,7 +7783,7 @@ lemma hasDerivAt_survivalKernel (t a : ℝ) :
 
 ### hasDerivAt_rateKernel
 
-lemma; [source line 55](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:55)
+lemma; [source line 55](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:55)
 
 ```lean
 lemma hasDerivAt_rateKernel (t a : ℝ) :
@@ -7792,7 +7792,7 @@ lemma hasDerivAt_rateKernel (t a : ℝ) :
 
 ### abs_rateKernel_derivative_le_one
 
-lemma; [source line 63](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:63)
+lemma; [source line 63](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:63)
 
 ```lean
 lemma abs_rateKernel_derivative_le_one {t a : ℝ} (ht : 0 ≤ t) (ha : 0 ≤ a) :
@@ -7801,7 +7801,7 @@ lemma abs_rateKernel_derivative_le_one {t a : ℝ} (ht : 0 ≤ t) (ha : 0 ≤ a)
 
 ### abs_rateKernel_sub_le
 
-theorem; [source line 76](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:76)
+theorem; [source line 76](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:76)
 
 ```lean
 theorem abs_rateKernel_sub_le {t a b : ℝ} (ht : 0 ≤ t) (ha : 0 ≤ a) (hb : 0 ≤ b) :
@@ -7810,7 +7810,7 @@ theorem abs_rateKernel_sub_le {t a b : ℝ} (ht : 0 ≤ t) (ha : 0 ≤ a) (hb : 
 
 ### abs_survivalKernel_sub_le
 
-theorem; [source line 84](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:84)
+theorem; [source line 84](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:84)
 
 ```lean
 theorem abs_survivalKernel_sub_le {t a b : ℝ}
@@ -7820,7 +7820,7 @@ theorem abs_survivalKernel_sub_le {t a b : ℝ}
 
 ### profileH
 
-def; [source line 99](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:99)
+def; [source line 99](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:99)
 
 ```lean
 def profileH (μ : Measure Ω) (f : Ω → ℝ) (t : ℝ) : ℝ :=
@@ -7829,7 +7829,7 @@ def profileH (μ : Measure Ω) (f : Ω → ℝ) (t : ℝ) : ℝ :=
 
 ### profileF
 
-def; [source line 102](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:102)
+def; [source line 102](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:102)
 
 ```lean
 def profileF (μ : Measure Ω) (f : Ω → ℝ) (t : ℝ) : ℝ := 1 - profileH μ f t
@@ -7837,7 +7837,7 @@ def profileF (μ : Measure Ω) (f : Ω → ℝ) (t : ℝ) : ℝ := 1 - profileH 
 
 ### profileD
 
-def; [source line 104](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:104)
+def; [source line 104](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:104)
 
 ```lean
 def profileD (μ : Measure Ω) (f : Ω → ℝ) (t : ℝ) : ℝ :=
@@ -7846,7 +7846,7 @@ def profileD (μ : Measure Ω) (f : Ω → ℝ) (t : ℝ) : ℝ :=
 
 ### integrable_rateKernel
 
-lemma; [source line 107](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:107)
+lemma; [source line 107](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:107)
 
 ```lean
 lemma integrable_rateKernel {f : Ω → ℝ} (hf : Integrable f μ)
@@ -7856,7 +7856,7 @@ lemma integrable_rateKernel {f : Ω → ℝ} (hf : Integrable f μ)
 
 ### integrable_survivalKernel
 
-lemma; [source line 118](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:118)
+lemma; [source line 118](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:118)
 
 ```lean
 lemma integrable_survivalKernel [IsFiniteMeasure μ] {f : Ω → ℝ}
@@ -7866,7 +7866,7 @@ lemma integrable_survivalKernel [IsFiniteMeasure μ] {f : Ω → ℝ}
 
 ### abs_profileD_sub_le
 
-theorem; [source line 128](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:128)
+theorem; [source line 128](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:128)
 
 L¹ stability of the remaining-rate transform, uniformly for every nonnegative time.
 
@@ -7878,7 +7878,7 @@ theorem abs_profileD_sub_le {f g : Ω → ℝ} (hf : Integrable f μ) (hg : Inte
 
 ### abs_profileF_sub_le
 
-theorem; [source line 139](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:139)
+theorem; [source line 139](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:139)
 
 L¹ stability of the arrival transform on a bounded time interval.
 
@@ -7892,7 +7892,7 @@ theorem abs_profileF_sub_le [IsFiniteMeasure μ] {f g : Ω → ℝ}
 
 ### tendstoUniformlyOn_profileD
 
-theorem; [source line 162](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:162)
+theorem; [source line 162](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:162)
 
 L¹ convergence implies uniform convergence of the deterministic remaining rate,
 even on the entire nonnegative time axis.
@@ -7907,7 +7907,7 @@ theorem tendstoUniformlyOn_profileD {f : Ω → ℝ} {fn : ℕ → Ω → ℝ}
 
 ### tendstoUniformlyOn_profileF
 
-theorem; [source line 174](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:174)
+theorem; [source line 174](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:174)
 
 The arrival transforms converge uniformly on every bounded time interval.
 
@@ -7921,7 +7921,7 @@ theorem tendstoUniformlyOn_profileF [IsFiniteMeasure μ] {f : Ω → ℝ} {fn : 
 
 ### tendsto_setIntegral_of_L1_of_measure_tendsto_zero
 
-theorem; [source line 190](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:190)
+theorem; [source line 190](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:190)
 
 The mass of any shrinking cells vanishes under L¹-convergent profiles.
 Choosing the cell containing a largest weight is the maximum-weight argument
@@ -7938,7 +7938,7 @@ theorem tendsto_setIntegral_of_L1_of_measure_tendsto_zero
 
 ### tendsto_normalized_weight_of_cells
 
-theorem; [source line 207](D:/princeton/Research/Lean/Lean_luce/Luce/Profile.lean:207)
+theorem; [source line 207](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileKernels.lean:207)
 
 A normalized weight represented as the mass of a shrinking profile cell is negligible.
 
@@ -7953,9 +7953,9 @@ theorem tendsto_normalized_weight_of_cells
 ```
 
 
-## Luce/ProfileRegularity.lean
+## Luce/Section3ProfileRegularity.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/ProfileRegularity.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileRegularity.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -7969,7 +7969,7 @@ variable {Ω : Type*} [MeasurableSpace Ω] {μ : Measure Ω}
 
 ### continuousOn_profileD
 
-theorem; [source line 13](D:/princeton/Research/Lean/Lean_luce/Luce/ProfileRegularity.lean:13)
+theorem; [source line 13](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileRegularity.lean:13)
 
 ```lean
 theorem continuousOn_profileD {f : Ω → ℝ} (hf : Integrable f μ)
@@ -7978,7 +7978,7 @@ theorem continuousOn_profileD {f : Ω → ℝ} (hf : Integrable f μ)
 
 ### continuousOn_profileH
 
-theorem; [source line 27](D:/princeton/Research/Lean/Lean_luce/Luce/ProfileRegularity.lean:27)
+theorem; [source line 27](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileRegularity.lean:27)
 
 ```lean
 theorem continuousOn_profileH [IsFiniteMeasure μ] {f : Ω → ℝ}
@@ -7988,7 +7988,7 @@ theorem continuousOn_profileH [IsFiniteMeasure μ] {f : Ω → ℝ}
 
 ### continuousOn_profileF
 
-theorem; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/ProfileRegularity.lean:43)
+theorem; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileRegularity.lean:43)
 
 ```lean
 theorem continuousOn_profileF [IsFiniteMeasure μ] {f : Ω → ℝ}
@@ -7998,7 +7998,7 @@ theorem continuousOn_profileF [IsFiniteMeasure μ] {f : Ω → ℝ}
 
 ### antitoneOn_profileD
 
-theorem; [source line 48](D:/princeton/Research/Lean/Lean_luce/Luce/ProfileRegularity.lean:48)
+theorem; [source line 48](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileRegularity.lean:48)
 
 ```lean
 theorem antitoneOn_profileD {f : Ω → ℝ} (hf : Integrable f μ)
@@ -8007,7 +8007,7 @@ theorem antitoneOn_profileD {f : Ω → ℝ} (hf : Integrable f μ)
 
 ### monotoneOn_profileF
 
-theorem; [source line 55](D:/princeton/Research/Lean/Lean_luce/Luce/ProfileRegularity.lean:55)
+theorem; [source line 55](D:/princeton/Research/Lean/Lean_luce/Luce/Section3ProfileRegularity.lean:55)
 
 ```lean
 theorem monotoneOn_profileF [IsFiniteMeasure μ] {f : Ω → ℝ}
@@ -8016,9 +8016,9 @@ theorem monotoneOn_profileF [IsFiniteMeasure μ] {f : Ω → ℝ}
 ```
 
 
-## Luce/RaceConvergence.lean
+## Luce/Section3RaceConvergence.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/RaceConvergence.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section3RaceConvergence.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -8033,7 +8033,7 @@ variable {Ω : ℕ → Type*} [∀ n, MeasurableSpace (Ω n)] {μ : ∀ n, Measu
 
 ### exists_finite_oscillation_grid
 
-theorem; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/RaceConvergence.lean:22)
+theorem; [source line 22](D:/princeton/Research/Lean/Lean_luce/Luce/Section3RaceConvergence.lean:22)
 
 A continuous function on a compact time interval admits a finite grid
 whose bracketing values have arbitrarily small oscillation.
@@ -8048,7 +8048,7 @@ theorem exists_finite_oscillation_grid {f : ℝ → ℝ} {T δ : ℝ}
 
 ### monotone_uniform_convergence_in_probability
 
-theorem; [source line 81](D:/princeton/Research/Lean/Lean_luce/Luce/RaceConvergence.lean:81)
+theorem; [source line 81](D:/princeton/Research/Lean/Lean_luce/Luce/Section3RaceConvergence.lean:81)
 
 Pointwise convergence in probability of monotone sample paths to a
 continuous limit is uniform on compact time intervals.
@@ -8065,7 +8065,7 @@ theorem monotone_uniform_convergence_in_probability
 
 ### antitone_uniform_convergence_in_probability
 
-theorem; [source line 117](D:/princeton/Research/Lean/Lean_luce/Luce/RaceConvergence.lean:117)
+theorem; [source line 117](D:/princeton/Research/Lean/Lean_luce/Luce/Section3RaceConvergence.lean:117)
 
 The remaining-rate version of the uniform race theorem.
 
@@ -8081,7 +8081,7 @@ theorem antitone_uniform_convergence_in_probability
 
 ### concentration_of_variance_tendsto_zero
 
-theorem; [source line 132](D:/princeton/Research/Lean/Lean_luce/Luce/RaceConvergence.lean:132)
+theorem; [source line 132](D:/princeton/Research/Lean/Lean_luce/Luce/Section3RaceConvergence.lean:132)
 
 Vanishing variance and convergent expectations imply convergence in
 probability to a deterministic value, by Chebyshev's inequality.
@@ -8096,9 +8096,9 @@ theorem concentration_of_variance_tendsto_zero [∀ n, IsFiniteMeasure (μ n)]
 ```
 
 
-## Luce/RaceOrder.lean
+## Luce/Section1RaceOrder.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/RaceOrder.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section1RaceOrder.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -8108,7 +8108,7 @@ namespace Luce
 
 ### beforeCount_lt
 
-lemma; [source line 9](D:/princeton/Research/Lean/Lean_luce/Luce/RaceOrder.lean:9)
+lemma; [source line 9](D:/princeton/Research/Lean/Lean_luce/Luce/Section1RaceOrder.lean:9)
 
 The number of clocks strictly earlier than a fixed clock is less than `n`.
 
@@ -8119,7 +8119,7 @@ lemma beforeCount_lt {n : ℕ} (times : Fin n → ℝ) (i : Fin n) :
 
 ### raceRank_strict
 
-lemma; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/RaceOrder.lean:20)
+lemma; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/Section1RaceOrder.lean:20)
 
 Strictly earlier clocks have strictly smaller race ranks.
 
@@ -8130,7 +8130,7 @@ lemma raceRank_strict {n : ℕ} (times : Fin n → ℝ) {i j : Fin n}
 
 ### raceRank_injective
 
-lemma; [source line 37](D:/princeton/Research/Lean/Lean_luce/Luce/RaceOrder.lean:37)
+lemma; [source line 37](D:/princeton/Research/Lean/Lean_luce/Luce/Section1RaceOrder.lean:37)
 
 ```lean
 lemma raceRank_injective {n : ℕ} (times : Fin n → ℝ)
@@ -8139,7 +8139,7 @@ lemma raceRank_injective {n : ℕ} (times : Fin n → ℝ)
 
 ### clockRank
 
-def; [source line 50](D:/princeton/Research/Lean/Lean_luce/Luce/RaceOrder.lean:50)
+def; [source line 50](D:/princeton/Research/Lean/Lean_luce/Luce/Section1RaceOrder.lean:50)
 
 Zero-based rank as a valid position.
 
@@ -8150,7 +8150,7 @@ noncomputable def clockRank {n : ℕ} (times : Fin n → ℝ) (i : Fin n) : Fin 
 
 ### clockRank_injective
 
-lemma; [source line 53](D:/princeton/Research/Lean/Lean_luce/Luce/RaceOrder.lean:53)
+lemma; [source line 53](D:/princeton/Research/Lean/Lean_luce/Luce/Section1RaceOrder.lean:53)
 
 ```lean
 lemma clockRank_injective {n : ℕ} (times : Fin n → ℝ)
@@ -8159,7 +8159,7 @@ lemma clockRank_injective {n : ℕ} (times : Fin n → ℝ)
 
 ### rankPermutation
 
-def; [source line 61](D:/princeton/Research/Lean/Lean_luce/Luce/RaceOrder.lean:61)
+def; [source line 61](D:/princeton/Research/Lean/Lean_luce/Luce/Section1RaceOrder.lean:61)
 
 The bijective rank map of a family of distinct clocks.
 
@@ -8172,7 +8172,7 @@ noncomputable def rankPermutation {n : ℕ} (times : Fin n → ℝ)
 
 ### drawPermutation
 
-def; [source line 67](D:/princeton/Research/Lean/Lean_luce/Luce/RaceOrder.lean:67)
+def; [source line 67](D:/princeton/Research/Lean/Lean_luce/Luce/Section1RaceOrder.lean:67)
 
 The draw order is the inverse of the rank permutation.
 
@@ -8184,7 +8184,7 @@ noncomputable def drawPermutation {n : ℕ} (times : Fin n → ℝ)
 
 ### arrivalTime
 
-def; [source line 72](D:/princeton/Research/Lean/Lean_luce/Luce/RaceOrder.lean:72)
+def; [source line 72](D:/princeton/Research/Lean/Lean_luce/Luce/Section1RaceOrder.lean:72)
 
 The `k`th arrival time, with positions represented by `Fin n`.
 
@@ -8196,7 +8196,7 @@ noncomputable def arrivalTime {n : ℕ} (times : Fin n → ℝ)
 
 ### clockRank_le_iff
 
-lemma; [source line 76](D:/princeton/Research/Lean/Lean_luce/Luce/RaceOrder.lean:76)
+lemma; [source line 76](D:/princeton/Research/Lean/Lean_luce/Luce/Section1RaceOrder.lean:76)
 
 ```lean
 lemma clockRank_le_iff {n : ℕ} (times : Fin n → ℝ) (i j : Fin n) :
@@ -8205,7 +8205,7 @@ lemma clockRank_le_iff {n : ℕ} (times : Fin n → ℝ) (i j : Fin n) :
 
 ### rank_survives_iff
 
-lemma; [source line 93](D:/princeton/Research/Lean/Lean_luce/Luce/RaceOrder.lean:93)
+lemma; [source line 93](D:/princeton/Research/Lean/Lean_luce/Luce/Section1RaceOrder.lean:93)
 
 Equation `eq:survival-indicator`: rank survival equals clock survival.
 
@@ -8217,7 +8217,7 @@ lemma rank_survives_iff {n : ℕ} (times : Fin n → ℝ)
 
 ### remaining_eq_clock_survivors
 
-lemma; [source line 103](D:/princeton/Research/Lean/Lean_luce/Luce/RaceOrder.lean:103)
+lemma; [source line 103](D:/princeton/Research/Lean/Lean_luce/Luce/Section1RaceOrder.lean:103)
 
 Equation `eq:remaining-weight`, evaluated at an arrival time.
 
@@ -8229,9 +8229,9 @@ lemma remaining_eq_clock_survivors {n : ℕ} (times : Fin n → ℝ)
 ```
 
 
-## Luce/RankIntegral.lean
+## Luce/Section4RankIntegral.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/RankIntegral.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4RankIntegral.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -8243,7 +8243,7 @@ namespace Luce
 
 ### backgroundSurvivors_eq_erase
 
-lemma; [source line 15](D:/princeton/Research/Lean/Lean_luce/Luce/RankIntegral.lean:15)
+lemma; [source line 15](D:/princeton/Research/Lean/Lean_luce/Luce/Section4RankIntegral.lean:15)
 
 Counting background survivors is equivalent to erasing the candidate from
 one common full-clock survivor set.
@@ -8257,7 +8257,7 @@ lemma backgroundSurvivors_eq_erase {n : ℕ} (clocks : Fin (n + 1) → ℝ)
 
 ### exponentialRace_background
 
-lemma; [source line 32](D:/princeton/Research/Lean/Lean_luce/Luce/RankIntegral.lean:32)
+lemma; [source line 32](D:/princeton/Research/Lean/Lean_luce/Luce/Section4RankIntegral.lean:32)
 
 ```lean
 lemma exponentialRace_background {n : ℕ} (w : Weights (n + 1)) (i : Fin (n + 1)) :
@@ -8267,7 +8267,7 @@ lemma exponentialRace_background {n : ℕ} (w : Weights (n + 1)) (i : Fin (n + 1
 
 ### background_probability_eq_common
 
-lemma; [source line 42](D:/princeton/Research/Lean/Lean_luce/Luce/RankIntegral.lean:42)
+lemma; [source line 42](D:/princeton/Research/Lean/Lean_luce/Luce/Section4RankIntegral.lean:42)
 
 The probability used in the rank integral can be evaluated in the common
 full race, which permits the deterministic two-candidate estimate.
@@ -8281,7 +8281,7 @@ lemma background_probability_eq_common {n : ℕ} (w : Weights (n + 1))
 
 ### rank_integral_real
 
-theorem; [source line 54](D:/princeton/Research/Lean/Lean_luce/Luce/RankIntegral.lean:54)
+theorem; [source line 54](D:/princeton/Research/Lean/Lean_luce/Luce/Section4RankIntegral.lean:54)
 
 The exact rank integral as an ordinary real-valued integral. The density
 `exponentialPDFReal` vanishes at all negative times.
@@ -8297,7 +8297,7 @@ theorem rank_integral_real {n : ℕ} (w : Weights (n + 1))
 
 ### rank_integral_common
 
-theorem; [source line 86](D:/princeton/Research/Lean/Lean_luce/Luce/RankIntegral.lean:86)
+theorem; [source line 86](D:/princeton/Research/Lean/Lean_luce/Luce/Section4RankIntegral.lean:86)
 
 The real rank integral evaluated entirely on one common exponential race.
 
@@ -8311,16 +8311,16 @@ theorem rank_integral_common {n : ℕ} (w : Weights (n + 1))
 ```
 
 
-## Luce/RankIntegralDependencyAudit.lean
+## Luce/Section4RankIntegralDependencyAudit.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/RankIntegralDependencyAudit.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4RankIntegralDependencyAudit.lean)
 
 No declarations; imports or audit commands only.
 
 
-## Luce/RankProbability.lean
+## Luce/Section4RankProbability.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/RankProbability.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4RankProbability.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -8331,7 +8331,7 @@ namespace Luce
 
 ### exponentialPDFReal_eq_piecewise
 
-lemma; [source line 11](D:/princeton/Research/Lean/Lean_luce/Luce/RankProbability.lean:11)
+lemma; [source line 11](D:/princeton/Research/Lean/Lean_luce/Luce/Section4RankProbability.lean:11)
 
 ```lean
 lemma exponentialPDFReal_eq_piecewise (r t : ℝ) :
@@ -8340,7 +8340,7 @@ lemma exponentialPDFReal_eq_piecewise (r t : ℝ) :
 
 ### integral_exponentialPDFReal
 
-lemma; [source line 17](D:/princeton/Research/Lean/Lean_luce/Luce/RankProbability.lean:17)
+lemma; [source line 17](D:/princeton/Research/Lean/Lean_luce/Luce/Section4RankProbability.lean:17)
 
 Restricting the density integral to positive times gives the familiar
 exponential density.
@@ -8353,7 +8353,7 @@ lemma integral_exponentialPDFReal (r : ℝ) (P : ℝ → ℝ) :
 
 ### raceRank_probability_integral
 
-theorem; [source line 31](D:/princeton/Research/Lean/Lean_luce/Luce/RankProbability.lean:31)
+theorem; [source line 31](D:/princeton/Research/Lean/Lean_luce/Luce/Section4RankProbability.lean:31)
 
 Conditioning on the distinguished exponential clock gives the exact
 rank probability, for any requested one-based rank `r`.
@@ -8369,7 +8369,7 @@ theorem raceRank_probability_integral {n : ℕ} (w : Weights (n + 1))
 
 ### fixed_point_probability_integral
 
-theorem; [source line 56](D:/princeton/Research/Lean/Lean_luce/Luce/RankProbability.lean:56)
+theorem; [source line 56](D:/princeton/Research/Lean/Lean_luce/Luce/Section4RankProbability.lean:56)
 
 Equation `eq:rank-integral`, for the fixed-point event of label `i+1`.
 
@@ -25433,9 +25433,9 @@ theorem finite_insertion_path_countWindow {n m : ℕ} (w : Weights n)
 ```
 
 
-## Luce/ShellContractCheck.lean
+## Luce/Section4ShellContractCheck.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/ShellContractCheck.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ShellContractCheck.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -25447,7 +25447,7 @@ open scoped ENNReal
 
 ### section4_contractCheck
 
-theorem; [source line 10](D:/princeton/Research/Lean/Lean_luce/Luce/ShellContractCheck.lean:10)
+theorem; [source line 10](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ShellContractCheck.lean:10)
 
 This closed theorem has no external explicit, implicit, or instance
 parameters. All allowed model data are quantified by the frozen contract.
@@ -25458,7 +25458,7 @@ theorem section4_contractCheck : ShellMigrationContract.section4
 
 ### Luce.Shell.fullIntensity_eq_uniform
 
-theorem; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/ShellContractCheck.lean:20)
+theorem; [source line 20](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ShellContractCheck.lean:20)
 
 The new constructor has exactly the same mathematical intensity as
 the old constructor whenever the stronger uniform condition holds.
@@ -25472,9 +25472,9 @@ theorem Luce.Shell.fullIntensity_eq_uniform
 ```
 
 
-## Luce/ShellContractRepresentation.lean
+## Luce/Section4ShellContractRepresentation.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/ShellContractRepresentation.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ShellContractRepresentation.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -25485,7 +25485,7 @@ namespace ShellMigrationContract
 
 ### old_fullIntensity_underlying
 
-theorem; [source line 9](D:/princeton/Research/Lean/Lean_luce/Luce/ShellContractRepresentation.lean:9)
+theorem; [source line 9](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ShellContractRepresentation.lean:9)
 
 The intensity specified in the frozen conclusion is exactly the existing
 one whenever that existing constructor is available. No limiting law is changed.
@@ -25499,9 +25499,9 @@ theorem old_fullIntensity_underlying (w : WeightArray) (f : ℝ → ℝ)
 ```
 
 
-## Luce/ShellMigrationContract.lean
+## Luce/Section4ShellMigrationContract.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/ShellMigrationContract.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ShellMigrationContract.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -25515,7 +25515,7 @@ namespace ShellMigrationContract
 
 ### section4
 
-def; [source line 18](D:/princeton/Research/Lean/Lean_luce/Luce/ShellMigrationContract.lean:18)
+def; [source line 18](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ShellMigrationContract.lean:18)
 
 Closed arbitrary-space form of `thm:main-poisson`, source lines 318–332.
 There are no ambient mathematical section variables or assumed instances.
@@ -25548,16 +25548,16 @@ def section4 : Prop :=
 ```
 
 
-## Luce/ShellMigrationFoundations.lean
+## Luce/Section4ShellMigrationFoundations.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/ShellMigrationFoundations.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4ShellMigrationFoundations.lean)
 
 No declarations; imports or audit commands only.
 
 
-## Luce/SpatialPoissonLaplace.lean
+## Luce/Section2SpatialPoissonLaplace.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/SpatialPoissonLaplace.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2SpatialPoissonLaplace.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -25570,7 +25570,7 @@ variable {X : Type*} [TopologicalSpace X] [MeasurableSpace X] [OpensMeasurableSp
 
 ### totalPredictable_tendsto
 
-theorem; [source line 27](D:/princeton/Research/Lean/Lean_luce/Luce/SpatialPoissonLaplace.lean:27)
+theorem; [source line 27](D:/princeton/Research/Lean/Lean_luce/Luce/Section2SpatialPoissonLaplace.lean:27)
 
 The total predictable mass converges in probability by applying the
 weak-measure hypothesis to the constant-one spatial test.
@@ -25586,7 +25586,7 @@ theorem totalPredictable_tendsto
 
 ### pointMeasure_laplace_tendsto
 
-theorem; [source line 44](D:/princeton/Research/Lean/Lean_luce/Luce/SpatialPoissonLaplace.lean:44)
+theorem; [source line 44](D:/princeton/Research/Lean/Lean_luce/Luce/Section2SpatialPoissonLaplace.lean:44)
 
 Under the manuscript's weak predictable-measure and vanishing-maximum
 hypotheses, each nonnegative continuous spatial Laplace test converges to
@@ -25604,9 +25604,9 @@ theorem pointMeasure_laplace_tendsto
 ```
 
 
-## Luce/Stopping.lean
+## Luce/Section2Stopping.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Stopping.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Stopping.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -25620,7 +25620,7 @@ variable {Ω : Type*} {mΩ : MeasurableSpace Ω}
 
 ### stoppedMass
 
-def; [source line 18](D:/princeton/Research/Lean/Lean_luce/Luce/Stopping.lean:18)
+def; [source line 18](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Stopping.lean:18)
 
 Accumulated compensator after discarding terms that violate either cap.
 
@@ -25633,7 +25633,7 @@ noncomputable def stoppedMass (p : ℕ → ℝ) (δ K : ℝ) : ℕ → ℝ
 
 ### keepTerm
 
-def; [source line 24](D:/princeton/Research/Lean/Lean_luce/Luce/Stopping.lean:24)
+def; [source line 24](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Stopping.lean:24)
 
 The predictable acceptance test before draw `k`.
 
@@ -25644,7 +25644,7 @@ def keepTerm (p : ℕ → ℝ) (δ K : ℝ) (k : ℕ) : Prop :=
 
 ### stoppedProbability
 
-def; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/Stopping.lean:28)
+def; [source line 28](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Stopping.lean:28)
 
 Conditional probability retained by the truncation.
 
@@ -25656,7 +25656,7 @@ noncomputable def stoppedProbability (p : ℕ → ℝ) (δ K : ℝ) (k : ℕ) : 
 
 ### stoppedMass_succ
 
-lemma; [source line 32](D:/princeton/Research/Lean/Lean_luce/Luce/Stopping.lean:32)
+lemma; [source line 32](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Stopping.lean:32)
 
 ```lean
 lemma stoppedMass_succ (p : ℕ → ℝ) (δ K : ℝ) (k : ℕ) :
@@ -25665,7 +25665,7 @@ lemma stoppedMass_succ (p : ℕ → ℝ) (δ K : ℝ) (k : ℕ) :
 
 ### stoppedProbability_nonneg
 
-lemma; [source line 38](D:/princeton/Research/Lean/Lean_luce/Luce/Stopping.lean:38)
+lemma; [source line 38](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Stopping.lean:38)
 
 ```lean
 lemma stoppedProbability_nonneg {p : ℕ → ℝ} {δ K : ℝ} {k : ℕ}
@@ -25674,7 +25674,7 @@ lemma stoppedProbability_nonneg {p : ℕ → ℝ} {δ K : ℝ} {k : ℕ}
 
 ### stoppedProbability_le
 
-lemma; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/Stopping.lean:43)
+lemma; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Stopping.lean:43)
 
 ```lean
 lemma stoppedProbability_le {p : ℕ → ℝ} {δ K : ℝ} {k : ℕ}
@@ -25683,7 +25683,7 @@ lemma stoppedProbability_le {p : ℕ → ℝ} {δ K : ℝ} {k : ℕ}
 
 ### stoppedProbability_le_cap
 
-lemma; [source line 48](D:/princeton/Research/Lean/Lean_luce/Luce/Stopping.lean:48)
+lemma; [source line 48](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Stopping.lean:48)
 
 ```lean
 lemma stoppedProbability_le_cap (p : ℕ → ℝ) {δ K : ℝ} (hδ : 0 ≤ δ) (k : ℕ) :
@@ -25692,7 +25692,7 @@ lemma stoppedProbability_le_cap (p : ℕ → ℝ) {δ K : ℝ} (hδ : 0 ≤ δ) 
 
 ### stoppedMass_nonneg
 
-lemma; [source line 55](D:/princeton/Research/Lean/Lean_luce/Luce/Stopping.lean:55)
+lemma; [source line 55](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Stopping.lean:55)
 
 ```lean
 lemma stoppedMass_nonneg {p : ℕ → ℝ} {δ K : ℝ} (hp : ∀ k, 0 ≤ p k) (k : ℕ) :
@@ -25701,7 +25701,7 @@ lemma stoppedMass_nonneg {p : ℕ → ℝ} {δ K : ℝ} (hp : ∀ k, 0 ≤ p k) 
 
 ### stoppedMass_le_cap
 
-lemma; [source line 61](D:/princeton/Research/Lean/Lean_luce/Luce/Stopping.lean:61)
+lemma; [source line 61](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Stopping.lean:61)
 
 ```lean
 lemma stoppedMass_le_cap (p : ℕ → ℝ) {δ K : ℝ} (hK : 0 ≤ K) (k : ℕ) :
@@ -25710,7 +25710,7 @@ lemma stoppedMass_le_cap (p : ℕ → ℝ) {δ K : ℝ} (hK : 0 ≤ K) (k : ℕ)
 
 ### sum_stoppedProbability
 
-lemma; [source line 72](D:/princeton/Research/Lean/Lean_luce/Luce/Stopping.lean:72)
+lemma; [source line 72](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Stopping.lean:72)
 
 The recursive accumulator is exactly the sum of retained probabilities.
 
@@ -25721,7 +25721,7 @@ lemma sum_stoppedProbability (p : ℕ → ℝ) (δ K : ℝ) (k : ℕ) :
 
 ### stoppedMass_le_sum
 
-lemma; [source line 78](D:/princeton/Research/Lean/Lean_luce/Luce/Stopping.lean:78)
+lemma; [source line 78](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Stopping.lean:78)
 
 ```lean
 lemma stoppedMass_le_sum {p : ℕ → ℝ} {δ K : ℝ} (hp : ∀ k, 0 ≤ p k) (k : ℕ) :
@@ -25730,7 +25730,7 @@ lemma stoppedMass_le_sum {p : ℕ → ℝ} {δ K : ℝ} (hp : ∀ k, 0 ≤ p k) 
 
 ### keepTerm_of_total_le
 
-theorem; [source line 84](D:/princeton/Research/Lean/Lean_luce/Luce/Stopping.lean:84)
+theorem; [source line 84](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Stopping.lean:84)
 
 On the good event for the original array, every test is accepted.
 
@@ -25743,7 +25743,7 @@ theorem keepTerm_of_total_le {p : ℕ → ℝ} {δ K : ℝ} {N : ℕ}
 
 ### stoppedProbability_eq_of_total_le
 
-theorem; [source line 98](D:/princeton/Research/Lean/Lean_luce/Luce/Stopping.lean:98)
+theorem; [source line 98](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Stopping.lean:98)
 
 ```lean
 theorem stoppedProbability_eq_of_total_le {p : ℕ → ℝ} {δ K : ℝ} {N : ℕ}
@@ -25754,7 +25754,7 @@ theorem stoppedProbability_eq_of_total_le {p : ℕ → ℝ} {δ K : ℝ} {N : �
 
 ### deletion_subset
 
-theorem; [source line 106](D:/princeton/Research/Lean/Lean_luce/Luce/Stopping.lean:106)
+theorem; [source line 106](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Stopping.lean:106)
 
 A deletion entails either an excessive original atom or excessive original
 total mass; this is the event inclusion used to remove the truncation.
@@ -25767,7 +25767,7 @@ theorem deletion_subset {p : ℕ → ℝ} {δ K : ℝ} {N : ℕ}
 
 ### measurable_stoppedMass
 
-theorem; [source line 120](D:/princeton/Research/Lean/Lean_luce/Luce/Stopping.lean:120)
+theorem; [source line 120](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Stopping.lean:120)
 
 The cap is predictable because it only uses the current predictable
 probability and probabilities from earlier draws.
@@ -25780,7 +25780,7 @@ theorem measurable_stoppedMass (ℱ : Filtration ℕ mΩ) (p : ℕ → Ω → �
 
 ### measurableSet_keepTerm
 
-theorem; [source line 135](D:/princeton/Research/Lean/Lean_luce/Luce/Stopping.lean:135)
+theorem; [source line 135](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Stopping.lean:135)
 
 ```lean
 theorem measurableSet_keepTerm (ℱ : Filtration ℕ mΩ) (p : ℕ → Ω → ℝ)
@@ -25790,7 +25790,7 @@ theorem measurableSet_keepTerm (ℱ : Filtration ℕ mΩ) (p : ℕ → Ω → �
 
 ### measurable_stoppedProbability
 
-theorem; [source line 141](D:/princeton/Research/Lean/Lean_luce/Luce/Stopping.lean:141)
+theorem; [source line 141](D:/princeton/Research/Lean/Lean_luce/Luce/Section2Stopping.lean:141)
 
 ```lean
 theorem measurable_stoppedProbability (ℱ : Filtration ℕ mΩ) (p : ℕ → Ω → ℝ)
@@ -25799,9 +25799,9 @@ theorem measurable_stoppedProbability (ℱ : Filtration ℕ mΩ) (p : ℕ → Ω
 ```
 
 
-## Luce/TailAssumptions.lean
+## Luce/Section4TailAssumptions.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/TailAssumptions.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailAssumptions.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -25813,7 +25813,7 @@ namespace Luce
 
 ### NormalizedWeights.sum_rates_succ
 
-lemma; [source line 17](D:/princeton/Research/Lean/Lean_luce/Luce/TailAssumptions.lean:17)
+lemma; [source line 17](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailAssumptions.lean:17)
 
 ```lean
 lemma NormalizedWeights.sum_rates_succ {w : WeightArray} (hnorm : NormalizedWeights w)
@@ -25822,7 +25822,7 @@ lemma NormalizedWeights.sum_rates_succ {w : WeightArray} (hnorm : NormalizedWeig
 
 ### EndpointAssumption.eventually_terminal_rates
 
-lemma; [source line 27](D:/princeton/Research/Lean/Lean_luce/Luce/TailAssumptions.lean:27)
+lemma; [source line 27](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailAssumptions.lean:27)
 
 The approved endpoint assumption supplies the rates required for the
 rounded terminal counts in the existing epsilon estimate.
@@ -25837,7 +25837,7 @@ lemma EndpointAssumption.eventually_terminal_rates {w : WeightArray}
 
 ### endpointAssumption_epsilon_estimate
 
-theorem; [source line 57](D:/princeton/Research/Lean/Lean_luce/Luce/TailAssumptions.lean:57)
+theorem; [source line 57](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailAssumptions.lean:57)
 
 Equation `eq:tail-epsilon`, derived from the approved normalization and
 endpoint assumption without any profile hypothesis.
@@ -25853,7 +25853,7 @@ theorem endpointAssumption_epsilon_estimate (w : WeightArray)
 
 ### endpointAssumption_epsilon_estimate_bounded
 
-theorem; [source line 69](D:/princeton/Research/Lean/Lean_luce/Luce/TailAssumptions.lean:69)
+theorem; [source line 69](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailAssumptions.lean:69)
 
 The same epsilon estimate, retaining eventual boundedness of the
 expectations. This makes later comparisons of real-valued limsups valid.
@@ -25869,9 +25869,9 @@ theorem endpointAssumption_epsilon_estimate_bounded (w : WeightArray)
 ```
 
 
-## Luce/TailCount.lean
+## Luce/Section4TailCount.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/TailCount.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailCount.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -25883,7 +25883,7 @@ namespace Luce
 
 ### tailFixedPointCount
 
-def; [source line 18](D:/princeton/Research/Lean/Lean_luce/Luce/TailCount.lean:18)
+def; [source line 18](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailCount.lean:18)
 
 The exact number of fixed-point atoms in `(α, 1]`.
 
@@ -25896,9 +25896,9 @@ noncomputable def tailFixedPointCount {n : ℕ}
 ```
 
 
-## Luce/TailCountIndex.lean
+## Luce/Section4TailCountIndex.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/TailCountIndex.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailCountIndex.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -25908,7 +25908,7 @@ namespace Luce
 
 ### rankOf_eq_raceRank_for_tail
 
-lemma; [source line 13](D:/princeton/Research/Lean/Lean_luce/Luce/TailCountIndex.lean:13)
+lemma; [source line 13](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailCountIndex.lean:13)
 
 ```lean
 lemma rankOf_eq_raceRank_for_tail {n : ℕ} (e : Fin n → ℝ) (k : Fin n) :
@@ -25917,7 +25917,7 @@ lemma rankOf_eq_raceRank_for_tail {n : ℕ} (e : Fin n → ℝ) (k : Fin n) :
 
 ### spatial_tail_iff_terminal_index
 
-lemma; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/TailCountIndex.lean:19)
+lemma; [source line 19](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailCountIndex.lean:19)
 
 ```lean
 lemma spatial_tail_iff_terminal_index {n : ℕ} (k : Fin (n + 1)) (ε : ℝ) :
@@ -25927,7 +25927,7 @@ lemma spatial_tail_iff_terminal_index {n : ℕ} (k : Fin (n + 1)) (ε : ℝ) :
 
 ### tailFixedPointCount_eq_terminalFixedPointCount
 
-theorem; [source line 30](D:/princeton/Research/Lean/Lean_luce/Luce/TailCountIndex.lean:30)
+theorem; [source line 30](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailCountIndex.lean:30)
 
 The approved spatial count is exactly the terminal-index count, including
 the ceiling when `ε * (n + 1)` is not an integer.
@@ -25940,9 +25940,9 @@ theorem tailFixedPointCount_eq_terminalFixedPointCount (n : ℕ)
 ```
 
 
-## Luce/TailLimit.lean
+## Luce/Section4TailLimit.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/TailLimit.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailLimit.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -25954,7 +25954,7 @@ namespace Luce
 
 ### tendsto_zero_of_endpoint_power_bound
 
-theorem; [source line 17](D:/princeton/Research/Lean/Lean_luce/Luce/TailLimit.lean:17)
+theorem; [source line 17](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailLimit.lean:17)
 
 ```lean
 theorem tendsto_zero_of_endpoint_power_bound
@@ -25966,9 +25966,9 @@ theorem tendsto_zero_of_endpoint_power_bound
 ```
 
 
-## Luce/TailProbability.lean
+## Luce/Section4TailProbability.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/TailProbability.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailProbability.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -25980,7 +25980,7 @@ namespace Luce
 
 ### measurable_tailFixedPointCount
 
-lemma; [source line 14](D:/princeton/Research/Lean/Lean_luce/Luce/TailProbability.lean:14)
+lemma; [source line 14](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailProbability.lean:14)
 
 ```lean
 lemma measurable_tailFixedPointCount {n : ℕ} (α : ℝ) :
@@ -25989,7 +25989,7 @@ lemma measurable_tailFixedPointCount {n : ℕ} (α : ℝ) :
 
 ### tailFixedPointCount_le
 
-lemma; [source line 26](D:/princeton/Research/Lean/Lean_luce/Luce/TailProbability.lean:26)
+lemma; [source line 26](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailProbability.lean:26)
 
 ```lean
 lemma tailFixedPointCount_le {n : ℕ} (e : Fin n → ℝ) (α : ℝ) :
@@ -25998,7 +25998,7 @@ lemma tailFixedPointCount_le {n : ℕ} (e : Fin n → ℝ) (α : ℝ) :
 
 ### integrable_tailFixedPointCount
 
-lemma; [source line 31](D:/princeton/Research/Lean/Lean_luce/Luce/TailProbability.lean:31)
+lemma; [source line 31](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailProbability.lean:31)
 
 ```lean
 lemma integrable_tailFixedPointCount {n : ℕ} (w : Weights n) (α : ℝ) :
@@ -26007,7 +26007,7 @@ lemma integrable_tailFixedPointCount {n : ℕ} (w : Weights n) (α : ℝ) :
 
 ### tailFixedPointCount_probability_le_expectation
 
-lemma; [source line 40](D:/princeton/Research/Lean/Lean_luce/Luce/TailProbability.lean:40)
+lemma; [source line 40](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailProbability.lean:40)
 
 ```lean
 lemma tailFixedPointCount_probability_le_expectation {n : ℕ} (w : Weights n) (α : ℝ) :
@@ -26017,7 +26017,7 @@ lemma tailFixedPointCount_probability_le_expectation {n : ℕ} (w : Weights n) (
 
 ### tailFixedPointCount_probability_eq
 
-lemma; [source line 48](D:/princeton/Research/Lean/Lean_luce/Luce/TailProbability.lean:48)
+lemma; [source line 48](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailProbability.lean:48)
 
 ```lean
 lemma tailFixedPointCount_probability_eq
@@ -26031,9 +26031,9 @@ lemma tailFixedPointCount_probability_eq
 ```
 
 
-## Luce/TailTightness.lean
+## Luce/Section4TailTightness.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/TailTightness.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailTightness.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -26046,7 +26046,7 @@ namespace Luce
 
 ### tail_probability_le_epsilonTailExpectation
 
-lemma; [source line 25](D:/princeton/Research/Lean/Lean_luce/Luce/TailTightness.lean:25)
+lemma; [source line 25](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailTightness.lean:25)
 
 Markov's inequality for the exact spatial tail, expressed using the
 existing terminal expectation. The joint law is derived from the approved
@@ -26065,7 +26065,7 @@ lemma tail_probability_le_epsilonTailExpectation
 
 ### tail_fixed_point_tightness
 
-theorem; [source line 40](D:/princeton/Research/Lean/Lean_luce/Luce/TailTightness.lean:40)
+theorem; [source line 40](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TailTightness.lean:40)
 
 The approved general-space form of `eq:tail-tightness`.
 The constants in `EndpointAssumption` remain uniform in row size and label.
@@ -26087,9 +26087,9 @@ theorem tail_fixed_point_tightness
 ```
 
 
-## Luce/TwoCandidate.lean
+## Luce/Section4TwoCandidate.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/TwoCandidate.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TwoCandidate.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -26100,7 +26100,7 @@ variable {α : Type*} [DecidableEq α]
 
 ### two_candidate_bound_finset
 
-theorem; [source line 25](D:/princeton/Research/Lean/Lean_luce/Luce/TwoCandidate.lean:25)
+theorem; [source line 25](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TwoCandidate.lean:25)
 
 Among any finite set of natural-number indices, at most two equal the
 number of survivors remaining after their candidate is excluded.
@@ -26113,7 +26113,7 @@ theorem two_candidate_bound_finset (survivors : Finset α) (candidate : ℕ → 
 
 ### two_candidate_bound
 
-theorem; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/TwoCandidate.lean:43)
+theorem; [source line 43](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TwoCandidate.lean:43)
 
 The two-candidate bound for indices `0, ..., M - 1`.
 
@@ -26125,7 +26125,7 @@ theorem two_candidate_bound (survivors : Finset α) (candidate : ℕ → α) (M 
 
 ### two_candidate_bound_Icc
 
-theorem; [source line 50](D:/princeton/Research/Lean/Lean_luce/Luce/TwoCandidate.lean:50)
+theorem; [source line 50](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TwoCandidate.lean:50)
 
 The paper's counting bound, with indices `1, ..., M` and required count `m - 1`.
 The positive lower bound on the indices avoids truncation of natural subtraction.
@@ -26138,7 +26138,7 @@ theorem two_candidate_bound_Icc (survivors : Finset α) (candidate : ℕ → α)
 
 ### two_candidate_sum_bound
 
-theorem; [source line 72](D:/princeton/Research/Lean/Lean_luce/Luce/TwoCandidate.lean:72)
+theorem; [source line 72](D:/princeton/Research/Lean/Lean_luce/Luce/Section4TwoCandidate.lean:72)
 
 Equation `eq:two-candidate` as a sum of natural-number indicators.
 
@@ -26149,9 +26149,9 @@ theorem two_candidate_sum_bound (survivors : Finset α) (candidate : ℕ → α)
 ```
 
 
-## Luce/UncappedPoisson.lean
+## Luce/Section2UncappedPoisson.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/UncappedPoisson.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2UncappedPoisson.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -26165,7 +26165,7 @@ variable {Ω : ℕ → Type*} [∀ n, MeasurableSpace (Ω n)]
 
 ### integral_difference_le_bad_probability
 
-lemma; [source line 21](D:/princeton/Research/Lean/Lean_luce/Luce/UncappedPoisson.lean:21)
+lemma; [source line 21](D:/princeton/Research/Lean/Lean_luce/Luce/Section2UncappedPoisson.lean:21)
 
 ```lean
 private lemma integral_difference_le_bad_probability
@@ -26178,7 +26178,7 @@ private lemma integral_difference_le_bad_probability
 
 ### uncapped_laplace_tendsto_rows
 
-theorem; [source line 49](D:/princeton/Research/Lean/Lean_luce/Luce/UncappedPoisson.lean:49)
+theorem; [source line 49](D:/princeton/Research/Lean/Lean_luce/Luce/Section2UncappedPoisson.lean:49)
 
 The finite-row predictable Poisson Laplace limit with no deterministic
 cap or assumptions on the original observations after the row ends.
@@ -26197,9 +26197,9 @@ theorem uncapped_laplace_tendsto_rows (X : ∀ n, BernoulliProcess (P n))
 ```
 
 
-## Luce/WeakMeasureProbability.lean
+## Luce/Section2WeakMeasureProbability.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/Luce/WeakMeasureProbability.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/Luce/Section2WeakMeasureProbability.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -26214,7 +26214,7 @@ variable {P : ∀ n, Measure (Ω n)} [∀ n, IsProbabilityMeasure (P n)]
 
 ### WeakMeasureConvergesInProbability
 
-def; [source line 24](D:/princeton/Research/Lean/Lean_luce/Luce/WeakMeasureProbability.lean:24)
+def; [source line 24](D:/princeton/Research/Lean/Lean_luce/Luce/Section2WeakMeasureProbability.lean:24)
 
 Convergence to a deterministic finite measure in probability, tested
 against every open neighborhood for the weak topology.
@@ -26228,7 +26228,7 @@ def WeakMeasureConvergesInProbability (P : ∀ n, Measure (Ω n))
 
 ### integral
 
-theorem; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/WeakMeasureProbability.lean:36)
+theorem; [source line 36](D:/princeton/Research/Lean/Lean_luce/Luce/Section2WeakMeasureProbability.lean:36)
 
 Every bounded continuous real integral coordinate inherits convergence
 in probability from the actual weak-neighborhood criterion.
@@ -26559,30 +26559,30 @@ def TailTightnessStatement : Prop :=
 ```
 
 
-## audit/AllProvedStatements.lean
+## audit/Sections1To7AllProvedStatements.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/audit/AllProvedStatements.lean)
-
-No declarations; imports or audit commands only.
-
-
-## audit/Assumptions.lean
-
-[Source](D:/princeton/Research/Lean/Lean_luce/audit/Assumptions.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/audit/Sections1To7AllProvedStatements.lean)
 
 No declarations; imports or audit commands only.
 
 
-## audit/DiscreteTotalVariation.lean
+## audit/Section1Assumptions.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/audit/DiscreteTotalVariation.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/audit/Section1Assumptions.lean)
 
 No declarations; imports or audit commands only.
 
 
-## audit/HistoryPredictability.lean
+## audit/Section4DiscreteTotalVariation.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/audit/HistoryPredictability.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/audit/Section4DiscreteTotalVariation.lean)
+
+No declarations; imports or audit commands only.
+
+
+## audit/Section2HistoryPredictability.lean
+
+[Source](D:/princeton/Research/Lean/Lean_luce/audit/Section2HistoryPredictability.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -26594,7 +26594,7 @@ namespace Luce.Section2LockedAudit
 
 ### drawHistory
 
-def; [source line 13](D:/princeton/Research/Lean/Lean_luce/audit/HistoryPredictability.lean:13)
+def; [source line 13](D:/princeton/Research/Lean/Lean_luce/audit/Section2HistoryPredictability.lean:13)
 
 ```lean
 def drawHistory {Ω : Type u} {n : ℕ}
@@ -26605,7 +26605,7 @@ def drawHistory {Ω : Type u} {n : ℕ}
 
 ### PredictabilityStatement
 
-def; [source line 18](D:/princeton/Research/Lean/Lean_luce/audit/HistoryPredictability.lean:18)
+def; [source line 18](D:/princeton/Research/Lean/Lean_luce/audit/Section2HistoryPredictability.lean:18)
 
 ```lean
 def PredictabilityStatement : Prop :=
@@ -26619,7 +26619,7 @@ def PredictabilityStatement : Prop :=
 
 ### approved_history
 
-theorem; [source line 26](D:/princeton/Research/Lean/Lean_luce/audit/HistoryPredictability.lean:26)
+theorem; [source line 26](D:/princeton/Research/Lean/Lean_luce/audit/Section2HistoryPredictability.lean:26)
 
 ```lean
 theorem approved_history {Ω : Type u} {n : ℕ}
@@ -26629,44 +26629,44 @@ theorem approved_history {Ω : Type u} {n : ℕ}
 
 ### approved_statement
 
-theorem; [source line 30](D:/princeton/Research/Lean/Lean_luce/audit/HistoryPredictability.lean:30)
+theorem; [source line 30](D:/princeton/Research/Lean/Lean_luce/audit/Section2HistoryPredictability.lean:30)
 
 ```lean
 theorem approved_statement : PredictabilityStatement.{u}
 ```
 
 
-## audit/Lemma52.lean
+## audit/Section5Lemma52.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/audit/Lemma52.lean)
-
-No declarations; imports or audit commands only.
-
-
-## audit/Lemma52Proof.lean
-
-[Source](D:/princeton/Research/Lean/Lean_luce/audit/Lemma52Proof.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/audit/Section5Lemma52.lean)
 
 No declarations; imports or audit commands only.
 
 
-## audit/Lemma52StatementCheck.lean
+## audit/Section5Lemma52Proof.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/audit/Lemma52StatementCheck.lean)
-
-No declarations; imports or audit commands only.
-
-
-## audit/PoissonCriterion.lean
-
-[Source](D:/princeton/Research/Lean/Lean_luce/audit/PoissonCriterion.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/audit/Section5Lemma52Proof.lean)
 
 No declarations; imports or audit commands only.
 
 
-## audit/PredictableProbability.lean
+## audit/Section5Lemma52StatementCheck.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/audit/PredictableProbability.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/audit/Section5Lemma52StatementCheck.lean)
+
+No declarations; imports or audit commands only.
+
+
+## audit/Section2PoissonCriterion.lean
+
+[Source](D:/princeton/Research/Lean/Lean_luce/audit/Section2PoissonCriterion.lean)
+
+No declarations; imports or audit commands only.
+
+
+## audit/Section2PredictableProbability.lean
+
+[Source](D:/princeton/Research/Lean/Lean_luce/audit/Section2PredictableProbability.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -26678,7 +26678,7 @@ namespace Luce.Section2ConditionalLockedAudit
 
 ### PredictableProbabilityStatement
 
-def; [source line 11](D:/princeton/Research/Lean/Lean_luce/audit/PredictableProbability.lean:11)
+def; [source line 11](D:/princeton/Research/Lean/Lean_luce/audit/Section2PredictableProbability.lean:11)
 
 ```lean
 def PredictableProbabilityStatement : Prop :=
@@ -26697,30 +26697,30 @@ def PredictableProbabilityStatement : Prop :=
 
 ### approved_statement
 
-theorem; [source line 24](D:/princeton/Research/Lean/Lean_luce/audit/PredictableProbability.lean:24)
+theorem; [source line 24](D:/princeton/Research/Lean/Lean_luce/audit/Section2PredictableProbability.lean:24)
 
 ```lean
 theorem approved_statement : PredictableProbabilityStatement.{u}
 ```
 
 
-## audit/Proposition54.lean
+## audit/Section5Proposition54.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/audit/Proposition54.lean)
-
-No declarations; imports or audit commands only.
-
-
-## audit/Proposition54Proof.lean
-
-[Source](D:/princeton/Research/Lean/Lean_luce/audit/Proposition54Proof.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/audit/Section5Proposition54.lean)
 
 No declarations; imports or audit commands only.
 
 
-## audit/RankIntegral.lean
+## audit/Section5Proposition54Proof.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/audit/RankIntegral.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/audit/Section5Proposition54Proof.lean)
+
+No declarations; imports or audit commands only.
+
+
+## audit/Section4RankIntegral.lean
+
+[Source](D:/princeton/Research/Lean/Lean_luce/audit/Section4RankIntegral.lean)
 
 No declarations; imports or audit commands only.
 
@@ -26851,16 +26851,16 @@ No declarations; imports or audit commands only.
 No declarations; imports or audit commands only.
 
 
-## audit/ShellMigrationStatements.lean
+## audit/Section4ShellMigrationStatements.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/audit/ShellMigrationStatements.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/audit/Section4ShellMigrationStatements.lean)
 
 No declarations; imports or audit commands only.
 
 
-## audit/TailTightness.lean
+## audit/Section4TailTightness.lean
 
-[Source](D:/princeton/Research/Lean/Lean_luce/audit/TailTightness.lean)
+[Source](D:/princeton/Research/Lean/Lean_luce/audit/Section4TailTightness.lean)
 
 Namespace / shared context (consult source for section boundaries):
 
@@ -26873,7 +26873,7 @@ namespace Luce.Section4LockedAudit
 
 ### tailFixedPointCount
 
-def; [source line 15](D:/princeton/Research/Lean/Lean_luce/audit/TailTightness.lean:15)
+def; [source line 15](D:/princeton/Research/Lean/Lean_luce/audit/Section4TailTightness.lean:15)
 
 ```lean
 noncomputable def tailFixedPointCount {n : ℕ}
@@ -26885,7 +26885,7 @@ noncomputable def tailFixedPointCount {n : ℕ}
 
 ### TailTightnessStatement
 
-def; [source line 21](D:/princeton/Research/Lean/Lean_luce/audit/TailTightness.lean:21)
+def; [source line 21](D:/princeton/Research/Lean/Lean_luce/audit/Section4TailTightness.lean:21)
 
 ```lean
 def TailTightnessStatement : Prop :=
@@ -26905,7 +26905,7 @@ def TailTightnessStatement : Prop :=
 
 ### approved_count
 
-theorem; [source line 35](D:/princeton/Research/Lean/Lean_luce/audit/TailTightness.lean:35)
+theorem; [source line 35](D:/princeton/Research/Lean/Lean_luce/audit/Section4TailTightness.lean:35)
 
 ```lean
 theorem approved_count {n : ℕ} (e : Fin n → ℝ) (α : ℝ) :
@@ -26914,7 +26914,7 @@ theorem approved_count {n : ℕ} (e : Fin n → ℝ) (α : ℝ) :
 
 ### approved_statement
 
-theorem; [source line 38](D:/princeton/Research/Lean/Lean_luce/audit/TailTightness.lean:38)
+theorem; [source line 38](D:/princeton/Research/Lean/Lean_luce/audit/Section4TailTightness.lean:38)
 
 ```lean
 theorem approved_statement : TailTightnessStatement.{u}

@@ -12,7 +12,7 @@ for record in inventory['sources']:
     if not path.exists() or hashlib.sha256(path.read_bytes()).hexdigest() != record['sha256']:
         changed.append(record['file'])
 current = {p.relative_to(root).as_posix() for folder in ['Luce','audit','proposals']
-           for p in (root/folder).rglob('*.lean')} | {'Luce.lean'}
+           for p in (root/folder).rglob('*.lean')}
 new = sorted(current-{record['file'] for record in inventory['sources']})
 results_path = root/'audit/independent-review-ancillary/results.json'
 results = json.loads(results_path.read_text(encoding='utf-8')) if results_path.exists() else []
@@ -25,13 +25,13 @@ for record in results:
         'diagnostics':re.findall(r'^.*\.lean:\d+:\d+: error(?:\([^)]*\))?:.*$',log,re.M),
         'unknown_constants':sorted(set(re.findall(r'Unknown constant `([^`]+)`',log)))})
 ancillary = {p.relative_to(root).as_posix() for folder in ['audit','proposals']
-             for p in (root/folder).glob('*.lean') if not p.name.startswith('IndependentReview')}
+             for p in (root/folder).glob('*.lean') if not p.name.startswith('Sections1To7IndependentReview')}
 missing = sorted(ancillary-{record['file'] for record in results})
 compiled = (root/'audit/independent-review-compiled.log').read_text(encoding='utf-8-sig', errors='replace')
 summary = {
     'production_sources':inventory['counts']['Luce'],
     'changed_lean_sources_since_snapshot':changed,
-    'changed_production_sources_since_snapshot':[p for p in changed if p == 'Luce.lean' or p.startswith('Luce/')],
+    'changed_production_sources_since_snapshot':[p for p in changed if p.startswith('Luce/')],
     'new_lean_sources_since_snapshot':new,
     'current_ancillary_count':len(ancillary),
     'ancillary_completed':len(results),
@@ -42,7 +42,7 @@ summary = {
     'final_build_passed':'Build completed successfully (4578 jobs).' in (root/'audit/independent-review-build-final.log').read_text(encoding='utf-8-sig',errors='replace'),
     'compiled_errors':re.findall(r'^.*\.lean:\d+:\d+: error(?:\([^)]*\))?:.*$',compiled,re.M),
     'manuscript_sha256':hashlib.sha256((root/'fixed_points_sampled_profile.tex').read_bytes()).hexdigest(),
-    'final_audit_source_sha256':hashlib.sha256((root/'audit/IndependentReview.lean').read_bytes()).hexdigest(),
+    'final_audit_source_sha256':hashlib.sha256((root/'audit/Sections1To7IndependentReview.lean').read_bytes()).hexdigest(),
 }
 (root/'audit/independent-review-verification.json').write_text(json.dumps(summary,indent=2),encoding='utf-8')
 main_names = {

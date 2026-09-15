@@ -1,5 +1,5 @@
 import Luce.Section3PoissonLaw
-import Luce.PointMeasureLawConvergence
+import Luce.Section2PointMeasureLawConvergence
 
 /-! # The total-count law in Section 4
 

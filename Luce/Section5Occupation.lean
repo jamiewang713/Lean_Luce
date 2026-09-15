@@ -1,5 +1,5 @@
 import Luce.Section5GhostCylinder
-import Luce.RankIntegral
+import Luce.Section4RankIntegral
 
 /-!
 # Occupation times between consecutive exponential arrivals

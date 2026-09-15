@@ -5,8 +5,8 @@ import re
 
 root = Path(__file__).resolve().parents[1]
 modules = sorted((root / "Luce").glob("Section6Critical*.lean"))
-modules += [root / "Luce/BernoulliReferenceApproximation.lean",
-            root / "Luce/BernoulliReferenceMean.lean"]
+modules += [root / "Luce/Section6BernoulliReferenceApproximation.lean",
+            root / "Luce/Section6BernoulliReferenceMean.lean"]
 declarations = []
 theorems = []
 for path in modules:

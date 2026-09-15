@@ -1,5 +1,5 @@
-import Luce.FinitePoissonLaw
-import Luce.CompactLawConvergence
+import Luce.Section2FinitePoissonLaw
+import Luce.Section2CompactLawConvergence
 import Mathlib.Probability.HasLaw
 import Mathlib.Tactic.NormNum
 import Mathlib.Tactic.SplitIfs

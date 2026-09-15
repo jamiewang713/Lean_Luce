@@ -1,4 +1,4 @@
-import Luce.Profile
+import Luce.Section3ProfileKernels
 
 /-!
 # Expectation transfer for Lemma 5.2

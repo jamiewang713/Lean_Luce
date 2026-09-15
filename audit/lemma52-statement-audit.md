@@ -22,7 +22,7 @@ The final source declarations `section5_bounded_marked_asymptotic`,
 compiler invocation of `lake env lean Luce/Section5Lemma52.lean` initially
 failed because `Section5MicroscopicSort.olean` had not yet been built; repeating
 it after the dependency build succeeded with exit code 0. The independent
-command `lake env lean audit/Lemma52StatementCheck.lean` also succeeded with
+command `lake env lean audit/Section5Lemma52StatementCheck.lean` also succeeded with
 exit code 0. Its output is `audit/lemma52-statement-types.log`: explicit
 arguments, full names and universes are enabled; twelve actual elaborated
 theorem types and seven custom definitions are displayed. The actual final

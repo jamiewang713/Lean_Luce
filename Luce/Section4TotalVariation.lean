@@ -1,7 +1,7 @@
 import Luce.Section4FullIntensity
 import Luce.Section4CountLaw
 import Luce.Section4Count
-import Luce.DiscreteTotalVariation
+import Luce.Section4DiscreteTotalVariation
 import Luce.Section4Poisson
 
 /-! # The total-variation Poisson limit for the number of fixed points

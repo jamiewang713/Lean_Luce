@@ -1,5 +1,5 @@
 import Luce.Section6Sampling
-import Luce.Profile
+import Luce.Section3ProfileKernels
 
 /-! Exact finite-population transforms and deletion estimates for Section 6.
 The divisor stays n after deletion. None of these results requires mean-one

@@ -43,7 +43,7 @@ The new manuscript supplies three main ingredients:
    \]
    This reuses the rank-integral identity and exponential-clock independence. New analytic ingredients are monotonicity of `a/(exp(a*t)-1)` and its tail integral. The existing half-mean Chernoff estimate suffices for a weaker block bound adequate for shell tightness; proving the displayed block proposition exactly requires the general deviation parameter as well.
 2. **Diagonal shell buffer**, lines 1087–1118: with `h(j)=sqrt(j)`, prove that the iterated tail sum of `Q(b(n,j)*(j-h(j)))` vanishes. The bound comes from splitting `b(n,j)*j` at `sqrt(j)`, with the summable error `exp(1-sqrt(j))`. In particular, all nonempty sufficiently late shells eventually have `b(n,j)*(j-h(j)) > 1`, uniformly within a row tail.
-3. **Shell endpoint expectation tightness**, lines 1120–1179: apply the block estimate at `t=log(n/r(n,j))-sqrt(j)` and sum over shells. Crucially, add the sharp Jensen bound `S(t) ≥ n*exp(-t)` under normalization. The existing bound in `Endpoint.lean:68`, `S(t) ≥ (n/2)*exp(-2*t)`, loses a factor in logarithmic time and cannot supply this argument under the stated shell assumption. Distinct shell maxima control the early terms by `sum_{r≥1} r*exp(-c*r*exp(sqrt(J)))`.
+3. **Shell endpoint expectation tightness**, lines 1120–1179: apply the block estimate at `t=log(n/r(n,j))-sqrt(j)` and sum over shells. Crucially, add the sharp Jensen bound `S(t) ≥ n*exp(-t)` under normalization. The existing bound in `Section4EndpointEstimates.lean:68`, `S(t) ≥ (n/2)*exp(-2*t)`, loses a factor in logarithmic time and cannot supply this argument under the stated shell assumption. Distinct shell maxima control the early terms by `sum_{r≥1} r*exp(-c*r*exp(sqrt(J)))`.
 
 The reusable output should be expectation tightness, for example: for every `η > 0`, some `α < 1` has eventually in `n` expected fixed-point count in `(α,1]` below `η`. Tail monotonicity supplies the limit as `α ↑ 1` and eventual boundedness. Probability tightness alone is not the right interface for the current intensity argument.
 
@@ -55,9 +55,9 @@ These 13 production files directly mention `EndpointAssumption`:
 
 | File | Required action |
 |---|---|
-| `Luce/Assumptions.lean` | Introduce shell definitions/predicate (possibly in a separate imported module); retain the uniform predicate under an explicit name. |
-| `Luce/TailAssumptions.lean` | Retain uniform-to-power estimates as stronger-case results; add or import the shell-to-expectation-tightness bridge. |
-| `Luce/TailTightness.lean` | Derive `tail_fixed_point_tightness` from shell expectation tightness and Markov, replacing its use of the power-bound helper. |
+| `Luce/Section1Assumptions.lean` | Introduce shell definitions/predicate (possibly in a separate imported module); retain the uniform predicate under an explicit name. |
+| `Luce/Section4TailAssumptions.lean` | Retain uniform-to-power estimates as stronger-case results; add or import the shell-to-expectation-tightness bridge. |
+| `Luce/Section4TailTightness.lean` | Derive `tail_fixed_point_tightness` from shell expectation tightness and Markov, replacing its use of the power-bound helper. |
 | `Luce/Section4Endpoint.lean` | Retain the finite uniform estimate; replace the general assumption-level tail expectation interface with a qualitative one. Reuse arbitrary-space law transfer. |
 | `Luce/Section4Count.lean` | Pass the shell hypothesis to the new tail theorem. Exact point-measure/count identities remain applicable. |
 | `Luce/Section4IntensityEstimate.lean` | Replace `section4_intensity_test_bound`'s power modulus with arbitrary small tail-test bounds. Its observed-test comparison and expectation lower bound are reusable. |
@@ -71,15 +71,15 @@ These 13 production files directly mention `EndpointAssumption`:
 
 Proposed new modules, with names subject to implementation choices:
 
-- `EndpointShells.lean`: finite shells, costs, assumptions, old-condition implication.
+- `Section4EndpointShells.lean`: finite shells, costs, assumptions, old-condition implication.
 - `EndpointCapacity.lean`: `Q`, the block bound, sharp Jensen survivor bound.
-- `EndpointShellBuffer.lean`: buffered tail estimates and summability.
-- `EndpointShellTightness.lean`: expectation tightness and cutoff rounding.
+- `Section4EndpointShellBuffer.lean`: buffered tail estimates and summability.
+- `Section4EndpointShellTightness.lean`: expectation tightness and cutoff rounding.
 - `Section5CompactLow.lean`: low-rate truncation on a fixed compact label interval.
 - `Section5MarkedReturn.lean`: maximum-rooted cycle count and marked return/edge bounds.
 - `Section5ShellTightness.lean`: short-cycle endpoint tightness.
 
-Some helpers may naturally extend existing `EndpointProbability`, `EndpointIntegrals`, `Section5LowCycleRows`, or ghost-window modules. `Luce.lean` and the Section 4/5 aggregate imports must include the new proof chain.
+Some helpers may naturally extend existing `EndpointProbability`, `EndpointIntegrals`, `Section5LowCycleRows`, or ghost-window modules. `Luce/Sections1To7.lean` and the Section 4/5 aggregate imports must include the new proof chain.
 
 ## Section 5: the second genuine change
 

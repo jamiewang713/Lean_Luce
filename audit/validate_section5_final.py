@@ -40,9 +40,9 @@ for name in ("shell-contract-freeze.json", "section5-contract-freeze.json",
                if hashlib.sha256((root / path).read_bytes()).hexdigest() != digest]
     checks[name] = {"count": len(frozen), "changed": changed}
     assert not changed, changed
-root_module = (root / "Luce.lean").read_text(encoding="utf-8-sig")
+root_module = (root / "Luce/Sections1To7.lean").read_text(encoding="utf-8-sig")
 assert "import Luce.Section5ShellContractCheck" in root_module
-assert "import Luce.ShellContractCheck" in root_module
+assert "import Luce.Section4ShellContractCheck" in root_module
 result = {"axiom_reports": len(reports), "freeze": checks, "contract_checks_in_build": True}
 (root / "audit/section5-final-validation.json").write_text(json.dumps(result, indent=2))
 (root / "audit/section5-freeze-check.json").write_text(json.dumps(checks, indent=2))

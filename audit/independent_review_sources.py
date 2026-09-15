@@ -53,7 +53,7 @@ def strip_comments(text):
             i += 1
     return ''.join(out)
 
-files = [ROOT / 'Luce.lean']
+files = []
 for folder in ['Luce', 'audit', 'proposals']:
     files.extend(sorted((ROOT / folder).rglob('*.lean')))
 records = []
@@ -85,21 +85,21 @@ def closure(start):
         pending.extend(imports.get(mod, []))
     return visited
 
-default = closure(['Luce'])
-production = {r['module'] for r in records if r['file'] == 'Luce.lean' or r['file'].startswith('Luce/')}
+default = closure(['Luce.Sections1To7'])
+production = {r['module'] for r in records if r['file'].startswith('Luce/')}
 orphan = sorted(production-default)
 summary = {
-    'counts': {area: {'files': len(rs := [r for r in records if r['file'].split('/')[0] == area or (area == 'Luce' and r['file'] == 'Luce.lean')]),
+    'counts': {area: {'files': len(rs := [r for r in records if r['file'].split('/')[0] == area]),
                       'lines': sum(r['lines'] for r in rs),
                       'theorems': sum(r['theorems'] for r in rs),
                       'definitions': sum(r['definitions'] for r in rs)} for area in ['Luce','audit','proposals']},
-    'production_not_reachable_from_Luce': orphan,
+    'production_not_reachable_from_Sections1To7': orphan,
     'source_flags': [{'file': r['file'], **f} for r in records for f in r['flags']],
     'sources': records,
 }
 (ROOT/'audit/independent-review-source-inventory.json').write_text(json.dumps(summary, indent=2), encoding='utf-8')
 print(json.dumps({k: v for k, v in summary.items() if k != 'sources'}, indent=2))
-(ROOT/'audit/IndependentReviewImports.lean').write_text('\n'.join('import '+m for m in sorted(production))+'\n', encoding='utf-8')
+(ROOT/'audit/Sections1To7IndependentReviewImports.lean').write_text('\n'.join('import '+m for m in sorted(production))+'\n', encoding='utf-8')
 
 paper = (ROOT/'fixed_points_sampled_profile.tex').read_text(encoding='utf-8-sig')
 section = number = 0

@@ -1,5 +1,5 @@
 import Luce.Section5LateShellGeometry
-import Luce.EndpointShellCover
+import Luce.Section4EndpointShellCover
 
 noncomputable section
 namespace Luce

@@ -1,4 +1,4 @@
-import Luce.ExponentialFacts
+import Luce.Section4ExponentialFacts
 import Mathlib.MeasureTheory.Integral.Pi
 
 /-!
